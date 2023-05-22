@@ -1,0 +1,39 @@
+# Tripadvisor.com Scraper
+
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape data from tripadvisor.com. 
+
+Full tutorial <https://scrapfly.io/blog/how-to-scrape-tripadvisor/>
+
+The scraping code is located in the `tripadvisor.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
+
+This scraper scrapes:
+- TripAdvisor search for finding hotels from search queries.
+  e.g. <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>
+- TripAdvisor hotel listing details:  
+  e.g. <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>
+    - hotel info: description, rating, features etc.
+    - prices
+    - reviews
+
+For output examples see the `./results` directory.
+
+## Setup and Use
+
+This Tripadvisor scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Tripadvisor's data.
+
+1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
+    ```shell
+    $ export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"
+    ```
+2. Clone and install Python environment:
+    ```shell
+    $ git clone TODO
+    $ cd TODO/tripadvisor
+    $ poetry install .
+    ```
+3. Run example scrape:
+    ```shell
+    $ poetry run python run.py
+    ```
+
+
