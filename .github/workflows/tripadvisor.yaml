@@ -2,10 +2,15 @@ name: Tripadvisor Test
 on:
   workflow_dispatch:
 
+env:
+  PROJECT_DIR: tripadvisor
+
 jobs:
   test:
-
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test: [test_location_data_scraping, test_search_scraping, test_hotel_scraping]
 
     steps:
     - uses: actions/checkout@v2
@@ -13,7 +18,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: 3.10
 
     - name: Install Poetry
       run: |
@@ -24,32 +29,18 @@ jobs:
       id: cache
       with:
         path: ~/.cache/pypoetry/virtualenvs
-        key: ${{ runner.os }}-poetry-${{ hashFiles('**/tripadvisor/pyproject.toml') }}
+        key: ${{ runner.os }}-poetry-${{ hashFiles('**/${{ env.PROJECT_DIR }}/pyproject.toml') }}
         restore-keys: |
           ${{ runner.os }}-poetry-
 
     - name: Install dependencies
       run: |
-        cd tripadvisor
+        cd ${{ env.PROJECT_DIR }}
         poetry install
 
-    - name: Test Location Data Scraping
+    - name: Run test
       env:
         SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
       run: |
-        cd tripadvisor
-        poetry run pytest test.py -k test_location_data_scraping
-
-    - name: Test Search Scraping
-      env:
-        SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
-      run: |
-        cd tripadvisor
-        poetry run pytest test.py -k test_search_scraping
-
-    - name: Test Hotel Scraping
-      env:
-        SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
-      run: |
-        cd tripadvisor
-        poetry run pytest test.py -k test_hotel_scraping
+        cd ${{ env.PROJECT_DIR }}
+        poetry run pytest test.py -k ${{ matrix.test }}
