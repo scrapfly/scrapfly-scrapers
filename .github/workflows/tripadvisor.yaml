@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_DIR: tripadvisor
+  PROJECT_DIR: tripadvisor-scraper
 
 jobs:
   test:
