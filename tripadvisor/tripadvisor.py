@@ -324,7 +324,8 @@ async def scrape_hotel(url: str, max_review_pages: Optional[int] = None) -> Hote
     # note: in review url "or" stands for "offset reviews"
     review_urls = [
         # note: "or" stands for "offset reviews"
-        url.replace("-Reviews-", f"-Reviews-or{_review_page_size * i}-") for i in range(2, total_review_pages + 1)
+        url.replace("-Reviews-", f"-Reviews-or{_review_page_size * i}-")
+        for i in range(2, total_review_pages + 1)
     ]
     assert len(set(review_urls)) == len(review_urls)
     reviews = parse_reviews(first_page)
