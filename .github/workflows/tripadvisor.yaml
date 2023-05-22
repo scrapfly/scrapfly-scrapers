@@ -1,6 +1,8 @@
 name: Tripadvisor Test
 on:
   workflow_dispatch:
+  schedule:
+    - cron:  '0 2 * * MON'
 
 env:
   PROJECT_DIR: tripadvisor-scraper
