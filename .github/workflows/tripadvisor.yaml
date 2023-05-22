@@ -1,5 +1,4 @@
 name: Tripadvisor Test
-
 on:
   workflow_dispatch:
 
@@ -7,11 +6,18 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
-    container: 
-      image: gabrielfalcao/python-poetry:3.9
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
 
     - name: Cache Poetry virtual environment
       uses: actions/cache@v2
