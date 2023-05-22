@@ -34,6 +34,8 @@ jobs:
         poetry install
 
     - name: Test Location Data Scraping
+      env:
+        SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
       run: |
         cd tripadvisor
         poetry run pytest test.py -k test_location_data_scraping
