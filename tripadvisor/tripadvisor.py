@@ -23,7 +23,6 @@ BASE_CONFIG = {
     # Tripadvisor.com requires Anti Scraping Protection bypass feature:
     "asp": True,
     "country": "US",
-    "cache": True,
 }
 
 

@@ -1,10 +1,32 @@
+"""
+"""
+import pytest
 import json
 from pathlib import Path
 from cerberus import Validator
+import tripadvisor
 
 result_fp = Path(__file__).parent.joinpath("results/hotels.json").absolute()
 hotel_data = json.loads(result_fp.read_text())
 
+@pytest.mark.asyncio
+async def test_location_data_scraping():
+    result_location = await tripadvisor.scrape_location_data(query="Malta")
+    schema = {
+        'localizedName': {'type': 'string'},
+        'locationV2': {'type': 'dict'},
+        'placeType': {'type': 'string'},
+        'latitude': {'type': 'float'},
+        'longitude': {'type': 'float'},
+        'isGeo': {'type': 'boolean'},
+        'thumbnail': {'type': 'dict'},
+        'url': {'type': 'string', 'required': True, 'regex': r'/Tourism-.+?\.html'},
+        'HOTELS_URL': {'type': 'string', 'required': True, 'regex': r'/Hotels-.+?\.html'},
+        'ATTRACTIONS_URL': {'type': 'string', 'required': True, 'regex': r'/Attractions-.+?\.html'},
+        'RESTAURANTS_URL': {'type': 'string', 'required': True, 'regex': r'/Restaurants-.+?\.html'},
+    }
+    validator = Validator(schema, allow_unknown=True)
+    assert validator.validate(result_location[0]), validator.errors
 
 def test_hotels():
     assert len(hotel_data["price"]) > 10

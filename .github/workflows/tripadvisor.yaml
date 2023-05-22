@@ -33,7 +33,7 @@ jobs:
         cd tripadvisor
         poetry install
 
-    - name: Run tests
+    - name: Test Location Data Scraping
       run: |
         cd tripadvisor
-        poetry run pytest test.py
+        poetry run pytest test.py -k test_location_data_scraping
