@@ -5,7 +5,7 @@ from cerberus import Validator
 import tripadvisor
 
 # enable cache?
-tripadvisor.BASE_CONFIG["cache"] = True
+# tripadvisor.BASE_CONFIG["cache"] = True
 
 
 @pytest.mark.asyncio
