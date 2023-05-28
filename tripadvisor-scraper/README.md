@@ -27,13 +27,20 @@ This Tripadvisor scraper is using Python with [scrapfly-sdk](https://pypi.org/pr
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone TODO
-    $ cd TODO/tripadvisor
+    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ cd scrapfly-scrapers/tripadvisor-scraper
     $ poetry install .
     ```
 3. Run example scrape:
     ```shell
     $ poetry run python run.py
     ```
-
+4. Run tests:
+    ```shell
+    $ poetry install --with dev
+    $ poetry run pytest test.py
+    # or specific scraping areas
+    $ poetry run pytest test.py -k test_hotel_scraping
+    $ poetry run pytest test.py -k test_search_scraping
+    ```
 

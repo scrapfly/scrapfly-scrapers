@@ -4,7 +4,6 @@ https://scrapfly.io/blog/how-to-scrape-tripadvisor/
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
-
 """
 import json
 import math
@@ -168,7 +167,7 @@ async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Pre
     except IndexError:
         log.error(f"could not find location data for query {query}")
         return
-    hotel_search_url = "https://www.tripadvisor.com/" + location_data["HOTELS_URL"]
+    hotel_search_url = "https://www.tripadvisor.com" + location_data["HOTELS_URL"]
 
     log.info(f"found hotel search url: {hotel_search_url}")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(hotel_search_url, **BASE_CONFIG))

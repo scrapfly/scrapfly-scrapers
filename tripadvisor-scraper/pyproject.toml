@@ -21,6 +21,9 @@ pytest-asyncio = "^0.21.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+python_files = "test.py"
+
 [tool.black]
 line-length = 120
 target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
