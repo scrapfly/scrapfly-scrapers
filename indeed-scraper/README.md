@@ -1,6 +1,6 @@
 # Indeed.com Scraper
 
-This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property data from Indeed.com. 
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape job listing data from Indeed.com. 
 
 Full tutorial <https://scrapfly.io/blog/how-to-scrape-indeedcom/>
 
