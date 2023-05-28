@@ -4,7 +4,8 @@ This repository contains example scrapers for popular web scraping targets using
 
 For full guides on how to scrape these targets see the [scrapeguide directory](https://scrapfly.io/blog/tag/scrapeguide/):
 
-- [booking.com](./bookingcom/) + [guide](https://scrapfly.io/blog/how-to-scrape-bookingcom/)
-- [tripadvisor.com](./tripadvisor/) + [guide](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
+- [booking.com](./bookingcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-bookingcom/)
+- [tripadvisor.com](./tripadvisor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
+- [zillow.com](./zillow-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-zillow/)
 
 All of the scrapers are powered by [scrapfly's python sdk](https://github.com/scrapfly/python-scrapfly)
