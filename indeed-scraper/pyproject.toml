@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "scrapfly-indeed"
+version = "0.1.0"
+description = "demo web scraper for Indeed.com using Scrapfly"
+authors = ["Bernardas Alisauskas <bernardas@scrapfly.io>"]
+license = "NPOS-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scrapfly-sdk = {extras = ["all"], version = "^0.8.5"}
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+ruff = "^0.0.269"
+cerberus = "^1.3.4"
+pytest = "^7.3.1"
+pytest-asyncio = "^0.21.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+python_files = "test.py"
+
+[tool.black]
+line-length = 120
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 120
