@@ -7,6 +7,7 @@ For full guides on how to scrape these targets see the [scrapeguide directory](h
 - [booking.com](./bookingcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-bookingcom/)
 - [glassdoor.com](./glassdoor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
 - [indeed.com](./indeed-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-indeedcom/)
+- [stockx.com](./stockx-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-stockx/)
 - [tripadvisor.com](./tripadvisor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
 - [zillow.com](./zillow-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-zillow/)
 
