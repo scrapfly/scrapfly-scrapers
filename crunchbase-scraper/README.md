@@ -1,4 +1,4 @@
-# StockX.com Scraper
+# Crunchbase.com Scraper
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape company and public person datasets from Crunchbase.com
 
