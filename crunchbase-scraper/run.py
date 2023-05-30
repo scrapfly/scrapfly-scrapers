@@ -1,5 +1,5 @@
 """
-This example run script shows how to run the StockX.com scraper defined in ./stockx.py
+This example run script shows how to run the Crunchbase.com scraper defined in ./crunchbase.py
 It scrapes product data and product search and saves it to ./results/
 
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
