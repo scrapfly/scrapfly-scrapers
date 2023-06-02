@@ -18,7 +18,7 @@ async def run():
     # enable scrapfly cache for basic use
     stockx.BASE_CONFIG["cache"] = True
 
-    print("running Glassdoor scrape and saving results to ./results directory")
+    print("running StockX scrape and saving results to ./results directory")
     product = await stockx.scrape_product("https://stockx.com/nike-x-stussy-bucket-hat-black")
     output.joinpath("product.json").write_text(json.dumps(product, indent=2, ensure_ascii=False))
 

@@ -16,7 +16,7 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    # Glassdoor.com requires Anti Scraping Protection bypass feature.
+    # StockX.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
 }
