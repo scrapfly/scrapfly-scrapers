@@ -4,6 +4,7 @@ This repository contains example scrapers for popular web scraping targets using
 
 For full guides on how to scrape these targets see the [scrapeguide directory](https://scrapfly.io/blog/tag/scrapeguide/):
 
+- [aliexpress.com](./aliexpress-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-aliexpress/)
 - [booking.com](./bookingcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-bookingcom/)
 - [crunchbase.com](./crunchbase-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-crunchbase/)
 - [glassdoor.com](./glassdoor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
