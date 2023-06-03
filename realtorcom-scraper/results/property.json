@@ -1,0 +1,941 @@
+{
+  "id": "2944177456",
+  "slug": "12355-Attlee-Dr_Houston_TX_77077_M70330-35605",
+  "url": "https://www.realtor.com/realestateandhomes-detail/12355-Attlee-Dr_Houston_TX_77077_M70330-35605",
+  "status": "sold",
+  "tags": [
+    "central_air",
+    "central_heat",
+    "community_security_features",
+    "fireplace",
+    "two_or_more_stories",
+    "garage_1_or_more",
+    "garage_2_or_more",
+    "updated_kitchen",
+    "groundscare"
+  ],
+  "sold_date": "2023-04-21",
+  "sold_price": null,
+  "list_date": "2022-06-10T21:02:49Z",
+  "list_price": 345000,
+  "list_price_last_change": -5000,
+  "details": {
+    "baths": 3,
+    "baths_3qtr": null,
+    "baths_full": 2,
+    "baths_full_calc": 2,
+    "baths_half": 1,
+    "baths_max": null,
+    "baths_min": null,
+    "baths_partial_calc": 1,
+    "baths_total": null,
+    "baths_consolidated": "2.5",
+    "beds": 4,
+    "beds_max": null,
+    "beds_min": null,
+    "construction": null,
+    "cooling": null,
+    "exterior": null,
+    "fireplace": null,
+    "garage": 2,
+    "garage_max": null,
+    "garage_min": null,
+    "garage_type": null,
+    "heating": null,
+    "logo": null,
+    "lot_sqft": 7919,
+    "name": null,
+    "pool": null,
+    "roofing": null,
+    "rooms": null,
+    "sqft": 2122,
+    "sqft_max": null,
+    "sqft_min": null,
+    "stories": 2,
+    "styles": [
+      "colonial_revival"
+    ],
+    "sub_type": null,
+    "text": "Here it is! Do not miss this professionally remodeled home in highly desirable west Houston that includes new windows and HVAC system. You will love the brand new kitchen featuring quartz countertops, shaker cabinets, stainless steel appliances and tile backsplash. Both full bathrooms feature beautiful new showers and vanities with all the modern finishing touches. Light and bright with fresh paint and all new flooring. Nice backyard with mature landscaping is perfect for entertaining or letting the kids play. Send in your best offer today! This home has been Virtually Staged to illustrate its potential.",
+    "type": "single_family",
+    "units": null,
+    "year_built": 1970,
+    "year_renovated": null,
+    "zoning": null,
+    "__typename": "HomeDescription"
+  },
+  "flags": {
+    "is_coming_soon": null,
+    "is_contingent": null,
+    "is_deal_available": null,
+    "is_for_rent": null,
+    "is_foreclosure": null,
+    "is_garage_present": true,
+    "is_new_construction": null,
+    "is_pending": null,
+    "is_price_excludes_land": null,
+    "is_senior_community": null,
+    "is_short_sale": null,
+    "is_subdivision": null,
+    "is_price_reduced": false,
+    "is_new_listing": false,
+    "__typename": "HomeFlags"
+  },
+  "local": {
+    "flood": {
+      "flood_factor_severity": "minimal",
+      "flood_trend": "This property\u2019s flood risk is not changing.",
+      "__typename": "Flood"
+    },
+    "wildfire": {
+      "fire_factor_severity": "Minimal",
+      "fire_trend": "This property\u2019s wildfire risk is not changing.",
+      "__typename": "Wildfire"
+    },
+    "noise": {
+      "score": 77,
+      "noise_categories": [
+        {
+          "text": "Low",
+          "type": "airport",
+          "__typename": "NoiseCategory"
+        },
+        {
+          "text": "Medium",
+          "type": "traffic",
+          "__typename": "NoiseCategory"
+        },
+        {
+          "text": "Medium",
+          "type": "local",
+          "__typename": "NoiseCategory"
+        },
+        {
+          "text": "Medium",
+          "type": "score",
+          "__typename": "NoiseCategory"
+        }
+      ],
+      "__typename": "Noise"
+    },
+    "__typename": "Local"
+  },
+  "location": {
+    "street_view_url": "https://maps.googleapis.com/maps/api/streetview?channel=rdc-streetview&client=gme-movesalesinc&location=12355%20Attlee%20Dr%2C%20Houston%2C%20TX%2077077&size=932x420&source=outdoor&signature=qebQT20_nbOYEJYIUSScx562jwo=",
+    "street_view_metadata_url": "https://maps.googleapis.com/maps/api/streetview/metadata?channel=rdc-streetview&client=gme-movesalesinc&location=12355%20Attlee%20Dr%2C%20Houston%2C%20TX%2077077&size=640x480&source=outdoor&signature=ds06a2vHf8Bk5lByL_i9JMP9Ook=",
+    "address": {
+      "city": "Houston",
+      "coordinate": {
+        "lat": 29.749552,
+        "lon": -95.600417,
+        "__typename": "HomeCoordinate"
+      },
+      "country": "USA",
+      "line": "12355 Attlee Dr",
+      "postal_code": "77077",
+      "state": "Texas",
+      "state_code": "TX",
+      "street_direction": null,
+      "street_name": "Attlee",
+      "street_number": "12355",
+      "street_post_direction": null,
+      "street_suffix": "Dr",
+      "unit": null,
+      "validation_code": "121",
+      "__typename": "HomeAddress"
+    },
+    "county": {
+      "fips_code": "48201",
+      "name": "Harris",
+      "state_code": "TX",
+      "__typename": "HomeCounty"
+    },
+    "neighborhoods": [
+      {
+        "city": "Houston",
+        "id": "f743d5ec-7f8c-5c21-8fd7-f75616a8f677",
+        "level": "macro_neighborhood",
+        "name": "Westside",
+        "geo_type": "neighborhood",
+        "state_code": "TX",
+        "slug_id": "Westside_Houston_TX",
+        "geo_statistics": {
+          "housing_market": {
+            "median_listing_price": 399000,
+            "__typename": "HousingMarket"
+          },
+          "__typename": "GeoStatistics"
+        },
+        "__typename": "Neighborhood"
+      },
+      {
+        "city": "Houston",
+        "id": "be8fbc2c-5f84-5d27-8bf8-fba4d8304112",
+        "level": "neighborhood",
+        "name": "Briar Forest",
+        "geo_type": "neighborhood",
+        "state_code": "TX",
+        "slug_id": "Briar-Forest_Houston_TX",
+        "geo_statistics": {
+          "housing_market": {
+            "median_listing_price": 425000,
+            "__typename": "HousingMarket"
+          },
+          "__typename": "GeoStatistics"
+        },
+        "__typename": "Neighborhood"
+      },
+      {
+        "city": "Houston",
+        "id": "8ab67b16-a273-5922-9aab-28ea4f3d51bc",
+        "level": "residential_neighborhood",
+        "name": "Ashford South",
+        "geo_type": "neighborhood",
+        "state_code": "TX",
+        "slug_id": "Ashford-South_Houston_TX",
+        "geo_statistics": {
+          "housing_market": {
+            "median_listing_price": null,
+            "__typename": "HousingMarket"
+          },
+          "__typename": "GeoStatistics"
+        },
+        "__typename": "Neighborhood"
+      }
+    ],
+    "search_areas": [
+      {
+        "city": "houston",
+        "state_code": "tx",
+        "__typename": "SearchArea"
+      }
+    ],
+    "city": {
+      "county_needed_for_uniq": false,
+      "slug_id": "Houston_TX",
+      "__typename": "City"
+    },
+    "postal_code": {
+      "geo_statistics": {
+        "housing_market": {
+          "hot_market_badge": "Other",
+          "__typename": "HousingMarket"
+        },
+        "__typename": "GeoStatistics"
+      },
+      "__typename": "PostalCode"
+    },
+    "__typename": "HomeLocation"
+  },
+  "agent": [
+    {
+      "agent_id": "rachid",
+      "agent_name": "Feras Rachid",
+      "id": "HOTX",
+      "office_id": "OPBR01",
+      "office_name": null,
+      "office_phone": null,
+      "type": "seller",
+      "__typename": "MlsAgent"
+    },
+    {
+      "agent_id": "ARBONAV",
+      "agent_name": "Val Arbona",
+      "id": "HOTX",
+      "office_id": "RMVP01",
+      "office_name": null,
+      "office_phone": null,
+      "type": "buyer",
+      "__typename": "MlsAgent"
+    }
+  ],
+  "advertisers": [
+    {
+      "team_name": null,
+      "team": null,
+      "state_license": "",
+      "address": {
+        "city": "DALLAS",
+        "country": "USA",
+        "line": "No Address Line1 Specified",
+        "postal_code": "75206",
+        "state": null,
+        "state_code": "TX",
+        "__typename": "AdvertiserAddress"
+      },
+      "builder": null,
+      "broker": {
+        "accent_color": "",
+        "designations": [],
+        "fulfillment_id": "4594131",
+        "name": "Opendoor Brokerage, LLC",
+        "logo": "",
+        "__typename": "HomeAdvertiserBroker"
+      },
+      "email": "",
+      "fulfillment_id": "4557602",
+      "href": null,
+      "mls_set": "A-HOTX-RACHID",
+      "name": "Feras Rachid",
+      "nrds_id": null,
+      "office": {
+        "address": {
+          "city": "DALLAS",
+          "coordinate": {
+            "lat": null,
+            "lon": null,
+            "__typename": "SimpleCoordinate"
+          },
+          "country": "US",
+          "line": "5307 E MOCKINGBIRD LN STE 220",
+          "postal_code": "75206",
+          "state": null,
+          "state_code": "TX",
+          "__typename": "AdvertiserAddress"
+        },
+        "application_url": null,
+        "email": "",
+        "lead_email": null,
+        "fulfillment_id": "4464789",
+        "hours": null,
+        "href": null,
+        "mls_set": "O-HOTX-OPBR01",
+        "out_of_community": null,
+        "name": "Opendoor Brokerage, LLC",
+        "phones": [
+          {
+            "ext": "",
+            "number": "8553279361",
+            "primary": true,
+            "trackable": null,
+            "type": "Office",
+            "__typename": "AdvertiserPhone"
+          }
+        ],
+        "photo": null,
+        "slogan": null,
+        "__typename": "HomeAdvertiserOffice"
+      },
+      "phones": [
+        {
+          "ext": "",
+          "number": "2816231165",
+          "primary": true,
+          "trackable": null,
+          "type": "BUSINESS_PHONE",
+          "__typename": "AdvertiserPhone"
+        }
+      ],
+      "photo": null,
+      "slogan": null,
+      "type": "seller",
+      "__typename": "HomeAdvertiser"
+    }
+  ],
+  "tax_history": [
+    {
+      "assessment": {
+        "building": 180789,
+        "land": 78600,
+        "total": 259389,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 180789,
+        "land": 78600,
+        "total": 259389,
+        "__typename": "Assessment"
+      },
+      "tax": 6045,
+      "year": 2021,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": 164429,
+        "land": 78600,
+        "total": 243029,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 164429,
+        "land": 78600,
+        "total": 243029,
+        "__typename": "Assessment"
+      },
+      "tax": 5831,
+      "year": 2020,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": 162260,
+        "land": 78600,
+        "total": 240860,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 162260,
+        "land": 78600,
+        "total": 240860,
+        "__typename": "Assessment"
+      },
+      "tax": 5832,
+      "year": 2019,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": 152955,
+        "land": 78600,
+        "total": 231555,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 152955,
+        "land": 78600,
+        "total": 231555,
+        "__typename": "Assessment"
+      },
+      "tax": 5859,
+      "year": 2018,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 215458,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 150750,
+        "land": 78600,
+        "total": 229350,
+        "__typename": "Assessment"
+      },
+      "tax": 5443,
+      "year": 2017,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 195871,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 150750,
+        "land": 78600,
+        "total": 229350,
+        "__typename": "Assessment"
+      },
+      "tax": 4952,
+      "year": 2016,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 178065,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 146492,
+        "land": 78600,
+        "total": 225092,
+        "__typename": "Assessment"
+      },
+      "tax": 4514,
+      "year": 2015,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 161878,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 110100,
+        "land": 78600,
+        "total": 188700,
+        "__typename": "Assessment"
+      },
+      "tax": 4161,
+      "year": 2014,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": 92142,
+        "land": 55020,
+        "total": 147162,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 92142,
+        "land": 55020,
+        "total": 147162,
+        "__typename": "Assessment"
+      },
+      "tax": 3765,
+      "year": 2013,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 147162,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 92142,
+        "land": 55020,
+        "total": 147162,
+        "__typename": "Assessment"
+      },
+      "tax": 4069,
+      "year": 2012,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 104155,
+        "land": 55020,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "tax": 4025,
+      "year": 2011,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 104155,
+        "land": 55020,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "tax": 4402,
+      "year": 2010,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 104155,
+        "land": 55020,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "tax": 4395,
+      "year": 2009,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 104155,
+        "land": 55020,
+        "total": 159175,
+        "__typename": "Assessment"
+      },
+      "tax": 4400,
+      "year": 2008,
+      "__typename": "TaxHistory"
+    },
+    {
+      "assessment": {
+        "building": null,
+        "land": null,
+        "total": 157325,
+        "__typename": "Assessment"
+      },
+      "market": {
+        "building": 118025,
+        "land": 39300,
+        "total": 157325,
+        "__typename": "Assessment"
+      },
+      "tax": 1000,
+      "year": 2007,
+      "__typename": "TaxHistory"
+    }
+  ],
+  "history": [
+    {
+      "date": "2023-04-21",
+      "event": "Sold",
+      "price": 0,
+      "price_sqft": 0
+    },
+    {
+      "date": "2023-03-05",
+      "event": "Relisted",
+      "price": 345000,
+      "price_sqft": 162.58246936852026
+    },
+    {
+      "date": "2023-02-24",
+      "event": "Listing removed",
+      "price": 345000,
+      "price_sqft": 162.58246936852026
+    },
+    {
+      "date": "2023-01-05",
+      "event": "Price Changed",
+      "price": 345000,
+      "price_sqft": 162.58246936852026
+    },
+    {
+      "date": "2022-12-26",
+      "event": "Relisted",
+      "price": 350000,
+      "price_sqft": 164.9387370405278
+    },
+    {
+      "date": "2022-12-08",
+      "event": "Listing removed",
+      "price": 350000,
+      "price_sqft": 164.9387370405278
+    },
+    {
+      "date": "2022-11-17",
+      "event": "Price Changed",
+      "price": 350000,
+      "price_sqft": 164.9387370405278
+    },
+    {
+      "date": "2022-11-03",
+      "event": "Price Changed",
+      "price": 355000,
+      "price_sqft": 167.29500471253533
+    },
+    {
+      "date": "2022-10-20",
+      "event": "Price Changed",
+      "price": 360000,
+      "price_sqft": 169.6512723845429
+    },
+    {
+      "date": "2022-09-29",
+      "event": "Price Changed",
+      "price": 365000,
+      "price_sqft": 172.00754005655043
+    },
+    {
+      "date": "2022-09-15",
+      "event": "Price Changed",
+      "price": 375000,
+      "price_sqft": 176.7200754005655
+    },
+    {
+      "date": "2022-08-25",
+      "event": "Price Changed",
+      "price": 380000,
+      "price_sqft": 179.07634307257305
+    },
+    {
+      "date": "2022-08-04",
+      "event": "Price Changed",
+      "price": 385000,
+      "price_sqft": 181.4326107445806
+    },
+    {
+      "date": "2022-07-22",
+      "event": "Price Changed",
+      "price": 400000,
+      "price_sqft": 188.5014137606032
+    },
+    {
+      "date": "2022-07-01",
+      "event": "Price Changed",
+      "price": 415000,
+      "price_sqft": 195.5702167766258
+    },
+    {
+      "date": "2022-06-10",
+      "event": "Listed",
+      "price": 421000,
+      "price_sqft": 198.3977379830349
+    },
+    {
+      "date": "1993-12-01",
+      "event": "Sold",
+      "price": 0,
+      "price_sqft": 0
+    }
+  ],
+  "photos": [
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1594155027s.jpg",
+      "tags": [
+        "garage",
+        "house_view",
+        "road",
+        "yard",
+        "complete",
+        "far",
+        "front"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m905340585s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1793590669s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1320565157s.jpg",
+      "tags": [
+        "bathroom"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2366184425s.jpg",
+      "tags": [
+        "corridor"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3477719575s.jpg",
+      "tags": [
+        "kitchen"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2704413828s.jpg",
+      "tags": [
+        "kitchen"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2105253865s.jpg",
+      "tags": [
+        "kitchen"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3641318585s.jpg",
+      "tags": [
+        "kitchen"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1272382115s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m842207905s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1351407913s.jpg",
+      "tags": [
+        "house_view",
+        "yard",
+        "back_side",
+        "complete",
+        "far"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3031746566s.jpg",
+      "tags": [
+        "house_view",
+        "yard",
+        "back_side",
+        "far",
+        "incomplete"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m318561354s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1629933250s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m960969417s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3013186773s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3547481808s.jpg",
+      "tags": [
+        "bathroom"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2108393014s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3372309277s.jpg",
+      "tags": [
+        "bathroom"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1102622999s.jpg",
+      "tags": [
+        "bathroom"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2853036951s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1221079774s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    },
+    {
+      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1410557868s.jpg",
+      "tags": [
+        "other_interiors"
+      ]
+    }
+  ],
+  "phones": [
+    {
+      "type": "comm_console",
+      "number": "(281)336-9159"
+    },
+    {
+      "type": "schedule_tour",
+      "number": "(281)336-9618"
+    }
+  ],
+  "features": {
+    "Bedrooms": [
+      "Bedrooms: 4"
+    ],
+    "Bathrooms": [
+      "Total Bathrooms: 3",
+      "Full Bathrooms: 2",
+      "1/2 Bathrooms: 1"
+    ],
+    "Interior Features": [
+      "Alarm System - Owned"
+    ],
+    "Kitchen and Dining": [
+      "Microwave: Y"
+    ],
+    "Heating and Cooling": [
+      "Cooling Features: Central Electric",
+      "Heating Features: Central Gas",
+      "Number of Fireplaces: 1"
+    ],
+    "Land Info": [
+      "Lot Description: Subdivision Lot",
+      "Lot Size Acres: 0.1818",
+      "Lot Size Source: Appraisal District",
+      "Lot Size Square Feet: 7919"
+    ],
+    "Garage and Parking": [
+      "Garage Spaces: 2",
+      "Garage Description: Attached Garage"
+    ],
+    "Homeowners Association": [
+      "Association: Yes",
+      "Association Fee: 625",
+      "Association Fee Frequency: Annually",
+      "Calculated Total Monthly Association Fees: 52",
+      "Association Phone: 7133345055"
+    ],
+    "School Information": [
+      "Elementary School: ASHFORD/SHADOWBRIAR ELEMENTARY SCHOOL",
+      "High School: WESTSIDE HIGH SCHOOL",
+      "Middle School: WEST BRIAR MIDDLE SCHOOL",
+      "School District: 27 - Houston"
+    ],
+    "Other Property Info": [
+      "Annual Tax Amount: 6045",
+      "Source Listing Status: Sold",
+      "County: Harris",
+      "Directions: Head north on Addicks-Howell Rd Turn right onto Briar Forest Dr Turn right onto Ashford Pkwy Turn left onto Attlee Dr",
+      "Tax Year: 2021",
+      "Source Property Type: Single-Family",
+      "Exclusions: Exemptions: Homestead",
+      "Area: 31",
+      "Source Neighborhood: Ashford South Sec 02",
+      "Parcel Number: 101-010-000-0026",
+      "Postal Code Plus 4: 4801",
+      "Public Survey Section: 2",
+      "Subdivision: Ashford South Sec 02",
+      "Source System Name: C2C"
+    ],
+    "Building and Construction": [
+      "Total Square Feet Living: 2122",
+      "Year Built: 1970",
+      "Building Exterior Type: Brick, Vinyl",
+      "Foundation Details: Slab",
+      "Levels: 2",
+      "Living Area Source: Seller",
+      "Property Age: 53",
+      "Levels or Stories: 2",
+      "Structure Type: Free Standing",
+      "House Style: Traditional"
+    ],
+    "Utilities": [
+      "Water Source: Public Water"
+    ]
+  }
+}
