@@ -98,8 +98,12 @@ def parse_search(result: ScrapeApiResponse) -> Dict:
     if not data:
         print(f"page {result.context['url']} is not a property listing page")
         return
-    data = json.loads(data)
-    return data["props"]["pageProps"]
+    data = json.loads(data)["props"]["pageProps"]
+    if not data.get('properties'):  # a|b testing, sometimes it's in a different location
+        data['properties'] = data["searchResults"]["home_search"]["results"]
+    if not data.get('totalProperties'):
+        data['totalProperties'] = data['searchResults']['home_search']['total']
+    return data
 
 
 async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) -> List[Dict]:
@@ -124,10 +128,7 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
     log.info("scraping {} property search pages for {}, {}", len(to_scrape), city, state)
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         parsed = parse_search(result)
-        if parsed.get("properties"):
-            results.extend(parsed["properties"])
-        else:
-            results.extend(parsed["searchResults"]["home_search"]["results"])
+        results.extend(parsed["properties"])
     log.info(f"scraped search of {len(results)} results for {city}, {state}")
     return results
 
