@@ -51,7 +51,7 @@ async def test_product_scraping():
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    url = "https://www.aliexpress.com/wholesale?SearchText=drills"
+    url = "https://www.aliexpress.com/w/wholesale-drills.html"
     result = await aliexpress.scrape_search(url, max_pages=2)
     assert len(result) >= 100
     schema = {

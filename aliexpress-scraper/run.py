@@ -20,7 +20,7 @@ async def run():
     aliexpress.BASE_CONFIG["country"] = "US"
 
     print("running Aliexpress scrape and saving results to ./results directory")
-    url = "https://www.aliexpress.com/wholesale?SearchText=drills"
+    url = "https://www.aliexpress.com/w/wholesale-drills.html"
     search_results = await aliexpress.scrape_search(url, max_pages=2)
     output.joinpath("search.json").write_text(json.dumps(search_results, indent=2))
 
