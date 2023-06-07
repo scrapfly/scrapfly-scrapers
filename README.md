@@ -7,6 +7,7 @@ For full guides on how to scrape these targets see the [scrapeguide directory](h
 - [aliexpress.com](./aliexpress-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-aliexpress/)
 - [booking.com](./bookingcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-bookingcom/)
 - [crunchbase.com](./crunchbase-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-crunchbase/)
+- [ebay.com](./ebay-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-ebay/)
 - [glassdoor.com](./glassdoor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
 - [indeed.com](./indeed-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-indeedcom/)
 - [realtor.com](./realtorcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-realtorcom/)
