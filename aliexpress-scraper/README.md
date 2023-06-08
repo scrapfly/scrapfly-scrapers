@@ -1,4 +1,4 @@
-# StockX.com Scraper
+# Aliexpress.com Scraper
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape product listing data from Aliexpress.com. 
 
