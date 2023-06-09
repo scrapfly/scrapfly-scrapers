@@ -74,7 +74,7 @@ async def test_search_scraping():
         "url": {"type": "string", "regex": r"https://www.ebay.com/itm/\d+"},
         "photo": {"type": "string", "regex": r"https://i.ebayimg.com/thumbs/images/.+?", "nullable": True},
         "title": {"type": "string"},
-        "location": {"type": "string"},
+        "location": {"type": "string", "min_presence": 0.5},
         "condition": {"type": "string"},
         "subtitles": {"type": "list", "schema": {"type": "string"}},
         "shipping": {"type": "float", "nullable": True},
