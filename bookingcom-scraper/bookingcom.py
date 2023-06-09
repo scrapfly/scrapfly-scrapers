@@ -26,8 +26,6 @@ BASE_CONFIG = {
     "country": "US",
 }
 
-scrapfly = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
-
 
 class HotelPreview(TypedDict):
     url: str
