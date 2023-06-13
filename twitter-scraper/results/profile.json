@@ -1,0 +1,2819 @@
+{
+  "tweets": [
+    {
+      "created_at": "Fri Jun 09 03:37:59 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/parsing-datetime-strings-with-python-and-dateparser/"
+      ],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FyJrnrCWwAEpvzT.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nHow to Parse Datetime Strings with Python and Dateparser 🤖\n\nCheckout it out 👇\nhttps://t.co/FeEpxzQ3sK https://t.co/mLnjGwMnmD",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1667013143904567296",
+      "conversation_id": "1667013143904567296",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "32",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Thu Jun 01 13:47:03 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/top-10-web-scraping-libraries-in-python/"
+      ],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FxiqTffWIAALf7O.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nTop 10 Web Scraping Packages for Python 🤖\n\nCheckout it out 👇\nhttps://t.co/d2iFdAV2LJ https://t.co/zLjDlxdKee",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1664267318053179398",
+      "conversation_id": "1664267318053179398",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "40",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon May 15 18:00:49 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-microformats/"
+      ],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FwMBW9KWYA4B61a.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nWeb Scraping Simplified - Scraping Microformats 🤖\n\nCheckout it out 👇\nhttps://t.co/BhEcWS76rY https://t.co/1uRcNBdlmv",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1658170586508546048",
+      "conversation_id": "1658170586508546048",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "43",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon May 01 13:54:32 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-with-python-httpx/"
+      ],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FvDCu63X0AAPJex.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nHow to Web Scrape with HTTPX and Python 🤖\n\nCheckout it out 👇\nhttps://t.co/29fKBIVko3 https://t.co/dlXAa03pFP",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1653035176631447552",
+      "conversation_id": "1653035176631447552",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "57",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Apr 26 01:55:01 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/how-to-scrape-without-getting-blocked-tutorial/"
+      ],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FumuGRNWYAIU0QI.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nHow to Scrape Without Getting Blocked? In-Depth Tutorial 🤖\n\nCheckout it out 👇\nhttps://t.co/tPqNzOy92c https://t.co/lrWLxz3R4C",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1651042163885473794",
+      "conversation_id": "1651042163885473794",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "54",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon Apr 17 12:21:37 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/Ft6nNN4XwAIuoHL.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nStepping into Footwear Market with Web Scraping 🤖\n\nCheckout it out 👇 https://t.co/kCohTttrmM",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1647938361586221058",
+      "conversation_id": "1647938361586221058",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "102",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Apr 12 10:56:33 +0000 2023",
+      "attached_urls": [
+        "http://Goat.com"
+      ],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FtgjyaLXwAIrKBk.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nHow to Scrape https://t.co/PRRUEhuYJp for Fashion Apparel Data in Python 🤖\n\nCheckout it out 👇 https://t.co/9WaCUH38NA",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1646105015344418816",
+      "conversation_id": "1646105015344418816",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "58",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon Apr 10 20:17:04 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FtYQ5roXgBMOnUH.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nHow to Scrape Sitemaps to Discover Scraping Targets 🤖\n\nCheckout it out 👇 https://t.co/7jm5EkjzGx",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1645521299136032769",
+      "conversation_id": "1645521299136032769",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "81",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon Apr 10 18:13:16 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/FtX0kGeWcAAH-kz.png"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "A new blog post has been published! \n\nHow to Scrape Fashionphile for Second Hand Fashion Data 🤖\n\nCheckout it out 👇 https://t.co/8KqHNTH8Ar",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1645490142763786260",
+      "conversation_id": "1645490142763786260",
+      "source": "<a href=\"https://zapier.com/\" rel=\"nofollow\">Zapier.com</a>",
+      "views": "61",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Feb 21 11:57:49 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/parse-json-jsonpath-python"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webScraping"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "For more see our full intro and how JSONPath is used in #webScraping here:\n\nhttps://t.co/x6EHAZFElO",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1628001040154128390",
+      "conversation_id": "1628001035011915778",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "63",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Feb 21 11:57:48 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "XPath"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "JSONPath is inspired by #XPath - a popular HTML parsing path language so the use is very similar.\n\nYou can easily query complex JSON datasets with short, recursive queries like `$..product[price&gt;20]` will select all products with price&gt;20 found ANYWHERE in the dataset.",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1628001037750784001",
+      "conversation_id": "1628001035011915778",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "91",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Feb 21 11:57:48 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "jsonpath",
+        "python",
+        "javascript",
+        "ruby",
+        "r",
+        "go",
+        "webScraping"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "#jsonpath is a path language for parsing JSON datasets and it's pretty awesome!  \nIt's available in #python, #javascript, #ruby, #r and #go and is perfect for #webScraping🧵",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1628001035011915778",
+      "conversation_id": "1628001035011915778",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "147",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Feb 15 08:37:20 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/how-to-scrape-hidden-web-data/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "selenium",
+        "puppeteer",
+        "playwright",
+        "python"
+      ],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1,
+      "text": "So, to scrape hidden web data we don't need to use a real web browser using #selenium, #puppeteer or #playwright. We can grab the javacript variable dataset by parsing the script with basic #python!\n\nSee our full guide here: https://t.co/mJjtOXGh57",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1625776258146795520",
+      "conversation_id": "1625775862946893824",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "59",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Feb 15 08:36:20 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/media/Fo_qpbLaEAARHcN.jpg"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "For example, here's how Zillow stores it's real estate property data in the page source: https://t.co/Ew4p5B9CEJ",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1625776006555635714",
+      "conversation_id": "1625775862946893824",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "72",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Feb 15 08:36:01 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "reactjs",
+        "vuejs",
+        "nextjs"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "Modern javascript-powered websites often use js variables to store page data. \nThis means scrapers without web browser capabilities cannot see the data in the HTML. Most notably this technique is used by popular javascript frameworks such as #reactjs #vuejs and #nextjs.",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1625775929338515456",
+      "conversation_id": "1625775862946893824",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "52",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Feb 15 08:35:45 +0000 2023",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webScraping"
+      ],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 1,
+      "text": "Web scraping hidden web data is becoming the number 1 #webScraping technique 🧵",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1625775862946893824",
+      "conversation_id": "1625775862946893824",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "126",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon Feb 13 14:17:12 +0000 2023",
+      "attached_urls": [
+        "https://scrapfly.io/blog/how-to-scrape-twitter/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "Twitter",
+        "Python",
+        "webscraping"
+      ],
+      "favorite_count": 2,
+      "bookmark_count": 4,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1,
+      "text": "Did you know that you can scrape #Twitter for free using #Python? \nTwitter is disabling free API access but that shouldn't stop you from getting that public data for your projects!\n\nWe cover 2 ways to scrape Twitter with Python:\nhttps://t.co/2kiOGlfKPY\n\n#webscraping",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1625137012776001538",
+      "conversation_id": "1625137012776001538",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": "297",
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Nov 15 17:46:00 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3yrRild"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "residentialproxy"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "Top 5 Residential Proxy Providers for Web Scraping 🌐 🤖\n\n#webscraping #residentialproxy\n\nhttps://t.co/4LlOIGwawB",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1592574652445954049",
+      "conversation_id": "1592574652445954049",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Nov 08 13:00:28 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3CodMVc"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "proxy"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "Best Proxy Providers for Web Scraping 🤖\n\nWhat do we cover in this article?👇\n\n🕷 Quality Evaluation\n🕷 Pricing Evaluation\n🕷 Evaluation Methodology\n🕷 Providers\n\n#webscraping #proxy\n\nhttps://t.co/3ooXfi4xpx",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1589966079513673728",
+      "conversation_id": "1589966079513673728",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Nov 01 13:08:49 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3RNDN6e"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "proxy"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 2,
+      "text": "Introduction To Proxies in Web Scraping 📍\n\nWhat do we cover in this article?👇\n\n🕷 What's a Proxy?\n🕷 IP Protocol Versions - Proxy Protocols\n🕷 Proxy Types\n🕷 Common Proxy Issues\n\n#webscraping #proxy \n\nhttps://t.co/JLCeZGeDtF",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1587431468141318146",
+      "conversation_id": "1587431468141318146",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Oct 25 13:00:04 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3Ev9zls"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "ruby"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "Web Scraping With Ruby 💎\n\nWhat do we cover in this article?👇\n\n🕷 Making Connection\n🕷 Parsing HTML: Nokogiri\n🕷 Example project\n\n#webscraping #ruby \n\nhttps://t.co/gYm8C6xA61",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1584892549654781952",
+      "conversation_id": "1584892549654781952",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Oct 18 13:03:12 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3CEOFhp"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "nodejs"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "Web Scraping With NodeJS 🖥️\n\nWhat do we cover in this article?👇\n\n🕷 Web Scraping Scene in NodeJS\n🕷 Parsing HTML\n🕷 Making Connection\n🕷 Example Project\n\n#webscraping #nodejs\n\nhttps://t.co/saX8cEHWhC",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1582356622470705157",
+      "conversation_id": "1582356622470705157",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Oct 11 13:01:55 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3rFU4zk"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "headlessbrowser",
+        "puppeter"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 1,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1,
+      "text": "Web Scraping With a Headless Browser: Puppeteer 🤖\n\nWhat do we cover in this article?👇\n\n🕷 The Basics ( Waiting For Content / Selecting Content)\n🕷 Example Project\n🕷 Challenges\n\n#webscraping #headlessbrowser #puppeter\n\nhttps://t.co/zCTCIbdsYz",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1579819583841918976",
+      "conversation_id": "1579819583841918976",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Oct 05 14:18:49 +0000 2022",
+      "attached_urls": [
+        "https://bit.ly/3yFqhuT"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "parsing"
+      ],
+      "favorite_count": 2,
+      "bookmark_count": 1,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1,
+      "text": "Parsing HTML with CSS Selectors🤖\n\nWhat do we cover in this article?👇\n\n🕷 What Are CSS Selectors?\n🕷 HTML Overview\n🕷 Syntax Overview\n🕷 Navigating Complex Structures\n🕷 CSS Selector Clients\n\n#webscraping #parsing \n\nhttps://t.co/E33AyacxN8",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1577664612908077062",
+      "conversation_id": "1577664612908077062",
+      "source": "<a href=\"https://www.semrush.com/\" rel=\"nofollow\">Semrush Social Media Tool</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Aug 31 13:35:28 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/parsing-html-with-xpath/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "parsing",
+        "html",
+        "xpath"
+      ],
+      "favorite_count": 3,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 2,
+      "text": "Parsing HTML with Xpath 🤖\n\nWhat do we cover in this article?👇\n\n🕷 What is Xpath ?\n🕷 Basic Navigation\n🕷 Navigating Complex Structures\n🕷 Extending Functions\n🕷 Xpath Clients\n\n#webscraping #parsing #html #xpath\n\nhttps://t.co/LtVLbpQij6",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1564970125832474625",
+      "conversation_id": "1564970125832474625",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Thu Aug 18 16:33:59 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-with-php-101"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "php"
+      ],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 2,
+      "text": "Web Scraping With PHP 101 🐘\n\nWhat do we cover in this article?👇\n\n🕷 Web Scraping Scene In PHP\n🕷 Making Requests\n🕷 Parsing HTML Content\n🕷 Example Project\n\n#webscraping #php\n\nhttps://t.co/VINpoXpStK",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1560304007381454849",
+      "conversation_id": "1560304007381454849",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Aug 09 14:22:00 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-with-scrapy/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "scrapy"
+      ],
+      "favorite_count": 0,
+      "bookmark_count": 1,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "🕷Introduction To Scrapy:\n\nSetup - Creating Spiders - Adding Crawling Logic - Adding Parsing Logic - Running Spiders - Saving Results\n\n🕷Extending Scrapy\n\nMiddlewares\nPipelines\n\n🕷 Common Challenges\n\nhttps://t.co/LcVVqpK0ZY\n\n#webscraping #scrapy",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1557009304212979712",
+      "conversation_id": "1557009302694641665",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Aug 09 14:22:00 +0000 2022",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 2,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 2,
+      "text": "Web Scraping With Scrapy 🕷\n\nWhat do we cover in this article?👇",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1557009302694641665",
+      "conversation_id": "1557009302694641665",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Tue Jul 26 14:36:25 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-with-selenium-and-python/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping",
+        "selenium",
+        "python"
+      ],
+      "favorite_count": 4,
+      "bookmark_count": 1,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 3,
+      "text": "Web Scraping with Selenium and Python 🤖🐍\n\nWhat do we cover in this article?👇\n\n🕷What is Selenium?\n🕷 Navigating, Waiting, and Retrieving\n🕷 Parsing Dynamic Data\n🕷 Advanced Selenium Functions\n\n#webscraping #selenium #python \n\nhttps://t.co/UlUDD8j75Y",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1551939501882314752",
+      "conversation_id": "1551939501882314752",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Jul 20 13:45:15 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/scraping-using-browsers"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping"
+      ],
+      "favorite_count": 2,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 2,
+      "text": "Scraping Dynamic Websites Using Browser 🖥\nWhat do we cover in this article?👇\n\n🤖Browser Automation\n\n🕷 Selenium\n🕷 Puppeteer\n🕷 Playwright\n\n👨‍💻 Challenges and Tips\n\n🕷Fingerprints\n🕷Scaling - Asynchronous Clients\n\n#webscraping\n\nhttps://t.co/Bt8TM2F8YP",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1549752298586374144",
+      "conversation_id": "1549752298586374144",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Jul 13 14:22:51 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-with-python-beautifulsoup/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 2,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 2,
+      "text": "Web Scraping with Python 🐍 and BeautifulSoup 🍜\n \nWhat do we cover in this article?👇\n\n🕷 What is HTML?\n🕷 Parsing HTML with BeautifulSoup\n🕷 Beautifulsoup's Extras\n🕷 Real Life Scenario\n\nhttps://t.co/ha5OqbWd4N",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1547225046095101954",
+      "conversation_id": "1547225046095101954",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Mon May 02 13:47:35 +0000 2022",
+      "attached_urls": [
+        "https://scrapfly.io/blog/web-scraping-with-python/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 3,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 3,
+      "text": "Web Scraping with python 101 🐍\n\nWhat do we cover in this article?👇\n\n🕷 HTTP Fundamentals\n🕷 Parsing HTML Content\n🕷 Challenges\n🕷 Scraping Framework\n\nhttps://t.co/iXN8eCQfde",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1521124245404803082",
+      "conversation_id": "1521124245404803082",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Dec 23 23:42:21 +0000 2020",
+      "attached_urls": [
+        "https://stock.scrapfly.io/"
+      ],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "text": "Check out: https://t.co/vltyik84fE",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1341891926732247041",
+      "conversation_id": "1341891922017853440",
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Dec 23 23:42:20 +0000 2020",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "PS: We also monitor Nvidia graphics cards and AMD Ryzen processors 🤓\n\nPS2: If you are a developer, the data is available in JSON 👇",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1341891925482352641",
+      "conversation_id": "1341891922017853440",
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Dec 23 23:42:20 +0000 2020",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 0,
+      "reply_count": 1,
+      "retweet_count": 0,
+      "text": "This is why we decided to develop a small service (100% free 🙃 thanks to our API), which will allow you to automatically monitor the availability on the various online stores and notify you in real time as soon as the PlayStation 5 / Xbox X 🎮 is available.👇",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1341891924039512065",
+      "conversation_id": "1341891922017853440",
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Dec 23 23:42:20 +0000 2020",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": null,
+      "tagged_users": [],
+      "tagged_hashtags": [],
+      "favorite_count": 1,
+      "bookmark_count": 0,
+      "quote_count": 2,
+      "reply_count": 2,
+      "retweet_count": 0,
+      "text": "PlayStation 5 and Xbox X are hard to get hold of, right? 👇",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1341891922017853440",
+      "conversation_id": "1341891922017853440",
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    },
+    {
+      "created_at": "Wed Nov 04 03:56:44 +0000 2020",
+      "attached_urls": [],
+      "attached_urls2": null,
+      "attached_media": [
+        "https://pbs.twimg.com/ext_tw_video_thumb/1323835885775970304/pu/img/zy5zZ5Ti-SdiEpci.jpg"
+      ],
+      "tagged_users": [],
+      "tagged_hashtags": [
+        "webscraping"
+      ],
+      "favorite_count": 2,
+      "bookmark_count": 1,
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 1,
+      "text": "Quickly Achieve your goal by focusing on data and not by resolving well-known web scraping problems\n#webscraping https://t.co/52qXZZYBPU",
+      "is_quote": false,
+      "is_retweet": false,
+      "language": "en",
+      "user_id": "1310623081300402178",
+      "id": "1323836550644420610",
+      "conversation_id": "1323836550644420610",
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "views": null,
+      "poll": {},
+      "user": {
+        "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+        "rest_id": "1310623081300402178",
+        "verified": false,
+        "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+        "entities": {
+          "description": {
+            "urls": []
+          },
+          "url": {
+            "urls": [
+              {
+                "display_url": "scrapfly.io",
+                "expanded_url": "https://scrapfly.io",
+                "url": "https://t.co/1Is3k6KzyM",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          }
+        },
+        "fast_followers_count": 0,
+        "favourites_count": 26,
+        "followers_count": 162,
+        "friends_count": 993,
+        "has_custom_timelines": true,
+        "is_translator": false,
+        "listed_count": 2,
+        "location": "Paris",
+        "media_count": 11,
+        "name": "Scrapfly",
+        "normal_followers_count": 162,
+        "pinned_tweet_ids_str": [],
+        "possibly_sensitive": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+        "profile_interstitial_type": "",
+        "screen_name": "Scrapfly_dev",
+        "statuses_count": 56,
+        "translator_type": "none",
+        "url": "https://t.co/1Is3k6KzyM",
+        "withheld_in_countries": []
+      }
+    }
+  ],
+  "users": {
+    "Scrapfly_dev": {
+      "id": "VXNlcjoxMzEwNjIzMDgxMzAwNDAyMTc4",
+      "rest_id": "1310623081300402178",
+      "verified": false,
+      "created_at": "Mon Sep 28 16:51:22 +0000 2020",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Web Scraping API - turn any website into a database!\n\nScrapFly allows you to quickly achieve your data goals without web scraping challenges and errors.",
+      "entities": {
+        "description": {
+          "urls": []
+        },
+        "url": {
+          "urls": [
+            {
+              "display_url": "scrapfly.io",
+              "expanded_url": "https://scrapfly.io",
+              "url": "https://t.co/1Is3k6KzyM",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        }
+      },
+      "fast_followers_count": 0,
+      "favourites_count": 26,
+      "followers_count": 162,
+      "friends_count": 993,
+      "has_custom_timelines": true,
+      "is_translator": false,
+      "listed_count": 2,
+      "location": "Paris",
+      "media_count": 11,
+      "name": "Scrapfly",
+      "normal_followers_count": 162,
+      "pinned_tweet_ids_str": [],
+      "possibly_sensitive": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/1310623081300402178/1601320645",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1310658795715076098/XedZDwC7_normal.jpg",
+      "profile_interstitial_type": "",
+      "screen_name": "Scrapfly_dev",
+      "statuses_count": 56,
+      "translator_type": "none",
+      "url": "https://t.co/1Is3k6KzyM",
+      "withheld_in_countries": []
+    }
+  }
+}
