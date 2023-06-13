@@ -84,7 +84,7 @@ async def scrape_search(
         }
     )
     # first scrape the first page and find total amount of pages
-    first_page = await scrapfly.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
     hotel_previews = parse_search_page(first_page)
     # parse total amount of pages from heading1 text, e.g: "London: 1,232 properties found"
     _total_results = int(first_page.selector.css("h1").re(r"([\d,]+) properties found")[0].replace(",", ""))
@@ -98,7 +98,7 @@ async def scrape_search(
         ScrapeConfig(search_url.replace("offset=0", f"offset={page * _page_size}"), **BASE_CONFIG)
         for page in range(2, total_pages + 1)
     ]
-    async for result in scrapfly.concurrent_scrape(to_scrape):
+    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         if not isinstance(result, ScrapflyScrapeError):
             hotel_previews.extend(parse_search_page(result))
         else:
@@ -167,7 +167,7 @@ async def scrape_hotel(url: str, checkin: str, price_n_days=30) -> Hotel:
         raise Exception("scrapfly cache cannot be used with sessions when scraping hotel data")
     log.info(f"scraping hotel {url} {checkin} with {price_n_days} days of pricing data")
     session = str(uuid4()).replace("-", "")
-    result = await scrapfly.async_scrape(ScrapeConfig(url, session=session, **BASE_CONFIG))
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, session=session, **BASE_CONFIG))
     hotel = parse_hotel(result)
     # csrf token is required to scrape the hidden pricing API
     # it can be found hidden in the HTML body
@@ -196,7 +196,7 @@ async def scrape_hotel(url: str, checkin: str, price_n_days=30) -> Hotel:
         "respect_min_los_restriction": 1,
         "los": 1,
     }
-    result = await scrapfly.async_scrape(
+    result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url="https://www.booking.com/fragment.json?cur_currency=usd",
             method="POST",
