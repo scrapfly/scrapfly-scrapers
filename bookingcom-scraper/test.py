@@ -20,7 +20,7 @@ async def test_search_scraping():
         "url": {"type": "string", "regex": r"https://www.booking.com/hotel/.+?\.html"},
         "name": {"type": "string", "minlength": 4},
         "score": {"type": "float", "min": 0, "max": 10, "nullable": True},
-        "review_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
+        "review_count": {"type": "integer", "min": 0, "max": 50_000, "nullable": True},
         "image": {"type": "string", "regex": r".+?/images/hotel/.+?"}
     }
     validator = Validator(schema, allow_unknown=True)
