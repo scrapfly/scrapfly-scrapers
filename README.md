@@ -10,6 +10,7 @@ For full guides on how to scrape these targets see the [scrapeguide directory](h
 - [ebay.com](./ebay-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-ebay/)
 - [glassdoor.com](./glassdoor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
 - [indeed.com](./indeed-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-indeedcom/)
+- [instagram.com](./instagram-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-instagram/)
 - [realtor.com](./realtorcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-realtorcom/)
 - [stockx.com](./stockx-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-stockx/)
 - [tripadvisor.com](./tripadvisor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
