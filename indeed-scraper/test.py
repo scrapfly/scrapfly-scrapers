@@ -42,7 +42,7 @@ async def test_job_scraping():
             "companyImagesModel": {
                 "type": "dict",
                 "schema": {
-                    "logoUrl": {"type": "string"},
+                    "logoUrl": {"type": "string", "nullable": True},
                 },
             },
             "companyReviewModel": {
