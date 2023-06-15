@@ -62,7 +62,7 @@ async def test_search_scraping():
     schema = {
         "property_id": {"type": "string"},
         "permalink": {"type": "string"},
-        "list_price": {"type": "integer"},
+        "list_price": {"type": "integer", "nullable": True},  # some propreties can have no price
         "list_date": {"type": "string"},
         "photos": {"type": "list", "schema": {"type": "dict", "schema": {"href": {"type": "string"}}}},
     }
