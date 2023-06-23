@@ -1,0 +1,91 @@
+from cerberus import Validator as _Validator
+import pytest
+
+import amazon
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
+
+# enable cache?
+amazon.BASE_CONFIG["cache"] = True
+
+
+class Validator(_Validator):
+    def _validate_min_presence(self, min_presence, field, value):
+        pass  # required for adding non-standard keys to schema
+
+def require_min_presence(items, key, min_perc=0.1):
+    """check whether dataset contains items with some amount of non-null values for a given key"""
+    count = sum(1 for item in items if item.get(key))
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
+        )
+
+
+def validate_or_fail(item, validator):
+    if not validator.validate(item):
+        pp.pformat(item)
+        pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
+
+
+@pytest.mark.asyncio
+async def test_product_scraping():
+    url = "https://www.amazon.com/dp/B0BHC395WW"
+    result = await amazon.scrape_product(url)
+    schema = {
+        "name": {"type": "string"},
+        "asin": {"type": "string"},
+        "description": {"type": "string"},
+        "stars": {"type": "string"},
+        "rating_count": {"type": "string"},
+        "style": {"type": "string", "nullable": True},
+        "features": {"type": "list", "schema": {"type": "string"}},
+        "images": {"type": "list", "schema": {"type": "string", "regex": "https://.*media-amazon.com.*"}},
+        "info_table": {"type": "dict"},
+    }
+    validator = Validator(schema, allow_unknown=True)
+    for variant in result:
+        validate_or_fail(variant, validator)
+    for k in schema:
+        require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
+
+
+@pytest.mark.asyncio
+async def test_search_scraping():
+    url = "https://www.amazon.com/s?k=kindle"
+    result = await amazon.scrape_search(url, max_pages=2)
+    assert len(result) >= 36 
+    schema = {
+        "url": {"type": "string"},
+        "title": {"type": "string"},
+        "price": {"type": "string", "nullable": True},
+        "real_price": {"type": "string", "nullable": True, "min_presence": 0.2},
+        "rating": {"type": "float", "nullable": True, "min_presence": 0.2},
+        "rating_count": {"type": "integer", "nullable": True, "min_presence": 0.2},
+    }
+    validator = Validator(schema, allow_unknown=True)
+    for product in result:
+        validate_or_fail(product, validator)
+    for k in schema:
+        require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
+
+
+
+@pytest.mark.asyncio
+async def test_review_scraping():
+    url = "https://www.amazon.com/PlayStation-PS5-Console-Ragnar%C3%B6k-Bundle-5/product-reviews/B0BHC395WW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+    result = await amazon.scrape_reviews(url, max_pages=3)
+    assert len(result) >= 40
+    schema = {
+        "text": {"type": "string"},
+        "title": {"type": "string"},
+        "location_and_date": {"type": "string"},
+        "verified": {"type": "boolean"},
+        "rating": {"type": "float"},
+    }
+    validator = Validator(schema, allow_unknown=True)
+    for review in result:
+        validate_or_fail(review, validator)
+    for k in schema:
+        require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
