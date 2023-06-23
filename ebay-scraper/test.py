@@ -72,7 +72,8 @@ async def test_search_scraping():
     result = await ebay.scrape_search(url, max_pages=3)
     schema = {
         "url": {"type": "string", "regex": r"https://www.ebay.com/itm/\d+"},
-        "photo": {"type": "string", "regex": r"https://i.ebayimg.com/thumbs/images/.+?", "nullable": True},
+        # note: could be placeholder - https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg 
+        "photo": {"type": "string", "regex": r"https://i.ebayimg.com/thumbs/images/.+?|https://.+ebaystatic.com/.+", "nullable": True},
         "title": {"type": "string"},
         "location": {"type": "string", "min_presence": 0.05},
         "condition": {"type": "string"},
