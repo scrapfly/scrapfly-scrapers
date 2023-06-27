@@ -23,10 +23,10 @@ async def test_product_scraping():
         "bidAskData": {
             "type": "dict",
             "schema": {
-                "lowestAsk": {"type": "integer"},
-                "numberOfAsks": {"type": "integer"},
-                "highestBid": {"type": "integer"},
-                "numberOfBids": {"type": "integer"},
+                "lowestAsk": {"type": "integer", "nullable": True},
+                "numberOfAsks": {"type": "integer", "nullable": True},
+                "highestBid": {"type": "integer", "nullable": True},
+                "numberOfBids": {"type": "integer", "nullable": True},
             },
         },
         "salesInformation": {
