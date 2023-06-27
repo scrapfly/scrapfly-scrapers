@@ -7,7 +7,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache?
-aliexpress.BASE_CONFIG["cache"] = True
+# aliexpress.BASE_CONFIG["cache"] = True
 
 
 def validate_or_fail(item, validator):
@@ -51,7 +51,7 @@ async def test_product_scraping():
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    url = "https://www.aliexpress.com/w/wholesale-drills.html"
+    url = "https://www.aliexpress.com/w/wholesale-drills.html?catId=0&SearchText=drills"
     result = await aliexpress.scrape_search(url, max_pages=2)
     assert len(result) >= 100
     schema = {
