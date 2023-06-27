@@ -33,7 +33,7 @@ async def test_search_scraping():
 async def test_hotel_scraping():
     bookingcom.BASE_CONFIG["cache"] = False
     item = await bookingcom.scrape_hotel(
-        "https://www.booking.com/hotel/gb/gardencourthotel.html",
+        "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
         checkin=WEEK_FROM_NOW,
         price_n_days=7,
     )

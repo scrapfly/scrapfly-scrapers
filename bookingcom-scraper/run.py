@@ -24,17 +24,17 @@ async def run():
     bookingcom.BASE_CONFIG["cache"] = True
     print("running Booking.com example scrapes and saving results to ./results directory")
 
-    # result_search = await bookingcom.scrape_search(
-    #     query="Malta", 
-    #     checkin=TODAY,
-    #     checkout=WEEK_FROM_NOW,
-    #     max_pages=2
-    # )
-    # output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
+    result_search = await bookingcom.scrape_search(
+        query="Malta", 
+        checkin=TODAY,
+        checkout=WEEK_FROM_NOW,
+        max_pages=2
+    )
+    output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
 
     bookingcom.BASE_CONFIG["cache"] = False
     result_hotel = await bookingcom.scrape_hotel(
-        "https://www.booking.com/hotel/gb/gardencourthotel.html",
+        "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
         checkin=WEEK_FROM_NOW, 
         price_n_days=7,
     )
