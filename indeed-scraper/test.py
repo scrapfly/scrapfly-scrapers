@@ -9,7 +9,7 @@ indeed.BASE_CONFIG["cache"] = True
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    url = "https://www.indeed.com/jobs?q=python&l=Texas&sc=0kf%3Aattr%28DSQF7%29attr%28X62BT%29%3B&vjk=3b684083eda5dd00"
+    url = "https://www.indeed.com/jobs?q=python&l=Texas"
     result_search = await indeed.scrape_search(url, max_results=20)
 
     schema = {
