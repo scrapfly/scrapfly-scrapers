@@ -7,9 +7,10 @@ import bookingcom
 
 # enable cache?
 # bookingcom.BASE_CONFIG["cache"] = True
-WEEK_FROM_NOW = datetime.now().strftime('%Y-%m-%d')
+NOW = datetime.now().strftime('%Y-%m-%d')
 WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')
 MONTH_FROM_NOW = (datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')
+bookingcom.BASE_CONFIG["debug"] = True
 
 
 @pytest.mark.asyncio
@@ -32,44 +33,44 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 async def test_hotel_scraping():
     bookingcom.BASE_CONFIG["cache"] = False
-    item = await bookingcom.scrape_hotel(
+    urls = [
         "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
-        checkin=WEEK_FROM_NOW,
-        price_n_days=7,
-    )
-    assert item
-    schema = {
-        "url": {"type": "string", "regex": r"https://www.booking.com/hotel/.+?\.html"},
-        "title": {"type": "string", "minlength": 4},
-        "description": {"type": "string", "minlength": 200},
-        "address": {"type": "string", "minlength": 50},
-        "images": {"type": "list"},
-        "lat": {"type": "float", "coerce": float},
-        "lng": {"type": "float", "coerce": float},
-        'price': {
-            'type': 'list',
-            'schema': {
-                'type': 'dict',
-                'schema': {
-                    'length_of_stay': {'type': 'integer'},
-                    'avg_price_raw': {'type': 'float'},
-                    'price': {'type': 'float'},
-                    'price_pretty': {'type': 'string'},
-                    'min_length_of_stay': {'type': 'integer'},
-                    'checkin': {'type': 'string'},
-                    'avg_price_pretty': {'type': 'string'},
-                    'available': {'type': 'integer'}
-                }
-            }
-        },
-        'features': {
-            'type': 'dict',
-            'valuesrules': {
+        "https://www.booking.com/hotel/fr/hotelf1-paris-porte-de-montmartre.en-gb.html",
+    ]
+    for url in urls:
+        item = await bookingcom.scrape_hotel(
+            url,
+            checkin=NOW,
+        )
+        assert item
+        schema = {
+            "url": {"type": "string", "regex": r"https://www.booking.com/hotel/.+?\.html"},
+            "title": {"type": "string", "minlength": 4},
+            "description": {"type": "string", "minlength": 200},
+            "address": {"type": "string", "minlength": 50},
+            "images": {"type": "list"},
+            "lat": {"type": "float", "coerce": float},
+            "lng": {"type": "float", "coerce": float},
+            'price': {
                 'type': 'list',
-                'schema': {'type': 'string'},
-            }
-        },
-    }
-    validator = Validator(schema, allow_unknown=True)
-    if not validator.validate(item):
-        raise Exception({"item": item, "errors": validator.errors})
+                'schema': {
+                    'type': 'dict',
+                    'schema': {
+                        'available': {'type': 'boolean'},
+                        'checkin': {'type': 'string', 'regex': r"[0-9]{4}-[0-9]{2}-[0-9]{2}"},
+                        'minLengthOfStay': {'type': 'integer'},
+                        'avgPriceFormatted': {'type': 'integer', 'coerce': int},
+                    }
+                }
+            },
+            'features': {
+                'type': 'dict',
+                'valuesrules': {
+                    'type': 'list',
+                    'schema': {'type': 'string'},
+                }
+            },
+        }
+        validator = Validator(schema, allow_unknown=True)
+        if not validator.validate(item):
+            raise Exception({"item": item, "errors": validator.errors})

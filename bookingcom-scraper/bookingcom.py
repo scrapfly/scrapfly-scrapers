@@ -106,6 +106,7 @@ async def scrape_search(
     log.info(f"scraped {len(hotel_previews)} total hotel previews for {query} {checkin}-{checkout}")
     return hotel_previews
 
+
 class PriceData(TypedDict):
     checkin: str
     min_length_of_stay: int
@@ -116,7 +117,6 @@ class PriceData(TypedDict):
     price_pretty: str
     price: float
 
-    
 
 class Hotel(TypedDict):
     url: str
@@ -156,7 +156,7 @@ def parse_hotel(result: ScrapeApiResponse) -> Hotel:
     return data
 
 
-async def scrape_hotel(url: str, checkin: str, price_n_days=30) -> Hotel:
+async def scrape_hotel(url: str, checkin: str, price_n_days=61) -> Hotel:
     """
     Scrape Booking.com hotel data and pricing information.
     """
@@ -167,50 +167,68 @@ async def scrape_hotel(url: str, checkin: str, price_n_days=30) -> Hotel:
         raise Exception("scrapfly cache cannot be used with sessions when scraping hotel data")
     log.info(f"scraping hotel {url} {checkin} with {price_n_days} days of pricing data")
     session = str(uuid4()).replace("-", "")
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, session=session, **BASE_CONFIG))
-    hotel = parse_hotel(result)
-    # csrf token is required to scrape the hidden pricing API
-    # it can be found hidden in the HTML body
-    csrf_token = re.findall(r"b_csrf_token:\s*'(.+?)'", result.content)[0]
-
-    # body for hidden pricing API
-    # note this can be customized to your needs like adult visitor number, pets etc.
-    data = {
-        "name": "hotel.availability_calendar",
-        "result_format": "price_histogram",
-        "hotel_id": hotel["id"],
-        "search_config": json.dumps(
-            {
-                # we can adjust pricing configuration here but this is the default
-                "b_adults_total": 2,
-                "b_nr_rooms_needed": 1,
-                "b_children_total": 0,
-                "b_children_ages_total": [],
-                "b_is_group_search": 0,
-                "b_pets_total": 0,
-                "b_rooms": [{"b_adults": 2, "b_room_order": 1}],
-            }
-        ),
-        "checkin": checkin,
-        "n_days": price_n_days,
-        "respect_min_los_restriction": 1,
-        "los": 1,
-    }
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.booking.com/fragment.json?cur_currency=usd",
-            method="POST",
-            data=data,
-            headers={"X-Booking-CSRF": csrf_token},  # add CSRF token as header
-            session=session,  # note: we need to use the same IP, so use scrapfly session
+            url,
+            session=session,
             **BASE_CONFIG,
         )
     )
-    hotel["price"] = []
-    for day in json.loads(result.content)["data"]['days']:
-        hotel["price"].append({
-            # get rid of b_ prefix
-            k[2:] if k.startswith("b_") else k: v 
-            for k, v in day.items()
-        })
+    hotel = parse_hotel(result)
+
+    # To scrape price we'll be calling Booking.com's graphql service
+    # in particular we'll be calling AvailabilityCalendar query
+    # first, extract hotel variables:
+    _hotel_country = re.findall(r'hotelCountry:\s*"(.+?)"', result.content)[0]
+    _hotel_name = re.findall(r'hotelName:\s*"(.+?)"', result.content)[0]
+    _csrf_token = re.findall(r"b_csrf_token:\s*'(.+?)'", result.content)[0]
+    # then create graphql query
+    gql_body = json.dumps(
+        {
+            "operationName": "AvailabilityCalendar",
+            # hotel varialbes go here
+            # you can adjust number of adults, room number etc.
+            "variables": {
+                "input": {
+                    "travelPurpose": 2,
+                    "pagenameDetails": {
+                        "countryCode": _hotel_country,
+                        "pagename": _hotel_name,
+                    },
+                    "searchConfig": {
+                        "searchConfigDate": {
+                            "startDate": checkin,
+                            "amountOfDays": price_n_days,
+                        },
+                        "nbAdults": 2,
+                        "nbRooms": 1,
+                    },
+                }
+            },
+            "extensions": {},
+            # this is the query itself, don't alter it
+            "query": "query AvailabilityCalendar($input: AvailabilityCalendarQueryInput!) {\n  availabilityCalendar(input: $input) {\n    ... on AvailabilityCalendarQueryResult {\n      hotelId\n      days {\n        available\n        avgPriceFormatted\n        checkin\n        minLengthOfStay\n        __typename\n      }\n      __typename\n    }\n    ... on AvailabilityCalendarQueryError {\n      message\n      __typename\n    }\n    __typename\n  }\n}\n",
+        },
+        # note: this removes unnecessary whitespace in JSON output
+        separators=(",", ":"),
+    )
+    # scrape booking graphql
+    result_price = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            "https://www.booking.com/dml/graphql?lang=en-gb",
+            method="POST",
+            body=gql_body,
+            session=session,
+            # note that we need to set headers to avoid being blocked
+            headers={
+                "content-type": "application/json",
+                "x-booking-csrf-token": _csrf_token,
+                "referer": result.context["url"],
+                "origin": "https://www.booking.com",
+            },
+            **BASE_CONFIG,
+        )
+    )
+    price_data = json.loads(result_price.content)
+    hotel["price"] = price_data["data"]["availabilityCalendar"]["days"]
     return hotel
