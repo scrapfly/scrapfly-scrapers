@@ -38,7 +38,7 @@
     "is_forAuction": false,
     "is_comingSoon": false,
     "is_pending": false,
-    "is_openHouse": true
+    "is_openHouse": false
   },
   "nearbyCities": [
     {
@@ -209,6 +209,7 @@
     "path": "/san-francisco-ca-94112/rent-houses/"
   },
   "abbreviatedAddress": "661 Lakeview Ave",
+  "county": "San Francisco County",
   "neighborhoodRegion": {
     "name": "Oceanview"
   },
@@ -233,7 +234,7 @@
   "adTargets": {
     "aamgnrc1": "661 Lakeview Ave",
     "bd": "2",
-    "fsbid": "900",
+    "fsbid": "18932",
     "city": "San_Francisco",
     "proptp": "sfh",
     "pid": "15192198",
@@ -242,7 +243,6 @@
     "listtp": "buy_agent",
     "sqftrange": "500-999",
     "price": "850000",
-    "oh": "yes",
     "sqft": "900",
     "state": "CA",
     "mlong": "-122.45783",
@@ -253,12 +253,12 @@
     "zusr": "true",
     "price_band": "z800",
     "yrblt": "1920-1939",
-    "zestimate": "825100",
+    "zestimate": "887000",
     "tflag": "verizon",
     "premieragent": "no",
     "dma": "37",
-    "guid": "06731093-1168-4439-b69b-9eb2c239de76",
-    "ssid": "900"
+    "guid": "a1a3c981-9c31-4d07-9647-c13387416ecf",
+    "ssid": "18932"
   },
   "currency": "USD",
   "resoFacts": {
@@ -275,13 +275,13 @@
     "associationPhone2": null,
     "basementYN": false,
     "buildingName": null,
-    "buyerAgencyCompensation": null,
-    "buyerAgencyCompensationType": null,
+    "buyerAgencyCompensation": "2.5",
+    "buyerAgencyCompensationType": "%",
     "appliances": null,
     "atAGlanceFacts": [
       {
         "factLabel": "Type",
-        "factValue": "Residential, Single Family Residence"
+        "factValue": "Single Family Residence, "
       },
       {
         "factLabel": "Year Built",
@@ -305,11 +305,15 @@
       },
       {
         "factLabel": "Days on Zillow",
-        "factValue": "0"
+        "factValue": "31 Days"
       },
       {
         "factLabel": "Price/sqft",
         "factValue": "$944"
+      },
+      {
+        "factLabel": "Buyers Agency Fee",
+        "factValue": "2.5"
       },
       {
         "factLabel": "Offer Review Date",
@@ -336,13 +340,13 @@
     "cooling": [
       "None"
     ],
-    "coveredParkingCapacity": 1,
+    "coveredParkingCapacity": null,
     "cropsIncludedYN": null,
     "developmentStatus": null,
     "doorFeatures": null,
     "electric": null,
     "elevation": null,
-    "elevationUnits": "Feet",
+    "elevationUnits": null,
     "entryLevel": null,
     "entryLocation": null,
     "exclusions": null,
@@ -356,7 +360,9 @@
     "foundationArea": null,
     "furnished": false,
     "garageParkingCapacity": 1,
-    "gas": null,
+    "gas": [
+      "PublicUtilities"
+    ],
     "greenBuildingVerificationType": null,
     "greenEnergyEfficient": null,
     "greenIndoorAirQuality": null,
@@ -368,7 +374,7 @@
     "hasCooling": true,
     "hasCarport": false,
     "hasElectricOnProperty": null,
-    "hasFireplace": false,
+    "hasFireplace": null,
     "hasGarage": true,
     "hasHeating": true,
     "hasLandLease": false,
@@ -381,7 +387,7 @@
       "Floor Furnace"
     ],
     "highSchool": null,
-    "highSchoolDistrict": null,
+    "highSchoolDistrict": "SanFranciscoUnified",
     "hoaFee": null,
     "hoaFeeTotal": null,
     "homeType": "SingleFamily",
@@ -400,8 +406,7 @@
     "listingId": null,
     "lotFeatures": [
       "Gentle Sloping",
-      "Grade - Mostly Level",
-      "City Lot"
+      "Mostly Level"
     ],
     "lotSize": "3,746 sqft",
     "livingQuarters": [],
@@ -413,13 +418,13 @@
     "municipality": null,
     "numberOfUnitsInCommunity": null,
     "offerReviewDate": null,
-    "onMarketDate": 1685218271000,
+    "onMarketDate": 1685145600000,
     "openParkingCapacity": null,
     "otherEquipment": null,
     "otherFacts": [],
     "otherParking": null,
     "ownershipType": null,
-    "parkingCapacity": 1,
+    "parkingCapacity": 0,
     "parkingFeatures": [
       "Attached"
     ],
@@ -441,7 +446,7 @@
         "roomDescription": null,
         "roomDimensions": null,
         "roomFeatures": [
-          "No Formal Dining Room"
+          "NoFormalDiningRoom"
         ],
         "roomLength": null,
         "roomLengthWidthSource": null,
@@ -462,7 +467,7 @@
         "roomDescription": null,
         "roomDimensions": null,
         "roomFeatures": [
-          "No Family Room"
+          "NoFamilyRoom"
         ],
         "roomLength": null,
         "roomLengthWidthSource": null,
@@ -473,17 +478,16 @@
       }
     ],
     "securityFeatures": null,
-    "sewer": [
-      "Sewer in Street"
-    ],
+    "sewer": null,
     "spaFeatures": null,
-    "specialListingConditions": null,
+    "specialListingConditions": "Standard",
     "stories": 1,
     "storiesTotal": null,
     "subdivisionName": null,
     "totalActualRent": null,
     "utilities": [
-      "Public Utilities"
+      "Public Utilities",
+      "Water Public"
     ],
     "view": [
       "Lake"
@@ -521,7 +525,7 @@
     "hasHomeWarranty": false,
     "inclusions": null,
     "incomeIncludes": null,
-    "isNewConstruction": null,
+    "isNewConstruction": false,
     "listingTerms": null,
     "livingAreaRange": null,
     "livingAreaRangeUnits": null,
@@ -533,25 +537,25 @@
     "parcelNumber": "7053027",
     "propertyCondition": null,
     "propertySubType": [
-      "Residential",
-      "Single Family Residence"
+      "Single Family Residence",
+      ""
     ],
-    "structureType": "Detached",
+    "structureType": null,
     "topography": null,
     "vegetation": null,
     "woodedArea": null,
     "yearBuiltEffective": null,
     "virtualTour": null,
     "elementarySchool": null,
-    "elementarySchoolDistrict": null,
+    "elementarySchoolDistrict": "SanFranciscoUnified",
     "listAOR": null
   },
   "attributionInfo": {
-    "listingAgreement": "Exclusive Right To Sell",
+    "listingAgreement": "ExclusiveRightToSell",
     "mlsName": "MLSListings Inc",
     "agentEmail": "debbie@debbiewong.com",
-    "agentLicenseNumber": null,
-    "agentName": "Wong Real Estate Grp",
+    "agentLicenseNumber": "70010239",
+    "agentName": " Wong Real Estate Grp",
     "agentPhoneNumber": "650-619-2790",
     "attributionTitle": null,
     "brokerName": "KW Advisors",
@@ -562,8 +566,8 @@
     "coAgentLicenseNumber": null,
     "coAgentName": null,
     "coAgentNumber": null,
-    "lastChecked": "2023-05-28 02:10:50",
-    "lastUpdated": "2023-05-27 06:39:01",
+    "lastChecked": "2023-06-27 19:48:25",
+    "lastUpdated": "2023-06-23 08:26:44",
     "listingOffices": [
       {
         "associatedOfficeType": "listOffice",
@@ -573,16 +577,16 @@
     "listingAgents": [
       {
         "associatedAgentType": "listAgent",
-        "memberFullName": "Wong Real Estate Grp",
-        "memberStateLicense": "DRE #70010239"
+        "memberFullName": " Wong Real Estate Grp",
+        "memberStateLicense": "70010239"
       }
     ],
-    "mlsDisclaimer": "Property Information © 2023 MLSListings Inc. All rights reserved. Certain information contained herein is derived from information which is the licensed property of, and copyrighted by, MLSListings Inc.",
+    "mlsDisclaimer": "Based on information from the MLSListings MLS as of 2023-06-27 19:48:25 PDT. All data, including all measurements and calculations of area, is obtained from various sources and has not been, and will not be, verified by broker or MLS. All information should be independently reviewed and verified for accuracy. Properties may or may not be listed by the office/agent presenting the information.",
     "mlsId": "ML81929841",
-    "providerLogo": "https://photos.zillowstatic.com/fp/5273d6e56ef4c68cf7b7b4dd452c58d5-zillow_web_95_35.jpg",
-    "infoString3": "https://photos.zillowstatic.com/fp/5273d6e56ef4c68cf7b7b4dd452c58d5-zillow_web_95_35.jpg",
+    "providerLogo": "https://photos.zillowstatic.com/fp/f6d938e7ba070e360124972ca1b833bc-zillow_web_95_35.jpg",
+    "infoString3": "https://photos.zillowstatic.com/fp/f6d938e7ba070e360124972ca1b833bc-zillow_web_95_35.jpg",
     "infoString5": "650-619-2790",
-    "infoString10": "Property Information © 2023 MLSListings Inc. All rights reserved. Certain information contained herein is derived from information which is the licensed property of, and copyrighted by, MLSListings Inc.",
+    "infoString10": "Based on information from the MLSListings MLS as of 2023-06-27 19:48:25 PDT. All data, including all measurements and calculations of area, is obtained from various sources and has not been, and will not be, verified by broker or MLS. All information should be independently reviewed and verified for accuracy. Properties may or may not be listed by the office/agent presenting the information.",
     "infoString16": "debbie@debbiewong.com",
     "trueStatus": null
   },
@@ -593,13 +597,13 @@
   },
   "livingArea": 900,
   "livingAreaValue": 900,
-  "zestimate": 825100,
+  "zestimate": 887000,
   "newConstructionType": null,
   "zestimateLowPercent": "5",
-  "zestimateHighPercent": "10",
-  "rentZestimate": 3397,
-  "restimateLowPercent": "17",
-  "restimateHighPercent": "27",
+  "zestimateHighPercent": "6",
+  "rentZestimate": 3058,
+  "restimateLowPercent": "16",
+  "restimateHighPercent": "22",
   "schools": [
     {
       "distance": 0.3,
@@ -611,23 +615,37 @@
       "grades": "K-5",
       "link": "https://www.greatschools.org/school?id=06431&state=CA",
       "type": "Public",
-      "size": 229,
-      "totalCount": 2,
-      "isAssigned": true
+      "size": null,
+      "totalCount": null,
+      "isAssigned": null
     },
     {
-      "distance": 0.8,
+      "distance": 0.7,
       "name": "San Miguel Children Center",
-      "rating": 0,
+      "rating": null,
       "level": "Elementary",
       "studentsPerTeacher": null,
       "assigned": null,
       "grades": null,
       "link": "https://www.greatschools.org/school?id=22270&state=CA",
       "type": "Public",
-      "size": 129,
-      "totalCount": 1,
-      "isAssigned": true
+      "size": null,
+      "totalCount": null,
+      "isAssigned": null
+    },
+    {
+      "distance": 0.9,
+      "name": "Denman (James) Middle School",
+      "rating": 5,
+      "level": "Middle",
+      "studentsPerTeacher": null,
+      "assigned": null,
+      "grades": "6-8",
+      "link": "https://www.greatschools.org/school?id=06358&state=CA",
+      "type": "Public",
+      "size": null,
+      "totalCount": null,
+      "isAssigned": null
     }
   ],
   "homeValues": null,
@@ -642,7 +660,7 @@
           "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=37.7180290222168,-122.45771789550781&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=Vby0THKqrTvI2e35Ujs6vKgxoNc="
         }
       ],
-      "price": 1235800,
+      "price": 1357500,
       "currency": "USD",
       "bedrooms": 3,
       "bathrooms": 2,
@@ -708,7 +726,7 @@
           "url": "https://photos.zillowstatic.com/fp/7b244d2c7756beeed8048d94aa8cc42e-p_c.jpg"
         }
       ],
-      "price": 1516000,
+      "price": 1508500,
       "currency": "USD",
       "bedrooms": 3,
       "bathrooms": 2,
@@ -774,7 +792,7 @@
           "url": "https://photos.zillowstatic.com/fp/7e37080dcd07fe273e538a01d6c7ac1b-p_c.jpg"
         }
       ],
-      "price": 548375,
+      "price": 967800,
       "currency": "USD",
       "bedrooms": 3,
       "bathrooms": 2,
@@ -840,7 +858,7 @@
           "url": "https://photos.zillowstatic.com/fp/9272dfa4457485077b4025e795bd8e79-p_c.jpg"
         }
       ],
-      "price": 1249800,
+      "price": 1246100,
       "currency": "USD",
       "bedrooms": 2,
       "bathrooms": 3,
@@ -906,7 +924,7 @@
           "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=37.7180290222168,-122.45755004882812&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=6TtBXH9m6CWwvsimFd8WQdLCGrg="
         }
       ],
-      "price": 1047300,
+      "price": 1046600,
       "currency": "USD",
       "bedrooms": 2,
       "bathrooms": 1,
@@ -972,7 +990,7 @@
           "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=37.7180290222168,-122.4581527709961&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=tcDoXlCY9u3HlRB1lXKFoB7HaxA="
         }
       ],
-      "price": 1121200,
+      "price": 1123500,
       "currency": "USD",
       "bedrooms": 2,
       "bathrooms": 2,
@@ -1038,7 +1056,7 @@
           "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=37.7180290222168,-122.45745849609375&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=yoTpt6cuiM63Bgnx0SKDEslMfOQ="
         }
       ],
-      "price": 707600,
+      "price": 842000,
       "currency": "USD",
       "bedrooms": null,
       "bathrooms": 1,
@@ -1104,7 +1122,7 @@
           "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=37.71772003173828,-122.45780181884766&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=xZpKFlQH3eqSw3pMqUF42SbLOSM="
         }
       ],
-      "price": 1085700,
+      "price": 1086300,
       "currency": "USD",
       "bedrooms": 3,
       "bathrooms": 2,
@@ -1168,154 +1186,154 @@
   "parcelId": "7053027",
   "taxHistory": [
     {
-      "time": 1653729124134,
+      "time": 1656385173582,
       "taxPaid": 1173.22,
       "taxIncreaseRate": -0.54911184,
       "value": 44351,
       "valueIncreaseRate": 0.019961825
     },
     {
-      "time": 1622193124134,
+      "time": 1624849173582,
       "taxPaid": 2602.02,
       "taxIncreaseRate": 0.15140757,
       "value": 43483,
       "valueIncreaseRate": 0.0103397
     },
     {
-      "time": 1590657124134,
+      "time": 1593313173582,
       "taxPaid": 2259.86,
       "taxIncreaseRate": 0.25457174,
       "value": 43038,
       "valueIncreaseRate": 0.01997867
     },
     {
-      "time": 1559034724134,
+      "time": 1561690773582,
       "taxPaid": 1801.3,
       "taxIncreaseRate": -0.0069463453,
       "value": 42195,
       "valueIncreaseRate": 0.019991297
     },
     {
-      "time": 1527498724134,
+      "time": 1530154773582,
       "taxPaid": 1813.9,
       "taxIncreaseRate": 0.044849187,
       "value": 41368,
       "valueIncreaseRate": 0.019996548
     },
     {
-      "time": 1495962724134,
+      "time": 1498618773582,
       "taxPaid": 1736.04,
       "taxIncreaseRate": 0.03207938,
       "value": 40557,
       "valueIncreaseRate": 0.019993965
     },
     {
-      "time": 1464426724134,
+      "time": 1467082773582,
       "taxPaid": 1682.08,
       "taxIncreaseRate": 0.7788494,
       "value": 39762,
       "valueIncreaseRate": 0.01521728
     },
     {
-      "time": 1432804324134,
+      "time": 1435460373582,
       "taxPaid": 945.6,
       "taxIncreaseRate": -0.14587662,
       "value": 39166,
       "valueIncreaseRate": 0.019947916
     },
     {
-      "time": 1401268324134,
+      "time": 1403924373582,
       "taxPaid": 1107.1,
       "taxIncreaseRate": 0,
       "value": 38400,
       "valueIncreaseRate": 0.00449932
     },
     {
-      "time": 1369732324134,
+      "time": 1372388373582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 38228,
       "valueIncreaseRate": 0.019984525
     },
     {
-      "time": 1338196324134,
+      "time": 1340852373582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 37479,
       "valueIncreaseRate": 0.019975508
     },
     {
-      "time": 1306573924134,
+      "time": 1309229973582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 36745,
       "valueIncreaseRate": 0.0074575716
     },
     {
-      "time": 1275037924134,
+      "time": 1277693973582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 36473,
       "valueIncreaseRate": -0.002352362
     },
     {
-      "time": 1243501924134,
+      "time": 1246157973582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 36559,
       "valueIncreaseRate": 0.019947551
     },
     {
-      "time": 1211965924134,
+      "time": 1214621973582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 35844,
       "valueIncreaseRate": 0.019976096
     },
     {
-      "time": 1180343524134,
+      "time": 1182999573582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 35142,
       "valueIncreaseRate": 0.019968653
     },
     {
-      "time": 1148807524134,
+      "time": 1151463573582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 34454,
       "valueIncreaseRate": 0.019952634
     },
     {
-      "time": 1117271524134,
+      "time": 1119927573582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 33780,
       "valueIncreaseRate": 0.03896903
     },
     {
-      "time": 1054113124134,
+      "time": 1056769173582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 32513,
       "valueIncreaseRate": 0.019983687
     },
     {
-      "time": 1022577124134,
+      "time": 1025233173582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 31876,
       "valueIncreaseRate": 0.019934086
     },
     {
-      "time": 991041124134,
+      "time": 993697173582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 31253,
       "valueIncreaseRate": 0.020006528
     },
     {
-      "time": 959505124134,
+      "time": 962161173582,
       "taxPaid": null,
       "taxIncreaseRate": 0,
       "value": 30640,
@@ -1323,6 +1341,24 @@
     }
   ],
   "priceHistory": [
+    {
+      "date": "2023-06-15",
+      "time": 1686787200000,
+      "price": 850000,
+      "pricePerSquareFoot": 944,
+      "priceChangeRate": 0,
+      "event": "Contingent",
+      "source": "MLSListings Inc",
+      "buyerAgent": null,
+      "sellerAgent": null,
+      "showCountyLink": false,
+      "postingIsRental": false,
+      "attributeSource": {
+        "infoString1": "ML81929841",
+        "infoString2": "MLSListings Inc",
+        "infoString3": "https://photos.zillowstatic.com/fp/f6d938e7ba070e360124972ca1b833bc-zillow_web_logo_inf_11.jpg"
+      }
+    },
     {
       "date": "2023-05-27",
       "time": 1685145600000,
@@ -1338,7 +1374,7 @@
       "attributeSource": {
         "infoString1": "ML81929841",
         "infoString2": "MLSListings Inc",
-        "infoString3": "https://photos.zillowstatic.com/fp/5273d6e56ef4c68cf7b7b4dd452c58d5-zillow_web_logo_inf_11.jpg"
+        "infoString3": "https://photos.zillowstatic.com/fp/f6d938e7ba070e360124972ca1b833bc-zillow_web_logo_inf_11.jpg"
       }
     },
     {
@@ -1380,28 +1416,94 @@
   ],
   "comps": [
     {
-      "zpid": 15169189,
+      "zpid": 15178015,
       "miniCardPhotos": [
         {
-          "url": "https://photos.zillowstatic.com/fp/5b01222ad6df8e1e557e29125416ec92-p_c.jpg"
+          "url": "https://photos.zillowstatic.com/fp/74dea1843b0d21595f08ac1e0af7ee22-p_c.jpg"
         }
       ],
-      "price": 848000,
+      "price": 959000,
       "currency": "USD",
       "bedrooms": 2,
+      "bathrooms": 2,
+      "livingArea": 1086,
+      "livingAreaValue": 1086,
+      "livingAreaUnits": "Square Feet",
+      "livingAreaUnitsShort": "sqft",
+      "listingMetadata": {
+        "comminglingCategoryIsRulesApplicable": true
+      },
+      "lotSize": 2454,
+      "lotAreaValue": 2454,
+      "lotAreaUnits": "Square Feet",
+      "address": {
+        "streetAddress": "1016 Munich St",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipcode": "94112"
+      },
+      "formattedChip": {
+        "location": [
+          {
+            "fullValue": "1016 Munich St"
+          },
+          {
+            "fullValue": "San Francisco, CA 94112"
+          }
+        ]
+      },
+      "latitude": 37.711918,
+      "longitude": -122.43391,
+      "homeStatus": "FOR_SALE",
+      "homeType": "SINGLE_FAMILY",
+      "hdpUrl": "/homedetails/1016-Munich-St-San-Francisco-CA-94112/15178015_zpid/",
+      "listing_sub_type": {
+        "is_newHome": false,
+        "is_forAuction": false,
+        "is_bankOwned": false,
+        "is_foreclosure": false,
+        "is_FSBO": false,
+        "is_comingSoon": false,
+        "is_FSBA": true
+      },
+      "providerListingID": null,
+      "attributionInfo": {
+        "mlsId": "423750875",
+        "mlsName": null,
+        "providerLogo": null,
+        "agentName": "Jeffrey A. Salgado DRE #01501886",
+        "agentPhoneNumber": null,
+        "brokerName": "Compass",
+        "brokerPhoneNumber": null,
+        "trueStatus": null
+      },
+      "isPremierBuilder": false,
+      "state": "CA",
+      "newConstructionType": null
+    },
+    {
+      "zpid": 15175016,
+      "miniCardPhotos": [
+        {
+          "url": "https://photos.zillowstatic.com/fp/9144afdbee51528cd47711935e1233ff-p_c.jpg"
+        }
+      ],
+      "price": 900000,
+      "currency": "USD",
+      "bedrooms": 3,
       "bathrooms": 1,
-      "livingArea": 1150,
-      "livingAreaValue": 1150,
+      "livingArea": 1094,
+      "livingAreaValue": 1094,
       "livingAreaUnits": "Square Feet",
       "livingAreaUnitsShort": "sqft",
       "listingMetadata": {
         "comminglingCategoryIsRulesApplicable": true
       },
       "lotSize": 2495,
-      "lotAreaValue": 2495.988,
+      "lotAreaValue": 2495,
       "lotAreaUnits": "Square Feet",
       "address": {
-        "streetAddress": "724 Avalon Ave",
+        "streetAddress": "367 Prague St",
         "city": "San Francisco",
         "state": "CA",
         "zipcode": "94112"
@@ -1409,18 +1511,18 @@
       "formattedChip": {
         "location": [
           {
-            "fullValue": "724 Avalon Ave"
+            "fullValue": "367 Prague St"
           },
           {
             "fullValue": "San Francisco, CA 94112"
           }
         ]
       },
-      "latitude": 37.724735,
-      "longitude": -122.42658,
-      "homeStatus": "FOR_SALE",
+      "latitude": 37.71622,
+      "longitude": -122.42891,
+      "homeStatus": "PENDING",
       "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/724-Avalon-Ave-San-Francisco-CA-94112/15169189_zpid/",
+      "hdpUrl": "/homedetails/367-Prague-St-San-Francisco-CA-94112/15175016_zpid/",
       "listing_sub_type": {
         "is_newHome": false,
         "is_forAuction": false,
@@ -1432,210 +1534,12 @@
       },
       "providerListingID": null,
       "attributionInfo": {
-        "mlsId": "423734887",
+        "mlsId": "ML81932772",
         "mlsName": null,
         "providerLogo": null,
-        "agentName": "Paul J. Mori DRE #01422683",
+        "agentName": "Dee Molina",
         "agentPhoneNumber": null,
-        "brokerName": "Mori, Paul",
-        "brokerPhoneNumber": null,
-        "trueStatus": null
-      },
-      "isPremierBuilder": false,
-      "state": "CA",
-      "newConstructionType": null
-    },
-    {
-      "zpid": 15168125,
-      "miniCardPhotos": [
-        {
-          "url": "https://photos.zillowstatic.com/fp/f43c166fcacc724a90d55fd20f7ff03b-p_c.jpg"
-        }
-      ],
-      "price": 899000,
-      "currency": "USD",
-      "bedrooms": 2,
-      "bathrooms": 1,
-      "livingArea": 1037,
-      "livingAreaValue": 1037,
-      "livingAreaUnits": "Square Feet",
-      "livingAreaUnitsShort": "sqft",
-      "listingMetadata": {
-        "comminglingCategoryIsRulesApplicable": true
-      },
-      "lotSize": 2696,
-      "lotAreaValue": 2696.364,
-      "lotAreaUnits": "Square Feet",
-      "address": {
-        "streetAddress": "963 Avalon Ave",
-        "city": "San Francisco",
-        "state": "CA",
-        "zipcode": "94112"
-      },
-      "formattedChip": {
-        "location": [
-          {
-            "fullValue": "963 Avalon Ave"
-          },
-          {
-            "fullValue": "San Francisco, CA 94112"
-          }
-        ]
-      },
-      "latitude": 37.725098,
-      "longitude": -122.4241,
-      "homeStatus": "FOR_SALE",
-      "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/963-Avalon-Ave-San-Francisco-CA-94112/15168125_zpid/",
-      "listing_sub_type": {
-        "is_newHome": false,
-        "is_forAuction": false,
-        "is_bankOwned": false,
-        "is_foreclosure": false,
-        "is_FSBO": false,
-        "is_comingSoon": false,
-        "is_FSBA": true
-      },
-      "providerListingID": null,
-      "attributionInfo": {
-        "mlsId": "423741563",
-        "mlsName": null,
-        "providerLogo": null,
-        "agentName": "Craig Ackerman DRE #01358899",
-        "agentPhoneNumber": null,
-        "brokerName": "Proof Real Estate",
-        "brokerPhoneNumber": null,
-        "trueStatus": null
-      },
-      "isPremierBuilder": false,
-      "state": "CA",
-      "newConstructionType": null
-    },
-    {
-      "zpid": 15141048,
-      "miniCardPhotos": [
-        {
-          "url": "https://photos.zillowstatic.com/fp/70b1289b91ab01c822cd8efa76339de2-p_c.jpg"
-        }
-      ],
-      "price": 995000,
-      "currency": "USD",
-      "bedrooms": 2,
-      "bathrooms": 1,
-      "livingArea": 1000,
-      "livingAreaValue": 1000,
-      "livingAreaUnits": "Square Feet",
-      "livingAreaUnitsShort": "sqft",
-      "listingMetadata": {
-        "comminglingCategoryIsRulesApplicable": true
-      },
-      "lotSize": 3349,
-      "lotAreaValue": 3349.764,
-      "lotAreaUnits": "Square Feet",
-      "address": {
-        "streetAddress": "1250 Plymouth Ave",
-        "city": "San Francisco",
-        "state": "CA",
-        "zipcode": "94112"
-      },
-      "formattedChip": {
-        "location": [
-          {
-            "fullValue": "1250 Plymouth Ave"
-          },
-          {
-            "fullValue": "San Francisco, CA 94112"
-          }
-        ]
-      },
-      "latitude": 37.725037,
-      "longitude": -122.45619,
-      "homeStatus": "FOR_SALE",
-      "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/1250-Plymouth-Ave-San-Francisco-CA-94112/15141048_zpid/",
-      "listing_sub_type": {
-        "is_newHome": false,
-        "is_forAuction": false,
-        "is_bankOwned": false,
-        "is_foreclosure": false,
-        "is_FSBO": false,
-        "is_comingSoon": false,
-        "is_FSBA": true
-      },
-      "providerListingID": null,
-      "attributionInfo": {
-        "mlsId": "423737568",
-        "mlsName": null,
-        "providerLogo": null,
-        "agentName": "Joseph C. Chav DRE #01493913",
-        "agentPhoneNumber": null,
-        "brokerName": "Coldwell Banker Realty",
-        "brokerPhoneNumber": null,
-        "trueStatus": null
-      },
-      "isPremierBuilder": false,
-      "state": "CA",
-      "newConstructionType": null
-    },
-    {
-      "zpid": 15179378,
-      "miniCardPhotos": [
-        {
-          "url": "https://photos.zillowstatic.com/fp/4d8347a46473538bab702d7d501a925c-p_c.jpg"
-        }
-      ],
-      "price": 899000,
-      "currency": "USD",
-      "bedrooms": 2,
-      "bathrooms": 1,
-      "livingArea": 1248,
-      "livingAreaValue": 1248,
-      "livingAreaUnits": "Square Feet",
-      "livingAreaUnitsShort": "sqft",
-      "listingMetadata": {
-        "comminglingCategoryIsRulesApplicable": true
-      },
-      "lotSize": 1799,
-      "lotAreaValue": 1799.028,
-      "lotAreaUnits": "Square Feet",
-      "address": {
-        "streetAddress": "143 Brunswick St",
-        "city": "San Francisco",
-        "state": "CA",
-        "zipcode": "94112"
-      },
-      "formattedChip": {
-        "location": [
-          {
-            "fullValue": "143 Brunswick St"
-          },
-          {
-            "fullValue": "San Francisco, CA 94112"
-          }
-        ]
-      },
-      "latitude": 37.711384,
-      "longitude": -122.43973,
-      "homeStatus": "FOR_SALE",
-      "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/143-Brunswick-St-San-Francisco-CA-94112/15179378_zpid/",
-      "listing_sub_type": {
-        "is_newHome": false,
-        "is_forAuction": false,
-        "is_bankOwned": false,
-        "is_foreclosure": false,
-        "is_FSBO": false,
-        "is_comingSoon": false,
-        "is_FSBA": true
-      },
-      "providerListingID": null,
-      "attributionInfo": {
-        "mlsId": "423744567",
-        "mlsName": null,
-        "providerLogo": null,
-        "agentName": "Deborah L. Nguyen DRE #01184151",
-        "agentPhoneNumber": null,
-        "brokerName": "Compass",
+        "brokerName": null,
         "brokerPhoneNumber": null,
         "trueStatus": null
       },
@@ -1710,113 +1614,47 @@
       "newConstructionType": null
     },
     {
-      "zpid": 15156713,
+      "zpid": 15189525,
       "miniCardPhotos": [
         {
-          "url": "https://photos.zillowstatic.com/fp/8815ba551c1dd49f45022fbcc55edb1a-p_c.jpg"
+          "url": "https://photos.zillowstatic.com/fp/2f22ebf614d17e4c79cdcb4eb45faa26-p_c.jpg"
         }
       ],
-      "price": 825000,
-      "currency": "USD",
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "livingArea": 995,
-      "livingAreaValue": 995,
-      "livingAreaUnits": "Square Feet",
-      "livingAreaUnitsShort": "sqft",
-      "listingMetadata": {
-        "comminglingCategoryIsRulesApplicable": true
-      },
-      "lotSize": 2500,
-      "lotAreaValue": 2500.344,
-      "lotAreaUnits": "Square Feet",
-      "address": {
-        "streetAddress": "2122 Quesada Ave",
-        "city": "San Francisco",
-        "state": "CA",
-        "zipcode": "94124"
-      },
-      "formattedChip": {
-        "location": [
-          {
-            "fullValue": "2122 Quesada Ave"
-          },
-          {
-            "fullValue": "San Francisco, CA 94124"
-          }
-        ]
-      },
-      "latitude": 37.738045,
-      "longitude": -122.3992,
-      "homeStatus": "FOR_SALE",
-      "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/2122-Quesada-Ave-San-Francisco-CA-94124/15156713_zpid/",
-      "listing_sub_type": {
-        "is_newHome": false,
-        "is_forAuction": false,
-        "is_bankOwned": false,
-        "is_foreclosure": false,
-        "is_FSBO": false,
-        "is_comingSoon": false,
-        "is_FSBA": true
-      },
-      "providerListingID": null,
-      "attributionInfo": {
-        "mlsId": "423744276",
-        "mlsName": null,
-        "providerLogo": null,
-        "agentName": "Emily M. Tam DRE #01898543",
-        "agentPhoneNumber": null,
-        "brokerName": "Berkshire Hathaway-Franciscan",
-        "brokerPhoneNumber": null,
-        "trueStatus": null
-      },
-      "isPremierBuilder": false,
-      "state": "CA",
-      "newConstructionType": null
-    },
-    {
-      "zpid": 15458210,
-      "miniCardPhotos": [
-        {
-          "url": "https://photos.zillowstatic.com/fp/c5acbe5f1972e2520ea4f8df6933c9c8-p_c.jpg"
-        }
-      ],
-      "price": 998000,
+      "price": 968000,
       "currency": "USD",
       "bedrooms": 2,
       "bathrooms": 1,
-      "livingArea": 1100,
-      "livingAreaValue": 1100,
+      "livingArea": 1000,
+      "livingAreaValue": 1000,
       "livingAreaUnits": "Square Feet",
       "livingAreaUnitsShort": "sqft",
       "listingMetadata": {
         "comminglingCategoryIsRulesApplicable": true
       },
-      "lotSize": 3300,
-      "lotAreaValue": 3300,
+      "lotSize": 2613,
+      "lotAreaValue": 2613.6,
       "lotAreaUnits": "Square Feet",
       "address": {
-        "streetAddress": "433 Southgate Ave",
-        "city": "Daly City",
+        "streetAddress": "521 Bright St",
+        "city": "San Francisco",
         "state": "CA",
-        "zipcode": "94015"
+        "zipcode": "94132"
       },
       "formattedChip": {
         "location": [
           {
-            "fullValue": "433 Southgate Ave"
+            "fullValue": "521 Bright St"
           },
           {
-            "fullValue": "Daly City, CA 94015"
+            "fullValue": "San Francisco, CA 94132"
           }
         ]
       },
-      "latitude": 37.6971,
-      "longitude": -122.48826,
+      "latitude": 37.720154,
+      "longitude": -122.463844,
       "homeStatus": "FOR_SALE",
       "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/433-Southgate-Ave-Daly-City-CA-94015/15458210_zpid/",
+      "hdpUrl": "/homedetails/521-Bright-St-San-Francisco-CA-94132/15189525_zpid/",
       "listing_sub_type": {
         "is_newHome": false,
         "is_forAuction": false,
@@ -1828,10 +1666,10 @@
       },
       "providerListingID": null,
       "attributionInfo": {
-        "mlsId": "ML81929550",
+        "mlsId": "41031206",
         "mlsName": null,
         "providerLogo": null,
-        "agentName": "Yu Lam",
+        "agentName": "Tina Kaur-Campbell",
         "agentPhoneNumber": null,
         "brokerName": null,
         "brokerPhoneNumber": null,
@@ -1842,113 +1680,47 @@
       "newConstructionType": null
     },
     {
-      "zpid": 15463388,
+      "zpid": 15193852,
       "miniCardPhotos": [
         {
-          "url": "https://photos.zillowstatic.com/fp/7a612b3d5e2caed81beb72f4c4a6ca17-p_c.jpg"
+          "url": "https://photos.zillowstatic.com/fp/ed159efddaa838dc8b6f8f0cb625f96e-p_c.jpg"
         }
       ],
-      "price": 995000,
-      "currency": "USD",
-      "bedrooms": 3,
-      "bathrooms": 3,
-      "livingArea": 1110,
-      "livingAreaValue": 1110,
-      "livingAreaUnits": "Square Feet",
-      "livingAreaUnitsShort": "sqft",
-      "listingMetadata": {
-        "comminglingCategoryIsRulesApplicable": true
-      },
-      "lotSize": 4451,
-      "lotAreaValue": 4451.832,
-      "lotAreaUnits": "Square Feet",
-      "address": {
-        "streetAddress": "353 Lowell St",
-        "city": "Daly City",
-        "state": "CA",
-        "zipcode": "94014"
-      },
-      "formattedChip": {
-        "location": [
-          {
-            "fullValue": "353 Lowell St"
-          },
-          {
-            "fullValue": "Daly City, CA 94014"
-          }
-        ]
-      },
-      "latitude": 37.708073,
-      "longitude": -122.44412,
-      "homeStatus": "FOR_SALE",
-      "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/353-Lowell-St-Daly-City-CA-94014/15463388_zpid/",
-      "listing_sub_type": {
-        "is_newHome": false,
-        "is_forAuction": false,
-        "is_bankOwned": false,
-        "is_foreclosure": false,
-        "is_FSBO": false,
-        "is_comingSoon": false,
-        "is_FSBA": true
-      },
-      "providerListingID": null,
-      "attributionInfo": {
-        "mlsId": "423744818",
-        "mlsName": null,
-        "providerLogo": null,
-        "agentName": "Bill M Davidson",
-        "agentPhoneNumber": null,
-        "brokerName": "Equity Preservation Realty",
-        "brokerPhoneNumber": null,
-        "trueStatus": null
-      },
-      "isPremierBuilder": false,
-      "state": "CA",
-      "newConstructionType": null
-    },
-    {
-      "zpid": 80741162,
-      "miniCardPhotos": [
-        {
-          "url": "https://photos.zillowstatic.com/fp/51b814d115342ab2dc853e8895e2a95b-p_c.jpg"
-        }
-      ],
-      "price": 849000,
+      "price": 998888,
       "currency": "USD",
       "bedrooms": 2,
       "bathrooms": 2,
-      "livingArea": 1044,
-      "livingAreaValue": 1044,
+      "livingArea": 1307,
+      "livingAreaValue": 1307,
       "livingAreaUnits": "Square Feet",
       "livingAreaUnitsShort": "sqft",
       "listingMetadata": {
         "comminglingCategoryIsRulesApplicable": true
       },
-      "lotSize": 30938,
-      "lotAreaValue": 0.7102387511478421,
-      "lotAreaUnits": "Acres",
+      "lotSize": 3123,
+      "lotAreaValue": 3123.252,
+      "lotAreaUnits": "Square Feet",
       "address": {
-        "streetAddress": "175 Bluxome St UNIT 301",
+        "streetAddress": "279 Minerva St",
         "city": "San Francisco",
         "state": "CA",
-        "zipcode": "94107"
+        "zipcode": "94112"
       },
       "formattedChip": {
         "location": [
           {
-            "fullValue": "175 Bluxome St UNIT 301"
+            "fullValue": "279 Minerva St"
           },
           {
-            "fullValue": "San Francisco, CA 94107"
+            "fullValue": "San Francisco, CA 94112"
           }
         ]
       },
-      "latitude": 37.774647,
-      "longitude": -122.399445,
+      "latitude": 37.715485,
+      "longitude": -122.46181,
       "homeStatus": "FOR_SALE",
-      "homeType": "CONDO",
-      "hdpUrl": "/homedetails/175-Bluxome-St-UNIT-301-San-Francisco-CA-94107/80741162_zpid/",
+      "homeType": "SINGLE_FAMILY",
+      "hdpUrl": "/homedetails/279-Minerva-St-San-Francisco-CA-94112/15193852_zpid/",
       "listing_sub_type": {
         "is_newHome": false,
         "is_forAuction": false,
@@ -1960,12 +1732,12 @@
       },
       "providerListingID": null,
       "attributionInfo": {
-        "mlsId": "423744573",
+        "mlsId": "423749579",
         "mlsName": null,
         "providerLogo": null,
-        "agentName": "James S. Koh DRE #01776330",
+        "agentName": "Samantha Huang DRE #01945343",
         "agentPhoneNumber": null,
-        "brokerName": "Compass",
+        "brokerName": "Corcoran Icon Properties",
         "brokerPhoneNumber": null,
         "trueStatus": null
       },
@@ -1974,47 +1746,47 @@
       "newConstructionType": null
     },
     {
-      "zpid": 15167483,
+      "zpid": 15193861,
       "miniCardPhotos": [
         {
-          "url": "https://photos.zillowstatic.com/fp/571c71b85967ba973fc4ee85151deeb5-p_c.jpg"
+          "url": "https://photos.zillowstatic.com/fp/cffe72a5b807556591ec02c853de8ee4-p_c.jpg"
         }
       ],
-      "price": 998000,
+      "price": 949888,
       "currency": "USD",
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "livingArea": 1250,
-      "livingAreaValue": 1250,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "livingArea": 857,
+      "livingAreaValue": 857,
       "livingAreaUnits": "Square Feet",
       "livingAreaUnitsShort": "sqft",
       "listingMetadata": {
         "comminglingCategoryIsRulesApplicable": true
       },
-      "lotSize": 2996,
-      "lotAreaValue": 2996.928,
+      "lotSize": 3049,
+      "lotAreaValue": 3049.2,
       "lotAreaUnits": "Square Feet",
       "address": {
-        "streetAddress": "231 Harvard St",
+        "streetAddress": "261 Minerva St",
         "city": "San Francisco",
         "state": "CA",
-        "zipcode": "94134"
+        "zipcode": "94112"
       },
       "formattedChip": {
         "location": [
           {
-            "fullValue": "231 Harvard St"
+            "fullValue": "261 Minerva St"
           },
           {
-            "fullValue": "San Francisco, CA 94134"
+            "fullValue": "San Francisco, CA 94112"
           }
         ]
       },
-      "latitude": 37.72675,
-      "longitude": -122.42039,
+      "latitude": 37.715492,
+      "longitude": -122.46103,
       "homeStatus": "FOR_SALE",
       "homeType": "SINGLE_FAMILY",
-      "hdpUrl": "/homedetails/231-Harvard-St-San-Francisco-CA-94134/15167483_zpid/",
+      "hdpUrl": "/homedetails/261-Minerva-St-San-Francisco-CA-94112/15193861_zpid/",
       "listing_sub_type": {
         "is_newHome": false,
         "is_forAuction": false,
@@ -2026,12 +1798,276 @@
       },
       "providerListingID": null,
       "attributionInfo": {
-        "mlsId": "423733426",
+        "mlsId": "41014116",
         "mlsName": null,
         "providerLogo": null,
-        "agentName": "Karen A. Mai DRE #01849461",
+        "agentName": "Alexander Watson",
         "agentPhoneNumber": null,
-        "brokerName": "KW Advisors",
+        "brokerName": null,
+        "brokerPhoneNumber": null,
+        "trueStatus": null
+      },
+      "isPremierBuilder": false,
+      "state": "CA",
+      "newConstructionType": null
+    },
+    {
+      "zpid": 15139467,
+      "miniCardPhotos": [
+        {
+          "url": "https://photos.zillowstatic.com/fp/99bc861264953c21783f4302ea130590-p_c.jpg"
+        }
+      ],
+      "price": 949000,
+      "currency": "USD",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "livingArea": 986,
+      "livingAreaValue": 986,
+      "livingAreaUnits": "Square Feet",
+      "livingAreaUnitsShort": "sqft",
+      "listingMetadata": {
+        "comminglingCategoryIsRulesApplicable": true
+      },
+      "lotSize": 1742,
+      "lotAreaValue": 1742.4,
+      "lotAreaUnits": "Square Feet",
+      "address": {
+        "streetAddress": "494 Flood Ave",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipcode": "94112"
+      },
+      "formattedChip": {
+        "location": [
+          {
+            "fullValue": "494 Flood Ave"
+          },
+          {
+            "fullValue": "San Francisco, CA 94112"
+          }
+        ]
+      },
+      "latitude": 37.730034,
+      "longitude": -122.45097,
+      "homeStatus": "FOR_SALE",
+      "homeType": "SINGLE_FAMILY",
+      "hdpUrl": "/homedetails/494-Flood-Ave-San-Francisco-CA-94112/15139467_zpid/",
+      "listing_sub_type": {
+        "is_newHome": false,
+        "is_forAuction": false,
+        "is_bankOwned": false,
+        "is_foreclosure": false,
+        "is_FSBO": false,
+        "is_comingSoon": false,
+        "is_FSBA": true
+      },
+      "providerListingID": null,
+      "attributionInfo": {
+        "mlsId": "41030660",
+        "mlsName": null,
+        "providerLogo": null,
+        "agentName": "Robert Song",
+        "agentPhoneNumber": null,
+        "brokerName": null,
+        "brokerPhoneNumber": null,
+        "trueStatus": null
+      },
+      "isPremierBuilder": false,
+      "state": "CA",
+      "newConstructionType": null
+    },
+    {
+      "zpid": 15195257,
+      "miniCardPhotos": [
+        {
+          "url": "https://photos.zillowstatic.com/fp/6e0ee95d8fd51ce3d06986db4253638e-p_c.jpg"
+        }
+      ],
+      "price": 999999,
+      "currency": "USD",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "livingArea": 1025,
+      "livingAreaValue": 1025,
+      "livingAreaUnits": "Square Feet",
+      "livingAreaUnitsShort": "sqft",
+      "listingMetadata": {
+        "comminglingCategoryIsRulesApplicable": true
+      },
+      "lotSize": 2613,
+      "lotAreaValue": 2613.6,
+      "lotAreaUnits": "Square Feet",
+      "address": {
+        "streetAddress": "21 Payson St",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipcode": "94132"
+      },
+      "formattedChip": {
+        "location": [
+          {
+            "fullValue": "21 Payson St"
+          },
+          {
+            "fullValue": "San Francisco, CA 94132"
+          }
+        ]
+      },
+      "latitude": 37.71198,
+      "longitude": -122.46969,
+      "homeStatus": "FOR_SALE",
+      "homeType": "SINGLE_FAMILY",
+      "hdpUrl": "/homedetails/21-Payson-St-San-Francisco-CA-94132/15195257_zpid/",
+      "listing_sub_type": {
+        "is_newHome": false,
+        "is_forAuction": false,
+        "is_bankOwned": false,
+        "is_foreclosure": false,
+        "is_FSBO": false,
+        "is_comingSoon": false,
+        "is_FSBA": true
+      },
+      "providerListingID": null,
+      "attributionInfo": {
+        "mlsId": "41031140",
+        "mlsName": null,
+        "providerLogo": null,
+        "agentName": "Becky Cheng",
+        "agentPhoneNumber": null,
+        "brokerName": null,
+        "brokerPhoneNumber": null,
+        "trueStatus": null
+      },
+      "isPremierBuilder": false,
+      "state": "CA",
+      "newConstructionType": null
+    },
+    {
+      "zpid": 15195683,
+      "miniCardPhotos": [
+        {
+          "url": "https://photos.zillowstatic.com/fp/7e8ab0312619ba2ea8761d887cee065a-p_c.jpg"
+        }
+      ],
+      "price": 768000,
+      "currency": "USD",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "livingArea": 728,
+      "livingAreaValue": 728,
+      "livingAreaUnits": "Square Feet",
+      "livingAreaUnitsShort": "sqft",
+      "listingMetadata": {
+        "comminglingCategoryIsRulesApplicable": true
+      },
+      "lotSize": 919,
+      "lotAreaValue": 919.116,
+      "lotAreaUnits": "Square Feet",
+      "address": {
+        "streetAddress": "3119 Alemany Blvd",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipcode": "94112"
+      },
+      "formattedChip": {
+        "location": [
+          {
+            "fullValue": "3119 Alemany Blvd"
+          },
+          {
+            "fullValue": "San Francisco, CA 94112"
+          }
+        ]
+      },
+      "latitude": 37.710194,
+      "longitude": -122.45522,
+      "homeStatus": "FOR_SALE",
+      "homeType": "SINGLE_FAMILY",
+      "hdpUrl": "/homedetails/3119-Alemany-Blvd-San-Francisco-CA-94112/15195683_zpid/",
+      "listing_sub_type": {
+        "is_newHome": false,
+        "is_forAuction": false,
+        "is_bankOwned": false,
+        "is_foreclosure": false,
+        "is_FSBO": false,
+        "is_comingSoon": false,
+        "is_FSBA": true
+      },
+      "providerListingID": null,
+      "attributionInfo": {
+        "mlsId": "423747112",
+        "mlsName": null,
+        "providerLogo": null,
+        "agentName": "Lanting Chen DRE #01461902",
+        "agentPhoneNumber": null,
+        "brokerName": "Intero Real Estate Services",
+        "brokerPhoneNumber": null,
+        "trueStatus": null
+      },
+      "isPremierBuilder": false,
+      "state": "CA",
+      "newConstructionType": null
+    },
+    {
+      "zpid": 15178598,
+      "miniCardPhotos": [
+        {
+          "url": "https://photos.zillowstatic.com/fp/7811396bcaf89d518149149587c95270-p_c.jpg"
+        }
+      ],
+      "price": 749000,
+      "currency": "USD",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "livingArea": 980,
+      "livingAreaValue": 980,
+      "livingAreaUnits": "Square Feet",
+      "livingAreaUnitsShort": "sqft",
+      "listingMetadata": {
+        "comminglingCategoryIsRulesApplicable": true
+      },
+      "lotSize": 2500,
+      "lotAreaValue": 2500.344,
+      "lotAreaUnits": "Square Feet",
+      "address": {
+        "streetAddress": "120 Rolph St",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipcode": "94112"
+      },
+      "formattedChip": {
+        "location": [
+          {
+            "fullValue": "120 Rolph St"
+          },
+          {
+            "fullValue": "San Francisco, CA 94112"
+          }
+        ]
+      },
+      "latitude": 37.714745,
+      "longitude": -122.439835,
+      "homeStatus": "FOR_SALE",
+      "homeType": "SINGLE_FAMILY",
+      "hdpUrl": "/homedetails/120-Rolph-St-San-Francisco-CA-94112/15178598_zpid/",
+      "listing_sub_type": {
+        "is_newHome": false,
+        "is_forAuction": true,
+        "is_bankOwned": false,
+        "is_foreclosure": false,
+        "is_FSBO": false,
+        "is_comingSoon": false,
+        "is_FSBA": false
+      },
+      "providerListingID": null,
+      "attributionInfo": {
+        "mlsId": "423741598",
+        "mlsName": null,
+        "providerLogo": null,
+        "agentName": "Robert Kinoshita, II DRE #01092987",
+        "agentPhoneNumber": null,
+        "brokerName": "Coldwell Banker Realty",
         "brokerPhoneNumber": null,
         "trueStatus": null
       },
@@ -2042,35 +2078,26 @@
   ],
   "description": "Imagine the Possibilities! Excellent  opportunity to own a single-family, fully detached  home with an attached one car garage on a desirable street! Work with your contractor and design plans to renovate the home to your liking, creating a space that truly reflects your style and needs. Enjoy  peekaboo views of Lake Merced from the living room. Good sized backyard offers privacy and extra space, great for relaxation, entertaining, personal enjoyment.  Property records indicate that the property is a 1bedroom, 1bath home, however, the additional room at the back of the home provides potential for customization and could be utilized in various ways depending on your needs such as another bedroom or home office. Virtual images are for entertainment purposes only and do not reflect actual size or property dimensions. The property is a fixer upper. Buyer to fully investigate all aspects of the property such as current condition, interior square footage & lot size prior to making an offer.",
   "whatILove": null,
-  "contingentListingType": null,
-  "timeOnZillow": "13 hours",
-  "pageViewCount": 586,
-  "favoriteCount": 14,
-  "daysOnZillow": 0,
+  "contingentListingType": "UNDER_CONTRACT",
+  "timeOnZillow": "31 days",
+  "pageViewCount": 2245,
+  "favoriteCount": 32,
+  "daysOnZillow": 31,
   "latitude": 37.71803,
   "longitude": -122.45783,
-  "openHouseSchedule": [
-    {
-      "startTime": "2023-05-28 13:00:00",
-      "endTime": "2023-05-28 16:00:00"
-    },
-    {
-      "startTime": "2023-06-04 13:00:00",
-      "endTime": "2023-06-04 16:00:00"
-    }
-  ],
+  "openHouseSchedule": [],
   "desktopWebHdpImageLink": "https://photos.zillowstatic.com/fp/fc74d9ea95fb55d5343f731fb0c1bc56-p_h.jpg",
   "brokerageName": "KW Advisors",
   "timeZone": "America/Los_Angeles",
   "listingMetadata": {
     "mustAttributeOfficeNameBeforeAgentName": false,
     "mustDisplayAttributionListAgentEmail": false,
-    "mustDisplayAttributionListAgentPhone": false,
+    "mustDisplayAttributionListAgentPhone": true,
     "mustDisplayAttributionListingOfficePhone": false,
     "mustDisplayDisclaimerBelowAttribution": false,
     "mustHighlightAgentName": null,
     "mustHighlightListOfficeName": false,
-    "mustMakeListingAgentContactable": true,
+    "mustMakeListingAgentContactable": false,
     "FlexibleLayoutAB": true,
     "isAdsRestricted": false,
     "canShowPrequalifiedLinkInChip": true,
@@ -2090,13 +2117,13 @@
     "FlexibleLayoutO": true,
     "FlexibleLayoutP": true,
     "FlexibleLayoutQ": false,
-    "FlexibleLayoutR": false,
+    "FlexibleLayoutR": true,
     "FlexibleLayoutS": false,
     "FlexibleLayoutT": false,
     "FlexibleLayoutU": false,
     "FlexibleLayoutV": false,
     "FlexibleLayoutW": false,
-    "FlexibleLayoutX": true,
+    "FlexibleLayoutX": false,
     "FlexibleLayoutY": false,
     "FlexibleLayoutZ": false,
     "FlexibleLayoutAA": true,
@@ -2129,11 +2156,18 @@
       "elements": [
         {
           "id": "NAME",
-          "text": "Wong Real Estate Grp",
-          "action": {
-            "variant": "SELLER_AGENT",
-            "url": "/contact/NativeAppContactForm.htm?zpid=15192198&preferredVariant=seller_agent"
-          }
+          "text": " Wong Real Estate Grp",
+          "action": null
+        },
+        {
+          "id": "LICENSE",
+          "text": "70010239",
+          "action": null
+        },
+        {
+          "id": "PHONE",
+          "text": "650-619-2790",
+          "action": null
         }
       ],
       "textStyle": null
@@ -2151,27 +2185,32 @@
     }
   ],
   "homeInsights": [],
-  "sellingSoon": [],
+  "sellingSoon": [
+    {
+      "treatmentId": "model_0",
+      "percentile": 0.91
+    }
+  ],
   "listingProvider": null,
   "isIncomeRestricted": null,
   "brokerId": null,
-  "ssid": 900,
+  "ssid": 18932,
   "monthlyHoaFee": null,
   "mortgageZHLRates": {
     "fifteenYearFixedBucket": {
-      "rate": 6.548,
+      "rate": 6.574,
       "rateSource": "ZGMI",
-      "lastUpdated": 1685265005505
+      "lastUpdated": 1687918200430
     },
     "thirtyYearFixedBucket": {
-      "rate": 6.788,
+      "rate": 6.797,
       "rateSource": "ZGMI",
-      "lastUpdated": 1685265005505
+      "lastUpdated": 1687918200430
     },
     "arm5Bucket": {
-      "rate": 6.552,
+      "rate": 7.249,
       "rateSource": "ZGMI",
-      "lastUpdated": 1685265005505
+      "lastUpdated": 1687918200430
     }
   },
   "propertyTaxRate": 1.19,
@@ -2183,254 +2222,14 @@
   "mediumImageLink": "https://photos.zillowstatic.com/fp/fc74d9ea95fb55d5343f731fb0c1bc56-p_d.jpg",
   "isZillowOwned": false,
   "isShowcaseListing": false,
-  "enhancedBrokerImageUrl": "https://photos.zillowstatic.com/fp/5273d6e56ef4c68cf7b7b4dd452c58d5-zillow_web_95_35.jpg",
+  "enhancedBrokerImageUrl": "https://photos.zillowstatic.com/fp/f6d938e7ba070e360124972ca1b833bc-zillow_web_95_35.jpg",
   "listingAccountUserId": "X1-ZUyzgbcahaecjt_8p8t0",
   "tourEligibility": {
-    "isPropertyTourEligible": true,
+    "isPropertyTourEligible": false,
     "propertyTourOptions": {
       "isFinal": true,
-      "tourAvailability": [
-        {
-          "date": "2023-05-28",
-          "status": "AVAILABLE",
-          "times": [
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-05-29",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-05-30",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-05-31",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-06-01",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-06-02",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-06-03",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-06-04",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        },
-        {
-          "date": "2023-06-05",
-          "status": "AVAILABLE",
-          "times": [
-            "09:00:00",
-            "09:30:00",
-            "10:00:00",
-            "10:30:00",
-            "11:00:00",
-            "11:30:00",
-            "12:00:00",
-            "12:30:00",
-            "13:00:00",
-            "13:30:00",
-            "14:00:00",
-            "14:30:00",
-            "15:00:00",
-            "15:30:00",
-            "16:00:00",
-            "16:30:00",
-            "17:00:00",
-            "17:30:00",
-            "18:00:00",
-            "18:30:00",
-            "19:00:00"
-          ]
-        }
-      ],
-      "tourType": "STANDARD"
+      "tourAvailability": [],
+      "tourType": "NONE"
     }
   },
   "contactFormRenderData": {
@@ -2444,29 +2243,28 @@
         "first_name": "DEBBIE",
         "image_data": {
           "height": 60,
-          "url": "https://photos.zillowstatic.com/h_n/ISrhukmsant4s80000000000.jpg",
+          "url": "https://photos.zillowstatic.com/h_n/ISb91kmpm6jy7d0000000000.jpg",
           "width": 60
         },
         "phone": null,
-        "profile_url": "/profile/bhgdebbiewong/",
+        "profile_url": "/profile/debbiewongbroker/",
         "rating_average": 5,
         "recent_sales": 0,
         "review_count": 22,
-        "reviews_url": "/profile/bhgdebbiewong/#reviews",
+        "reviews_url": "/profile/debbiewongbroker/#reviews",
         "services_offered": [
           1,
           2,
           3,
           6,
-          33,
           41
         ],
         "write_review_url": "/reviews/write/?s=X1-ZUyzgbcahaecjt_8p8t0",
         "zpro": false
       },
       "authentication": {
-        "hmac": "d2e778468022ee3ebe2273f445253c53c89b95e3a297b2763ede574c17172ff5",
-        "request_id": "b64b1b14fd3711edaa680a2b86c81f57"
+        "hmac": "41d2f625d070b23466f899d68a4b30c8d9e976ec490543276be1a843887a751d",
+        "request_id": "cf247a50155f11eeb03f06eb06b638c7"
       },
       "brokerage_info_must_be_shown": false,
       "contact_button_text": "Contact Agent",
@@ -2474,33 +2272,35 @@
         {
           "agent_reason": 1,
           "badge_type": "Premier Agent",
-          "display_name": "Keith Robinson",
-          "encoded_zuid": "X1-ZU1599hyofact8p_7c2wh",
-          "first_name": "Keith",
+          "display_name": "Simon Shue",
+          "encoded_zuid": "X1-ZUy9tvysd6ezgp_8e098",
+          "first_name": "Simon",
           "has_caliber_pal": false,
           "has_pal": false,
           "has_wells_fargo_pal": false,
           "image_data": {
             "height": 60,
-            "url": "https://photos.zillowstatic.com/h_n/IS7eu2nwk385i91000000000.jpg",
+            "url": "https://photos.zillowstatic.com/h_n/ISdsy1fmpewntq1000000000.jpg",
             "width": 60
           },
           "is_remnant": false,
           "phone": {
             "areacode": "415",
-            "number": "9882",
-            "prefix": "639"
+            "number": "2014",
+            "prefix": "862"
           },
-          "profile_url": "/profile/Keithvr/",
-          "rating_average": 5,
+          "profile_url": "/profile/simonshue/",
+          "rating_average": 4.9,
           "recent_sales": 0,
-          "review_count": 6,
-          "reviews_url": "/profile/Keithvr/#reviews",
+          "review_count": 140,
+          "reviews_url": "/profile/simonshue/#reviews",
           "services_offered": [
             1,
-            2
+            2,
+            3,
+            6
           ],
-          "write_review_url": "/reviews/write/?s=X1-ZU1599hyofact8p_7c2wh"
+          "write_review_url": "/reviews/write/?s=X1-ZUy9tvysd6ezgp_8e098"
         }
       ],
       "cv_27": {
@@ -2533,7 +2333,7 @@
           "profile_url": "/profile/KarnerisHarperRE/",
           "rating_average": 5,
           "recent_sales": 0,
-          "review_count": 26,
+          "review_count": 27,
           "reviews_url": "/profile/KarnerisHarperRE/#reviews",
           "services_offered": [
             1,
@@ -2563,7 +2363,7 @@
           "profile_url": "/profile/Samantha-Competente/",
           "rating_average": 5,
           "recent_sales": 0,
-          "review_count": 49,
+          "review_count": 50,
           "reviews_url": "/profile/Samantha-Competente/#reviews",
           "services_offered": [
             1,
@@ -2577,29 +2377,32 @@
         {
           "agent_reason": 1,
           "badge_type": "Premier Agent",
-          "display_name": "Adam Ettenson",
-          "encoded_zuid": "X1-ZU10jxst5go2yvd_7kibb",
-          "first_name": "Adam",
+          "display_name": "Berri Real Estate",
+          "encoded_zuid": "X1-ZUwoz7oypy23nt_5f91c",
+          "first_name": "Berri",
           "has_caliber_pal": false,
           "has_pal": false,
           "has_wells_fargo_pal": false,
           "image_data": {
             "height": 60,
-            "url": "https://photos.zillowstatic.com/h_n/ISh3alf2ufldfo0000000000.jpg",
+            "url": "https://photos.zillowstatic.com/h_n/ISy3hzka446yeq1000000000.jpg",
             "width": 60
           },
           "is_remnant": false,
-          "profile_url": "/profile/Adam-Ettenson/",
+          "profile_url": "/profile/BERRIRE/",
           "rating_average": 5,
-          "recent_sales": 0,
-          "review_count": 27,
-          "reviews_url": "/profile/Adam-Ettenson/#reviews",
+          "recent_sales": 1,
+          "review_count": 88,
+          "reviews_url": "/profile/BERRIRE/#reviews",
           "services_offered": [
             1,
             2,
-            3
+            3,
+            6,
+            33,
+            41
           ],
-          "write_review_url": "/reviews/write/?s=X1-ZU10jxst5go2yvd_7kibb"
+          "write_review_url": "/reviews/write/?s=X1-ZUwoz7oypy23nt_5f91c"
         }
       ],
       "displayed_lenders": [
@@ -2674,7 +2477,7 @@
         },
         {
           "name": "submitId",
-          "value": "049ea37d-4aff-43eb-b421-f200f47190f3"
+          "value": "cc89b60e-6c03-4f76-be1b-bc4490ec57fd"
         },
         {
           "name": "showPhoneMandatoryField",
@@ -2682,11 +2485,11 @@
         },
         {
           "name": "fpa",
-          "value": "X1-ZU1599hyofact8p_7c2wh"
+          "value": "X1-ZUy9tvysd6ezgp_8e098"
         },
         {
           "name": "leaderboardZuids",
-          "value": "X1-ZU1599hyofact8p_7c2wh,1"
+          "value": "X1-ZUy9tvysd6ezgp_8e098,1"
         },
         {
           "name": "isSelectListingAgent",
@@ -2694,7 +2497,7 @@
         },
         {
           "name": "zuid",
-          "value": "X1-ZU1599hyofact8p_7c2wh"
+          "value": "X1-ZUy9tvysd6ezgp_8e098"
         },
         {
           "name": "ccListingAgent",
@@ -2702,7 +2505,7 @@
         },
         {
           "name": "palZuids",
-          "value": "{\"X1-ZUyzgbcahaecjt_8p8t0\": \"X1-ZUz1ci99gqj409_uwi3\", \"X1-ZU1599hyofact8p_7c2wh\": \"X1-ZUz1ci99gqj409_uwi3\"}"
+          "value": "{\"X1-ZUyzgbcahaecjt_8p8t0\": \"X1-ZUz1ci99gqj409_uwi3\", \"X1-ZUy9tvysd6ezgp_8e098\": \"X1-ZUz1ci99gqj409_uwi3\"}"
         },
         {
           "name": "pixelId",
@@ -2727,7 +2530,7 @@
       "listing": {
         "direct_connect": {
           "contact_agent_eligible_v2": false,
-          "tour_eligible": false,
+          "tour_eligible": true,
           "tour_eligible_v2": false
         },
         "instant_book_region": false,
@@ -2745,8 +2548,8 @@
       },
       "request_trace": {
         "xpi": null,
-        "xsi": "f75a8f0e5328144b",
-        "xti": "16ba6bac4aa92a4150f4ea51768dd720"
+        "xsi": "24348b38b6397a72",
+        "xti": "82ebeb9a0ffd6534f3ac748e65fdc4fa"
       },
       "tcpa": true,
       "text_area": {
@@ -2785,7 +2588,8 @@
         "useFoundation": true
       },
       "tour_eligible": false,
-      "variant": "opaque"
+      "variant": "opaque",
+      "zhl_primary_cta_eligible": false
     }
   },
   "responsivePhotos": [
@@ -4371,7 +4175,7 @@
   "photoCount": 21,
   "livingAreaUnits": "Square Feet",
   "lotSize": 3746,
-  "lotAreaValue": 3746.16,
+  "lotAreaValue": 3746,
   "lotAreaUnits": "Square Feet",
   "postingProductType": "Standard",
   "marketingName": null,
@@ -4387,7 +4191,7 @@
     "reason": "The property is ineligible for displaying upsell"
   },
   "onsiteMessage": {
-    "eventId": "37139ed4-c5a6-47ea-a7f7-2cce850c8dbd",
+    "eventId": "4f6d1917-3ce2-495f-80dd-c3efa7691d91",
     "decisionContext": {},
     "messages": [
       {
@@ -4400,10 +4204,10 @@
         "bucket": "BASELINE_TREATMENT",
         "placementId": 399,
         "passThrottle": true,
-        "lastModified": "1679495268",
-        "eventId": "6feb8209-8df5-443e-8501-92902329130c",
+        "lastModified": "1687877355",
+        "eventId": "5c0fc682-b966-4cd5-8c0a-62d0a3492243",
         "decisionContext": {
-          "guid": "d9394748-f5da-4d4c-b99d-bc9ec7bfd01c",
+          "guid": "e446c648-e3f9-4abb-b5e2-a15f620b2c7c",
           "homeStatus": "fsba",
           "isZillowOwned": false,
           "homeType": "SINGLE_FAMILY",
@@ -4417,7 +4221,7 @@
           "state": "CA",
           "mlsid": "ML81929841",
           "hasUserClaimedHome": false,
-          "zestimate": "825100",
+          "zestimate": "887000",
           "shouldDisplayUpsell": false,
           "zoMarketCode": "OZM",
           "placementId": "wow-top",
@@ -4433,7 +4237,7 @@
           "name": "mortgages-zhl_purchase_fshdp_top_pre-qual-zhl-corner",
           "component": "UpsellWrapper",
           "status": "PORTFOLIO",
-          "renderingProps": "{\"actionLink\":\"https://www.zillowhomeloans.com/pre-qualify/?source=Zillow&channel=FSHDP&utm_source=OMP&utm_medium=OMP&utm_campaign=zhl_purchase_fshdp_top_pre-qual-zhl-corner&propertyValue=850000&propertyType=SingleFamilyHome&cityOrZip=94112&zuid=&guid=d9394748-f5da-4d4c-b99d-bc9ec7bfd01c\",\"actionText\":\"Start now\",\"actionType\":\"url_link\",\"background\":\"backgroundBlue\",\"bodyMarkdownText\":\"At Zillow Home Loans, we can pre-qualify you in as little as 3 minutes with no impact to your credit score. <p class=\\\"zg-mls-note\\\">An equal housing lender. NMLS #10287.</p><style> div[class*=Upsell-] .zg-mls-note{ font-size: 10px; font-weight: 400; position: absolute; right: 4px; bottom: 0; margin-bottom: -4px; color: grey; } </style>\",\"headingMarkdownText\":\"Get pre-qualified for a loan\",\"icon\":\"houseWithDollarSign\",\"overrideMargin\":\"16px\",\"hasBorder\":false,\"showAdvertisement\":true,\"tagInput\":\"Zillow Home Loans\",\"gaImpressionCategory\":\"Homes\",\"gaImpressionAction\":\"ZHL Purchase Upsell\",\"gaImpressionLabel\":\"Display|fshdp|wow-top|zhl-purchase|zhl-get-pre-qualified-zhl-corner|omp\",\"gaEngagementCategory\":\"Homes\",\"gaEngagementAction\":\"ZHL Purchase Upsell\",\"gaEngagementLabel\":\"Click|fshdp|wow-top|zhl-purchase|zhl-get-pre-qualified-zhl-corner|omp\",\"gaHoverCategory\":\"Homes\",\"gaHoverAction\":\"ZHL Purchase Upsell\",\"gaHoverLabel\":\"Hover|fshdp|wow-top|zhl-purchase|zhl-get-pre-qualified-zhl-corner|omp\"}",
+          "renderingProps": "{\"actionLink\":\"https://www.zillowhomeloans.com/pre-qualify/?source=Zillow&channel=FSHDP&utm_source=OMP&utm_medium=OMP&utm_campaign=zhl_purchase_fshdp_top_pre-qual-zhl-corner&propertyValue=850000&propertyType=SingleFamilyHome&cityOrZip=94112&zuid=&guid=e446c648-e3f9-4abb-b5e2-a15f620b2c7c\",\"actionText\":\"Start now\",\"actionType\":\"url_link\",\"background\":\"backgroundBlue\",\"bodyMarkdownText\":\"At Zillow Home Loans, we can pre-qualify you in as little as 3 minutes with no impact to your credit score. <p class=\\\"zg-mls-note\\\">An equal housing lender. NMLS #10287.</p><style> div[class*=Upsell-] .zg-mls-note{ font-size: 10px; font-weight: 400; position: absolute; right: 4px; bottom: 0; margin-bottom: -4px; color: grey; } </style>\",\"headingMarkdownText\":\"Get pre-qualified for a loan\",\"icon\":\"houseWithDollarSign\",\"overrideMargin\":\"16px\",\"hasBorder\":false,\"showAdvertisement\":true,\"tagInput\":\"Zillow Home Loans\",\"gaImpressionCategory\":\"Homes\",\"gaImpressionAction\":\"ZHL Purchase Upsell\",\"gaImpressionLabel\":\"Display|fshdp|wow-top|zhl-purchase|zhl-get-pre-qualified-zhl-corner|omp\",\"gaEngagementCategory\":\"Homes\",\"gaEngagementAction\":\"ZHL Purchase Upsell\",\"gaEngagementLabel\":\"Click|fshdp|wow-top|zhl-purchase|zhl-get-pre-qualified-zhl-corner|omp\",\"gaHoverCategory\":\"Homes\",\"gaHoverAction\":\"ZHL Purchase Upsell\",\"gaHoverLabel\":\"Hover|fshdp|wow-top|zhl-purchase|zhl-get-pre-qualified-zhl-corner|omp\"}",
           "lastModified": "1683204443"
         },
         "qualifiedTreatments": [
@@ -4502,15 +4306,33 @@
     "sources": [
       {
         "width": 192,
-        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=15&size=192x144&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&signature=bezGcgSUgx16v9Y0xnsXa_dHUkw="
+        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=13&size=192x144&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&signature=lJ6-xEGN1SlY7qQj6Cm1iAWEsD4=",
+        "isHighResolutionStaticMap": null
+      },
+      {
+        "width": 192,
+        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=15&size=192x144&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&scale=2&signature=Jdh9Yof_V7dvnfXK2unJ9aAJ7jk=",
+        "isHighResolutionStaticMap": true
       },
       {
         "width": 384,
-        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=16&size=384x288&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&signature=zknhHnf3WswQuw9NOEvfwaFY65g="
+        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=14&size=384x288&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&signature=MTOmHPhEjRQJrCL1jaFThSN4YjA=",
+        "isHighResolutionStaticMap": null
+      },
+      {
+        "width": 384,
+        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=15&size=384x288&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&scale=2&signature=zIcLTT3reuwGl9vTviN4L5Ns0Oo=",
+        "isHighResolutionStaticMap": true
       },
       {
         "width": 768,
-        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=17&size=768x576&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&signature=jzFKoM5aBqT_5WZbR5SAz5zpRrU="
+        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=15&size=768x576&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&signature=l43XRQNy_-fsOMw6_CYEEhUUd2U=",
+        "isHighResolutionStaticMap": null
+      },
+      {
+        "width": 768,
+        "url": "https://maps.googleapis.com/maps/api/staticmap?center=37.71803,-122.45783&zoom=15&size=768x576&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&scale=2&signature=-lgKavAefhlFSZw6JEo2KuoU64s=",
+        "isHighResolutionStaticMap": true
       }
     ]
   },
@@ -6062,12 +5884,12 @@
     "isForeclosure": false,
     "isBankOwned": false,
     "isForAuction": false,
-    "isOpenHouse": true,
+    "isOpenHouse": false,
     "isComingSoon": false
   },
   "tourViewCount": 0,
   "postingContact": {
-    "name": "Wong Real Estate Grp",
+    "name": " Wong Real Estate Grp",
     "photo": null
   },
   "vrModel": {
@@ -6087,7 +5909,8 @@
       "json": {
         "logo": {
           "text": "Zillow Real Estate",
-          "href": "/"
+          "href": "/",
+          "gaClickEventObj": {}
         },
         "main": {
           "sections": [
@@ -6097,6 +5920,40 @@
                 "href": "/homes/",
                 "classString": "noroute"
               },
+              "gaHoverEventObj": {
+                "category": "nav_menu",
+                "action": "mouseover",
+                "label": "buy",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/homes/",
+                    "level_one": "Buy",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
+                "label": "buy"
+              },
               "subsections": [
                 {
                   "title": "San Francisco homes for sale",
@@ -6105,43 +5962,251 @@
                       {
                         "text": "Homes for sale",
                         "href": "/san-francisco-ca/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "Homes for sale"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Foreclosures",
                         "href": "/san-francisco-ca/foreclosures/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/foreclosures/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "Foreclosures"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "For sale by owner",
                         "href": "/san-francisco-ca/fsbo/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/fsbo/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "For sale by owner"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Open houses",
                         "href": "/san-francisco-ca/open-house/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/open-house/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "Open houses"
+                            }
+                          }
+                        }
                       }
                     ],
                     [
                       {
                         "text": "New construction",
                         "href": "/san-francisco-ca/new-homes/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/new-homes/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "New construction"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Coming soon",
                         "href": "/san-francisco-ca/coming-soon/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/coming-soon/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "Coming soon"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Recent home sales",
                         "href": "/san-francisco-ca/sold/",
-                        "classString": "noroute"
+                        "classString": "noroute",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/san-francisco-ca/sold/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "Recent home sales"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "All homes",
-                        "href": "/browse/homes/"
+                        "href": "/browse/homes/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/browse/homes/",
+                              "level_one": "Buy",
+                              "level_two": "San Francisco homes for sale",
+                              "level_three": "All homes"
+                            }
+                          }
+                        }
                       }
                     ]
                   ]
@@ -6152,27 +6217,155 @@
                     [
                       {
                         "text": "Buyers Guide",
-                        "href": "/home-buying-guide/"
+                        "href": "/home-buying-guide/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/home-buying-guide/",
+                              "level_one": "Buy",
+                              "level_two": "Resources",
+                              "level_three": "Buyers Guide"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Foreclosure center",
-                        "href": "/foreclosures/"
+                        "href": "/foreclosures/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/foreclosures/",
+                              "level_one": "Buy",
+                              "level_two": "Resources",
+                              "level_three": "Foreclosure center"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Real estate app",
-                        "href": "/z/buying/app-download/"
+                        "href": "/z/buying/app-download/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/z/buying/app-download/",
+                              "level_one": "Buy",
+                              "level_two": "Resources",
+                              "level_three": "Real estate app"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Down payment assistance",
                         "href": "/down-payment-assistance/",
                         "gaClickEventObj": {
                           "category": "TopNav",
-                          "action": "Down Payment Assistance"
+                          "action": "Down Payment Assistance",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/down-payment-assistance/",
+                              "level_one": "Buy",
+                              "level_two": "Resources",
+                              "level_three": "Down payment assistance"
+                            }
+                          }
                         }
                       },
                       {
                         "text": "Find a buyer's agent",
-                        "href": "/professionals/real-estate-agent-reviews"
+                        "href": "/professionals/real-estate-agent-reviews",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/real-estate-agent-reviews",
+                              "level_one": "Buy",
+                              "level_two": "Resources",
+                              "level_three": "Find a buyer's agent"
+                            }
+                          }
+                        }
                       }
                     ]
                   ]
@@ -6185,6 +6378,40 @@
                 "href": "/homes/for_rent/",
                 "classString": "noroute"
               },
+              "gaHoverEventObj": {
+                "category": "nav_menu",
+                "action": "mouseover",
+                "label": "rent",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/homes/for_rent/",
+                    "level_one": "Rent",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
+                "label": "rent"
+              },
               "subsections": [
                 {
                   "title": "San Francisco rentals",
@@ -6192,26 +6419,156 @@
                     {
                       "text": "Rental buildings",
                       "href": "/san-francisco-ca/rental-buildings/",
-                      "classString": "noroute"
+                      "classString": "noroute",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/san-francisco-ca/rental-buildings/",
+                            "level_one": "Rent",
+                            "level_two": "San Francisco rentals",
+                            "level_three": "Rental buildings"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Apartments for rent",
                       "href": "/san-francisco-ca/apartments/",
-                      "classString": "noroute"
+                      "classString": "noroute",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/san-francisco-ca/apartments/",
+                            "level_one": "Rent",
+                            "level_two": "San Francisco rentals",
+                            "level_three": "Apartments for rent"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Houses for rent",
                       "href": "/san-francisco-ca/rent-houses/",
-                      "classString": "noroute"
+                      "classString": "noroute",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/san-francisco-ca/rent-houses/",
+                            "level_one": "Rent",
+                            "level_two": "San Francisco rentals",
+                            "level_three": "Houses for rent"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "All rental listings",
                       "href": "/san-francisco-ca/rentals/",
-                      "classString": "noroute"
+                      "classString": "noroute",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/san-francisco-ca/rentals/",
+                            "level_one": "Rent",
+                            "level_two": "San Francisco rentals",
+                            "level_three": "All rental listings"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "All rental buildings",
-                      "href": "/browse/b/"
+                      "href": "/browse/b/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/browse/b/",
+                            "level_one": "Rent",
+                            "level_two": "San Francisco rentals",
+                            "level_three": "All rental buildings"
+                          }
+                        }
+                      }
                     }
                   ]
                 },
@@ -6220,15 +6577,93 @@
                   "links": [
                     {
                       "text": "Contacted rentals",
-                      "href": "/renting/"
+                      "href": "/renting/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/renting/",
+                            "level_one": "Rent",
+                            "level_two": "Renter Hub",
+                            "level_three": "Contacted rentals"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Your rental",
-                      "href": "/renting/your-rental/"
+                      "href": "/renting/your-rental/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/renting/your-rental/",
+                            "level_one": "Rent",
+                            "level_two": "Renter Hub",
+                            "level_three": "Your rental"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Messages",
-                      "href": "/renter-hub/inbox/"
+                      "href": "/renter-hub/inbox/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/renter-hub/inbox/",
+                            "level_one": "Rent",
+                            "level_two": "Renter Hub",
+                            "level_three": "Messages"
+                          }
+                        }
+                      }
                     }
                   ]
                 },
@@ -6241,7 +6676,31 @@
                       "gaClickEventObj": {
                         "category": "renter_tools",
                         "action": "click",
-                        "label": "affordability"
+                        "label": "affordability",
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/rent-affordability-calculator/",
+                            "level_one": "Rent",
+                            "level_two": "Resources",
+                            "level_three": "Affordability calculator"
+                          }
+                        }
                       }
                     },
                     {
@@ -6250,22 +6709,36 @@
                       "gaClickEventObj": {
                         "category": "renter_tools",
                         "action": "click",
-                        "label": "guide"
+                        "label": "guide",
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/rent/guide/",
+                            "level_one": "Rent",
+                            "level_two": "Resources",
+                            "level_three": "Renters guide"
+                          }
+                        }
                       }
                     }
                   ]
                 }
-              ],
-              "gaHoverEventObj": {
-                "category": "nav_menu",
-                "action": "mouseover",
-                "label": "rent"
-              },
-              "gaExpandoClickObj": {
-                "category": "nav_menu",
-                "action": "click_down",
-                "label": "rent"
-              }
+              ]
             },
             {
               "link": {
@@ -6275,6 +6748,35 @@
               "gaHoverEventObj": {
                 "category": "nav_menu",
                 "action": "mouseover",
+                "label": "sell",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/sell/",
+                    "level_one": "Sell",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
                 "label": "sell"
               },
               "subsections": [
@@ -6283,20 +6785,123 @@
                   "links": [
                     {
                       "text": "Explore your options",
-                      "href": "/sell/"
+                      "href": "/sell/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/sell/",
+                            "level_one": "Sell",
+                            "level_two": "Resources",
+                            "level_three": "Explore your options"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "See your home's Zestimate",
                       "href": "/how-much-is-my-home-worth/",
-                      "gaClickEventObj": false
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/how-much-is-my-home-worth/",
+                            "level_one": "Sell",
+                            "level_two": "Resources",
+                            "level_three": "See your home's Zestimate"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "San Francisco Home values",
-                      "href": "/home-values/20330/san-francisco-ca/"
+                      "href": "/home-values/20330/san-francisco-ca/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/home-values/20330/san-francisco-ca/",
+                            "level_one": "Sell",
+                            "level_two": "Resources",
+                            "level_three": "San Francisco Home values"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Sellers guide",
-                      "href": "/sellers-guide/"
+                      "href": "/sellers-guide/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/sellers-guide/",
+                            "level_one": "Sell",
+                            "level_two": "Resources",
+                            "level_three": "Sellers guide"
+                          }
+                        }
+                      }
                     }
                   ]
                 },
@@ -6305,11 +6910,63 @@
                   "links": [
                     {
                       "text": "Find a seller's agent",
-                      "href": "/professionals/real-estate-agent-reviews/san-francisco-ca/?service=Selling"
+                      "href": "/professionals/real-estate-agent-reviews/san-francisco-ca/?service=Selling",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/professionals/real-estate-agent-reviews/san-francisco-ca/?service=Selling",
+                            "level_one": "Sell",
+                            "level_two": "Selling options",
+                            "level_three": "Find a seller's agent"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Post For Sale by Owner",
-                      "href": "/for-sale-by-owner/"
+                      "href": "/for-sale-by-owner/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/for-sale-by-owner/",
+                            "level_one": "Sell",
+                            "level_two": "Selling options",
+                            "level_three": "Post For Sale by Owner"
+                          }
+                        }
+                      }
                     }
                   ]
                 }
@@ -6320,29 +6977,193 @@
                 "text": "Home Loans",
                 "href": "/home-loans/#source=Z_Mortgagestopnav"
               },
+              "gaHoverEventObj": {
+                "category": "nav_menu",
+                "action": "mouseover",
+                "label": "home_loans",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/home-loans/#source=Z_Mortgagestopnav",
+                    "level_one": "Home Loans",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
+                "label": "home_loans"
+              },
               "subsections": [
                 {
                   "title": "Shop mortgages",
                   "links": [
                     {
                       "text": "Mortgage lenders",
-                      "href": "/mortgages/#source=Z_Mortgageshovertopnav"
+                      "href": "/mortgages/#source=Z_Mortgageshovertopnav",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgages/#source=Z_Mortgageshovertopnav",
+                            "level_one": "Home Loans",
+                            "level_two": "Shop mortgages",
+                            "level_three": "Mortgage lenders"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "HELOC lenders",
-                      "href": "/mortgages/heloc/#source=Z_Mortgageshovertopnav"
+                      "href": "/mortgages/heloc/#source=Z_Mortgageshovertopnav",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgages/heloc/#source=Z_Mortgageshovertopnav",
+                            "level_one": "Home Loans",
+                            "level_two": "Shop mortgages",
+                            "level_three": "HELOC lenders"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Mortgage rates",
-                      "href": "/mortgage-rates/ca/san-francisco/"
+                      "href": "/mortgage-rates/ca/san-francisco/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-rates/ca/san-francisco/",
+                            "level_one": "Home Loans",
+                            "level_two": "Shop mortgages",
+                            "level_three": "Mortgage rates"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Refinance rates",
-                      "href": "/refinance/ca/san-francisco/"
+                      "href": "/refinance/ca/san-francisco/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/refinance/ca/san-francisco/",
+                            "level_one": "Home Loans",
+                            "level_two": "Shop mortgages",
+                            "level_three": "Refinance rates"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "All mortgage rates",
-                      "href": "/mortgage/browse/"
+                      "href": "/mortgage/browse/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage/browse/",
+                            "level_one": "Home Loans",
+                            "level_two": "Shop mortgages",
+                            "level_three": "All mortgage rates"
+                          }
+                        }
+                      }
                     }
                   ]
                 },
@@ -6351,23 +7172,153 @@
                   "links": [
                     {
                       "text": "Mortgage calculator",
-                      "href": "/mortgage-calculator/"
+                      "href": "/mortgage-calculator/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-calculator/",
+                            "level_one": "Home Loans",
+                            "level_two": "Calculators",
+                            "level_three": "Mortgage calculator"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Refinance calculator",
-                      "href": "/mortgage-calculator/refinance-calculator/"
+                      "href": "/mortgage-calculator/refinance-calculator/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-calculator/refinance-calculator/",
+                            "level_one": "Home Loans",
+                            "level_two": "Calculators",
+                            "level_three": "Refinance calculator"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Affordability calculator",
-                      "href": "/mortgage-calculator/house-affordability/"
+                      "href": "/mortgage-calculator/house-affordability/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-calculator/house-affordability/",
+                            "level_one": "Home Loans",
+                            "level_two": "Calculators",
+                            "level_three": "Affordability calculator"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Amortization calculator",
-                      "href": "/mortgage-calculator/amortization-schedule-calculator/"
+                      "href": "/mortgage-calculator/amortization-schedule-calculator/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-calculator/amortization-schedule-calculator/",
+                            "level_one": "Home Loans",
+                            "level_two": "Calculators",
+                            "level_three": "Amortization calculator"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Debt-to-Income calculator",
-                      "href": "/mortgage-calculator/debt-to-income-calculator/"
+                      "href": "/mortgage-calculator/debt-to-income-calculator/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-calculator/debt-to-income-calculator/",
+                            "level_one": "Home Loans",
+                            "level_two": "Calculators",
+                            "level_three": "Debt-to-Income calculator"
+                          }
+                        }
+                      }
                     }
                   ]
                 },
@@ -6376,19 +7327,123 @@
                   "links": [
                     {
                       "text": "Lender reviews",
-                      "href": "/lender-directory/"
+                      "href": "/lender-directory/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/lender-directory/",
+                            "level_one": "Home Loans",
+                            "level_two": "Resources",
+                            "level_three": "Lender reviews"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Mortgage learning center",
-                      "href": "/mortgage-learning/"
+                      "href": "/mortgage-learning/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/mortgage-learning/",
+                            "level_one": "Home Loans",
+                            "level_two": "Resources",
+                            "level_three": "Mortgage learning center"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Mortgages app",
-                      "href": "/z/buying/app-download/"
+                      "href": "/z/buying/app-download/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/z/buying/app-download/",
+                            "level_one": "Home Loans",
+                            "level_two": "Resources",
+                            "level_three": "Mortgages app"
+                          }
+                        }
+                      }
                     },
                     {
                       "text": "Lender resource center",
-                      "href": "/lender-resources/"
+                      "href": "/lender-resources/",
+                      "gaClickEventObj": {
+                        "newLaneEvent": {
+                          "envelope": {
+                            "event_client_start_dtm": "Wed Jun 28 2023",
+                            "event_type_id": 3781,
+                            "event_type_version_id": "1",
+                            "event_template_id": "242",
+                            "event_template_version_id": "1"
+                          },
+                          "clickstream_trigger": {
+                            "trigger_type_nm": "interaction",
+                            "trigger_location_nm": "top_navigation",
+                            "trigger_source_nm": "top_navigation",
+                            "trigger_object_nm": "no_trigger_object"
+                          },
+                          "semantic": {
+                            "semantic_event_nm": "top_nav_click"
+                          },
+                          "top_navigation": {
+                            "target_url": "/lender-resources/",
+                            "level_one": "Home Loans",
+                            "level_two": "Resources",
+                            "level_three": "Lender resource center"
+                          }
+                        }
+                      }
                     }
                   ]
                 }
@@ -6399,6 +7454,40 @@
                 "text": "Agent finder",
                 "href": "/professionals/real-estate-agent-reviews/san-francisco-ca/"
               },
+              "gaHoverEventObj": {
+                "category": "nav_menu",
+                "action": "mouseover",
+                "label": "agent_finder",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/professionals/real-estate-agent-reviews/san-francisco-ca/",
+                    "level_one": "Agent finder",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
+                "label": "agent_finder"
+              },
               "subsections": [
                 {
                   "title": "Looking for pros?",
@@ -6406,33 +7495,215 @@
                     [
                       {
                         "text": "Real estate agents",
-                        "href": "/professionals/real-estate-agent-reviews/san-francisco-ca/"
+                        "href": "/professionals/real-estate-agent-reviews/san-francisco-ca/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/real-estate-agent-reviews/san-francisco-ca/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Real estate agents"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Property managers",
-                        "href": "/professionals/property-manager-reviews/san-francisco-ca/"
+                        "href": "/professionals/property-manager-reviews/san-francisco-ca/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/property-manager-reviews/san-francisco-ca/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Property managers"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Home inspectors",
-                        "href": "/professionals/home-inspector-reviews/san-francisco-ca/"
+                        "href": "/professionals/home-inspector-reviews/san-francisco-ca/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/home-inspector-reviews/san-francisco-ca/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Home inspectors"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Other pros",
-                        "href": "/professionals/real-estate-services-reviews/san-francisco-ca/"
+                        "href": "/professionals/real-estate-services-reviews/san-francisco-ca/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/real-estate-services-reviews/san-francisco-ca/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Other pros"
+                            }
+                          }
+                        }
                       }
                     ],
                     [
                       {
                         "text": "Home improvement pros",
-                        "href": "/professionals/home-improvement-reviews/san-francisco-ca/"
+                        "href": "/professionals/home-improvement-reviews/san-francisco-ca/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/home-improvement-reviews/san-francisco-ca/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Home improvement pros"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Home builders",
-                        "href": "/home-builders/san-francisco-ca/20330/"
+                        "href": "/home-builders/san-francisco-ca/20330/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/home-builders/san-francisco-ca/20330/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Home builders"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Real estate photographers",
-                        "href": "/professionals/photographer-reviews/san-francisco-ca/"
+                        "href": "/professionals/photographer-reviews/san-francisco-ca/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/professionals/photographer-reviews/san-francisco-ca/",
+                              "level_one": "Agent finder",
+                              "level_two": "Looking for pros?",
+                              "level_three": "Real estate photographers"
+                            }
+                          }
+                        }
                       }
                     ]
                   ]
@@ -6443,29 +7714,185 @@
                     [
                       {
                         "text": "Agent advertising",
-                        "href": "https://premieragent.zillow.com/products/advertising/?itc=paw_z_sitewide-agentfinder_subnav-advertising_pa-ads_a_null"
+                        "href": "https://premieragent.zillow.com/products/advertising/?itc=paw_z_sitewide-agentfinder_subnav-advertising_pa-ads_a_null",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "https://premieragent.zillow.com/products/advertising/?itc=paw_z_sitewide-agentfinder_subnav-advertising_pa-ads_a_null",
+                              "level_one": "Agent finder",
+                              "level_two": "I'm a pro",
+                              "level_three": "Agent advertising"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Agent resource center",
-                        "href": "/agent-resources/"
+                        "href": "/agent-resources/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/agent-resources/",
+                              "level_one": "Agent finder",
+                              "level_two": "I'm a pro",
+                              "level_three": "Agent resource center"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Create a free agent account",
-                        "href": "/premier-agent/agent-account/?itc=paw_z_sitewide-agentfinder_subnav-createagentaccount_pa-reg_a_null"
+                        "href": "/premier-agent/agent-account/?itc=paw_z_sitewide-agentfinder_subnav-createagentaccount_pa-reg_a_null",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/premier-agent/agent-account/?itc=paw_z_sitewide-agentfinder_subnav-createagentaccount_pa-reg_a_null",
+                              "level_one": "Agent finder",
+                              "level_two": "I'm a pro",
+                              "level_three": "Create a free agent account"
+                            }
+                          }
+                        }
                       }
                     ],
                     [
                       {
                         "text": "Real estate business plan",
-                        "href": "/agent-resources/agent-toolkit/real-estate-business-plan-template/"
+                        "href": "/agent-resources/agent-toolkit/real-estate-business-plan-template/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/agent-resources/agent-toolkit/real-estate-business-plan-template/",
+                              "level_one": "Agent finder",
+                              "level_two": "I'm a pro",
+                              "level_three": "Real estate business plan"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Real estate agent scripts",
-                        "href": "/agent-resources/agent-toolkit/real-estate-follow-up-email-templates/"
+                        "href": "/agent-resources/agent-toolkit/real-estate-follow-up-email-templates/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/agent-resources/agent-toolkit/real-estate-follow-up-email-templates/",
+                              "level_one": "Agent finder",
+                              "level_two": "I'm a pro",
+                              "level_three": "Real estate agent scripts"
+                            }
+                          }
+                        }
                       },
                       {
                         "text": "Listing flyer templates",
-                        "href": "/agent-resources/agent-toolkit/real-estate-listing-flyer-templates/"
+                        "href": "/agent-resources/agent-toolkit/real-estate-listing-flyer-templates/",
+                        "gaClickEventObj": {
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/agent-resources/agent-toolkit/real-estate-listing-flyer-templates/",
+                              "level_one": "Agent finder",
+                              "level_two": "I'm a pro",
+                              "level_three": "Listing flyer templates"
+                            }
+                          }
+                        }
                       }
                     ]
                   ]
@@ -6488,7 +7915,31 @@
               "gaHoverEventObj": {
                 "category": "nav_menu",
                 "action": "mouseover",
-                "label": "manage_rentals"
+                "label": "manage_rentals",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/rental-manager/?source=topnav&itc=postbutton_sitenav",
+                    "level_one": "Manage Rentals",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
               },
               "gaExpandoClickObj": {
                 "category": "nav_menu",
@@ -6508,7 +7959,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "list"
+                          "label": "list",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/post-a-listing?itc=ltr_zw_ltr_zrm-home_tpnv_post-a-listing",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Rental Management Tools",
+                              "level_three": "List a rental"
+                            }
+                          }
                         }
                       },
                       {
@@ -6519,7 +7994,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "listing"
+                          "label": "listing",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/select-property?type=listings&source=topnav&itc=postbutton_topnav",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Rental Management Tools",
+                              "level_three": "My Listings"
+                            }
+                          }
                         }
                       },
                       {
@@ -6530,7 +8029,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "messages"
+                          "label": "messages",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/inbox/",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Rental Management Tools",
+                              "level_three": "Messages"
+                            }
+                          }
                         }
                       },
                       {
@@ -6541,7 +8064,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "applications"
+                          "label": "applications",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/select-property?type=applications&source=topnav&itc=postbutton_topnav",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Rental Management Tools",
+                              "level_three": "Applications"
+                            }
+                          }
                         }
                       },
                       {
@@ -6552,7 +8099,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "leases"
+                          "label": "leases",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/select-property?type=leases&source=topnav&itc=postbutton_topnav",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Rental Management Tools",
+                              "level_three": "Leases"
+                            }
+                          }
                         }
                       },
                       {
@@ -6563,7 +8134,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "payments"
+                          "label": "payments",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/select-property?type=payments&source=topnav&itc=postbutton_topnav",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Rental Management Tools",
+                              "level_three": "Payments"
+                            }
+                          }
                         }
                       }
                     ]
@@ -6581,7 +8176,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "about"
+                          "label": "about",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/?source=topnav&itc=list_zrm_topnav",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Learn More",
+                              "level_three": "Zillow Rental Manager"
+                            }
+                          }
                         }
                       },
                       {
@@ -6592,7 +8211,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "price"
+                          "label": "price",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/price-my-rental/?itc=ltr_zw_ltr_zrm-home_tpnv_price-my-rental",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Learn More",
+                              "level_three": "Price My Rental"
+                            }
+                          }
                         }
                       },
                       {
@@ -6603,7 +8246,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "resource"
+                          "label": "resource",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "/rental-manager/resources/",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Learn More",
+                              "level_three": "Resource Center"
+                            }
+                          }
                         }
                       },
                       {
@@ -6614,7 +8281,31 @@
                         "gaClickEventObj": {
                           "category": "manage_rentals",
                           "action": "click",
-                          "label": "help"
+                          "label": "help",
+                          "newLaneEvent": {
+                            "envelope": {
+                              "event_client_start_dtm": "Wed Jun 28 2023",
+                              "event_type_id": 3781,
+                              "event_type_version_id": "1",
+                              "event_template_id": "242",
+                              "event_template_version_id": "1"
+                            },
+                            "clickstream_trigger": {
+                              "trigger_type_nm": "interaction",
+                              "trigger_location_nm": "top_navigation",
+                              "trigger_source_nm": "top_navigation",
+                              "trigger_object_nm": "no_trigger_object"
+                            },
+                            "semantic": {
+                              "semantic_event_nm": "top_nav_click"
+                            },
+                            "top_navigation": {
+                              "target_url": "https://help.zillowrentalmanager.com/hc/en-us/",
+                              "level_one": "Manage Rentals",
+                              "level_two": "Learn More",
+                              "level_three": "Help Center"
+                            }
+                          }
                         }
                       }
                     ]
@@ -6626,6 +8317,40 @@
               "link": {
                 "text": "Advertise",
                 "href": "/z/partners/advertise/"
+              },
+              "gaHoverEventObj": {
+                "category": "nav_menu",
+                "action": "mouseover",
+                "label": "advertise",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "/z/partners/advertise/",
+                    "level_one": "Advertise",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
+                "label": "advertise"
               }
             }
           ]
@@ -6652,6 +8377,40 @@
               "link": {
                 "text": "Help",
                 "href": "https://zillow.zendesk.com/hc/en-us/"
+              },
+              "gaHoverEventObj": {
+                "category": "nav_menu",
+                "action": "mouseover",
+                "label": "help",
+                "newLaneEvent": {
+                  "envelope": {
+                    "event_client_start_dtm": "Wed Jun 28 2023",
+                    "event_type_id": 3784,
+                    "event_type_version_id": "1",
+                    "event_template_id": "242",
+                    "event_template_version_id": "1"
+                  },
+                  "clickstream_trigger": {
+                    "trigger_type_nm": "interaction",
+                    "trigger_location_nm": "top_navigation",
+                    "trigger_source_nm": "top_navigation",
+                    "trigger_object_nm": "no_trigger_object"
+                  },
+                  "semantic": {
+                    "semantic_event_nm": "top_nav_hover"
+                  },
+                  "top_navigation": {
+                    "target_url": "https://zillow.zendesk.com/hc/en-us/",
+                    "level_one": "Help",
+                    "level_two": null,
+                    "level_three": null
+                  }
+                }
+              },
+              "gaExpandoClickObj": {
+                "category": "nav_menu",
+                "action": "click_down",
+                "label": "help"
               }
             }
           ]
@@ -6659,11 +8418,13 @@
         "common": {
           "home": {
             "text": "Zillow Real Estate",
-            "href": "/"
+            "href": "/",
+            "gaClickEventObj": {}
           },
           "advertise": {
             "text": "Advertise",
-            "href": "/advertise/"
+            "href": "/advertise/",
+            "gaClickEventObj": {}
           },
           "login": {
             "text": "Sign in",
@@ -6677,7 +8438,7 @@
       }
     },
     "core": {
-      "js": "https://s.zillowstatic.com/s3/pfs/core-46487585588ca98e884f.js"
+      "js": "https://s.zillowstatic.com/s3/pfs/core-7b35f589ed6454fd50ef.js"
     }
   },
   "listingFeedID": null,
@@ -6699,7 +8460,7 @@
   "comingSoonOnMarketDate": null,
   "isPreforeclosureAuction": false,
   "mortgageRates": {
-    "thirtyYearFixedRate": 6.823
+    "thirtyYearFixedRate": 6.584
   },
   "annualHomeownersInsurance": 3570,
   "lastSoldPrice": null,
@@ -7575,7 +9336,6 @@
   ],
   "isRecentStatusChange": false,
   "isNonOwnerOccupied": false,
-  "county": "San Francisco County",
   "isFeatured": false,
   "rentalApplicationsAcceptedType": "REQUEST_TO_APPLY",
   "listingTypeDimension": "For Sale by Agent",
