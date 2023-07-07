@@ -34,7 +34,10 @@ class CompanyData(TypedDict):
 
 def parse_company(result: ScrapeApiResponse) -> CompanyData:
     """parse company page for company and employee data"""
-    app_state_data = _unescape_angular(result.selector.css("script#client-app-state::text").get())
+    # the app cache data can be in one of two places:
+    app_state_data = result.selector.css("script#ng-state::text").get()
+    if not app_state_data:
+        app_state_data = _unescape_angular(result.selector.css("script#client-app-state::text").get())
     app_state_data = json.loads(app_state_data)
     # there are multiple caches:
     cache_keys = list(app_state_data["HttpState"])
