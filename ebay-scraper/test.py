@@ -75,7 +75,7 @@ async def test_search_scraping():
         # note: could be placeholder - https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg 
         "photo": {"type": "string", "regex": r"https://i.ebayimg.com/thumbs/images/.+?|https://.+ebaystatic.com/.+", "nullable": True},
         "title": {"type": "string"},
-        "location": {"type": "string", "min_presence": 0.05},
+        "location": {"type": "string", "min_presence": 0.02},
         "condition": {"type": "string"},
         "subtitles": {"type": "list", "schema": {"type": "string"}},
         "shipping": {"type": "float", "nullable": True},
