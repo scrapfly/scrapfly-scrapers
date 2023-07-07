@@ -1,3 +1,4 @@
+import asyncio
 from cerberus import Validator as _Validator
 import pytest
 
@@ -31,8 +32,13 @@ def validate_or_fail(item, validator):
 
 @pytest.mark.asyncio
 async def test_product_scraping():
-    url = "https://www.amazon.com/dp/B0BHC395WW"
-    result = await amazon.scrape_product(url)
+    urls = [
+        "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
+        "https://www.amazon.com/All-new-Kindle-Paperwhite-GB-adjustable/dp/B09RD7XM9X/",
+        "https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299/",
+    ]
+    results = await asyncio.gather(*[amazon.scrape_product(url) for url in urls])
+    results = [result for result_set in results for result in result_set]
     schema = {
         "name": {"type": "string"},
         "asin": {"type": "string"},
@@ -45,17 +51,17 @@ async def test_product_scraping():
         "info_table": {"type": "dict"},
     }
     validator = Validator(schema, allow_unknown=True)
-    for variant in result:
-        validate_or_fail(variant, validator)
+    for result in results:
+        validate_or_fail(result, validator)
     for k in schema:
-        require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
+        require_min_presence(results, k, min_perc=schema[k].get("min_presence", 0.1))
 
 
 @pytest.mark.asyncio
 async def test_search_scraping():
     url = "https://www.amazon.com/s?k=kindle"
     result = await amazon.scrape_search(url, max_pages=2)
-    assert len(result) >= 36 
+    assert len(result) >= 36
     schema = {
         "url": {"type": "string"},
         "title": {"type": "string"},

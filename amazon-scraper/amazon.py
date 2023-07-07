@@ -179,8 +179,16 @@ class Product(TypedDict):
 def parse_product(result) -> Product:
     """parse Amazon's product page (e.g. https://www.amazon.com/dp/B07KR2N2GF) for essential product data"""
     # images are stored in javascript state data found in the html
-    # for this we can use a simple regex pattern:
-    image_data = json.loads(re.findall(r"colorImages':.*'initial':\s*(\[.+?\])},\n", result.content)[0])
+    # for this we can use a simple regex pattern that can be in one of those locations:
+    color_images = re.findall(r"colorImages':.*'initial':\s*(\[.+?\])},\n", result.content)
+    image_gallery = re.findall(r"imageGalleryData'\s*:\s*(\[.+\]),\n", result.content)
+    if color_images:
+        images = [img['large'] for img in json.loads(color_images[0])]
+    elif image_gallery:
+        images = [img['mainUrl'] for img in json.loads(image_gallery[0])]
+    else:
+        log.debug(f"no images found for {result.context['url']}")
+
     # the other fields can be extracted with simple css selectors
     # we can define our helper functions to keep our code clean
     sel = result.selector
@@ -192,7 +200,7 @@ def parse_product(result) -> Product:
         "stars": sel.css("i[data-hook=average-star-rating] ::text").get("").strip(),
         "rating_count": sel.css("div[data-hook=total-review-count] ::text").get("").strip(),
         "features": [value.strip() for value in sel.css("#feature-bullets li ::text").getall()],
-        "images": [img['large'] for img in image_data],
+        "images": images,
     }
     # extract details from "Product Information" table:
     info_table = {}
