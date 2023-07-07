@@ -8,6 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import math
 import os
+import re
 from typing import Dict, List, TypedDict
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
 
@@ -105,42 +106,79 @@ class Product(TypedDict):
 
 def parse_product(result: ScrapeApiResponse) -> Product:
     """parse product HTML page for product data"""
-    script_with_data = result.selector.xpath('//script[contains(text(),"window.runParams")]')
-    data = json.loads(script_with_data.re(r"data: ({.+?}),\n")[0])
-    product = jmespath.search("""{
-        name: titleModule.subject,
-        total_orders: titleModule.formatTradeCount,
-        feedback: titleModule.feedbackRating,
-        description_url: descriptionModule.descriptionUrl,
-        description_short: pageModule.description,
-        keywords: pageModule.keywords,
-        images: imageModule.imagePathList,
-        stock: quantityModule.totalAvailQuantity,
-        seller: storeModule.{
-            id: storeNum,
-            url: storeURL,
-            name: storeName,
-            country: countryCompleteName,
-            positive_rating: positiveRate,
-            positive_rating_count: positiveNum,
-            started_on: openTime,
-            is_top_rated: topRatedSeller
-        },
-        specification: specsModule.props[].{
-            name: attrName,
-            value: attrValue
-        },
-        variants: skuModule.skuPriceList[].{
-            name: skuAttr,
-            sku: skuId,
-            available: skuVal.availQuantity,
-            stock: skuVal.inventory,
-            full_price: skuVal.skuAmount.value,
-            discount_price: skuVal.skuActivityAmount.value,
-            currency: skuVal.skuAmount.currency
-        }
-    }""", data)
-    product['specification'] = dict([v.values() for v in product['specification']])
+    script_with_data = result.selector.xpath('//script[contains(text(),"window.runParams")]/text()').get()
+    data = re.findall(r".+?data:\s*({.+?)};", script_with_data, re.DOTALL)
+    data = json.loads(data[0])
+    # newstyle data
+    if "skuModule" not in data:
+        product = jmespath.search("""{
+            name: productInfoComponent.subject,
+            total_orders: tradeComponent.formatTradeCount,
+            feedback: feedbackComponent,
+            description_url: productDescComponent.descriptionUrl,
+            description_short: metaDataComponent.description,
+            keywords: metaDataComponent.keywords,
+            images: imageComponent.imagePathList,
+            stock: inventoryComponent.totalAvailQuantity,
+            seller: sellerComponent.{
+                id: storeNum,
+                url: storeURL,
+                name: storeName,
+                country: countryCompleteName,
+                positive_rating: positiveRate,
+                positive_rating_count: positiveNum,
+                started_on: openTime,
+                is_top_rated: topRatedSeller
+            },
+            specification: productPropComponent.props[].{
+                name: attrName,
+                value: attrValue
+            },
+            variants: priceComponent.skuPriceList[].{
+                name: skuAttr,
+                sku: skuId,
+                available: skuVal.availQuantity,
+                stock: skuVal.inventory,
+                full_price: skuVal.skuAmount.value,
+                discount_price: skuVal.skuActivityAmount.value,
+                currency: skuVal.skuAmount.currency
+            }
+        }""", data)
+    else:
+        product = jmespath.search("""{
+            name: titleModule.subject,
+            total_orders: titleModule.formatTradeCount,
+            feedback: titleModule.feedbackRating,
+            description_url: descriptionModule.descriptionUrl,
+            description_short: pageModule.description,
+            keywords: pageModule.keywords,
+            images: imageModule.imagePathList,
+            stock: quantityModule.totalAvailQuantity,
+            seller: storeModule.{
+                id: storeNum,
+                url: storeURL,
+                name: storeName,
+                country: countryCompleteName,
+                positive_rating: positiveRate,
+                positive_rating_count: positiveNum,
+                started_on: openTime,
+                is_top_rated: topRatedSeller
+            },
+            specification: specsModule.props[].{
+                name: attrName,
+                value: attrValue
+            },
+            variants: skuModule.skuPriceList[].{
+                name: skuAttr,
+                sku: skuId,
+                available: skuVal.availQuantity,
+                stock: skuVal.inventory,
+                full_price: skuVal.skuAmount.value,
+                discount_price: skuVal.skuActivityAmount.value,
+                currency: skuVal.skuAmount.currency
+            }
+        }""", data)
+    product['specification'] = dict([v.values() for v in product.get('specification', {})])
     return product
 
 
@@ -156,7 +194,7 @@ def parse_review_page(result: ScrapeApiResponse):
     parsed = []
     for box in result.selector.css(".feedback-item"):
         # to get star score we have to rely on styling where's 1 star == 20% width, e.g. 4 stars is 80%
-        stars = int(box.css(".star-view>span::attr(style)").re("width:(\d+)%")[0]) / 20
+        stars = int(box.css(".star-view>span::attr(style)").re(r"width:(\d+)%")[0]) / 20
         # to get options we must iterate through every options container
         options = {}
         for option in box.css("div.user-order-info>span"):

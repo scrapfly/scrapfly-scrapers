@@ -33,7 +33,7 @@ async def test_product_scraping():
                     "sku": {"type": "integer"},
                     "name": {"type": "string"},
                     "full_price": {"type": "float"},
-                    "discount_price": {"type": "float"},
+                    "discount_price": {"type": "float", "nullable": True},
                 },
             },
         },
