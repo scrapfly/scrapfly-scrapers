@@ -19,7 +19,8 @@ async def test_search_scraping():
     assert len(result_search) >= 50
     schema = {
         "url": {"type": "string", "regex": r"https://www.booking.com/hotel/.+?\.html"},
-        "name": {"type": "string", "minlength": 4},
+        # note: hotels can be named as a single character - really:  https://www.booking.com/hotel/mt/6.en-gb.html
+        "name": {"type": "string", "minlength": 1},
         "score": {"type": "float", "min": 0, "max": 10, "nullable": True},
         "review_count": {"type": "integer", "min": 0, "max": 50_000, "nullable": True},
         "image": {"type": "string", "regex": r".+?/images/hotel/.+?"}
