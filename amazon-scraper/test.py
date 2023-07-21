@@ -61,7 +61,7 @@ async def test_product_scraping():
 async def test_search_scraping():
     url = "https://www.amazon.com/s?k=kindle"
     result = await amazon.scrape_search(url, max_pages=2)
-    assert len(result) >= 36
+    assert len(result) >= 30  # the number can vary as search parser skips ads 
     schema = {
         "url": {"type": "string"},
         "title": {"type": "string"},
