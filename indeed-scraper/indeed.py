@@ -75,7 +75,7 @@ def parse_job_page(result: ScrapeApiResponse):
     data = json.loads(data[0])
     data = data["jobInfoWrapperModel"]["jobInfoModel"]
     return {
-        "description": data['sanitizedJobDescription']['content'],
+        "description": data['sanitizedJobDescription'],
         **data["jobMetadataHeaderModel"],
         **(data["jobTagModel"] or {}),
         **data["jobInfoHeaderModel"],
