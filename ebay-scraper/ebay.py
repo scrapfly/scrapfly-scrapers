@@ -156,7 +156,7 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
                 "bids": css_int(".s-item__bidCount::text"),
                 "location": css_re(".s-item__itemLocation::text", "from (.+)"),
                 "subtitles": css_all(".s-item__subtitle::text"),
-                "condition": css(".s-item__subtitle .SECONDARY_INFO::text"),
+                "condition": css(".SECONDARY_INFO::text"),
                 "photo": css("img::attr(data-src)") or css("img::attr(src)"),
                 "rating": css_float(".s-item__reviews .clipped::text"),
                 "rating_count": css_int(".s-item__reviews-count span::text"),
