@@ -106,8 +106,8 @@ def parse_product(result: ScrapeApiResponse):
     )  # ebay automatically converts price for some regions
 
     item["name"] = css_join("h1 span::text")
-    item["seller_name"] = css_join("div[data-testid=str-title] a ::text")
-    item["seller_url"] = css("div[data-testid=str-title] a::attr(href)").split("?")[0]
+    item["seller_name"] = css_join("[data-testid=str-title] a ::text")
+    item["seller_url"] = css("[data-testid=str-title] a::attr(href)").split("?")[0]
     item["photos"] = sel.css('.ux-image-filmstrip-carousel-item.image img::attr("src")').getall()  # carousel images
     item["photos"].extend(sel.css('.ux-image-carousel-item.image img::attr("src")').getall())  # main image
     # description is an iframe (independant page). We can keep it as an URL or scrape it later.
