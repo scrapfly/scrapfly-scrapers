@@ -36,6 +36,7 @@ async def test_product_scraping():
         "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
         "https://www.amazon.com/All-new-Kindle-Paperwhite-GB-adjustable/dp/B09RD7XM9X/",
         "https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299/",
+        "https://www.amazon.com/42pcs-Fabric-Assorted-Squares-Nonwoven/dp/B01GCLS32M/",
     ]
     results = await asyncio.gather(*[amazon.scrape_product(url) for url in urls])
     results = [result for result_set in results for result in result_set]
