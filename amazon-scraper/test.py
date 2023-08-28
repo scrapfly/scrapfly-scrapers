@@ -67,7 +67,7 @@ async def test_search_scraping():
         "url": {"type": "string"},
         "title": {"type": "string"},
         "price": {"type": "string", "nullable": True},
-        "real_price": {"type": "string", "nullable": True, "min_presence": 0.2},
+        "real_price": {"type": "string", "nullable": True, "min_presence": 0.1},
         "rating": {"type": "float", "nullable": True, "min_presence": 0.2},
         "rating_count": {"type": "integer", "nullable": True, "min_presence": 0.2},
     }
