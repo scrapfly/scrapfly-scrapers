@@ -135,7 +135,7 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
 
 async def scrape_feed(url) -> Dict[str, datetime]:
     """scrapes atom RSS feed and returns all entries in "url:publish date" format"""
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, country="US"))
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     body = result.content.read()
     selector = Selector(text=body.decode(), type="xml")
     results = {}
