@@ -11,6 +11,7 @@ import jmespath
 
 from typing import Dict
 
+from nested_lookup import nested_lookup
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient
 
@@ -19,10 +20,7 @@ BASE_CONFIG = {
     # Threads.net might require Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
-    # Threads.net is javascript-powered web application so it requires
-    # headless browsers for scraping
-    "render_js": True,
-    "country": "US",  # set country here NOTE: Threads is not available in Europe
+    "country": "US",  # set country here NOTE: Threads is not available in Europe yet
 }
 
 
@@ -60,9 +58,9 @@ def parse_profile(data: Dict) -> Dict:
     """Parse Threads profile JSON dataset for the most important fields"""
     result = jmespath.search(
         """{
-        is_private: is_private,
+        is_private: text_post_app_is_private,
         is_verified: is_verified,
-        profile_pic: profile_pic_url,
+        profile_pic: hd_profile_pic_versions[-1].url,
         username: username,
         full_name: full_name,
         bio: biography,
@@ -82,35 +80,34 @@ async def scrape_thread(url: str) -> Dict:
     https://www.threads.net/t/CuVdfsNtmvh/
     Return parent thread and reply threads
     """
+    log.info("scraping thread: {}", url)
     for _ in range(3):
         result = await SCRAPFLY.async_scrape(
-            ScrapeConfig(url, auto_scroll=True, **BASE_CONFIG)
+            ScrapeConfig(url, **BASE_CONFIG)
         )
         if '/accounts/login' not in result.context['url']:
             break
     else:
         raise Exception('encountered endless login requirement redirect loop - does the post exist?')
-    # capture background requests and extract ones that contain user data
-    # and their latest tweets
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    gql_calls = [f for f in _xhr_calls if "/api/graphql" in f["url"]]
-    parsed = {
-        "thread": {},
-        "replies": [],
-    }
-    for xhr in gql_calls:
-        data = json.loads(xhr["response"]["body"])
-        try:
-            parsed['thread'] = parse_thread(data['data']['data']['containing_thread']['thread_items'][0])
-        except KeyError:
-            log.warning("unknown graphql call type {}", xhr['body'])
+    hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
+    for hidden_dataset in hidden_datasets:
+        # skip loading datasets that clearly don't contain threads data
+        if '"ScheduledServerJS"' not in hidden_dataset:
             continue
-        for reply in data['data']['data']['reply_threads']:
-            parsed['replies'].extend([
-                parse_thread(t)
-                for t in reply['thread_items']
-            ])
-    return parsed
+        if 'thread_items' not in hidden_dataset:
+            continue
+        data = json.loads(hidden_dataset)
+        thread_items = nested_lookup('thread_items', data)
+        if not thread_items:
+            continue
+        threads = [
+            parse_thread(t) for thread in thread_items for t in thread
+        ]
+        return {
+            "thread": threads[0],
+            "replies": threads[1:],
+        }
+    raise ValueError('could not find thread data in page')
 
 
 async def scrape_profile(url: str) -> Dict:
@@ -119,6 +116,7 @@ async def scrape_profile(url: str) -> Dict:
     https://www.threads.net/@zuck
     returns user data and latest tweets
     """
+    log.info("scraping profile: {}", url)
     for _ in range(3):
         result = await SCRAPFLY.async_scrape(
             ScrapeConfig(url, auto_scroll=True, **BASE_CONFIG)
@@ -127,21 +125,26 @@ async def scrape_profile(url: str) -> Dict:
             break
     else:
         raise Exception('encountered endless login requirement redirect loop - does the profile exist?')
-    # capture background requests and extract ones that contain user data
-    # and their latest tweets
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    gql_calls = [f for f in _xhr_calls if "/api/graphql" in f["url"]]
     parsed = {
-        "user": None,
+        "user": {},
         "threads": [],
     }
-    for xhr in gql_calls:
-        data = json.loads(xhr["response"]["body"])
-        if data["data"].get("userData"):
-            parsed['user'] = parse_profile(data["data"]["userData"]["user"])
-        elif data["data"].get("mediaData"):
-            for thread in data["data"]["mediaData"]["threads"]:
-                parsed["threads"].extend([parse_thread(t) for t in thread['thread_items']])
-        else:
-            log.warning("unknown graphql call type {}", xhr['body'])
+    # find all hidden datasets
+    hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
+    for hidden_dataset in hidden_datasets:
+        # skip loading datasets that clearly don't contain threads data
+        if '"ScheduledServerJS"' not in hidden_dataset:
+            continue
+        if 'userData' not in hidden_dataset and 'thread_items' not in hidden_dataset:
+            continue
+        data = json.loads(hidden_dataset)
+        user_data = nested_lookup('userData', data)
+        thread_items = nested_lookup('thread_items', data)
+        if user_data:
+            parsed['user'] = parse_profile(user_data[0]['user'])
+        if thread_items:
+            threads = [
+                parse_thread(t) for thread in thread_items for t in thread
+            ]
+            parsed['threads'].extend(threads)
     return parsed
