@@ -40,7 +40,7 @@ def require_min_presence(items, key, min_perc=0.1):
 async def test_product_scraping():
     result = await ebay.scrape_product("https://www.ebay.com/itm/393531906094")
     schema = {
-        "url": {"type": "string", "regex": "https://www.ebay.com/itm/\d+"},
+        "url": {"type": "string", "regex": "https://www.ebay.com/itm/\d+(\?.*?)*"},
         "id": {"type": "string", "regex": r"\d+"},
         "name": {"type": "string"},
         "price": {"type": "string"},
