@@ -23,7 +23,7 @@ BASE_CONFIG = {
     # Twitter.com is javascript-powered web application so it requires
     # headless browsers for scraping
     "render_js": True,
-    "country": "CA",  # set prefered country here, for example Canada
+    # "country": "CA",  # set prefered country here, for example Canada
 }
 
 
@@ -89,7 +89,7 @@ async def _scrape_twitter_app(url: str, _retries: int = 0, **scrape_config) -> D
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(url, auto_scroll=True, **scrape_config, **BASE_CONFIG)
     )
-    if "Something went wrong. Try reloading." in result.content:
+    if "Something went wrong, but" in result.content:
         if _retries > 2:
             raise Exception("Twitter web app crashed too many times")
         return await _scrape_twitter_app(url, _retries=_retries + 1, **scrape_config)
@@ -105,32 +105,12 @@ async def scrape_tweet(url: str) -> Dict:
     result = await _scrape_twitter_app(url, wait_for_selector="[data-testid='tweet']")
     # capture background requests and extract ones that request Tweet data
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    tweet_call = [f for f in _xhr_calls if "TweetDetail" in f["url"]]
-    tweets = []
+    tweet_call = [f for f in _xhr_calls if "TweetResultByRestId" in f["url"]]
     for xhr in tweet_call:
         if not xhr["response"]:
             continue
         data = json.loads(xhr["response"]["body"])
-        # find tweet_results key recursive as that's where tweet data is located
-        xhr_tweets = nested_lookup("tweet_results", data)
-        tweets.extend([parse_tweet(tweet["result"]) for tweet in xhr_tweets])
-
-    # Now that we have all tweets we can parse them into a thread
-    # The first tweet is the parent, the rest are replies or suggested tweets
-    parent = tweets.pop(0)
-    replies = []
-    other = []
-    for tweet in tweets:
-        if tweet["conversation_id"] == parent["conversation_id"]:
-            replies.append(tweet)
-        else:
-            other.append(tweet)
-    return {
-        "tweet": parent,
-        "replies": replies,
-        "other": other,  # ads, recommended etc
-    }
-
+        return parse_tweet(data['data']['tweetResult']['result'])
 
 async def scrape_profile(url: str) -> Dict:
     """

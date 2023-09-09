@@ -4,18 +4,18 @@ This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape p
 
 Full tutorial <https://scrapfly.io/blog/how-to-scrape-aliexpress/>
 
-The scraping code is located in the `aliexpress.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
+The scraping code is located in the `aliexpress.py` file. It's fully documented and simplified for educational purposes, and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
 - Aliexpress product data
 - Aliexpress product review data
 - Aliexpress product search
 
-For output examples see the `./results` directory.
+For output examples, see the `./results` directory.
 
 ## Setup and Use
 
-This Aliexpress.com scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Aliexpress's data.
+This Aliexpress.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Aliexpress's data.
 
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
@@ -23,7 +23,7 @@ This Aliexpress.com scraper is using Python with [scrapfly-sdk](https://pypi.org
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/aliexpress-scraper
     $ poetry install .
     ```

@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import bookingcom
 
+bookingcom.BASE_CONFIG["cache"] = True
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
@@ -25,20 +26,20 @@ async def run():
     print("running Booking.com example scrapes and saving results to ./results directory")
 
     result_search = await bookingcom.scrape_search(
-        query="Malta", 
+        query="Malta",
         checkin=TODAY,
         checkout=WEEK_FROM_NOW,
         max_pages=2
     )
     output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
 
-    bookingcom.BASE_CONFIG["cache"] = False
-    result_hotel = await bookingcom.scrape_hotel(
-        "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
-        checkin=WEEK_FROM_NOW, 
-        price_n_days=7,
-    )
-    output.joinpath("hotel.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False))
+    # bookingcom.BASE_CONFIG["cache"] = False
+    # result_hotel = await bookingcom.scrape_hotel(
+    #     "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
+    #     checkin=WEEK_FROM_NOW, 
+    #     price_n_days=7,
+    # )
+    # output.joinpath("hotel.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

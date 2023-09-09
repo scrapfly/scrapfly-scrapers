@@ -16,7 +16,7 @@ Note: This scraper is only scraping public Instagram data that doesn't require a
 
 ## Setup and Use
 
-This Instagram.com scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Instagram's data.
+This Instagram.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Instagram's data.
 
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
@@ -24,7 +24,7 @@ This Instagram.com scraper is using Python with [scrapfly-sdk](https://pypi.org/
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/crunchbase-scraper
     $ poetry install .
     ```

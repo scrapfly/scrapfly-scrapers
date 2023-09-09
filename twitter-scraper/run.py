@@ -19,17 +19,17 @@ async def run():
 
     print("running Twitter scrape and saving results to ./results directory")
 
-    url = "https://twitter.com/robinhanson/status/1621310291030974465"
-    tweets = await twitter.scrape_tweet(url)
-    output.joinpath("tweet.json").write_text(json.dumps(tweets, indent=2, ensure_ascii=False))
+    # url = "https://twitter.com/robinhanson/status/1621310291030974465"
+    # tweets = await twitter.scrape_tweet(url)
+    # output.joinpath("tweet.json").write_text(json.dumps(tweets, indent=2, ensure_ascii=False))
     
     url = "https://twitter.com/scrapfly_dev"
     profile = await twitter.scrape_profile(url)
     output.joinpath("profile.json").write_text(json.dumps(profile, indent=2, ensure_ascii=False))
 
-    url = "https://twitter.com/i/topics/853980498816679937"
-    topic = await twitter.scrape_topic(url)
-    output.joinpath("topic.json").write_text(json.dumps(topic, indent=2, ensure_ascii=False))
+    # url = "https://twitter.com/i/topics/853980498816679937"
+    # topic = await twitter.scrape_topic(url)
+    # output.joinpath("topic.json").write_text(json.dumps(topic, indent=2, ensure_ascii=False))
 
 
 

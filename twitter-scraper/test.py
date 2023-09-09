@@ -35,12 +35,7 @@ USER_SCHEMA = {
 async def test_tweet_scraping():
     url = "https://twitter.com/robinhanson/status/1621310291030974465"
     result = await twitter.scrape_tweet(url)
-    schema = {
-        "tweet": {"type": "dict", "schema": TWEET_SCHEMA},
-        "replies": {"type": "list", "schema": {"type": "dict", "schema": TWEET_SCHEMA}},
-        "other": {"type": "list", "schema": {"type": "dict", "schema": TWEET_SCHEMA}},
-    }
-    validator = Validator(schema, allow_unknown=True)
+    validator = Validator(TWEET_SCHEMA, allow_unknown=True)
     validate_or_fail(result, validator)
 
 

@@ -18,7 +18,7 @@ For output examples see the `./results` directory.
 
 ## Setup and Use
 
-This Booking scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Booking.com's data.
+This Booking scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Booking.com's data.
 
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
@@ -26,7 +26,7 @@ This Booking scraper is using Python with [scrapfly-sdk](https://pypi.org/projec
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/bookingcom-scraper
     $ poetry install .
     ```

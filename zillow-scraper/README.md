@@ -14,7 +14,7 @@ For output examples see the `./results` directory.
 
 ## Setup and Use
 
-This Zillow scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Zillow's data.
+This Zillow scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Zillow's data.
 
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
@@ -22,7 +22,7 @@ This Zillow scraper is using Python with [scrapfly-sdk](https://pypi.org/project
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/zillow-scraper
     $ poetry install .
     ```

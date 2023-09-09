@@ -2,7 +2,13 @@
 
 This repository contains example scrapers for popular web scraping targets using [scrapfly](https://scrapfly.io) web scraping API and Python.
 
-For full guides on how to scrape these targets see the [scrapeguide directory](https://scrapfly.io/blog/tag/scrapeguide/):
+Most Scrapers use a simple web scraping stack:
+
+- Python version 3.10+
+- [Scrapfly's Python SDK](https://github.com/scrapfly/python-scrapfly) for web scraping.
+- [JMespath]() and [nested-lookup]() for JSON parsing when needed.
+
+For full guides on how to scrape these targets (and many others) see the [scrapeguide directory](https://scrapfly.io/blog/tag/scrapeguide/):
 
 - [aliexpress.com](./aliexpress-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-aliexpress/)
 - [amazon.com](./amazon-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-amazon/)
@@ -18,5 +24,3 @@ For full guides on how to scrape these targets see the [scrapeguide directory](h
 - [tripadvisor.com](./tripadvisor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
 - [twitter.com](./twitter-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-twitter/)
 - [zillow.com](./zillow-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-zillow/)
-
-All of the scrapers are powered by [scrapfly's python sdk](https://github.com/scrapfly/python-scrapfly)

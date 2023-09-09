@@ -15,7 +15,7 @@ For output examples see the `./results` directory.
 
 ## Setup and Use
 
-This Amazon.com scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Amazon's data.
+This Amazon.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Amazon's data.
 
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
@@ -23,7 +23,7 @@ This Amazon.com scraper is using Python with [scrapfly-sdk](https://pypi.org/pro
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/amazon-scraper
     $ poetry install .
     ```

@@ -15,7 +15,7 @@ For output examples see the `./results` directory.
 
 ## Setup and Use
 
-This Realtor.com scraper is using Python with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Realtor.com's data.
+This Realtor.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Realtor.com's data.
 
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
@@ -23,7 +23,7 @@ This Realtor.com scraper is using Python with [scrapfly-sdk](https://pypi.org/pr
     ```
 2. Clone and install Python environment:
     ```shell
-    $ git clone git@github.com:scrapfly/scrapfly-scrapers.git
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/realtorcom-scraper
     $ poetry install .
     ```
