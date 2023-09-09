@@ -11,6 +11,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         test: [test_find_companies, test_job_scraping, test_salary_scraping, test_review_scraping]
 
