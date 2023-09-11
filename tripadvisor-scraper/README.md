@@ -21,6 +21,7 @@ For output examples see the `./results` directory.
 
 This Tripadvisor scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Tripadvisor's data.
 
+0. Ensure you have __Python 3.10__ and [poetry Python package manager](https://python-poetry.org/docs/#installation) on your system.
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
     ```shell
     $ export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"
@@ -29,7 +30,7 @@ This Tripadvisor scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.o
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/tripadvisor-scraper
-    $ poetry install .
+    $ poetry install
     ```
 3. Run example scrape:
     ```shell
