@@ -12,6 +12,10 @@ This scraper scrapes:
 
 For output examples see the `./results` directory.
 
+## Fair Use Disclaimer
+
+Note that this code is provided free of charge as is, and Scrapfly does __not__ provide free web scraping support or consultation. For any bugs, see the issue tracker.
+
 ## Setup and Use
 
 This Crunchbase.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Crunchbase's data.

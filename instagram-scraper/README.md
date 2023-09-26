@@ -14,6 +14,10 @@ For output examples see the `./results` directory.
 
 Note: This scraper is only scraping public Instagram data that doesn't require a login to access.
 
+## Fair Use Disclaimer
+
+Note that this code is provided free of charge as is, and Scrapfly does __not__ provide free web scraping support or consultation. For any bugs, see the issue tracker.
+
 ## Setup and Use
 
 This Instagram.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Instagram's data.
