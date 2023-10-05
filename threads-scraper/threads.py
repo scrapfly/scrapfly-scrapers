@@ -51,6 +51,7 @@ def parse_thread(data: Dict) -> Dict:
     if result["reply_count"]:
         result["reply_count"] = int(result["reply_count"].split(" ")[0])
     result["url"] = f"https://www.threads.net/@{result['username']}/post/{result['code']}"
+    result['image_count'] = len(result.get('images') or "")  # backwards compatibility with old dataset
     return result
 
 
