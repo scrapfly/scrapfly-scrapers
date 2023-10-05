@@ -26,7 +26,6 @@ BASE_CONFIG = {
     "country": "US",
 }
 
-
 class HotelPreview(TypedDict):
     url: str
     name: str
@@ -34,6 +33,7 @@ class HotelPreview(TypedDict):
     score: str
     review_count: str
     image: str
+
 
 
 def parse_search_page(result: ScrapeApiResponse) -> List[HotelPreview]:
@@ -59,6 +59,52 @@ def parse_search_page(result: ScrapeApiResponse) -> List[HotelPreview]:
     return hotel_previews
 
 
+class Location(TypedDict):
+    b_max_los_data: dict
+    b_show_entire_homes_checkbox: bool
+    cc1: str
+    cjk: bool
+    dest_id: str
+    dest_type: str
+    label: str
+    label1: str
+    label2: str
+    labels: list
+    latitude: float
+    lc: str
+    longitude: float
+    nr_homes: int
+    nr_hotels: int
+    nr_hotels_25: int
+    photo_uri: str
+    roundtrip: str
+    rtl: bool
+    value: str
+
+
+class LocationSuggestions(TypedDict):
+    results: List[Location]
+
+
+
+async def search_location_suggestions(query: str) -> LocationSuggestions:
+    """scrape booking.com location suggestions to find location details for search scraping"""
+    result = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            url="https://accommodations.booking.com/autocomplete.json",
+            method="POST",
+            headers={
+                "Origin": "https://www.booking.com",
+                "Referer": "https://www.booking.com/",
+                "Content-Type": "text/plain;charset=UTF-8",
+            },
+            body=f'{{"query":"{query}","pageview_id":"","aid":800210,"language":"en-us","size":5}}',
+        )
+    )
+    data = json.loads(result.content)
+    return data
+
+
 async def scrape_search(
     query,
     checkin: str = "",  # e.g. 2023-05-30
@@ -67,20 +113,29 @@ async def scrape_search(
     max_pages: Optional[int] = None,
 ) -> List[HotelPreview]:
     """Scrape booking.com search"""
-    checkin_year, checking_month, checking_day = checkin.split("-") if checkin else ("", "", "")
-    checkout_year, checkout_month, checkout_day = checkout.split("-") if checkout else ("", "", "")
     log.info(f"scraping search for {query} {checkin}-{checkout}")
-    search_url = "https://www.booking.com/searchresults.html?" + urlencode(
+    # first we must find destination details from provided query
+    # for that scrape suggestions from booking.com autocomplete and take the first one
+    location_suggestions = await search_location_suggestions(query)
+    destination = location_suggestions["results"][0]
+    search_url = "https://www.booking.com/searchresults.en-gb.html?" + urlencode(
         {
-            "ss": query,
-            "checkin_year": checkin_year,
-            "checkin_month": checking_month,
-            "checkin_monthday": checking_day,
-            "checkout_year": checkout_year,
-            "checkout_month": checkout_month,
-            "checkout_monthday": checkout_day,
+            "ss": destination["value"],
+            "ssne": destination["value"],
+            "ssne_untouched": destination["value"],
+            "checkin": checkin,
+            "checkout": checkout,
             "no_rooms": number_of_rooms,
-            "offset": 0,
+            "dest_id": destination["dest_id"],
+            "dest_type": destination["dest_type"],
+            "efdco": 1,
+            "group_adults": 1,
+            "group_children": 0,
+            "lang": "en-gb",
+            "sb": 1,
+            "sb_travel_purpose": "leisure",
+            "src": "index",
+            "src_elem": "sb",
         }
     )
     # first scrape the first page and find total amount of pages
