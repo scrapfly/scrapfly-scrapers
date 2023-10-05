@@ -28,7 +28,8 @@ async def scrape_search(url: str) -> List[dict]:
     log.info(f"scraping search: {url}")
     # first scrape the search HTML page and find query variables for this search
     html_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    query_data = json.loads(re.findall(r'"queryState":(\{.+}),\s*"filter', html_result.content)[0])
+    query_data = re.findall(r'"queryState":(\{.+}),[\s\n]*"user"', html_result.content)[0]
+    query_data = json.loads(query_data)
     full_query = {
         "searchQueryState": json.dumps(query_data),
         "wants": json.dumps({"cat1": ["listResults", "mapResults"], "cat2": ["total"]}),
