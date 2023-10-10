@@ -12,6 +12,7 @@ scrapfly-sdk = {extras = ["all"], version = "^0.8.5"}
 jmespath = "^1.0.1"
 loguru = "^0.7.0"
 python-dateutil = "^2.8.2"
+nested-lookup = "^0.2.25"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"

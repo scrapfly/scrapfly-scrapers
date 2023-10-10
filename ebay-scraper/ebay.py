@@ -13,9 +13,9 @@ from typing import Dict, List, Optional
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 import dateutil
+from nested_lookup import nested_lookup
 from loguru import logger as log
-from scrapfly import (ScrapeApiResponse, ScrapeConfig, ScrapflyClient,
-                      ScrapflyScrapeError)
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -45,51 +45,62 @@ def _find_json_objects(text: str, decoder=json.JSONDecoder()):
 def parse_variants(result: ScrapeApiResponse) -> dict:
     """
     Parse variant data from Ebay's listing page of a product with variants.
-    This data is located in a js variable hidden in a <script> element.
+    This data is located in a js variable MSKU hidden in a <script> element.
     """
-    script = result.selector.xpath('//script[contains(., "itemVariationsMap")]/text()').get()
+    script = result.selector.xpath('//script[contains(., "MSKU")]/text()').get()
     if not script:
         return {}
-
     all_data = list(_find_json_objects(script))
-    variants = next(d for d in all_data if "itemVariationsMap" in str(d))["itemVariationsMap"]
+    data = nested_lookup("MSKU", all_data)[0]
+    # First retrieve names for all selection options (e.g. Model, Color)
+    selection_names = {}
+    for menu in data["selectMenus"]:
+        for id_ in menu["menuItemValueIds"]:
+            selection_names[id_] = menu["displayLabel"]
+    # example selection name entry:
+    # {0: 'Model', 1: 'Color', ...}
 
-    # extract option values for mapping variant trait ids to human labels
-    selections = defaultdict(dict)
-    for selection in result.selector.css(".x-msku__box-cont select"):
-        name = selection.xpath("@selectboxlabel").get()
-        for option in selection.xpath("option"):
-            value = int(option.xpath("@value").get())
-            if value == -1:  # that's the placeholder
-                continue
-            label = option.xpath("text()").get().strip()
-            label = label.split("(Out ")[0]
-            selections[name][value] = label
+    # Then, find all selection combinations:
+    selections = []
+    for v in data["menuItemMap"].values():
+        selections.append(
+            {
+                "name": v["valueName"],
+                "variants": v["matchingVariationIds"],
+                "label": selection_names[v["valueId"]],
+            }
+        )
+    # example selection entry:
+    # {'name': 'Gold', 'variants': [662315637181, 662315637177, 662315637173], 'label': 'Color'}
 
-    # map variant trait ids to human labels
-    for variant_id, variant in variants.items():
-        for trait, trait_id in variant["traitValuesMap"].items():
-            variant["traitValuesMap"][trait] = selections[trait][trait_id]
-
-    # parse variants to something more usable
-    parsed_variants = {}
-    for variant_id, variant in variants.items():
-        label = " ".join(variant["traitValuesMap"].values())
-        parsed_variants[label] = {
-            "id": variant_id,
-            "price": variant["price"],
-            "price_converted": variant["convertedPrice"],
-            "vat_price": variant["vatPrice"],
-            "quantity": variant["quantity"],
-            "in_stock": variant["inStock"],
-            "sold": variant["quantitySold"],
-            "available": variant["quantityAvailable"],
-            "watch_count": variant["watchCount"],
-            "epid": variant["epid"],
-            "top_product": variant["topProduct"],
-            "traits": variant["traitValuesMap"],
-        }
-    return parsed_variants
+    # Finally, extract variants and apply selection details to each
+    results = []
+    variant_data = nested_lookup("variationsMap", data)[0]
+    for id_, variant in variant_data.items():
+        result = defaultdict(list)
+        result["id"] = id_
+        for selection in selections:
+            if int(id_) in selection["variants"]:
+                result[selection["label"]] = selection["name"]
+        result["price_original"] = variant["binModel"]["price"]["value"]["convertedFromValue"]
+        result["price_original_currency"] = variant["binModel"]["price"]["value"]["convertedFromCurrency"]
+        result["price_converted"] = variant["binModel"]["price"]["value"]["value"]
+        result["price_converted_currency"] = variant["binModel"]["price"]["value"]["currency"]
+        result["out_of_stock"] = variant["quantity"]["outOfStock"]
+        results.append(dict(result))
+    # example variant entry:
+    # {
+    #     'id': '662315637173',
+    #     'Model': 'Apple iPhone 11 Pro Max',
+    #     'Storage Capacity': '64 GB',
+    #     'Color': 'Gold',
+    #     'price_original': 469,
+    #     'price_original_currency': 'CAD',
+    #     'price_converted': 341.55,
+    #     'price_converted_currency': 'USD',
+    #     'out_of_stock': False
+    # }
+    return results
 
 
 def parse_product(result: ScrapeApiResponse):
@@ -101,10 +112,8 @@ def parse_product(result: ScrapeApiResponse):
     item = {}
     item["url"] = css('link[rel="canonical"]::attr(href)')
     item["id"] = item["url"].split("/itm/")[1].split("?")[0]  # we can take ID from the URL
-    item["price"] = css('span[itemprop="price"] .ux-textspans ::text')
-    item["price_converted"] = css(
-        "span.x-price-approx__price ::text"
-    )  # ebay automatically converts price for some regions
+    item["price_original"] = css(".x-price-primary>span::text")
+    item["price_converted"] = css(".x-price-approx__price ::text")  # ebay automatically converts price for some regions
 
     item["name"] = css_join("h1 span::text")
     item["seller_name"] = css_join("[data-testid=str-title] a ::text")
@@ -149,19 +158,19 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         if auction_end:
             auction_end = dateutil.parser.parse(auction_end.replace("Today", ""))
         item = {
-                "url": css("a.s-item__link::attr(href)").split("?")[0],
-                "title": css(".s-item__title span::text"),
-                "price": css(".s-item__price::text"),
-                "shipping": css_float(".s-item__shipping::text"),
-                "auction_end": auction_end,
-                "bids": css_int(".s-item__bidCount::text"),
-                "location": css_re(".s-item__itemLocation::text", "from (.+)"),
-                "subtitles": css_all(".s-item__subtitle::text"),
-                "condition": css(".SECONDARY_INFO::text"),
-                "photo": css("img::attr(data-src)") or css("img::attr(src)"),
-                "rating": css_float(".s-item__reviews .clipped::text"),
-                "rating_count": css_int(".s-item__reviews-count span::text"),
-            }
+            "url": css("a.s-item__link::attr(href)").split("?")[0],
+            "title": css(".s-item__title span::text"),
+            "price": css(".s-item__price::text"),
+            "shipping": css_float(".s-item__shipping::text"),
+            "auction_end": auction_end,
+            "bids": css_int(".s-item__bidCount::text"),
+            "location": css_re(".s-item__itemLocation::text", "from (.+)"),
+            "subtitles": css_all(".s-item__subtitle::text"),
+            "condition": css(".SECONDARY_INFO::text"),
+            "photo": css("img::attr(data-src)") or css("img::attr(src)"),
+            "rating": css_float(".s-item__reviews .clipped::text"),
+            "rating_count": css_int(".s-item__reviews-count span::text"),
+        }
         previews.append(item)
     return previews
 

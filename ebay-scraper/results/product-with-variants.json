@@ -1,20 +1,20 @@
 {
   "url": "https://www.ebay.com/itm/393531906094",
   "id": "393531906094",
-  "price": "C $469.00",
-  "price_converted": "US $349.08",
+  "price_original": "C $469.00",
+  "price_converted": "US $341.55",
   "name": "Apple iPhone 11 Pro Max - Unlocked - 64GB / 256GB / 512GB - CA - Excellent",
-  "seller_name": "device_care",
+  "seller_name": "MobileKlinik",
   "seller_url": "https://www.ebay.com/str/devicecare",
   "photos": [
     "https://i.ebayimg.com/images/g/93cAAOSwvEJgbLW8/s-l64.jpg",
-    "https://i.ebayimg.com/images/g/7usAAOSwRbZgbLbE/s-l64.jpg",
-    "https://i.ebayimg.com/images/g/qxEAAOSwP~BgbLa5/s-l64.jpg",
     "https://i.ebayimg.com/images/g/l0sAAOSwextgbLYj/s-l64.jpg",
+    "https://i.ebayimg.com/images/g/qxEAAOSwP~BgbLa5/s-l64.jpg",
+    "https://i.ebayimg.com/images/g/7usAAOSwRbZgbLbE/s-l64.jpg",
     "https://i.ebayimg.com/images/g/ffMAAOSwhAxgbLbO/s-l64.jpg",
     "https://i.ebayimg.com/images/g/93cAAOSwvEJgbLW8/s-l500.jpg"
   ],
-  "description_url": "https://vi.vipr.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&item=393531906094&t=1631237959000&category=9355&seller=device_care&excSoj=1&excTrk=1&lsite=2&ittenable=true&domain=ebay.com&descgauge=1&cspheader=1&oneClk=2&secureDesc=1",
+  "description_url": "https://vi.vipr.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&item=393531906094&t=1631237959000&category=9355&seller=mobileklinik&excSoj=1&excTrk=1&lsite=2&ittenable=true&domain=ebay.com&descgauge=1&cspheader=1&oneClk=2&secureDesc=1",
   "features": {
     "Condition": "Excellent - Refurbished: The item is in like-new condition, backed by a one year warranty. It has ... Read moreExcellent - Refurbished: The item is in like-new condition, backed by a one year warranty. It has been professionally refurbished, inspected and cleaned to excellent condition by qualified sellers. The item includes original or new accessories and will come in new generic packaging. See the seller's listing for full details. See all condition definitions",
     "Processor": "Hexa Core",
@@ -31,222 +31,138 @@
     "Camera Resolution": "12.0 MP",
     "RAM": "4 GB"
   },
-  "variants": {
-    "Apple iPhone 11 Pro Max 512 GB \u00a0  Midnight Green \u00a0 ": {
+  "variants": [
+    {
       "id": "662315637180",
-      "price": "C $679.00",
-      "price_converted": "US $505.38",
-      "vat_price": null,
-      "quantity": 5,
-      "in_stock": false,
-      "sold": 5,
-      "available": 0,
-      "watch_count": 23,
-      "epid": "9034209121",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "512 GB \u00a0 ",
-        "Color": "Midnight Green \u00a0 "
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "512 GB",
+      "Color": "Midnight Green",
+      "price_original": 679,
+      "price_original_currency": "CAD",
+      "price_converted": 494.48,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 512 GB \u00a0  Gold": {
+    {
       "id": "662315637181",
-      "price": "C $679.00",
-      "price_converted": "US $505.38",
-      "vat_price": null,
-      "quantity": 5,
-      "in_stock": false,
-      "sold": 5,
-      "available": 0,
-      "watch_count": 10,
-      "epid": "3034222790",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "512 GB \u00a0 ",
-        "Color": "Gold"
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "512 GB",
+      "Color": "Gold",
+      "price_original": 679,
+      "price_original_currency": "CAD",
+      "price_converted": 494.48,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 512 GB \u00a0  Space Gray": {
+    {
       "id": "662315637182",
-      "price": "C $679.00",
-      "price_converted": "US $505.38",
-      "vat_price": null,
-      "quantity": 7,
-      "in_stock": false,
-      "sold": 7,
-      "available": 0,
-      "watch_count": 35,
-      "epid": "19034211488",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "512 GB \u00a0 ",
-        "Color": "Space Gray"
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "512 GB",
+      "Color": "Space Gray",
+      "price_original": 679,
+      "price_original_currency": "CAD",
+      "price_converted": 494.48,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 256 GB \u00a0  Midnight Green \u00a0 ": {
+    {
       "id": "662315637176",
-      "price": "C $549.00",
-      "price_converted": "US $408.62",
-      "vat_price": null,
-      "quantity": 135,
-      "in_stock": false,
-      "sold": 135,
-      "available": 0,
-      "watch_count": 156,
-      "epid": "11037566785",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "256 GB \u00a0 ",
-        "Color": "Midnight Green \u00a0 "
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "256 GB",
+      "Color": "Midnight Green",
+      "price_original": 549,
+      "price_original_currency": "CAD",
+      "price_converted": 399.81,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 256 GB \u00a0  Gold": {
+    {
       "id": "662315637177",
-      "price": "C $549.00",
-      "price_converted": "US $408.62",
-      "vat_price": null,
-      "quantity": 89,
-      "in_stock": false,
-      "sold": 89,
-      "available": 0,
-      "watch_count": 108,
-      "epid": "27041453299",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "256 GB \u00a0 ",
-        "Color": "Gold"
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "256 GB",
+      "Color": "Gold",
+      "price_original": 549,
+      "price_original_currency": "CAD",
+      "price_converted": 399.81,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 256 GB \u00a0  Space Gray": {
+    {
       "id": "662315637178",
-      "price": "C $549.00",
-      "price_converted": "US $408.62",
-      "vat_price": null,
-      "quantity": 172,
-      "in_stock": false,
-      "sold": 172,
-      "available": 0,
-      "watch_count": 159,
-      "epid": "25034208609",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "256 GB \u00a0 ",
-        "Color": "Space Gray"
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "256 GB",
+      "Color": "Space Gray",
+      "price_original": 549,
+      "price_original_currency": "CAD",
+      "price_converted": 399.81,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 512 GB \u00a0  Silver \u00a0 ": {
+    {
       "id": "662315637179",
-      "price": "C $679.00",
-      "price_converted": "US $505.38",
-      "vat_price": null,
-      "quantity": 4,
-      "in_stock": false,
-      "sold": 4,
-      "available": 0,
-      "watch_count": 8,
-      "epid": "14034212915",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "512 GB \u00a0 ",
-        "Color": "Silver \u00a0 "
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "512 GB",
+      "Color": "Silver",
+      "price_original": 679,
+      "price_original_currency": "CAD",
+      "price_converted": 494.48,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 64 GB Midnight Green \u00a0 ": {
+    {
       "id": "662315637172",
-      "price": "C $469.00",
-      "price_converted": "US $349.08",
-      "vat_price": null,
-      "quantity": 230,
-      "in_stock": false,
-      "sold": 230,
-      "available": 0,
-      "watch_count": 201,
-      "epid": "19042851646",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "64 GB",
-        "Color": "Midnight Green \u00a0 "
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "64 GB",
+      "Color": "Midnight Green",
+      "price_original": 469,
+      "price_original_currency": "CAD",
+      "price_converted": 341.55,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 64 GB Gold": {
+    {
       "id": "662315637173",
-      "price": "C $469.00",
-      "price_converted": "US $349.08",
-      "vat_price": null,
-      "quantity": 272,
-      "in_stock": true,
-      "sold": 253,
-      "available": 19,
-      "watch_count": 190,
-      "epid": "21042400312",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "64 GB",
-        "Color": "Gold"
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "64 GB",
+      "Color": "Gold",
+      "price_original": 469,
+      "price_original_currency": "CAD",
+      "price_converted": 341.55,
+      "price_converted_currency": "USD",
+      "out_of_stock": false
     },
-    "Apple iPhone 11 Pro Max 64 GB Space Gray": {
+    {
       "id": "662315637174",
-      "price": "C $469.00",
-      "price_converted": "US $349.08",
-      "vat_price": null,
-      "quantity": 300,
-      "in_stock": true,
-      "sold": 258,
-      "available": 42,
-      "watch_count": 248,
-      "epid": "8034218247",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "64 GB",
-        "Color": "Space Gray"
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "64 GB",
+      "Color": "Space Gray",
+      "price_original": 469,
+      "price_original_currency": "CAD",
+      "price_converted": 341.55,
+      "price_converted_currency": "USD",
+      "out_of_stock": false
     },
-    "Apple iPhone 11 Pro Max 256 GB \u00a0  Silver \u00a0 ": {
+    {
       "id": "662315637175",
-      "price": "C $549.00",
-      "price_converted": "US $408.62",
-      "vat_price": null,
-      "quantity": 30,
-      "in_stock": false,
-      "sold": 30,
-      "available": 0,
-      "watch_count": 43,
-      "epid": "13034214311",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "256 GB \u00a0 ",
-        "Color": "Silver \u00a0 "
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "256 GB",
+      "Color": "Silver",
+      "price_original": 549,
+      "price_original_currency": "CAD",
+      "price_converted": 399.81,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     },
-    "Apple iPhone 11 Pro Max 64 GB Silver \u00a0 ": {
+    {
       "id": "662315637171",
-      "price": "C $469.00",
-      "price_converted": "US $349.08",
-      "vat_price": null,
-      "quantity": 63,
-      "in_stock": false,
-      "sold": 63,
-      "available": 0,
-      "watch_count": 67,
-      "epid": "9034209203",
-      "top_product": false,
-      "traits": {
-        "Model": "Apple iPhone 11 Pro Max",
-        "Storage Capacity": "64 GB",
-        "Color": "Silver \u00a0 "
-      }
+      "Model": "Apple iPhone 11 Pro Max",
+      "Storage Capacity": "64 GB",
+      "Color": "Silver",
+      "price_original": 469,
+      "price_original_currency": "CAD",
+      "price_converted": 341.55,
+      "price_converted_currency": "USD",
+      "out_of_stock": true
     }
-  }
+  ]
 }

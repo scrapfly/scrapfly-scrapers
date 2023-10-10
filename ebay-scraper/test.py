@@ -27,6 +27,7 @@ def validate_or_fail(item, validator):
         pp.pformat(item)
         pytest.fail(f"Validation failed for item: {item}\nErrors: {validator.errors}")
 
+
 def require_min_presence(items, key, min_perc=0.1):
     """check whether dataset contains items with some amount of non-null values for a given key"""
     count = sum(1 for item in items if item.get(key))
@@ -42,9 +43,9 @@ async def test_product_scraping():
     schema = {
         "url": {"type": "string", "regex": "https://www.ebay.com/itm/\d+(\?.*?)*"},
         "id": {"type": "string", "regex": r"\d+"},
-        "name": {"type": "string"},
-        "price": {"type": "string"},
-        "seller_name": {"type": "string"},
+        "name": {"type": "string", "minlength": 1},
+        "price": {"type": "string", "minlength": 1},
+        "seller_name": {"type": "string", "minlength": 1},
         "seller_url": {"type": "string", "regex": "https://www.ebay.com/str/.+"},
         "photos": {"type": "list", "schema": {"type": "string", "regex": "https://i.ebayimg.com/images/.+"}},
         "description_url": {"type": "string", "regex": "https://.+?.ebaydesc.com/.+"},
@@ -52,18 +53,23 @@ async def test_product_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
-    assert result['features']
+    assert result["features"]
     variant_schema = {
-        "id": {"type": "string", "regex": r"\d+"},
-        "price": {"type": "string"},
-        "price_converted": {"type": "string"},
-        "quantity": {"type": "integer"},
+        "id": {"type": "string", "regex": r"\d+", "minlength": 1},
+        "price_original": {"type": "number"},
+        "price_original_currency": {"type": "string", "minlength": 1},
+        "price_converted": {"type": "number"},
+        "price_converted_currency": {"type": "string", "minlength": 1},
+        "out_of_stock": {"type": "boolean"},
+        # this item specific
+        "Model": {"type": "string", "minlength": 1},
+        "Color": {"type": "string", "minlength": 1},
+        "Storage Capacity": {"type": "string", "minlength": 1},
     }
     validator = Validator(variant_schema, allow_unknown=True)
-    for variant in result['variants'].values():
+    for variant in result["variants"]:
         validate_or_fail(variant, validator)
-
-
+    assert len(result["variants"]) > 1
 
 
 @pytest.mark.asyncio
@@ -72,11 +78,15 @@ async def test_search_scraping():
     result = await ebay.scrape_search(url, max_pages=3)
     schema = {
         "url": {"type": "string", "regex": r"https://www.ebay.com/itm/\d+"},
-        # note: could be placeholder - https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg 
-        "photo": {"type": "string", "regex": r"https://i.ebayimg.com/thumbs/images/.+?|https://.+ebaystatic.com/.+", "nullable": True},
-        "title": {"type": "string"},
+        # note: could be placeholder - https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg
+        "photo": {
+            "type": "string",
+            "regex": r"https://i.ebayimg.com/thumbs/images/.+?|https://.+ebaystatic.com/.+",
+            "nullable": True,
+        },
+        "title": {"type": "string", "minlength": 1},
         "location": {"type": "string", "min_presence": 0.02},
-        "condition": {"type": "string"},
+        "condition": {"type": "string", "minlength": 1},
         "subtitles": {"type": "list", "schema": {"type": "string"}},
         "shipping": {"type": "float", "nullable": True},
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
