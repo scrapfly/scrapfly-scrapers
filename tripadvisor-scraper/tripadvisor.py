@@ -49,9 +49,6 @@ async def scrape_location_data(query: str) -> List[LocationData]:
     payload = json.dumps(
         [
             {
-                # Every graphql query has a query ID that doesn't change often:
-                "query": "5eec1d8288aa8741918a2a5051d289ef",
-                # the variables define the search
                 "variables": {
                     "request": {
                         "query": query,
@@ -60,14 +57,12 @@ async def scrape_location_data(query: str) -> List[LocationData]:
                         "locale": "en-US",
                         "scopeGeoId": 1,
                         "searchCenter": None,
-                        # we can define search result types, in this case we want to search locations
+                        # note: here you can expand to search for differents.
                         "types": [
                             "LOCATION",
-                            #   "QUERY_SUGGESTION",
-                            #   "USER_PROFILE",
-                            #   "RESCUE_RESULT"
+                            # "QUERY_SUGGESTION",
+                            # "RESCUE_RESULT"
                         ],
-                        # we can further narrow down locations to
                         "locationTypes": [
                             "GEO",
                             "AIRPORT",
@@ -89,20 +84,19 @@ async def scrape_location_data(query: str) -> List[LocationData]:
                             "CAR_RENTAL_OFFICE",
                         ],
                         "userId": None,
-                        "articleCategories": [
-                            "default",
-                            "love_your_local",
-                            "insurance_lander",
-                        ],
-                        "enabledFeatures": ["typeahead-q"],
+                        "context": {},
+                        "enabledFeatures": ["articles"],
+                        "includeRecent": True,
                     }
                 },
+                "query": "84b17ed122fbdbd4",
+                "extensions": {"preRegisteredQueryId": "84b17ed122fbdbd4"},
             }
         ]
     )
 
     # we need to generate a random request ID for this request to succeed
-    random_request_id = "".join(random.choice(string.ascii_lowercase + string.digits) for i in range(180))
+    random_request_id = "".join(random.choice(string.ascii_lowercase + string.digits) for i in range(64))
     headers = {
         "X-Requested-By": random_request_id,
         "Referer": "https://www.tripadvisor.com/Hotels",
@@ -120,7 +114,8 @@ async def scrape_location_data(query: str) -> List[LocationData]:
     )
     data = json.loads(result.content)
     results = data[0]["data"]["Typeahead_autocomplete"]["results"]
-    results = [r["details"] for r in results]  # strip metadata
+    # strip metadata
+    results = [r["details"] for r in results if r['__typename'] == 'Typeahead_LocationItem']
     log.info(f"found {len(results)} results")
     return results
 
