@@ -136,14 +136,16 @@ async def scrape_profile(url: str) -> Dict:
         # skip loading datasets that clearly don't contain threads data
         if '"ScheduledServerJS"' not in hidden_dataset:
             continue
-        if 'userData' not in hidden_dataset and 'thread_items' not in hidden_dataset:
+        is_profile = 'follower_count' in hidden_dataset
+        is_threads = 'thread_items' in hidden_dataset
+        if not is_profile and not is_threads:
             continue
         data = json.loads(hidden_dataset)
-        user_data = nested_lookup('userData', data)
-        thread_items = nested_lookup('thread_items', data)
-        if user_data:
-            parsed['user'] = parse_profile(user_data[0]['user'])
-        if thread_items:
+        if is_profile:
+            user_data = nested_lookup('user', data)
+            parsed['user'] = parse_profile(user_data[0])
+        if is_threads:
+            thread_items = nested_lookup('thread_items', data)
             threads = [
                 parse_thread(t) for thread in thread_items for t in thread
             ]
