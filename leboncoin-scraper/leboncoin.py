@@ -1,6 +1,5 @@
 """
-This is an example web scraper for indeed.com used in scrapfly blog article:
-https://scrapfly.io/blog/how-to-scrape-indeedcom/
+This is an example web scraper for leboncoin.com.
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
