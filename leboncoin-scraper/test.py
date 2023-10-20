@@ -84,12 +84,13 @@ ad_schema = {
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    saerch_data = await leboncoin.scrape_search(
+    search_data = await leboncoin.scrape_search(
         url="https://www.leboncoin.fr/recherche?text=coffe", max_pages=2, scrape_all_pages=False
     )
     validator = Validator(ad_schema, allow_unknown=True)
-    for item in saerch_data:
+    for item in search_data:
         validate_or_fail(item, validator)
+    assert len(search_data) >= 2
 
 
 @pytest.mark.asyncio
@@ -97,3 +98,4 @@ async def test_ad_scraping():
     ad_data = await leboncoin.scrape_ad(url="https://www.leboncoin.fr/arts_de_la_table/2426724825.htm")
     validator = Validator(ad_schema, allow_unknown=True)
     validate_or_fail(ad_data, validator)
+    
