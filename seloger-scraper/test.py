@@ -183,7 +183,7 @@ async def test_search_scraping():
     search_data = await seloger.scrape_search(
         url="https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/",
         scrape_all_pages=False,
-        max_pages=3,
+        max_pages=3
     )
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:

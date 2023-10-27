@@ -33,7 +33,7 @@ def parse_search(result: ScrapeApiResponse):
     cards = []
     # validate the cards data to avoid advertisement cards
     for card in datasets[0]["cards"]["list"]:
-        if len(card) > 12:
+        if card["cardType"] == "classified":
             cards.append(card)
     search_meta = datasets[0]["navigation"]
     return {"results": cards, "search": search_meta}
@@ -61,7 +61,10 @@ async def scrape_search(
     scrape_all_pages: bool,
     max_pages: int = 10,
 ) -> List[Dict]:
-    """scrape seloger search page"""
+    """
+    scrape seloger search pages, which supports pagination by adding a LISTING-LISTpg parameter at the end of the URL
+    https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/?LISTING-LISTpg=page_number
+    """
     log.info("scraping search page {}", url)
     # scrape the first page first
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
@@ -76,7 +79,6 @@ async def scrape_search(
     # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     else:
         total_pages = total_search_pages
-    print("-----------------", total_pages, "----------------")
     log.info("scraping search {} pagination ({} more pages)", url, total_pages - 1)
     # add the ramaining pages in a scraping list
     _other_pages = [
@@ -92,7 +94,9 @@ async def scrape_search(
 
 
 async def scrape_property(url: str) -> Dict:
-    """scrape property page"""
+    """scrape seloger property pages, which follows this URL structure:
+    https://www.seloger.com/annonces/achat/appartement/paris-13eme-75/salpetriere-austerlitz/205085253.htm
+    """
     log.info("scraping property {}", url)
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     property_data = parse_property_page(result)

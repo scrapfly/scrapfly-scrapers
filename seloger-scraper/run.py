@@ -23,7 +23,7 @@ async def run():
     search_data = await seloger.scrape_search(
         url="https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/",
         scrape_all_pages=False,
-        max_pages=800,
+        max_pages=2,
     )
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
