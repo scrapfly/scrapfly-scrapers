@@ -95,7 +95,7 @@ async def scrape_search(
 
 async def scrape_property(url: str) -> Dict:
     """scrape seloger property pages, which follows this URL structure:
-    https://www.seloger.com/annonces/achat/appartement/paris-13eme-75/salpetriere-austerlitz/205085253.htm
+    https://www.seloger.com/annonces/achat/appartement/bordeaux-33/grand-parc-chartrons-paul-doumer/207269613.htm
     """
     log.info("scraping property {}", url)
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))

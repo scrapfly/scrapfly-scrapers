@@ -29,7 +29,7 @@ async def run():
         json.dump(search_data, file, indent=2, ensure_ascii=False)
 
     property_data = await seloger.scrape_property(
-        url="https://www.seloger.com/annonces/achat/appartement/paris-13eme-75/salpetriere-austerlitz/205085253.htm"
+        url="https://www.seloger.com/annonces/achat/appartement/bordeaux-33/grand-parc-chartrons-paul-doumer/207269613.htm"
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
         json.dump(property_data, file, indent=2, ensure_ascii=False)
