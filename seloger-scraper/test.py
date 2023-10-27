@@ -37,12 +37,12 @@ property_schema = {
                         "type": "dict",
                         "schema": {
                             "city": {"type": "string"},
-                            "superCity": {"type": "string"},
-                            "postalCode": {"type": "string"},
+                            "superCity": {"type": "string", "nullable": True},
+                            "postalCode": {"type": "string", "nullable": True},
                             "street": {"type": "string", "nullable": True},
                             "district": {"type": "string"},
                             "countryId": {"type": "integer"},
-                            "divisionId": {"type": "integer"},
+                            "divisionId": {"type": "integer", "nullable": True},
                         },
                     },
                     "reference": {"type": "string"},
@@ -68,9 +68,9 @@ property_schema = {
                     "coordinates": {
                         "type": "dict",
                         "schema": {
-                            "latitude": {"type": "float"},
-                            "longitude": {"type": "float"},
-                            "street": {"type": "string"},
+                            "latitude": {"type": "float", "nullable": True},
+                            "longitude": {"type": "float", "nullable": True},
+                            "street": {"type": "string", "nullable": True},
                         },
                     },
                     "media": {
