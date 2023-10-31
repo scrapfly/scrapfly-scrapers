@@ -28,7 +28,7 @@ This seloger scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/p
 2. Clone and install Python environment:
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
-    $ cd scrapfly-scrapers/zillow-scraper
+    $ cd scrapfly-scrapers/seloger-scraper
     $ poetry install
     ```
 3. Run example scrape:
@@ -41,5 +41,5 @@ This seloger scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/p
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_search_scraping
-    $ poetry run pytest test.py -k test_ad_scraping
+    $ poetry run pytest test.py -k test_property_scraping
     ```
