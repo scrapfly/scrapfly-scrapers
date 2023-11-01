@@ -1,14 +1,14 @@
-# leboncoin.com Scraper
+# Rightmove.com Scraper
 
-This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property data from leboncoin.fr. 
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property listing data from Zoopla.com. 
 
-Full tutorial <https://scrapfly.io/blog/how-to-scrape-leboncoin-marketplace-real-estate/>
+Full tutorial <https://scrapfly.io/blog/how-to-scrape-zoopla/>
 
-The scraping code is located in the `leboncoin.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
+The scraping code is located in the `zoopla.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
-- Leboncoin search for finding ad listings
-- Leboncoin ad pages for ads data
+- Zoopla property search for finding property listings
+- Zoopla property pages for property listing data
 
 For output examples see the `./results` directory.
 
@@ -18,7 +18,7 @@ Note that this code is provided free of charge as is, and Scrapfly does __not__ 
 
 ## Setup and Use
 
-This Leboncoin scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse leboncoin's data.
+This Rightmove.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Rightmove's data.
 
 0. Ensure you have __Python 3.10__ and [poetry Python package manager](https://python-poetry.org/docs/#installation) on your system.
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
@@ -28,7 +28,7 @@ This Leboncoin scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org
 2. Clone and install Python environment:
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
-    $ cd scrapfly-scrapers/leboncoin-scraper
+    $ cd scrapfly-scrapers/zoopla-scraper
     $ poetry install
     ```
 3. Run example scrape:
@@ -41,6 +41,5 @@ This Leboncoin scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_search_scraping
-    $ poetry run pytest test.py -k test_ad_scraping
+    $ poetry run pytest test.py -k test_properties_scraping
     ```
-

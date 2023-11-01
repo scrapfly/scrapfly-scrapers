@@ -18,6 +18,7 @@ For full guides on how to scrape these targets (and many others) see the [scrape
 - [glassdoor.com](./glassdoor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
 - [indeed.com](./indeed-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-indeedcom/)
 - [instagram.com](./instagram-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-instagram/)
+- [leboncoin.fr](./leboncoin-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-leboncoin-marketplace-real-estate/)
 - [realtor.com](./realtorcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-realtorcom/)
 - [rightmove.com](./rightmove-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-rightmove/)
 - [stockx.com](./stockx-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-stockx/)
@@ -25,3 +26,4 @@ For full guides on how to scrape these targets (and many others) see the [scrape
 - [tripadvisor.com](./tripadvisor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
 - [twitter.com](./twitter-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-twitter/)
 - [zillow.com](./zillow-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-zillow/)
+- [zoopla.com](./zoopla-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-zoopla/)
