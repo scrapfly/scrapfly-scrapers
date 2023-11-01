@@ -1,6 +1,6 @@
 # Rightmove.com Scraper
 
-This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape job listing data from Rightmove.com. 
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property listing data from Rightmove.com. 
 
 Full tutorial <https://scrapfly.io/blog/how-to-scrape-rightmove/>
 
