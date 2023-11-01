@@ -180,9 +180,14 @@ async def scrape_search(
         MAX_RESULTS = total_results
 
     other_pages = []
+    # rightmove sets the API limit to 1000 properties
+    max_results = 1000
     # add the remaining search pages as a list
     for offset in range(RESULTS_PER_PAGE, MAX_RESULTS, RESULTS_PER_PAGE):
         other_pages.insert(0, ScrapeConfig(make_url(offset), **BASE_CONFIG))
+        # stopp adding more pages when the scraper reach the API limit
+        if offset >= max_results:
+            break
     log.info(
         "scraped search page with the location id {} remaining ({} more pages)",
         location_id,
@@ -190,9 +195,6 @@ async def scrape_search(
     )
     # scrape the remaining search pages concurrently
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if result.upstream_status_code >= 400:
-            # stop the iteration when the pages starts getting unavaiable
-            break
         data = json.loads(result.content)
         results.extend(data["properties"])
     log.info("scraped {} proprties from the location id {}", len(results), location_id)
