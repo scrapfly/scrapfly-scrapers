@@ -184,10 +184,10 @@ async def scrape_search(
     max_api_results = 1000
     # add the remaining search pages as a list
     for offset in range(RESULTS_PER_PAGE, MAX_RESULTS, RESULTS_PER_PAGE):
-        other_pages.insert(0, ScrapeConfig(make_url(offset), **BASE_CONFIG))
         # stop adding more pages when the scraper reach the API limit
         if offset >= max_api_results:
-            break
+            break        
+        other_pages.insert(0, ScrapeConfig(make_url(offset), **BASE_CONFIG))
     log.info(
         "scraped search page with the location id {} remaining ({} more pages)",
         location_id,
