@@ -1,4 +1,4 @@
-# Homegate.com Scraper
+# Homegate.ch Scraper
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property listing data from Homegate.com. 
 

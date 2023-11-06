@@ -1,5 +1,5 @@
 """
-This is an example web scraper for homegate.com.
+This is an example web scraper for homegate.ch.
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
