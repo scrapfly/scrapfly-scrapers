@@ -1,5 +1,5 @@
 """
-This is an example web scraper for homegate.ch.
+This is an example web scraper for immoscout24.ch.
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
@@ -25,31 +25,31 @@ output.mkdir(exist_ok=True)
 
 
 def parse_next_data(response: ScrapeApiResponse) -> Dict:
-    """parse data from script tags"""
+    """parse listing data from script tags"""
     selector = response.selector
     # extract data in JSON from script tags
-    next_data = selector.xpath(
-        "//script[contains(text(),'window.__INITIAL_STATE__')]/text()"
-    ).get()
+    next_data = selector.xpath("//script[@id='state']/text()").get().strip("__INITIAL_STATE__=")
+    # replace undefined values
+    next_data = next_data.replace("undefined", "null")
     if not next_data:
         return
-    next_data_json = json.loads(next_data.strip("window.__INITIAL_STATE__="))
+    next_data_json = json.loads(next_data)
     return next_data_json
 
 
 async def scrape_properties(urls: List[str]) -> List[Dict]:
-    """scrape listing data from homegate proeprty pages"""
+    """scrape listing data from immoscout24 proeprty pages"""
     # add the property pages in a scraping list
-    to_scrape = [ScrapeConfig(url, asp=True, country="CH") for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     properties = []
     # scrape all property pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_next_data(response)
         # handle expired property pages
         try:
-            properties.append(data["listing"]["listing"])
+            properties.append(data["pages"]["detail"]["propertyDetails"])
         except:
-            print("expired propery page")
+            log.info("expired property page")
             pass
     log.info(f"scraped {len(properties)} property listings")
     return properties
@@ -58,30 +58,30 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
 async def scrape_search(
     url: str, scrape_all_pages: bool, max_scrape_pages: int = 10
 ) -> List[Dict]:
-    """scrape listing data from homegate search pages"""
+    """scrape listing data from immoscout24 search pages"""
     # scrape the first search page first
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True, country="CH"))
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     log.info("scraping search page {}", url)
-    data = parse_next_data(first_page)["resultList"]["search"]["fullSearch"]["result"]
-    search_data = data["listings"]
+    data = parse_next_data(first_page)["pages"]["searchResult"]["resultData"]
+    search_data = data["listData"]
     # get the number of maximum search pages available
-    max_search_pages = data["pageCount"]
+    max_search_pages = data["pagingData"]["totalPages"]
+     # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         total_pages = max_scrape_pages
-    # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     else:
         total_pages = max_search_pages
     log.info("scraping search {} pagination ({} more pages)", url, total_pages - 1)
     # add the remaining search pages in a scraping list
     other_pages = [
-        ScrapeConfig(first_page.context["url"] + f"?ep={page}", asp=True, country="CH")
+        ScrapeConfig(first_page.context["url"] + f"?pn={page}", asp=True, country="CH")
         for page in range(2, total_pages + 1)
     ]
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         data = parse_next_data(response)
         search_data.extend(
-            data["resultList"]["search"]["fullSearch"]["result"]["listings"]
+            data["pages"]["searchResult"]["resultData"]["listData"]
         )
     log.info("scraped {} proprties from {}", len(search_data), url)
     return search_data

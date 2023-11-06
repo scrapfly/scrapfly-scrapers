@@ -1,14 +1,14 @@
-# Homegate.ch Scraper
+# Immoscout24.ch Scraper
 
-This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property listing data from Homegate.com. 
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property listing data from Immoscout24.ch. 
 
 Full tutorial  
 
-The scraping code is located in the `homegate.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
+The scraping code is located in the `immoscout24.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
-- Homegate property search for finding property listings
-- Homagete property pages for property listing data
+- Immoscout24 property search for finding property listings
+- Immoscout24 property pages for property listing data
 
 For output examples see the `./results` directory.
 
@@ -18,7 +18,7 @@ Note that this code is provided free of charge as is, and Scrapfly does __not__ 
 
 ## Setup and Use
 
-This Homegate.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Homegate's data.
+This Rightmove.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Rightmove's data.
 
 0. Ensure you have __Python 3.10__ and [poetry Python package manager](https://python-poetry.org/docs/#installation) on your system.
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
@@ -28,7 +28,7 @@ This Homegate.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.
 2. Clone and install Python environment:
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
-    $ cd scrapfly-scrapers/homegate-scraper
+    $ cd scrapfly-scrapers/immoscout24-scraper
     $ poetry install
     ```
 3. Run example scrape:

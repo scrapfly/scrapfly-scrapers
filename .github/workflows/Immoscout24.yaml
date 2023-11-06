@@ -1,11 +1,11 @@
-name: Homegate.ch Test
+name: Immoscout24.ch Test
 on:
   workflow_dispatch:
   schedule:
     - cron:  '0 2 * * THU'
 
 env:
-  PROJECT_DIR: homegate-scraper
+  PROJECT_DIR: immoscout24-scraper
 
 jobs:
   test:
