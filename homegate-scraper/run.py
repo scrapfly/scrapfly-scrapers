@@ -1,5 +1,5 @@
 """
-This example run script shows how to run the homegate.com scraper defined in ./homegate.py
+This example run script shows how to run the homegate.ch scraper defined in ./homegate.py
 It scrapes ads data and saves it to ./results/
 
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
