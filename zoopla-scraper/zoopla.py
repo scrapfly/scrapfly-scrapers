@@ -79,7 +79,7 @@ def _get_max_search_pages(response: ScrapeApiResponse):
     selector = response.selector
     data = selector.css("script#__NEXT_DATA__::text").get()
     data = json.loads(data)
-    return data["props"]["pageProps"]["initialState"]["pageNumberMax"]
+    return data["props"]["pageProps"]["pagination"]["pageNumberMax"]
 
 async def scrape_properties(urls: List[str]):
     """scrape zoopla property listings from property pages"""
