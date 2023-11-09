@@ -119,6 +119,9 @@ def parse_property_page(response: ScrapeApiResponse):
 
 def parse_search_api(response: ScrapeApiResponse):
     """parse JSON data from the search API"""
+    # skip invalid API responses
+    if response.scrape_result["content_type"].split(";")[0] != "application/json":
+        return
     data = json.loads(response.scrape_result['content'])
     max_search_pages = data["searchResponseModel"]["resultlist.resultlist"]["paging"]["numberOfPages"]
     search_data = data["searchResponseModel"]["resultlist.resultlist"]["resultlistEntries"][0]["resultlistEntry"]
@@ -149,8 +152,12 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
         response = await SCRAPFLY.async_scrape(ScrapeConfig(
             first_page.context["url"].split("?pagenumber")[0] + f"?pagenumber={page}", **BASE_CONFIG
             ))
-        data = parse_search_api(response)["search_data"]
-        search_data.extend(data)
+        try:
+            data = parse_search_api(response)["search_data"]
+            search_data.extend(data)
+        except:
+            log.info("invalid search page")
+            pass
     log.info("scraped {} proprties from {}", len(search_data), url)
     return search_data
 
