@@ -17,7 +17,7 @@ In the property saerch scraper, you need to add `location_ids` to the API reques
 4. You will see the request made to the search API, which named as `searches`  
 5. Grab the `location_ids` from the request `Payload`:  
 
-<img src="https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809" align="left" height="400" width="600">  
+<img src="https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809" align="center" height="400" width="600">  
 <br/><br/>
 
 For output examples see the `./results` directory.
