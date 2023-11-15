@@ -25,16 +25,16 @@ async def run():
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
 
-    # properties_data = await immobilienscout24.scrape_properties(
-    #     urls = [
-    #         "https://www.immobilienscout24.de/expose/147036156#/",
-    #         "https://www.immobilienscout24.de/expose/147175589#/",
-    #         "https://www.immobilienscout24.de/expose/139851227#/",
-    #         "https://www.immobilienscout24.de/expose/146053176#/"
-    #     ]
-    # )
-    # with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
-    #     json.dump(properties_data, file, indent=2, ensure_ascii=False)
+    properties_data = await immobilienscout24.scrape_properties(
+        urls = [
+            "https://www.immobilienscout24.de/expose/147036156#/",
+            "https://www.immobilienscout24.de/expose/147175589#/",
+            "https://www.immobilienscout24.de/expose/139851227#/",
+            "https://www.immobilienscout24.de/expose/146053176#/"
+        ]
+    )
+    with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
+        json.dump(properties_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
