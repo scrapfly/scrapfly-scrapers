@@ -38,7 +38,6 @@ async def run():
         json.dump(properties_data, file, indent=2, ensure_ascii=False)
 
     search_data = await idealista.scrape_search(
-        # change the "rent" in the URL to "buy" to search for properties for sale
         url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",
         scrape_all_pages=False,
         max_scrape_pages=2,

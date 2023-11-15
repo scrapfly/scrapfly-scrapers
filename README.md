@@ -16,6 +16,7 @@ For full guides on how to scrape these targets (and many others) see the [scrape
 - [crunchbase.com](./crunchbase-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-crunchbase/)
 - [ebay.com](./ebay-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-ebay/)
 - [glassdoor.com](./glassdoor-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
+- [idealista.com](./idealista-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-idealista/)
 - [indeed.com](./indeed-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-indeedcom/)
 - [instagram.com](./instagram-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-instagram/)
 - [leboncoin.fr](./leboncoin-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-leboncoin-marketplace-real-estate/)
