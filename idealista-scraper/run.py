@@ -39,8 +39,8 @@ async def run():
 
     search_data = await idealista.scrape_search(
         url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",
-        scrape_all_pages=False,
-        max_scrape_pages=2,
+        # remove the max_scrape_pages paremeter to scrape all pages
+        max_scrape_pages=2
     )
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)

@@ -137,7 +137,7 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
     return properties
 
 
-async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int) -> List[str]:
+async def scrape_search(url: str, max_scrape_pages: int = None) -> List[str]:
     """
     Scrape search urls like:
     https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/
@@ -151,10 +151,10 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int)
     total_results = first_page.selector.css("h1#h1-container").re(": (.+) houses")[0]
     total_pages = math.ceil(int(total_results.replace(",", "")) / 30)
     if total_pages > 60:
-        print(f"search contains more than max page limit ({total_pages}/60)")
+        log.info(f"search contains more than max page limit ({total_pages}/60)")
         total_pages = 60
-    # scrape all available pages in the search if scrape_all_pages = True or max_scrape_pages > total_pages
-    if scrape_all_pages == False and max_scrape_pages < total_pages:
+    # scrape all available pages in the search if max_scrape_pages is None or max_scrape_pages > total_pages
+    if max_scrape_pages and max_scrape_pages < total_pages:
         total_pages = max_scrape_pages
     else:
         total_pages = total_pages
