@@ -61,7 +61,8 @@ def parse_property_page(response: ScrapeApiResponse):
     final_energy_requirement = selector.xpath("//dd[contains(@class, 'endenergiebedarf')]/text()").get().strip()
     property_images = []
     for image in selector.xpath("//div[@class='sp-slides']//div[contains(@class, 'sp-slide')]"):
-        property_images.append(image.xpath("./img").attrib["data-src"].split("/ORIG")[0])
+        if image.xpath("./img").attrib["data-src"]:
+            property_images.append(image.xpath("./img").attrib["data-src"].split("/ORIG")[0])
     video_available = bool(selector.xpath("//button[contains(@class, 'gallery-video')]/text()").get())
     internet_speed = selector.xpath("//div[contains(@class, 'desk-seven-tenths')]/span[3]/span[@classname]/text()").get()
     internet_available = bool(internet_speed)
