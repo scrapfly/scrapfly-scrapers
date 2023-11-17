@@ -1,11 +1,11 @@
-name: Refdin.com Test
+name: Redfin.com Test
 on:
   workflow_dispatch:
   schedule:
     - cron:  '0 12 * * MON'
 
 env:
-  PROJECT_DIR: refdin-scraper
+  PROJECT_DIR: redfin-scraper
 
 jobs:
   test:

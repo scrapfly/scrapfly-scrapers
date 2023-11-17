@@ -1,5 +1,5 @@
 """
-This is an example web scraper for refdin.com used in scrapfly blog article:
+This is an example web scraper for redfin.com used in scrapfly blog article:
 https://scrapfly.io/blog/how-to-scrape-zillow/
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:

@@ -1,9 +1,9 @@
 from cerberus import Validator
-import refdin
+import redfin
 import pytest
 import pprint
 
-refdin.BASE_CONFIG["cache"] = True
+redfin.BASE_CONFIG["cache"] = True
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -150,7 +150,7 @@ search_schema = {
 
 @pytest.mark.asyncio
 async def test_properties_for_sale_scraping():
-    properties_sale_data = await refdin.scrape_property_for_sale(
+    properties_sale_data = await redfin.scrape_property_for_sale(
         urls=[
             "https://www.redfin.com/WA/Seattle/506-E-Howell-St-98122/unit-W303/home/46456",
             "https://www.redfin.com/WA/Seattle/1105-Spring-St-98104/unit-405/home/12305595",
@@ -164,7 +164,7 @@ async def test_properties_for_sale_scraping():
 
 @pytest.mark.asyncio
 async def test_properties_for_rent_scraping():
-    properties_rent_data = await refdin.scrape_property_for_rent(
+    properties_rent_data = await redfin.scrape_property_for_rent(
         urls=[
             "https://www.redfin.com/WA/Seattle/Onni-South-Lake-Union/apartment/147020546",
             "https://www.redfin.com/WA/Seattle/The-Ivey-on-Boren/apartment/146904423",
@@ -178,7 +178,7 @@ async def test_properties_for_rent_scraping():
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    search_data = await refdin.scrape_search(
+    search_data = await redfin.scrape_search(
         url="https://www.redfin.com/city/16163/WA/Seattle"
     )
     validator = Validator(search_schema, allow_unknown=True)

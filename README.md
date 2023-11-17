@@ -21,6 +21,7 @@ For full guides on how to scrape these targets (and many others) see the [scrape
 - [instagram.com](./instagram-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-instagram/)
 - [leboncoin.fr](./leboncoin-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-leboncoin-marketplace-real-estate/)
 - [realtor.com](./realtorcom-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-realtorcom/)
+- [redfin.com](./redfin-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-redfin/)
 - [rightmove.com](./rightmove-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-rightmove/)
 - [stockx.com](./stockx-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-stockx/)
 - [threads.net](./threads-scraper/) + [guide](https://scrapfly.io/blog/how-to-scrape-threads/)
