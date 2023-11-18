@@ -56,8 +56,8 @@ async def scrape_properties(urls: List[str]):
         if data:
             # Option 1: some properties are located in NEXT DATA cache
             data = json.loads(data)
-            property_data = json.loads(data["props"]["pageProps"]["gdpClientCache"])
-            property_data = next(v['property'] for v in property_data.values())
+            property_data = json.loads(data["props"]["pageProps"]["componentProps"]["gdpClientCache"])
+            property_data = property_data[list(property_data)[0]]['property']
         else:
             # Option 2: other times it's in Apollo cache
             data = result.selector.css("script#hdpApolloPreloadedData::text").get()
