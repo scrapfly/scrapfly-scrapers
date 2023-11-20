@@ -8,6 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import asyncio
 import json
 import math
+import base64
 import os
 from datetime import datetime
 from pathlib import Path
@@ -135,9 +136,10 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
 
 async def scrape_feed(url) -> Dict[str, datetime]:
     """scrapes atom RSS feed and returns all entries in "url:publish date" format"""
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    body = result.content.read()
-    selector = Selector(text=body.decode(), type="xml")
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, retry=True))
+    body_base64 = result.content
+    body_decoded = base64.b64decode(body_base64).decode('utf-8')
+    selector = Selector(text=body_decoded, type="xml")    
     results = {}
     for item in selector.xpath("//item"):
         url = item.xpath("link/text()").get()
