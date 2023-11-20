@@ -26,14 +26,14 @@ def parse_search(result: ScrapeApiResponse):
     # select the __NEXT_DATA__ script from the HTML
     next_data = result.selector.css("script[id='__NEXT_DATA__']::text").get()
     # extract ads listing data from the search page
-    ads_data = json.loads(next_data)["props"]["pageProps"]["initialProps"]["searchData"]["ads"]
+    ads_data = json.loads(next_data)["props"]["pageProps"]["searchData"]["ads"]
     return ads_data
 
 def _max_search_pages(result: ScrapeApiResponse):
     """get the number of max pages in the search"""
     next_data = result.selector.css("script[id='__NEXT_DATA__']::text").get()
     # extract the total pages number
-    max_search_pages = json.loads(next_data)["props"]["pageProps"]["initialProps"]["searchData"]["max_pages"]
+    max_search_pages = json.loads(next_data)["props"]["pageProps"]["searchData"]["max_pages"]
     return max_search_pages
 
 

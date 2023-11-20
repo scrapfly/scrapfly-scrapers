@@ -1,13 +1,12 @@
 """
 This is an example web scraper for redfin.com used in scrapfly blog article:
-https://scrapfly.io/blog/how-to-scrape-zillow/
+https://scrapfly.io/blog/how-to-scrape-redfin/
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import json
 import os
-import re
 from typing import List, Dict
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
@@ -16,8 +15,9 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 
 BASE_CONFIG = {
-    # Zillow.com requires Anti Scraping Protection bypass feature:
+    # Redfin.com requires Anti Scraping Protection bypass feature:
     "asp": True,
+    # Set the proxy location to US
     "country": "US",
 }
 
