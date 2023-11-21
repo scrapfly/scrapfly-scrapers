@@ -18,7 +18,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # bypass realesta.com.au scraping blocking
     "asp": True,
-    # set the proxy country to switzerland
+    # set the proxy country to australia
     "country": "AU",
 }
 

@@ -7,8 +7,8 @@ Full tutorial
 The scraping code is located in the `realestate.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
-- Realestate.com property search for finding property listings
-- Realestate.com property pages for property listing data
+- Realestate.com.au property search for finding property listings
+- Realestate.com.au property pages for property listing data
 
 For output examples see the `./results` directory.
 
