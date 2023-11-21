@@ -31,6 +31,7 @@ async def run():
         json.dump(properties_data, file, indent=2, ensure_ascii=False)
 
     search_data = await realestate.scrape_search(
+        # you can change "buy" to "rent" in the search URL to search for properties for rent
         url="https://www.realestate.com.au/buy/in-melbourne+-+northern+region,+vic/list-1",
         max_scrape_pages=3,
     )
