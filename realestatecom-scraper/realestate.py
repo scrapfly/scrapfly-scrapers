@@ -71,8 +71,6 @@ def parse_search_data(data: List[Dict]) -> List[Dict]:
     """refine search data"""
     search_data = []
     data = list(data.values())[0]
-    with open("data.json", "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=2, ensure_ascii=False)
     for listing in data["results"]["exact"]["items"]:
         # refine each property listing in the search results
         search_data.append(parse_property_data(listing["listing"]))
