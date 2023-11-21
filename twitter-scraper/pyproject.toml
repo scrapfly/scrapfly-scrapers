@@ -1,16 +1,18 @@
 [tool.poetry]
 name = "scrapfly-twitter"
 version = "0.1.0"
-description = "demo web scraper for Twitter.com using Scrapfly"
+description = "demo web scraper for X.com (Twitter) using Scrapfly"
 authors = ["Bernardas Alisauskas <bernardas@scrapfly.io>"]
 license = "NPOS-3.0"
 readme = "README.md"
+packages = [
+    { include = "twitter.py" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-scrapfly-sdk = {extras = ["all"], version = "^0.8.5"}
+scrapfly-sdk = "^0.8.5"
 loguru = "^0.7.0"
-nested-lookup = "^0.2.25"
 jmespath = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
