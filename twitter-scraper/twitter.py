@@ -12,23 +12,37 @@ import jmespath
 from typing import Dict
 
 from loguru import logger as log
-from nested_lookup import nested_lookup
 from scrapfly import ScrapeConfig, ScrapflyClient
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    # Twitter.com requires Anti Scraping Protection bypass feature.
+    # X.com (Twitter) requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
-    # Twitter.com is javascript-powered web application so it requires
+    # X.com (Twitter) is javascript-powered web application so it requires
     # headless browsers for scraping
     "render_js": True,
-    # "country": "CA",  # set prefered country here, for example Canada
 }
 
 
+async def _scrape_twitter_app(url: str, _retries: int = 0, **scrape_config) -> Dict:
+    """Scrape X.com (Twitter) page and scroll to the end of the page if possible"""
+    if not _retries:
+        log.info("scraping {}", url)
+    else:
+        log.info("retrying {}/2 {}", _retries, url)
+    result = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, auto_scroll=True, lang=["en-US"], **scrape_config, **BASE_CONFIG)
+    )
+    if "Something went wrong, but" in result.content:
+        if _retries > 2:
+            raise Exception("Twitter web app crashed too many times")
+        return await _scrape_twitter_app(url, _retries=_retries + 1, **scrape_config)
+    return result
+
+
 def parse_tweet(data: Dict) -> Dict:
-    """Parse Twitter tweet JSON dataset for the most important fields"""
+    """Parse X.com (Twitter) tweet JSON dataset for the most important fields"""
     result = jmespath.search(
         """{
         created_at: legacy.created_at,
@@ -71,28 +85,7 @@ def parse_tweet(data: Dict) -> Dict:
             result["poll"]["duration"] = value["string_value"]
     user_data = jmespath.search("core.user_results.result", data)
     if user_data:
-        result["user"] = parse_user(user_data)
-    return result
-
-
-def parse_user(data: Dict) -> Dict:
-    """parse Twitter user JSON data into a flat structure"""
-    return {"id": data["id"], "rest_id": data["rest_id"], "verified": data["is_blue_verified"], **data["legacy"]}
-
-
-async def _scrape_twitter_app(url: str, _retries: int = 0, **scrape_config) -> Dict:
-    """Scrape Twitter page and scroll to the end of the page if possible"""
-    if not _retries:
-        log.info("scraping {}", url)
-    else:
-        log.info("retrying {}/2 {}", _retries, url)
-    result = await SCRAPFLY.async_scrape(
-        ScrapeConfig(url, auto_scroll=True, **scrape_config, **BASE_CONFIG)
-    )
-    if "Something went wrong, but" in result.content:
-        if _retries > 2:
-            raise Exception("Twitter web app crashed too many times")
-        return await _scrape_twitter_app(url, _retries=_retries + 1, **scrape_config)
+        result["user"] = parse_profile(user_data)
     return result
 
 
@@ -112,52 +105,25 @@ async def scrape_tweet(url: str) -> Dict:
         data = json.loads(xhr["response"]["body"])
         return parse_tweet(data['data']['tweetResult']['result'])
 
+
+def parse_profile(data: Dict) -> Dict:
+    """parse X.com (Twitter) user profile JSON dataset as a flat structure"""
+    return {"id": data["id"], "rest_id": data["rest_id"], "verified": data["is_blue_verified"], **data["legacy"]}
+
+
 async def scrape_profile(url: str) -> Dict:
     """
-    Scrapes Twitter user profile page e.g.:
-    https://twitter.com/scrapfly_dev
+    Scrapes X.com (Twitter) user profile page e.g.:
+    https://x.com/scrapfly_dev
     returns user data and latest tweets
     """
-    result = await _scrape_twitter_app(url, wait_for_selector="[data-testid='tweet']")
+    result = await _scrape_twitter_app(url, wait_for_selector="[data-testid='primaryColumn']")
     # capture background requests and extract ones that contain user data
     # and their latest tweets
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
     user_calls = [f for f in _xhr_calls if "UserBy" in f["url"]]
-    users = {}
     for xhr in user_calls:
         data = json.loads(xhr["response"]["body"])
-        parsed = parse_user(data["data"]["user"]["result"])
-        users[parsed["screen_name"]] = parsed
-
-    tweet_paging_calls = [f for f in _xhr_calls if "UserTweets" in f["url"]]
-    tweets = []
-    for xhr in tweet_paging_calls:
-        data = json.loads(xhr["response"]["body"])
-        xhr_tweets = nested_lookup("tweet_results", data)
-        tweets.extend([parse_tweet(tweet["result"]) for tweet in xhr_tweets])
-    return {
-        "tweets": tweets,
-        "users": users,
-    }
-
-
-async def scrape_topic(url: str) -> Dict:
-    """
-    Scrape Twitter Topic timeline for latest public tweets e.g.:
-    https://twitter.com/i/topics/853980498816679937
-    The list of Twitter topics can be found here: 
-    https://twitter.com/i/topics/picker/home
-    """
-    result = await _scrape_twitter_app(url, wait_for_selector="[data-testid='tweet']")
-    # capture background requests and extract ones that contain user data
-    # and their latest tweets
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    topic_calls = [f for f in _xhr_calls if "TopicLandingPage" in f["url"]]
-    tweets = []
-    for xhr in topic_calls:
-        if not xhr["response"]:
-            continue
-        data = json.loads(xhr["response"]["body"])
-        xhr_tweets = nested_lookup("tweet_results", data)
-        tweets.extend([parse_tweet(tweet["result"]) for tweet in xhr_tweets])
-    return tweets
+        parsed = parse_profile(data["data"]["user"]["result"])
+        return parsed
+    raise Exception("Failed to scrape user profile - no matching user data background requests")

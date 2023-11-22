@@ -1,15 +1,19 @@
 # Twitter.com Scraper
 
-This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape Twitter tweet, user and topic data.
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape public X.com (formerly Twitter) posts and user data.
 
 Full tutorial <https://scrapfly.io/blog/how-to-scrape-twitter/>
 
 The scraping code is located in the `twitter.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
-- Twitter.com Tweet data
-- Twitter.com user profile data
-- Twitter.com Tweet discovery through Twitter topics
+- X.com post data
+- X.com user profile data
+
+What is NOT possible to scrape without login through X.com website:
+
+- Post replies
+- Post search
 
 For output examples see the `./results` directory.
 
@@ -45,6 +49,5 @@ This Twitter.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.o
     # or specific scraping areas
     $ poetry run pytest test.py -k test_user_scraping
     $ poetry run pytest test.py -k test_tweet_scraping
-    $ poetry run pytest test.py -k test_topic_scraping
     ```
 

@@ -1,4 +1,4 @@
-name: Twitter.com Test
+name: X.com Test
 on:
   workflow_dispatch:
   schedule:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test: [test_tweet_scraping, test_user_scraping, 'test_topic_scraping']
+        test: [test_tweet_scraping, test_user_scraping]
 
     steps:
     - uses: actions/checkout@v2
