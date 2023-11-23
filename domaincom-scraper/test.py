@@ -145,7 +145,7 @@ async def test_properties_scraping():
 @pytest.mark.asyncio
 async def test_search_scraping():
     search_data = await domaincom.scrape_search(
-        url="https://www.domain.com.au/sale/melbourne-vic-3000/", max_scrape_pages=1
+        url="https://www.domain.com.au/sale/melbourne-vic-3000", max_scrape_pages=1
     )
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:

@@ -33,8 +33,6 @@ def parse_hidden_data(response: ScrapeApiResponse):
     selector = response.selector
     script = selector.xpath("//script[@id='__NEXT_DATA__']/text()").get()
     data = json.loads(script)
-    with open("data.json", "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=2, ensure_ascii=False)
     return data["props"]["pageProps"]["componentProps"]
 
 

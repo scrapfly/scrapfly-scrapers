@@ -28,11 +28,12 @@ def parse_next_data(response: ScrapeApiResponse) -> Dict:
     """parse listing data from script tags"""
     selector = response.selector
     # extract data in JSON from script tags
-    next_data = selector.xpath("//script[@id='state']/text()").get().strip("__INITIAL_STATE__=")
+    script = selector.xpath("//script[@id='state']/text()").get()
+    if not script:
+        return
+    next_data = script.strip("__INITIAL_STATE__=")
     # replace undefined values
     next_data = next_data.replace("undefined", "null")
-    if not next_data:
-        return
     next_data_json = json.loads(next_data)
     return next_data_json
 

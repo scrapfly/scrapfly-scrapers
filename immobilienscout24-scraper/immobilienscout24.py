@@ -122,8 +122,12 @@ def parse_search_api(response: ScrapeApiResponse):
     """parse JSON data from the search API"""
     # skip invalid API responses
     if response.scrape_result["content_type"].split(";")[0] != "application/json":
+        # retry failed requests
+        response  = SCRAPFLY.scrape(ScrapeConfig(response.context["url"], **BASE_CONFIG))
+    try:
+        data = json.loads(response.scrape_result['content'])
+    except:
         return
-    data = json.loads(response.scrape_result['content'])
     max_search_pages = data["searchResponseModel"]["resultlist.resultlist"]["paging"]["numberOfPages"]
     search_data = data["searchResponseModel"]["resultlist.resultlist"]["resultlistEntries"][0]["resultlistEntry"]
     # remove similar property listings from each property data
