@@ -155,8 +155,6 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         css_int = lambda css: int(box.css(css).re_first(r"(\d+)", default="0")) if box.css(css) else None
         css_float = lambda css: float(box.css(css).re_first(r"(\d+\.*\d*)", default="0.0")) if box.css(css) else None
         auction_end = css_re(".s-item__time-end::text", r"\((.+?)\)") or None
-        if auction_end:
-            auction_end = dateutil.parser.parse(auction_end.replace("Today", ""))
         item = {
             "url": css("a.s-item__link::attr(href)").split("?")[0],
             "title": css(".s-item__title span::text"),
@@ -164,7 +162,7 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
             "shipping": css_float(".s-item__shipping::text"),
             "auction_end": auction_end,
             "bids": css_int(".s-item__bidCount::text"),
-            "location": css_re(".s-item__itemLocation::text", "from (.+)"),
+            "location": css(".s-item__itemLocation::text"),
             "subtitles": css_all(".s-item__subtitle::text"),
             "condition": css(".SECONDARY_INFO::text"),
             "photo": css("img::attr(data-src)") or css("img::attr(src)"),
@@ -198,7 +196,7 @@ async def scrape_search(url: str, max_pages: Optional[int] = None) -> List[Dict]
     results = parse_search(first_page)
     # find total amount of results for concurrent pagination
     total_results = first_page.selector.css(".srp-controls__count-heading>span::text").get()
-    total_results = int(total_results.replace(",", ""))
+    total_results = int(total_results.replace(",", "").replace(".", ""))
     items_per_page = int(_get_url_parameter(first_page.context["url"], "_ipg", default=60))
     total_pages = math.ceil(total_results / items_per_page)
     if max_pages and total_pages > max_pages:

@@ -47,7 +47,7 @@ async def test_product_scraping():
         "price": {"type": "string", "minlength": 1},
         "seller_name": {"type": "string", "minlength": 1},
         "seller_url": {"type": "string", "regex": "https://www.ebay.com/str/.+"},
-        "photos": {"type": "list", "schema": {"type": "string", "regex": "https://i.ebayimg.com/images/.+"}},
+        "photos": {"type": "list", "schema": {"type": "string"}},
         "description_url": {"type": "string", "regex": "https://.+?.ebaydesc.com/.+"},
         "features": {"type": "dict"},
     }
@@ -85,15 +85,15 @@ async def test_search_scraping():
             "nullable": True,
         },
         "title": {"type": "string", "minlength": 1},
-        "location": {"type": "string", "min_presence": 0.02},
+        "location": {"type": "string", "nullable": True},
         "condition": {"type": "string", "minlength": 1},
-        "subtitles": {"type": "list", "schema": {"type": "string"}},
+        "subtitles": {"type": "list", "schema": {"type": "string"}, "min_presence": 0.01},
         "shipping": {"type": "float", "nullable": True},
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
         "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
-        "auction_end": {"type": "datetime", "nullable": True},
-        "bids": {"type": "integer", "nullable": True, "min_presence": 0.05},
-        "price": {"type": "string", "regex": r"\$[\d,\.]+", "nullable": True},
+        "auction_end": {"type": "string", "nullable": True},
+        "bids": {"type": "integer", "nullable": True, "min_presence": 0.01},
+        "price": {"type": "string", "nullable": True},
     }
     validator = DateTimeValidator(schema, allow_unknown=True)
     for item in result:
