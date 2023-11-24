@@ -39,7 +39,7 @@ def parse_thread(data: Dict) -> Dict:
         user_pk: post.user.pk,
         user_id: post.user.id,
         has_audio: post.has_audio,
-        reply_count: view_replies_cta_string,
+        reply_count: post.text_post_app_info.direct_reply_count,
         like_count: post.like_count,
         images: post.carousel_media[].image_versions2.candidates[1].url,
         image_count: post.carousel_media_count,
@@ -48,8 +48,6 @@ def parse_thread(data: Dict) -> Dict:
         data,
     )
     result["videos"] = list(set(result["videos"] or []))
-    if result["reply_count"]:
-        result["reply_count"] = int(result["reply_count"].split(" ")[0])
     result["url"] = f"https://www.threads.net/@{result['username']}/post/{result['code']}"
     result['image_count'] = len(result.get('images') or "")  # backwards compatibility with old dataset
     return result
@@ -97,7 +95,7 @@ async def scrape_thread(url: str) -> Dict:
             continue
         if 'thread_items' not in hidden_dataset:
             continue
-        data = json.loads(hidden_dataset)
+        data = json.loads(hidden_dataset)        
         thread_items = nested_lookup('thread_items', data)
         if not thread_items:
             continue
