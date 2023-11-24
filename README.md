@@ -222,7 +222,7 @@ The [homegate.com scraper](./homegate-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article
+For the full guide, refer to our blog article [How to Scrape Homegate.ch Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-homegate-ch-real-estate-property-data/)
 
 ### Idealista
 <p align="left">
