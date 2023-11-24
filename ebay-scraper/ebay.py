@@ -155,6 +155,8 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         css_int = lambda css: int(box.css(css).re_first(r"(\d+)", default="0")) if box.css(css) else None
         css_float = lambda css: float(box.css(css).re_first(r"(\d+\.*\d*)", default="0.0")) if box.css(css) else None
         auction_end = css_re(".s-item__time-end::text", r"\((.+?)\)") or None
+        if auction_end:
+            auction_end = dateutil.parser.parse(auction_end.replace("Today", ""))        
         item = {
             "url": css("a.s-item__link::attr(href)").split("?")[0],
             "title": css(".s-item__title span::text"),

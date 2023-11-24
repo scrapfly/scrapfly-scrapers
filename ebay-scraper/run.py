@@ -16,8 +16,8 @@ output.mkdir(exist_ok=True)
 
 
 async def run():
-    # enable scrapfly cache for basic use
-    ebay.BASE_CONFIG["cache"] = True
+    # enable scrapfly cache only during development
+    ebay.BASE_CONFIG["cache"] = False
     ebay.BASE_CONFIG["country"] = "US"
 
     print("running Ebay.com scrape and saving results to ./results directory")

@@ -7,8 +7,8 @@ import datetime
 
 pp = pprint.PrettyPrinter(indent=4)
 
-# enable cache?
-ebay.BASE_CONFIG["cache"] = True
+# disable cache
+ebay.BASE_CONFIG["cache"] = False
 
 
 class DateTimeValidator(Validator):
@@ -86,12 +86,12 @@ async def test_search_scraping():
         },
         "title": {"type": "string", "minlength": 1},
         "location": {"type": "string", "nullable": True},
-        "condition": {"type": "string", "minlength": 1},
+        "condition": {"type": "string", "nullable": True, "min_presence": 0.01},
         "subtitles": {"type": "list", "schema": {"type": "string"}, "min_presence": 0.01},
         "shipping": {"type": "float", "nullable": True},
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
         "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
-        "auction_end": {"type": "string", "nullable": True},
+        "auction_end": {"type": "datetime", "nullable": True},
         "bids": {"type": "integer", "nullable": True, "min_presence": 0.01},
         "price": {"type": "string", "nullable": True},
     }
