@@ -11,7 +11,6 @@ import json
 from pathlib import Path
 import bookingcom
 
-bookingcom.BASE_CONFIG["cache"] = True
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
@@ -21,8 +20,6 @@ WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')
 MONTH_FROM_NOW = (datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')
 
 async def run():
-    # enable scrapfly cache for caching scraping while developing
-    bookingcom.BASE_CONFIG["cache"] = True
     print("running Booking.com example scrapes and saving results to ./results directory")
 
     result_search = await bookingcom.scrape_search(
@@ -31,15 +28,14 @@ async def run():
         checkout=WEEK_FROM_NOW,
         max_pages=2
     )
-    output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
+    output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    # bookingcom.BASE_CONFIG["cache"] = False
-    # result_hotel = await bookingcom.scrape_hotel(
-    #     "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
-    #     checkin=WEEK_FROM_NOW, 
-    #     price_n_days=7,
-    # )
-    # output.joinpath("hotel.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False))
+    result_hotel = await bookingcom.scrape_hotel(
+        "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
+        checkin=WEEK_FROM_NOW, 
+        price_n_days=7,
+    )
+    output.joinpath("hotel.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":

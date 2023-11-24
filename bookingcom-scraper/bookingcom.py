@@ -38,7 +38,7 @@ class HotelPreview(TypedDict):
 
 def parse_search_page(result: ScrapeApiResponse) -> List[HotelPreview]:
     """parse hotel preview data from booking.com search page result"""
-    log.debug("parsing search page: {}", result.context["url"])
+    log.info("parsing search page: {}", result.context["url"])
     hotel_previews = []
     for hotel_box in result.selector.xpath('//div[@data-testid="property-card"]'):
         preview = {
