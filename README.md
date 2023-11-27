@@ -58,6 +58,7 @@ $ python run.py
 - [Threads.net](#threads)
 - [Tripadvisor.com](#tripadvisor)
 - [Twitter.com](#twitterx)
+- [Vestiaire collective.com](#vestiaire-collective)
 - [Zillow.com](#zillow)
 - [Zoopla.co.uk](#zoopla)
 
@@ -576,6 +577,25 @@ The [twitter.com scraper](./twitter-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape X.com (Twitter) using Python (2023-11 Update)](https://scrapfly.io/blog/how-to-scrape-twitter/)
+
+### Vestiaire collective
+<p align="left">
+  <img width="400" height="125" src="./.github/assets/vestiaire-collective.svg">
+</p>
+
+The [vestiairecollective.com scraper](./vestiairecollective-scraper/) can scrape the following data:
+- Product pages for product data.
+- Search pages for product listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Product pages](./vestiairecollective-scraper/results/products.json)  
+  - [Search pages](./vestiairecollective-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [https://scrapfly.io/blog/how-to-scrape-vestiairecollective/](https://scrapfly.io/blog/how-to-scrape-vestiairecollective/)
 
 ### Zillow
 <p align="left">
