@@ -9,15 +9,6 @@ pp = pprint.PrettyPrinter(indent=4)
 goat.BASE_CONFIG["cache"] = True
 
 
-def require_min_presence(items, key, min_perc=0.1):
-    """check whether dataset contains items with some amount of non-null values for a given key"""
-    count = sum(1 for item in items if item.get(key))
-    if count < len(items) * min_perc:
-        pytest.fail(
-            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
-        )
-
-
 def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)

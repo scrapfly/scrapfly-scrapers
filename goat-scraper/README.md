@@ -7,7 +7,7 @@ Full tutorial <https://scrapfly.io/blog/how-to-scrape-goat-com-fashion-apparel/>
 The scraping code is located in the `goat.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
-- Goat product data
+- Goat product pages
 - Goat search pages
 
 For output examples see the `./results` directory.
