@@ -39,6 +39,7 @@ $ python run.py
 - [Domain.com.au](#domain)
 - [Ebay.com](#ebay)
 - [Glassdoor.com](#glassdoor)
+- [Goat.com](#goat)
 - [Homegate.ch](#homegate)
 - [Idealista.com](#idealista)
 - [Immobilienscout24.de](#immobilienscout24)
@@ -204,6 +205,25 @@ The [glassdoor.com scraper](./glassdoor-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Glassdoor (2023 update)](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
+
+### Goat
+<p align="left">
+  <img width="250" height="75" src="./.github/assets/goat.svg">
+</p>
+
+The [goat.com scraper](./goat-scraper/) can scrape the following data:
+- Product pages for product data.
+- Search pages for product listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Product pages](./goat-scraper/results/products.json)  
+  - [Search pages](./goat-scraper/results/search.json)  
+
+</details> 
+
+How to Scrape Goat.com for Fashion Apparel Data in Python [How to Scrape Glassdoor (2023 update)](https://scrapfly.io/blog/how-to-scrape-goat-com-fashion-apparel/)
 
 ### Homegate
 <p align="left">
