@@ -32,35 +32,47 @@ $ python run.py
 ```
 
 ## List of Scrapers
+The following is the list of supported websites grouped by type.
+### E-Commerce
 - [Aliexpress.com](#aliexpress)
 - [Amazon.com](#amazon)
-- [Booking.com](#booking)
-- [Crunchbase.com](#crunchbase)
-- [Domain.com.au](#domain)
 - [Ebay.com](#ebay)
+- [Leboncoin.fr](#leboncoin)
+
+### Fashion
 - [Fashionphile.com](#fashionphile)
-- [Glassdoor.com](#glassdoor)
 - [Goat.com](#goat)
-- [Homegate.ch](#homegate)
+- [Stockx.com](#stockx)
+- [Vestiaire collective.com](#vestiaire-collective)
+
+### Jobs and Companies
+- [Crunchbase.com](#crunchbase)
+- [Glassdoor.com](#glassdoor)
+- [Indeed.com](#indeed)
+
+### Real Estate
+- [Domain.com.au](#domain)
 - [Idealista.com](#idealista)
+- [Homegate.ch](#homegate)
 - [Immobilienscout24.de](#immobilienscout24)
 - [Immoscout24.ch](#immoscout24)
 - [Immowelt.de](#immowelt)
-- [Indeed.com](#indeed)
-- [Instagram.com](#instagram)
-- [Leboncoin.fr](#leboncoin)
 - [Realestate.com](#realestate)
 - [Realtor.com](#realtor)
 - [Redfin.com](#redfin)
 - [Rightmove.co.uk](#rightmove)
 - [Seloger.com](#seloger)
-- [Stockx.com](#stockx)
-- [Threads.net](#threads)
-- [Tripadvisor.com](#tripadvisor)
-- [Twitter.com](#twitterx)
-- [Vestiaire collective.com](#vestiaire-collective)
 - [Zillow.com](#zillow)
 - [Zoopla.co.uk](#zoopla)
+
+### Social Media
+- [Instagram.com](#instagram)
+- [Threads.net](#threads)
+- [Twitter.com](#twitterx)
+
+### Travel
+- [Booking.com](#booking)
+- [Tripadvisor.com](#tripadvisor)
 
 ------------
 
