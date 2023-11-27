@@ -195,10 +195,10 @@ def parse_product(result) -> Product:
     parsed = {
         "name": sel.css("#productTitle::text").get("").strip(),
         "asin": sel.css("input[name=ASIN]::attr(value)").get("").strip(),
-        "style": sel.css("div#variation_style_name .selection::text").get("").strip(),
+        "style": sel.xpath("//span[@class='selection']/text()").get("").strip(),
         "description": '\n'.join(sel.css("#productDescription p ::text").getall()).strip(),
         "stars": sel.css("i[data-hook=average-star-rating] ::text").get("").strip(),
-        "rating_count": sel.css("div[data-hook=total-review-count] ::text").get("").strip(),
+        "rating_count": sel.css("span[data-hook=total-review-count] ::text").get("").strip(),
         "features": [value.strip() for value in sel.css("#feature-bullets li ::text").getall()],
         "images": images,
     }
@@ -207,6 +207,8 @@ def parse_product(result) -> Product:
     for row in sel.css('#productDetails_detailBullets_sections1 tr'):
         label = row.css("th::text").get("").strip()
         value = row.css("td::text").get("").strip()
+        if not value:
+            value = row.css("td span::text").get("").strip()
         info_table[label] = value
     parsed['info_table'] = info_table
     return parsed

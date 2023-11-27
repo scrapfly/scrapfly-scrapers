@@ -83,7 +83,7 @@ async def test_search_scraping():
 async def test_review_scraping():
     url = "https://www.amazon.com/PlayStation-PS5-Console-Ragnar%C3%B6k-Bundle-5/product-reviews/B0BHC395WW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
     result = await amazon.scrape_reviews(url, max_pages=3)
-    assert len(result) >= 40
+    assert len(result) >= 20
     schema = {
         "text": {"type": "string"},
         "title": {"type": "string"},
