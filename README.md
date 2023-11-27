@@ -38,6 +38,7 @@ $ python run.py
 - [Crunchbase.com](#crunchbase)
 - [Domain.com.au](#domain)
 - [Ebay.com](#ebay)
+- [Fashionphile.com](#fashionphile)
 - [Glassdoor.com](#glassdoor)
 - [Goat.com](#goat)
 - [Homegate.ch](#homegate)
@@ -184,6 +185,25 @@ The [ebay.com scraper](./ebay-scraper/) can scrape the following data:
 
 For the full guide, refer to our blog article [How to Scrape Ebay using Python](https://scrapfly.io/blog/how-to-scrape-ebay/)
 
+### Fashionphile
+<p align="left">
+  <img width="300" height="100" src="./.github/assets/fashionphile.svg">
+</p>
+
+The [fashionphile.com scraper](./fashionphile-scraper/) can scrape the following data:
+- Product pages for product data.
+- Search pages for product listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Product pages](./fashionphile-scraper/results/products.json)  
+  - [Search pages](./fashionphile-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Scrape Fashionphile for Second Hand Fashion Data](https://scrapfly.io/blog/how-to-scrape-fashionphile/)
+
 ### Glassdoor
 <p align="left">
   <img width="300" height="150" src="./.github/assets/glassdoor-ar21.svg">
@@ -223,7 +243,7 @@ The [goat.com scraper](./goat-scraper/) can scrape the following data:
 
 </details> 
 
-How to Scrape Goat.com for Fashion Apparel Data in Python [How to Scrape Glassdoor (2023 update)](https://scrapfly.io/blog/how-to-scrape-goat-com-fashion-apparel/)
+For the full guide, refer to our blog article [How to Scrape Goat.com for Fashion Apparel Data in Python](https://scrapfly.io/blog/how-to-scrape-goat-com-fashion-apparel/)
 
 ### Homegate
 <p align="left">
