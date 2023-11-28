@@ -42,6 +42,7 @@ The following is the list of supported websites grouped by type.
 ### Fashion
 - [Fashionphile.com](#fashionphile)
 - [Goat.com](#goat)
+- [Nordstorm.com](#nordstorm)
 - [Stockx.com](#stockx)
 - [Vestiaire collective.com](#vestiaire-collective)
 
@@ -413,6 +414,25 @@ The [leboncoin.fr scraper](./leboncoin-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Web Scrape Leboncoin.fr using Python](https://scrapfly.io/blog/how-to-scrape-leboncoin-marketplace-real-estate/)
+
+### Nordstorm
+<p align="left">
+  <img width="350" height="40" src="./.github/assets/nordstrom.svg">
+</p>
+
+The [nordstorm.com scraper](./nordstorm-scraper/) can scrape the following data:
+- Product pages for product data.
+- Search pages for product listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Product pages](./nordstorm-scraper/results/products.json)  
+  - [Search pages](./nordstorm-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Scrape Nordstrom Fashion Product Data](https://scrapfly.io/blog/how-to-scrape-nordstrom/)
 
 ### Realestate
 <p align="left">
