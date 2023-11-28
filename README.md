@@ -51,6 +51,7 @@ The following is the list of supported websites grouped by type.
 - [Glassdoor.com](#glassdoor)
 - [Indeed.com](#indeed)
 - [Zoominfo.com](#zoominfo)
+- [Wellfound.com](#wellfound)
 
 ### Real Estate
 - [Domain.com.au](#domain)
@@ -628,7 +629,26 @@ The [vestiairecollective.com scraper](./vestiairecollective-scraper/) can scrape
 
 </details> 
 
-For the full guide, refer to our blog article [https://scrapfly.io/blog/how-to-scrape-vestiairecollective/](https://scrapfly.io/blog/how-to-scrape-vestiairecollective/)
+For the full guide, refer to our blog article [How to Scrape Vestiaire Collective for Fashion Product Data](https://scrapfly.io/blog/how-to-scrape-vestiairecollective/)
+
+### Wellfound
+<p align="left">
+  <img width="300" height="100" src="./.github/assets/wellfound.svg">
+</p>
+
+The [wellfound.com scraper](./wellfound-scraper/) can scrape the following data:
+- Company pages for company data.
+- Search pages for job listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Company pages](./wellfound-scraper/results/companies.json)  
+  - [Search pages](./wellfound-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Scrape Wellfound Company Data and Job Listings](https://scrapfly.io/blog/how-to-scrape-wellfound-aka-angellist/)
 
 ### Zillow
 <p align="left">
