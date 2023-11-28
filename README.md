@@ -50,6 +50,7 @@ The following is the list of supported websites grouped by type.
 - [Crunchbase.com](#crunchbase)
 - [Glassdoor.com](#glassdoor)
 - [Indeed.com](#indeed)
+- [Zoominfo.com](#zoominfo)
 
 ### Real Estate
 - [Domain.com.au](#domain)
@@ -647,6 +648,25 @@ The [zillow.com scraper](./zillow-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Zillow Real Estate Property Data in Python](https://scrapfly.io/blog/how-to-scrape-zillow/)
+
+### Zoominfo
+<p align="left">
+  <img width="300" height="100" src="./.github/assets/zoominfo.svg">
+</p>
+
+The [zoominfo.com scraper](./zoominfo-scraper/) can scrape the following data:
+- Company pages for company data.
+- Directory pages for company page URLs.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Company pages](./zoominfo-scraper/results/companies.json)  
+  - [Directory pages](./zoominfo-scraper/results/directory.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Scrape Zoominfo Company Data (2023 Update)](https://scrapfly.io/blog/how-to-scrape-zoominfo/)
 
 ### Zoopla
 <p align="left">
