@@ -1,5 +1,5 @@
 """
-This example run script shows how to run the wellfound.com scraper defined in ./wellfound.py
+This example run script shows how to run the yellowpages.com scraper defined in ./yellowpages.py
 It scrapes product data and saves it to ./results/
 
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
