@@ -75,6 +75,7 @@ async def test_page_scraping():
         require_min_presence(
             pages_data, k, min_perc=page_schema[k].get("min_presence", 0.1)
         )
+    assert len(pages_data) >= 1
 
 
 @pytest.mark.asyncio
@@ -89,3 +90,4 @@ async def test_search_scraping():
         require_min_presence(
             search_data, k, min_perc=search_schema[k].get("min_presence", 0.1)
         )
+    assert len(search_data) >= 3

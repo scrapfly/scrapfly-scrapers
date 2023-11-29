@@ -38,6 +38,7 @@ The following is the list of supported websites grouped by type.
 - [Amazon.com](#amazon)
 - [Ebay.com](#ebay)
 - [Leboncoin.fr](#leboncoin)
+- [Walmart.com](#walmart)
 
 ### Fashion
 - [Fashionphile.com](#fashionphile)
@@ -633,6 +634,25 @@ The [vestiairecollective.com scraper](./vestiairecollective-scraper/) can scrape
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Vestiaire Collective for Fashion Product Data](https://scrapfly.io/blog/how-to-scrape-vestiairecollective/)
+
+### Walmart
+<p align="left">
+  <img width="300" height="100" src="./.github/assets/walmart.svg">
+</p>
+
+The [walmart.com scraper](./walmart-scraper/) can scrape the following data:
+- Product pages for product data.
+- Search pages for product listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Product pages](./walmart-scraper/results/products.json)  
+  - [Search pages](./walmart-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Web Scrape Walmart.com (2023 Update)](https://scrapfly.io/blog/how-to-scrape-walmartcom/)
 
 ### Wellfound
 <p align="left">

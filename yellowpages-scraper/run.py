@@ -19,7 +19,7 @@ async def run():
     # enable scrapfly cache for basic use
     yellowpages.BASE_CONFIG["cache"] = False
 
-    print("running Wellfound scrape and saving results to ./results directory")
+    print("running Yellowpages scrape and saving results to ./results directory")
 
     search_data = await yellowpages.scrape_search(
         query="chinese restaurants", location="San Francisco, CA", max_pages=3
