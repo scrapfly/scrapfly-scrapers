@@ -77,6 +77,9 @@ The following is the list of supported websites grouped by type.
 - [Booking.com](#booking)
 - [Tripadvisor.com](#tripadvisor)
 
+### Other
+- [Yellowpages.com](#yellowpages)
+
 ------------
 
 ### Aliexpress
@@ -649,6 +652,25 @@ The [wellfound.com scraper](./wellfound-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Wellfound Company Data and Job Listings](https://scrapfly.io/blog/how-to-scrape-wellfound-aka-angellist/)
+
+### Yellowpages
+<p align="left">
+  <img width="300" height="75" src="./.github/assets/yellowpages.svg">
+</p>
+
+The [yellowpages.com scraper](./yellowpages-scraper/) can scrape the following data:
+- Business pages for business data.
+- Search pages for business listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Business pages](./yellowpages-scraper/results/business_pages.json)  
+  - [Search pages](./yellowpages-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Scrape YellowPages.com Business Data and Reviews (2023 Update)](https://scrapfly.io/blog/how-to-scrape-yellowpages/)
 
 ### Zillow
 <p align="left">
