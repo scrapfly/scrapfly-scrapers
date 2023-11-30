@@ -80,6 +80,7 @@ The following is the list of supported websites grouped by type.
 
 ### Other
 - [Yellowpages.com](#yellowpages)
+- [Yelp.com](#yelp)
 
 ------------
 
@@ -691,6 +692,27 @@ The [yellowpages.com scraper](./yellowpages-scraper/) can scrape the following d
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape YellowPages.com Business Data and Reviews (2023 Update)](https://scrapfly.io/blog/how-to-scrape-yellowpages/)
+
+### Yelp
+<p align="left">
+  <img width="300" height="75" src="./.github/assets/yelp.svg">
+</p>
+
+The [yelp.com scraper](./yelp-scraper/) can scrape the following data:
+- Business pages for business data.
+- Review pages for business data.
+- Search pages for business listing data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Business pages](./yelp-scraper/results/business_pages.json)  
+  - [Review pages](./yelp-scraper/results/reviews.json)  
+  - [Search pages](./yelp-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article [How to Web Scrape Yelp.com (2023 update)](https://scrapfly.io/blog/how-to-scrape-yelpcom/)
 
 ### Zillow
 <p align="left">
