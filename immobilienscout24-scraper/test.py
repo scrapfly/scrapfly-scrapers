@@ -30,7 +30,7 @@ property_schema = {
                     "livingSpace": {"type": "integer"},
                     "livingSpaceUnit": {"type": "string"},
                     "vacantFrom": {"type": "string"},
-                    "numberOfRooms": {"type": "integer"},
+                    "numberOfRooms": {"type": "integer", "nullable": True},
                     "Garage/parking space": {"type": "string"},
                     "additionalSpecs": {"type": "list", "schema": {"type": "string"}},
                     "internetAvailable": {"type": "boolean"},
@@ -55,11 +55,11 @@ property_schema = {
             "building": {
                 "type": "dict",
                 "schema": {
-                    "constructionYear": {"type": "integer"},
+                    "constructionYear": {"type": "integer", "nullable": True},
                     "energySources": {"type": "string"},
                     "energyCertificate": {"type": "string"},
                     "energyCertificateType": {"type": "string"},
-                    "energyCertificateDate": {"type": "integer"},
+                    "energyCertificateDate": {"type": "integer", "nullable": True},
                     "finalEnergyRrequirement": {"type": "string"},
                 },
             },
@@ -245,7 +245,7 @@ async def test_properties_scraping():
     properties_data = await immobilienscout24.scrape_properties(
         urls=[
             "https://www.immobilienscout24.de/expose/147036156#/",
-            "https://www.immobilienscout24.de/expose/147175589#/",
+            "https://www.immobilienscout24.de/expose/145570700#/",
             "https://www.immobilienscout24.de/expose/139851227#/",
         ]
     )
