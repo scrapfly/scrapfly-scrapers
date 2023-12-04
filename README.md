@@ -61,7 +61,7 @@ The following is the list of supported websites grouped by type.
 - [Immobilienscout24.de](#immobilienscout24)
 - [Immoscout24.ch](#immoscout24)
 - [Immowelt.de](#immowelt)
-- [Realestate.com](#realestate)
+- [Realestate.com.au](#realestate)
 - [Realtor.com](#realtor)
 - [Redfin.com](#redfin)
 - [Rightmove.co.uk](#rightmove)
@@ -85,9 +85,9 @@ The following is the list of supported websites grouped by type.
 ------------
 
 ### Aliexpress
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/aliexpress-ar21.svg">
-</p>
+</p> -->
 
 The [aliexpress.com scraper](./aliexpress-scraper/) can scrape the following data:
 
@@ -107,9 +107,9 @@ The [aliexpress.com scraper](./aliexpress-scraper/) can scrape the following dat
 For the full guide, refer to our blog article [How to Scrape Aliexpress.com (2023 Update)](https://scrapfly.io/blog/how-to-scrape-aliexpress/)
 
 ### Amazon
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/amazon-ar21.svg">
-</p>
+</p> -->
 
 The [amazon.com scraper](./amazon-scraper/) can scrape the following data:
 - Product pages for a specific product data.
@@ -129,9 +129,9 @@ For the full guide, refer to our blog article [How to Scrape Amazon.com Product 
 
 ### Booking
 
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/booking-ar21.svg">
-</p>
+</p> -->
 
 The [booking.com scraper](./bookingcom-scraper/) can scrape the following data:
 - Hotel pages for a specific hotel data.
@@ -148,9 +148,9 @@ The [booking.com scraper](./bookingcom-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Booking.com (2023 Update)](https://scrapfly.io/blog/how-to-scrape-bookingcom/)
 
 ### Crunchbase
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/crunchbase-ar21.svg">
-</p>
+</p> -->
 
 The [crunchbase.com scraper](./crunchbase-scraper/) can scrape the following data:
 - Company pages for a specific company data.
@@ -168,9 +168,9 @@ The [crunchbase.com scraper](./crunchbase-scraper/) can scrape the following dat
 For the full guide, refer to our blog article [How to Scrape Crunchbase Company and People Data (2023 Update)](https://scrapfly.io/blog/how-to-scrape-crunchbase/)
 
 ### Domain
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="150" src="./.github/assets/domain-com-au-logo-vector.svg">
-</p>
+</p> -->
 
 The [domain.com.au scraper](./domaincom-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -187,9 +187,9 @@ The [domain.com.au scraper](./domaincom-scraper/) can scrape the following data:
 For the full guide, refer to our blog article 
 
 ### Ebay
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/ebay-ar21.svg">
-</p>
+</p> -->
 
 The [ebay.com scraper](./ebay-scraper/) can scrape the following data:
 - Product pages for a specific product data.
@@ -207,9 +207,9 @@ The [ebay.com scraper](./ebay-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Ebay using Python](https://scrapfly.io/blog/how-to-scrape-ebay/)
 
 ### Fashionphile
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="100" src="./.github/assets/fashionphile.svg">
-</p>
+</p> -->
 
 The [fashionphile.com scraper](./fashionphile-scraper/) can scrape the following data:
 - Product pages for product data.
@@ -226,9 +226,9 @@ The [fashionphile.com scraper](./fashionphile-scraper/) can scrape the following
 For the full guide, refer to our blog article [How to Scrape Fashionphile for Second Hand Fashion Data](https://scrapfly.io/blog/how-to-scrape-fashionphile/)
 
 ### Glassdoor
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="150" src="./.github/assets/glassdoor-ar21.svg">
-</p>
+</p> -->
 
 The [glassdoor.com scraper](./glassdoor-scraper/) can scrape the following data:
 - Company search for company page URLs (overiew, jobs, reviews, salaries).
@@ -248,9 +248,9 @@ The [glassdoor.com scraper](./glassdoor-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Glassdoor (2023 update)](https://scrapfly.io/blog/how-to-scrape-glassdoor/)
 
 ### Goat
-<p align="left">
+<!-- <p align="left">
   <img width="250" height="75" src="./.github/assets/goat.svg">
-</p>
+</p> -->
 
 The [goat.com scraper](./goat-scraper/) can scrape the following data:
 - Product pages for product data.
@@ -267,11 +267,11 @@ The [goat.com scraper](./goat-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Goat.com for Fashion Apparel Data in Python](https://scrapfly.io/blog/how-to-scrape-goat-com-fashion-apparel/)
 
 ### Homegate
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="150" src="./.github/assets/Homegate_Logo.svg">
-</p>
+</p> -->
 
-The [homegate.com scraper](./homegate-scraper/) can scrape the following data:
+The [homegate.ch scraper](./homegate-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
 - Search pages for real estate property listings data.
 
@@ -286,9 +286,9 @@ The [homegate.com scraper](./homegate-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Homegate.ch Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-homegate-ch-real-estate-property-data/)
 
 ### Idealista
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/idealista.svg">
-</p>
+</p> -->
 
 The [idealista.com scraper](./idealista-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -307,9 +307,9 @@ The [idealista.com scraper](./idealista-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Idealista.com in Python - Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-idealista/)
 
 ### Immobilienscout24
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/ImmobilienScout24_logo.svg">
-</p>
+</p> -->
 
 The [immobilienscout24.de scraper](./immobilienscout24-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -326,9 +326,9 @@ The [immobilienscout24.de scraper](./immobilienscout24-scraper/) can scrape the 
 For the full guide, refer to our blog article [How to Scrape Immobilienscout24.de Real Estate Data](https://scrapfly.io/blog/how-to-scrape-immobillienscout24-real-estate-property-data/)
 
 ### Immoscout24
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/immoscout24.svg">
-</p>
+</p> -->
 
 The [immoscout24.ch scraper](./immoscout24-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -345,9 +345,9 @@ The [immoscout24.ch scraper](./immoscout24-scraper/) can scrape the following da
 For the full guide, refer to our blog article [How to Scrape Immoscout24.ch Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-immoscout24-ch-real-estate-property-data/)
 
 ### Immowelt
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="50" src="./.github/assets/Immowelt-Logo.svg">
-</p>
+</p> -->
 
 The [immowelt.de scraper](./immowelt-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -361,12 +361,12 @@ The [immowelt.de scraper](./immowelt-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article
+For the full guide, refer to our blog article [How to Scrape Immowelt.de Real Estate Data](https://scrapfly.io/blog/how-to-scrape-immowelt-de-real-estate-properties/)
 
 ### Indeed
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/Indeed_logo.svg">
-</p>
+</p> -->
 
 The [indeed.com scraper](./indeed-scraper/) can scrape the following data:
 - Job pages for a specific job data.
@@ -383,9 +383,9 @@ The [indeed.com scraper](./indeed-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Indeed.com (2023 Update)](https://scrapfly.io/blog/how-to-scrape-indeedcom/)
 
 ### Instagram
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/instagram-ar21.svg">
-</p>
+</p> -->
 
 The [instagram.com scraper](./instagram-scraper/) can scrape the following data:
 - User pages for a specific user data.
@@ -404,9 +404,9 @@ The [instagram.com scraper](./instagram-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Instagram](https://scrapfly.io/blog/how-to-scrape-instagram/)
 
 ### Leboncoin
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="150" src="./.github/assets/leboncoin.svg">
-</p>
+</p> -->
 
 The [leboncoin.fr scraper](./leboncoin-scraper/) can scrape the following data:
 - product pages for a specific product data.
@@ -423,9 +423,9 @@ The [leboncoin.fr scraper](./leboncoin-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Web Scrape Leboncoin.fr using Python](https://scrapfly.io/blog/how-to-scrape-leboncoin-marketplace-real-estate/)
 
 ### Nordstorm
-<p align="left">
+<!-- <p align="left">
   <img width="350" height="40" src="./.github/assets/nordstrom.svg">
-</p>
+</p> -->
 
 The [nordstorm.com scraper](./nordstorm-scraper/) can scrape the following data:
 - Product pages for product data.
@@ -442,9 +442,9 @@ The [nordstorm.com scraper](./nordstorm-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Nordstrom Fashion Product Data](https://scrapfly.io/blog/how-to-scrape-nordstrom/)
 
 ### Realestate
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="150" src="./.github/assets/realestate-com-au-logo-vector-2023.svg">
-</p>
+</p> -->
 
 The [realestate.com.au scraper](./realestatecom-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -458,12 +458,12 @@ The [realestate.com.au scraper](./realestatecom-scraper/) can scrape the followi
 
 </details> 
 
-For the full guide, refer to our blog article
+For the full guide, refer to our blog article [How to Scrape Realestate.com.au Property Listing Data](https://scrapfly.io/blog/how-to-scrape-realestate-com-au-property-listing-data/)
 
 ### Realtor
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/realtor.svg">
-</p>
+</p> -->
 
 The [realtor.com scraper](./realtor-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -482,9 +482,9 @@ The [realtor.com scraper](./realtor-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Realtor.com - Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-realtorcom/)
 
 ### Redfin
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="150" src="./.github/assets/redfin-logo-vector.svg">
-</p>
+</p> -->
 
 The [redfin.com scraper](./redfin-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -502,9 +502,9 @@ The [redfin.com scraper](./redfin-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Redfin Real Estate Property Data in Python](https://scrapfly.io/blog/how-to-scrape-redfin/)
 
 ### Rightmove
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="50" src="./.github/assets/rightmove.svg">
-</p>
+</p> -->
 
 The [rightmove.co.uk scraper](./rightmove-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -521,9 +521,9 @@ The [rightmove.co.uk scraper](./rightmove-scraper/) can scrape the following dat
 For the full guide, refer to our blog article [How to Scrape RightMove Real Estate Property Data with Python](https://scrapfly.io/blog/how-to-scrape-rightmove/)
 
 ### Seloger
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/SeLoger-2017.svg">
-</p>
+</p> -->
 
 The [seloger.com scraper](./seloger-scraper/) can scrape the following data:
 - Property pages for a specific real estate property data.
@@ -540,9 +540,9 @@ The [seloger.com scraper](./seloger-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Seloger.com - Real Estate Listing Data](https://scrapfly.io/blog/how-to-scrape-seloger-com-listing-real-estate-ads/)
 
 ### Stockx
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/StockX_logo.svg">
-</p>
+</p> -->
 
 The [stockx.com scraper](./stockx-scraper/) can scrape the following data:
 - Product pages for a specific product data.
@@ -559,9 +559,9 @@ The [stockx.com scraper](./stockx-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape StockX e-commerce Data with Python](https://scrapfly.io/blog/how-to-scrape-stockx/)
 
 ### Threads
-<p align="left">
+<!-- <p align="left">
   <img width="100" height="100" src="./.github/assets/threads.svg">
-</p>
+</p> -->
 
 The [threads.net scraper](./threads-scraper/) can scrape the following data:
 - User pages for a specific user data.
@@ -578,9 +578,9 @@ The [threads.net scraper](./threads-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to scrape Threads by Meta using Python (2023-08 Update)](https://scrapfly.io/blog/how-to-scrape-threads/)
 
 ### Tripadvisor
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="150" src="./.github/assets/tripadvisor-ar21.svg">
-</p>
+</p> -->
 
 The [tripadvisor.com scraper](./tripadvisor-scraper/) can scrape the following data:
 - Holtel pages for a specific hotel data.
@@ -599,9 +599,9 @@ The [tripadvisor.com scraper](./tripadvisor-scraper/) can scrape the following d
 For the full guide, refer to our blog article [How to Scrape TripAdvisor.com (2023 Updated)](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
 
 ### Twitter(X)
-<p align="left">
+<!-- <p align="left">
   <img width="100" height="100" src="./.github/assets/x.svg">
-</p>
+</p> -->
 
 The [twitter.com scraper](./twitter-scraper/) can scrape the following data:
 - Twitter tweet pages for a specific tweet data.
@@ -618,9 +618,9 @@ The [twitter.com scraper](./twitter-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape X.com (Twitter) using Python (2023-11 Update)](https://scrapfly.io/blog/how-to-scrape-twitter/)
 
 ### Vestiaire collective
-<p align="left">
+<!-- <p align="left">
   <img width="400" height="125" src="./.github/assets/vestiaire-collective.svg">
-</p>
+</p> -->
 
 The [vestiairecollective.com scraper](./vestiairecollective-scraper/) can scrape the following data:
 - Product pages for product data.
@@ -637,9 +637,9 @@ The [vestiairecollective.com scraper](./vestiairecollective-scraper/) can scrape
 For the full guide, refer to our blog article [How to Scrape Vestiaire Collective for Fashion Product Data](https://scrapfly.io/blog/how-to-scrape-vestiairecollective/)
 
 ### Walmart
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="100" src="./.github/assets/walmart.svg">
-</p>
+</p> -->
 
 The [walmart.com scraper](./walmart-scraper/) can scrape the following data:
 - Product pages for product data.
@@ -656,9 +656,9 @@ The [walmart.com scraper](./walmart-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Web Scrape Walmart.com (2023 Update)](https://scrapfly.io/blog/how-to-scrape-walmartcom/)
 
 ### Wellfound
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="100" src="./.github/assets/wellfound.svg">
-</p>
+</p> -->
 
 The [wellfound.com scraper](./wellfound-scraper/) can scrape the following data:
 - Company pages for company data.
@@ -675,9 +675,9 @@ The [wellfound.com scraper](./wellfound-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Wellfound Company Data and Job Listings](https://scrapfly.io/blog/how-to-scrape-wellfound-aka-angellist/)
 
 ### Yellowpages
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="75" src="./.github/assets/yellowpages.svg">
-</p>
+</p> -->
 
 The [yellowpages.com scraper](./yellowpages-scraper/) can scrape the following data:
 - Business pages for business data.
@@ -694,9 +694,9 @@ The [yellowpages.com scraper](./yellowpages-scraper/) can scrape the following d
 For the full guide, refer to our blog article [How to Scrape YellowPages.com Business Data and Reviews (2023 Update)](https://scrapfly.io/blog/how-to-scrape-yellowpages/)
 
 ### Yelp
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="75" src="./.github/assets/yelp.svg">
-</p>
+</p> -->
 
 The [yelp.com scraper](./yelp-scraper/) can scrape the following data:
 - Business pages for business data.
@@ -715,9 +715,9 @@ The [yelp.com scraper](./yelp-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Web Scrape Yelp.com (2023 update)](https://scrapfly.io/blog/how-to-scrape-yelpcom/)
 
 ### Zillow
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/zillow.svg">
-</p>
+</p> -->
 
 The [zillow.com scraper](./zillow-scraper/) can scrape the following data:
 - Zillow property pages for a specific real estate property data.
@@ -734,9 +734,9 @@ The [zillow.com scraper](./zillow-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Zillow Real Estate Property Data in Python](https://scrapfly.io/blog/how-to-scrape-zillow/)
 
 ### Zoominfo
-<p align="left">
+<!-- <p align="left">
   <img width="300" height="100" src="./.github/assets/zoominfo.svg">
-</p>
+</p> -->
 
 The [zoominfo.com scraper](./zoominfo-scraper/) can scrape the following data:
 - Company pages for company data.
@@ -753,9 +753,9 @@ The [zoominfo.com scraper](./zoominfo-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Zoominfo Company Data (2023 Update)](https://scrapfly.io/blog/how-to-scrape-zoominfo/)
 
 ### Zoopla
-<p align="left">
+<!-- <p align="left">
   <img width="200" height="100" src="./.github/assets/zoopla.svg">
-</p>
+</p> -->
 
 The [zoopla.co.uk scraper](./zoopla-scraper/) can scrape the following data:
 - Zoopla property pages for a specific real estate property data.
