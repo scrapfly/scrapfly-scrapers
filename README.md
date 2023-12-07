@@ -69,6 +69,11 @@ The following is the list of supported websites grouped by type.
 - [Zillow.com](#zillow)
 - [Zoopla.co.uk](#zoopla)
 
+### Reviews
+- [Yellowpages.com](#yellowpages)
+- [Yelp.com](#yelp)
+- [Trustpilot.com](#trustpilot)
+
 ### Social Media
 - [Instagram.com](#instagram)
 - [Threads.net](#threads)
@@ -77,10 +82,6 @@ The following is the list of supported websites grouped by type.
 ### Travel
 - [Booking.com](#booking)
 - [Tripadvisor.com](#tripadvisor)
-
-### Other
-- [Yellowpages.com](#yellowpages)
-- [Yelp.com](#yelp)
 
 ------------
 
@@ -597,6 +598,21 @@ The [tripadvisor.com scraper](./tripadvisor-scraper/) can scrape the following d
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape TripAdvisor.com (2023 Updated)](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
+
+### Trustpilot
+The [trustpilot.com scraper](./trustpilot-scraper/) can scrape the following data:
+- Company pages for a specific company data.
+- Reviews data in a specific company reviews.
+- Search pages for company listings data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Company pages](./trustpilot-scraper/results/companies.json)  
+  - [Reviews pages](./trustpilot-scraper/results/reviews.json)  
+  - [Search pages](./trustpilot-scraper/results/search.json)  
+
+</details> 
 
 ### Twitter(X)
 <!-- <p align="left">
