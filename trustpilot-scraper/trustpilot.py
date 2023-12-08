@@ -90,9 +90,6 @@ async def scrape_reviews(url: str, max_pages: int = None) -> List[Dict]:
 
     # get the number of review pages to scrape
     total_pages = data["filters"]["pagination"]["totalPages"]
-    # the total number of pages is 919 no matter the total number of review
-    if total_pages > 919:
-        total_pages = 919
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
 
