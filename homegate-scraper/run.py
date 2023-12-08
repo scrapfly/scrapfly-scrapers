@@ -22,7 +22,9 @@ async def run():
 
     properties_data = await homegate.scrape_properties(
         urls=[
-            "https://www.homegate.ch/rent/4000249686"
+            "https://www.homegate.ch/rent/4000382196",
+            "https://www.homegate.ch/rent/4000444498",
+            "https://www.homegate.ch/rent/4000456098"
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
