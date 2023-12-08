@@ -185,7 +185,7 @@ The [domain.com.au scraper](./domaincom-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article 
+For the full guide, refer to our blog article [How to Scrape Domain.com.au Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-domain-com-au-real-estate-property-data/)
 
 ### Ebay
 <!-- <p align="left">

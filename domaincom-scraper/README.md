@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape property listing data from Domain.com.au. 
 
-Full tutorial  
+Full tutorial <https://scrapfly.io/blog/how-to-scrape-domain-com-au-real-estate-property-data/>
 
 The scraping code is located in the `domaincom.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
