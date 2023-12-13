@@ -37,6 +37,7 @@ The following is the list of supported websites grouped by type.
 - [Aliexpress.com](#aliexpress)
 - [Amazon.com](#amazon)
 - [Ebay.com](#ebay)
+- [Etsy.com](#etsy)
 - [Leboncoin.fr](#leboncoin)
 - [Walmart.com](#walmart)
 
@@ -206,6 +207,24 @@ The [ebay.com scraper](./ebay-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Ebay using Python](https://scrapfly.io/blog/how-to-scrape-ebay/)
+
+### Etsy
+
+The [etsy.com scraper](./etsy-scraper/) can scrape the following data:
+- Product pages for a specific product data.
+- Shop pages for a specific shop data.
+- Search pages for product listings data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Product pages](./etsy-scraper/results/products.json)  
+  - [Product pages with variant](./etsy-scraper/results/shops.json)  
+  - [Search pages](./etsy-scraper/results/search.json)  
+
+</details> 
+
+For the full guide, refer to our blog article
 
 ### Fashionphile
 <!-- <p align="left">
