@@ -219,7 +219,7 @@ The [etsy.com scraper](./etsy-scraper/) can scrape the following data:
   <summary>View sample data</summary>  
 
   - [Product pages](./etsy-scraper/results/products.json)  
-  - [Product pages with variant](./etsy-scraper/results/shops.json)  
+  - [Shop pages](./etsy-scraper/results/shops.json)  
   - [Search pages](./etsy-scraper/results/search.json)  
 
 </details> 

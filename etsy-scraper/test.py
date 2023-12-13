@@ -91,7 +91,7 @@ search_schema = {
     "productLink": {"type": "string"},
     "productTitle": {"type": "string"},
     "productImage": {"type": "string"},
-    "seller": {"type": "string"},
+    "seller": {"type": "string", "nullable": True},
     "estimatedArrival": {"type": "string", "nullable": True},
     "listingType": {"type": "string"},
     "productRate": {"type": "float", "nullable": True},
