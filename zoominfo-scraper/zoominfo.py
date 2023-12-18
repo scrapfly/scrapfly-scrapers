@@ -9,7 +9,7 @@ import os
 import json
 from typing import Dict, List
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyAspError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -56,8 +56,20 @@ async def scrape_comapnies(urls: List[str]) -> List[Dict]:
     """scrape company data from zoominfo company pages"""
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     companies = []
-    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        companies.append(parse_company(response))
+    failed = []
+    try:
+        async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+            companies.append(parse_company(response))
+    except ScrapflyAspError:
+            failed.append(response.context['url'])
+    if len(failed) != 0:
+        log.debug(f"{len(failed)} requests are blocked, trying again with render_js enabled and residential proxies")
+        for url in failed:
+            try:
+                response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool"))
+                companies.append(parse_company(response))
+            except ScrapflyAspError:
+                pass
     log.success(f"scraped {len(companies)} company pages data")
     return companies
 
