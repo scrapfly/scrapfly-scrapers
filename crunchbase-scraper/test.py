@@ -96,12 +96,12 @@ async def test_person_scraping():
             "schema": {
                 "type": "dict",
                 "schema": {
-                    "title": {"type": "string"},
+                    "title": {"type": "string", "nullable": True},
                     "author": {"type": "string", "nullable": True},
-                    "publisher": {"type": "string"},
-                    "url": {"type": "string"},
-                    "date": {"type": "string"},
-                    "type": {"type": "string"},
+                    "publisher": {"type": "string", "nullable": True},
+                    "url": {"type": "string", "nullable": True},
+                    "date": {"type": "string", "nullable": True},
+                    "type": {"type": "string", "nullable": True},
                 },
             },
         },
