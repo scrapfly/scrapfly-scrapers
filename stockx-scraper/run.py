@@ -19,12 +19,14 @@ async def run():
     stockx.BASE_CONFIG["cache"] = True
 
     print("running StockX scrape and saving results to ./results directory")
+
     product = await stockx.scrape_product("https://stockx.com/nike-x-stussy-bucket-hat-black")
-    output.joinpath("product.json").write_text(json.dumps(product, indent=2, ensure_ascii=False))
+    with open(output.joinpath("product.json"), "w", encoding="utf-8") as file:
+        json.dump(product, file, indent=2, ensure_ascii=False)
 
-    search = await stockx.scrape_search("https://stockx.com/search/sneakers/top-selling?s=indigo", max_pages=2)
-    output.joinpath("search.json").write_text(json.dumps(search, indent=2, ensure_ascii=False))
-
+    search = await stockx.scrape_search("https://stockx.com/search?s=nike", max_pages=2)
+    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+        json.dump(search, file, indent=2, ensure_ascii=False)   
 
 
 if __name__ == "__main__":

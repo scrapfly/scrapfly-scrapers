@@ -82,7 +82,7 @@ async def test_product_scraping():
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    result = await stockx.scrape_search("https://stockx.com/search/sneakers/top-selling?s=indigo", max_pages=2)
+    result = await stockx.scrape_search("https://stockx.com/search?s=nike", max_pages=2)
     schema = {
        "id": {"type": "string"},
        "name": {"type": "string"},
