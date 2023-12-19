@@ -22,17 +22,6 @@ BASE_CONFIG = {
 }
 
 
-def parse_search_page(response: ScrapeApiResponse) -> str:
-    """parse search pages for API paremeters"""
-    selector = response.selector
-    paremeters = (
-        selector.xpath("//a[@id='download-and-save']")
-        .attrib["href"]
-        .split("gis-csv?")[1]
-    )
-    return {"paremeters": paremeters}
-
-
 def parse_search_api(response: ScrapeApiResponse) -> List[Dict]:
     """parse JSON data from the search API"""
     return json.loads(response.content.replace("{}&&", ""))["payload"]["homes"]
@@ -90,16 +79,9 @@ def parse_property_for_rent(response: ScrapeApiResponse):
 
 async def scrape_search(url: str) -> List[Dict]:
     """scrape search data from the searh API"""
-    # first scrape the search page HTML to get the API parameters
-    search_html = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    parsed_page = parse_search_page(search_html)
-    search_parameters = parsed_page["paremeters"]
-    base_url = "https://www.redfin.com/stingray/api/gis?"
-    # form the search API URL by combining the API base URL with the search paremeters
-    search_api_url = base_url + search_parameters
     # send a request to the search API
     search_api_response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(search_api_url, country="US")
+        ScrapeConfig(url, country="US")
     )
     search_data = parse_search_api(search_api_response)
     log.success(f"scraped ({len(search_data)}) search results from the search API")
