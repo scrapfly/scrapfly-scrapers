@@ -50,7 +50,7 @@ async def test_search_scraping():
 async def test_hotel_scraping():
     result_hotel = await tripadvisor.scrape_hotel(
         "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
-        max_review_pages=2,
+        max_review_pages=3,
     )
     # test hotel info
     schema = {
