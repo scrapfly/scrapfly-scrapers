@@ -9,25 +9,25 @@ import json
 import math
 import os
 import random
-import re
 import string
-from typing import List, Optional, TypedDict
+from typing import List, Optional, TypedDict, Dict
 from urllib.parse import urljoin
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
+
 BASE_CONFIG = {
     # Tripadvisor.com requires Anti Scraping Protection bypass feature:
     "asp": True,
+    # set the proxy location to US
     "country": "US",
 }
 
 
 class LocationData(TypedDict):
     """result dataclass for tripadvisor location data"""
-
     localizedName: str
     url: str
     HOTELS_URL: str
@@ -200,135 +200,58 @@ async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Pre
     return results
 
 
-def extract_page_manifest(html):
-    """extract javascript state data hidden in TripAdvisor HTML pages"""
-    data = re.findall(r"pageManifest:({.+?})};", html, re.DOTALL)[0]
-    return json.loads(data)
+def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
+    """parse hotel data from hotel pages"""
+    selector = result.selector
+    basic_data = json.loads(selector.xpath("//script[contains(text(),'aggregateRating')]/text()").get())
+    description = selector.css("div.fIrGe._T::text").get()
+    amenities = []
+    for feature in selector.xpath("//div[contains(@data-test-target, 'amenity')]/text()"):
+        amenities.append(feature.get())
+    reviews = []
+    for review in selector.xpath("//div[@data-reviewid]"):
+        title = review.xpath(".//div[@data-test-target='review-title']/a/span/span/text()").get()
+        text = review.xpath(".//span[@data-test-target='review-text']/span/text()").get()
+        rate = review.xpath(".//div[@data-test-target='review-rating']/span/@class").get()
+        rate = (int(rate.split("ui_bubble_rating")[-1].split("_")[-1].replace("0", ""))) if rate else None
+        trip_data = review.xpath(".//span[span[contains(text(),'Date of stay')]]/text()").get()
+        reviews.append({
+            "title": title,
+            "text": text,
+            "rate": rate,
+            "tripDate": trip_data
+        })
+
+    return {
+        "basic_data": basic_data,
+        "description": description,
+        "featues": amenities,
+        "reviews": reviews
+    }
 
 
-def extract_named_urql_cache(urql_cache: dict, pattern: str):
-    """extract named urql response cache from hidden javascript state data"""
-    data = json.loads(next(v["data"] for k, v in urql_cache.items() if pattern in v["data"]))
-    return data
-
-
-class Review(TypedDict):
-    id: str
-    date: str
-    rating: str
-    title: str
-    text: str
-    votes: int
-    url: str
-    language: str
-    platform: str
-    author_id: str
-    author_name: str
-    author_username: str
-
-
-def parse_reviews(result: ScrapeApiResponse) -> Review:
-    """Parse reviews from a review page"""
-    page_data = extract_page_manifest(result.content)
-    review_cache = extract_named_urql_cache(page_data["urqlCache"]["results"], '"reviewListPage"')
-    parsed = []
-    # review data contains loads of information, let's parse only the basic in this tutorial
-    for review in review_cache["locations"][0]["reviewListPage"]["reviews"]:
-        parsed.append(
-            {
-                "id": review["id"],
-                "date": review["publishedDate"],
-                "rating": review["rating"],
-                "title": review["title"],
-                "text": review["text"],
-                "votes": review["helpfulVotes"],
-                "url": review["route"]["url"],
-                "language": review["language"],
-                "platform": review["publishPlatform"],
-                "author_id": review["userProfile"]["id"],
-                "author_name": review["userProfile"]["displayName"],
-                "author_username": review["userProfile"]["username"],
-            }
-        )
-    return parsed
-
-
-class Hotel(TypedDict):
-    name: str
-    id: str
-    type: str
-    description: str
-    rating: float
-    rating_count: int
-    features: List[str]
-    stars: int
-
-
-def parse_hotel_info(data: dict) -> Hotel:
-    """parse hotel data from TripAdvisor javascript state to something more readable"""
-    parsed = {}
-    # there's a lot of information in hotel data, in this tutorial let's extract the basics:
-    parsed["name"] = data["name"]
-    parsed["id"] = data["locationId"]
-    parsed["type"] = data["accommodationType"]
-    parsed["description"] = data["locationDescription"]
-    parsed["rating"] = data["reviewSummary"]["rating"]
-    parsed["rating_count"] = data["reviewSummary"]["count"]
-    # for hotel "features" lets just extract the names:
-    parsed["features"] = []
-    for amenity_type, values in data["detail"]["hotelAmenities"]["highlightedAmenities"].items():
-        for value in values:
-            parsed["features"].append(f"{amenity_type}_{value['amenityNameLocalized'].lower()}")
-
-    if star_rating := data["detail"]["starRating"]:
-        parsed["stars"] = star_rating[0]["tagNameLocalized"]
-    return parsed
-
-
-class HotelAllData(TypedDict):
-    info: Hotel
-    reviews: List[Review]
-    price: dict
-
-
-async def scrape_hotel(url: str, max_review_pages: Optional[int] = None) -> HotelAllData:
-    """Scrape all hotel data: information, pricing and reviews"""
+async def scrape_hotel(url: str, max_review_pages: Optional[int] = None) -> Dict:
+    """Scrape hotel data and reviews"""
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    page_data = extract_page_manifest(first_page.content)
+    hotel_data = parse_hotel_page(first_page)
 
-    # price data keys are dynamic first we need to find the full key name
-    _pricing_key = next(
-        (key for key in page_data["redux"]["api"]["responses"] if "/hotelDetail" in key and "/heatMap" in key)
-    )
-    pricing_details = page_data["redux"]["api"]["responses"][_pricing_key]["data"]["items"]
-
-    # We can extract data from Graphql cache embeded in the page
-    # TripAdvisor is using: https://github.com/FormidableLabs/urql as their graphql client
-    hotel_cache = extract_named_urql_cache(page_data["urqlCache"]["results"], '"locationDescription"')
-    hotel_info = hotel_cache["locations"][0]
-
-    # for reviews we first need to scrape multiple pages
-    # so, first let's find total amount of pages
-    total_reviews = hotel_info["reviewSummary"]["count"]
+    # get the number of total review pages
     _review_page_size = 10
-    total_review_pages = int(math.ceil(total_reviews / _review_page_size))
-    if max_review_pages and total_review_pages > max_review_pages:
+    total_reviews = int(hotel_data["basic_data"]["aggregateRating"]["reviewCount"])
+    total_review_pages = math.ceil(total_reviews / _review_page_size)
+
+    # get the number of review pages to scrape
+    if max_review_pages and max_review_pages < total_review_pages:
         total_review_pages = max_review_pages
-    # then we can scrape all review pages concurrently
-    # note: in review url "or" stands for "offset reviews"
+    
+    # scrape all review pages concurrently
     review_urls = [
         # note: "or" stands for "offset reviews"
         url.replace("-Reviews-", f"-Reviews-or{_review_page_size * i}-")
-        for i in range(2, total_review_pages + 1)
+        for i in range(1, total_review_pages)
     ]
-    assert len(set(review_urls)) == len(review_urls)
-    reviews = parse_reviews(first_page)
-    async for result in SCRAPFLY.concurrent_scrape([ScrapeConfig(url, BASE_CONFIG) for url in review_urls]):
-        reviews.extend(parse_reviews(result))
-
-    return {
-        "price": pricing_details,
-        "info": parse_hotel_info(hotel_info),
-        "url": first_page.context["url"],
-        "reviews": reviews,
-    }
+    async for result in SCRAPFLY.concurrent_scrape([ScrapeConfig(url, **BASE_CONFIG) for url in review_urls]):
+        data = parse_hotel_page(result)
+        hotel_data["reviews"].extend(data["reviews"])
+    log.success(f"scraped one hotel data with {len(hotel_data['reviews'])} reviews")
+    return hotel_data

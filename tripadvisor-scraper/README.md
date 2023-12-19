@@ -47,5 +47,6 @@ This Tripadvisor scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.o
     # or specific scraping areas
     $ poetry run pytest test.py -k test_hotel_scraping
     $ poetry run pytest test.py -k test_search_scraping
+    $ poetry run pytest test.py -k test_location_data_scraping
     ```
 
