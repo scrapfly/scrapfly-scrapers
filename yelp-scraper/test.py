@@ -90,7 +90,6 @@ search_schema = {
         },
     },
 }
-import json
 
 
 @pytest.mark.asyncio
