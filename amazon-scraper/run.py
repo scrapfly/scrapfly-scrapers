@@ -34,9 +34,5 @@ async def run():
     output.joinpath("reviews.json").write_text(json.dumps(reviews, indent=2))
 
 
-
-
-
-
 if __name__ == "__main__":
     asyncio.run(run())

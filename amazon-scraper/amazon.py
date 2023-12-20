@@ -196,7 +196,7 @@ def parse_product(result) -> Product:
         "name": sel.css("#productTitle::text").get("").strip(),
         "asin": sel.css("input[name=ASIN]::attr(value)").get("").strip(),
         "style": sel.xpath("//span[@class='selection']/text()").get("").strip(),
-        "description": '\n'.join(sel.css("#productDescription p ::text").getall()).strip(),
+        "description": '\n'.join(sel.css("#productDescription p span ::text").getall()).strip(),
         "stars": sel.css("i[data-hook=average-star-rating] ::text").get("").strip(),
         "rating_count": sel.css("span[data-hook=total-review-count] ::text").get("").strip(),
         "features": [value.strip() for value in sel.css("#feature-bullets li ::text").getall()],
