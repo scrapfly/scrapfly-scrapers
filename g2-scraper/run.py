@@ -20,12 +20,12 @@ async def run():
 
     print("running G2 scrape and saving results to ./results directory")
 
-    # search_data = await g2.scrape_search(
-    #     url="https://www.g2.com/search?query=Infrastructure",
-    #     max_scrape_pages=3
-    # )
-    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-    #     json.dump(search_data, file, indent=2, ensure_ascii=False)
+    search_data = await g2.scrape_search(
+        url="https://www.g2.com/search?query=Infrastructure",
+        max_scrape_pages=3
+    )
+    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+        json.dump(search_data, file, indent=2, ensure_ascii=False)
 
     reviews_data = await g2.scrape_reviews(
         url="https://www.g2.com/products/digitalocean/reviews",
@@ -34,11 +34,11 @@ async def run():
     with open(output.joinpath("reviews.json"), "w", encoding="utf-8") as file:
         json.dump(reviews_data, file, indent=2, ensure_ascii=False)
 
-    # alternatives_data = await g2.scrape_alternatives(
-    #     product="digitalocean"
-    # )
-    # with open(output.joinpath("alternatives.json"), "w", encoding="utf-8") as file:
-        # json.dump(alternatives_data, file, indent=2, ensure_ascii=False)    
+    alternatives_data = await g2.scrape_alternatives(
+        product="digitalocean"
+    )
+    with open(output.joinpath("alternatives.json"), "w", encoding="utf-8") as file:
+        json.dump(alternatives_data, file, indent=2, ensure_ascii=False)    
 
 
 if __name__ == "__main__":

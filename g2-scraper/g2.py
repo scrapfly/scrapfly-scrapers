@@ -5,7 +5,6 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import os
-import json
 import math
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 from typing import Dict, List, Literal
@@ -14,7 +13,7 @@ from loguru import logger as log
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    # bypass trustpilot web scraping blocking
+    # bypass G2 web scraping blocking
     "asp": True,
     # set the poxy location to US
     "country": "US",
@@ -59,8 +58,8 @@ def parse_search_page(response: ScrapeApiResponse):
     }
 
 
-async def scrape_search(url: str, max_scrape_pages: int = None):
-    """scrape property listings from search pages"""
+async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
+    """scrape company listings from search pages"""
     log.info(f"scraping search page {url}")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     data = parse_search_page(first_page)
@@ -71,6 +70,7 @@ async def scrape_search(url: str, max_scrape_pages: int = None):
     if max_scrape_pages and max_scrape_pages < total_pages:
         total_pages = max_scrape_pages
 
+    # scrape the remaining search pages concurrently and remove the successful request URLs
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
     remaining_urls = [url + f"&page={page_number}" for page_number in range(2, total_pages + 1)]
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in remaining_urls]
@@ -78,11 +78,13 @@ async def scrape_search(url: str, max_scrape_pages: int = None):
         try:
             data = parse_search_page(response)
             search_data.extend(data["search_data"])
+            # remove the successful requests from the URLs list            
             remaining_urls.remove(response.context["url"])
         except Exception as e:  # catch any exception
             log.error(f"Error encountered: {e}")
             continue
-   
+
+    # try again with the blocked requests if any using headless browsers and residential proxies   
     if len(remaining_urls) != 0:
         log.debug(f"{len(remaining_urls)} requests are blocked, trying again with render_js enabled and residential proxies")        
         try:
@@ -90,7 +92,7 @@ async def scrape_search(url: str, max_scrape_pages: int = None):
             async for response in SCRAPFLY.concurrent_scrape(failed_requests):
                 data = parse_search_page(response)
                 search_data.extend(data["search_data"])
-        except Exception as e:  # Catching any exception
+        except Exception as e:  # catching any exception
                 log.error(f"Error encountered: {e}")
                 pass
     log.success(f"scraped {len(search_data)} company listings from G2 search pages with the URL {url}")
@@ -144,7 +146,7 @@ def parse_review_page(response: ScrapeApiResponse):
     }
 
 
-async def scrape_reviews(url: str, max_review_pages: int = None):
+async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
     """scrape company reviews from G2 review pages"""
     log.info(f"scraping first review page from company URL {url}")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
@@ -176,7 +178,7 @@ async def scrape_reviews(url: str, max_review_pages: int = None):
             async for response in SCRAPFLY.concurrent_scrape(failed_requests):
                 data = parse_search_page(response)
                 reviews_data.extend(data["reviews_data"])
-        except Exception as e:  # Catching any exception
+        except Exception as e:  # catch any exception
                 log.error(f"Error encountered: {e}")
                 pass
     log.success(f"scraped {len(reviews_data)} company reviews from G2 review pages with the URL {url}")
@@ -208,7 +210,9 @@ def parse_alternatives(response: ScrapeApiResponse):
     return data
 
 
-async def scrape_alternatives(product: str, alternatives: Literal["small-business", "mid-market", "enterprise"] = ""):
+async def scrape_alternatives(
+        product: str, alternatives: Literal["small-business", "mid-market", "enterprise"] = ""
+    ) -> Dict:
     """scrape product alternatives from G2 alternative pages"""
     # the default alternative is top 10, which takes to argument
     url = f"https://www.g2.com/products/{product}/competitors/alternatives/{alternatives}"
