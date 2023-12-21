@@ -50,6 +50,7 @@ The following is the list of supported websites grouped by type.
 
 ### Jobs and Companies
 - [Crunchbase.com](#crunchbase)
+- [G2.com](#g2)
 - [Glassdoor.com](#glassdoor)
 - [Indeed.com](#indeed)
 - [Zoominfo.com](#zoominfo)
@@ -209,6 +210,9 @@ The [ebay.com scraper](./ebay-scraper/) can scrape the following data:
 For the full guide, refer to our blog article [How to Scrape Ebay using Python](https://scrapfly.io/blog/how-to-scrape-ebay/)
 
 ### Etsy
+<!-- <p align="left">
+  <img width="200" height="50" src="./.github/assets/etsy.svg">
+</p> -->
 
 The [etsy.com scraper](./etsy-scraper/) can scrape the following data:
 - Product pages for a specific product data.
@@ -619,6 +623,9 @@ The [tripadvisor.com scraper](./tripadvisor-scraper/) can scrape the following d
 For the full guide, refer to our blog article [How to Scrape TripAdvisor.com (2023 Updated)](https://scrapfly.io/blog/how-to-scrape-tripadvisor/)
 
 ### Trustpilot
+<!-- <p align="left">
+  <img width="300" height="100" src="./.github/assets/trustpilot.svg">
+</p> -->
 The [trustpilot.com scraper](./trustpilot-scraper/) can scrape the following data:
 - Company pages for a specific company data.
 - Reviews data in a specific company reviews.
@@ -632,6 +639,8 @@ The [trustpilot.com scraper](./trustpilot-scraper/) can scrape the following dat
   - [Search pages](./trustpilot-scraper/results/search.json)  
 
 </details> 
+
+For the full guide, refer to out blog article [How to Scrape Trustpilot.com Reviews and Company Data](https://scrapfly.io/blog/how-to-scrape-trustpilot-com-reviews/)
 
 ### Twitter(X)
 <!-- <p align="left">
@@ -670,6 +679,28 @@ The [vestiairecollective.com scraper](./vestiairecollective-scraper/) can scrape
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Vestiaire Collective for Fashion Product Data](https://scrapfly.io/blog/how-to-scrape-vestiairecollective/)
+
+### G2
+<!-- <p align="left">
+  <img width="200" height="75" src="./.github/assets/g2.svg">
+</p> -->
+
+The [g2.com scraper](./g2-scraper/) can scrape the following data:
+- Review pages for company reviews.
+- Search pages for company data.
+- Alternative pages for company alternatives.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Review pages](./g2-scraper/results/reviews.json)  
+  - [Search pages](./g2-scraper/results/search.json)  
+  - [Alternatives pages](./g2-scraper/results/alternatives.json)  
+
+</details> 
+
+For the full guide, refer to our blog article
+
 
 ### Walmart
 <!-- <p align="left">
