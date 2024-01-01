@@ -76,6 +76,9 @@ The following is the list of supported websites grouped by type.
 - [Yelp.com](#yelp)
 - [Trustpilot.com](#trustpilot)
 
+### Search Engines
+- [Bing.com](#bing)
+
 ### Social Media
 - [Instagram.com](#instagram)
 - [Threads.net](#threads)
@@ -130,6 +133,20 @@ The [amazon.com scraper](./amazon-scraper/) can scrape the following data:
 
 For the full guide, refer to our blog article [How to Scrape Amazon.com Product Data and Reviews](https://scrapfly.io/blog/how-to-scrape-amazon/)
 
+### Bing
+The [bing.com scraper](./bing-scraper/) can scrape the following data:
+- Search pages for search results (SERPs) data.
+- Search pages for keyword data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [SERP data](./bing-scraper/results/serps.json)  
+  - [Keyword data](./bing-scraper/results/keywords.json)  
+
+</details>  
+
+For the full guide, refer to our blog article 
 ### Booking
 
 <!-- <p align="left">
