@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape product listing data from G2.com. 
 
-Full tutorial 
+Full tutorial <https://scrapfly.io/blog/how-to-scrape-g2-company-data-and-reviews/>
 
 The scraping code is located in the `g2.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 

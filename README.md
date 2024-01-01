@@ -716,7 +716,7 @@ The [g2.com scraper](./g2-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article
+For the full guide, refer to our blog article [How to Scrape G2 Company Data and Reviews](https://scrapfly.io/blog/how-to-scrape-g2-company-data-and-reviews/)
 
 
 ### Walmart
