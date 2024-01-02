@@ -88,7 +88,7 @@ async def scrape_search(query: str, max_pages: int = None):
     log.info(f"scraping search pagination ({max_pages - 1} more pages)")
     total_results = (max_pages - 1) * 10  # each page contains 10 results
     other_pages = [
-        ScrapeConfig(url + f"?&first={start}", **BASE_CONFIG)
+        ScrapeConfig(url + f"&first={start}", **BASE_CONFIG)
         for start in range(10, total_results + 10, 10)
     ]
 
