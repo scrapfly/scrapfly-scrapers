@@ -32,32 +32,30 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
     """parse data from Etsy search pages"""
     selector = response.selector
     data = []
+    script = json.loads(selector.xpath("//script[@type='application/ld+json']/text()").get())
     # get the total number of pages
-    total_listings = int(selector.xpath("//span[contains(text(),' results,')]/text()").get().split("results")[0].strip().replace(",", ""))
+    total_listings = script["numberOfItems"]
     total_pages = math.ceil(total_listings / 64)
 
     for product in selector.xpath("//div[@data-search-results-lg]/ol/li"):
         link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
-        rate = strip_text(product.xpath(".//span[contains(@class, 'review_stars')]/div/text()").get())
-        number_of_reviews = product.xpath(".//span[contains(@class, 'review_stars')]/div/p/text()").get()
-        if number_of_reviews:
-            number_of_reviews = number_of_reviews.replace("(", "").replace(")", "")
-            number_of_reviews = int(number_of_reviews.replace("k", "").replace(".", "")) * 100 if "k" in number_of_reviews else number_of_reviews
+        rate = product.xpath(".//input[@name='rating']/@value").get()
+        number_of_reviews = strip_text(product.xpath(".//span[contains(@class, 'wt-text-caption') and contains(., '(')]/text()").get())
         price = product.xpath(".//span[@class='currency-value']/text()").get()
         original_price = product.xpath(".//span[contains(text(),'Original Price')]/text()").get()
         discount = strip_text(product.xpath(".//span[contains(text(),'off')]/text()").get())
-
+        seller = product.xpath(".//span[contains(text(),'From shop')]/text()").get()
         data.append({
             "productLink": '/'.join(link.split('/')[:5]) if link else None,
             "productTitle": strip_text(product.xpath(".//h3[contains(@class, 'text-caption')]/text()").get()),
             "productImage": product.xpath("//img[@data-listing-card-listing-image]/@src").get(),
-            "seller": product.xpath(".//p[contains(@class, 'seller-shop-name')]/span/text()").get(),
+            "seller": seller.replace("From shop ", "") if seller else None,
             "estimatedArrival": product.xpath(".//span[@class='wt-no-wrap']/text()").get(),
             "listingType": "Paid listing" if product.xpath(".//span[@data-ad-label='Ad by Etsy seller']") else "Free listing",
             "productRate": float(rate) if rate else None,
-            "numberOfReviews": int(number_of_reviews) if number_of_reviews else None,
+            "numberOfReviews": number_of_reviews,
             "freeShipping": "Yes" if product.xpath(".//span[contains(text(),'Free shipping')]/text()").get() else "No",
-            "productPrice": float(price) if price else None,
+            "productPrice": float(price.replace(",", "")) if price else None,
             "priceCurrency": product.xpath(".//span[@class='currency-symbol']/text()").get(),
             "originalPrice": float(original_price.split("$")[-1].strip()) if original_price else "No discount",
             "discount": discount if discount else "No discount",
