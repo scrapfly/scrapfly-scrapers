@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test: [test_search_scraping, test_product_scraping, test_review_scraping]
+        test: [test_serp_scraping, test_keyword_scraping]
 
     steps:
     - uses: actions/checkout@v2
