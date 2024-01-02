@@ -78,6 +78,33 @@ def parse_keywords(response: ScrapeApiResponse) -> Dict:
     return {"FAQs": faqs, "related_keywords": related_keywords}
 
 
+def parse_rich_snippet(response: ScrapeApiResponse) -> Dict:
+    """parse rich snippets from Bing search"""
+    selector = response.selector
+    data = {}
+    data["title"] = selector.xpath("//span[contains(@class, 'txt_heros')]/a/@title").get()
+    data["link"] = selector.xpath("//span[contains(@class, 'txt_heros')]/a/@href").get()
+    data["heading"] = selector.xpath("//div[contains(@class, 'header_txt')]/a/text()").get()
+    data["links"] = {}
+    for item in selector.xpath("//div[contains(@class, 'webicons')]/div"):
+        name = item.xpath(".//a/@title").get()
+        link = item.xpath(".//a/@href").get()
+        data["links"][name] = link
+
+    data["info"] = {}
+    for row in selector.xpath("//div[contains(@class, 'expansion')]/div[contains(@class, 'row')]"):
+        key = row.xpath(".//div/div/a[1]/text()").get().strip()
+        value = row.xpath("string(.//div[not(contains(@class, 'title'))])").get().strip().replace(key, "")
+        data["info"][key] = value
+
+    all_text = ""
+    for div_element in selector.xpath("//div[@class='lite-entcard-blk l_ecrd_bkg_hlt']"):
+        div_text = div_element.xpath("string(.)").get().strip()
+        all_text += div_text + "\n"
+    data["descrption"] = all_text
+    return data
+
+
 async def scrape_search(query: str, max_pages: int = None):
     """scrape bing search pages"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
@@ -110,3 +137,13 @@ async def scrape_keywords(query: str):
         f"scraped {len(keyword_data['related_keywords'])} keywords and {len(keyword_data['FAQs'])} FAQs from Bing search"
     )
     return keyword_data
+
+
+async def scrape_rich_snippets(query: str):
+    """scrape bing search pages for keyword data"""
+    url = f"https://www.bing.com/search?{urlencode({'q': query})}"
+    log.info("scraping Bing search for keyword data")
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
+    rich_snippet_data = parse_rich_snippet(response)
+    log.success(f"scraped from Bing rich snippets")
+    return rich_snippet_data
