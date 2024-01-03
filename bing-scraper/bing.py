@@ -140,10 +140,10 @@ async def scrape_keywords(query: str):
 
 
 async def scrape_rich_snippets(query: str):
-    """scrape bing search pages for keyword data"""
+    """scrape bing search pages for rich snippets data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
     log.info("scraping Bing search for keyword data")
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
     rich_snippet_data = parse_rich_snippet(response)
-    log.success(f"scraped from Bing rich snippets")
+    log.success(f"scraped {len(rich_snippet_data)} rich snippets fields from Bing search")
     return rich_snippet_data

@@ -58,6 +58,13 @@ keyword_schema = {
     "related_keywords": {"type": "list", "schema": {"type": "string"}},
 }
 
+rich_snippets_schema = {
+    "title": {"type": "string"},
+    "link": {"type": "string"},
+    "heading": {"type": "string"},
+    "descrption": {"type": "string"},
+}
+
 
 @pytest.mark.asyncio
 async def test_serp_scraping():
@@ -79,3 +86,12 @@ async def test_keyword_scraping():
     validate_or_fail(keyword_data, validator)
     assert len(keyword_data["FAQs"]) >= 1
     assert len(keyword_data["related_keywords"]) >= 1
+
+
+@pytest.mark.asyncio
+async def test_rich_snippets_scraping():
+    rich_snippet_data = await bing.scrape_rich_snippets(query="google chrome")
+    validator = Validator(rich_snippets_schema, allow_unknown=True)
+    validate_or_fail(rich_snippet_data, validator)
+    assert len(rich_snippet_data["links"]) >= 1
+    assert len(rich_snippet_data["info"]) >= 1

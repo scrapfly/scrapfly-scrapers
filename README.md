@@ -137,12 +137,14 @@ For the full guide, refer to our blog article [How to Scrape Amazon.com Product 
 The [bing.com scraper](./bing-scraper/) can scrape the following data:
 - Search pages for search results (SERPs) data.
 - Search pages for keyword data.
+- Search page for rich snippet data.
 
 <details class="is-code">
   <summary>View sample data</summary>  
 
   - [SERP data](./bing-scraper/results/serps.json)  
-  - [Keyword data](./bing-scraper/results/keywords.json)  
+  - [Keyword data](./bing-scraper/results/keywords.json)
+  - [Rich snippet data](./bing-scraper/results/rich_snippets.json)
 
 </details>  
 
