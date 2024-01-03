@@ -17,11 +17,7 @@ BASE_CONFIG = {
     # bypass web scraping blocking
     "asp": True,
     # set the proxy country to Germany
-    "country": "de",
-    "headers": {
-        "accept": "application/json",
-        "accept-language": "en-US,en;q=0.9"
-    }
+    "country": "de"
 }
 
 output = Path(__file__).parent / "results"
@@ -133,7 +129,7 @@ def parse_search_api(response: ScrapeApiResponse):
     # skip invalid API responses
     if response.scrape_result["content_type"].split(";")[0] != "application/json":
         # retry failed requests
-        response  = SCRAPFLY.scrape(ScrapeConfig(response.context["url"], **BASE_CONFIG))
+        response  = SCRAPFLY.scrape(ScrapeConfig(response.context["url"], **BASE_CONFIG, headers={"accept": "application/json"}))
     try:
         data = json.loads(response.scrape_result['content'])
     except:
@@ -152,7 +148,7 @@ def parse_search_api(response: ScrapeApiResponse):
 
 async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int = 10) -> List[Dict]:
     """scrape property listings from the search API, which follows the same search page URLs"""
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, headers={"accept": "application/json"}))
     result_data = parse_search_api(first_page)
     search_data = result_data["search_data"]
     max_search_pages = result_data["max_search_pages"]
@@ -165,7 +161,7 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
     # scrape the remaining search pages
     for page in range(2, max_scrape_pages + 1):
         response = await SCRAPFLY.async_scrape(ScrapeConfig(
-            first_page.context["url"].split("?pagenumber")[0] + f"?pagenumber={page}", **BASE_CONFIG
+            first_page.context["url"].split("?pagenumber")[0] + f"?pagenumber={page}", **BASE_CONFIG, headers={"accept": "application/json"}
             ))
         try:
             data = parse_search_api(response)["search_data"]

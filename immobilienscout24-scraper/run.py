@@ -14,6 +14,7 @@ output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
 async def run():
+    immobilienscout24.BASE_CONFIG["cache"] = True
 
     print("running Immobilienscout24 scrape and saving results to ./results directory")
 
@@ -27,9 +28,9 @@ async def run():
 
     properties_data = await immobilienscout24.scrape_properties(
         urls = [
-            "https://www.immobilienscout24.de/expose/147036156#/",
-            "https://www.immobilienscout24.de/expose/145570700#/",
-            "https://www.immobilienscout24.de/expose/139851227#/",
+            "https://www.immobilienscout24.de/expose/147367273#/",
+            "https://www.immobilienscout24.de/expose/148195908#/",
+            "https://www.immobilienscout24.de/expose/108839246#/",
             "https://www.immobilienscout24.de/expose/146053176#/"
         ]
     )

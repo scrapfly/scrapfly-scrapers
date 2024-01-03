@@ -244,9 +244,9 @@ search_schema = {
 async def test_properties_scraping():
     properties_data = await immobilienscout24.scrape_properties(
         urls=[
-            "https://www.immobilienscout24.de/expose/147036156#/",
-            "https://www.immobilienscout24.de/expose/145570700#/",
-            "https://www.immobilienscout24.de/expose/139851227#/",
+            "https://www.immobilienscout24.de/expose/147367273#/",
+            "https://www.immobilienscout24.de/expose/148195908#/",
+            "https://www.immobilienscout24.de/expose/108839246#/",
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
