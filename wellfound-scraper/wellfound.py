@@ -118,8 +118,6 @@ async def scrape_search(role: str = "", location: str = "", max_pages: int = Non
     log.info(f"scraping first page of search, {role} in {location}")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     graph = extract_apollo_state(first_page)
-    with open("graph.json", "w", encoding="utf-8") as file:
-        json.dump(graph, file, indent=2, ensure_ascii=False)
     companies.extend([unpack_node_references(graph[key], graph) for key in graph if key.startswith("StartupResult")])
     seo_landing_key = next(key for key in graph["ROOT_QUERY"]["talent"] if "seoLandingPageJobSearchResults" in key)
     total_pages = graph["ROOT_QUERY"]["talent"][seo_landing_key]["pageCount"]
