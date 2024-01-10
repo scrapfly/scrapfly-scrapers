@@ -192,24 +192,25 @@ async def scrape_product(url: str) -> List[Product]:
 def parse_review_page(result: ScrapeApiResponse):
     """parse single review page"""
     parsed = []
-    for box in result.selector.css(".feedback-item"):
+    for review_box in result.selector.css(".feedback-item"):
         # to get star score we have to rely on styling where's 1 star == 20% width, e.g. 4 stars is 80%
-        stars = int(box.css(".star-view>span::attr(style)").re(r"width:(\d+)%")[0]) / 20
+        stars = int(review_box.css(".star-view>span::attr(style)").re("width:(\d+)%")[0]) / 20
         # to get options we must iterate through every options container
         options = {}
-        for option in box.css("div.user-order-info>span"):
+        for option in review_box.css("div.user-order-info>span"):
             name = option.css("strong::text").get("").strip()
             value = "".join(option.xpath("text()").getall()).strip()
             options[name] = value
         # parse remaining fields
         parsed.append(
             {
-                "text": box.xpath('.//dt[contains(@class,"buyer-eedback")]/span[1]/text()').get("").strip(),
-                "post_time": box.xpath('.//dt[contains(@class,"buyer-feedback")]/span[2]/text()').get("").strip(),
+                "country": review_box.css(".user-country>b::text").get("").strip(),
+                "text": review_box.xpath('.//dt[contains(@class,"buyer-feedback")]/span[1]/text()').get("").strip(),
+                "post_time": review_box.xpath('.//dt[contains(@class,"buyer-feedback")]/span[2]/text()').get("").strip(),
                 "stars": stars,
                 "order_info": options,
-                "user": box.css(".user-name>a::text").get(),
-                "images": box.css(".pic-view-item img::attr(src)").getall(),
+                "user_name": review_box.css(".user-name>a::text").get(),
+                "user_url": review_box.css(".user-name>a::attr(href)").get(),
             }
         )
     return parsed
