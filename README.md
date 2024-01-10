@@ -1,6 +1,6 @@
 # ScrapFly Scrapers 🕷️
 
-This repository contains example scrapers for popular web scraping targets using the [ScrapFly](https://scrapfly.io) web scraping API and Python.  
+This repository contains educational example scrapers for popular web scraping targets using the [ScrapFly](https://scrapfly.io) web scraping API and Python.  
 Most Scrapers use a simple web scraping stack:
 - Python version 3.10+
 - [Scrapfly's Python SDK](https://github.com/scrapfly/python-scrapfly) for sending HTTP request, bypass blocking and parsing the HTML using the built-in [parsel](https://pypi.org/project/parsel/) selector.
@@ -8,8 +8,17 @@ Most Scrapers use a simple web scraping stack:
 - [JMESPath](https://pypi.org/project/jmespath/) and [nested-lookup](https://pypi.org/project/nested-lookup/) for JSON parsing when needed.
 - [loguru](https://pypi.org/project/loguru/) for logging.
 
+To learn more about web scraping see our full tutorials on how to scrape these targets (and many others) see the [scrapeguide directory](https://scrapfly.io/blog/tag/scrapeguide/).  
 
-For full guides on how to scrape these targets (and many others) see the [scrapeguide directory](https://scrapfly.io/blog/tag/scrapeguide/).  
+## Fair Use and Legal Disclaimer
+
+This repository contains _educational_ reference material to illustrate how accessible web scraping can be and the provided programs are not intented to be used in web scraping production. 
+That being said, Scrapfly team is constantly updating and improving all of this code for optimal experience. 
+
+Scrapfly does not offer legal advice and as always, consult a lawyer when creating programs that interact with other people's websites though here's a good general intro of what NOT to do:
+- Do not store PII (personally identifiable information) of EU citizens who are protected by GDPR.
+- Do not scrape and repurpose entire public datasets which can be protected by database protection laws in some countries.
+- Do not scrape at rates that could damage the website and scrape only publicly available data.
 
 ## Setup and Run
 1. Install the required libraries:
