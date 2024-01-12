@@ -87,3 +87,29 @@ async def scrape_directory(url: str, scrape_pagination=True) -> List[str]:
             companies.extend(await scrape_directory("https://www.zoominfo.com" + page_url, scrape_pagination=False))
     log.success(f"scraped {len(companies)} company page URLs from directory pages")
     return companies
+
+
+def parse_faqs(response: ScrapeApiResponse) -> List[Dict]:
+    """parse faqs from Zoominfo company pages"""
+    selector = response.selector
+    faqs = []
+    for faq in selector.xpath("//div[@class='faqs']/zi-directories-faqs-item"):
+        question = faq.css("span.question::text").get()
+        answer = faq.css("span.answer::text").get()
+        if not answer:
+            answer = faq.css("span.answer > p::text").get()
+        faqs.append({
+            "question": question,
+            "answer": answer
+        })
+    return faqs
+
+
+async def scrape_faqs(url: str) -> List[Dict]:
+    """scrape faqs from Zoominfo company pages"""       
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(
+        url=url, **BASE_CONFIG, render_js=True, auto_scroll=True, wait_for_selector="div.faqs"
+    ))
+    faqs = parse_faqs(response)
+    log.success(f"scraped {len(faqs)} FAQs from company page")
+    return faqs

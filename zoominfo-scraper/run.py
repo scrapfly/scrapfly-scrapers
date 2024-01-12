@@ -38,6 +38,11 @@ async def run():
     with open(output.joinpath("directory.json"), "w", encoding="utf-8") as file:
         json.dump(directory_data, file, indent=2, ensure_ascii=False)
 
+    faq_data = await zoominfo.scrape_faqs(
+        url = "https://www.zoominfo.com/c/tesla-inc/104333869",
+    )
+    with open(output.joinpath("faqs.json"), "w", encoding="utf-8") as file:
+        json.dump(faq_data, file, indent=2, ensure_ascii=False)    
 
 if __name__ == "__main__":
     asyncio.run(run())

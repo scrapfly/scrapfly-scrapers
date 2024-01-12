@@ -835,12 +835,14 @@ For the full guide, refer to our blog article [How to Scrape Zillow Real Estate 
 The [zoominfo.com scraper](./zoominfo-scraper/) can scrape the following data:
 - Company pages for company data.
 - Directory pages for company page URLs.
+- Company pages for company FAQs data.
 
 <details class="is-code">
   <summary>View sample data</summary>  
 
   - [Company pages](./zoominfo-scraper/results/companies.json)  
   - [Directory pages](./zoominfo-scraper/results/directory.json)  
+  - [FAQs data](./zoominfo-scraper/results/faqs.json)  
 
 </details> 
 

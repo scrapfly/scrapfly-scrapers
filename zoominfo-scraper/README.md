@@ -42,5 +42,5 @@ This Zoominfo.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.
     # or specific scraping areas
     $ poetry run pytest test.py -k test_company_scraping
     $ poetry run pytest test.py -k test_directory_scraping
+    $ poetry run pytest test.py -k test_faq_scraping
     ```
-

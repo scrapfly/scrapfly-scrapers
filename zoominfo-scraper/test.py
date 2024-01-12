@@ -68,6 +68,12 @@ company_schema = {
 }
 
 
+faq_schema = {
+    "question": {"type": "string"},
+    "answer": {"type": "string"}
+}
+
+
 @pytest.mark.asyncio
 async def test_company_scraping():
     companies_data = await zoominfo.scrape_comapnies(
@@ -90,3 +96,14 @@ async def test_directory_scraping():
         scrape_pagination=False,
     )
     assert len(directory_data) >= 5
+
+
+@pytest.mark.asyncio
+async def test_faq_scraping():
+    faq_data = await zoominfo.scrape_faqs(
+        url="https://www.zoominfo.com/c/tesla-inc/104333869"
+    )
+    validator = Validator(faq_schema, allow_unknown=False)
+    for item in faq_data:
+        validate_or_fail(item, validator)
+    assert len(faq_data) >= 10
