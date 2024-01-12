@@ -42,21 +42,14 @@ def parse_page(response: ScrapeApiResponse):
         name = day.xpath("text()").get().strip()
         value = day.xpath("../following-sibling::td//p/text()").get().strip()
         open_hours[name.lower()] = value
+        
     return dict(
         name=xpath("//h1/text()"),
-        website=xpath(
-            '//p[contains(text(),"Business website")]/following-sibling::p/a/text()'
-        ),
+        website=xpath('//p[contains(text(),"Business website")]/following-sibling::p/a/text()'),
         phone=xpath('//p[contains(text(),"Phone number")]/following-sibling::p/text()'),
-        address=xpath(
-            '//a[contains(text(),"Get Directions")]/../following-sibling::p/text()'
-        ),
+        address=xpath('//a[contains(text(),"Get Directions")]/../following-sibling::p/text()'),
         logo=xpath('//img[contains(@class,"businessLogo")]/@src'),
-        claim_status="".join(
-            sel.xpath('//span[contains(@class,"claim-text")]/text()').getall()
-        )
-        .strip()
-        .lower(),
+        claim_status="".join(sel.xpath('//span[span[contains(@class,"claim")]]/text()').getall()).strip().lower(),
         open_hours=open_hours,
     )
 
