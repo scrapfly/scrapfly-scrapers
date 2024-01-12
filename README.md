@@ -157,7 +157,8 @@ The [bing.com scraper](./bing-scraper/) can scrape the following data:
 
 </details>  
 
-For the full guide, refer to our blog article 
+For the full guide, refer to our blog article [How to Scrape Bing Search with Python](https://scrapfly.io/blog/how-to-scrape-bing-search-using-python/)
+
 ### Booking
 
 <!-- <p align="left">

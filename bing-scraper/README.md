@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape product listing data from Bing.com. 
 
-Full tutorial 
+Full tutorial <https://scrapfly.io/blog/how-to-scrape-bing-search-using-python/>
 
 The scraping code is located in the `Bing.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
