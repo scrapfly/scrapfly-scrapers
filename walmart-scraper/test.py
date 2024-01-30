@@ -60,10 +60,10 @@ search_schema = {
     "imageInfo": {
         "type": "dict",
         "schema": {
-            "id": {"type": "string"},
-            "name": {"type": "string"},
-            "thumbnailUrl": {"type": "string"},
-            "size": {"type": "string"},
+            "id": {"type": "string", "nullable": True},
+            "name": {"type": "string", "nullable": True},
+            "thumbnailUrl": {"type": "string", "nullable": True},
+            "size": {"type": "string", "nullable": True},
         },
     },
     "canonicalUrl": {"type": "string"},
