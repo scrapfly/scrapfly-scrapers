@@ -54,7 +54,8 @@ def parse_search(result: ScrapeApiResponse) -> List[ProductPreview]:
         if "/slredirect/" in url:  # skip ads etc.
             continue
         rating = box.css("span[aria-label~=stars]::attr(aria-label)").re_first(r"(\d+\.*\d*) out")
-        rating_count = box.css("span[aria-label~=stars] + span::attr(aria-label)").get()
+        rating_count = box.xpath("//div[contains(@data-csa-c-content-id, 'ratings-count')]/span/@aria-label").get()
+        print(rating_count)
         previews.append(
             {
                 "url": url,
