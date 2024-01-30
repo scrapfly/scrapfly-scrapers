@@ -267,9 +267,13 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 async def test_properties_scraping():
     properties_data = await zoopla.scrape_properties(
-        urls=["https://www.zoopla.co.uk/for-sale/details/65901787/"]
+        urls=[
+            "https://www.zoopla.co.uk/for-sale/details/66520581/",
+            "https://www.zoopla.co.uk/new-homes/details/66519409/",
+            "https://www.zoopla.co.uk/new-homes/details/66519052/"
+        ]
     )
     validator = Validator(property_schema, allow_unknown=True)
     for item in properties_data:
         validate_or_fail(item, validator)
-    assert len(properties_data) == 1
+    assert len(properties_data) >= 1

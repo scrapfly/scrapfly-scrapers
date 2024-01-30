@@ -20,7 +20,11 @@ async def run():
     print("running zoopla scrape and saving results to ./results directory")
 
     properties_data = await zoopla.scrape_properties(
-        urls=["https://www.zoopla.co.uk/for-sale/details/65901787/"]
+        urls=[
+            "https://www.zoopla.co.uk/for-sale/details/66520581/",
+            "https://www.zoopla.co.uk/new-homes/details/66519409/",
+            "https://www.zoopla.co.uk/new-homes/details/66519052/"
+        ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
         json.dump(properties_data, file, indent=2, ensure_ascii=False)
