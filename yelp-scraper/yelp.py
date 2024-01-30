@@ -106,6 +106,7 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
         ScrapeConfig(
             f"https://www.yelp.com/biz/{business_id}/review_feed?rl=en&q=&sort_by=relevance_desc&start=0",
             **BASE_CONFIG,
+            render_js=True, # review pages requires render_js to fully load the review data
         )
     )
     review_data = parse_review_data(review_response)
@@ -123,7 +124,7 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     other_pages = [
         ScrapeConfig(
             f"https://www.yelp.com/biz/{business_id}/review_feed?rl=en&q=&sort_by=relevance_desc&start={offset}",
-            **BASE_CONFIG,
+            **BASE_CONFIG, render_js=True
         )
         for offset in range(11, total_reviews, 10)
     ]

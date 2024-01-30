@@ -17,7 +17,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    yelp.BASE_CONFIG["cache"] = True
+    yelp.BASE_CONFIG["cache"] = False
 
     print("running Yelp scrape and saving results to ./results directory")
 
@@ -32,7 +32,7 @@ async def run():
         json.dump(business_data, file, indent=2, ensure_ascii=False)
 
     reviews_data = await yelp.scrape_reviews(
-        url="https://www.yelp.com/biz/vons-1000-spirits-seattle-4",
+        url="https://www.yelp.com/biz/toulouse-petit-kitchen-and-lounge-seattle",
         # each 10 reviews represent a review page (one request)
         max_reviews=28,
     )
