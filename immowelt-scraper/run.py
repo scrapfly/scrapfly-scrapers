@@ -15,17 +15,17 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    immowelt.BASE_CONFIG["cache"] = True
+    immowelt.BASE_CONFIG["cache"] = False
 
     print("running Immowelt scrape and saving results to ./results directory")
 
     properties_data = await immowelt.scrape_properties(
         urls = [
-            "https://www.immowelt.de/expose/2czpn55",
-            "https://www.immowelt.de/expose/2cw6u5d",
-            "https://www.immowelt.de/expose/2c3a95e",
-            "https://www.immowelt.de/expose/2cxhm5c",
-            "https://www.immowelt.de/expose/2cv4h5c"
+            "https://www.immowelt.de/expose/27t9c5f",
+            "https://www.immowelt.de/expose/27dgc5f",
+            "https://www.immowelt.de/expose/25jqw5t",
+            "https://www.immowelt.de/expose/249p65w",
+            "https://www.immowelt.de/expose/24c7p5k"
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
