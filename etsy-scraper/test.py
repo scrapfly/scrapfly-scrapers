@@ -94,7 +94,7 @@ search_schema = {
     "seller": {"type": "string", "nullable": True},
     "listingType": {"type": "string"},
     "productRate": {"type": "float", "nullable": True},
-    "numberOfReviews": {"type": "string", "nullable": True},
+    "numberOfReviews": {"type": "integer", "nullable": True},
     "freeShipping": {"type": "string"},
     "productPrice": {"type": "float"},
     "priceCurrency": {"type": "string"},

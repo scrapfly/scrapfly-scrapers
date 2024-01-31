@@ -39,8 +39,11 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
 
     for product in selector.xpath("//div[@data-search-results-lg]/ol/li"):
         link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
-        rate = product.xpath(".//input[@name='rating']/@value").get()
-        number_of_reviews = strip_text(product.xpath(".//span[contains(@class, 'wt-text-caption') and contains(., '(')]/text()").get())
+        rate = product.xpath(".//div[contains(@aria-label,'star rating')]/text()").get()
+        number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
+        if number_of_reviews:
+            number_of_reviews = number_of_reviews.replace("(", "").replace(")", "")
+            number_of_reviews = int(number_of_reviews.replace("k", "").replace(".", "")) * 10 if "k" in number_of_reviews else number_of_reviews
         price = product.xpath(".//span[@class='currency-value']/text()").get()
         original_price = product.xpath(".//span[contains(text(),'Original Price')]/text()").get()
         discount = strip_text(product.xpath(".//span[contains(text(),'off')]/text()").get())
@@ -50,10 +53,9 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
             "productTitle": strip_text(product.xpath(".//h3[contains(@class, 'text-caption')]/text()").get()),
             "productImage": product.xpath("//img[@data-listing-card-listing-image]/@src").get(),
             "seller": seller.replace("From shop ", "") if seller else None,
-            "estimatedArrival": product.xpath(".//span[@class='wt-no-wrap']/text()").get(),
             "listingType": "Paid listing" if product.xpath(".//span[@data-ad-label='Ad by Etsy seller']") else "Free listing",
             "productRate": float(rate) if rate else None,
-            "numberOfReviews": number_of_reviews,
+            "numberOfReviews": int(number_of_reviews) if number_of_reviews else None,
             "freeShipping": "Yes" if product.xpath(".//span[contains(text(),'Free shipping')]/text()").get() else "No",
             "productPrice": float(price.replace(",", "")) if price else None,
             "priceCurrency": product.xpath(".//span[@class='currency-symbol']/text()").get(),
