@@ -28,10 +28,10 @@ def parse_next_data(response: ScrapeApiResponse) -> Dict:
     """parse listing data from script tags"""
     selector = response.selector
     # extract data in JSON from script tags
-    script = selector.xpath("//script[@id='state']/text()").get()
+    script = selector.xpath("//script[contains(text(),'INITIAL_STATE')]/text()").get()
     if not script:
         return
-    next_data = script.strip("__INITIAL_STATE__=")
+    next_data = script.strip("window.__INITIAL_STATE__=")
     # replace undefined values
     next_data = next_data.replace("undefined", "null")
     next_data_json = json.loads(next_data)
@@ -48,7 +48,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
         data = parse_next_data(response)
         # handle expired property pages
         try:
-            properties.append(data["pages"]["detail"]["propertyDetails"])
+            properties.append(data["listing"]["listing"])
         except:
             log.info("expired property page")
             pass
@@ -63,10 +63,10 @@ async def scrape_search(
     # scrape the first search page first
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     log.info("scraping search page {}", url)
-    data = parse_next_data(first_page)["pages"]["searchResult"]["resultData"]
-    search_data = data["listData"]
+    data = parse_next_data(first_page)["resultList"]["search"]["fullSearch"]["result"]
+    search_data = data["listings"]
     # get the number of maximum search pages available
-    max_search_pages = data["pagingData"]["totalPages"]
+    max_search_pages = data["resultCount"]
      # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         total_pages = max_scrape_pages
@@ -82,7 +82,7 @@ async def scrape_search(
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         data = parse_next_data(response)
         search_data.extend(
-            data["pages"]["searchResult"]["resultData"]["listData"]
+            data["resultList"]["search"]["fullSearch"]["result"]["listings"]
         )
     log.info("scraped {} proprties from {}", len(search_data), url)
     return search_data

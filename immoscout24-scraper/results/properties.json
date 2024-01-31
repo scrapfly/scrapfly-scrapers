@@ -1,1551 +1,1284 @@
 [
   {
-    "bottomsheet": {},
-    "detailsData": {
-      "accountId": 1229202,
-      "attributesSize": {
-        "floor": 2,
-        "floorFormatted": "2. floor",
-        "numberOfFloors": 5
-      },
-      "attributesInside": {
-        "nrBathRooms": 1,
-        "cellar": true
-      },
-      "attributesTechnology": {
-        "dishWasher": true,
-        "propCabletv": true
-      },
-      "attributesOutside": {
-        "propBalcony": true
-      },
-      "attributesSurrounding": {
-        "distanceShop": 350,
-        "distanceShopFormatted": "Approx. 350 m",
-        "distancePublicTransport": 350,
-        "distancePublicTransportFormatted": "Approx. 350 m",
-        "objectSituation": "sonnig, ruhig"
-      },
-      "availableFrom": "2023-10-08T00:00:00+02:00",
-      "availableFromFormatted": "Immediately",
-      "cityId": 295,
-      "cityName": "Bern",
-      "commuteTimes": {
-        "defaultPois": [
+    "localization": {
+      "de": {
+        "text": {
+          "title": "Dachwohnung mit Charme an TOP-Lage in der Länggasse",
+          "description": "ruhige und zentral gelegene Liegenschaft - diverse Einkaufsmöglichkeiten sind in wenigen Gehminuten zu erreichen - die Universität sowie die öffentlichen Verkehrsmittel befinden sich in unmittelbarer Nähe<br />Wir vermieten per sofort oder nach Vereinbarung eine 3- Zimmer-Dachwohnung mit direktem Liftzugang in der Wohnung.<br /><br /> - schöne Parkettböden im allen Zimmern <br /> - Küche mit grossem Kühlschrank, Geschirrspüler und Bartheke<br /> - grosses Badezimmer mit Badewanne, Dusche und Doppellavabo<br /> - sep. WC mit Lavabo und Dachfenster<br /> - Wandschränke im Schlafzimmer und Korridor<br /> - Estrichzugang direkt aus der Wohnung<br /> - ein Kellerabteil gehört zur Wohnung dazu<br /> - kein Balkon vorhanden<br />"
+        },
+        "attachments": [
           {
-            "defaultPoiId": 2,
-            "label": "Bern station",
-            "transportations": [
-              {
-                "transportationTypeId": 6,
-                "travelTime": 656,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 10,
-                "travelTime": 771,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 3,
-                "travelTime": 561,
-                "isReachable": true
-              }
-            ]
+            "caption": "image/jpeg",
+            "description": "Liegenschaft",
+            "file": "337f4f7440-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/cecdba83e399b270a7a6808669674dab.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Küche",
+            "file": "ddd751cf48-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/5d17d17d9c717a9a40c6d05c84928974.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnzimmer mit Küchen-Bartheke",
+            "file": "b16d6c8147-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/57de586c8bb93ed6bb70f1cabc6c95b0.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnzimmer",
+            "file": "9293358a47-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/e140a112afb62cee9ff6357ca7990af5.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Schlafzimmer",
+            "file": "0edbcdfe45-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/fa447bfe9565dd96593dacab3572bac7.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Kinderzimmer",
+            "file": "f72664a645-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/d84d2ac035399538649c2741eaa61415.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Bad",
+            "file": "8b8259dc41-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/883c66d83746fd43797c3074ad116edd.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "sep. WC",
+            "file": "9b512fcf4a-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/24bc38e97333f850c7e90e1b4109078c.jpg"
           }
         ]
       },
-      "contactFormTypeId": 2,
-      "countryId": 1,
-      "extraPrice": 250,
-      "extraPriceFormatted": "CHF 250.—",
-      "geoAccuracy": 8,
-      "grossPrice": 1850,
-      "grossPriceFormatted": "CHF 1850.—",
-      "hasNewBuildingProject": false,
-      "hasVirtualTour": false,
-      "id": 8029198,
-      "images": [
-        {
-          "url": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?{width}x{height}/{resizemode}/{quality}/is24media/21/26/950f2ce04b-231009.jpg",
-          "originalWidth": 480,
-          "originalHeight": 640,
-          "id": 110492384,
-          "sortOrder": 1,
-          "lastModified": "2023-10-09T17:24:49+02:00"
+      "primary": "de"
+    },
+    "lister": {
+      "legalName": "Robert Pfister AG",
+      "website": {
+        "value": "http://www.robertpfisterag.ch"
+      },
+      "address": {
+        "locality": "Bern",
+        "country": "CH",
+        "street": "Neuengasse 17",
+        "postalCode": "3011"
+      },
+      "externalPlatformId": "156142",
+      "immoscoutId": "156142",
+      "phone": "+41313203192",
+      "id": "f072",
+      "logoUrl": "https://media2.homegate.ch/t_customer_logo/logos/l_f072_v1.gif",
+      "contacts": {
+        "inquiry": {
+          "gender": "OTHER",
+          "phone": "+41313203192",
+          "familyName": "Vermietung"
         },
-        {
-          "url": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?{width}x{height}/{resizemode}/{quality}/is24media/c0/6a/ba9bacc642-231009.jpg",
-          "originalWidth": 480,
-          "originalHeight": 640,
-          "id": 110492377,
-          "sortOrder": 2,
-          "lastModified": "2023-10-09T17:24:48+02:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?{width}x{height}/{resizemode}/{quality}/is24media/a0/07/362caa3e4b-231009.jpg",
-          "originalWidth": 480,
-          "originalHeight": 640,
-          "id": 110492379,
-          "sortOrder": 3,
-          "lastModified": "2023-10-09T17:24:48+02:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?{width}x{height}/{resizemode}/{quality}/is24media/0f/a9/e024f6ac41-231010.jpg",
-          "originalWidth": 480,
-          "originalHeight": 640,
-          "id": 110516015,
-          "sortOrder": 4,
-          "lastModified": "2023-10-10T11:57:51+02:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?{width}x{height}/{resizemode}/{quality}/is24media/ee/10/0df1e59a4d-231009.jpg",
-          "originalWidth": 480,
-          "originalHeight": 640,
-          "id": 110492376,
-          "sortOrder": 5,
-          "lastModified": "2023-10-09T17:24:34+02:00"
+        "viewing": {
+          "gender": "OTHER",
+          "phone": "+41799638974",
+          "familyName": "Herr H. Rötheli"
         }
-      ],
-      "isHighlighted": false,
-      "isNeubauLite": false,
-      "isNeubauLitePremium": false,
-      "isHgCrosslisting": false,
-      "isNew": true,
-      "isNewEndDate": "2023-11-07T17:04:55+01:00",
-      "isOnline": true,
-      "isTopListing": true,
-      "isPremiumToplisting": false,
-      "lastModified": "2023-11-06T06:36:18+01:00",
-      "latitude": 46.941214850878,
-      "longitude": 7.414832204569,
-      "municipalityId": 204,
-      "municipalityBfsId": 351,
-      "municipalityNameFormatted": "Bern",
-      "msRegionId": 11,
-      "netPrice": 1600,
-      "netPriceFormatted": "CHF 1600.—",
-      "normalizedPrice": 1850,
-      "normalizedPriceFormatted": "CHF 1850.—",
+      }
+    },
+    "characteristics": {
+      "isCornerHouse": false,
+      "hasRamp": false,
+      "hasFireplace": false,
       "numberOfRooms": 3,
-      "numberOfRoomsFormatted": "3 rooms",
-      "offerTypeId": 1,
-      "priceUnitId": 6,
-      "priceUnitLabel": "month",
-      "price": 1850,
-      "priceFormatted": "CHF 1850.—",
-      "propertyCategoryId": 1,
-      "propertyTypeId": 1,
-      "propertyDetailUrl": "/en/d/flat-rent-bern/8029198",
-      "regionId": 15,
-      "showContactForm": true,
-      "showContactFormAddress": false,
-      "stateShort": "BE",
-      "state": "Bern",
-      "street": "Fischermättelistrasse 11",
-      "surfaceLiving": 85,
-      "surfaceLivingFormatted": "85 m²",
-      "surfaceUsable": 82,
-      "surfaceUsableFormatted": "82 m²",
-      "title": "Maisonette-Wohnung",
-      "videoViewingEnabled": false,
-      "visitName": "Urs Scheidegger",
-      "visitPhone": "",
-      "zip": "3008",
-      "zipId": 859,
-      "lastPublished": "2023-11-05T17:04:58+01:00",
-      "packageType": 9,
-      "shortDescription": "",
-      "isQualityListing": false,
-      "listingLayout": 2,
-      "packageScore": 8,
-      "sortalgoScore": 6.8265,
-      "sortalgoScore2": 0,
-      "listingCompletenessScore": 3.5,
-      "sortingPosition": 0,
-      "userRelevantScore": 9
+      "hasPowerSupply": false,
+      "isMiddleHouse": false,
+      "yearBuilt": 1920,
+      "isMinergieGeneral": false,
+      "isWheelchairAccessible": false,
+      "hasGardenShed": false,
+      "hasSwimmingPool": false,
+      "isOldBuilding": false,
+      "arePetsAllowed": false,
+      "floor": 3,
+      "hasGarage": false,
+      "hasFlatSharingCommunity": false,
+      "hasSewageSupply": false,
+      "hasParking": false,
+      "hasLiftingPlatform": false,
+      "hasBalcony": false,
+      "livingSpace": 65,
+      "hasWaterSupply": false,
+      "hasBuildingLawRestrictions": false,
+      "hasCableTv": false,
+      "isGroundFloorRaised": false,
+      "hasNiceView": false,
+      "hasConnectedBuildingLand": false,
+      "isUnderRoof": false,
+      "hasElevator": true,
+      "isNewBuilding": false,
+      "isMinergieCertified": false,
+      "hasGasSupply": false,
+      "isChildFriendly": false
     },
-    "viewData": {
-      "agencyPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8029198&stat_type_id=34&app=is24web&wl=1",
-      "movingUrl": "/en/moving?p=8029198",
-      "pdfUrl": "http://pdf.immoscout24.ch?url=http%3A%2F%2Fwww.immoscout24.ch%2F8029198%3Flng%3Den%26asPdf%3Dtrue&filename=is24_objekt_8029198",
-      "rentalDepositAttestLinkUrl": "https://swisscaution.ch/en/rental-guarantee-caution/residential-lease/certificate/online-registration/?pid=I_581&utm_source=Partner&utm_medium=textlink&utm_campaign=Immoscout&utm_content=housing-details-en",
-      "visitPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8029198&stat_type_id=33&app=is24web&wl=1",
-      "showAccountProperties": false,
-      "showSimilarProperties": true,
-      "areSimilarPropertiesFromSameAdvertiser": false,
-      "detailViewStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8029198&stat_type_id=28&app=is24web&wl=1",
-      "detailPrintStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8029198&stat_type_id=29&app=is24web&wl=1",
-      "debtEnforcementLandingPageUrl": "/en/order-extract-debt-collection-register?entrypointName=detail-link&returnUrl=%2Fen%2Fd%2Fflat-rent-bern%2F8029198",
-      "allowOnlineApplication": false,
-      "allowOnlineApplicationForAroov": false,
-      "aroovOnlineApplicationUrl": "",
-      "showOnlineApplicationApply": false,
-      "webView": {
-        "gtmData": {
-          "activeLanguage": "en",
-          "localVirtualPagePath": "/en/d/flat-rent-bern/8029198",
-          "userLoggedIn": "No",
-          "customerType": "searcher",
-          "userOrigin": "external",
-          "listingId": "8029198",
-          "viewTab": "Overview",
-          "offerTypeName": "Rent",
-          "price": "1850",
-          "country": "Switzerland + FL",
-          "englishVirtualPagePath": "details",
-          "isShortUrl": "false",
-          "livingSpace": "85",
-          "numberOfRooms": "3.0",
-          "countPDF": "0",
-          "countImages": "5",
-          "hasVirtualTour": "No",
-          "hasYoutube": "No",
-          "hasToplisting": "Yes",
-          "hasHighlighting": "No",
-          "listing_locationName": "Bern",
-          "listing_cantonName": "Bern",
-          "listing_zip": "3008",
-          "streetName": "Fischermättelistrasse 11",
-          "floorLevel": "2",
-          "isNewBuilding": "No",
-          "listing_msregion": 11,
-          "isCooperation": "No",
-          "packageName": 9,
-          "hasVideoViewing": "No",
-          "listing_propertyType": "Flat",
-          "listing_priceNet": "1600",
-          "listing_availability": "Immediately",
-          "listingLayout": 2,
-          "packageScore": 8,
-          "previewImageUrl": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?940x628/0/90/is24media/21/26/950f2ce04b-231009.jpg",
-          "sortingScore": 6.8265,
-          "listingCompletenessScore": 3.5,
-          "listingAccountId": 1229202,
-          "userRelevantScore": 9,
-          "sorting": null,
-          "sortingPosition": null
+    "address": {
+      "country": "CH",
+      "geoDistances": [
+        {
+          "distance": -9235.730359934063,
+          "geoTag": "geo-canton-bern"
         },
-        "openGraphData": {
-          "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8029198",
-          "description": "Maisonette-Wohnung",
-          "title": "Flat | Bern | CHF 1850.— | 3 rooms | 85 m²",
-          "imageHeight": "628",
-          "imageWidth": "940",
-          "imageType": "image/jpg",
-          "imageUrl": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?940x628/0/90/is24media/21/26/950f2ce04b-231009.jpg"
+        {
+          "distance": -1887.7265520081799,
+          "geoTag": "geo-city-bern"
         },
-        "structuredData": {
-          "@context": "http://schema.org",
-          "@graph": [
-            {
-              "availability": "InStock",
-              "image": "https://cis01.immoscout24.ch/maisonette-wohnung-bern?940x628/0/90/is24media/21/26/950f2ce04b-231009.jpg",
-              "name": "Maisonette-Wohnung",
-              "price": 1850,
-              "priceCurrency": "CHF",
-              "@type": "Offer",
-              "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8029198"
-            }
-          ]
+        {
+          "distance": -24.408342109690093,
+          "geoTag": "geo-citydistrict-stadtbach"
+        },
+        {
+          "distance": -24.408342109690093,
+          "geoTag": "geo-citydistrict-stadtbach-bern"
+        },
+        {
+          "distance": -359.12965408244463,
+          "geoTag": "geo-cityregion-laenggasse-felsenau-bern"
+        },
+        {
+          "distance": -359.12965408244463,
+          "geoTag": "geo-cityregion-langgasse-felsenau"
+        },
+        {
+          "distance": -48419.51198581247,
+          "geoTag": "geo-country-switzerland"
+        },
+        {
+          "distance": -7981.351123129005,
+          "geoTag": "geo-district-bern-mittelland"
+        },
+        {
+          "distance": -1904.5795177680163,
+          "geoTag": "geo-municipality-bern"
+        },
+        {
+          "distance": -1904.5795177680163,
+          "geoTag": "geo-region-bern"
+        },
+        {
+          "distance": -7981.351123129005,
+          "geoTag": "geo-region-bern-mittelland"
+        },
+        {
+          "distance": -1887.7265520081799,
+          "geoTag": "geo-zipcode-3000"
+        },
+        {
+          "distance": -335.32719461699145,
+          "geoTag": "geo-zipcode-3012"
         }
+      ],
+      "geoTags": [
+        "geo-canton-bern",
+        "geo-city-bern",
+        "geo-citydistrict-stadtbach",
+        "geo-citydistrict-stadtbach-bern",
+        "geo-cityregion-laenggasse-felsenau-bern",
+        "geo-cityregion-langgasse-felsenau",
+        "geo-country-switzerland",
+        "geo-district-bern-mittelland",
+        "geo-municipality-bern",
+        "geo-region-bern",
+        "geo-region-bern-mittelland",
+        "geo-zipcode-3000",
+        "geo-zipcode-3012"
+      ],
+      "street": "Bühlstrasse 39",
+      "postalCode": "3012",
+      "locality": "Bern",
+      "geoCoordinates": {
+        "accuracy": "HIGH",
+        "manual": true,
+        "latitude": 46.951331852012,
+        "longitude": 7.430521304639
       },
-      "whatsAppShareUrl": "whatsapp://send?text=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8029198%3futm_source%3dwhatsapp%26utm_medium%3dsocial_sharing%26utm_term%3ddetail%26utm_content%3den%26utm_campaign%3dis24_share_web",
-      "copyShareUrl": "https://www.immoscout24.ch/en/d/flat-rent-bern/8029198?utm_source=copy-link&utm_medium=social_sharing&utm_term=detail&utm_content=en&utm_campaign=is24_share_web",
-      "fbShareUrl": "https://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8029198%3futm_campaign%3dis24_share_web%26utm_medium%3dsocial_sharing%26utm_source%3dfacebook%26utm_term%3ddetail%26utm_content%3den&t=Maisonette-Wohnung"
+      "region": "BE"
+    },
+    "externalIds": {
+      "internalReferenceId": "156142#idx-101081-430010--7181424##__f072",
+      "refHouse": "101081",
+      "refObject": "430010",
+      "displayPropertyReferenceId": "__f072.idx-101081-430010--7181424",
+      "platformListingId": "7181424",
+      "propertyReferenceId": "156142#idx-101081-430010--7181424##__f072"
+    },
+    "contactForm": {
+      "size": "NO_ADDRESS",
+      "deliveryFormat": "NORMAL"
+    },
+    "availableFrom": "2023-12-15",
+    "version": 5,
+    "platforms": [
+      "immoscout24"
+    ],
+    "offerType": "RENT",
+    "meta": {
+      "createdAt": "2023-12-19T17:13:39.839Z",
+      "updatedAt": "2024-01-17T05:31:20.643Z",
+      "source": "IMMOHUB"
+    },
+    "publishers": [
+      {
+        "options": [
+          {
+            "value": "{\"topListingRanking\":0}",
+            "key": "top-listing"
+          },
+          {
+            "value": "{\"pubStartDate\":\"2023-12-19T00:00:00+01:00\",\"onlineStartDate\":\"2023-12-19T18:12:25+01:00\"}",
+            "key": "publication"
+          },
+          {
+            "value": "6.66000",
+            "key": "sorting-score"
+          },
+          {
+            "value": "OF",
+            "key": "object-source"
+          },
+          {
+            "value": "101081",
+            "key": "idx-ref-house"
+          },
+          {
+            "key": "idx-ref-prop"
+          },
+          {
+            "value": "430010",
+            "key": "idx-ref-object"
+          },
+          {
+            "value": "Unbekannt",
+            "key": "of-dispo-member-name"
+          },
+          {
+            "value": "1",
+            "key": "idx-type"
+          },
+          {
+            "value": "APPT",
+            "key": "idx-category"
+          },
+          {
+            "value": "M",
+            "key": "account-type"
+          },
+          {
+            "value": "156142",
+            "key": "account-id"
+          },
+          {
+            "key": "tags"
+          },
+          {
+            "value": "50725356",
+            "key": "last-synchronization-id"
+          }
+        ],
+        "id": "is24-legacy-data"
+      }
+    ],
+    "id": "4000519178",
+    "categories": [
+      "APARTMENT"
+    ],
+    "prices": {
+      "rent": {
+        "area": "ALL",
+        "interval": "MONTH",
+        "net": 1390,
+        "gross": 1740,
+        "extra": 350
+      },
+      "currency": "CHF"
     }
   },
   {
-    "bottomsheet": {},
-    "detailsData": {
-      "accountId": 37596,
-      "companyId": 1725,
-      "memberPackageId": 4,
-      "agency": {
-        "companyCity": "Bern",
-        "companyName1": "Erich Weber Immobilien",
-        "companyPhoneBusiness": "031 310 12 38",
-        "companyStreet": "Bundesgasse 26",
-        "companyZip": "3001",
-        "showLogoOnSerp": true,
-        "lastName": "Vermietungsteam",
-        "logoUrl": "https://cis01.immoscout24.ch/memberlogos/L37596-R.jpg",
-        "logoUrlDetailPage": "https://cis01.immoscout24.ch/memberlogos/L37596-R.jpg",
-        "reference": "Vermietungsteam",
-        "webUrl": "http://www.erich-weber.ch",
-        "isAccountMigrated": true,
-        "isGuest": false,
-        "userType": "M"
-      },
-      "attributesInside": {
-        "propView": true
-      },
-      "attributesTechnology": {
-        "propCabletv": true
-      },
-      "attributesOutside": {
-        "propElevator": true,
-        "propBalcony": true
-      },
-      "attributesSurrounding": {
-        "distanceShop": 600,
-        "distanceShopFormatted": "Approx. 600 m",
-        "distanceKindergarten": 200,
-        "distanceKindergartenFormatted": "Approx. 200 m",
-        "distanceSchool1": 500,
-        "distanceSchool1Formatted": "Approx. 500 m",
-        "distanceSchool2": 500,
-        "distanceSchool2Formatted": "Approx. 500 m",
-        "distancePublicTransport": 500,
-        "distancePublicTransportFormatted": "Approx. 500 m"
-      },
-      "attributes": {
-        "yearBuilt": 1967
-      },
-      "availableFrom": "2023-11-01T00:00:00+01:00",
-      "availableFromFormatted": "Immediately",
-      "cityId": 295,
-      "cityName": "Bern",
-      "commuteTimes": {
-        "defaultPois": [
+    "localization": {
+      "de": {
+        "text": {
+          "title": "Dachwohnung mit Charme an TOP-Lage in der Länggasse",
+          "description": "ruhige und zentral gelegene Liegenschaft - diverse Einkaufsmöglichkeiten sind in wenigen Gehminuten zu erreichen - die Universität sowie die öffentlichen Verkehrsmittel befinden sich in unmittelbarer Nähe<br />Wir vermieten per sofort oder nach Vereinbarung eine 3- Zimmer-Dachwohnung mit direktem Liftzugang in der Wohnung.<br /><br /> - schöne Parkettböden im allen Zimmern <br /> - Küche mit grossem Kühlschrank, Geschirrspüler und Bartheke<br /> - grosses Badezimmer mit Badewanne, Dusche und Doppellavabo<br /> - sep. WC mit Lavabo und Dachfenster<br /> - Wandschränke im Schlafzimmer und Korridor<br /> - Estrichzugang direkt aus der Wohnung<br /> - ein Kellerabteil gehört zur Wohnung dazu<br /> - kein Balkon vorhanden<br />"
+        },
+        "attachments": [
           {
-            "defaultPoiId": 2,
-            "label": "Bern station",
-            "transportations": [
-              {
-                "transportationTypeId": 6,
-                "travelTime": 637,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 10,
-                "travelTime": 784,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 3,
-                "travelTime": 772,
-                "isReachable": true
-              }
-            ]
+            "caption": "image/jpeg",
+            "description": "Liegenschaft",
+            "file": "337f4f7440-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/cecdba83e399b270a7a6808669674dab.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Küche",
+            "file": "ddd751cf48-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/5d17d17d9c717a9a40c6d05c84928974.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnzimmer mit Küchen-Bartheke",
+            "file": "b16d6c8147-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/57de586c8bb93ed6bb70f1cabc6c95b0.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnzimmer",
+            "file": "9293358a47-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/e140a112afb62cee9ff6357ca7990af5.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Schlafzimmer",
+            "file": "0edbcdfe45-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/fa447bfe9565dd96593dacab3572bac7.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Kinderzimmer",
+            "file": "f72664a645-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/d84d2ac035399538649c2741eaa61415.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Bad",
+            "file": "8b8259dc41-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/883c66d83746fd43797c3074ad116edd.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "sep. WC",
+            "file": "9b512fcf4a-231219.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000519178/image/24bc38e97333f850c7e90e1b4109078c.jpg"
           }
         ]
       },
-      "contactFormTypeId": 2,
-      "countryId": 1,
-      "description": "Parkettböden in allen Räumen \\* grosser Wohn-/ Essraum (ca. 38 m²) \\* 2 abgeschlossene Schlafräume \\* Einbauschränke in einem Zimmer \\* Badezimmer und sep. WC \\* abschliessbare Zweifronten-Küche \\* sonniger Balkon mit schöner Sicht zu den Berner Alpen \\* Kellerabteil   \r\n  \r\n Die Liegenschaft befindet sich in einem ruhigen Quartier im Berner-Ostring, in der Nähe des Spitals Sonnenhof und des Autobahnanschlusses A6. Die öffentlichen Verkehrsmittel (Tramlinie Nr. 7) erreichen Sie in wenigen Gehminuten. Das Einkaufszentrum Freudenberg (Coop, Migros + Restaurant, Apotheke) ist in wenigen Minuten zu erreichen.  \r\nEinstellhallen- oder Aussenparkplätze können je nach Vermietungsstand dazu gemietet werden.",
-      "extraPrice": 260,
-      "extraPriceFormatted": "CHF 260.—",
-      "geoAccuracy": 4,
-      "grossPrice": 1960,
-      "grossPriceFormatted": "CHF 1960.—",
-      "hasNewBuildingProject": false,
-      "hasVirtualTour": false,
-      "id": 8068176,
-      "images": [
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/b8/55/423350894d-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 450,
-          "id": 111085375,
-          "sortOrder": 1,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/34/55/f928d8994b-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 452,
-          "id": 111085376,
-          "sortOrder": 2,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/48/81/4d6733c44f-231101.jpg",
-          "originalWidth": 338,
-          "originalHeight": 600,
-          "id": 111085377,
-          "sortOrder": 3,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/08/76/9e9659b549-231101.jpg",
-          "originalWidth": 338,
-          "originalHeight": 600,
-          "id": 111085378,
-          "sortOrder": 4,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/80/70/16be209b46-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085379,
-          "sortOrder": 5,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/c7/5c/c60c619840-231101.jpg",
-          "originalWidth": 850,
-          "originalHeight": 638,
-          "id": 111085380,
-          "sortOrder": 6,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/42/4f/1f8c1bcc45-231101.jpg",
-          "originalWidth": 638,
-          "originalHeight": 850,
-          "id": 111085381,
-          "sortOrder": 7,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?{width}x{height}/{resizemode}/{quality}/is24media/87/fd/69caf34e2e-231101.jpg",
-          "originalWidth": 895,
-          "originalHeight": 810,
-          "id": 111085382,
-          "sortOrder": 8,
-          "lastModified": "2023-11-01T20:01:28+01:00"
-        }
-      ],
-      "isHighlighted": false,
-      "isNeubauLite": false,
-      "isNeubauLitePremium": false,
-      "isHgCrosslisting": false,
-      "isNew": false,
-      "isNewEndDate": "2023-11-03T20:01:28+01:00",
-      "isOnline": true,
-      "isTopListing": true,
-      "isPremiumToplisting": false,
-      "lastModified": "2023-11-06T07:46:09+01:00",
-      "latitude": 46.942031781931,
-      "longitude": 7.470651922486,
-      "municipalityId": 204,
-      "municipalityBfsId": 351,
-      "municipalityNameFormatted": "Bern",
-      "msRegionId": 11,
-      "netPrice": 1700,
-      "netPriceFormatted": "CHF 1700.—",
-      "normalizedPrice": 1960,
-      "normalizedPriceFormatted": "CHF 1960.—",
-      "numberOfRooms": 4,
-      "numberOfRoomsFormatted": "4 rooms",
-      "offerTypeId": 1,
-      "priceUnitId": 6,
-      "priceUnitLabel": "month",
-      "price": 1960,
-      "priceFormatted": "CHF 1960.—",
-      "propertyCategoryId": 1,
-      "propertyTypeId": 1,
-      "propertyDetailUrl": "/en/d/flat-rent-bern/8068176",
-      "referenceNo": "1263.04013.1911",
-      "regionId": 15,
-      "showContactForm": true,
-      "showContactFormAddress": false,
-      "stateShort": "BE",
-      "state": "Bern",
-      "street": "Kasthoferstrasse",
-      "surfaceLiving": 90,
-      "surfaceLivingFormatted": "90 m²",
-      "surfaceUsable": 90,
-      "surfaceUsableFormatted": "90 m²",
-      "title": "Traumhafte Weitsicht !",
-      "videoViewingEnabled": false,
-      "visitName": "Vermietungsteam",
-      "visitPhone": "031 310 12 38",
-      "zip": "3006",
-      "zipId": 857,
-      "lastPublished": "2023-11-01T20:01:28+01:00",
-      "packageType": 4,
-      "shortDescription": "Parkettböden in allen Räumen * grosser Wohn-/ Essraum (ca. 38 m²) * 2 abgeschlossene Schlafräume * Einbauschränke in einem Zimmer * Badezimmer und sep. WC * abschliessbare Zweifronten-Küche * sonniger Balkon mit schöner Sicht zu den Berner Alpen * Kellerabteil  Die Liegenschaft befindet sich in einem ruhigen Quartier im Berner-Ostring, in der Nähe des Spitals Sonnenhof und des Autobahnanschlusses A6. Die öffentlichen Verkehrsmittel (Tramlinie Nr. 7) erreichen Sie in wenigen Gehminuten. Das Einkaufszentrum Freudenberg (Coop, Migros + Restaurant,",
-      "isQualityListing": false,
-      "listingLayout": 3,
-      "packageScore": 10,
-      "sortalgoScore": 7.1595,
-      "sortalgoScore2": 0,
-      "listingCompletenessScore": 3.5,
-      "sortingPosition": 0,
-      "userRelevantScore": 8
+      "primary": "de"
     },
-    "viewData": {
-      "agencyPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068176&stat_type_id=34&app=is24web&wl=1",
-      "movingUrl": "/en/moving?p=8068176",
-      "pdfUrl": "http://pdf.immoscout24.ch?url=http%3A%2F%2Fwww.immoscout24.ch%2F8068176%3Flng%3Den%26asPdf%3Dtrue&filename=is24_objekt_8068176",
-      "rentalDepositAttestLinkUrl": "https://swisscaution.ch/en/rental-guarantee-caution/residential-lease/certificate/online-registration/?pid=I_581&utm_source=Partner&utm_medium=textlink&utm_campaign=Immoscout&utm_content=housing-details-en",
-      "visitPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068176&stat_type_id=33&app=is24web&wl=1",
-      "showAccountProperties": true,
-      "showSimilarProperties": true,
-      "areSimilarPropertiesFromSameAdvertiser": true,
-      "detailViewStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068176&stat_type_id=28&app=is24web&wl=1",
-      "detailPrintStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068176&stat_type_id=29&app=is24web&wl=1",
-      "debtEnforcementLandingPageUrl": "/en/order-extract-debt-collection-register?entrypointName=detail-link&returnUrl=%2Fen%2Fd%2Fflat-rent-bern%2F8068176",
-      "allowOnlineApplication": false,
-      "allowOnlineApplicationForAroov": false,
-      "aroovOnlineApplicationUrl": "",
-      "showOnlineApplicationApply": false,
-      "webView": {
-        "gtmData": {
-          "activeLanguage": "en",
-          "localVirtualPagePath": "/en/d/flat-rent-bern/8068176",
-          "userLoggedIn": "No",
-          "customerType": "searcher",
-          "userOrigin": "external",
-          "listingId": "8068176",
-          "viewTab": "Overview",
-          "offerTypeName": "Rent",
-          "price": "1960",
-          "country": "Switzerland + FL",
-          "englishVirtualPagePath": "details",
-          "isShortUrl": "false",
-          "livingSpace": "90",
-          "numberOfRooms": "4.0",
-          "countPDF": "0",
-          "countImages": "8",
-          "hasVirtualTour": "No",
-          "hasYoutube": "No",
-          "hasToplisting": "Yes",
-          "hasHighlighting": "No",
-          "listing_locationName": "Bern",
-          "listing_cantonName": "Bern",
-          "listing_zip": "3006",
-          "streetName": "Kasthoferstrasse",
-          "isNewBuilding": "No",
-          "listing_msregion": 11,
-          "isCooperation": "No",
-          "packageName": 4,
-          "hasVideoViewing": "No",
-          "listing_propertyType": "Flat",
-          "listing_priceNet": "1700",
-          "listing_availability": "Immediately",
-          "listingLayout": 3,
-          "packageScore": 10,
-          "previewImageUrl": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?940x628/0/90/is24media/b8/55/423350894d-231101.jpg",
-          "sortingScore": 7.1595,
-          "listingCompletenessScore": 3.5,
-          "listingAccountId": 37596,
-          "userRelevantScore": 8,
-          "sorting": null,
-          "sortingPosition": null
+    "lister": {
+      "legalName": "Robert Pfister AG",
+      "website": {
+        "value": "http://www.robertpfisterag.ch"
+      },
+      "address": {
+        "locality": "Bern",
+        "country": "CH",
+        "street": "Neuengasse 17",
+        "postalCode": "3011"
+      },
+      "externalPlatformId": "156142",
+      "immoscoutId": "156142",
+      "phone": "+41313203192",
+      "id": "f072",
+      "logoUrl": "https://media2.homegate.ch/t_customer_logo/logos/l_f072_v1.gif",
+      "contacts": {
+        "inquiry": {
+          "gender": "OTHER",
+          "phone": "+41313203192",
+          "familyName": "Vermietung"
         },
-        "openGraphData": {
-          "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068176",
-          "description": "Traumhafte Weitsicht !",
-          "title": "Flat | Bern | CHF 1960.— | 4 rooms | 90 m²",
-          "imageHeight": "628",
-          "imageWidth": "940",
-          "imageType": "image/jpg",
-          "imageUrl": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?940x628/0/90/is24media/b8/55/423350894d-231101.jpg"
-        },
-        "structuredData": {
-          "@context": "http://schema.org",
-          "@graph": [
-            {
-              "availability": "InStock",
-              "description": "Parkettböden in allen Räumen \\* grosser Wohn-/ Essraum (ca. 38 m²) \\* 2 abgeschlossene Schlafräume \\* Einbauschränke in einem Zimmer \\* Badezimmer und sep. WC \\* abschliessbare Zweifronten-Küche \\* sonniger Balkon mit schöner Sicht zu den Berner Alpen \\* Kellerabteil   \r\n  \r\n Die Liegenschaft befindet sich in einem ruhigen Quartier im Berner-Ostring, in der Nähe des Spitals Sonnenhof und des Autobahnanschlusses A6. Die öffentlichen Verkehrsmittel (Tramlinie Nr. 7) erreichen Sie in wenigen Gehminuten. Das Einkaufszentrum Freudenberg (Coop, Migros + Restaurant, Apotheke) ist in wenigen Minuten zu erreichen.  \r\nEinstellhallen- oder Aussenparkplätze können je nach Vermietungsstand dazu gemietet werden.",
-              "image": "https://cis01.immoscout24.ch/traumhafte-weitsicht-!-bern?940x628/0/90/is24media/b8/55/423350894d-231101.jpg",
-              "name": "Traumhafte Weitsicht !",
-              "price": 1960,
-              "priceCurrency": "CHF",
-              "@type": "Offer",
-              "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068176"
-            }
-          ]
+        "viewing": {
+          "gender": "OTHER",
+          "phone": "+41799638974",
+          "familyName": "Herr H. Rötheli"
         }
-      },
-      "accountPropertiesUrl": "/en/advertiser/erich-weber-ag-immobilien-verwaltungen/37596",
-      "whatsAppShareUrl": "whatsapp://send?text=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8068176%3futm_source%3dwhatsapp%26utm_medium%3dsocial_sharing%26utm_term%3ddetail%26utm_content%3den%26utm_campaign%3dis24_share_web",
-      "copyShareUrl": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068176?utm_source=copy-link&utm_medium=social_sharing&utm_term=detail&utm_content=en&utm_campaign=is24_share_web",
-      "fbShareUrl": "https://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8068176%3futm_campaign%3dis24_share_web%26utm_medium%3dsocial_sharing%26utm_source%3dfacebook%26utm_term%3ddetail%26utm_content%3den&t=Traumhafte+Weitsicht+!"
-    }
-  },
-  {
-    "bottomsheet": {},
-    "detailsData": {
-      "accountId": 37596,
-      "companyId": 1725,
-      "memberPackageId": 4,
-      "agency": {
-        "companyCity": "Bern",
-        "companyName1": "Erich Weber Immobilien",
-        "companyPhoneBusiness": "031 310 12 10",
-        "companyStreet": "Bundesgasse 26",
-        "companyZip": "3001",
-        "showLogoOnSerp": true,
-        "lastName": "Herr Janique Alexander Mäder",
-        "logoUrl": "https://cis01.immoscout24.ch/memberlogos/L37596-R.jpg",
-        "logoUrlDetailPage": "https://cis01.immoscout24.ch/memberlogos/L37596-R.jpg",
-        "reference": "Herr Janique Alexander Mäder",
-        "webUrl": "http://www.erich-weber.ch",
-        "isAccountMigrated": true,
-        "isGuest": false,
-        "userType": "M"
-      },
-      "attributesInside": {
-        "propView": true
-      },
-      "attributesTechnology": {
-        "propCabletv": true
-      },
-      "attributesOutside": {
-        "propElevator": true,
-        "propBalcony": true,
-        "propGarage": true
-      },
-      "attributesSurrounding": {
-        "distanceShop": 600,
-        "distanceShopFormatted": "Approx. 600 m",
-        "distanceKindergarten": 300,
-        "distanceKindergartenFormatted": "Approx. 300 m",
-        "distanceSchool1": 600,
-        "distanceSchool1Formatted": "Approx. 600 m",
-        "distanceSchool2": 1100,
-        "distanceSchool2Formatted": "Approx. 1100 m",
-        "distancePublicTransport": 100,
-        "distancePublicTransportFormatted": "Approx. 100 m"
-      },
-      "attributes": {
-        "yearBuilt": 1974
-      },
-      "availableFrom": "2023-12-01T00:00:00+01:00",
-      "availableFromFormatted": "01.12.2023",
-      "cityId": 295,
-      "cityName": "Bern",
-      "commuteTimes": {
-        "defaultPois": [
-          {
-            "defaultPoiId": 2,
-            "label": "Bern station",
-            "transportations": [
-              {
-                "transportationTypeId": 6,
-                "travelTime": 435,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 10,
-                "travelTime": 650,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 3,
-                "travelTime": 437,
-                "isReachable": true
-              }
-            ]
-          }
-        ]
-      },
-      "contactFormTypeId": 2,
-      "countryId": 1,
-      "description": "Ruhig gelegene, helle 3-Zimmerwohnung (auch für eine 2er WG geeignet) \\* Wohn-/ Esszimmer mit offener, moderner Küche \\* 2 abgeschlossene Zimmer \\* Bad mit Dusche und WC \\* gemütlicher Balkon mit Weitsicht auf die Stadt und die Berge (Morgensonne)   \r\n  \r\n Die Liegenschaft befindet sich an ruhiger Lage, mit besten öffentlichen und privaten Verkehrsanschlüssen.  \r\nDer nahegelegene Bremgarten-Wald bietet eine Vielzahl an Erholungsmöglichkeiten.  \r\n  \r\nPost Auto erschliesst mit der Linie 101 Bern-Hinterkappelen seinerseits die Bedienung der Haltestellen Bremgartenfriedhof und Güterbahnhof. In wenigen Minuten ist das Stadtzentrum erreicht.  \r\nEinstellhallenplätze (monatlich Fr. 110.00) stehen zur Verfügung.",
-      "extraPrice": 250,
-      "extraPriceFormatted": "CHF 250.—",
-      "geoAccuracy": 4,
-      "grossPrice": 1640,
-      "grossPriceFormatted": "CHF 1640.—",
-      "hasNewBuildingProject": false,
-      "hasVirtualTour": false,
-      "id": 8068179,
-      "images": [
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/03/b6/728316df42-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085401,
-          "sortOrder": 1,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/f3/2b/e96011c54b-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085402,
-          "sortOrder": 2,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/9e/9c/d0bdb346a0-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085403,
-          "sortOrder": 3,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/b1/08/2ed524954f-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085404,
-          "sortOrder": 4,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/18/f7/901c3b174a-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085405,
-          "sortOrder": 5,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/d3/34/ff0c604b4e-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085406,
-          "sortOrder": 6,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/5b/8e/58f55de04d-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085407,
-          "sortOrder": 7,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/ee/60/c185f7fe40-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085408,
-          "sortOrder": 8,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/82/13/c8cc6e7243-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085409,
-          "sortOrder": 9,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/23/94/a2f1d83442-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085410,
-          "sortOrder": 10,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/51/e3/f33403ec49-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085411,
-          "sortOrder": 11,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/d9/fc/d8e94a004e-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085412,
-          "sortOrder": 12,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        },
-        {
-          "url": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?{width}x{height}/{resizemode}/{quality}/is24media/94/98/4f808c8b48-231101.jpg",
-          "originalWidth": 1121,
-          "originalHeight": 1620,
-          "id": 111085413,
-          "sortOrder": 13,
-          "lastModified": "2023-11-01T20:01:30+01:00"
-        }
-      ],
-      "isHighlighted": false,
-      "isNeubauLite": false,
-      "isNeubauLitePremium": false,
-      "isHgCrosslisting": false,
-      "isNew": false,
-      "isNewEndDate": "2023-11-03T20:01:30+01:00",
-      "isOnline": true,
-      "isTopListing": true,
-      "isPremiumToplisting": false,
-      "lastModified": "2023-11-06T07:46:09+01:00",
-      "latitude": 46.953822132211,
-      "longitude": 7.424282242309,
-      "municipalityId": 204,
-      "municipalityBfsId": 351,
-      "municipalityNameFormatted": "Bern",
-      "msRegionId": 11,
-      "netPrice": 1390,
-      "netPriceFormatted": "CHF 1390.—",
-      "normalizedPrice": 1640,
-      "normalizedPriceFormatted": "CHF 1640.—",
+      }
+    },
+    "characteristics": {
+      "isCornerHouse": false,
+      "hasRamp": false,
+      "hasFireplace": false,
       "numberOfRooms": 3,
-      "numberOfRoomsFormatted": "3 rooms",
-      "offerTypeId": 1,
-      "priceUnitId": 6,
-      "priceUnitLabel": "month",
-      "price": 1640,
-      "priceFormatted": "CHF 1640.—",
-      "propertyCategoryId": 1,
-      "propertyTypeId": 1,
-      "propertyDetailUrl": "/en/d/flat-rent-bern/8068179",
-      "referenceNo": "1127.09503.2211",
-      "regionId": 15,
-      "showContactForm": true,
-      "showContactFormAddress": false,
-      "stateShort": "BE",
-      "state": "Bern",
-      "street": "Fabrikstrasse",
-      "surfaceLiving": 56,
-      "surfaceLivingFormatted": "56 m²",
-      "surfaceUsable": 56,
-      "surfaceUsableFormatted": "56 m²",
-      "title": "Wohnen in der Hinteren Länggasse",
-      "videoViewingEnabled": false,
-      "visitName": "Herr Janique Alexander Mäder",
-      "visitPhone": "031 310 12 10",
-      "zip": "3012",
-      "zipId": 862,
-      "lastPublished": "2023-11-01T20:01:30+01:00",
-      "packageType": 4,
-      "shortDescription": "Ruhig gelegene, helle 3-Zimmerwohnung (auch für eine 2er WG geeignet) * Wohn-/ Esszimmer mit offener, moderner Küche * 2 abgeschlossene Zimmer * Bad mit Dusche und WC * gemütlicher Balkon mit Weitsicht auf die Stadt und die Berge (Morgensonne)  Die Liegenschaft befindet sich an ruhiger Lage, mit besten öffentlichen und privaten Verkehrsanschlüssen.Der nahegelegene Bremgarten-Wald bietet eine Vielzahl an Erholungsmöglichkeiten.Post Auto erschliesst mit der Linie 101 Bern-Hinterkappelen seinerseits die Bedienung der Haltestellen Bremgartenfriedho",
-      "isQualityListing": false,
-      "listingLayout": 3,
-      "packageScore": 10,
-      "sortalgoScore": 7.8255,
-      "sortalgoScore2": 0,
-      "listingCompletenessScore": 5,
-      "sortingPosition": 0,
-      "userRelevantScore": 8.5
+      "hasPowerSupply": false,
+      "isMiddleHouse": false,
+      "yearBuilt": 1920,
+      "isMinergieGeneral": false,
+      "isWheelchairAccessible": false,
+      "hasGardenShed": false,
+      "hasSwimmingPool": false,
+      "isOldBuilding": false,
+      "arePetsAllowed": false,
+      "floor": 3,
+      "hasGarage": false,
+      "hasFlatSharingCommunity": false,
+      "hasSewageSupply": false,
+      "hasParking": false,
+      "hasLiftingPlatform": false,
+      "hasBalcony": false,
+      "livingSpace": 65,
+      "hasWaterSupply": false,
+      "hasBuildingLawRestrictions": false,
+      "hasCableTv": false,
+      "isGroundFloorRaised": false,
+      "hasNiceView": false,
+      "hasConnectedBuildingLand": false,
+      "isUnderRoof": false,
+      "hasElevator": true,
+      "isNewBuilding": false,
+      "isMinergieCertified": false,
+      "hasGasSupply": false,
+      "isChildFriendly": false
     },
-    "viewData": {
-      "agencyPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068179&stat_type_id=34&app=is24web&wl=1",
-      "movingUrl": "/en/moving?p=8068179",
-      "pdfUrl": "http://pdf.immoscout24.ch?url=http%3A%2F%2Fwww.immoscout24.ch%2F8068179%3Flng%3Den%26asPdf%3Dtrue&filename=is24_objekt_8068179",
-      "rentalDepositAttestLinkUrl": "https://swisscaution.ch/en/rental-guarantee-caution/residential-lease/certificate/online-registration/?pid=I_581&utm_source=Partner&utm_medium=textlink&utm_campaign=Immoscout&utm_content=housing-details-en",
-      "visitPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068179&stat_type_id=33&app=is24web&wl=1",
-      "showAccountProperties": true,
-      "showSimilarProperties": true,
-      "areSimilarPropertiesFromSameAdvertiser": true,
-      "detailViewStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068179&stat_type_id=28&app=is24web&wl=1",
-      "detailPrintStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068179&stat_type_id=29&app=is24web&wl=1",
-      "debtEnforcementLandingPageUrl": "/en/order-extract-debt-collection-register?entrypointName=detail-link&returnUrl=%2Fen%2Fd%2Fflat-rent-bern%2F8068179",
-      "allowOnlineApplication": false,
-      "allowOnlineApplicationForAroov": false,
-      "aroovOnlineApplicationUrl": "",
-      "showOnlineApplicationApply": false,
-      "webView": {
-        "gtmData": {
-          "activeLanguage": "en",
-          "localVirtualPagePath": "/en/d/flat-rent-bern/8068179",
-          "userLoggedIn": "No",
-          "customerType": "searcher",
-          "userOrigin": "external",
-          "listingId": "8068179",
-          "viewTab": "Overview",
-          "offerTypeName": "Rent",
-          "price": "1640",
-          "country": "Switzerland + FL",
-          "englishVirtualPagePath": "details",
-          "isShortUrl": "false",
-          "livingSpace": "56",
-          "numberOfRooms": "3.0",
-          "countPDF": "0",
-          "countImages": "13",
-          "hasVirtualTour": "No",
-          "hasYoutube": "No",
-          "hasToplisting": "Yes",
-          "hasHighlighting": "No",
-          "listing_locationName": "Bern",
-          "listing_cantonName": "Bern",
-          "listing_zip": "3012",
-          "streetName": "Fabrikstrasse",
-          "isNewBuilding": "No",
-          "listing_msregion": 11,
-          "isCooperation": "No",
-          "packageName": 4,
-          "hasVideoViewing": "No",
-          "listing_propertyType": "Flat",
-          "listing_priceNet": "1390",
-          "listing_availability": "01.12.2023",
-          "listingLayout": 3,
-          "packageScore": 10,
-          "previewImageUrl": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?940x628/0/90/is24media/03/b6/728316df42-231101.jpg",
-          "sortingScore": 7.8255,
-          "listingCompletenessScore": 5,
-          "listingAccountId": 37596,
-          "userRelevantScore": 8.5,
-          "sorting": null,
-          "sortingPosition": null
+    "address": {
+      "country": "CH",
+      "geoDistances": [
+        {
+          "distance": -9235.730359934063,
+          "geoTag": "geo-canton-bern"
         },
-        "openGraphData": {
-          "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068179",
-          "description": "Wohnen in der Hinteren Länggasse",
-          "title": "Flat | Bern | CHF 1640.— | 3 rooms | 56 m²",
-          "imageHeight": "628",
-          "imageWidth": "940",
-          "imageType": "image/jpg",
-          "imageUrl": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?940x628/0/90/is24media/03/b6/728316df42-231101.jpg"
+        {
+          "distance": -1887.7265520081799,
+          "geoTag": "geo-city-bern"
         },
-        "structuredData": {
-          "@context": "http://schema.org",
-          "@graph": [
-            {
-              "availability": "InStock",
-              "description": "Ruhig gelegene, helle 3-Zimmerwohnung (auch für eine 2er WG geeignet) \\* Wohn-/ Esszimmer mit offener, moderner Küche \\* 2 abgeschlossene Zimmer \\* Bad mit Dusche und WC \\* gemütlicher Balkon mit Weitsicht auf die Stadt und die Berge (Morgensonne)   \r\n  \r\n Die Liegenschaft befindet sich an ruhiger Lage, mit besten öffentlichen und privaten Verkehrsanschlüssen.  \r\nDer nahegelegene Bremgarten-Wald bietet eine Vielzahl an Erholungsmöglichkeiten.  \r\n  \r\nPost Auto erschliesst mit der Linie 101 Bern-Hinterkappelen seinerseits die Bedienung der Haltestellen Bremgartenfriedhof und Güterbahnhof. In wenigen Minuten ist das Stadtzentrum erreicht.  \r\nEinstellhallenplätze (monatlich Fr. 110.00) stehen zur Verfügung.",
-              "image": "https://cis01.immoscout24.ch/wohnen-in-der-hinteren-laenggasse-bern?940x628/0/90/is24media/03/b6/728316df42-231101.jpg",
-              "name": "Wohnen in der Hinteren Länggasse",
-              "price": 1640,
-              "priceCurrency": "CHF",
-              "@type": "Offer",
-              "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068179"
-            }
-          ]
+        {
+          "distance": -24.408342109690093,
+          "geoTag": "geo-citydistrict-stadtbach"
+        },
+        {
+          "distance": -24.408342109690093,
+          "geoTag": "geo-citydistrict-stadtbach-bern"
+        },
+        {
+          "distance": -359.12965408244463,
+          "geoTag": "geo-cityregion-laenggasse-felsenau-bern"
+        },
+        {
+          "distance": -359.12965408244463,
+          "geoTag": "geo-cityregion-langgasse-felsenau"
+        },
+        {
+          "distance": -48419.51198581247,
+          "geoTag": "geo-country-switzerland"
+        },
+        {
+          "distance": -7981.351123129005,
+          "geoTag": "geo-district-bern-mittelland"
+        },
+        {
+          "distance": -1904.5795177680163,
+          "geoTag": "geo-municipality-bern"
+        },
+        {
+          "distance": -1904.5795177680163,
+          "geoTag": "geo-region-bern"
+        },
+        {
+          "distance": -7981.351123129005,
+          "geoTag": "geo-region-bern-mittelland"
+        },
+        {
+          "distance": -1887.7265520081799,
+          "geoTag": "geo-zipcode-3000"
+        },
+        {
+          "distance": -335.32719461699145,
+          "geoTag": "geo-zipcode-3012"
         }
+      ],
+      "geoTags": [
+        "geo-canton-bern",
+        "geo-city-bern",
+        "geo-citydistrict-stadtbach",
+        "geo-citydistrict-stadtbach-bern",
+        "geo-cityregion-laenggasse-felsenau-bern",
+        "geo-cityregion-langgasse-felsenau",
+        "geo-country-switzerland",
+        "geo-district-bern-mittelland",
+        "geo-municipality-bern",
+        "geo-region-bern",
+        "geo-region-bern-mittelland",
+        "geo-zipcode-3000",
+        "geo-zipcode-3012"
+      ],
+      "street": "Bühlstrasse 39",
+      "postalCode": "3012",
+      "locality": "Bern",
+      "geoCoordinates": {
+        "accuracy": "HIGH",
+        "manual": true,
+        "latitude": 46.951331852012,
+        "longitude": 7.430521304639
       },
-      "accountPropertiesUrl": "/en/advertiser/erich-weber-ag-immobilien-verwaltungen/37596",
-      "whatsAppShareUrl": "whatsapp://send?text=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8068179%3futm_source%3dwhatsapp%26utm_medium%3dsocial_sharing%26utm_term%3ddetail%26utm_content%3den%26utm_campaign%3dis24_share_web",
-      "copyShareUrl": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068179?utm_source=copy-link&utm_medium=social_sharing&utm_term=detail&utm_content=en&utm_campaign=is24_share_web",
-      "fbShareUrl": "https://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8068179%3futm_campaign%3dis24_share_web%26utm_medium%3dsocial_sharing%26utm_source%3dfacebook%26utm_term%3ddetail%26utm_content%3den&t=Wohnen+in+der+Hinteren+L%c3%a4nggasse"
+      "region": "BE"
+    },
+    "externalIds": {
+      "internalReferenceId": "156142#idx-101081-430010--7181424##__f072",
+      "refHouse": "101081",
+      "refObject": "430010",
+      "displayPropertyReferenceId": "__f072.idx-101081-430010--7181424",
+      "platformListingId": "7181424",
+      "propertyReferenceId": "156142#idx-101081-430010--7181424##__f072"
+    },
+    "contactForm": {
+      "size": "NO_ADDRESS",
+      "deliveryFormat": "NORMAL"
+    },
+    "availableFrom": "2023-12-15",
+    "version": 5,
+    "platforms": [
+      "immoscout24"
+    ],
+    "offerType": "RENT",
+    "meta": {
+      "createdAt": "2023-12-19T17:13:39.839Z",
+      "updatedAt": "2024-01-17T05:31:20.643Z",
+      "source": "IMMOHUB"
+    },
+    "publishers": [
+      {
+        "options": [
+          {
+            "value": "{\"topListingRanking\":0}",
+            "key": "top-listing"
+          },
+          {
+            "value": "{\"pubStartDate\":\"2023-12-19T00:00:00+01:00\",\"onlineStartDate\":\"2023-12-19T18:12:25+01:00\"}",
+            "key": "publication"
+          },
+          {
+            "value": "6.66000",
+            "key": "sorting-score"
+          },
+          {
+            "value": "OF",
+            "key": "object-source"
+          },
+          {
+            "value": "101081",
+            "key": "idx-ref-house"
+          },
+          {
+            "key": "idx-ref-prop"
+          },
+          {
+            "value": "430010",
+            "key": "idx-ref-object"
+          },
+          {
+            "value": "Unbekannt",
+            "key": "of-dispo-member-name"
+          },
+          {
+            "value": "1",
+            "key": "idx-type"
+          },
+          {
+            "value": "APPT",
+            "key": "idx-category"
+          },
+          {
+            "value": "M",
+            "key": "account-type"
+          },
+          {
+            "value": "156142",
+            "key": "account-id"
+          },
+          {
+            "key": "tags"
+          },
+          {
+            "value": "50725356",
+            "key": "last-synchronization-id"
+          }
+        ],
+        "id": "is24-legacy-data"
+      }
+    ],
+    "id": "4000519178",
+    "categories": [
+      "APARTMENT"
+    ],
+    "prices": {
+      "rent": {
+        "area": "ALL",
+        "interval": "MONTH",
+        "net": 1390,
+        "gross": 1740,
+        "extra": 350
+      },
+      "currency": "CHF"
     }
   },
   {
-    "bottomsheet": {},
-    "detailsData": {
-      "accountId": 1221913,
-      "companyId": 369765,
-      "memberPackageId": 4,
-      "agency": {
-        "companyCity": "zurich",
-        "companyName1": "City Pop",
-        "companyPhoneBusiness": "",
-        "companyPhoneMobile": "",
-        "companyStreet": "Bernerstrasse Süd 169",
-        "companyZip": "8048",
-        "firstName": "Alessandra",
-        "showLogoOnSerp": true,
-        "lastName": "Citterio",
-        "logoUrl": "",
-        "logoUrlDetailPage": "",
-        "nameFormatted": "Alessandra Citterio",
-        "webUrl": "https://citypop.com/",
-        "isAccountMigrated": true,
-        "isGuest": false,
-        "userType": "M"
-      },
-      "attributesInside": {
-        "nrBathRooms": 1
-      },
-      "attributesTechnology": {
-        "dishWasher": true
-      },
-      "attributesOutside": {
-        "propElevator": true,
-        "propGarage": true
-      },
-      "attributes": {
-        "yearRenovated": 2022
-      },
-      "availableFromFormatted": "On request",
-      "cityId": 295,
-      "cityName": "Bern",
-      "commuteTimes": {
-        "defaultPois": [
+    "localization": {
+      "de": {
+        "text": {
+          "title": "2 1/2-Zimmerwohnung, 3. Stock mitte",
+          "description": "Sonnige und zentrale Lage - Einkaufsmöglichkeiten, öV und Schulen in der Nähe - Lift<br />Wir vermieten nach Vereinbarung eine helle 2 1/2-Zimmerohnung an zentraler Lage - moderne Küche mit Backofen, Geschirrspüler, grossem Kühlschrank und Glaskeramikkochfeld - Badezimmer mit Badewanne - Küche und Bad mit Plattenboden - Zimmer mit Parkettboden - Wandschrank und Garderobe im Korridor bieten zusätzlichen Stauraum - Wohnung verfügt über einen Balkon - auf dem Balkon hat es ein Reduit"
+        },
+        "attachments": [
           {
-            "defaultPoiId": 2,
-            "label": "Bern station",
-            "transportations": [
-              {
-                "transportationTypeId": 6,
-                "travelTime": 444,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 10,
-                "travelTime": 398,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 3,
-                "travelTime": 264,
-                "isReachable": true
-              }
-            ]
+            "caption": "image/jpeg",
+            "description": "Fassade",
+            "file": "85b79f1743-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/222cc72aab8095e60d24d1d4918bb07f.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Korridor",
+            "file": "79b1d31143-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/573768128fffd5b3fa90880c273c2879.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Kueche",
+            "file": "05fb961343-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/22dbe60df97148a3055a87f950218f05.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnen_1",
+            "file": "92a8fb0243-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/448496b949e3af7c353072b6216c0599.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnen_2",
+            "file": "8e51a8cb45-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/c8ff8d20ef158833381aa845afb2d68c.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Wohnen_3",
+            "file": "0eca423140-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/b6c10f0d043994bf6d7171df6000151d.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Bad",
+            "file": "01afb4fb4a-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/c42c1f786a5732d7ef6d98fa899052d8.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "description": "Balkon",
+            "file": "cacd52a149-240115.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/image/59b3b7cc5e6f0d89abcb74689ac7e3b6.jpg"
+          },
+          {
+            "caption": "application/pdf",
+            "file": "bd874ced45-240115.pdf",
+            "type": "DOCUMENT",
+            "title": "Wohnungsplan",
+            "url": "https://cdn.immoscout24.ch/listings/v2/f072/4000630232/document/1b8f937570bded48c1d5da54808b8dff.pdf"
           }
         ]
       },
-      "contactFormTypeId": 2,
-      "countryId": 1,
-      "description": "\r\nStarting from 320CHF/week, we offer centrally located flats in Bern, from around 23-35 square metres. We offer different typologies Pop: S, M, L or Duplex. These furnished apartments guarantee an authentic living experience in which you can relax, work, sleep, cook and eat, all in an apartment that has the interior of a 4-stars hotel:\r\n\r\n\r\n\r\n- Complete furnished apartments with kitchen, living room, sleeping area and bathroom;\r\n\r\n- Complete inventory for kitchen (cutlery, glasses, plates, etc.);\r\n\r\n- Sleeping area with linen and bathroom towels;\r\n\r\n- Expenses included (electricity, water);\r\n\r\n- Fast Internet connection;\r\n\r\n- Smart TV (Serafe excluded);\r\n\r\n- Breakfast (croissant and coffee).\r\n\r\nBut there is more! This fantastic and innovative living concept is free of contractual restrictions regarding the minimum length of stay: City Pop can be booked for 4 weeks up to a maximum of 52 weeks. A wide range of standard and additional services is available, which can be activated directly via our City-Pop-App:\r\n\r\n- Cleaning service (weekly, biweekly);\r\n\r\n- Storage;\r\n\r\n- Parking spot (internal).\r\n\r\nThe building is also be equipped with cool common spaces (with small prices):\r\n\r\n-           Fitness;\r\n\r\n-           Co-Kitchen\r\n\r\n-           Cinema\r\n\r\n-           Co-living\r\n\r\n-           Co-working\r\n\r\n-            Laundry room\r\n\r\nEach guest can create and adapt his or her own range of services to best fit his or her needs and lifestyle. It's as easy as booking a hotel room! To book an apartment and to check our availabilities, download our \"City Pop\" App, choose your booking period and you will have access to all available apartments in the period you want! Get more information to our Website or through our App called \"City Pop\"!\r\n\r\nWe are looking forward to meet you soon at City Pop!\r\n",
-      "geoAccuracy": 8,
-      "grossPrice": 1280,
-      "grossPriceFormatted": "CHF 1280.—",
-      "hasNewBuildingProject": false,
-      "hasVirtualTour": false,
-      "id": 7940339,
-      "images": [
+      "primary": "de"
+    },
+    "lister": {
+      "legalName": "Robert Pfister AG",
+      "website": {
+        "value": "http://www.robertpfisterag.ch"
+      },
+      "address": {
+        "locality": "Bern",
+        "country": "CH",
+        "street": "Neuengasse 17",
+        "postalCode": "3011"
+      },
+      "externalPlatformId": "156142",
+      "immoscoutId": "156142",
+      "phone": "+41313203192",
+      "id": "f072",
+      "logoUrl": "https://media2.homegate.ch/t_customer_logo/logos/l_f072_v1.gif",
+      "contacts": {
+        "inquiry": {
+          "gender": "OTHER",
+          "phone": "+41313203192",
+          "familyName": "Vermietung"
+        },
+        "viewing": {
+          "gender": "OTHER",
+          "phone": "+41788200766",
+          "familyName": "Pasquali  Béatrice"
+        }
+      }
+    },
+    "characteristics": {
+      "isCornerHouse": false,
+      "hasRamp": false,
+      "hasFireplace": false,
+      "numberOfRooms": 2.5,
+      "hasPowerSupply": false,
+      "isMiddleHouse": false,
+      "yearBuilt": 1979,
+      "isMinergieGeneral": false,
+      "isWheelchairAccessible": false,
+      "hasGardenShed": false,
+      "hasSwimmingPool": false,
+      "isOldBuilding": false,
+      "arePetsAllowed": false,
+      "floor": 3,
+      "yearLastRenovated": 2005,
+      "hasGarage": false,
+      "hasFlatSharingCommunity": false,
+      "hasSewageSupply": false,
+      "hasParking": false,
+      "hasLiftingPlatform": false,
+      "hasBalcony": true,
+      "livingSpace": 50,
+      "hasWaterSupply": false,
+      "hasBuildingLawRestrictions": false,
+      "hasCableTv": false,
+      "isGroundFloorRaised": false,
+      "hasNiceView": false,
+      "hasConnectedBuildingLand": false,
+      "isUnderRoof": false,
+      "hasElevator": true,
+      "isNewBuilding": false,
+      "isMinergieCertified": false,
+      "hasGasSupply": false,
+      "isChildFriendly": false
+    },
+    "address": {
+      "country": "CH",
+      "geoDistances": [
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/b0/7b/b8224bae4f-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492032,
-          "sortOrder": 1,
-          "lastModified": "2023-09-01T16:41:02+02:00"
+          "distance": -9849.413603674733,
+          "geoTag": "geo-canton-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/04/cc/76f38beb4a-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492029,
-          "sortOrder": 2,
-          "lastModified": "2023-09-01T16:40:12+02:00"
+          "distance": -1301.895173822614,
+          "geoTag": "geo-city-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/67/89/1e04bd3846-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492015,
-          "sortOrder": 3,
-          "lastModified": "2023-09-01T16:39:32+02:00"
+          "distance": -133.05365597437887,
+          "geoTag": "geo-citydistrict-neufeld"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/ca/38/12c1aec14c-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492017,
-          "sortOrder": 4,
-          "lastModified": "2023-09-01T16:39:32+02:00"
+          "distance": -133.05365597437887,
+          "geoTag": "geo-citydistrict-neufeld-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/f9/56/7e6a3ffd4f-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492013,
-          "sortOrder": 5,
-          "lastModified": "2023-09-01T16:39:32+02:00"
+          "distance": -543.4740735689118,
+          "geoTag": "geo-cityregion-laenggasse-felsenau-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/b3/c7/9ed099954b-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492016,
-          "sortOrder": 6,
-          "lastModified": "2023-09-01T16:39:32+02:00"
+          "distance": -543.4740735689118,
+          "geoTag": "geo-cityregion-langgasse-felsenau"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/a4/0e/659a09fd45-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492027,
-          "sortOrder": 7,
-          "lastModified": "2023-09-01T16:40:09+02:00"
+          "distance": -48219.694570505315,
+          "geoTag": "geo-country-switzerland"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/cd/45/afab464a4c-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492028,
-          "sortOrder": 8,
-          "lastModified": "2023-09-01T16:40:10+02:00"
+          "distance": -7495.800708743989,
+          "geoTag": "geo-district-bern-mittelland"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/29/81/630d1c0d4b-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492045,
-          "sortOrder": 9,
-          "lastModified": "2023-09-01T16:41:45+02:00"
+          "distance": -1301.895173822614,
+          "geoTag": "geo-municipality-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/00/98/fea9a36b49-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492044,
-          "sortOrder": 10,
-          "lastModified": "2023-09-01T16:41:45+02:00"
+          "distance": -1301.895173822614,
+          "geoTag": "geo-region-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?{width}x{height}/{resizemode}/{quality}/is24media/ea/7b/dd9c1ae74a-230901.jpg",
-          "originalWidth": 2250,
-          "originalHeight": 1500,
-          "id": 109492043,
-          "sortOrder": 11,
-          "lastModified": "2023-09-01T16:41:45+02:00"
+          "distance": -7495.800708743989,
+          "geoTag": "geo-region-bern-mittelland"
+        },
+        {
+          "distance": -1301.895173822614,
+          "geoTag": "geo-zipcode-3000"
+        },
+        {
+          "distance": -548.1706974302847,
+          "geoTag": "geo-zipcode-3012"
         }
       ],
-      "isHighlighted": false,
-      "isNeubauLite": false,
-      "isNeubauLitePremium": false,
-      "isHgCrosslisting": false,
-      "isNew": false,
-      "isNewEndDate": "2023-09-03T16:32:07+02:00",
-      "isOnline": true,
-      "isTopListing": true,
-      "isPremiumToplisting": false,
-      "lastModified": "2023-11-06T10:16:05+01:00",
-      "latitude": 46.944621781931,
-      "longitude": 7.433231922487,
-      "municipalityId": 204,
-      "municipalityBfsId": 351,
-      "municipalityNameFormatted": "Bern",
-      "msRegionId": 11,
-      "normalizedPrice": 1280,
-      "normalizedPriceFormatted": "CHF 1280.—",
-      "numberOfRooms": 1.5,
-      "numberOfRoomsFormatted": "1.5 rooms",
-      "offerTypeId": 1,
-      "priceUnitId": 6,
-      "priceUnitLabel": "month",
-      "price": 1280,
-      "priceFormatted": "CHF 1280.—",
-      "propertyCategoryId": 1,
-      "propertyTypeId": 1,
-      "propertyDetailUrl": "/en/d/flat-rent-bern/7940339",
-      "referenceNo": "City Pop",
-      "regionId": 15,
-      "showContactForm": true,
-      "showContactFormAddress": false,
-      "stateShort": "BE",
-      "state": "Bern",
-      "street": "Belpstrasse 23",
-      "surfaceLiving": 23,
-      "surfaceLivingFormatted": "23 m²",
-      "title": "City Pop - Your flexible solution for long and short stays!",
-      "url": "https://citypop.com/bern/",
-      "urlTitle": "citypop.com",
-      "videoViewingEnabled": false,
-      "visitPhone": "",
-      "visitRemark": "Do you want to visit the apartment?\r\nYou can easily book a visit to the apartment through our app!\r\nDownload City Pop App!",
-      "zip": "3007",
-      "zipId": 858,
-      "lastPublished": "2023-09-01T16:41:51+02:00",
-      "packageType": 4,
-      "shortDescription": "Starting from 320CHF/week, we offer centrally located flats in Bern, from around 23-35 square metres. We offer different typologies Pop: S, M, L or Duplex. These furnished apartments guarantee an authentic living experience in which you can relax, work, sleep, cook and eat, all in an apartment that has the interior of a 4-stars hotel:- Complete furnished apartments with kitchen, living room, sleeping area and bathroom;- Complete inventory for kitchen (cutlery, glasses, plates, etc.);- Sleeping area with linen and bathroom towels;- Expenses incl",
-      "isQualityListing": false,
-      "listingLayout": 3,
-      "packageScore": 10,
-      "sortalgoScore": 6.327,
-      "sortalgoScore2": 0,
-      "listingCompletenessScore": 5.5,
-      "sortingPosition": 0,
-      "userRelevantScore": 3.5
-    },
-    "viewData": {
-      "agencyPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=7940339&stat_type_id=34&app=is24web&wl=1",
-      "movingUrl": "/en/moving?p=7940339",
-      "pdfUrl": "http://pdf.immoscout24.ch?url=http%3A%2F%2Fwww.immoscout24.ch%2F7940339%3Flng%3Den%26asPdf%3Dtrue&filename=is24_objekt_7940339",
-      "rentalDepositAttestLinkUrl": "https://swisscaution.ch/en/rental-guarantee-caution/residential-lease/certificate/online-registration/?pid=I_581&utm_source=Partner&utm_medium=textlink&utm_campaign=Immoscout&utm_content=housing-details-en",
-      "visitPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=7940339&stat_type_id=33&app=is24web&wl=1",
-      "showAccountProperties": true,
-      "showSimilarProperties": true,
-      "areSimilarPropertiesFromSameAdvertiser": true,
-      "detailViewStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=7940339&stat_type_id=28&app=is24web&wl=1",
-      "detailPrintStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=7940339&stat_type_id=29&app=is24web&wl=1",
-      "debtEnforcementLandingPageUrl": "/en/order-extract-debt-collection-register?entrypointName=detail-link&returnUrl=%2Fen%2Fd%2Fflat-rent-bern%2F7940339",
-      "allowOnlineApplication": false,
-      "allowOnlineApplicationForAroov": false,
-      "aroovOnlineApplicationUrl": "",
-      "showOnlineApplicationApply": false,
-      "webView": {
-        "gtmData": {
-          "activeLanguage": "en",
-          "localVirtualPagePath": "/en/d/flat-rent-bern/7940339",
-          "userLoggedIn": "No",
-          "customerType": "searcher",
-          "userOrigin": "external",
-          "listingId": "7940339",
-          "viewTab": "Overview",
-          "offerTypeName": "Rent",
-          "price": "1280",
-          "country": "Switzerland + FL",
-          "englishVirtualPagePath": "details",
-          "isShortUrl": "false",
-          "livingSpace": "23",
-          "numberOfRooms": "1.5",
-          "countPDF": "0",
-          "countImages": "11",
-          "hasVirtualTour": "No",
-          "hasYoutube": "No",
-          "hasToplisting": "Yes",
-          "hasHighlighting": "No",
-          "listing_locationName": "Bern",
-          "listing_cantonName": "Bern",
-          "listing_zip": "3007",
-          "streetName": "Belpstrasse 23",
-          "isNewBuilding": "No",
-          "listing_msregion": 11,
-          "isCooperation": "No",
-          "packageName": 4,
-          "hasVideoViewing": "No",
-          "listing_propertyType": "Flat",
-          "listing_availability": "On request",
-          "listingLayout": 3,
-          "packageScore": 10,
-          "previewImageUrl": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?940x628/0/90/is24media/b0/7b/b8224bae4f-230901.jpg",
-          "sortingScore": 6.327,
-          "listingCompletenessScore": 5.5,
-          "listingAccountId": 1221913,
-          "userRelevantScore": 3.5,
-          "sorting": null,
-          "sortingPosition": null
-        },
-        "openGraphData": {
-          "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/7940339",
-          "description": "City Pop - Your flexible solution for long and short stays!",
-          "title": "Flat | Bern | CHF 1280.— | 1.5 rooms | 23 m²",
-          "imageHeight": "628",
-          "imageWidth": "940",
-          "imageType": "image/jpg",
-          "imageUrl": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?940x628/0/90/is24media/b0/7b/b8224bae4f-230901.jpg"
-        },
-        "structuredData": {
-          "@context": "http://schema.org",
-          "@graph": [
-            {
-              "availability": "InStock",
-              "description": "\r\nStarting from 320CHF/week, we offer centrally located flats in Bern, from around 23-35 square metres. We offer different typologies Pop: S, M, L or Duplex. These furnished apartments guarantee an authentic living experience in which you can relax, work, sleep, cook and eat, all in an apartment that has the interior of a 4-stars hotel:\r\n\r\n\r\n\r\n- Complete furnished apartments with kitchen, living room, sleeping area and bathroom;\r\n\r\n- Complete inventory for kitchen (cutlery, glasses, plates, etc.);\r\n\r\n- Sleeping area with linen and bathroom towels;\r\n\r\n- Expenses included (electricity, water);\r\n\r\n- Fast Internet connection;\r\n\r\n- Smart TV (Serafe excluded);\r\n\r\n- Breakfast (croissant and coffee).\r\n\r\nBut there is more! This fantastic and innovative living concept is free of contractual restrictions regarding the minimum length of stay: City Pop can be booked for 4 weeks up to a maximum of 52 weeks. A wide range of standard and additional services is available, which can be activated directly via our City-Pop-App:\r\n\r\n- Cleaning service (weekly, biweekly);\r\n\r\n- Storage;\r\n\r\n- Parking spot (internal).\r\n\r\nThe building is also be equipped with cool common spaces (with small prices):\r\n\r\n-           Fitness;\r\n\r\n-           Co-Kitchen\r\n\r\n-           Cinema\r\n\r\n-           Co-living\r\n\r\n-           Co-working\r\n\r\n-            Laundry room\r\n\r\nEach guest can create and adapt his or her own range of services to best fit his or her needs and lifestyle. It's as easy as booking a hotel room! To book an apartment and to check our availabilities, download our \"City Pop\" App, choose your booking period and you will have access to all available apartments in the period you want! Get more information to our Website or through our App called \"City Pop\"!\r\n\r\nWe are looking forward to meet you soon at City Pop!\r\n",
-              "image": "https://cis01.immoscout24.ch/city-pop---your-flexible-solution-for-long-and-sho-bern?940x628/0/90/is24media/b0/7b/b8224bae4f-230901.jpg",
-              "name": "City Pop - Your flexible solution for long and short stays!",
-              "price": 1280,
-              "priceCurrency": "CHF",
-              "@type": "Offer",
-              "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/7940339"
-            }
-          ]
-        }
+      "geoTags": [
+        "geo-canton-bern",
+        "geo-city-bern",
+        "geo-citydistrict-neufeld",
+        "geo-citydistrict-neufeld-bern",
+        "geo-cityregion-laenggasse-felsenau-bern",
+        "geo-cityregion-langgasse-felsenau",
+        "geo-country-switzerland",
+        "geo-district-bern-mittelland",
+        "geo-municipality-bern",
+        "geo-region-bern",
+        "geo-region-bern-mittelland",
+        "geo-zipcode-3000",
+        "geo-zipcode-3012"
+      ],
+      "street": "Seidenweg 70",
+      "postalCode": "3012",
+      "locality": "Bern",
+      "geoCoordinates": {
+        "accuracy": "HIGH",
+        "manual": true,
+        "latitude": 46.956601852016,
+        "longitude": 7.433901302501
       },
-      "accountPropertiesUrl": "/en/advertiser/city-pop/1221913",
-      "whatsAppShareUrl": "whatsapp://send?text=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f7940339%3futm_source%3dwhatsapp%26utm_medium%3dsocial_sharing%26utm_term%3ddetail%26utm_content%3den%26utm_campaign%3dis24_share_web",
-      "copyShareUrl": "https://www.immoscout24.ch/en/d/flat-rent-bern/7940339?utm_source=copy-link&utm_medium=social_sharing&utm_term=detail&utm_content=en&utm_campaign=is24_share_web",
-      "fbShareUrl": "https://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f7940339%3futm_campaign%3dis24_share_web%26utm_medium%3dsocial_sharing%26utm_source%3dfacebook%26utm_term%3ddetail%26utm_content%3den&t=City+Pop+-+Your+flexible+solution+for+long+and+short+stays!"
+      "region": "BE"
+    },
+    "externalIds": {
+      "refObject": "432010",
+      "platformListingId": "8177287",
+      "propertyReferenceId": "156142#idx-107138-432010--8177287##__f072",
+      "internalReferenceId": "156142#idx-107138-432010--8177287##__f072",
+      "swissretsReferenceId": "idx-107138-432010--8177287",
+      "refHouse": "107138",
+      "displayPropertyReferenceId": "__f072.idx-107138-432010--8177287"
+    },
+    "contactForm": {
+      "size": "NO_ADDRESS",
+      "deliveryFormat": "NORMAL"
+    },
+    "availableFrom": "2023-11-01",
+    "version": 3,
+    "platforms": [
+      "immoscout24"
+    ],
+    "offerType": "RENT",
+    "meta": {
+      "createdAt": "2024-01-15T11:20:18.951Z",
+      "updatedAt": "2024-01-22T05:36:40.975Z",
+      "source": "IMMOHUB"
+    },
+    "publishers": [
+      {
+        "options": [
+          {
+            "value": "{\"topListingRanking\":0}",
+            "key": "top-listing"
+          },
+          {
+            "value": "{\"pubStartDate\":\"2024-01-15T00:00:00+01:00\",\"onlineStartDate\":\"2024-01-15T12:19:30+01:00\"}",
+            "key": "publication"
+          },
+          {
+            "value": "7.82550",
+            "key": "sorting-score"
+          },
+          {
+            "value": "OF",
+            "key": "object-source"
+          },
+          {
+            "value": "107138",
+            "key": "idx-ref-house"
+          },
+          {
+            "key": "idx-ref-prop"
+          },
+          {
+            "value": "432010",
+            "key": "idx-ref-object"
+          },
+          {
+            "value": "Unbekannt",
+            "key": "of-dispo-member-name"
+          },
+          {
+            "value": "1",
+            "key": "idx-type"
+          },
+          {
+            "value": "APPT",
+            "key": "idx-category"
+          },
+          {
+            "value": "M",
+            "key": "account-type"
+          },
+          {
+            "value": "156142",
+            "key": "account-id"
+          },
+          {
+            "key": "tags"
+          },
+          {
+            "value": "51036618",
+            "key": "last-synchronization-id"
+          }
+        ],
+        "id": "is24-legacy-data"
+      }
+    ],
+    "id": "4000630232",
+    "categories": [
+      "APARTMENT"
+    ],
+    "prices": {
+      "rent": {
+        "area": "ALL",
+        "interval": "MONTH",
+        "net": 1425,
+        "gross": 1615,
+        "extra": 190
+      },
+      "currency": "CHF"
     }
   },
   {
-    "bottomsheet": {},
-    "detailsData": {
-      "accountId": 37596,
-      "companyId": 1725,
-      "memberPackageId": 4,
-      "agency": {
-        "companyCity": "Bern",
-        "companyName1": "Erich Weber Immobilien",
-        "companyPhoneBusiness": "031 310 12 38",
-        "companyStreet": "Bundesgasse 26",
-        "companyZip": "3001",
-        "showLogoOnSerp": true,
-        "lastName": "Vermietungsteam",
-        "logoUrl": "https://cis01.immoscout24.ch/memberlogos/L37596-R.jpg",
-        "logoUrlDetailPage": "https://cis01.immoscout24.ch/memberlogos/L37596-R.jpg",
-        "reference": "Vermietungsteam",
-        "webUrl": "http://www.erich-weber.ch",
-        "isAccountMigrated": true,
-        "isGuest": false,
-        "userType": "M"
-      },
-      "attributesInside": {
-        "propView": true
-      },
-      "attributesTechnology": {
-        "propCabletv": true
-      },
-      "attributesOutside": {
-        "propElevator": true,
-        "propBalcony": true
-      },
-      "attributesSurrounding": {
-        "distanceShop": 200,
-        "distanceShopFormatted": "Approx. 200 m",
-        "distanceKindergarten": 400,
-        "distanceKindergartenFormatted": "Approx. 400 m",
-        "distanceSchool1": 400,
-        "distanceSchool1Formatted": "Approx. 400 m",
-        "distanceSchool2": 400,
-        "distanceSchool2Formatted": "Approx. 400 m",
-        "distancePublicTransport": 200,
-        "distancePublicTransportFormatted": "Approx. 200 m"
-      },
-      "attributes": {
-        "yearBuilt": 1995
-      },
-      "availableFrom": "2023-12-01T00:00:00+01:00",
-      "availableFromFormatted": "01.12.2023",
-      "cityId": 295,
-      "cityName": "Bern",
-      "commuteTimes": {
-        "defaultPois": [
+    "localization": {
+      "de": {
+        "text": {
+          "title": "Wohnen in der Hinteren Länggasse",
+          "description": "Ruhig gelegene, helle 3-Zimmerwohnung (auch für eine 2er WG geeignet) * Wohn-/ Esszimmer mit offener, moderner Küche * 2 abgeschlossene Zimmer * Bad mit Dusche und WC * gemütlicher Balkon mit Weitsicht auf die Stadt und die Berge (Morgensonne) <br /><br /> Die Liegenschaft befindet sich an ruhiger Lage, mit besten öffentlichen und privaten Verkehrsanschlüssen.<br />Der nahegelegene Bremgarten-Wald bietet eine Vielzahl an Erholungsmöglichkeiten.<br /><br />Post Auto erschliesst mit der Linie 101 Bern-Hinterkappelen seinerseits die Bedienung der Haltestellen Bremgartenfriedhof und Güterbahnhof. In wenigen Minuten ist das Stadtzentrum erreicht.<br />Einstellhallenplätze (monatlich Fr. 110.00) stehen zur Verfügung."
+        },
+        "attachments": [
           {
-            "defaultPoiId": 2,
-            "label": "Bern station",
-            "transportations": [
-              {
-                "transportationTypeId": 6,
-                "travelTime": 630,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 10,
-                "travelTime": 641,
-                "isReachable": true
-              },
-              {
-                "transportationTypeId": 3,
-                "travelTime": 739,
-                "isReachable": true
-              }
-            ]
+            "caption": "image/jpeg",
+            "file": "7726be4e69-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/844d91b2a6142946bd67095730ad4034.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "c531bc7546-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/334c158beafdfeb7619f088c1e846f5f.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "410ba82345-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/8aec55e458c62eb2d837a600c4f27258.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "b22a7f6741-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/68e4932e54b9e964880e43d5b9c41663.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "5339d57e44-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/bff9bc0daa9e2b1f5db0397509bc19cc.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "1795450d4d-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/2bfbcb9e2b926fde06073def22bf08a3.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "0c954f9444-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/1ddb6e233fb5e9f95f96db3e4cfb10f4.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "066701164d-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/dabfc9b5c17f28a1824613e0a5e9ac9e.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "4455a0fb4a-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/0b31acf8c4229dc97f0af8646584cbe4.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "75a9f0c947-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/b8620729644c148b0eb7df80a70be604.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "9a472f6146-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/17411bcd364c2e5cd776eaa790e98435.jpg"
+          },
+          {
+            "caption": "image/jpeg",
+            "file": "80eb404846-240103.jpg",
+            "type": "IMAGE",
+            "url": "https://cdn.immoscout24.ch/listings/v2/ibehome9/4000563923/image/765437345d657b4272e55c92c8080cfc.jpg"
           }
         ]
       },
-      "contactFormTypeId": 2,
-      "countryId": 1,
-      "description": "Helle Wohnung \\* ganze Wohnung mit Parkettboden \\* abgeschlossene Küche mit Geschirrspüler \\* Badezimmer mit Fenster \\* geräumiges Schlafzimmer \\* Keller- und Estrichabteil  \r\n  \r\nBitte beachten Sie, dass die Bilder von einer \"typengleichen\" Wohnung stammen und evt. nicht identisch zutreffen können.   \r\n  \r\n Das 4-stöckige Mehrfamilienhaus befindet sich in einer ruhigen Nebenstrasse, im Stadtteil Bern-Bümpliz. Gleich um die Ecke sind diverse Einkaufsmöglichkeiten vorhanden sowie die Tramstation Stöckacker (Linie 8). Das Stadtzentrum erreichen Sie innerhalb von 20 Minuten per Tram oder mit dem Auto. Schulen und Kindergarten befinden sich im Ort.  \r\nDie Liegenschaft verfügt über einen Lift. Je nach Vermietungsstand können Einstellhallenplätze à Fr. 120.00-140.00 zugemietet werden.",
-      "extraPrice": 180,
-      "extraPriceFormatted": "CHF 180.—",
-      "geoAccuracy": 4,
-      "grossPrice": 1405,
-      "grossPriceFormatted": "CHF 1405.—",
-      "hasNewBuildingProject": false,
-      "hasVirtualTour": false,
-      "id": 8068164,
-      "images": [
+      "primary": "de"
+    },
+    "lister": {
+      "legalName": "Erich Weber Immobilien",
+      "website": {
+        "value": "http://www.erich-weber.ch"
+      },
+      "address": {
+        "locality": "Bern",
+        "country": "CH",
+        "postalCode": "3001"
+      },
+      "externalPlatformId": "37596",
+      "immoscoutId": "37596",
+      "phone": "+41313101213",
+      "id": "ibehome9",
+      "logoUrl": "https://media2.homegate.ch/t_customer_logo/logos/37596-A-L37596-R.jpg",
+      "contacts": {
+        "inquiry": {
+          "gender": "OTHER",
+          "phone": "+41313101213",
+          "familyName": "Herr Martin Moser"
+        },
+        "viewing": {
+          "gender": "OTHER",
+          "phone": "+41313101213",
+          "familyName": "Herr Martin Moser"
+        }
+      }
+    },
+    "characteristics": {
+      "isCornerHouse": false,
+      "hasRamp": false,
+      "totalFloorSpace": 56,
+      "hasFireplace": false,
+      "numberOfRooms": 3,
+      "hasPowerSupply": false,
+      "isMiddleHouse": false,
+      "yearBuilt": 1974,
+      "isMinergieGeneral": false,
+      "isWheelchairAccessible": false,
+      "hasGardenShed": false,
+      "hasSwimmingPool": false,
+      "isOldBuilding": false,
+      "arePetsAllowed": false,
+      "hasGarage": true,
+      "hasFlatSharingCommunity": false,
+      "hasSewageSupply": false,
+      "hasParking": false,
+      "hasLiftingPlatform": false,
+      "hasBalcony": true,
+      "livingSpace": 56,
+      "hasWaterSupply": false,
+      "hasBuildingLawRestrictions": false,
+      "hasCableTv": true,
+      "isGroundFloorRaised": false,
+      "hasNiceView": true,
+      "hasConnectedBuildingLand": false,
+      "isUnderRoof": false,
+      "hasElevator": true,
+      "isNewBuilding": false,
+      "isMinergieCertified": false,
+      "hasGasSupply": false,
+      "isChildFriendly": false
+    },
+    "address": {
+      "country": "CH",
+      "geoDistances": [
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/ce/46/9701213440-231101.jpg",
-          "originalWidth": 850,
-          "originalHeight": 567,
-          "id": 111085291,
-          "sortOrder": 1,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -8969.042815907074,
+          "geoTag": "geo-canton-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/8b/36/a5b98c524b-231101.jpg",
-          "originalWidth": 850,
-          "originalHeight": 567,
-          "id": 111085292,
-          "sortOrder": 2,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -1818.6633571549771,
+          "geoTag": "geo-city-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/75/80/7f2a9e0048-231101.jpg",
-          "originalWidth": 850,
-          "originalHeight": 567,
-          "id": 111085293,
-          "sortOrder": 3,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -94.85378599527843,
+          "geoTag": "geo-citydistrict-muesmatt"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/f5/e0/d19dcc6740-231101.jpg",
-          "originalWidth": 850,
-          "originalHeight": 567,
-          "id": 111085294,
-          "sortOrder": 4,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -94.85378599527843,
+          "geoTag": "geo-citydistrict-muesmatt-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/b1/5d/3574bc7f4e-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085295,
-          "sortOrder": 5,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -94.85378599527843,
+          "geoTag": "geo-cityregion-laenggasse-felsenau-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/88/ae/b043128f46-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085296,
-          "sortOrder": 6,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -94.85378599527843,
+          "geoTag": "geo-cityregion-langgasse-felsenau"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/bf/c0/60b58b4045-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085297,
-          "sortOrder": 7,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -47941.45952973914,
+          "geoTag": "geo-country-switzerland"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/22/dd/b0baf31242-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085298,
-          "sortOrder": 8,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -7752.607896531954,
+          "geoTag": "geo-district-bern-mittelland"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/6c/62/d6921a9944-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085299,
-          "sortOrder": 9,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -1818.6633571549771,
+          "geoTag": "geo-municipality-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/fe/72/6b1b220e4f-231101.jpg",
-          "originalWidth": 450,
-          "originalHeight": 600,
-          "id": 111085300,
-          "sortOrder": 10,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -1818.6633571549771,
+          "geoTag": "geo-region-bern"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/a7/68/a1c9dcbb49-231101.jpg",
-          "originalWidth": 800,
-          "originalHeight": 600,
-          "id": 111085301,
-          "sortOrder": 11,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -7752.607896531954,
+          "geoTag": "geo-region-bern-mittelland"
         },
         {
-          "url": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?{width}x{height}/{resizemode}/{quality}/is24media/19/a3/f9d0c2eb44-231101.jpg",
-          "originalWidth": 1217,
-          "originalHeight": 1701,
-          "id": 111085302,
-          "sortOrder": 12,
-          "lastModified": "2023-11-01T20:01:24+01:00"
+          "distance": -1818.6633571549771,
+          "geoTag": "geo-zipcode-3000"
+        },
+        {
+          "distance": -85.63359819351002,
+          "geoTag": "geo-zipcode-3012"
         }
       ],
-      "isHighlighted": false,
-      "isNeubauLite": false,
-      "isNeubauLitePremium": false,
-      "isHgCrosslisting": false,
-      "isNew": false,
-      "isNewEndDate": "2023-11-03T20:01:24+01:00",
-      "isOnline": true,
-      "isTopListing": true,
-      "isPremiumToplisting": false,
-      "lastModified": "2023-11-06T07:48:10+01:00",
-      "latitude": 46.945271881553,
-      "longitude": 7.401128435144,
-      "municipalityId": 204,
-      "municipalityBfsId": 351,
-      "municipalityNameFormatted": "Bern",
-      "msRegionId": 11,
-      "netPrice": 1225,
-      "netPriceFormatted": "CHF 1225.—",
-      "normalizedPrice": 1405,
-      "normalizedPriceFormatted": "CHF 1405.—",
-      "numberOfRooms": 2,
-      "numberOfRoomsFormatted": "2 rooms",
-      "offerTypeId": 1,
-      "priceUnitId": 6,
-      "priceUnitLabel": "month",
-      "price": 1405,
-      "priceFormatted": "CHF 1405.—",
-      "propertyCategoryId": 1,
-      "propertyTypeId": 1,
-      "propertyDetailUrl": "/en/d/flat-rent-bern/8068164",
-      "referenceNo": "1103.09917.1511",
-      "regionId": 15,
-      "showContactForm": true,
-      "showContactFormAddress": false,
-      "stateShort": "BE",
-      "state": "Bern",
-      "street": "Stöckackerstrasse",
-      "surfaceLiving": 52,
-      "surfaceLivingFormatted": "52 m²",
-      "surfaceUsable": 52,
-      "surfaceUsableFormatted": "52 m²",
-      "title": "Kleinwohnung, mit allem was dazu gehört!",
-      "videoViewingEnabled": false,
-      "visitName": "Vermietungsteam",
-      "visitPhone": "031 310 12 38",
-      "zip": "3018",
-      "zipId": 866,
-      "lastPublished": "2023-11-01T20:01:24+01:00",
-      "packageType": 4,
-      "shortDescription": "Helle Wohnung * ganze Wohnung mit Parkettboden * abgeschlossene Küche mit Geschirrspüler * Badezimmer mit Fenster * geräumiges Schlafzimmer * Keller- und EstrichabteilBitte beachten Sie, dass die Bilder von einer \"typengleichen\" Wohnung stammen und evt. nicht identisch zutreffen können.  Das 4-stöckige Mehrfamilienhaus befindet sich in einer ruhigen Nebenstrasse, im Stadtteil Bern-Bümpliz. Gleich um die Ecke sind diverse Einkaufsmöglichkeiten vorhanden sowie die Tramstation Stöckacker (Linie 8). Das Stadtzentrum erreichen Sie innerhalb von 20 M",
-      "isQualityListing": false,
-      "listingLayout": 3,
-      "packageScore": 10,
-      "sortalgoScore": 7.659,
-      "sortalgoScore2": 0,
-      "listingCompletenessScore": 4.5,
-      "sortingPosition": 0,
-      "userRelevantScore": 8.5
-    },
-    "viewData": {
-      "agencyPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068164&stat_type_id=34&app=is24web&wl=1",
-      "movingUrl": "/en/moving?p=8068164",
-      "pdfUrl": "http://pdf.immoscout24.ch?url=http%3A%2F%2Fwww.immoscout24.ch%2F8068164%3Flng%3Den%26asPdf%3Dtrue&filename=is24_objekt_8068164",
-      "rentalDepositAttestLinkUrl": "https://swisscaution.ch/en/rental-guarantee-caution/residential-lease/certificate/online-registration/?pid=I_581&utm_source=Partner&utm_medium=textlink&utm_campaign=Immoscout&utm_content=housing-details-en",
-      "visitPhoneStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068164&stat_type_id=33&app=is24web&wl=1",
-      "showAccountProperties": true,
-      "showSimilarProperties": true,
-      "areSimilarPropertiesFromSameAdvertiser": true,
-      "detailViewStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068164&stat_type_id=28&app=is24web&wl=1",
-      "detailPrintStatsUrl": "https://statspix-prod.immoscout24.ch/stats.gif?p=8068164&stat_type_id=29&app=is24web&wl=1",
-      "debtEnforcementLandingPageUrl": "/en/order-extract-debt-collection-register?entrypointName=detail-link&returnUrl=%2Fen%2Fd%2Fflat-rent-bern%2F8068164",
-      "allowOnlineApplication": false,
-      "allowOnlineApplicationForAroov": false,
-      "aroovOnlineApplicationUrl": "",
-      "showOnlineApplicationApply": false,
-      "webView": {
-        "gtmData": {
-          "activeLanguage": "en",
-          "localVirtualPagePath": "/en/d/flat-rent-bern/8068164",
-          "userLoggedIn": "No",
-          "customerType": "searcher",
-          "userOrigin": "external",
-          "listingId": "8068164",
-          "viewTab": "Overview",
-          "offerTypeName": "Rent",
-          "price": "1405",
-          "country": "Switzerland + FL",
-          "englishVirtualPagePath": "details",
-          "isShortUrl": "false",
-          "livingSpace": "52",
-          "numberOfRooms": "2.0",
-          "countPDF": "0",
-          "countImages": "12",
-          "hasVirtualTour": "No",
-          "hasYoutube": "No",
-          "hasToplisting": "Yes",
-          "hasHighlighting": "No",
-          "listing_locationName": "Bern",
-          "listing_cantonName": "Bern",
-          "listing_zip": "3018",
-          "streetName": "Stöckackerstrasse",
-          "isNewBuilding": "No",
-          "listing_msregion": 11,
-          "isCooperation": "No",
-          "packageName": 4,
-          "hasVideoViewing": "No",
-          "listing_propertyType": "Flat",
-          "listing_priceNet": "1225",
-          "listing_availability": "01.12.2023",
-          "listingLayout": 3,
-          "packageScore": 10,
-          "previewImageUrl": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?940x628/0/90/is24media/ce/46/9701213440-231101.jpg",
-          "sortingScore": 7.659,
-          "listingCompletenessScore": 4.5,
-          "listingAccountId": 37596,
-          "userRelevantScore": 8.5,
-          "sorting": null,
-          "sortingPosition": null
-        },
-        "openGraphData": {
-          "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068164",
-          "description": "Kleinwohnung, mit allem was dazu gehört!",
-          "title": "Flat | Bern | CHF 1405.— | 2 rooms | 52 m²",
-          "imageHeight": "628",
-          "imageWidth": "940",
-          "imageType": "image/jpg",
-          "imageUrl": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?940x628/0/90/is24media/ce/46/9701213440-231101.jpg"
-        },
-        "structuredData": {
-          "@context": "http://schema.org",
-          "@graph": [
-            {
-              "availability": "InStock",
-              "description": "Helle Wohnung \\* ganze Wohnung mit Parkettboden \\* abgeschlossene Küche mit Geschirrspüler \\* Badezimmer mit Fenster \\* geräumiges Schlafzimmer \\* Keller- und Estrichabteil  \r\n  \r\nBitte beachten Sie, dass die Bilder von einer \"typengleichen\" Wohnung stammen und evt. nicht identisch zutreffen können.   \r\n  \r\n Das 4-stöckige Mehrfamilienhaus befindet sich in einer ruhigen Nebenstrasse, im Stadtteil Bern-Bümpliz. Gleich um die Ecke sind diverse Einkaufsmöglichkeiten vorhanden sowie die Tramstation Stöckacker (Linie 8). Das Stadtzentrum erreichen Sie innerhalb von 20 Minuten per Tram oder mit dem Auto. Schulen und Kindergarten befinden sich im Ort.  \r\nDie Liegenschaft verfügt über einen Lift. Je nach Vermietungsstand können Einstellhallenplätze à Fr. 120.00-140.00 zugemietet werden.",
-              "image": "https://cis01.immoscout24.ch/kleinwohnung-mit-allem-was-dazu-gehoert!-bern?940x628/0/90/is24media/ce/46/9701213440-231101.jpg",
-              "name": "Kleinwohnung, mit allem was dazu gehört!",
-              "price": 1405,
-              "priceCurrency": "CHF",
-              "@type": "Offer",
-              "url": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068164"
-            }
-          ]
-        }
+      "geoTags": [
+        "geo-canton-bern",
+        "geo-city-bern",
+        "geo-citydistrict-muesmatt",
+        "geo-citydistrict-muesmatt-bern",
+        "geo-cityregion-laenggasse-felsenau-bern",
+        "geo-cityregion-langgasse-felsenau",
+        "geo-country-switzerland",
+        "geo-district-bern-mittelland",
+        "geo-municipality-bern",
+        "geo-region-bern",
+        "geo-region-bern-mittelland",
+        "geo-zipcode-3000",
+        "geo-zipcode-3012"
+      ],
+      "street": "Fabrikstrasse 09",
+      "postalCode": "3012",
+      "locality": "Bern",
+      "geoCoordinates": {
+        "accuracy": "HIGH",
+        "manual": true,
+        "latitude": 46.952251852019,
+        "longitude": 7.423281301413
       },
-      "accountPropertiesUrl": "/en/advertiser/erich-weber-ag-immobilien-verwaltungen/37596",
-      "whatsAppShareUrl": "whatsapp://send?text=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8068164%3futm_source%3dwhatsapp%26utm_medium%3dsocial_sharing%26utm_term%3ddetail%26utm_content%3den%26utm_campaign%3dis24_share_web",
-      "copyShareUrl": "https://www.immoscout24.ch/en/d/flat-rent-bern/8068164?utm_source=copy-link&utm_medium=social_sharing&utm_term=detail&utm_content=en&utm_campaign=is24_share_web",
-      "fbShareUrl": "https://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.immoscout24.ch%2fen%2fd%2fflat-rent-bern%2f8068164%3futm_campaign%3dis24_share_web%26utm_medium%3dsocial_sharing%26utm_source%3dfacebook%26utm_term%3ddetail%26utm_content%3den&t=Kleinwohnung%2c+mit+allem+was+dazu+geh%c3%b6rt!"
+      "region": "BE"
+    },
+    "externalIds": {
+      "refObject": "2201",
+      "refProperty": "1127",
+      "platformListingId": "8158453",
+      "propertyReferenceId": "37596#idx-09503-2201-1127-8158453##__ibehome9",
+      "internalReferenceId": "37596#idx-09503-2201-1127-8158453##__ibehome9",
+      "swissretsReferenceId": "idx-09503-2201-1127-8158453",
+      "refHouse": "09503",
+      "displayPropertyReferenceId": "__ibehome9.idx-09503-2201-1127-8158453"
+    },
+    "contactForm": {
+      "size": "NO_ADDRESS",
+      "deliveryFormat": "NORMAL"
+    },
+    "availableFrom": "2024-01-27",
+    "version": 8,
+    "platforms": [
+      "immoscout24",
+      "alleimmobilien",
+      "home",
+      "immostreet"
+    ],
+    "offerType": "RENT",
+    "meta": {
+      "createdAt": "2024-01-03T17:07:29.390Z",
+      "updatedAt": "2024-01-27T17:11:22.869Z",
+      "source": "IMMOHUB"
+    },
+    "publishers": [
+      {
+        "options": [
+          {
+            "value": "{\"topListingRanking\":0}",
+            "key": "top-listing"
+          },
+          {
+            "value": "{\"pubStartDate\":\"2024-01-03T00:00:00+01:00\",\"onlineStartDate\":\"2024-01-03T18:06:43+01:00\"}",
+            "key": "publication"
+          },
+          {
+            "value": "7.32600",
+            "key": "sorting-score"
+          },
+          {
+            "value": "OF",
+            "key": "object-source"
+          },
+          {
+            "value": "09503",
+            "key": "idx-ref-house"
+          },
+          {
+            "value": "1127",
+            "key": "idx-ref-prop"
+          },
+          {
+            "value": "2201",
+            "key": "idx-ref-object"
+          },
+          {
+            "value": "Unbekannt",
+            "key": "of-dispo-member-name"
+          },
+          {
+            "value": "1",
+            "key": "idx-type"
+          },
+          {
+            "value": "APPT",
+            "key": "idx-category"
+          },
+          {
+            "value": "M",
+            "key": "account-type"
+          },
+          {
+            "value": "37596",
+            "key": "account-id"
+          },
+          {
+            "key": "tags"
+          },
+          {
+            "value": "51523611",
+            "key": "last-synchronization-id"
+          }
+        ],
+        "id": "is24-legacy-data"
+      }
+    ],
+    "id": "4000563923",
+    "categories": [
+      "APARTMENT"
+    ],
+    "prices": {
+      "rent": {
+        "area": "ALL",
+        "interval": "MONTH",
+        "net": 1390,
+        "gross": 1640,
+        "extra": 250
+      },
+      "currency": "CHF"
     }
   }
 ]

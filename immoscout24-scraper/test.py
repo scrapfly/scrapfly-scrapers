@@ -19,148 +19,36 @@ property_schema = {
     "schema": {
         "type": "dict",
         "schema": {
-            "detailsData": {
+            "lister": {
                 "type": "dict",
                 "schema": {
-                    "accountId": {"type": "integer"},
-                    "companyId": {"type": "integer"},
-                    "memberPackageId": {"type": "integer"},
-                    "agency": {
+                    "legalName": {"type": "string"},
+                    "website": {
                         "type": "dict",
                         "schema": {
-                            "companyCity": {"type": "string"},
-                            "companyName1": {"type": "string"},
-                            "companyPhoneBusiness": {"type": "string"},
-                            "companyStreet": {"type": "string"},
-                            "companyZip": {"type": "string"},
-                            "showLogoOnSerp": {"type": "boolean"},
-                            "lastName": {"type": "string"},
-                            "logoUrl": {"type": "string"},
-                            "logoUrlDetailPage": {"type": "string"},
-                            "reference": {"type": "string"},
-                            "webUrl": {"type": "string"},
-                            "isAccountMigrated": {"type": "boolean"},
-                            "isGuest": {"type": "boolean"},
-                            "userType": {"type": "string"},
-                        },
+                            "value": {"type": "string"}
+                        }
                     },
-                    "attributesInside": {
+                    "address": {
                         "type": "dict",
                         "schema": {
-                            "propView": {"type": "boolean"},
-                        },
-                    },
-                    "attributesTechnology": {
-                        "type": "dict",
-                        "schema": {
-                            "propCabletv": {"type": "boolean"},
-                        },
-                    },
-                    "attributesTechnology": {
-                        "type": "dict",
-                        "schema": {
-                            "propElevator": {"type": "boolean"},
-                            "propBalcony": {"type": "boolean"},
-                        },
-                    },
-                    "attributesSurrounding": {
-                        "type": "dict",
-                        "schema": {
-                            "distanceShop": {"type": "integer"},
-                            "distanceShopFormatted": {"type": "string"},
-                            "distanceKindergarten": {"type": "integer"},
-                        },
-                    },
-                    "attributes": {
-                        "type": "dict",
-                        "schema": {
-                            "yearBuilt": {"type": "integer"},
-                        },
-                    },
-                    "availableFrom": {"type": "string"},
-                    "availableFromFormatted": {"type": "string"},
-                    "cityId": {"type": "integer"},
-                    "cityName": {"type": "string"},
-                    "commuteTimes": {
-                        "type": "dict",
-                        "schema": {
-                            "defaultPois": {
-                                "type": "list",
-                                "schema": {
-                                    "type": "dict",
-                                    "schema": {
-                                        "defaultPoiId": {"type": "integer"},
-                                        "label": {"type": "string"},
-                                        "transportations": {
-                                            "type": "list",
-                                            "schema": {
-                                                "type": "dict",
-                                                "schema": {
-                                                    "transportationTypeId": {
-                                                        "type": "integer"
-                                                    },
-                                                    "travelTime": {"type": "integer"},
-                                                    "isReachable": {"type": "boolean"},
-                                                },
-                                            },
-                                        },
-                                    },
-                                },
-                            }
-                        },
-                    },
-                    "contactFormTypeId": {"type": "integer"},
-                    "countryId": {"type": "integer"},
-                    "description": {"type": "string"},
-                    "extraPrice": {"type": "integer"},
-                    "extraPriceFormatted": {"type": "string"},
-                    "geoAccuracy": {"type": "integer"},
-                    "grossPrice": {"type": "integer"},
-                    "grossPriceFormatted": {"type": "string"},
-                    "hasNewBuildingProject": {"type": "boolean"},
-                    "hasVirtualTour": {"type": "boolean"},
-                    "id": {"type": "integer"},
-                    "images": {
-                        "type": "list",
-                        "schema": {
-                            "type": "dict",
-                            "schema": {
-                                "url": {"type": "string"},
-                                "originalWidth": {"type": "integer"},
-                                "originalHeight": {"type": "integer"},
-                                "id": {"type": "integer"},
-                                "sortOrder": {"type": "integer"},
-                                "lastModified": {"type": "string"},
-                            },
-                        },
-                    },
-                    "isHighlighted": {"type": "boolean"},
-                    "isNeubauLite": {"type": "boolean"},
-                    "isNeubauLitePremium": {"type": "boolean"},
-                    "isHgCrosslisting": {"type": "boolean"},
-                    "isNew": {"type": "boolean"},
-                    "isNewEndDate": {"type": "string"},
-                    "isOnline": {"type": "boolean"},
-                    "isTopListing": {"type": "boolean"},
-                    "isPremiumToplisting": {"type": "boolean"},
-                    "latitude": {"type": "integer"},
-                    "longitude": {"type": "integer"},
-                    "msRegionId": {"type": "integer"},
-                    "netPrice": {"type": "integer"},
-                    "netPriceFormatted": {"type": "string"},
-                    "normalizedPrice": {"type": "integer"},
-                    "numberOfRooms": {"type": "integer"},
-                    "price": {"type": "integer"},
-                    "propertyCategoryId": {"type": "integer"},
-                    "regionId": {"type": "integer"},
-                    "state": {"type": "string"},
-                    "street": {"type": "string"},
-                    "surfaceLiving": {"type": "integer"},
-                    "title": {"type": "string"},
-                    "lastPublished": {"type": "string"},
-                    "shortDescription": {"type": "string"},
-                },
+                            "locality": {"type": "string"},
+                            "country": {"type": "string"},
+                            "street": {"type": "string"},
+                            "postalCode": {"type": "string"},
+                        }
+                    }
+                }
             },
+            "characteristics": {
+                "type": "dict",
+                "schema": {
+                    "numberOfRooms": {"type": "integer"},
+                    "yearBuilt": {"type": "integer"},
+                    "floor": {"type": "integer"},
+                    "livingSpace": {"type": "integer"},
+                }
+            }
         },
     },
 }
@@ -266,9 +154,9 @@ search_schema = {
 async def test_properties_scraping():
     properties_data = await immoscout24.scrape_properties(
         urls=[
-            "https://www.immoscout24.ch/en/d/flat-rent-bern/8068164",
-            "https://www.immoscout24.ch/en/d/flat-rent-bern/7940339",
-            "https://www.immoscout24.ch/en/d/flat-rent-bern/8068179",
+            "https://www.immoscout24.ch/rent/4000630232",
+            "https://www.immoscout24.ch/rent/4000519178",
+            "https://www.immoscout24.ch/rent/4000519178",
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
