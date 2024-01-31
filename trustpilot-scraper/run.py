@@ -38,7 +38,7 @@ async def run():
     reviews_data = await trustpilot.scrape_reviews(
         # the reviews API, you can get this API by inspecting the Network activities in the browser and clicking on the next review pages
         # you can also customize review filters by applying them on the page and they will e reflected on the API
-        url="https://www.trustpilot.com/_next/data/businessunitprofile-consumersite-2.23.0/review/www.bhphotovideo.com.json?businessUnit=www.bhphotovideo.com",
+        url="https://www.trustpilot.com/_next/data/businessunitprofile-consumersite-2.72.0/review/www.bhphotovideo.com.json?businessUnit=www.bhphotovideo.com",
         max_pages=3,
     )
     with open(output.joinpath("reviews.json"), "w", encoding="utf-8") as file:
