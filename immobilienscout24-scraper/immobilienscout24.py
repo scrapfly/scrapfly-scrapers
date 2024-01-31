@@ -50,7 +50,9 @@ def parse_property_page(response: ScrapeApiResponse):
     price_per_meter = strip_text(selector.xpath("//dd[contains(@class, 'preism')]/text()").get())
     basic_rent = strip_text(selector.xpath("//div[contains(@class, 'kaltmiete')]/span/text()").get())
     additional_costs = strip_text(selector.xpath("//dd[contains(@class, 'nebenkosten')]/text()").extract()[1].replace("\n", ""))
+    # additional_costs = selector.xpath("//dd[contains(@class, 'nebenkosten')]/text()").extract()
     heating_costs = strip_text(selector.xpath("//dd[contains(@class, 'heizkosten')]/text()").extract()[1].replace("\n", ""))
+    # heating_costs = selector.xpath("//dd[contains(@class, 'heizkosten')]/text()").extract()
     total_rent = strip_text(selector.xpath("//dd[contains(@class, 'gesamtmiete')]/text()").get())
     deposit = strip_text(selector.xpath("//dd[contains(@class, 'ex-spacelink')]/div/text()").get())
     garage_parking_rent = selector.xpath("//dd[contains(@class, 'garagestellplatz')]/text()").get()
@@ -70,7 +72,7 @@ def parse_property_page(response: ScrapeApiResponse):
         except:
             pass
     video_available = bool(selector.xpath("//button[contains(@class, 'gallery-video')]/text()").get())
-    internet_speed = selector.xpath("//div[contains(@class, 'desk-seven-tenths')]/span[3]/span[@classname]/text()").get()
+    internet_speed = selector.xpath("//a[contains(@class, 'mediaavailcheck')]/text()").get()
     internet_available = bool(internet_speed)
     agency_name = selector.xpath("//span[@data-qa='companyName']/text()").get()
     agency_address = ""
@@ -93,7 +95,6 @@ def parse_property_page(response: ScrapeApiResponse):
             "Garage/parking space": garage,
             "additionalSpecs": additional_sepcs,
             "internetAvailable": internet_available,
-            "internetSpeed": internet_speed
         },
         "price": {
                 "priceWithoutHeadting": price_without_heating,
