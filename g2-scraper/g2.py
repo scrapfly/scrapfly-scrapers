@@ -121,7 +121,7 @@ def parse_review_page(response: ScrapeApiResponse):
         review_tags.extend(review.xpath(".//div[contains(@class, 'tags')]/div/text()").getall())
         review_date = review.xpath(".//meta[@itemprop='datePublished']/@content").get()
         review_rate = review.xpath(".//div[contains(@class, 'stars')]").get()
-        review_title = review.xpath(".//h3[@itemprop='name']/text()").get()
+        review_title = review.xpath(".//div[@itemprop='name']/text()").get()
         review_likes = "".join(review.xpath(".//div[@itemprop='reviewBody']/div/div/p/text()").getall())
         review_dislikes = "".join(review.xpath(".//div[@itemprop='reviewBody']/div[2]/div/p/text()").getall())
         data.append({
