@@ -28,17 +28,18 @@ async def scrape_search(url: str) -> List[dict]:
     log.info(f"scraping search: {url}")
     # first scrape the search HTML page and find query variables for this search
     html_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    query_data = re.findall(r'"queryState":(\{.+}),[\s\n]*"user"', html_result.content)[0]
-    query_data = json.loads(query_data)
+    script_data = json.loads(html_result.selector.xpath("//script[@id='__NEXT_DATA__']/text()").get())
+    query_data = script_data["props"]["pageProps"]["searchPageState"]["queryState"]
     full_query = {
-        "searchQueryState": json.dumps(query_data),
-        "wants": json.dumps({"cat1": ["listResults", "mapResults"], "cat2": ["total"]}),
+        "searchQueryState": query_data,
+        "wants": {"cat1": ["listResults", "mapResults"], "cat2": ["total"]},
         "requestId": random.randint(2, 10),
     }
     # then scrape Zillow's backend API for all query results:
-    _backend_url = "https://www.zillow.com/search/GetSearchPageState.htm?"
+    _backend_url = "https://www.zillow.com/async-create-search-page-state"
     api_result = await SCRAPFLY.async_scrape(
-        ScrapeConfig(_backend_url + urlencode(full_query, quote_via=quote), **BASE_CONFIG)
+        ScrapeConfig(_backend_url, **BASE_CONFIG, headers={"content-type": "application/json"},
+                      body=json.dumps(full_query), method="PUT")
     )
     data = json.loads(api_result.content)
     _total = data["categoryTotals"]["cat1"]["totalResultCount"]
