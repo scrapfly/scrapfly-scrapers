@@ -82,9 +82,9 @@ def parse_rich_snippet(response: ScrapeApiResponse) -> Dict:
     """parse rich snippets from Bing search"""
     selector = response.selector
     data = {}
-    data["title"] = selector.xpath("//span[contains(@class, 'txt_heros')]/a/@title").get()
-    data["link"] = selector.xpath("//span[contains(@class, 'txt_heros')]/a/@href").get()
-    data["heading"] = selector.xpath("//div[contains(@class, 'header_txt')]/a/text()").get()
+    data["title"] = selector.xpath("//span[contains(@class, 'txt_heros')]/text()").get()
+    data["link"] = selector.xpath("//a[contains(@class, 'txt_hover')]/@href").get()
+    data["heading"] = selector.xpath("//div[contains(@class, 'header_txt')]/text()").get()
     data["links"] = {}
     for item in selector.xpath("//div[contains(@class, 'webicons')]/div"):
         name = item.xpath(".//a/@title").get()
@@ -143,7 +143,7 @@ async def scrape_rich_snippets(query: str):
     """scrape bing search pages for rich snippets data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
     log.info("scraping Bing search for keyword data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True, country="GB", render_js=True))
     rich_snippet_data = parse_rich_snippet(response)
     log.success(f"scraped {len(rich_snippet_data)} rich snippets fields from Bing search")
     return rich_snippet_data
