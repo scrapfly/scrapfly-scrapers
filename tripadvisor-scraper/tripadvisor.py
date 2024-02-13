@@ -98,10 +98,14 @@ async def scrape_location_data(query: str) -> List[LocationData]:
     # we need to generate a random request ID for this request to succeed
     random_request_id = "".join(random.choice(string.ascii_lowercase + string.digits) for i in range(64))
     headers = {
-        "X-Requested-By": random_request_id,
-        "Referer": "https://www.tripadvisor.com/Hotels",
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Host": "www.tripadvisor.com",
         "Origin": "https://www.tripadvisor.com",
-        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "content-type": "application/json",
+        "x-requested-by": random_request_id
     }
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
@@ -211,9 +215,9 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
     reviews = []
     for review in selector.xpath("//div[@data-reviewid]"):
         title = review.xpath(".//div[@data-test-target='review-title']/a/span/span/text()").get()
-        text = review.xpath(".//span[@data-test-target='review-text']/span/text()").get()
-        rate = review.xpath(".//div[@data-test-target='review-rating']/span/@class").get()
-        rate = (int(rate.split("ui_bubble_rating")[-1].split("_")[-1].replace("0", ""))) if rate else None
+        text = "".join(review.xpath(".//span[contains(@data-automation, 'reviewText')]/span/text()").extract())
+        rate = review.xpath(".//div[@data-test-target='review-rating']/*/@aria-label").get()
+        rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
         trip_data = review.xpath(".//span[span[contains(text(),'Date of stay')]]/text()").get()
         reviews.append({
             "title": title,
@@ -250,7 +254,10 @@ async def scrape_hotel(url: str, max_review_pages: Optional[int] = None) -> Dict
         url.replace("-Reviews-", f"-Reviews-or{_review_page_size * i}-")
         for i in range(1, total_review_pages)
     ]
-    async for result in SCRAPFLY.concurrent_scrape([ScrapeConfig(url, **BASE_CONFIG) for url in review_urls]):
+    async for result in SCRAPFLY.concurrent_scrape([
+            ScrapeConfig(url, **BASE_CONFIG)
+            for url in review_urls
+        ]):
         data = parse_hotel_page(result)
         hotel_data["reviews"].extend(data["reviews"])
     log.success(f"scraped one hotel data with {len(hotel_data['reviews'])} reviews")

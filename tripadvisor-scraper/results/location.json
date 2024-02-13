@@ -65,9 +65,9 @@
     },
     "thumbnail": {
       "photoSizeDynamic": {
-        "maxWidth": 1599,
-        "maxHeight": 1599,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/6d/1a/50/glitter-ombre.jpg?w={width}&h={height}&s=1"
+        "maxWidth": 2048,
+        "maxHeight": 2048,
+        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ea/15/73/destination-de-la-rentree.jpg?w={width}&h={height}&s=1"
       }
     },
     "locationV2": {
@@ -377,52 +377,6 @@
   },
   {
     "placeType": "ACCOMMODATION",
-    "latitude": 35.9351,
-    "longitude": 14.3432,
-    "isGeo": false,
-    "localizedName": "Radisson Blu Resort & Spa, Malta Golden Sands",
-    "url": "/Hotel_Review-g230152-d573828-Reviews-Radisson_Blu_Resort_Spa_Malta_Golden_Sands-Mellieha_Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=573828",
-    "ATTRACTIONS_URL": "/Attractions?geo=573828",
-    "RESTAURANTS_URL": "/Restaurants?geo=573828",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Mellieha, Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": "Radisson Blu Resort & Spa, Malta Golden Sands"
-    },
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 1023,
-        "maxHeight": 626,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/d3/bd/88/resort-exterior.jpg?w={width}&h={height}&s=1"
-      }
-    },
-    "locationV2": {
-      "vacationRentalsRoute": null,
-      "placeType": "ACCOMMODATION",
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Mellieha, Malta"
-      },
-      "hierarchy": {
-        "parentId": 230152,
-        "naturalParentId": 230152,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-          }
-        },
-        "naturalParent": {
-          "placeType": "MUNICIPALITY",
-          "names": {
-            "name": "Mellieha"
-          }
-        }
-      }
-    }
-  },
-  {
-    "placeType": "ACCOMMODATION",
     "latitude": 35.954456,
     "longitude": 14.418332,
     "isGeo": false,
@@ -462,6 +416,52 @@
           "placeType": "CITY",
           "names": {
             "name": "Qawra"
+          }
+        }
+      }
+    }
+  },
+  {
+    "placeType": "ACCOMMODATION",
+    "latitude": 35.9351,
+    "longitude": 14.3432,
+    "isGeo": false,
+    "localizedName": "Radisson Blu Resort & Spa, Malta Golden Sands",
+    "url": "/Hotel_Review-g230152-d573828-Reviews-Radisson_Blu_Resort_Spa_Malta_Golden_Sands-Mellieha_Island_of_Malta.html",
+    "HOTELS_URL": "/Hotels?geo=573828",
+    "ATTRACTIONS_URL": "/Attractions?geo=573828",
+    "RESTAURANTS_URL": "/Restaurants?geo=573828",
+    "localizedAdditionalNames": {
+      "longOnlyHierarchy": "Mellieha, Island of Malta, Malta, Europe"
+    },
+    "streetAddress": {
+      "street1": "Radisson Blu Resort & Spa, Malta Golden Sands"
+    },
+    "thumbnail": {
+      "photoSizeDynamic": {
+        "maxWidth": 1023,
+        "maxHeight": 626,
+        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/49/b3/e6/resort.jpg?w={width}&h={height}&s=1"
+      }
+    },
+    "locationV2": {
+      "vacationRentalsRoute": null,
+      "placeType": "ACCOMMODATION",
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Mellieha, Malta"
+      },
+      "hierarchy": {
+        "parentId": 230152,
+        "naturalParentId": 230152,
+        "parent": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
+          }
+        },
+        "naturalParent": {
+          "placeType": "MUNICIPALITY",
+          "names": {
+            "name": "Mellieha"
           }
         }
       }

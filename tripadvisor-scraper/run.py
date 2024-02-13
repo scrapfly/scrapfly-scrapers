@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    tripadvisor.BASE_CONFIG["cache"] = True
+    tripadvisor.BASE_CONFIG["cache"] = False
 
     print("running Tripadvisor scrape and saving results to ./results directory")
     result_location = await tripadvisor.scrape_location_data(query="Malta")
@@ -29,7 +29,7 @@ async def run():
         "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
         max_review_pages=3,
     )
-    output.joinpath("hotels.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False))
+    output.joinpath("hotels.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":

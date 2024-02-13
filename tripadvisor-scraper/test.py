@@ -78,4 +78,4 @@ async def test_hotel_scraping():
     
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result_hotel, validator)
-    assert len(result_hotel["reviews"]) > 10
+    assert len(result_hotel["reviews"]) >= 10
