@@ -20,16 +20,16 @@ async def run():
 
     print("running Seloger scrape and saving results to ./results directory")
 
-    search_data = await seloger.scrape_search(
-        url="https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/",
-        scrape_all_pages=False,
-        max_pages=2,
-    )
-    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-        json.dump(search_data, file, indent=2, ensure_ascii=False)
+    # search_data = await seloger.scrape_search(
+    #     url="https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/",
+    #     scrape_all_pages=False,
+    #     max_pages=2,
+    # )
+    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+    #     json.dump(search_data, file, indent=2, ensure_ascii=False)
 
     property_data = await seloger.scrape_property(
-        url="https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/206960397.htm"
+        url="https://www.seloger.com/annonces/achat-de-prestige/appartement/bordeaux-33/saint-bruno-saint-augustin/215096735.htm"
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
         json.dump(property_data, file, indent=2, ensure_ascii=False)

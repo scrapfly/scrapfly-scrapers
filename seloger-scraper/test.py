@@ -194,7 +194,7 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 async def test_property_scraping():
     property_data = await seloger.scrape_property(
-        "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/206960397.htm"
+        "https://www.seloger.com/annonces/achat-de-prestige/appartement/bordeaux-33/saint-bruno-saint-augustin/215096735.htm"
     )
     validator = Validator(property_schema, allow_unknown=True)
     validate_or_fail(property_data, validator)
