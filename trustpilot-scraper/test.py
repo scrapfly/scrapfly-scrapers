@@ -125,7 +125,7 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 async def test_review_scraping():
     reviews_data = await trustpilot.scrape_reviews(
-        url="https://www.trustpilot.com/_next/data/businessunitprofile-consumersite-2.72.0/review/www.bhphotovideo.com.json?businessUnit=www.bhphotovideo.com",
+        url="https://www.trustpilot.com/review/www.bhphotovideo.com",
         max_pages=3,
     )
     validator = Validator(review_schema, allow_unknown=True)
