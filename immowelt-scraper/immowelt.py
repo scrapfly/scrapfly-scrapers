@@ -65,7 +65,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
 async def _get_auth_token() -> str:
     """get a new authorization token to authorize the API calls"""
     log.info("getting an auth token for the API")
-    url = "https://www.immowelt.de/suche/muenchen/wohnungen/"
+    url = "https://www.immowelt.de/suche/muenchen/wohnungen/mieten"
     # allows rendering headless browsers to capture local storage data
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True, render_js=True, country="DE", auto_scroll=True))
     # access the atuh token from local storage data
