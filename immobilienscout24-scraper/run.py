@@ -18,17 +18,17 @@ async def run():
 
     print("running Immobilienscout24 scrape and saving results to ./results directory")
 
-    search_data = await immobilienscout24.scrape_search(
-        url="https://www.immobilienscout24.de/Suche/de/bayern/muenchen/wohnung-mieten?pagenumber=1",
-        scrape_all_pages=False,
-        max_scrape_pages=3
-    )
-    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-        json.dump(search_data, file, indent=2, ensure_ascii=False)
+    # search_data = await immobilienscout24.scrape_search(
+    #     url="https://www.immobilienscout24.de/Suche/de/bayern/muenchen/wohnung-mieten?pagenumber=1",
+    #     scrape_all_pages=False,
+    #     max_scrape_pages=3
+    # )
+    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+    #     json.dump(search_data, file, indent=2, ensure_ascii=False)
 
     properties_data = await immobilienscout24.scrape_properties(
         urls = [
-            "https://www.immobilienscout24.de/expose/147367273#/",
+            "https://www.immobilienscout24.de/expose/148726861#/",
             "https://www.immobilienscout24.de/expose/146053176#/",
             "https://www.immobilienscout24.de/expose/147948997#/",
         ]
