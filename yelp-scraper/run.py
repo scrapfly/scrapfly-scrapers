@@ -32,7 +32,7 @@ async def run():
         json.dump(business_data, file, indent=2, ensure_ascii=False)
 
     reviews_data = await yelp.scrape_reviews(
-        url="https://www.yelp.com/biz/toulouse-petit-kitchen-and-lounge-seattle",
+        url="https://www.yelp.com/biz/vons-1000-spirits-seattle-4",
         # each 10 reviews represent a review page (one request)
         max_reviews=28,
     )

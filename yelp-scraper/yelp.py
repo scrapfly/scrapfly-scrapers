@@ -64,8 +64,8 @@ def parse_business_id(response: ScrapeApiResponse):
 def parse_review_data(response: ScrapeApiResponse):
     """parse review data from the JSON response"""
     data = json.loads(response.scrape_result["content"])
-    reviews = data["reviews"]
-    total_reviews = data["pagination"]["totalResults"]
+    reviews = data[0]["data"]["business"]["reviews"]["edges"]
+    total_reviews = data[0]["data"]["business"]["reviewCount"]
     return {"reviews": reviews, "total_reviews": total_reviews}
 
 
@@ -94,6 +94,65 @@ async def scrape_pages(urls: List[str]) -> List[Dict]:
     return result
 
 
+async def request_reviews_api(url: str, start_index: int, business_id):
+    """request the graphql API for review data"""
+    payload = json.dumps([
+        {
+            "operationName": "GetBusinessReviewFeed",
+            "variables": {
+            "encBizId": f"{business_id}",
+            "reviewsPerPage": 10,
+            "selectedReviewEncId": "",
+            "hasSelectedReview": False,
+            "sortBy": "DATE_DESC",
+            "languageCode": "en",
+            "ratings": [
+                5,
+                4,
+                3,
+                2,
+                1
+            ],
+            "isSearching": False,
+            "isTranslating": False,
+            "translateLanguageCode": "en",
+            "reactionsSourceFlow": "businessPageReviewSection",
+            "minConfidenceLevel": "HIGH_CONFIDENCE",
+            "highlightType": "",
+            "highlightIdentifier": "",
+            "isHighlighting": False
+            },
+            "extensions": {
+            "operationType": "query",
+            # static value
+            "documentId": "ef51f33d1b0eccc958dddbf6cde15739c48b34637a00ebe316441031d4bf7681"
+            }
+        }
+    ])
+
+    headers = {
+        'authority': 'www.yelp.com',
+        'accept': '*/*',
+        'accept-language': 'en-US,en;q=0.9',
+        'cache-control': 'no-cache',
+        'content-type': 'application/json',
+        'origin': 'https://www.yelp.com',
+        'referer': f'{url}?start={start_index}&sort_by=date_desc', # the referer header cotrnols the pagination
+        'x-apollo-operation-name': 'GetBusinessReviewFeed'
+    }
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            url="https://www.yelp.com/gql/batch",
+            headers=headers,
+            body=payload,
+            method="POST",
+            asp=True,
+            country="US"
+        )
+    )
+    return response
+
+
 async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     # first find business ID from business URL
     log.info("scraping the business id from the business page")
@@ -101,15 +160,8 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     business_id = parse_business_id(response_business)
 
     log.info("scraping the first review page")
-    # then scrape first review page
-    review_response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            f"https://www.yelp.com/biz/{business_id}/review_feed?rl=en&q=&sort_by=relevance_desc&start=0",
-            **BASE_CONFIG,
-            render_js=True, # review pages requires render_js to fully load the review data
-        )
-    )
-    review_data = parse_review_data(review_response)
+    first_page = await request_reviews_api(url=url, business_id=business_id, start_index=0)
+    review_data = parse_review_data(first_page)
     reviews = review_data["reviews"]
     total_reviews = review_data["total_reviews"]
 
@@ -117,19 +169,13 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     if max_reviews and max_reviews < total_reviews:
         total_reviews = max_reviews
 
-    # next, scrape the remaining review pages concurrently
-    log.info(
-        f"scraping review pagination, remaining ({total_reviews // 10}) more pages"
-    )
-    other_pages = [
-        ScrapeConfig(
-            f"https://www.yelp.com/biz/{business_id}/review_feed?rl=en&q=&sort_by=relevance_desc&start={offset}",
-            **BASE_CONFIG, render_js=True
-        )
-        for offset in range(11, total_reviews, 10)
-    ]
-    async for response in SCRAPFLY.concurrent_scrape(other_pages):
-        reviews.extend(parse_review_data(response)["reviews"])
+    # next, scrape the remaining review pages
+    log.info(f"scraping review pagination, remaining ({total_reviews // 10}) more pages")
+
+    for offset in range(11, total_reviews, 10):
+        response = await request_reviews_api(url=url, business_id=business_id, start_index=offset)
+        new_review_data = parse_review_data(response)["reviews"]
+        reviews.extend(new_review_data)
     log.success(f"scraped {len(reviews)} reviews from review pages")
     return reviews
 
