@@ -8,6 +8,8 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import json
 import math
+import base64
+import jmespath
 from typing import Dict, List, TypedDict
 from urllib.parse import urlencode
 from loguru import logger as log
@@ -65,8 +67,26 @@ def parse_review_data(response: ScrapeApiResponse):
     """parse review data from the JSON response"""
     data = json.loads(response.scrape_result["content"])
     reviews = data[0]["data"]["business"]["reviews"]["edges"]
+    parsed_reviews = []
+    for review in reviews:
+        result = jmespath.search(
+            """{
+            encid: encid,
+            text: text.{full: full, language: language},
+            rating: rating,
+            feedback: feedback.{coolCount: coolCount, funnyCount: funnyCount, usefulCount: usefulCount},
+            author: author.{encid: encid, displayName: displayName, displayLocation: displayLocation, reviewCount: reviewCount, friendCount: friendCount, businessPhotoCount: businessPhotoCount},
+            business: business.{encid: encid, alias: alias, name: name},
+            createdAt: createdAt.utcDateTime,
+            businessPhotos: businessPhotos[].{encid: encid, photoUrl: photoUrl.url, caption: caption, helpfulCount: helpfulCount},
+            businessVideos: businessVideos,
+            availableReactions: availableReactionsContainer.availableReactions[].{displayText: displayText, reactionType: reactionType, count: count}
+            }""",
+            review["node"]
+        )
+        parsed_reviews.append(result)
     total_reviews = data[0]["data"]["business"]["reviewCount"]
-    return {"reviews": reviews, "total_reviews": total_reviews}
+    return {"reviews": parsed_reviews, "total_reviews": total_reviews}
 
 
 def parse_search(response: ScrapeApiResponse):
@@ -96,6 +116,14 @@ async def scrape_pages(urls: List[str]) -> List[Dict]:
 
 async def request_reviews_api(url: str, start_index: int, business_id):
     """request the graphql API for review data"""
+    pagionation_data = {
+        "version": 1,
+        "type": "offset",
+        "offset": start_index
+    }
+    pagionation_data = json.dumps(pagionation_data)
+    after = base64.b64encode(pagionation_data.encode('utf-8')).decode('utf-8') # decode the pagination values for the payload
+
     payload = json.dumps([
         {
             "operationName": "GetBusinessReviewFeed",
@@ -114,6 +142,7 @@ async def request_reviews_api(url: str, start_index: int, business_id):
                 1
             ],
             "isSearching": False,
+            "after": after, # pagination parameter
             "isTranslating": False,
             "translateLanguageCode": "en",
             "reactionsSourceFlow": "businessPageReviewSection",
@@ -137,7 +166,7 @@ async def request_reviews_api(url: str, start_index: int, business_id):
         'cache-control': 'no-cache',
         'content-type': 'application/json',
         'origin': 'https://www.yelp.com',
-        'referer': f'{url}?start={start_index}&sort_by=date_desc', # the referer header cotrnols the pagination
+        'referer': url, # main business page URL 
         'x-apollo-operation-name': 'GetBusinessReviewFeed'
     }
     response = await SCRAPFLY.async_scrape(
@@ -160,7 +189,7 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     business_id = parse_business_id(response_business)
 
     log.info("scraping the first review page")
-    first_page = await request_reviews_api(url=url, business_id=business_id, start_index=0)
+    first_page = await request_reviews_api(url=url, business_id=business_id, start_index=1)
     review_data = parse_review_data(first_page)
     reviews = review_data["reviews"]
     total_reviews = review_data["total_reviews"]

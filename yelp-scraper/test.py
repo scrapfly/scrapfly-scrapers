@@ -25,35 +25,45 @@ page_schema = {
 }
 
 review_schema = {
-    "id": {"type": "string"},
-    "userId": {"type": "string"},
+    "encid": {"type": "string"},
+    "text": {
+        "type": "dict",
+        "schema": {
+            "full": {"type": "string"}
+        }
+    },
+    "rating": {"type": "integer"},
+    "author": {
+        "type": "dict",
+        "schema": {
+            "encid": {"type": "string"},
+            "displayName": {"type": "string"},
+            "displayLocation": {"type": "string"},
+            "reviewCount": {"type": "integer"},
+            "friendCount": {"type": "integer"},
+            "businessPhotoCount": {"type": "integer"},
+        }
+    },
     "business": {
         "type": "dict",
         "schema": {
-            "id": {"type": "string"},
+            "encid": {"type": "string"},
             "alias": {"type": "string"},
-            "name": {"type": "string"},
-            "photoSrc": {"type": "string"},
-        },
+            "name": {"type": "string"}
+        }
     },
-    "user": {
-        "type": "dict",
+    "createdAt": {"type": "string"},
+    "businessPhotos": {
+        "type": "list",
         "schema": {
-            "link": {"type": "string"},
-            "src": {"type": "string"},
-            "srcSet": {"type": "string", "nullable": True},
-            "displayLocation": {"type": "string"},
-            "altText": {"type": "string"},
-            "userUrl": {"type": "string"},
-        },
-    },
-    "comment": {
-        "type": "dict",
-        "schema": {
-            "text": {"type": "string"},
-            "language": {"type": "string"},
-        },
-    },
+            "type": "dict",
+            "schema": {
+                "encid": {"type": "string"},
+                "photoUrl": {"type": "string"},
+                "caption": {"type": "string", "nullable": True},
+            }
+        }
+    }
 }
 
 search_schema = {
@@ -119,7 +129,7 @@ async def test_page_scraping():
         validate_or_fail(item, validator)
         assert len(business_data) >= 1
 
-import json
+
 @pytest.mark.asyncio
 async def test_search_scraping():
     search_data = await yelp.scrape_search(
