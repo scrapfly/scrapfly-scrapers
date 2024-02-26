@@ -23,7 +23,7 @@ async def run():
         urls=[
             "https://www.zoopla.co.uk/new-homes/details/66709939",
             "https://www.zoopla.co.uk/new-homes/details/66702316/",
-            "https://www.zoopla.co.uk/new-homes/details/65832784/"
+            "https://www.zoopla.co.uk/new-homes/details/65539749/"
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
