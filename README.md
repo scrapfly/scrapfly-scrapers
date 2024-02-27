@@ -91,6 +91,7 @@ The following is the list of supported websites grouped by type.
 ### Social Media
 - [Instagram.com](#instagram)
 - [Threads.net](#threads)
+- [Tiktok.com](#tiktok)
 - [Twitter.com](#twitterx)
 
 ### Travel
@@ -629,6 +630,27 @@ The [threads.net scraper](./threads-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to scrape Threads by Meta using Python (2023-08 Update)](https://scrapfly.io/blog/how-to-scrape-threads/)
+
+### TikTok
+
+The [tiktok.com scraper](./tiktok-scraper/) can scrape the following data:
+- TikTok post pages for post/video data.
+- TikTok comments for comment data on a specific post/video.
+- TikTok profile pages for profile data.
+- TikTok search pages for video data on search results. It can scrape profiles as well.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Comment data](./tiktok-scraper/results/comments.json)  
+  - [Post data](./tiktok-scraper/results/posts.json)
+  - [Profile data](./tiktok-scraper/results/profiles.json)
+  - [Search data](./tiktok-scraper/results/search.json)
+
+
+</details> 
+
+For the full guide, refer to our blog article 
 
 ### Tripadvisor
 <!-- <p align="left">
