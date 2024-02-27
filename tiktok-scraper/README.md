@@ -10,6 +10,7 @@ This scraper scrapes:
 - TikTok post pages for post/video data.
 - TikTok comments for comment data on a specific post/video.
 - TikTok profile pages for profile data.
+- TikTok channel pages for video data.
 - TikTok search pages for video data on search results. It can scrape profiles as well.
 
 For output examples see the `./results` directory.
@@ -46,4 +47,5 @@ This TikTok.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.or
     $ poetry run pytest test.py -k test_post_scraping
     $ poetry run pytest test.py -k test_profile_scraping
     $ poetry run pytest test.py -k test_search_scraping
+    $ poetry run pytest test.py -k test_channel_scraping
     ```

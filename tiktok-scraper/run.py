@@ -17,7 +17,7 @@ output.mkdir(exist_ok=True)
 async def run():
     # enable scrapfly cache
     tiktok.BASE_CONFIG["cache"] = False
-    tiktok.BASE_CONFIG["debug"] = False
+    tiktok.BASE_CONFIG["debug"] = True
 
     print("running TikTok scrape and saving results to ./results directory")
 
@@ -58,6 +58,13 @@ async def run():
     # videos - > https://www.tiktok.com/api/search/item/full/?cursor=0&keyword=whales
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
+
+
+    channel_data = await tiktok.scrape_channel(
+        url="https://www.tiktok.com/@oddanimalspecimens"
+    )
+    with open(output.joinpath("channel.json"), "w", encoding="utf-8") as file:
+        json.dump(channel_data, file, indent=2, ensure_ascii=False)    
 
 
 if __name__ == "__main__":

@@ -102,6 +102,22 @@ search_schema = {
     }
 }
 
+channel_schema = {
+    "createTime": {"type": "integer"},
+    "desc": {"type": "string"},
+    "id": {"type": "string"},
+    "stats": {
+        "type": "dict",
+        "schema": {
+            "diggCount": {"type": "integer"},
+            "shareCount": {"type": "integer"},
+            "commentCount": {"type": "integer"},
+            "playCount": {"type": "integer"},
+            "collectCount": {"type": "integer"},
+        }
+    }
+}
+
 
 @pytest.mark.asyncio
 async def test_comment_scraping():
@@ -156,3 +172,15 @@ async def test_search_scraping():
         assert validator.validate(item), {"item": item, "errors": validator.errors}
 
     assert len(search_data) >= 18
+
+
+@pytest.mark.asyncio
+async def test_channel_scraping():
+    channel_data = await tiktok.scrape_channel(
+        url="https://www.tiktok.com/@oddanimalspecimens"        
+    )
+    validator = Validator(channel_schema, allow_unknown=True)
+    for item in channel_data:
+        assert validator.validate(item), {"item": item, "errors": validator.errors}
+
+    assert len(channel_data) >= 5

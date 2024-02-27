@@ -218,3 +218,46 @@ async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -
 
     log.success(f"scraped {len(search_data)} from the search API from the keyword {keyword}")
     return search_data
+
+
+def parse_channel(response: ScrapeApiResponse):
+    """parse channel video data from XHR calls"""
+    # extract the xhr calls and extract the ones for videos
+    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
+    post_calls = [c for c in _xhr_calls if "/api/post/item_list/" in c["url"]]
+    post_data = []
+    for post_call in post_calls:
+        try:
+            data = json.loads(post_call["response"]["body"])["itemList"]
+        except Exception:
+            raise Exception("Post data couldn't load")
+        post_data.extend(data)
+    # parse all the data using jmespath
+    parsed_data = []
+    for post in post_data:
+        result = jmespath.search(
+            """{
+            createTime: createTime,
+            desc: desc,
+            id: id,
+            stats: stats,
+            contents: contents[].{desc: desc, textExtra: textExtra[].{hashtagName: hashtagName}}
+            }""",
+            post
+        )
+        parsed_data.append(result)    
+    return parsed_data
+
+
+async def scrape_channel(url: str) -> List[Dict]:
+    """scrape video data from a channel (profile with videos)"""
+    # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
+    js="""const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? console.log("Reached the bottom or maximum iterations. Stopping further iterations.") : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 3000)); scrollToEnd();"""
+    log.info(f"scraping channel page with the URL {url} for post data")
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, asp=True, country="GB", render_js=True, rendering_wait=2000, js=js
+    ))
+    data = parse_channel(response)
+    log.success(f"scraped {len(data)} posts data")
+    return data
+    

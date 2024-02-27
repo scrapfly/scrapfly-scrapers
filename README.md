@@ -637,6 +637,7 @@ The [tiktok.com scraper](./tiktok-scraper/) can scrape the following data:
 - TikTok post pages for post/video data.
 - TikTok comments for comment data on a specific post/video.
 - TikTok profile pages for profile data.
+- TikTok channel pages for video data.
 - TikTok search pages for video data on search results. It can scrape profiles as well.
 
 <details class="is-code">
@@ -645,6 +646,7 @@ The [tiktok.com scraper](./tiktok-scraper/) can scrape the following data:
   - [Comment data](./tiktok-scraper/results/comments.json)  
   - [Post data](./tiktok-scraper/results/posts.json)
   - [Profile data](./tiktok-scraper/results/profiles.json)
+  - [Channel data](./tiktok-scraper/results/channel.json)
   - [Search data](./tiktok-scraper/results/search.json)
 
 
