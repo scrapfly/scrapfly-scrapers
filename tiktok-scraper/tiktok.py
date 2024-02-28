@@ -6,6 +6,8 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
+import datetime
+import secrets
 import json
 import jmespath
 from typing import Dict, List
@@ -137,8 +139,8 @@ async def scrape_profiles(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        post_data = parse_profile(response)
-        data.append(post_data)
+        profile_data = parse_profile(response)
+        data.append(profile_data)
     log.success(f"scraped {len(data)} profiles from profile pages")
     return data
 
@@ -182,13 +184,22 @@ async def obtain_session(url: str) -> str:
 async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -> List[Dict]:
     """scrape tiktok search data from the search API"""
 
+    def generate_search_id():
+        # get the current datetime and format it as YYYYMMDDHHMMSS
+        timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        # calculate the length of the random hex required for the total length (32)
+        random_hex_length = (32 - len(timestamp)) // 2  # calculate bytes needed
+        random_hex = secrets.token_hex(random_hex_length).upper()
+        random_id = timestamp + random_hex
+        return random_id
+
     def form_api_url(cursor: int):
         """form the reviews API URL and its pagination values"""
         base_url = "https://www.tiktok.com/api/search/general/full/?"
         params = {
             "keyword": quote(keyword),
             "offset": cursor, # the index to start from
-            "search_id": "2024022710453229C796B3BF936930E248"
+            "search_id": generate_search_id()
         }
         return base_url + urlencode(params)
 
@@ -225,16 +236,16 @@ def parse_channel(response: ScrapeApiResponse):
     # extract the xhr calls and extract the ones for videos
     _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
     post_calls = [c for c in _xhr_calls if "/api/post/item_list/" in c["url"]]
-    post_data = []
+    channel_data = []
     for post_call in post_calls:
         try:
             data = json.loads(post_call["response"]["body"])["itemList"]
         except Exception:
             raise Exception("Post data couldn't load")
-        post_data.extend(data)
+        channel_data.extend(data)
     # parse all the data using jmespath
     parsed_data = []
-    for post in post_data:
+    for post in channel_data:
         result = jmespath.search(
             """{
             createTime: createTime,
