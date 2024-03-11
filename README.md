@@ -45,6 +45,7 @@ The following is the list of supported websites grouped by type.
 ### E-Commerce
 - [Aliexpress.com](#aliexpress)
 - [Amazon.com](#amazon)
+- [BestBuy.com](#bestbuy)
 - [Ebay.com](#ebay)
 - [Etsy.com](#etsy)
 - [Leboncoin.fr](#leboncoin)
@@ -142,6 +143,26 @@ The [amazon.com scraper](./amazon-scraper/) can scrape the following data:
 </details>  
 
 For the full guide, refer to our blog article [How to Scrape Amazon.com Product Data and Reviews](https://scrapfly.io/blog/how-to-scrape-amazon/)
+
+### BestBuy
+
+The [bestbuy.com scraper](./bestbuy-scraper/) can scrape the following data:
+- BestBuy sitemaps for URLs.
+- BestBuy product pages for product data.
+- BestBuy search pages for product data on search pages.
+- BestBuy review pages for review data
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Sitemap pages](./bestbuy-scraper/results/promos.json)
+  - [Product pages](./bestbuy-scraper/results/products.json)
+  - [Review pages](./bestbuy-scraper/results/reviews.json)
+  - [Search pages](./bestbuy-scraper/results/search.json) 
+
+</details>  
+
+For the full guide, refer to our blog article 
 
 ### Bing
 The [bing.com scraper](./bing-scraper/) can scrape the following data:
