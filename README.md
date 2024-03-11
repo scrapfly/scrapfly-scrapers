@@ -673,7 +673,8 @@ The [tiktok.com scraper](./tiktok-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article 
+For the full guide, refer to our blog article [How To Scrape TikTok in 2024
+](https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/)
 
 ### Tripadvisor
 <!-- <p align="left">
