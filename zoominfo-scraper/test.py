@@ -46,7 +46,7 @@ company_schema = {
                 "logo": {"type": "string"},
                 "vendorFullName": {"type": "string"},
                 "vendorDisplayName": {"type": "string"},
-                "vendorId": {"type": "integer"},
+                "vendorId": {"type": "string"},
             },
         },
     },
