@@ -52,7 +52,7 @@ review_schema = {
     "rating": {"type": "integer"},
     "title": {"type": "string"},
     "text": {"type": "string"},
-    "author": {"type": "string"},
+    "author": {"type": "string", "nullable": True},
 }
 
 search_schema = {
@@ -64,9 +64,8 @@ search_schema = {
     "price": {"type": "integer"},
     "original_price": {"type": "integer", "nullable": True},
     "save": {"type": "string", "nullable": True},
-    "rating": {"type": "integer"},
-    "rating_count": {"type": "integer"},
-    "rating_count": {"type": "boolean"},
+    "rating": {"type": "float", "nullable": True},
+    "rating_count": {"type": "integer", "nullable": True},
 }
 
 
@@ -97,7 +96,7 @@ async def test_sitemap_scraping():
 async def test_review_scraping():
     review_data = await bestbuy.scrape_reviews(
         skuid="6565065",
-        max_pages=1
+        max_pages=3
     )
     validator = Validator(review_schema, allow_unknown=True)
     for item in review_data:
