@@ -270,7 +270,7 @@ async def test_properties_scraping():
         urls=[
             "https://www.zoopla.co.uk/new-homes/details/66709939",
             "https://www.zoopla.co.uk/new-homes/details/66702316/",
-            "https://www.zoopla.co.uk/new-homes/details/65832784/"
+            "https://www.zoopla.co.uk/new-homes/details/65539749/"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
