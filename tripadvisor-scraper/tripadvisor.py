@@ -216,7 +216,7 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
     for review in selector.xpath("//div[@data-reviewid]"):
         title = review.xpath(".//div[@data-test-target='review-title']/a/span/span/text()").get()
         text = "".join(review.xpath(".//span[contains(@data-automation, 'reviewText')]/span/text()").extract())
-        rate = review.xpath(".//div[@data-test-target='review-rating']/*/@aria-label").get()
+        rate = review.xpath(".//div[@data-test-target='review-rating']/*/*[contains(text(),'of 5 bubbles')]/text()").get()
         rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
         trip_data = review.xpath(".//span[span[contains(text(),'Date of stay')]]/text()").get()
         reviews.append({
