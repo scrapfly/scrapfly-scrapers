@@ -87,7 +87,7 @@ def parse_product(response: ScrapeApiResponse) -> Dict:
     data["faqs"] = json.loads(selector.xpath("//script[contains(@id, 'content-question')]/text()").get())
     data["pricing"] = json.loads(selector.xpath("//script[contains(@id, 'pricing-price')]/text()").get())
     data["reviews"] = json.loads(selector.xpath("//script[contains(@id, 'ratings-and-reviews')]/text()").get())
-    
+ 
     parsed_product = refine_product(data)
     return parsed_product
 
@@ -97,8 +97,12 @@ async def scrape_products(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        product_data = parse_product(response)
-        data.append(product_data)
+        try:
+            product_data = parse_product(response)
+            data.append(product_data)
+        except:
+            pass
+            log.debug("expired product page")
     log.success(f"scraped {len(data)} products from product pages")
     return data
 
