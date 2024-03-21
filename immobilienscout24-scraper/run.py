@@ -14,7 +14,7 @@ output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
 async def run():
-    immobilienscout24.BASE_CONFIG["cache"] = True
+    immobilienscout24.BASE_CONFIG["cache"] = False
 
     print("running Immobilienscout24 scrape and saving results to ./results directory")
 
