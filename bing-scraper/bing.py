@@ -131,7 +131,7 @@ async def scrape_keywords(query: str):
     """scrape bing search pages for keyword data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
     log.info("scraping Bing search for keyword data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
     keyword_data = parse_keywords(response)
     log.success(
         f"scraped {len(keyword_data['related_keywords'])} keywords and {len(keyword_data['FAQs'])} FAQs from Bing search"
