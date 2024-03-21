@@ -88,6 +88,7 @@ The following is the list of supported websites grouped by type.
 
 ### Search Engines
 - [Bing.com](#bing)
+- [Similarweb.com](#similarweb)
 
 ### Social Media
 - [Instagram.com](#instagram)
@@ -162,7 +163,7 @@ The [bestbuy.com scraper](./bestbuy-scraper/) can scrape the following data:
 
 </details>  
 
-For the full guide, refer to our blog article 
+For the full guide, refer to our blog article [How to Scrape BestBuy Product, Offer and Review Data](https://scrapfly.io/blog/how-to-scrape-bestbuy-product-offer-and-review-data/)
 
 ### Bing
 The [bing.com scraper](./bing-scraper/) can scrape the following data:
@@ -613,6 +614,29 @@ The [seloger.com scraper](./seloger-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Seloger.com - Real Estate Listing Data](https://scrapfly.io/blog/how-to-scrape-seloger-com-listing-real-estate-ads/)
+
+### Similarweb
+<!-- <p align="left">
+  <img width="200" height="100" src="./.github/assets/SeLoger-2017.svg">
+</p> -->
+
+The [similarweb.com scraper](./similarweb-scraper/) can scrape the following data:
+- Similarweb.com website pages for website traffic inisghts
+- Similarweb.com website comparing pages for comparing insights
+- Similarweb.com website trend pages for trending websites data
+- Similarweb.com sitemaps for urls
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Website pages](./similarweb-scraper/results/websites.json)
+  - [Website compare pages](./similarweb-scraper/results/websites_compare.json)  
+  - [Trend pages](./similarweb-scraper/results/trends.json)  
+  - [Sitemaps](./similarweb-scraper/results/sitemap_urls.json)  
+
+</details> 
+
+For the full guide, refer to our blog article 
 
 ### Stockx
 <!-- <p align="left">
