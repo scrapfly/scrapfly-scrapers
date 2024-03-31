@@ -637,7 +637,8 @@ The [similarweb.com scraper](./similarweb-scraper/) can scrape the following dat
 
 </details> 
 
-For the full guide, refer to our blog article 
+For the full guide, refer to our blog article [How to Scrape SimilarWeb Website Traffic Analytics
+](https://scrapfly.io/blog/how-to-scrape-similarweb/)
 
 ### Stockx
 <!-- <p align="left">
