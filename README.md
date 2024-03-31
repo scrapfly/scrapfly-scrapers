@@ -65,6 +65,7 @@ The following is the list of supported websites grouped by type.
 - [Indeed.com](#indeed)
 - [Zoominfo.com](#zoominfo)
 - [Wellfound.com](#wellfound)
+- [Linkedin.com](#linkedin)
 
 ### Real Estate
 - [Domain.com.au](#domain)
@@ -838,6 +839,26 @@ The [wellfound.com scraper](./wellfound-scraper/) can scrape the following data:
 </details> 
 
 For the full guide, refer to our blog article [How to Scrape Wellfound Company Data and Job Listings](https://scrapfly.io/blog/how-to-scrape-wellfound-aka-angellist/)
+
+### Linkedin
+
+The [linkedin.com scraper](./linkedin-scraper/) can scrape the following data:
+- Linkedin public profile pages for profile data
+- Linkedin company pages for company data
+- Linkedin job search pages for job data
+- Linkedin job pages for detailed job data
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Profile pages](./linkedin-scraper/results/profile.json)
+  - [Company pages](./linkedin-scraper/results/company.json)
+  - [Job search pages](./linkedin-scraper/results/job_search.json)
+  - [Job pages](./linkedin-scraper/results/jobs.json)
+
+</details> 
+
+For the full guide, refer to our blog article
 
 ### Yellowpages
 <!-- <p align="left">

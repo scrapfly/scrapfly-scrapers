@@ -1,0 +1,166 @@
+[
+  {
+    "@context": "http://schema.org",
+    "@type": "JobPosting",
+    "datePosted": "2024-03-07T14:20:22.000Z",
+    "employmentType": "FULL_TIME",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "LTIMindtree",
+      "sameAs": "https://in.linkedin.com/company/ltimindtree",
+      "logo": "https://media.licdn.com/dms/image/D4D0BAQH26vEc2KRwsQ/company-logo_200_200/0/1704351215489?e=2147483647&amp;v=beta&amp;t=lunasZKbztyfyb5IDwied0q7Eys_PeGNRKNN2hiRxwI"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "LTIMindtree"
+    },
+    "image": "https://media.licdn.com/dms/image/D4D0BAQH26vEc2KRwsQ/company-logo_100_100/0/1704351215489?e=2147483647&amp;v=beta&amp;t=dxemJZvZTahW-4UnXsmpLdShnPvj5GbPutcBfJ01TjE",
+    "industry": "Banking",
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Charlotte",
+        "addressRegion": "NC",
+        "streetAddress": null
+      },
+      "latitude": 35.223785,
+      "longitude": -80.84114
+    },
+    "skills": "",
+    "title": "Python Developer",
+    "validThrough": "2024-06-03T15:32:45.000Z",
+    "educationRequirements": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "bachelor degree"
+    },
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": {
+        "@type": "QuantitativeValue",
+        "minValue": 98015,
+        "maxValue": 146600,
+        "unitText": "YEAR"
+      }
+    },
+    "jobDescription": [
+      "Comprehensive Medical Plan Covering Medical, Dental, Vision",
+      "Short Term and Long-Term Disability Coverage",
+      "401(k) Plan with Company match",
+      "Life Insurance",
+      "Vacation Time, Sick Leave, Paid Holidays",
+      "Paid Paternity and Maternity Leave"
+    ]
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "JobPosting",
+    "datePosted": "2024-03-19T04:21:25.000Z",
+    "employmentType": "FULL_TIME",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Donato Technologies, Inc.",
+      "sameAs": "https://www.linkedin.com/company/donatotechnologies",
+      "logo": "https://media.licdn.com/dms/image/C560BAQFL_YmWyvT8sA/company-logo_200_200/0/1643800115955/donatotechnologies_logo?e=2147483647&amp;v=beta&amp;t=ZJv3Fxvp1oPMuicP86yjjOU7qavUTbrUxxO0NE1_8Dc"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Donato Technologies, Inc.",
+      "value": "1474-13517"
+    },
+    "image": "https://media.licdn.com/dms/image/C560BAQFL_YmWyvT8sA/company-logo_100_100/0/1643800115955/donatotechnologies_logo?e=2147483647&amp;v=beta&amp;t=XU6C7uMRS3hZnOqoQY1rQ1xSgwtTo5dhF4AM8PW3OSM",
+    "industry": "IT Services and IT Consulting",
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Dallas",
+        "addressRegion": "TX",
+        "streetAddress": null
+      },
+      "latitude": 32.777977,
+      "longitude": -96.79621
+    },
+    "skills": "",
+    "title": "Python Developer",
+    "validThrough": "2024-04-12T22:20:17.000Z",
+    "educationRequirements": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "bachelor degree"
+    },
+    "jobDescription": [
+      "Develop and maintain Python-based applications for data engineering and machine learning purposes.",
+      "Collaborate with cross-functional teams to design and implement scalable solutions for data processing and analysis.",
+      "Implement and optimize pyspark code for efficient distributed data processing.",
+      "Utilize NoSQL databases, particularly MongoDB, for data storage and retrieval in large-scale applications.",
+      "Design and implement real-time streaming solutions for data ingestion and processing.",
+      "Deploy and manage applications in Kubernetes environments, ensuring scalability, reliability, and performance.",
+      "Design, build, and deploy machine learning pipelines, incorporating best practices for model training, evaluation, and deployment.",
+      "Utilize Delta Live Tables for managing data changes and versioning in data lake environments.",
+      "Work closely with DevOps teams to automate deployment processes using Azure DevOps and other CI/CD tools.",
+      "Stay updated on emerging technologies and industry trends in data engineering, machine learning, and cloud computing.",
+      "Bachelor's degree in Computer Science, Engineering, or related field.",
+      "Strong proficiency in Python programming language and Pyspark Coding.",
+      "Experience with distributed data processing frameworks such as pyspark.",
+      "Hands-on experience with NoSQL databases, particularly MongoDB.",
+      "Familiarity with real-time streaming technologies and frameworks.",
+      "Experience deploying and managing applications in Kubernetes environments.",
+      "Knowledge of containerization technologies such as Docker.",
+      "Experience designing and deploying machine learning pipelines.",
+      "Familiarity with cloud platforms such as Azure.",
+      "Excellent problem-solving skills and attention to detail.",
+      "Strong communication and collaboration skills."
+    ]
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "JobPosting",
+    "datePosted": "2023-08-24T16:01:07.000Z",
+    "employmentType": "INTERN",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "MindPal",
+      "sameAs": "https://www.linkedin.com/company/mindpal.co",
+      "logo": "https://media.licdn.com/dms/image/D4D0BAQFpOiVxKmnTwQ/company-logo_200_200/0/1709549359964/mindpalco_logo?e=2147483647&amp;v=beta&amp;t=WtU12x4Vweo-Lkq2JURbTdygqrSJ_DzWPMdLLTlcgKE"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "MindPal",
+      "value": "230979"
+    },
+    "image": "https://media.licdn.com/dms/image/D4D0BAQFpOiVxKmnTwQ/company-logo_100_100/0/1709549359964/mindpalco_logo?e=2147483647&amp;v=beta&amp;t=0ze5UTvOhL_Nj0XOcq64tlZuzwpL7z1LFrv7TeRaEHg",
+    "industry": "Staffing and Recruiting",
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "streetAddress": null
+      },
+      "latitude": 33.448204,
+      "longitude": -112.072586
+    },
+    "skills": "",
+    "title": "Python Developer (internship)",
+    "validThrough": "2024-04-27T14:31:35.000Z",
+    "educationRequirements": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "bachelor degree"
+    },
+    "jobDescription": [
+      "Maintain and develop the backend of a recruitment platform based on the Django Rest Framework",
+      "Write unit tests for new functionalities",
+      "Deliver readable and transparent code",
+      "Build dashboards based on SQL queries and process the results",
+      "Have direct contact with the client",
+      "Enthusiasm for learning and an open mind",
+      "Knowledge of Python/Django and an interest in AI/LLM",
+      "Candidates ready to work from our office in Gliwice"
+    ]
+  }
+]
