@@ -36,8 +36,8 @@ def parse_search_page(response: ScrapeApiResponse):
         name = result.xpath(".//div[contains(@class, 'product-name')]/a/div/text()").get()
         link = result.xpath(".//div[contains(@class, 'product-name')]/a/@href").get()
         image = result.xpath(".//a[contains(@class, 'listing__img')]/img/@data-deferred-image-src").get()
-        rate = result.xpath(".//a[contains(@title, 'Reviews')]/div[2]/span/text()").get()
-        reviews_number = result.xpath(".//a[contains(@title, 'Reviews')]/span/text()").get()
+        rate = result.xpath(".//a[contains(@title, 'Reviews')]/div/span[2]/span[1]/text()").get()
+        reviews_number = result.xpath(".//a[contains(@title, 'Reviews')]/div/span[1]/text()").get()
         description = result.xpath(".//span[contains(@class, 'paragraph')]/text()").get()
         categories = []
         for category in result.xpath(".//div[span[contains(text(),'Categories')]]/a/text()"):
