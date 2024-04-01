@@ -41,6 +41,7 @@ class PropertyResult(TypedDict):
     details: dict
     agency: dict
 
+
 def parse_next_data(result: ScrapeApiResponse) -> Dict:
     """parse hidden data from script tags"""
     next_data = result.selector.css("script#__NEXT_DATA__::text").get()
@@ -75,12 +76,6 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     return result
 
 
-def _get_max_search_pages(response: ScrapeApiResponse):
-    selector = response.selector
-    data = selector.css("script#__NEXT_DATA__::text").get()
-    data = json.loads(data)
-    return data["props"]["pageProps"]["pagination"]["pageNumberMax"]
-
 async def scrape_properties(urls: List[str]):
     """scrape zoopla property listings from property pages"""
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
@@ -90,6 +85,43 @@ async def scrape_properties(urls: List[str]):
         log.info("scraping property page {}", result.context["url"])
         properties.append(parse_property(result))
     return properties
+
+
+def parse_search(response: ScrapeApiResponse):
+    """parse property data from Zoopla search pages"""
+    selector = response.selector
+    data = []
+    total_results = int(selector.xpath("//p[@data-testid='total-results']/text()").get().split(" ")[0])
+    total_pages = total_results // 25 # each page contains 25 results
+    for box in selector.xpath("//div[@data-testid='regular-listings']/div"):
+        url = box.xpath(".//a/@href").get()
+        price = box.xpath(".//p[@data-testid='listing-price']/text()").get()
+        price = int(price.replace("£", "").replace(",", "")) if price else None
+        sq_ft = box.xpath(".//span[contains(text(),'sq. ft')]/text()").get()
+        sq_ft = int(sq_ft.split(" ")[0]) if sq_ft else None
+        listed_on = box.xpath(".//li[contains(text(), 'Listed on')]/text()").get()
+        listed_on = listed_on.split("on")[-1].strip() if listed_on else None
+        bathrooms = box.xpath(".//li[span[text()='Bathrooms']]/span[not(contains(text(), 'Bathrooms'))]/text()").get()
+        bedrooms = box.xpath(".//li[span[text()='Bedrooms']]/span[not(contains(text(), 'Bedrooms'))]/text()").get()
+        livingrooms = box.xpath(".//li[span[text()='Living rooms']]/span[not(contains(text(), 'Living'))]/text()").get()
+        image = box.xpath(".//picture/source/@srcset").get()
+        data.append({
+            "title": box.xpath(".//h2[@data-testid='listing-title']/text()").get(),
+            "price": price,
+            "priceCurrency": "Sterling pound £",
+            "url": "https://www.zoopla.co.uk" + url.split("?")[0] if url else None,
+            "image": image.split(":p")[0] if image else None,
+            "address": box.xpath(".//address/text()").get(),
+            "squareFt": sq_ft,
+            "numBathrooms": int(bathrooms) if bathrooms else None,
+            "numBedrooms": int(bedrooms) if bedrooms else None,
+            "numLivingRoom": int(livingrooms) if livingrooms else None,
+            "description": box.xpath(".//div[h2[@data-testid='listing-title']]/p/text()").get(),
+            "justAdded": bool(box.xpath(".//div[text()='Just added']/text()").get()),
+            "propertyType": box.xpath(".//ul[position()=2]/li/div/div/text()").get(),
+            "timeAdded": listed_on
+        })
+    return {"search_data": data, "total_pages": total_pages}
 
 
 async def scrape_search(
@@ -107,11 +139,11 @@ async def scrape_search(
             **BASE_CONFIG,
         )
     )
-    data = parse_next_data(first_page)
+    data = parse_search(first_page)
     # extract property listings
-    search_data = data["regularListingsFormatted"]
+    search_data = data["search_data"]
     # get the number of the available search pages 
-    max_search_pages = _get_max_search_pages(first_page)
+    max_search_pages = data["total_pages"]
     # scrape all available pages in the search if scrape_all_pages = True or max_search_pages > max_scrape_pages
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         total_pages_to_scrape = max_scrape_pages
@@ -125,7 +157,7 @@ async def scrape_search(
     ]
     # scrape the remaining search page concurrently
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):
-        page_data = parse_next_data(result)["regularListingsFormatted"]
+        page_data = parse_search(result)["search_data"]
         search_data.extend(page_data)
     log.info("scraped {} search listings from {}", len(search_data), first_page.context['url'])
     return search_data

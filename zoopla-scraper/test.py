@@ -15,115 +15,29 @@ def validate_or_fail(item, validator):
             f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}"
         )
 
+
+def require_min_presence(items, key, min_perc=0.1):
+    """check whether dataset contains items with some amount of non-null values for a given key"""
+    count = sum(1 for item in items if item.get(key))
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
+        )
+
+
 search_schema = {
-    "schema": {
-        "type": "dict",
-        "schema": {
-            "address": {"type": "string"},
-            "alternativeRentFrequencyLabel": {"type": "string", "nullable": True},
-            "availableFrom": {"type": "string", "nullable": True},
-            "branch": {
-                "type": "dict",
-                "schema": {
-                    "branchId": {"type": "integer"},
-                    "branchDetailsUri": {"type": "string"},
-                    "logoUrl": {"type": "string"},
-                    "name": {"type": "string"},
-                    "phone": {"type": "string"},
-                    "address": {"type": "string"},
-                }
-            },
-            "branchDetailsUri": {"type": "string"},
-            "featuredType": {"type": "string", "nullable": True},
-            "features": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "iconId": {"type": "string"},
-                        "content": {"type": "integer"},
-                    }
-                }
-            },
-            "flag": {"type": "string"},
-            "image": {
-                "type": "dict",
-                "schema": {
-                    "src": {"type": "string"},
-                    "responsiveImgList": {
-                        "type": "list",
-                        "schema": {
-                            "type": "dict",
-                            "schema": {
-                                "width": {"type": "integer"},
-                                "src": {"type": "string"}
-                            }
-                        }
-                    },
-                    "caption": {"type": "string"}
-                }
-            },
-            "isPremium": {"type": "boolean"},
-            "lastPublishedDate": {"type": "string"},
-            "listingId": {"type": "string"},
-            "listingUris": {
-                "type": "dict",
-                "schema": {
-                    "contact": {"type": "string"},
-                    "detail": {"type": "string"},
-                    "success": {"type": "string"}
-                }
-            },
-            "location": {
-                "type": "dict",
-                "schema": {
-                    "coordinates": {
-                        "type": "dict",
-                        "schema": {
-                            "isApproximate": {"type": "boolean"},
-                            "latitude": {"type": "integer", "nullable": True},
-                            "longitude": {"type": "integer", "nullable": True},
-                        }
-                    }
-                }
-            },
-            "numberOfFloorPlans": {"type": "integer"},
-            "numberOfImages": {"type": "integer"},
-            "numberOfVideos": {"type": "integer"},
-            "price": {"type": "string"},
-            "priceDrop": {"type": "string", "nullable": True},
-            "priceTitle": {"type": "string", "nullable": True},
-            "propertyType": {"type": "string"},
-            "publishedOn": {"type": "string"},
-            "publishedOnLabel": {"type": "string"},
-            "shortPriceTitle": {"type": "string"},
-            "summaryDescription": {"type": "string"},
-            "tags": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "content": {"type": "string"}
-                    }
-                }
-            },
-            "title": {"type": "string"},
-            "underOffer": {"type": "boolean"},
-            "availableFromLabel": {"type": "string"},
-            "isFavourite": {"type": "boolean"},
-            "content": {"type": "string"},
-            "gallery": {
-                "type": "list",
-                "schema": {
-                    "type": "list",
-                    "schema": {
-                        "type": "string", "nullable": True,
-                        "type": "string",
-                    }
-                }
-            }
-        }
-    }
+    "title": {"type": "string"},
+    "price": {"type": "integer"},
+    "url": {"type": "string"},
+    "image": {"type": "string"},
+    "address": {"type": "string"},
+    "squareFt": {"type": "integer", "nullable": True},
+    "numBathrooms": {"type": "integer", "nullable": True},
+    "numBedrooms": {"type": "integer", "nullable": True},
+    "numLivingRoom": {"type": "integer", "nullable": True},
+    "justAdded": {"type": "boolean", "nullable": True},
+    "propertyType": {"type": "string", "nullable": True},
+    "timeAdded": {"type": "string"},
 }
 
 property_schema = {
@@ -261,7 +175,11 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 2
+
+    for k in search_schema:
+        require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))  
+
+    assert len(search_data) >= 25
 
 
 @pytest.mark.asyncio
