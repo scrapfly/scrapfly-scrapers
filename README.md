@@ -93,6 +93,7 @@ The following is the list of supported websites grouped by type.
 
 ### Social Media
 - [Instagram.com](#instagram)
+- [Reddit.com](#reddit)
 - [Threads.net](#threads)
 - [Tiktok.com](#tiktok)
 - [Twitter.com](#twitterx)
@@ -558,6 +559,28 @@ The [realtor.com scraper](./realtor-scraper/) can scrape the following data:
 
 For the full guide, refer to our blog article [How to Scrape Realtor.com - Real Estate Property Data](https://scrapfly.io/blog/how-to-scrape-realtorcom/)
 
+### Reddit
+
+The [reddit.com scraper](./reddit-scraper/) can scrape the following data:
+- Reddit subreddit pages for subbreddit and post data.
+- Reddit post pages for post and comment data.
+- Reddit user profile pages for post data.
+- Reddit user profile pages for comment data.
+
+<details class="is-code">
+  <summary>View sample data</summary>  
+
+  - [Subreddit pages](./reddit-scraper/results/subreddit.json)  
+  - [Post pages](./reddit-scraper/results/post.json)  
+  - [User comment pages](./reddit-scraper/results/user_comments.json)
+  - [User post pages](./reddit-scraper/results/user_posts.json)
+
+
+</details> 
+
+For the full guide, refer to our blog article
+
+
 ### Redfin
 <!-- <p align="left">
   <img width="300" height="150" src="./.github/assets/redfin-logo-vector.svg">
@@ -859,7 +882,7 @@ The [linkedin.com scraper](./linkedin-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article
+For the full guide, refer to our blog article [How to Scrape LinkedIn.com Profile, Company, and Job Data](https://scrapfly.io/blog/how-to-scrape-linkedin-person-profile-company-job-data/)
 
 ### Yellowpages
 <!-- <p align="left">

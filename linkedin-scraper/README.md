@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape data from linkedin.com. 
 
-Full tutorial 
+Full tutorial <https://scrapfly.io/blog/how-to-scrape-linkedin-person-profile-company-job-data/>
 
 The scraping code is located in the `linkedin.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
