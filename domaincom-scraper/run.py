@@ -16,14 +16,14 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    domaincom.BASE_CONFIG["cache"] = True
+    domaincom.BASE_CONFIG["cache"] = False
 
     print("running Domain.com.au scrape and saving results to ./results directory")
 
     properties_data = await domaincom.scrape_properties(
         urls = [
             "https://www.domain.com.au/610-399-bourke-street-melbourne-vic-3000-2018835548",
-            "https://www.domain.com.au/404-258-flinders-lane-melbourne-vic-3000-2018819448",
+            "https://www.domain.com.au/property-profile/308-9-degraves-street-melbourne-vic-3000",
             "https://www.domain.com.au/101-29-31-market-street-melbourne-vic-3000-2018799963"
         ]
     )

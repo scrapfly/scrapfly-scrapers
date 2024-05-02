@@ -34,61 +34,7 @@
       "",
       "In conjunction with Cushman & Wakefield - Oliver Hay 0419 528 540"
     ],
-    "loanfinder": {
-      "homeLoansApiUrl": "https://home-loans-api.domainloanfinder.com.au",
-      "configName": "dhl-domain-web",
-      "calculators": [
-        {
-          "name": "repayments",
-          "propertyPrice": "1080000",
-          "priceSource": "median",
-          "ingressApi": "https://www.domain.com.au/transactions-users-ingress-api/v1/dlf",
-          "usersApi": "https://www.domain.com.au/transactions-users-api/v1/users/loan-tools/repayments",
-          "loanTerm": "30",
-          "formActionUrl": "https://www.domain.com.au/loanfinder/basics/new-home?ltm_source=domain&ltm_medium=referral&ltm_campaign=domain_r_calculator_buy-listing_web&ltm_content=newloan_compare-home-loans",
-          "displayLogo": false,
-          "submitText": "Compare Home Loans",
-          "queryParams": {
-            "ltm_source": "domain",
-            "ltm_medium": "referral",
-            "ltm_campaign": "domain_r_calculator_buy-listing_web",
-            "ltm_content": "newloan_compare-home-loans"
-          },
-          "experimentName": "buy_listing_page_calculator_repayments",
-          "groupStats": {
-            "listingId": "2018799963",
-            "deviceType": "desktop"
-          },
-          "hasDeviceSessionId": false
-        },
-        {
-          "name": "upfront-costs",
-          "propertyPrice": "1080000",
-          "ingressApi": "https://www.domain.com.au/transactions-users-ingress-api/v1/dlf",
-          "usersApi": "https://www.domain.com.au/transactions-users-api/v1/users/loan-tools/ufc",
-          "formActionUrl": "https://www.domain.com.au/loanfinder/basics/new-home?ltm_source=domain&ltm_medium=referral&ltm_campaign=domain_ufc_calculator_buy-listing_web&ltm_content=newloan_check-options",
-          "submitText": "Compare Home Loans",
-          "firstHomeBuyer": "firstHomeBuyer",
-          "queryParams": {
-            "ltm_source": "domain",
-            "ltm_medium": "referral",
-            "ltm_campaign": "domain_ufc_calculator_buy-listing_web",
-            "ltm_content": "newloan_check-options"
-          },
-          "experimentName": "buy_listing_page_calculator_stamp_duty",
-          "groupStats": {
-            "listingId": "2018799963",
-            "deviceType": "desktop"
-          },
-          "hasDeviceSessionId": false
-        }
-      ],
-      "productReviewConfig": {
-        "brandId": "ba7f14c4-3f43-3018-b06c-93d6657e7602",
-        "widgetId": "04115d3d-113e-3cb1-8103-ba0bb5e8d765",
-        "widgetUrl": "https://cdn.productreview.com.au/assets/widgets/loader.js"
-      }
-    },
+    "loanfinder": null,
     "schools": [
       {
         "id": "",
@@ -134,23 +80,9 @@
       },
       {
         "id": "",
-        "educationLevel": "secondary",
-        "name": "Ozford College - Ozford College Campus",
-        "distance": 834.4880925378668,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "ozford-college-english-language-centre-vic-3000-52094"
-      },
-      {
-        "id": "",
         "educationLevel": "combined",
-        "name": "Haileybury College - City Campus",
-        "distance": 1066.0738843074175,
+        "name": "Haileybury College - City Girls",
+        "distance": 1060.2026429157534,
         "state": "VIC",
         "postCode": "3006",
         "year": "",
@@ -158,7 +90,21 @@
         "type": "Private",
         "address": "West Melbourne, VIC 3006",
         "url": "",
-        "domainSeoUrlSlug": "haileybury-college-city-campus-vic-3006-52423"
+        "domainSeoUrlSlug": "haileybury-college-city-girls-vic-3006-53317"
+      },
+      {
+        "id": "",
+        "educationLevel": "combined",
+        "name": "Haileybury College - City Boys",
+        "distance": 1060.2026429157534,
+        "state": "VIC",
+        "postCode": "3006",
+        "year": "",
+        "gender": "",
+        "type": "Private",
+        "address": "West Melbourne, VIC 3006",
+        "url": "",
+        "domainSeoUrlSlug": "haileybury-college-city-boys-vic-3006-53316"
       },
       {
         "id": "",
@@ -177,16 +123,44 @@
       {
         "id": "",
         "educationLevel": "secondary",
+        "name": "Ozford College - Ozford College Campus",
+        "distance": 1145.6642750721587,
+        "state": "VIC",
+        "postCode": "3000",
+        "year": "",
+        "gender": "",
+        "type": "Private",
+        "address": "Melbourne, VIC 3000",
+        "url": "",
+        "domainSeoUrlSlug": "ozford-college-english-language-centre-vic-3000-52094"
+      },
+      {
+        "id": "",
+        "educationLevel": "secondary",
         "name": "Ozford College",
         "distance": 1146.2576769703505,
         "state": "VIC",
         "postCode": "3000",
-        "year": "11-12",
+        "year": "10-11",
         "gender": "CoEd",
         "type": "Private",
         "address": "Melbourne, VIC 3000",
         "url": "http://www.ozford.edu.au",
         "domainSeoUrlSlug": "ozford-college-vic-3000-40714"
+      },
+      {
+        "id": "",
+        "educationLevel": "secondary",
+        "name": "Hester Hornbrook Academy - South Melbourne",
+        "distance": 1180.2221437265252,
+        "state": "VIC",
+        "postCode": "3205",
+        "year": "",
+        "gender": "",
+        "type": "Private",
+        "address": "South Melbourne, VIC 3205",
+        "url": "",
+        "domainSeoUrlSlug": "hester-hornbrook-academy-south-melbourne-vic-3205-53254"
       },
       {
         "id": "",
@@ -201,34 +175,6 @@
         "address": "Melbourne, VIC 3000",
         "url": "https://www.stotts.edu.au/",
         "domainSeoUrlSlug": "stotts-colleges-vic-3000-50313"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Hester Hornbrook Academy",
-        "distance": 1194.7224332236663,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "10-12",
-        "gender": "CoEd",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.melbournecitymission.org.au/services/.../hester-hornbrook-academy",
-        "domainSeoUrlSlug": "hester-hornbrook-academy-vic-3205-52517"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Holmes Grammar School",
-        "distance": 1389.7003866326284,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.holmes.edu.au/pages/schools-and-faculties/secondary",
-        "domainSeoUrlSlug": "holmes-secondary-college-vic-3000-40736"
       },
       {
         "id": "",
@@ -264,13 +210,13 @@
       "propertyType": "Unit",
       "suburb": "Melbourne",
       "suburbProfileUrl": "/suburb-profile/melbourne-vic-3000",
-      "medianPrice": 1080000,
-      "medianRentPrice": 1000,
-      "avgDaysOnMarket": 110,
-      "auctionClearance": 64,
-      "nrSoldThisYear": 102,
+      "medianPrice": 1072000,
+      "medianRentPrice": 1035,
+      "avgDaysOnMarket": 108,
+      "auctionClearance": 40,
+      "nrSoldThisYear": 114,
       "entryLevelPrice": 600000,
-      "luxuryLevelPrice": 3065000,
+      "luxuryLevelPrice": 3350000,
       "renterPercentage": 0.6970133677881032,
       "singlePercentage": 0.7628455892048701,
       "demographics": {
@@ -284,46 +230,46 @@
       },
       "salesGrowthList": [
         {
-          "medianSoldPrice": 1053000,
+          "medianSoldPrice": 1037000,
           "annualGrowth": 0,
-          "numberSold": 205,
-          "year": "2018",
-          "daysOnMarket": 108
-        },
-        {
-          "medianSoldPrice": 1109000,
-          "annualGrowth": 0.05318138651471985,
-          "numberSold": 165,
+          "numberSold": 166,
           "year": "2019",
-          "daysOnMarket": 119
+          "daysOnMarket": 141
         },
         {
-          "medianSoldPrice": 997000,
-          "annualGrowth": -0.10099188458070334,
-          "numberSold": 139,
+          "medianSoldPrice": 1079000,
+          "annualGrowth": 0.040501446480231434,
+          "numberSold": 196,
           "year": "2020",
-          "daysOnMarket": 102
+          "daysOnMarket": 104
         },
         {
-          "medianSoldPrice": 993000,
-          "annualGrowth": -0.004012036108324975,
-          "numberSold": 104,
+          "medianSoldPrice": 1011000,
+          "annualGrowth": -0.06302131603336422,
+          "numberSold": 86,
           "year": "2021",
-          "daysOnMarket": 95
+          "daysOnMarket": 79
         },
         {
-          "medianSoldPrice": 990000,
-          "annualGrowth": -0.0030211480362537764,
-          "numberSold": 93,
+          "medianSoldPrice": 965000,
+          "annualGrowth": -0.04549950544015826,
+          "numberSold": 100,
           "year": "2022",
-          "daysOnMarket": 164
+          "daysOnMarket": 120
         },
         {
-          "medianSoldPrice": 1080000,
-          "annualGrowth": 0.09090909090909091,
-          "numberSold": 102,
+          "medianSoldPrice": 1028000,
+          "annualGrowth": 0.06528497409326425,
+          "numberSold": 103,
           "year": "2023",
-          "daysOnMarket": 110
+          "daysOnMarket": 144
+        },
+        {
+          "medianSoldPrice": 1072000,
+          "annualGrowth": 0.042801556420233464,
+          "numberSold": 114,
+          "year": "2024",
+          "daysOnMarket": 108
         }
       ],
       "mostRecentSale": null
@@ -584,8 +530,8 @@
       "beds": 3,
       "baths": 2,
       "parking": 2,
-      "title": "Expressions of Interest Closing 27 October at 12pm",
-      "price": "Expressions of Interest Closing 27 October at 12pm",
+      "title": "Expressions of Interest",
+      "price": "Expressions of Interest",
       "address": "101/29-31 Market Street, Melbourne VIC 3000",
       "promoType": "platinum",
       "stats": [],
@@ -601,26 +547,26 @@
     "agents": [
       {
         "name": "Jamie Mi",
-        "photo": "https://rimh2.domainstatic.com.au/mwLu5r_e7mGY7P4nvlblGcFS-L0=/120x120/top/filters:format(jpeg):quality(80):no_upscale()/https://images.domain.com.au/img/88/contact_1111361.jpeg?date=638361761840930000",
+        "photo": "https://rimh2.domainstatic.com.au/DMg3GMRBnZ8ews720UGhoWYK1p4=/filters:format(png):quality(80):no_upscale()/https://images.domain.com.au/img/88/contact_1111361.jpeg?date=638500905544730000",
         "phone": "+61 3 9825 2572",
         "mobile": "+61 450 125 355",
-        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/jamie-mi-1111361/",
+        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/jamie-mi-1111361",
         "email": null
       },
       {
         "name": "Rae Mano",
-        "photo": "https://rimh2.domainstatic.com.au/Uv5ylcDk7HG1YG_V-QmVkpkyHIo=/120x120/top/filters:format(jpeg):quality(80):no_upscale()/https://images.domain.com.au/img/88/contact_1909534.jpeg?date=638360857900000000",
+        "photo": "https://rimh2.domainstatic.com.au/EGa3v17rXshHj9QJrYdmFruxLxg=/filters:format(png):quality(80):no_upscale()/https://images.domain.com.au/img/88/contact_1909534.jpeg?date=638501797834270000",
         "phone": "+61 3 9825 2524",
         "mobile": "+61 413 768 163",
-        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/rae-mano-1909534/",
+        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/rae-mano-1909534",
         "email": null
       },
       {
         "name": "Ross Savas",
-        "photo": "https://rimh2.domainstatic.com.au/2y0zY5G1Y8LW9MQkXimMoP6OpZw=/120x120/top/filters:format(jpeg):quality(80):no_upscale()/https://images.domain.com.au/img/88/contact_1563970.jpeg?date=638360857870730000",
+        "photo": "https://rimh2.domainstatic.com.au/nYcyxdV9NQHuCL6NpY6Ai3u8MzE=/filters:format(png):quality(80):no_upscale()/https://images.domain.com.au/img/88/contact_1563970.jpeg?date=638502582280500000",
         "phone": "+61 3 9825 2520",
         "mobile": "+61 418 322 994",
-        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/ross-savas-1563970/",
+        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/ross-savas-1563970",
         "email": null
       }
     ],
@@ -682,1556 +628,558 @@
     ]
   },
   {
-    "listingId": 2018819448,
-    "listingUrl": "https://www.domain.com.au/404-258-flinders-lane-melbourne-vic-3000-2018819448",
-    "unitNumber": "404",
-    "streetNumber": "258",
-    "street": "Flinders Lane",
-    "suburb": "Melbourne",
-    "postcode": "3000",
-    "createdOn": "2023-10-07T16:05:03.147",
-    "propertyType": "Apartment / Unit / Flat",
-    "beds": 2,
-    "phone": "0418924324",
-    "agencyName": "Donazzan Boutique Property",
-    "propertyDeveloperName": "Donazzan Boutique Property",
-    "agencyProfileUrl": "https://www.domain.com.au/real-estate-agencies/donazzanboutiqueproperty-33428/",
-    "propertyDeveloperUrl": "https://www.domain.com.au/real-estate-agencies/donazzanboutiqueproperty-33428/",
-    "description": [
-      "Majorca House is one of Melbourne's most beautiful and desirable Heritage treasures. Nestled on Flinders Lane and between quaint and historic laneways that feature a plethora of cafes and boutiques. This is Melbourne's most photographed location, and you can see why, it's simply gorgeous.",
-      "",
-      "Majorca House was designed by notable Deco architect Harry Norris and built in 1928. This beautiful apartment is a true reflection and tribute to the uniqueness of this iconic building. A true haven and incredible find for those seeking one of the best in this highly sought after Flinders Lane location. A wonderful example of design and flexibility with extensive use of timber and glass that optimises the beauty and feel of this apartment. Here you are blessed with soaring ceilings, polished floorboards and an abundance of natural light.",
-      "",
-      "Open plan living and dining, with floor to ceiling windows offering the true laneway vista experience that transforms from day to night. The kitchen is bright and functional with ample cupboard and bench space also with gas cooking. A private balcony is accessed through double glass doors, a perfect spot to create the European look of planter boxes with cascading flowers.",
-      "",
-      "The transforming floor plan offers two double private bedrooms, main with an abundance of built in robes. Or open the massive floor to ceiling, sliding Japanese doors and you instantly more than double your living space. ",
-      "Tiled bathroom and separate WC. Make it yours and you get to create your dream city pad right here.",
-      "",
-      "A Private lock up storeroom on title too."
-    ],
-    "loanfinder": {
-      "homeLoansApiUrl": "https://home-loans-api.domainloanfinder.com.au",
-      "configName": "dhl-domain-web",
-      "calculators": [
-        {
-          "name": "repayments",
-          "propertyPrice": "885000",
-          "priceSource": "listed",
-          "ingressApi": "https://www.domain.com.au/transactions-users-ingress-api/v1/dlf",
-          "usersApi": "https://www.domain.com.au/transactions-users-api/v1/users/loan-tools/repayments",
-          "loanTerm": "30",
-          "formActionUrl": "https://www.domain.com.au/loanfinder/basics/new-home?ltm_source=domain&ltm_medium=referral&ltm_campaign=domain_r_calculator_buy-listing_web&ltm_content=newloan_compare-home-loans",
-          "displayLogo": false,
-          "submitText": "Compare Home Loans",
-          "queryParams": {
-            "ltm_source": "domain",
-            "ltm_medium": "referral",
-            "ltm_campaign": "domain_r_calculator_buy-listing_web",
-            "ltm_content": "newloan_compare-home-loans"
-          },
-          "experimentName": "buy_listing_page_calculator_repayments",
-          "groupStats": {
-            "listingId": "2018819448",
-            "deviceType": "desktop"
-          },
-          "hasDeviceSessionId": false
-        },
-        {
-          "name": "upfront-costs",
-          "propertyPrice": "885000",
-          "ingressApi": "https://www.domain.com.au/transactions-users-ingress-api/v1/dlf",
-          "usersApi": "https://www.domain.com.au/transactions-users-api/v1/users/loan-tools/ufc",
-          "formActionUrl": "https://www.domain.com.au/loanfinder/basics/new-home?ltm_source=domain&ltm_medium=referral&ltm_campaign=domain_ufc_calculator_buy-listing_web&ltm_content=newloan_check-options",
-          "submitText": "Compare Home Loans",
-          "firstHomeBuyer": "firstHomeBuyer",
-          "queryParams": {
-            "ltm_source": "domain",
-            "ltm_medium": "referral",
-            "ltm_campaign": "domain_ufc_calculator_buy-listing_web",
-            "ltm_content": "newloan_check-options"
-          },
-          "experimentName": "buy_listing_page_calculator_stamp_duty",
-          "groupStats": {
-            "listingId": "2018819448",
-            "deviceType": "desktop"
-          },
-          "hasDeviceSessionId": false
-        }
+    "title": "308/9 Degraves Street, Melbourne | Property History & Address Research | Domain",
+    "canonical": "308/9 Degraves Street, Melbourne | Property History & Address Research | Domain",
+    "description": "308/9 Degraves Street, Melbourne | Property History & Address Research | Domain",
+    "digitalData": null,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "308/9 Degraves Street",
+      "addressLocality": "melbourne",
+      "addressRegion": "VIC",
+      "postalCode": "3000"
+    },
+    "hero": {
+      "flatNumber": "",
+      "streetNumber": "",
+      "streetName": "",
+      "streetType": "",
+      "suburb": "",
+      "state": "",
+      "trackHomeUrl": "",
+      "propertySlug": "308-9-degraves-street-melbourne-vic-3000",
+      "propertyId": "TO-9170-EN",
+      "propertyType": "Apartment",
+      "propertyCategory": "Residential",
+      "internalArea": null,
+      "address": "308/9 Degraves Street, Melbourne VIC 3000",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "parking": 1,
+      "photos": [
+        "https://rimh2.domainstatic.com.au/WTc0wroOqgl_nc3r-TnX5j29wrQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_6_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/F1-vaVzee6vlV20Zzn2GqKvl4eg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_1_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/VD_7oxlonlEzpXkkZkZOG4ef9Mc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_2_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/o93wF_wEZGQ9fvqsUhUvwOqrdmk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_3_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/EF3hjxF8uuMBzWfeCQoz6XFJQ4w=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_4_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/WDQHFBVD7_Q9CGB0qBFyHB0zAY8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_5_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/cNQDByY5KnhP3M5uVBQVprkm5Tk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_7_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/wPW_jM-X7V0SntRkwUD_PKVn394=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_8_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/iVyp7hSIv6BQ1TQ91ZNj-GvlDyY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_9_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/vZ1qpSwni8h46g83hYK5aSyQFI8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_10_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/nah3BYx3mWcf4ahyDYmbme7OF3w=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_11_1_240314_014626-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/tw68qq_SV4J-m3e0ddmVMabIGpk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/14807562_11_1_210105_103058-w3898-h2598",
+        "https://rimh2.domainstatic.com.au/aSzYYoU-oTA-vv35XcI3ZMVX3D4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018489487_8_1_230614_105227-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/BY4BjjuHWgs6I4mYbXJ-j8-dd1s=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018489487_10_1_230614_105227-w4500-h3000",
+        "https://rimh2.domainstatic.com.au/UKfw2gG82gegASanzsK8MTgygPQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_15_3_240314_014626-w3508-h2480",
+        "https://rimh2.domainstatic.com.au/CRYUEzGejEocUrUyiobfJG1Qo_0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2019116730_16_3_240314_014626-w3508-h2480",
+        "https://rimh2.domainstatic.com.au/1wE4VY-4gGzlbcW6NxrWbANJ-og=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_2_1_190912_055022-w800-h600",
+        "https://rimh2.domainstatic.com.au/i6xFe0WJqrmf4GEip6jauqndAh4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_1_1_190912_055022-w709-h532",
+        "https://rimh2.domainstatic.com.au/RNGzYHCjg0okXrhGvTzVmkBnK7c=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_3_1_190912_055022-w800-h600",
+        "https://rimh2.domainstatic.com.au/UZmPneB7p8Rnk0JYUvL3yMJkmwc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_4_1_190912_054959-w709-h532",
+        "https://rimh2.domainstatic.com.au/AMCpOctDthKqQcFSMyuSgazI_7o=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/14972995_5_1_210324_063243-w1200-h900",
+        "https://rimh2.domainstatic.com.au/KYOhzdbjmuoCYTip7B2yXYxOUmY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_5_1_190912_054959-w709-h532",
+        "https://rimh2.domainstatic.com.au/DNGNURyNzWeI3LY87KgwGzGd80U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_6_1_190912_054959-w800-h600",
+        "https://rimh2.domainstatic.com.au/YKXwYY3SK8ureIB8t8o1BlMl73Y=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_7_1_190912_054959-w800-h600",
+        "https://rimh2.domainstatic.com.au/jFtChNZXU8jzOvI-QFfrEOkKpmQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_8_1_190912_054959-w619-h464",
+        "https://rimh2.domainstatic.com.au/i6xFe0WJqrmf4GEip6jauqndAh4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_1_1_190912_055022-w709-h532",
+        "https://rimh2.domainstatic.com.au/1wE4VY-4gGzlbcW6NxrWbANJ-og=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_2_1_190912_055022-w800-h600",
+        "https://rimh2.domainstatic.com.au/RNGzYHCjg0okXrhGvTzVmkBnK7c=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_3_1_190912_055022-w800-h600",
+        "https://rimh2.domainstatic.com.au/UZmPneB7p8Rnk0JYUvL3yMJkmwc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_4_1_190912_054959-w709-h532",
+        "https://rimh2.domainstatic.com.au/KYOhzdbjmuoCYTip7B2yXYxOUmY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_5_1_190912_054959-w709-h532",
+        "https://rimh2.domainstatic.com.au/DNGNURyNzWeI3LY87KgwGzGd80U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_6_1_190912_054959-w800-h600",
+        "https://rimh2.domainstatic.com.au/YKXwYY3SK8ureIB8t8o1BlMl73Y=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_7_1_190912_054959-w800-h600",
+        "https://rimh2.domainstatic.com.au/jFtChNZXU8jzOvI-QFfrEOkKpmQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/13549810_8_1_190912_054959-w619-h464",
+        "https://rimh2.domainstatic.com.au/7y6grG05DbSuH_NyauEt4bF8o7k=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/12882192_7_1_190129_095112-w1754-h1240",
+        "https://rimh2.domainstatic.com.au/iJ6VXtKHFKznICpo-nQbf5vi_9k=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-11064877_1_pi_161221_044850",
+        "https://rimh2.domainstatic.com.au/aneU3GQ6BI3GyWD9nQeidHDNKMM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-11064877_2_pi_161221_044850",
+        "https://rimh2.domainstatic.com.au/bPBSqyiTDRoFnWuee1K_oSkmpHs=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-11064877_3_pi_161221_044850",
+        "https://rimh2.domainstatic.com.au/bUV6vEM8cwHCGSlilbW_VKhZdI4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-11064877_4_pi_161221_044850",
+        "https://rimh2.domainstatic.com.au/SuRqQNe-cM4WsjtNNlAAKHM4eWc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-11064877_5_pi_161221_044850",
+        "https://rimh2.domainstatic.com.au/KZfhq38UiS_DyjejaApMLwAW4GM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w975-h650-11064877_6_pi_161221_050339",
+        "https://rimh2.domainstatic.com.au/1JJXWr777ZWEp0O36_KoKM2zKno=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h682-11064877_7_pi_161221_050338",
+        "https://rimh2.domainstatic.com.au/uhQC0RyS0tOIDFRmqKE71xtm1DY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h464-11064877_8_pi_161221_050339",
+        "https://rimh2.domainstatic.com.au/GFgf11TeY4cTia0Cqytm9RzMQmg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w779-h497-11064877_6_pi_161221_044851",
+        "https://rimh2.domainstatic.com.au/DEBSpHWfFNNgzwCWnc3Hzn_hPa8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-10258099_1_pi_151223_120019",
+        "https://rimh2.domainstatic.com.au/fi5vMLFAXN3hAekj62ooa9TqXNo=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-10258099_2_pi_151223_120019",
+        "https://rimh2.domainstatic.com.au/DXhLSDW3x37KfwQ3Z8E465JijVU=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-10258099_3_pi_151223_120019",
+        "https://rimh2.domainstatic.com.au/8vECwN2WA2NLt-tFuFOiJs6k5M4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-10258099_4_pi_151223_120019",
+        "https://rimh2.domainstatic.com.au/Ug-T1ejP4fQs3HGXrgCccz_9Jqc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-10258099_5_pi_151223_120021",
+        "https://rimh2.domainstatic.com.au/XjqB0tZek6ifmu7f_wHDVIc1bQY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-9958705_5_pi_150807_050535",
+        "https://rimh2.domainstatic.com.au/Kef-Cys3q0puXIobqs74fbMy-4k=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-9958705_2_pi_150807_050534",
+        "https://rimh2.domainstatic.com.au/D7rXh6_bWnGDx9pABZHKT_dIcCI=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-9958705_1_pi_150807_050534",
+        "https://rimh2.domainstatic.com.au/orQivYLpNY8nAFisvI4v-UWaf2M=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-9958705_3_pi_150807_050534",
+        "https://rimh2.domainstatic.com.au/0RZ8K9bKl0aBpA4Z1L0vPVO83EQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h681-9958705_4_pi_150807_050534",
+        "https://rimh2.domainstatic.com.au/cKgehNkgHnjteMUVTAko1XHlmuk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w774-h490-9958705_6_pi_150819_054023",
+        "https://rimh2.domainstatic.com.au/YbMZiSPlg0yL_VK0pM69ISVcY4M=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-9163260_1_pi_150328_100515",
+        "https://rimh2.domainstatic.com.au/9au7FrpYObbxpKb_8g4QUmitgQM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w768-h511-9163260_2_pi_150328_100515",
+        "https://rimh2.domainstatic.com.au/-yivLjN-4ZnTsjnfOCxVQdp_5Lk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-9163260_3_pi_150328_100516",
+        "https://rimh2.domainstatic.com.au/vCtZxth-vdbdG_coZg5SRAVn_kM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-9163260_4_pi_150328_100516",
+        "https://rimh2.domainstatic.com.au/yUsAi4MOzEzkEdFy7VRWLYlB-64=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h532-9163260_5_pi_150329_010120",
+        "https://rimh2.domainstatic.com.au/i030sQ_k6YQNFgULRlYUzcnpVfw=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w559-h867-9163260_6_fi_150329_010120",
+        "https://rimh2.domainstatic.com.au/78nnMOogZAI4eVQHoSN5XGwRtAY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h531-2011161925_1_pi_150324_104321",
+        "https://rimh2.domainstatic.com.au/9yn0VSrdcMadqx9hjTvto2ILkVM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h526-2011161925_2_pi_150324_104321",
+        "https://rimh2.domainstatic.com.au/-hJ6fjGI7u1Ql5BZnqlpPSeE3Go=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h531-2011161925_3_pi_150324_104321",
+        "https://rimh2.domainstatic.com.au/RfYaYG0Tztu_sS_fgEJ7KbmKG9w=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h531-2011161925_4_pi_150324_104321",
+        "https://rimh2.domainstatic.com.au/KPX35no4mUY8MFrrQMY-n6YRhrQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h522-2011161925_5_pi_150324_104321",
+        "https://rimh2.domainstatic.com.au/n_qjHvlcAUjkxhh-YJ9xQNFg5dw=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1754-h1240-2011161925_6_fi_150325_021149"
       ],
-      "productReviewConfig": {
-        "brandId": "ba7f14c4-3f43-3018-b06c-93d6657e7602",
-        "widgetId": "04115d3d-113e-3cb1-8103-ba0bb5e8d765",
-        "widgetUrl": "https://cdn.productreview.com.au/assets/widgets/loader.js"
+      "valuation": {
+        "date": "2024-04-05T00:00:00",
+        "lowerPrice": 580000,
+        "priceConfidence": "RecentlySold",
+        "upperPrice": 580000,
+        "midPrice": 580000,
+        "demotionType": "Unknown",
+        "guideType": "Unknown",
+        "source": "Recently sold price"
+      },
+      "noEstimateInfo": "NOT RESIDENTIAL",
+      "loggedIn": false,
+      "signInLink": "https://www.domain.com.au/authentications/signup?ReturnUrl=%2Fproperty-profile%2F308-9-degraves-street-melbourne-vic-3000",
+      "appraisalFunnelUrl": "https://www.domain.com.au/services/appraisal",
+      "improveEstimateUrl": "/services/improve-estimate",
+      "appraisalExperimentId": "LuUgUaVmSQqU8YYsqAe5AA",
+      "saleEvent": {
+        "price": 580000,
+        "date": "2024-04-05T00:00:00",
+        "agency": "Belle Property Carlton | Melbourne | North Melbourne"
       }
     },
-    "schools": [
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Eltham College - Lonsdale Street Campus",
-        "distance": 639.7528038441266,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "eltham-college-lonsdale-street-campus-vic-3000-46233"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Stott's Colleges",
-        "distance": 734.0631149476083,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.stotts.edu.au/",
-        "domainSeoUrlSlug": "stotts-colleges-vic-3000-50313"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Ozford College",
-        "distance": 740.4597354659459,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "CoEd",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "http://www.ozford.edu.au",
-        "domainSeoUrlSlug": "ozford-college-vic-3000-40714"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Hester Hornbrook Academy - City Campus",
-        "distance": 825.0809419878138,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "hester-hornbrook-academy-city-campus-vic-3000-52519"
-      },
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Eltham College - King Street Campus",
-        "distance": 866.8904670756177,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "eltham-college-king-street-campus-vic-3000-52625"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Holmes Grammar School",
-        "distance": 929.8883659992022,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.holmes.edu.au/pages/schools-and-faculties/secondary",
-        "domainSeoUrlSlug": "holmes-secondary-college-vic-3000-40736"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Ozford College - Ozford College Campus",
-        "distance": 1067.4187572489793,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "ozford-college-english-language-centre-vic-3000-52094"
-      },
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Haileybury College - City Campus",
-        "distance": 1273.5422271375778,
-        "state": "VIC",
-        "postCode": "3006",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "West Melbourne, VIC 3006",
-        "url": "",
-        "domainSeoUrlSlug": "haileybury-college-city-campus-vic-3006-52423"
-      },
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Haileybury Girls College - City Campus",
-        "distance": 1273.5422271375778,
-        "state": "VIC",
-        "postCode": "3006",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "West Melbourne, VIC 3006",
-        "url": "",
-        "domainSeoUrlSlug": "haileybury-girls-college-city-campus-vic-3006-52428"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Hester Hornbrook Academy",
-        "distance": 1395.4046862491798,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "10-12",
-        "gender": "CoEd",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.melbournecitymission.org.au/services/.../hester-hornbrook-academy",
-        "domainSeoUrlSlug": "hester-hornbrook-academy-vic-3205-52517"
-      },
-      {
-        "id": "1266",
-        "educationLevel": "primary",
-        "name": "Carlton Gardens Primary School",
-        "distance": 1671.752325570862,
-        "state": "VIC",
-        "postCode": "3053",
-        "year": "Prep-6",
-        "gender": "CoEd",
-        "type": "Government",
-        "address": "Carlton, VIC 3053",
-        "url": "http://www.carltongardens.vic.edu.au",
-        "domainSeoUrlSlug": "carlton-gardens-primary-school-vic-3053-1266"
-      },
-      {
-        "id": "3946",
-        "educationLevel": "secondary",
-        "name": "University High School",
-        "distance": 2362.0240764421424,
-        "state": "VIC",
-        "postCode": "3052",
-        "year": "7-12",
-        "gender": "CoEd",
-        "type": "Government",
-        "address": "Parkville, VIC 3052",
-        "url": "http://www.unihigh.vic.edu.au",
-        "domainSeoUrlSlug": "university-high-school-vic-3052-3946"
-      }
-    ],
-    "suburbInsights": {
-      "beds": 2,
-      "propertyType": "Unit",
-      "suburb": "Melbourne",
-      "suburbProfileUrl": "/suburb-profile/melbourne-vic-3000",
-      "medianPrice": 518000,
-      "medianRentPrice": 660,
-      "avgDaysOnMarket": 135,
-      "auctionClearance": 71,
-      "nrSoldThisYear": 680,
-      "entryLevelPrice": 316000,
-      "luxuryLevelPrice": 1030000,
-      "renterPercentage": 0.6970133677881032,
-      "singlePercentage": 0.7628455892048701,
-      "demographics": {
-        "population": 47279,
-        "avgAge": "20 to 39",
-        "owners": 0.3029866322118968,
-        "renters": 0.6970133677881032,
-        "families": 0.2371544107951299,
-        "singles": 0.7628455892048701,
-        "clarification": true
-      },
-      "salesGrowthList": [
-        {
-          "medianSoldPrice": 659000,
-          "annualGrowth": 0,
-          "numberSold": 871,
-          "year": "2018",
-          "daysOnMarket": 110
-        },
-        {
-          "medianSoldPrice": 616000,
-          "annualGrowth": -0.06525037936267071,
-          "numberSold": 806,
-          "year": "2019",
-          "daysOnMarket": 111
-        },
-        {
-          "medianSoldPrice": 617000,
-          "annualGrowth": 0.0016233766233766235,
-          "numberSold": 626,
-          "year": "2020",
-          "daysOnMarket": 102
-        },
-        {
-          "medianSoldPrice": 575000,
-          "annualGrowth": -0.06807131280388978,
-          "numberSold": 572,
-          "year": "2021",
-          "daysOnMarket": 100
-        },
-        {
-          "medianSoldPrice": 550000,
-          "annualGrowth": -0.043478260869565216,
-          "numberSold": 640,
-          "year": "2022",
-          "daysOnMarket": 151
-        },
-        {
-          "medianSoldPrice": 518000,
-          "annualGrowth": -0.05818181818181818,
-          "numberSold": 680,
-          "year": "2023",
-          "daysOnMarket": 135
-        }
-      ],
-      "mostRecentSale": null
+    "coords": {
+      "lat": -37.81758,
+      "lng": 144.96576
     },
-    "gallery": {
-      "slides": [
+    "agent": {
+      "graphqlEndpoint": "https://www.domain.com.au/graphql",
+      "locationSlug": "melbourne-vic-3000",
+      "propertySlug": "308-9-degraves-street-melbourne-vic-3000",
+      "suburbName": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000",
+      "propertyType": "Apartment",
+      "bedrooms": 2,
+      "baseUrl": "https://www.domain.com.au"
+    },
+    "propertyStory": {
+      "address": {
+        "state": "VIC",
+        "streetName": "Degraves",
+        "streetNumber": "9",
+        "streetType": "Street",
+        "suburb": "Melbourne",
+        "unitNumber": "308",
+        "postcode": "3000"
+      },
+      "details": {
+        "onMarketType": null,
+        "onMarketUrl": null,
+        "onMarketPrice": null,
+        "lastSaleAgency": "Belle Property Carlton | Melbourne | North Melbourne",
+        "lastSalePrice": 580000,
+        "lastSaleYear": "2024",
+        "lastSaleDate": "2024-04-05",
+        "lastSaleAgencyUrl": "https://www.domain.com.au/real-estate-agencies/bellepropertycarltonmelbournenorthmelbourne-24322/",
+        "lastRentalAgency": "Belle Property South Melbourne",
+        "lastRentalPrice": 390,
+        "lastRentalYear": "2021",
+        "lastRentalAgencyUrl": "https://www.domain.com.au/real-estate-agencies/bellepropertysouthmelbourne-33232/",
+        "saleDaysOnMarket": 22,
+        "rentDaysOnMarket": 41,
+        "isPotentialInvestment": false,
+        "isPropertyInBuilding": false,
+        "estimatedValue": 580000,
+        "highRange": 580000,
+        "lowRange": 580000,
+        "domainPropertyId": "TO-9170-EN",
+        "lotNumber": "308A",
+        "sectionNumber": null,
+        "planNumber": "PS508080",
+        "parking": 1,
+        "propertyCategory": "Residential",
+        "propertyType": "Apartment",
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "internalArea": null,
+        "landSize": 2018,
+        "hasUniqueProfile": null,
+        "propertyStoryLineOne": null,
+        "propertyStoryLineTwo": null,
+        "propertyStoryLineThree": null,
+        "localMarketInfo": null,
+        "propertyInBuilding": null,
+        "propertyInBuildingUrl": null,
+        "propertyInStreet": "406/9 Degraves Street, Melbourne VIC 3000",
+        "propertyInStreetUrl": "https://www.domain.com.au/406-9-degraves-street-melbourne-vic-3000-2019031605"
+      }
+    },
+    "propertyTimeline": {
+      "timelineArray": [
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/3tXkCs99r5IZehGpvk7nfXsLadQ=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_1_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/IPBgmd8OM6cixo1p8b8qDDVwdDk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_1_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/vzlOD6R8CjjYAHbJ1tK_sTr4afY=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_1_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/1Ar4p0LAnYYf5_amPExqr9b32UI=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_1_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
+          "saleMetadata": {
+            "isSold": true,
+            "marketSteps": [
+              {
+                "agency": {
+                  "id": 24322,
+                  "name": "Belle Property Carlton | Melbourne | North Melbourne",
+                  "url": "https://www.domain.com.au/real-estate-agencies/bellepropertycarltonmelbournenorthmelbourne-24322/"
+                },
+                "date": "2024-03-14T00:00:00",
+                "type": "FirstOnMarket"
+              }
+            ]
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "agency": {
+            "id": 24322,
+            "name": "Belle Property Carlton | Melbourne | North Melbourne",
+            "url": "https://www.domain.com.au/real-estate-agencies/bellepropertycarltonmelbournenorthmelbourne-24322/"
+          },
+          "category": "Sale",
+          "daysOnMarket": 22,
+          "eventDate": "2024-04-05T00:00:00",
+          "eventPrice": 580000,
+          "priceDescription": "PRIVATE TREATY",
+          "isMajorEvent": true,
+          "isPriceWarning": false,
+          "advertId": 2019116730
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/4PyOWISMfShp1XuVpfU9oScocpM=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_2_1_231007_050503-w2000-h1334",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/cWkfhno_AidIcXtb-9nGea-5SCg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_2_1_231007_050503-w2000-h1334",
-              "width": 1619,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/msUC1HiEi0oMiY-_cu7PKsSuJPA=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_2_1_231007_050503-w2000-h1334",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/8bqjuHdXhTe1Q_x-7DPME7Yg-Zk=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_2_1_231007_050503-w2000-h1334",
-              "width": 600,
-              "height": 400
-            }
+          "agency": {
+            "id": 33232,
+            "name": "Belle Property South Melbourne",
+            "url": "https://www.domain.com.au/real-estate-agencies/bellepropertysouthmelbourne-33232/"
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "category": "Rental",
+          "daysOnMarket": 41,
+          "eventDate": "2021-04-21T00:00:00",
+          "eventPrice": 390,
+          "priceDescription": "PER WEEK",
+          "isMajorEvent": true,
+          "isPriceWarning": false,
+          "advertId": 14972995
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/aJJ-0JjVb5hdzERm33Lo81Wi7Ds=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_15_1_231007_050503-w1175-h730",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/etkDCuZeXK2oU8wUsPp5Vw6rvfY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_15_1_231007_050503-w1175-h730",
-              "width": 1175,
-              "height": 730
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/VjxgY0W1_5ea-qdr9fi0SLESvZM=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_15_1_231007_050503-w1175-h730",
-              "width": 1020,
-              "height": 634
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/5u_h8xtIkVbvHidB4iP3HWdALKk=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_15_1_231007_050503-w1175-h730",
-              "width": 600,
-              "height": 373
-            }
+          "agency": {
+            "id": 33232,
+            "name": "Belle Property South Melbourne",
+            "url": "https://www.domain.com.au/real-estate-agencies/bellepropertysouthmelbourne-33232/"
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "category": "Rental",
+          "daysOnMarket": 14,
+          "eventDate": "2019-09-26T00:00:00",
+          "eventPrice": 550,
+          "priceDescription": "PER WEEK",
+          "isMajorEvent": true,
+          "isPriceWarning": false,
+          "advertId": 13549810
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/OToJddAJMFyGsKWpYpa5R0MBKX0=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_3_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/ou7cO18MAn_BN_mxqZekeBawQVY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_3_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/z6VJE2wu4QJZ2LI1fUjnlpYJwEk=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_3_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/ZYS7u9ZWcYXJLHrbKeIZlW1eo-I=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_3_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
+          "saleMetadata": {
+            "isSold": false,
+            "marketSteps": []
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "agency": {
+            "id": 3716,
+            "name": "(Melbourne) Pty Ltd"
+          },
+          "category": "Sale",
+          "daysOnMarket": 14,
+          "eventDate": "2014-05-06T00:00:00",
+          "priceDescription": "Listed - not sold",
+          "isMajorEvent": false,
+          "isPriceWarning": false,
+          "advertId": 2011161925
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/0E0hIeEhsXjdMCHNagbGtLwbfUI=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_4_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/1Renv_7IO128-eJQSrFUiwunY1Q=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_4_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/87NY-BCPO5vU9SVQSYVXZoZJ-ug=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_4_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/8ZiAm673LVute_W3W9gWSXeetUE=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_4_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
+          "saleMetadata": {
+            "isSold": false,
+            "marketSteps": []
           },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/bRVlmlyvu8cAlcgdRJgY4p3PyPY=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_14_1_231007_050503-w2000-h1335",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/mr7xIarDuJvV5NXGOeAdhBaQNWQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_14_1_231007_050503-w2000-h1335",
-              "width": 1618,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/eaz0VgzWv-EqEZUyujC15lOiQso=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_14_1_231007_050503-w2000-h1335",
-              "width": 1020,
-              "height": 681
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/Zb1Z7BB65zQeSb_kh6P-jGSC4aw=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_14_1_231007_050503-w2000-h1335",
-              "width": 600,
-              "height": 401
-            }
+          "agency": {
+            "name": "Property X - Melbourne"
           },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/aRIY3LbTEPbO4FFRiE2s8Zi1NGA=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_12_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/lyiOD_qEOqIIk-WMSiQmYx3g-Qc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_12_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/VhoKGUftQFqP31M1Z-V9YCJcigs=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_12_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/f0KuCDCuwFcIx1qEBjI7jL0YgbQ=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_12_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/acx2KImqh_szvjavsPNO_Pk33c0=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_5_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/Q_xrTC6CPOXXxTk1Cg1O1TdsA_E=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_5_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/1eJkRkqjedMIS1ynGePp3z1YFAw=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_5_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/oR6mMJ_bFjq3VU7FUQa71VaGW80=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_5_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/DCZI5bdmRzict1wfk4wkwhHessA=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_6_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/c0iYQZEY1NDzJiGq-ieYi-yktR0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_6_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/j3TmlzzJV1ze0OIKtA-yP_oGENo=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_6_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/AlilEocOzSJUlrNxkGiziwwc4iU=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_6_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/6KyP2pAUZl4wAFDS47A7ugJl9GI=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_10_1_231007_050503-w2000-h1334",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/OjyUEDnNhKRL4tYqhGE_salVOBc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_10_1_231007_050503-w2000-h1334",
-              "width": 1619,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/ot4KinW5nL6RLb1Rb6Z95_qwrXY=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_10_1_231007_050503-w2000-h1334",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/Bt7R_6iMJnyzhgd2d_5BxC64QDI=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_10_1_231007_050503-w2000-h1334",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/hzWFGnw9k-Q8cwAKifkSSwLOrSU=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018819448_9_1_231007_050503-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/LIuHXbdCg0_WMpg-BlOm7XbKH1U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018819448_9_1_231007_050503-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/QV1ZlnK8tJP-pOqqR-lnm6jnfrE=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018819448_9_1_231007_050503-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/RizK_J8y-vwwSWBSy72h2F6uMBM=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018819448_9_1_231007_050503-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/HWi95WifWivendu6-6iCkz9H2L8=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2017016225_5_1_210519_045750-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/3cmT9wvDfnLcP9-cPH4n4rjmPiI=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2017016225_5_1_210519_045750-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/f8cYUDY2WiHvDdWlxPyFiy-yZUM=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2017016225_5_1_210519_045750-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/gkeE140UJ6o7rMEi5FLJYnWkno8=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2017016225_5_1_210519_045750-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/hL51FVoBzY27i0JYnEuu-yid4ec=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2017947224_11_1_220720_063530-w1500-h998",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/gcDND_C_GovNu2TAjNkL_XrXP-o=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2017947224_11_1_220720_063530-w1500-h998",
-              "width": 1500,
-              "height": 998
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/CQx2acA_rckMYg21qb6CTBqHJVw=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2017947224_11_1_220720_063530-w1500-h998",
-              "width": 1020,
-              "height": 679
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/Z0WKsRrLxSPAnfaKJ-uusO8Ut_E=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2017947224_11_1_220720_063530-w1500-h998",
-              "width": 600,
-              "height": 399
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/4T8EjZSbtgbiFlF46OwyScZltLI=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2017947224_12_1_220720_063530-w1500-h998",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/xj9udUpNW0ZMGgceSuGKTik3Aws=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2017947224_12_1_220720_063530-w1500-h998",
-              "width": 1500,
-              "height": 998
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/vZLeuqZwCrij1H1eGtD63e20314=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2017947224_12_1_220720_063530-w1500-h998",
-              "width": 1020,
-              "height": 679
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/EiysMQU6QlKiGRiYBCEx818fTBg=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2017947224_12_1_220720_063530-w1500-h998",
-              "width": 600,
-              "height": 399
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/fNGZNK-iaUppb3T4hN6mSpWco6s=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2016661612_8_1_201125_041219-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/kqTOHbHoO8_nvF3WkNMdmF9QriU=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2016661612_8_1_201125_041219-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/54rcmegOhbmFL3avrxmyDMxb80Q=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2016661612_8_1_201125_041219-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/muc2lu0QerF8Bz50nvT3VIxQtV8=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2016661612_8_1_201125_041219-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/I1e8sPGnOfbEFzHgem96cxM7Hsk=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2017700153_9_1_220330_022857-w5551-h3701",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/y34eYRzXPqDd3aJWnrtp4AVfJ6I=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2017700153_9_1_220330_022857-w5551-h3701",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/5G-hHLf56YtciUVcjU4oZhppnI4=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2017700153_9_1_220330_022857-w5551-h3701",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/WRejh-VnQXVJOpyWMj9tybT6xzI=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2017700153_9_1_220330_022857-w5551-h3701",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/ZJNF_MQHBVLcyxmyGBOvbgLj6n8=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2016876287_6_1_210318_021008-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/9KkEcN5UgqojLxbsy3BH9SSirkU=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2016876287_6_1_210318_021008-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/2-nCB0_9kzeR1rciTMvIn6JiypY=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2016876287_6_1_210318_021008-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/k0MZT30fTuPx7c999H65ckIhZ1k=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2016876287_6_1_210318_021008-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/juvVqwWrVfLyPiVcd8k-udb7jVo=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2017947224_10_1_220720_062258-w2000-h1333",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/suDSr7xUExiWl2NHuwUbTbj5MFY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2017947224_10_1_220720_062258-w2000-h1333",
-              "width": 1620,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/v862v05I762rgZZwb76v1S_1Hw0=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2017947224_10_1_220720_062258-w2000-h1333",
-              "width": 1020,
-              "height": 680
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/4iYO46e33OPVYdiFWrbgk0pWUcA=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2017947224_10_1_220720_062258-w2000-h1333",
-              "width": 600,
-              "height": 400
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/pEFruWPeIekjxw68VmWnQKlsTWE=/fit-in/144x106/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018819448_19_3_231007_050503-w2595-h1568",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/3Ow62dgDhLlJ7R57KACEL7lT9kQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018819448_19_3_231007_050503-w2595-h1568",
-              "width": 1787,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/ITS8C9vCX7ej_uw4PKqEHzMn8Lw=/fit-in/1020x1020/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018819448_19_3_231007_050503-w2595-h1568",
-              "width": 1020,
-              "height": 616
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/ITS8C9vCX7ej_uw4PKqEHzMn8Lw=/fit-in/1020x1020/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018819448_19_3_231007_050503-w2595-h1568",
-              "width": 1020,
-              "height": 616
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "floorplan"
+          "category": "Sale",
+          "daysOnMarket": 73,
+          "eventDate": "2009-01-10T00:00:00",
+          "eventPrice": 400000,
+          "priceDescription": "Listed - not sold",
+          "isMajorEvent": false,
+          "isPriceWarning": false
         }
       ]
-    },
-    "listingSummary": {
-      "beds": 2,
-      "baths": 1,
-      "parking": 0,
-      "title": "$885,000",
-      "price": "$885,000",
-      "address": "404/258 Flinders Lane, Melbourne VIC 3000",
-      "promoType": "platinum",
-      "stats": [],
-      "listingType": "rent",
-      "propertyType": "Apartment / Unit / Flat",
-      "status": "live",
-      "mode": "buy",
-      "method": "privateTreaty",
-      "isRural": false,
-      "houses": 0,
-      "showDefaultFeatures": true
-    },
-    "agents": [
-      {
-        "name": "Gina Donazzan",
-        "photo": "https://rimh2.domainstatic.com.au/uMOEOfIr9T6cUyDenBIq3ihxiyo=/120x120/top/filters:format(jpeg):quality(80):no_upscale()/https://images.domain.com.au/img/33428/contact_1752785.jpeg?date=638360788856630000",
-        "phone": "",
-        "mobile": "+61 412 430 326",
-        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/gina-donazzan-1755435/",
-        "email": null
-      },
-      {
-        "name": "Suzie Inglis",
-        "photo": "https://rimh2.domainstatic.com.au/aj4PhPcyd5TNKVSL2mJnc0AxHYM=/120x120/top/filters:format(jpeg):quality(80):no_upscale()/https://images.domain.com.au/img/33428/contact_1757299.jpeg?date=638360796664530000",
-        "phone": "+61 416 671 572",
-        "mobile": "+61 416 671 572",
-        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/suzie-inglis-1757299/",
-        "email": null
-      }
-    ],
-    "features": [
-      "Balcony",
-      "Built In Robes",
-      "Dishwasher",
-      "Floorboards",
-      "Intercom"
-    ],
-    "structuredFeatures": [
-      {
-        "name": "Balcony",
-        "category": "Outdoor",
-        "source": "advertiser"
-      },
-      {
-        "name": "Built in wardrobes",
-        "category": "Indoor",
-        "source": "advertiser"
-      },
-      {
-        "name": "Dishwasher",
-        "category": "Indoor",
-        "source": "advertiser"
-      },
-      {
-        "name": "Floorboards",
-        "category": "Indoor",
-        "source": "advertiser"
-      },
-      {
-        "name": "Intercom",
-        "category": "Indoor",
-        "source": "advertiser"
-      }
-    ],
-    "faqs": [
-      {
-        "question": "How many bedrooms does 404/258 Flinders Lane, Melbourne have?",
-        "answer": [
-          {
-            "text": "404/258 Flinders Lane, Melbourne is a 2 bedroom apartment."
-          }
-        ]
-      },
-      {
-        "question": "What are the key property features of 404/258 Flinders Lane, Melbourne?",
-        "answer": [
-          {
-            "text": "Explore all key property features for 404/258 Flinders Lane, Melbourne. "
-          },
-          {
-            "text": "Click here to find out more.",
-            "scrollTo": "property-features"
-          }
-        ]
-      },
-      {
-        "question": "What is the size of the property at 404/258 Flinders Lane, Melbourne?",
-        "answer": [
-          {
-            "text": "The property size for 404/258 Flinders Lane, Melbourne has not been disclosed. To find detailed information on property size, "
-          },
-          {
-            "text": "contact the agent.",
-            "scrollTo": "enquiry-form"
-          }
-        ]
-      },
-      {
-        "question": "How many car spaces does 404/258 Flinders Lane, Melbourne have?",
-        "answer": [
-          {
-            "text": "There were no car spaces found on the listing for 404/258 Flinders Lane, Melbourne."
-          }
-        ]
-      },
-      {
-        "question": "What is the listing price for 404/258 Flinders Lane, Melbourne?",
-        "answer": [
-          {
-            "text": "The listed price for 404/258 Flinders Lane, Melbourne is $885,000."
-          }
-        ]
-      }
-    ]
+    }
   },
   {
-    "listingId": 2018835548,
-    "listingUrl": "https://www.domain.com.au/610-399-bourke-street-melbourne-vic-3000-2018835548",
-    "unitNumber": "610",
-    "streetNumber": "399",
-    "street": "Bourke Street",
-    "suburb": "Melbourne",
-    "postcode": "3000",
-    "createdOn": "2023-10-16T12:18:18.42",
-    "propertyType": "Apartment / Unit / Flat",
-    "beds": 2,
-    "phone": "(04) 03344444",
-    "agencyName": "Marston Pty Ltd",
-    "propertyDeveloperName": "Marston Pty Ltd",
-    "agencyProfileUrl": "https://www.domain.com.au/real-estate-agencies/marstonptyltd-37440/",
-    "propertyDeveloperUrl": "https://www.domain.com.au/real-estate-agencies/marstonptyltd-37440/",
-    "description": [
-      "Top floor living in the renowned John Danks & Sons building. Nestled centrally amongst Melbourne's best shopping and restaurants between Hardware Lane, McKillop Street and Galleria and adjacent to Bourke Street Mall and GPO. Solid heritage building with prestigious new resident's entry foyer.",
-      "",
-      "Spacious open plan living, separate dining nook, 2 roomy bedrooms with BIR's, private bathroom, valuable car space off Lt Collins Street and secure entry to Bourke Street make this prime CBD gem the ideal city getaway or savvy investment.",
-      "",
-      "Fantastic value and highly recommended."
-    ],
-    "loanfinder": {
-      "homeLoansApiUrl": "https://home-loans-api.domainloanfinder.com.au",
-      "configName": "dhl-domain-web",
-      "calculators": [
-        {
-          "name": "repayments",
-          "propertyPrice": "625000",
-          "priceSource": "listed",
-          "ingressApi": "https://www.domain.com.au/transactions-users-ingress-api/v1/dlf",
-          "usersApi": "https://www.domain.com.au/transactions-users-api/v1/users/loan-tools/repayments",
-          "loanTerm": "30",
-          "formActionUrl": "https://www.domain.com.au/loanfinder/basics/new-home?ltm_source=domain&ltm_medium=referral&ltm_campaign=domain_r_calculator_buy-listing_web&ltm_content=newloan_compare-home-loans",
-          "displayLogo": false,
-          "submitText": "Compare Home Loans",
-          "queryParams": {
-            "ltm_source": "domain",
-            "ltm_medium": "referral",
-            "ltm_campaign": "domain_r_calculator_buy-listing_web",
-            "ltm_content": "newloan_compare-home-loans"
-          },
-          "experimentName": "buy_listing_page_calculator_repayments",
-          "groupStats": {
-            "listingId": "2018835548",
-            "deviceType": "desktop"
-          },
-          "hasDeviceSessionId": false
-        },
-        {
-          "name": "upfront-costs",
-          "propertyPrice": "625000",
-          "ingressApi": "https://www.domain.com.au/transactions-users-ingress-api/v1/dlf",
-          "usersApi": "https://www.domain.com.au/transactions-users-api/v1/users/loan-tools/ufc",
-          "formActionUrl": "https://www.domain.com.au/loanfinder/basics/new-home?ltm_source=domain&ltm_medium=referral&ltm_campaign=domain_ufc_calculator_buy-listing_web&ltm_content=newloan_check-options",
-          "submitText": "Compare Home Loans",
-          "firstHomeBuyer": "firstHomeBuyer",
-          "queryParams": {
-            "ltm_source": "domain",
-            "ltm_medium": "referral",
-            "ltm_campaign": "domain_ufc_calculator_buy-listing_web",
-            "ltm_content": "newloan_check-options"
-          },
-          "experimentName": "buy_listing_page_calculator_stamp_duty",
-          "groupStats": {
-            "listingId": "2018835548",
-            "deviceType": "desktop"
-          },
-          "hasDeviceSessionId": false
-        }
+    "title": "610/399 Bourke Street, Melbourne | Property History & Address Research | Domain",
+    "canonical": "610/399 Bourke Street, Melbourne | Property History & Address Research | Domain",
+    "description": "610/399 Bourke Street, Melbourne | Property History & Address Research | Domain",
+    "digitalData": null,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "610/399 Bourke Street",
+      "addressLocality": "melbourne",
+      "addressRegion": "VIC",
+      "postalCode": "3000"
+    },
+    "hero": {
+      "flatNumber": "",
+      "streetNumber": "",
+      "streetName": "",
+      "streetType": "",
+      "suburb": "",
+      "state": "",
+      "trackHomeUrl": "",
+      "propertySlug": "610-399-bourke-street-melbourne-vic-3000",
+      "propertyId": "OR-3012-RD",
+      "propertyType": "Apartment",
+      "propertyCategory": "Residential",
+      "internalArea": 67,
+      "address": "610/399 Bourke Street, Melbourne VIC 3000",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "parking": 1,
+      "photos": [
+        "https://rimh2.domainstatic.com.au/99Zh2GI8eCVzDP0L5ZpBmhYVbtA=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_4_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/TpojOzn1hdTJheWkw2_J-JQdXs4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_1_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/oljCWRXnvt8jNGJbTK4U7Zln20A=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_2_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/mBihuP_XRv5yhyAlztEVzriRYK4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_3_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/we-b2MLhVYhLwVlTBLD-4CiTNf8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_5_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/e2pDgzt4ijsPoHw2Eg2ltvdY3ls=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_6_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/Zjqc3kCxUQgChs9gr7WDQmf6zEE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_7_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/kfJxeC-ofvOhGUCEHEI51w_YhSg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_8_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/l81tCUGTagyeLUDbL_UXJZ-tBqE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_9_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/VXJcx6GZm9yo4jDZyCbKsjvbiDk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_10_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/h5HtX7W4aIWBSOgjWmXq9GcxVIc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_11_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/xYlcCAu4QH7ARxx6E1dhmtBeCtc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018835548_12_1_231016_011818-w800-h600",
+        "https://rimh2.domainstatic.com.au/tnfQJ4yI2MYpYAG0np6K6D-Nqig=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_13_3_230426_064510-w849-h1200",
+        "https://rimh2.domainstatic.com.au/nTjQioD2q2kJvZbsSW5DzCBmu2M=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_2_1_190404_123241-w1600-h950",
+        "https://rimh2.domainstatic.com.au/GSeHjzOoq9NMKL0esAELUsQfU2s=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_2_1_230426_064510-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/W-hqa2TTSTMdKXcz4T6xqHJdmsM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_3_1_230426_064510-w1600-h954",
+        "https://rimh2.domainstatic.com.au/mvU5SI_dBFaziqfk6hwK4d7yie4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_6_1_190404_123240-w1600-h937",
+        "https://rimh2.domainstatic.com.au/7Vw86sXJ99VZ74G8RL4sIxenHAo=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_5_1_230426_064510-w1600-h955",
+        "https://rimh2.domainstatic.com.au/J4b1hSHAb90I8aDP66tQOwSXSwU=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_6_1_230426_064510-w1600-h952",
+        "https://rimh2.domainstatic.com.au/g8gug5wOlP_WatPb6sF-HtDaeIg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_7_1_230426_064510-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/q-8YzqAOKXskLn6rd2AeIZ6Q8no=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_8_1_230426_064510-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/cA6P1Ia8I1i2x0ih7ZYYUE4n3RU=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_9_1_230426_064510-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/bOSHIDG2X-qsRbTCDGoLpfCg80o=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2017302276_7_1_211006_014252-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/tVYUJNDGxwZpbPgBptFHiXUN8hQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_11_1_230426_064510-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/mDIPoMjIdTEdTK-Vxf6TArRiJHM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_12_1_230426_064510-w983-h1200",
+        "https://rimh2.domainstatic.com.au/tnfQJ4yI2MYpYAG0np6K6D-Nqig=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2018498512_13_3_230426_064510-w849-h1200",
+        "https://rimh2.domainstatic.com.au/RaCDjZjicFU1jcRWk4Xng5rchvM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_1_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/9dDjyCU6Pc8T-2uZDpAgL41P_DQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_3_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/sHmJq-DwTSnsSjAMftf9fnQ1HzI=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_4_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/AO6KhPU8Ec4NCRzjxFTwDxzDae0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_5_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/9z8AlkQIwIVLk4mrXrnUc0LbNNM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_6_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/194Q5NV9RBfCCFK0jcL4_bBFkr8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_7_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/ClDy3-ADWvn60ACmr5GCiR5sTSQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_8_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/Yy77_NLV8Tem5jW-OYLGP_p4z7U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_9_1_211026_095801-w2000-h1333",
+        "https://rimh2.domainstatic.com.au/0oO_AlZ6NgHAvKNQh2oUTyzXWlQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_10_1_210906_110234-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/D18rqEXGLVhcc0pDprswclPvwY8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_11_1_210906_110234-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/2xZwgVkbC-zlTPhVh4RXBDB2Q98=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/15369536_12_3_210906_110234-w2480-h3508",
+        "https://rimh2.domainstatic.com.au/frh9Vn0mqtFCRa2fHLzwCjCHC6U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_1_1_190404_123241-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/nTjQioD2q2kJvZbsSW5DzCBmu2M=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_2_1_190404_123241-w1600-h950",
+        "https://rimh2.domainstatic.com.au/mvU5SI_dBFaziqfk6hwK4d7yie4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_6_1_190404_123240-w1600-h937",
+        "https://rimh2.domainstatic.com.au/EK-t9V6O6bp-JRQH5f0vKpbRjyQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_5_1_190404_123240-w1600-h952",
+        "https://rimh2.domainstatic.com.au/gOmU-zRJA-v-FVrzTyfK5lgkl6c=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_3_1_190404_123241-w1600-h954",
+        "https://rimh2.domainstatic.com.au/vfYTFJmnqYVU52_LPr1OYq-ofpM=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_4_1_190404_123240-w1600-h955",
+        "https://rimh2.domainstatic.com.au/4IS_6XrdLKHprCWojd_aoFGZsFE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_7_1_190404_123240-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/M8Yk4R2jDp_b1HY24G_-dckvNXs=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_8_1_190404_123240-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/r91k3mUMyJtTJ3B4oVf0tJbYEnE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_9_1_190404_123240-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/INOH2UrcssOAujJFMR5jLb0cobg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_11_1_190404_123240-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/IDNf3VxeUAXUXrkqj2ZAXKJ44qo=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_10_1_190404_123240-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/T1Ki5Vr8gif6M5VDlO0Mp75Vb7U=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2015123592_12_3_190404_123240-w1132-h1600",
+        "https://rimh2.domainstatic.com.au/UGd2i62g4Kc1Pmf0ZuiqLYKMui0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_1_pi_170502_061033-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/uFH2JEtRa7a-u4BarQvavlp6VR4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_2_pi_170502_061033-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/-jh30UnHbGk0RRRGtCEzoHNBnv0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_3_pi_170502_061033-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/ochHHBmFGBWZTCpU6ynWINXrNNA=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_4_pi_170502_061033-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/vbray0h1ZoIiVHeYg_QiddyeuYg=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_5_pi_170502_061035-w1600-h1200",
+        "https://rimh2.domainstatic.com.au/YRZdvc2x2GMq7rAaX2BTvbRUeSU=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_6_pi_170502_061037-w1600-h1067",
+        "https://rimh2.domainstatic.com.au/AIRnAIEz_TOZ9XphGnPq474_9MQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013461512_7_fi_170502_061038-w1131-h1600",
+        "https://rimh2.domainstatic.com.au/Y1oufP-KrZGIQ9g9l787GwBDJw8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_1_pi_170317_055501-w1024-h683",
+        "https://rimh2.domainstatic.com.au/InwzBPioGk_43DFbUj9eq3DnQ3E=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_2_pi_170317_055503-w1024-h683",
+        "https://rimh2.domainstatic.com.au/Mzyo16zxIlNPs0_xaw2MPfwzE_g=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_3_pi_170317_055501-w1024-h683",
+        "https://rimh2.domainstatic.com.au/lP6RKW1pMXfh_G6hDjo25_Xk5mA=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_4_pi_170317_055502-w1024-h683",
+        "https://rimh2.domainstatic.com.au/0Scm7Pk96a7YMWV9uaiqUEvh3A4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_5_pi_170317_055501-w1024-h683",
+        "https://rimh2.domainstatic.com.au/qnQvYfe9DT4rYWoBeW0WiSEMZTc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_6_pi_170317_055502-w1000-h667",
+        "https://rimh2.domainstatic.com.au/ncYbmrbJD9P8DBzfLzDKskk3A1w=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_7_pi_170317_055501-w1000-h667",
+        "https://rimh2.domainstatic.com.au/yWsoWfSs3Fq4Crml0EK_6jtbicw=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_8_pi_170317_055503-w1000-h667",
+        "https://rimh2.domainstatic.com.au/Nyla9J4FDLD8_50wKQI67Z2hba4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_9_pi_170317_055503-w1024-h683",
+        "https://rimh2.domainstatic.com.au/VYKDGNZqfMFv4-FRW6u1siqMB8g=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/2013381445_10_fi_170317_055505-w544-h768",
+        "https://rimh2.domainstatic.com.au/x1rfbm3SqIUekhLzyXk2IIQuR6I=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h683-9862933_1_pi_150625_060325",
+        "https://rimh2.domainstatic.com.au/iGA_pyryrkGQJfJH28eyb2m5WWc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h683-9862933_2_pi_150625_060325",
+        "https://rimh2.domainstatic.com.au/x9XjonzHKh3M5PPGWnNe6it3gIs=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h683-9862933_3_pi_150625_060325",
+        "https://rimh2.domainstatic.com.au/m9et4igd297GEo3H3dEijt0ffTE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h683-9862933_4_pi_150625_060325",
+        "https://rimh2.domainstatic.com.au/UfYGBSzDoRAB9PoV8LezHtcWrd0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h683-9862933_5_pi_150625_060325",
+        "https://rimh2.domainstatic.com.au/LnxmPS5kPglQHF-dzFa8w_Ti_fk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1024-h683-9862933_6_pi_150625_060326",
+        "https://rimh2.domainstatic.com.au/eJTvCpBJKOBgsEBq5NkXew3FKI8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w774-h768-9862933_7_pi_150625_060326",
+        "https://rimh2.domainstatic.com.au/mUt3kxhrINyCr6QhNcRLMprpIVk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_1_pi_150328_105202",
+        "https://rimh2.domainstatic.com.au/PNQ8v2yyJc0GOcKevVHNjU24s6k=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_2_pi_150328_105202",
+        "https://rimh2.domainstatic.com.au/_YxDiEers-5R4w0EdtX9XKM0D6o=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_3_pi_150328_105202",
+        "https://rimh2.domainstatic.com.au/KYL342wOQ2-Haz2baIDfLE0unWI=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_4_pi_150328_105203",
+        "https://rimh2.domainstatic.com.au/KNOt0tYvZxf6A9LSMF2F71omZvE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_5_pi_150328_105203",
+        "https://rimh2.domainstatic.com.au/Pejt6jBW8_foDEGXkTq_l4p4APo=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_6_pi_150328_105203",
+        "https://rimh2.domainstatic.com.au/Jzdgjh01x0R1nFrF7Y_Y4L2QOVQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w1000-h667-2011317327_7_pi_150328_105203",
+        "https://rimh2.domainstatic.com.au/9Ywh8wTm8azO554nJdJ5N6OpCQ0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w480-h768-2011317327_8_fi_150328_120142",
+        "https://rimh2.domainstatic.com.au/hP6YeyXvhQ2bSsWEUudF9kCNbl8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h600-6778467_1_pi_150302_035018",
+        "https://rimh2.domainstatic.com.au/kZiYtfZiiELQr9xaT67SvCxVT1o=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h600-6778467_2_pi_150302_035018",
+        "https://rimh2.domainstatic.com.au/QX8AwIGway5ZVc8SVsLbFgOS_Ac=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h600-6778467_3_pi_150302_035018",
+        "https://rimh2.domainstatic.com.au/p3nL7DSFP9AmTx437WciEiace00=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h600-6778467_4_pi_150302_035018",
+        "https://rimh2.domainstatic.com.au/fTRVWXyWrNSTz8Vd77LSlGroOr4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h600-6778467_5_pi_150302_035018",
+        "https://rimh2.domainstatic.com.au/zZ3KKNQ3b7tjz5-edcNEFl7Nkk8=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w800-h600-6778467_6_pi_150302_035018",
+        "https://rimh2.domainstatic.com.au/sDHBervXhvREwBjxD7Q4rnDXqmE=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/https://bucket-api.domain.com.au/v1/bucket/image/w450-h600-6778467_7_pi_150302_035018"
       ],
-      "productReviewConfig": {
-        "brandId": "ba7f14c4-3f43-3018-b06c-93d6657e7602",
-        "widgetId": "04115d3d-113e-3cb1-8103-ba0bb5e8d765",
-        "widgetUrl": "https://cdn.productreview.com.au/assets/widgets/loader.js"
+      "valuation": {
+        "date": "2024-04-12T21:55:39",
+        "lowerPrice": 510000,
+        "priceConfidence": "High",
+        "upperPrice": 670000,
+        "midPrice": 590000,
+        "demotionType": "Unknown",
+        "guideType": "Unknown",
+        "source": "APM"
+      },
+      "noEstimateInfo": "NOT RESIDENTIAL",
+      "loggedIn": false,
+      "signInLink": "https://www.domain.com.au/authentications/signup?ReturnUrl=%2Fproperty-profile%2F610-399-bourke-street-melbourne-vic-3000",
+      "appraisalFunnelUrl": "https://www.domain.com.au/services/appraisal",
+      "improveEstimateUrl": "/services/improve-estimate",
+      "appraisalExperimentId": "LuUgUaVmSQqU8YYsqAe5AA"
+    },
+    "coords": {
+      "lat": -37.81475,
+      "lng": 144.96224
+    },
+    "agent": {
+      "graphqlEndpoint": "https://www.domain.com.au/graphql",
+      "locationSlug": "melbourne-vic-3000",
+      "propertySlug": "610-399-bourke-street-melbourne-vic-3000",
+      "suburbName": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000",
+      "propertyType": "Apartment",
+      "bedrooms": 2,
+      "baseUrl": "https://www.domain.com.au"
+    },
+    "propertyStory": {
+      "address": {
+        "state": "VIC",
+        "streetName": "Bourke",
+        "streetNumber": "399",
+        "streetType": "Street",
+        "suburb": "Melbourne",
+        "unitNumber": "610",
+        "postcode": "3000"
+      },
+      "details": {
+        "onMarketType": null,
+        "onMarketUrl": null,
+        "onMarketPrice": null,
+        "lastSaleAgency": null,
+        "lastSalePrice": null,
+        "lastSaleYear": null,
+        "lastSaleDate": null,
+        "lastSaleAgencyUrl": null,
+        "lastRentalAgency": "Nelson Alexander Docklands",
+        "lastRentalPrice": null,
+        "lastRentalYear": "2022",
+        "lastRentalAgencyUrl": null,
+        "saleDaysOnMarket": null,
+        "rentDaysOnMarket": 140,
+        "isPotentialInvestment": false,
+        "isPropertyInBuilding": false,
+        "estimatedValue": 590000,
+        "highRange": 670000,
+        "lowRange": 510000,
+        "domainPropertyId": "OR-3012-RD",
+        "lotNumber": "610B",
+        "sectionNumber": null,
+        "planNumber": "PS516258",
+        "parking": 1,
+        "propertyCategory": "Residential",
+        "propertyType": "Apartment",
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "internalArea": 67,
+        "landSize": null,
+        "hasUniqueProfile": null,
+        "propertyStoryLineOne": null,
+        "propertyStoryLineTwo": null,
+        "propertyStoryLineThree": null,
+        "localMarketInfo": null,
+        "propertyInBuilding": null,
+        "propertyInBuildingUrl": null,
+        "propertyInStreet": "2/460 Bourke Street, Melbourne VIC 3000",
+        "propertyInStreetUrl": "https://www.domain.com.au/44-boundary-creek-boulevard-yea-vic-3717-2019219041"
       }
     },
-    "schools": [
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Eltham College - Lonsdale Street Campus",
-        "distance": 273.0858336295879,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "eltham-college-lonsdale-street-campus-vic-3000-46233"
-      },
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Eltham College - King Street Campus",
-        "distance": 624.62751710988,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "eltham-college-king-street-campus-vic-3000-52625"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Ozford College - Ozford College Campus",
-        "distance": 701.5069158778244,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "ozford-college-english-language-centre-vic-3000-52094"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Hester Hornbrook Academy - City Campus",
-        "distance": 729.9688058012105,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "",
-        "domainSeoUrlSlug": "hester-hornbrook-academy-city-campus-vic-3000-52519"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Ozford College",
-        "distance": 732.7583519121125,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "CoEd",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "http://www.ozford.edu.au",
-        "domainSeoUrlSlug": "ozford-college-vic-3000-40714"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Stott's Colleges",
-        "distance": 825.8040528654113,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.stotts.edu.au/",
-        "domainSeoUrlSlug": "stotts-colleges-vic-3000-50313"
-      },
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Haileybury College - City Campus",
-        "distance": 898.1646937071685,
-        "state": "VIC",
-        "postCode": "3006",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "West Melbourne, VIC 3006",
-        "url": "",
-        "domainSeoUrlSlug": "haileybury-college-city-campus-vic-3006-52423"
-      },
-      {
-        "id": "",
-        "educationLevel": "combined",
-        "name": "Haileybury Girls College - City Campus",
-        "distance": 898.1646937071685,
-        "state": "VIC",
-        "postCode": "3006",
-        "year": "",
-        "gender": "",
-        "type": "Private",
-        "address": "West Melbourne, VIC 3006",
-        "url": "",
-        "domainSeoUrlSlug": "haileybury-girls-college-city-campus-vic-3006-52428"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "Holmes Grammar School",
-        "distance": 1017.7119455542149,
-        "state": "VIC",
-        "postCode": "3000",
-        "year": "11-12",
-        "gender": "",
-        "type": "Private",
-        "address": "Melbourne, VIC 3000",
-        "url": "https://www.holmes.edu.au/pages/schools-and-faculties/secondary",
-        "domainSeoUrlSlug": "holmes-secondary-college-vic-3000-40736"
-      },
-      {
-        "id": "",
-        "educationLevel": "secondary",
-        "name": "River Nile School",
-        "distance": 1240.3095909957249,
-        "state": "VIC",
-        "postCode": "3051",
-        "year": "11-12",
-        "gender": "Girls",
-        "type": "Private",
-        "address": "North Melbourne, VIC 3051",
-        "url": "http://www.rivernileschool.vic.edu.au/",
-        "domainSeoUrlSlug": "river-nile-school-vic-3051-52480"
-      },
-      {
-        "id": "1266",
-        "educationLevel": "primary",
-        "name": "Carlton Gardens Primary School",
-        "distance": 1550.1889288598454,
-        "state": "VIC",
-        "postCode": "3053",
-        "year": "Prep-6",
-        "gender": "CoEd",
-        "type": "Government",
-        "address": "Carlton, VIC 3053",
-        "url": "http://www.carltongardens.vic.edu.au",
-        "domainSeoUrlSlug": "carlton-gardens-primary-school-vic-3053-1266"
-      },
-      {
-        "id": "3946",
-        "educationLevel": "secondary",
-        "name": "University High School",
-        "distance": 2047.2095000599688,
-        "state": "VIC",
-        "postCode": "3052",
-        "year": "7-12",
-        "gender": "CoEd",
-        "type": "Government",
-        "address": "Parkville, VIC 3052",
-        "url": "http://www.unihigh.vic.edu.au",
-        "domainSeoUrlSlug": "university-high-school-vic-3052-3946"
-      }
-    ],
-    "suburbInsights": {
-      "beds": 2,
-      "propertyType": "Unit",
-      "suburb": "Melbourne",
-      "suburbProfileUrl": "/suburb-profile/melbourne-vic-3000",
-      "medianPrice": 518000,
-      "medianRentPrice": 660,
-      "avgDaysOnMarket": 135,
-      "auctionClearance": 71,
-      "nrSoldThisYear": 680,
-      "entryLevelPrice": 316000,
-      "luxuryLevelPrice": 1030000,
-      "renterPercentage": 0.6970133677881032,
-      "singlePercentage": 0.7628455892048701,
-      "demographics": {
-        "population": 47279,
-        "avgAge": "20 to 39",
-        "owners": 0.3029866322118968,
-        "renters": 0.6970133677881032,
-        "families": 0.2371544107951299,
-        "singles": 0.7628455892048701,
-        "clarification": true
-      },
-      "salesGrowthList": [
+    "propertyTimeline": {
+      "timelineArray": [
         {
-          "medianSoldPrice": 659000,
-          "annualGrowth": 0,
-          "numberSold": 871,
-          "year": "2018",
-          "daysOnMarket": 110
-        },
-        {
-          "medianSoldPrice": 616000,
-          "annualGrowth": -0.06525037936267071,
-          "numberSold": 806,
-          "year": "2019",
-          "daysOnMarket": 111
-        },
-        {
-          "medianSoldPrice": 617000,
-          "annualGrowth": 0.0016233766233766235,
-          "numberSold": 626,
-          "year": "2020",
-          "daysOnMarket": 102
-        },
-        {
-          "medianSoldPrice": 575000,
-          "annualGrowth": -0.06807131280388978,
-          "numberSold": 572,
-          "year": "2021",
-          "daysOnMarket": 100
-        },
-        {
-          "medianSoldPrice": 550000,
-          "annualGrowth": -0.043478260869565216,
-          "numberSold": 640,
-          "year": "2022",
-          "daysOnMarket": 151
-        },
-        {
-          "medianSoldPrice": 518000,
-          "annualGrowth": -0.05818181818181818,
-          "numberSold": 680,
-          "year": "2023",
-          "daysOnMarket": 135
-        }
-      ],
-      "mostRecentSale": null
-    },
-    "gallery": {
-      "slides": [
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/aF1l-2j8-6nbP73_qQgpv089jK8=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_4_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/oyuQR75afXir6AXEfG8dIBr9MtY=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_4_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/0OFrOVqRR4QAf2wK17Ep6eHNGfc=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_4_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/rYSyHJpGKGHDH2OsR8f95kAss2s=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_4_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
+          "agency": {
+            "id": 27231,
+            "name": "Nelson Alexander Docklands"
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "category": "Rental",
+          "daysOnMarket": 140,
+          "eventDate": "2022-01-25T00:00:00",
+          "eventPrice": 0,
+          "priceDescription": "PER WEEK",
+          "isMajorEvent": true,
+          "isPriceWarning": false,
+          "advertId": 15369536
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/TU1vpX6fX_Wc6TxPkcl0hFiCpDo=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_1_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/31c8OSugOW2VxdcyXvobJ-JhuFo=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_1_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/lU4q6fC8U6l6s-Xm7B01sWirre0=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_1_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/DZzK34AQQfv0KZFeLeb7K57LBO8=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_1_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
+          "saleMetadata": {
+            "isSold": false,
+            "marketSteps": []
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "agency": {
+            "id": 27231,
+            "name": "Nelson Alexander Docklands"
+          },
+          "category": "Sale",
+          "daysOnMarket": 129,
+          "eventDate": "2019-04-04T00:00:00",
+          "eventPrice": 600000,
+          "priceDescription": "Listed - not sold",
+          "isMajorEvent": false,
+          "isPriceWarning": false,
+          "advertId": 2015123592
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/vuAVqrlm8mYxDIoTP9F0y4aFImg=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_2_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/lXWBBz8pgJMGIt2VRjTOaLsJk_I=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_2_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/abWnQ3mBdgAtlxAABS1lnpi6Jiw=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_2_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/1h6hDN6Ga5d5N2C4-vgPubtKg6Q=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_2_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
+          "saleMetadata": {
+            "isSold": false,
+            "marketSteps": []
           },
-          "embedUrl": null,
-          "mediaType": "image"
+          "agency": {
+            "id": 16216,
+            "name": "Harcourts Melbourne City",
+            "url": "https://www.domain.com.au/real-estate-agencies/harcourtsmelbournecity-16216/"
+          },
+          "category": "Sale",
+          "daysOnMarket": 114,
+          "eventDate": "2014-07-20T00:00:00",
+          "priceDescription": "Listed - not sold",
+          "isMajorEvent": false,
+          "isPriceWarning": false,
+          "advertId": 2011317327
         },
         {
-          "thumbnail": "https://rimh2.domainstatic.com.au/1DEJ8sufr3aJbdNw8sCuEM2Pchk=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_3_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/DwzbWU8y5sI4j5iIkZNAatsW1dA=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_3_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/xQrrnxh_3Y_K4MhwgDd8Nzj18OU=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_3_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/ANiN4UNmc9lHBiQOA22mP8vW8UM=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_3_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
+          "agency": {
+            "id": 345,
+            "name": "Dingle Partners",
+            "url": "https://www.domain.com.au/real-estate-agencies/dinglepartners-345/"
           },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/q8ZRjzwyDiOlORGluklpFHShunM=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_5_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/YT46OlQDvIwzOFHmLuOA0HXdOG0=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_5_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/H_gCkNgbky1dWFxQzkm2wyEX_E4=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_5_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/Q_-z1cDUrlHWUyamhtLZIXZrf4w=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_5_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/mOoM1pIY0ymi_8-_0nRiP1Nmvhw=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_6_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/ZW49cgxiYMFk7zkioQBFEk0j0ak=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_6_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/v1ivvYpsCSWe19yPVlpvpISX4KM=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_6_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/v3toV9GwPW_Sp4S5jK-wDz5sAJY=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_6_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/7NGXkxTJzAZWB_7mYpXaCXe0OXU=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_7_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/fGvoXuE8Z7zSaIHzHTjbtoBPaR4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_7_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/1McHJmBl9hAg6JFGKnJgyMzK5A0=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_7_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/bMkIjyB-NUaAiksWMsgLx_wYAHw=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_7_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/WjGgbSCaw9IexxX_E4d7b8tsiBc=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_8_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/ZDFbU3FuzuOIO4L5y47x2893WDk=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_8_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/X0Bqm7PiVjr6CASYxkdkZw8RW3k=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_8_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/fEKPFSAb0NIowZn6mKrZ_HuhChE=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_8_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/sRzU8F6c35A5HfGrdyU-PMMJkR4=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_9_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/sAUv1CMHPV_fykVh1-KLvYvfzZQ=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_9_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/luJIwcbi6rNYF6L6VQsViG0aABc=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_9_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/WFmpky1Cm14-PQ7WzLVthGhQf4U=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_9_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/TB-FZeYrjaf08KKByEUQ5P78TpQ=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_10_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/yzZbUXi9OjhwRLrep-rQJTzkRJ4=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_10_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/hLCfaZmCr2o85qfFwfZ6F_1R5TI=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_10_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/aG_xBFb6WDrqEwGqSHfinA4vrZA=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_10_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/ZYi8IbTOv-OhNmRk6F08YN8DqKM=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_11_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/JTSp4gTljovMTom2If9sRkYN1wc=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_11_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/oU8ai5CGF2lV97czBRZeYm5TKwU=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_11_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/hWlRaGaP48vtGmaDFw3p-_vnDzM=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_11_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/y48ZBiFnegP0IljUoLvX2UOdqK8=/fit-in/144x106/filters:format(jpeg):quality(80):no_upscale()/2018835548_12_1_231016_011818-w800-h600",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/HkMU7dlc6enjJVPU46U6fGaoI98=/fit-in/1920x1080/filters:format(jpeg):quality(80):no_upscale()/2018835548_12_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/CFGii8DSiDzhEAhpCeZT5mrFOQY=/fit-in/1020x1020/filters:format(jpeg):quality(80):no_upscale()/2018835548_12_1_231016_011818-w800-h600",
-              "width": 800,
-              "height": 600
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/6FjhTAyi1RszOQZ50JivaBQZDJw=/fit-in/600x800/filters:format(jpeg):quality(80):no_upscale()/2018835548_12_1_231016_011818-w800-h600",
-              "width": 600,
-              "height": 450
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "image"
-        },
-        {
-          "thumbnail": "https://rimh2.domainstatic.com.au/Fg02ixnNpO-zFHBDE8AXESJkWXo=/fit-in/144x106/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018498512_13_3_230426_064510-w849-h1200",
-          "images": {
-            "original": {
-              "url": "https://rimh2.domainstatic.com.au/5BxPheVKU5C2orHWzbWR8Hg8Ty0=/fit-in/1920x1080/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018498512_13_3_230426_064510-w849-h1200",
-              "width": 764,
-              "height": 1080
-            },
-            "tablet": {
-              "url": "https://rimh2.domainstatic.com.au/aLU0n0KpgU3c2lhnr8ue2wAWKLU=/fit-in/1020x1020/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018498512_13_3_230426_064510-w849-h1200",
-              "width": 722,
-              "height": 1020
-            },
-            "mobile": {
-              "url": "https://rimh2.domainstatic.com.au/aLU0n0KpgU3c2lhnr8ue2wAWKLU=/fit-in/1020x1020/filters:format(jpeg):quality(80):background_color(white):no_upscale()/2018498512_13_3_230426_064510-w849-h1200",
-              "width": 722,
-              "height": 1020
-            }
-          },
-          "embedUrl": null,
-          "mediaType": "floorplan"
+          "category": "Rental",
+          "daysOnMarket": 128,
+          "eventDate": "2011-02-24T00:00:00",
+          "priceDescription": "PER WEEK",
+          "isMajorEvent": true,
+          "isPriceWarning": false,
+          "advertId": 6778467
         }
       ]
-    },
-    "listingSummary": {
-      "beds": 2,
-      "baths": 1,
-      "parking": 1,
-      "title": "Private Sale $625,000",
-      "price": "Private Sale $625,000",
-      "address": "610/399 Bourke Street, Melbourne VIC 3000",
-      "promoType": "platinum",
-      "stats": [],
-      "listingType": "rent",
-      "propertyType": "Apartment / Unit / Flat",
-      "status": "live",
-      "mode": "buy",
-      "method": "privateTreaty",
-      "isRural": false,
-      "houses": 0,
-      "showDefaultFeatures": true
-    },
-    "agents": [
-      {
-        "name": "Jason Marston",
-        "photo": null,
-        "phone": "",
-        "mobile": "0403344444",
-        "agentProfileUrl": "https://www.domain.com.au/real-estate-agent/jason-marston-1920747/",
-        "email": null
-      }
-    ],
-    "features": [],
-    "structuredFeatures": [],
-    "faqs": [
-      {
-        "question": "How many bedrooms does 610/399 Bourke Street, Melbourne have?",
-        "answer": [
-          {
-            "text": "610/399 Bourke Street, Melbourne is a 2 bedroom apartment."
-          }
-        ]
-      },
-      {
-        "question": "What are the key property features of 610/399 Bourke Street, Melbourne?",
-        "answer": [
-          {
-            "text": "To enquire about specific property features for 610/399 Bourke Street, Melbourne, "
-          },
-          {
-            "text": "contact the agent.",
-            "scrollTo": "enquiry-form"
-          }
-        ]
-      },
-      {
-        "question": "What is the size of the property at 610/399 Bourke Street, Melbourne?",
-        "answer": [
-          {
-            "text": "The property size for 610/399 Bourke Street, Melbourne has not been disclosed. To find detailed information on property size, "
-          },
-          {
-            "text": "contact the agent.",
-            "scrollTo": "enquiry-form"
-          }
-        ]
-      },
-      {
-        "question": "How many car spaces does 610/399 Bourke Street, Melbourne have?",
-        "answer": [
-          {
-            "text": "610/399 Bourke Street, Melbourne has 1 car space."
-          }
-        ]
-      },
-      {
-        "question": "What is the listing price for 610/399 Bourke Street, Melbourne?",
-        "answer": [
-          {
-            "text": "The listed price for 610/399 Bourke Street, Melbourne is Private Sale $625,000."
-          }
-        ]
-      }
-    ]
+    }
   }
 ]

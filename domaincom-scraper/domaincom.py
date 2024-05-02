@@ -36,7 +36,48 @@ def parse_hidden_data(response: ScrapeApiResponse):
     return data["props"]["pageProps"]["componentProps"]
 
 
-def parse_property_page(data: Dict) -> Dict:
+def parse_repoerty_data(response: ScrapeApiResponse):
+    """parse json data from script tags"""
+    selector = response.selector
+    script = selector.xpath("//script[@id='__NEXT_DATA__']/text()").get()
+    json_data = json.loads(script)
+    # property pages data are found in different structures
+    try:
+        data = json_data["props"]["pageProps"]["componentProps"]
+        data = parse_component_props(data)
+        return data
+    except:
+        data = json_data["props"]["pageProps"]
+        data = parse_page_props(data)
+        return data
+
+
+def parse_page_props(data: Dict) -> Dict:
+    """refine property pages data"""
+    if not data:
+        return
+    result = jmespath.search(
+        """{
+    title: layoutProps.title,
+    canonical: layoutProps.title,
+    description: layoutProps.title,
+    digitalData: layoutProps.event_parameters,
+    address: layoutProps.linkedData.details.address,
+    hero: heroProps,
+    coords: profileMapProps.coords,
+    agent: agentShowcaseProps,
+    propertyStory: propertyStoryProps,
+    propertyTimeline: propertyTimelineProps
+    }""",
+        data,
+    )
+    # parse the photo data
+    photos = [i["images"]["original"]["url"] for i in result["hero"]["photos"]]
+    result["hero"]["photos"] = photos
+    return result
+
+
+def parse_component_props(data: Dict) -> Dict:
     """refine property pages data"""
     if not data:
         return
@@ -103,10 +144,9 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     properties = []
     # scrape all the property page concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        # parse the data from script tag
-        data = parse_hidden_data(response)
-        # aappend the data to the list after refining
-        properties.append(parse_property_page(data))
+        # parse the data from script tag and refine it
+        data = parse_repoerty_data(response)
+        properties.append(data)
     log.success(f"scraped {len(properties)} property listings")
     return properties
 
