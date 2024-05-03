@@ -34,7 +34,7 @@ def validate_or_fail(item, validator):
 async def test_product_scraping():
     urls = [
         "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
-        "https://www.amazon.com/All-new-Kindle-Paperwhite-GB-adjustable/dp/B09RD7XM9X/",
+        "https://www.amazon.com/Apple-2024-MacBook-13-inch-Laptop/dp/B0CX22ZW1T",
         "https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299/",
         "https://www.amazon.com/42pcs-Fabric-Assorted-Squares-Nonwoven/dp/B01GCLS32M/",
     ]

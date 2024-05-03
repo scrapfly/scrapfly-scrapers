@@ -64,7 +64,7 @@ def parse_search(result: ScrapeApiResponse) -> List[ProductPreview]:
                 # small price text is "real" price
                 "real_price": box.css(".a-price[data-a-size=b] .a-offscreen::text").get(),
                 "rating": float(rating) if rating else None,
-                "rating_count": int(rating_count.replace(',','')) if rating_count else None,
+                "rating_count": int(rating_count.replace(',','').replace(" ratings", "")) if rating_count else None,
             }
         )
     log.info(f"parsed {len(previews)} product previews from search page {result.context['url']}")
@@ -219,7 +219,9 @@ async def scrape_product(url: str) -> List[Product]:
     url = url.split("/ref=")[0]
     asin = url.split("/dp/")[-1]
     log.info(f"scraping product {url}")
-    product_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    product_result = await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, **BASE_CONFIG, render_js=True, wait_for_selector="#productDetails_detailBullets_sections1 tr"
+    ))
     variants = [parse_product(product_result)]
 
     # if product has variants - we want to scrape all of them
