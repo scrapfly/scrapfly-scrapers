@@ -69,7 +69,7 @@ async def _get_auth_token() -> str:
     # allows rendering headless browsers to capture local storage data
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True, render_js=True, country="DE", auto_scroll=True))
     # access the atuh token from local storage data
-    auth_token = response.scrape_result["browser_data"]["local_storage_data"]["residential.search.ui.oauth.access.token"]
+    auth_token = response.scrape_result["browser_data"]["local_storage_data"]["https://www.immowelt.de"]["residential.search.ui.oauth.access.token"]
     return auth_token
 
 
