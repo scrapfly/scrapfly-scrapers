@@ -136,7 +136,7 @@ async def scrape_search(
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=f"https://www.zoopla.co.uk/search/?view_type=list&section={query_type}&q={encoded_query}&geo_autocomplete_identifier=&search_source=home&sort=newest_listings",
-            **BASE_CONFIG,
+            **BASE_CONFIG, render_js=True
         )
     )
     data = parse_search(first_page)
@@ -152,7 +152,7 @@ async def scrape_search(
     log.info("scraping search page {} remaining ({} more pages)", first_page.context['url'], total_pages_to_scrape - 1)
     # add the remaining search pages to a scraping list
     _other_pages = [
-        ScrapeConfig(f"{first_page.context['url']}&pn={page}", **BASE_CONFIG)
+        ScrapeConfig(f"{first_page.context['url']}&pn={page}", **BASE_CONFIG, render_js=True)
         for page in range(2, total_pages_to_scrape + 1)
     ]
     # scrape the remaining search page concurrently
