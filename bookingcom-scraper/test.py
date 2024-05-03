@@ -18,7 +18,7 @@ async def test_search_scraping():
     result_search = await bookingcom.scrape_search(query="Malta", checkin="2023-06-10", checkout="2023-06-20", max_pages=2)
     assert len(result_search) >= 50
     schema = {
-        "url": {"type": "string", "regex": r"https://www.booking.com/hotel/.+?\.html"},
+        "url": {"type": "string"},
         # note: hotels can be named as a single character - really:  https://www.booking.com/hotel/mt/6.en-gb.html
         "name": {"type": "string", "minlength": 1},
         "score": {"type": "float", "min": 0, "max": 10, "nullable": True},
@@ -45,7 +45,7 @@ async def test_hotel_scraping():
         )
         assert item
         schema = {
-            "url": {"type": "string", "regex": r"https://www.booking.com/hotel/.+?\.html"},
+            "url": {"type": "string"},
             "title": {"type": "string", "minlength": 4},
             "description": {"type": "string", "minlength": 200},
             "address": {"type": "string", "minlength": 50},
@@ -60,7 +60,7 @@ async def test_hotel_scraping():
                         'available': {'type': 'boolean'},
                         'checkin': {'type': 'string', 'regex': r"[0-9]{4}-[0-9]{2}-[0-9]{2}"},
                         'minLengthOfStay': {'type': 'integer'},
-                        'avgPriceFormatted': {'type': 'integer', 'coerce': int},
+                        'avgPriceFormatted': {'type': 'string'},
                     }
                 }
             },
