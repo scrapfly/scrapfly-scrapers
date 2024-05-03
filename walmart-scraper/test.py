@@ -82,7 +82,7 @@ async def test_product_scraping():
         urls=[
             "https://www.walmart.com/ip/1736740710",
             "https://www.walmart.com/ip/715596133",
-            "https://www.walmart.com/ip/1738646759",
+            "https://www.walmart.com/ip/496918359",
         ]
     )
     validator = Validator(product_schema, allow_unknown=True)

@@ -25,7 +25,7 @@ async def run():
         urls=[
             "https://www.walmart.com/ip/1736740710",
             "https://www.walmart.com/ip/715596133",
-            "https://www.walmart.com/ip/1738646759",
+            "https://www.walmart.com/ip/496918359",
         ]
     )
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
