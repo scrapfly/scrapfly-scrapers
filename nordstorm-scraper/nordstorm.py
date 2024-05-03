@@ -46,17 +46,17 @@ def parse_product(data: dict) -> dict:
     # product variants have their own colors, prices and photos:
     prices_by_sku = data["price"]["bySkuId"]
     colors_by_id = data["filters"]["color"]["byId"]
-    product["media"] = {}
-    for media_id, media in data["styleMedia"]["byId"].items():
-        product["media"][media_id] = jmespath.search(
+    product["media"] = []
+    for media_item in data["mediaExperiences"]["carouselsByColor"]:
+        item = jmespath.search(
             """{
-                id: id,
-                colorId: colorId,
-                name: colorName,
-                url: imageMediaUri.largeDesktop
+                colorCode: colorCode,
+                colorName: colorName
             }""",
-            media,
+            media_item,
         )
+        item["urls"] = [i["url"] for i in media_item["orderedShots"]]
+        product["media"].append(item)
     # Each product has SKUs(Stock Keeping Units) which are the actual variants:
     product["variants"] = {}
     for sku, sku_data in data["skus"]["byId"].items():

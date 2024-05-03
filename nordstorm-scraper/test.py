@@ -16,7 +16,7 @@ def validate_or_fail(item, validator):
 
 
 product_schema = {
-    "id": {"type": "integer"},
+    "id": {"type": "string"},
     "title": {"type": "string"},
     "type": {"type": "string"},
     "typeParent": {"type": "string"},
@@ -33,16 +33,18 @@ product_schema = {
     "features": {"type": "list", "schema": {"type": "string"}},
     "gender": {"type": "string"},
     "media": {
-        "type": "dict",
-        "valueschema": {
+        "type": "list",
+        "schema": {
             "type": "dict",
             "schema": {
-                "id": {"type": "integer"},
-                "colorId": {"type": "string"},
-                "name": {"type": "string"},
-                "url": {"type": "string"},
-            },
-        },
+                "colorCode": {"type": "string"},
+                "colorName": {"type": "string"},
+                "urls": {
+                    "type": "list",
+                    "schema": {"type": "string"}
+                }
+            }
+        }
     },
     "variants": {
         "type": "dict",
