@@ -154,9 +154,9 @@ search_schema = {
 async def test_properties_scraping():
     properties_data = await immoscout24.scrape_properties(
         urls=[
-            "https://www.immoscout24.ch/rent/4000735334",
-            "https://www.immoscout24.ch/rent/4000764378",
-            "https://www.immoscout24.ch/rent/4000436803"
+            "https://www.immoscout24.ch/rent/4001086289",
+            "https://www.immoscout24.ch/rent/4001049042",
+            "https://www.immoscout24.ch/rent/4001079580"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
