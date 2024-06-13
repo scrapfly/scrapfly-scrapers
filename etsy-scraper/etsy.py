@@ -39,7 +39,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
 
     for product in selector.xpath("//div[@data-search-results-lg]/ol/li"):
         link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
-        rate = product.xpath(".//div[contains(@aria-label,'star rating')]/text()").get()
+        rate = product.xpath(".//div[@class='streamline-spacing-shop-rating']/div/span/span/text()").get()
         number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
         if number_of_reviews:
             number_of_reviews = number_of_reviews.replace("(", "").replace(")", "")

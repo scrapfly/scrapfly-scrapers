@@ -15,7 +15,7 @@ output.mkdir(exist_ok=True)
 
 
 async def run():
-    etsy.BASE_CONFIG["cache"] = True
+    etsy.BASE_CONFIG["cache"] = False
 
     print("running Etsy scrape and saving results to ./results directory")
 
