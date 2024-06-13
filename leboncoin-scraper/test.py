@@ -7,7 +7,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache
-leboncoin.BASE_CONFIG["cache"] = True
+leboncoin.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
