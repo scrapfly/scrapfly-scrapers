@@ -19,12 +19,12 @@ async def run():
 
     print("running Threads scrape and saving results to ./results directory")
 
-    # url = "https://www.threads.net/t/CuV1UcwLCQD"  # example without media
-    url = "https://www.threads.net/t/CuVdfsNtmvh/"  # example with media
+    url = "https://www.threads.net/t/C8CTu0iswgv"  # example without media
+    # url = "https://www.threads.net/t/C8H5FiCtESk/"  # example with media
     thread = await threads.scrape_thread(url)
     output.joinpath("thread.json").write_text(json.dumps(thread, indent=2, ensure_ascii=False), encoding="utf-8")
     
-    url = "https://www.threads.net/@discoverocean"
+    url = "https://www.threads.net/@natgeo"
     profile = await threads.scrape_profile(url)
     output.joinpath("profile.json").write_text(json.dumps(profile, indent=2, ensure_ascii=False), encoding="utf-8")
 
