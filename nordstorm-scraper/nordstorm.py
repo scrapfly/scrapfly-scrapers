@@ -44,7 +44,7 @@ def parse_product(data: dict) -> dict:
         data,
     )
     # product variants have their own colors, prices and photos:
-    prices_by_sku = data["price"]["bySkuId"]
+    prices_by_sku = data["price"]["bySkuId"] if data["price"] else None
     colors_by_id = data["filters"]["color"]["byId"]
     product["media"] = []
     for media_item in data["mediaExperiences"]["carouselsByColor"]:
@@ -71,7 +71,7 @@ def parse_product(data: dict) -> dict:
             sku_data,
         )
         # get variant price from
-        parsed["price"] = prices_by_sku[sku]["regular"]["price"]
+        parsed["price"] = prices_by_sku[sku]["regular"]["price"] if prices_by_sku else None
         # get variant color data
         parsed["color"] = jmespath.search(
             """{
