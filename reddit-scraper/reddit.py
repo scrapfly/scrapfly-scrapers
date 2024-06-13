@@ -14,10 +14,13 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    # bypass linkedin.com web scraping blocking
+    # enable the anti scraping protection
     "asp": True,
     # set the proxy country to US
-    "country": "US"
+    "country": "US",
+    # bypassing reddit requires emabling JavaScript and using the residential proxy pool
+    "render_js": True,
+    "proxy_pool": "public_residential_pool"
 }
 
 def parse_subreddit(response: ScrapeApiResponse) -> Dict:
