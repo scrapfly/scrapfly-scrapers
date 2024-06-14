@@ -32,9 +32,8 @@ def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
     for result in selector.xpath("//li[@class='b_algo']"):
         url = result.xpath(".//h2/a/@href").get()
         description = result.xpath("normalize-space(.//div/p)").extract_first()
-        date = description.split("·")[0].strip().replace("Web", "").strip()
-        # date can be in different format
-        if len(date) > 12:
+        date = result.xpath(".//span[@class='news_dt']/text()").get()
+        if data is not None and date is not None and len(date) > 12:
             date_pattern = re.compile(r"\b\d{2}-\d{2}-\d{4}\b")
             date_pattern.findall(description)
             dates = date_pattern.findall(date)
@@ -82,8 +81,8 @@ def parse_rich_snippet(response: ScrapeApiResponse) -> Dict:
     """parse rich snippets from Bing search"""
     selector = response.selector
     data = {}
-    data["title"] = selector.xpath("//span[contains(@class, 'txt_heros')]/text()").get()
-    data["link"] = selector.xpath("//a[contains(@class, 'txt_hover')]/@href").get()
+    data["title"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/h2/span/text()").get()
+    data["link"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/@href").get()
     data["heading"] = selector.xpath("//div[contains(@class, 'header_txt')]/text()").get()
     data["links"] = {}
     for item in selector.xpath("//div[contains(@class, 'webicons')]/div"):

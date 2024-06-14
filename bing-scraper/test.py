@@ -6,7 +6,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache
-bing.BASE_CONFIG["cache"] = True
+bing.BASE_CONFIG["cache"] = False
 
 
 class Validator(_Validator):

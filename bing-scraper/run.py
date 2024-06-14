@@ -31,5 +31,6 @@ async def run():
     with open(output.joinpath("rich_snippets.json"), "w", encoding="utf-8") as file:
         json.dump(rich_snippet_data, file, indent=2, ensure_ascii=False)
 
+
 if __name__ == "__main__":
     asyncio.run(run())
