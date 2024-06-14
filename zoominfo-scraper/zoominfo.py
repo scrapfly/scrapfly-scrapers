@@ -47,8 +47,8 @@ def parse_company(response: ScrapeApiResponse) -> List[Dict]:
 def parse_directory(response: ScrapeApiResponse) -> dict:
     """parse zoominfo directory pages"""
     selector = response.selector
-    companies = selector.css("div.tableRow_companyName_nameAndLink>a::attr(href)").getall()
-    pagination = selector.css("div.pagination>a::attr(href)").getall()
+    companies = selector.css("a.company-name.link::attr(href)").getall()
+    pagination = selector.css("a.page-link::attr(href)").getall()
     return {"companies": companies, "pagination": pagination}
 
 
