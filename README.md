@@ -578,7 +578,7 @@ The [reddit.com scraper](./reddit-scraper/) can scrape the following data:
 
 </details> 
 
-For the full guide, refer to our blog article
+For the full guide, refer to our blog article [How to Scrape Reddit Posts, Subreddits and Profiles](https://scrapfly.io/blog/how-to-scrape-reddit-social-data/)
 
 
 ### Redfin
