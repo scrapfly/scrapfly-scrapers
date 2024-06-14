@@ -21,9 +21,9 @@ async def run():
 
     properties_data = await zoopla.scrape_properties(
         urls=[
-            "https://www.zoopla.co.uk/new-homes/details/66709939",
+            "https://www.zoopla.co.uk/new-homes/details/65773035",
             "https://www.zoopla.co.uk/new-homes/details/66702316/",
-            "https://www.zoopla.co.uk/new-homes/details/65539749/"
+            "https://www.zoopla.co.uk/new-homes/details/67005655/"
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
