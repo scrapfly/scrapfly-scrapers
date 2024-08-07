@@ -103,6 +103,46 @@ async def scrape_user(username: str) -> Dict:
     return parse_user(data["data"]["user"])
 
 
+def parse_comments(data: Dict) -> Dict:
+    """Parse the comments data from the post dataset"""
+    if "edge_media_to_comment" in data:
+        return jmespath.search(
+            """{
+                comments_count: edge_media_to_comment.count,
+                comments_disabled: comments_disabled,
+                comments_next_page: edge_media_to_comment.page_info.end_cursor,
+                comments: edge_media_to_comment.edges[].node.{
+                    id: id,
+                    text: text,
+                    created_at: created_at,
+                    owner_id: owner.id,
+                    owner: owner.username,
+                    owner_verified: owner.is_verified,
+                    viewer_has_liked: viewer_has_liked
+                }
+            }""",
+            data,
+        )
+    else:
+        return jmespath.search(
+            """{
+                comments_count: edge_media_to_parent_comment.count,
+                comments_disabled: comments_disabled,
+                comments_next_page: edge_media_to_parent_comment.page_info.end_cursor,
+                comments: edge_media_to_parent_comment.edges[].node.{
+                    id: id,
+                    text: text,
+                    created_at: created_at,
+                    owner: owner.username,
+                    owner_verified: owner.is_verified,
+                    viewer_has_liked: viewer_has_liked,
+                    likes: edge_liked_by.count
+                }
+            }""",
+            data,
+        )
+
+
 def parse_post(data: Dict) -> Dict:
     """Reduce post dataset to the most important fields"""
     log.debug("parsing post data {}", data["shortcode"])
@@ -112,11 +152,10 @@ def parse_post(data: Dict) -> Dict:
         shortcode: shortcode,
         dimensions: dimensions,
         src: display_url,
-        src_attached: edge_sidecar_to_children.edges[].node.display_url,
-        has_audio: has_audio,
+        thumbnail_src: thumbnail_src,
+        media_preview: media_preview,
         video_url: video_url,
         views: video_view_count,
-        plays: video_play_count,
         likes: edge_media_preview_like.count,
         location: location.name,
         taken_at: taken_at_timestamp,
@@ -127,22 +166,13 @@ def parse_post(data: Dict) -> Dict:
         is_video: is_video,
         tagged_users: edge_media_to_tagged_user.edges[].node.user.username,
         captions: edge_media_to_caption.edges[].node.text,
-        related_profiles: edge_related_profiles.edges[].node.username,
-        comments_count: edge_media_to_parent_comment.count,
-        comments_disabled: comments_disabled,
-        comments_next_page: edge_media_to_parent_comment.page_info.end_cursor,
-        comments: edge_media_to_parent_comment.edges[].node.{
-            id: id,
-            text: text,
-            created_at: created_at,
-            owner: owner.username,
-            owner_verified: owner.is_verified,
-            viewer_has_liked: viewer_has_liked,
-            likes: edge_liked_by.count
-        }
+        related_profiles: edge_related_profiles.edges[].node.username
     }""",
         data,
     )
+    comments_data = parse_comments(data)
+    result.update(comments_data)
+
     return result
 
 
@@ -162,6 +192,7 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
         "has_threaded_comments": True,
     }
     url = "https://www.instagram.com/graphql/query/?query_hash=b3055c01b4b222b8a47dc12b090e4e64&variables="
+    print(url + quote(json.dumps(variables)))
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=url + quote(json.dumps(variables)),
@@ -173,7 +204,7 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
     return parse_post(data["data"]["shortcode_media"])
 
 
-async def scrape_user_posts(user_id: str, page_size=50, max_pages: Optional[int] = None):
+async def scrape_user_posts(user_id: str, page_size=24, max_pages: Optional[int] = None):
     """Scrape all posts of an instagram user of given numeric user id"""
     base_url = "https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables="
     variables = {
