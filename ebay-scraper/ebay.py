@@ -116,22 +116,19 @@ def parse_product(result: ScrapeApiResponse):
     item["price_converted"] = css(".x-price-approx__price ::text")  # ebay automatically converts price for some regions
 
     item["name"] = css_join("h1 span::text")
-    item["seller_name"] = css_join("[data-testid=str-title] a ::text")
-    item["seller_url"] = css("[data-testid=str-title] a::attr(href)").split("?")[0]
+    item["seller_name"] = sel.xpath("//div[contains(@class,'info__about-seller')]/a/span/text()").get()
+    item["seller_url"] = sel.xpath("//div[contains(@class,'info__about-seller')]/a/@href").get().split("?")[0]
     item["photos"] = sel.css('.ux-image-filmstrip-carousel-item.image img::attr("src")').getall()  # carousel images
     item["photos"].extend(sel.css('.ux-image-carousel-item.image img::attr("src")').getall())  # main image
     # description is an iframe (independant page). We can keep it as an URL or scrape it later.
-    item["description_url"] = css("div.d-item-description iframe::attr(src)")
-    if not item["description_url"]:
-        item["description_url"] = css("div#desc_div iframe::attr(src)")
+    item["description_url"] = css("iframe#desc_ifr::attr(src)")
     # feature details from the description table:
     feature_table = sel.css("div.ux-layout-section--features")
     features = {}
-    for ft_label in feature_table.css(".ux-labels-values__labels"):
+    for feature in feature_table.css("dl.ux-labels-values"):
         # iterate through each label of the table and select first sibling for value:
-        label = "".join(ft_label.css(".ux-textspans::text").getall()).strip(":\n ")
-        ft_value = ft_label.xpath("following-sibling::div[1]")
-        value = "".join(ft_value.css(".ux-textspans::text").getall()).strip()
+        label = "".join(feature.css(".ux-labels-values__labels-content > div > span::text").getall()).strip(":\n ")
+        value = "".join(feature.css(".ux-labels-values__values-content > div > span *::text").getall()).strip(":\n ")
         features[label] = value
     item["features"] = features
     return item

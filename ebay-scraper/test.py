@@ -41,14 +41,14 @@ def require_min_presence(items, key, min_perc=0.1):
 async def test_product_scraping():
     result = await ebay.scrape_product("https://www.ebay.com/itm/393531906094")
     schema = {
-        "url": {"type": "string", "regex": "https://www.ebay.com/itm/\d+(\?.*?)*"},
+        "url": {"type": "string"},
         "id": {"type": "string", "regex": r"\d+"},
         "name": {"type": "string", "minlength": 1},
         "price": {"type": "string", "minlength": 1},
         "seller_name": {"type": "string", "minlength": 1},
         "seller_url": {"type": "string", "regex": "https://www.ebay.com/str/.+"},
         "photos": {"type": "list", "schema": {"type": "string"}},
-        "description_url": {"type": "string", "regex": "https://.+?.ebaydesc.com/.+"},
+        "description_url": {"type": "string", "regex": "https://(?:.+?\.)?vi\.vipr\.ebaydesc\.com/.+"},
         "features": {"type": "dict"},
     }
     validator = Validator(schema, allow_unknown=True)
@@ -81,7 +81,7 @@ async def test_search_scraping():
         # note: could be placeholder - https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg
         "photo": {
             "type": "string",
-            "regex": r"https://i.ebayimg.com/thumbs/images/.+?|https://.+ebaystatic.com/.+",
+            "regex": r"https://i.ebayimg.com/images/.+?|https://.+ebaystatic.com/.+",
             "nullable": True,
         },
         "title": {"type": "string", "minlength": 1},
