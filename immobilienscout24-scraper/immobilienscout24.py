@@ -24,6 +24,21 @@ output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
 
+def find_json_objects(text: str, decoder=json.JSONDecoder()):
+    """Find JSON objects in text, and generate decoded JSON data"""
+    pos = 0
+    while True:
+        match = text.find("{", pos)
+        if match == -1:
+            break
+        try:
+            result, index = decoder.raw_decode(text[match:])
+            yield result
+            pos = match + index
+        except ValueError:
+            pos = match + 1
+
+
 def strip_text(text):
     """remove extra spaces while handling None values"""
     if text != None:
@@ -50,9 +65,7 @@ def parse_property_page(response: ScrapeApiResponse):
     price_per_meter = strip_text(selector.xpath("//dd[contains(@class, 'preism')]/text()").get())
     basic_rent = strip_text(selector.xpath("//div[contains(@class, 'kaltmiete')]/span/text()").get())
     additional_costs = strip_text(selector.xpath("//dd[contains(@class, 'nebenkosten')]/text()").extract()[1].replace("\n", ""))
-    # additional_costs = selector.xpath("//dd[contains(@class, 'nebenkosten')]/text()").extract()
     heating_costs = strip_text(selector.xpath("//dd[contains(@class, 'heizkosten')]/text()").extract()[1].replace("\n", ""))
-    # heating_costs = selector.xpath("//dd[contains(@class, 'heizkosten')]/text()").extract()
     total_rent = strip_text(selector.xpath("//dd[contains(@class, 'gesamtmiete')]/text()").get())
     deposit = strip_text(selector.xpath("//dd[contains(@class, 'ex-spacelink')]/div/text()").get())
     garage_parking_rent = selector.xpath("//dd[contains(@class, 'garagestellplatz')]/text()").get()
@@ -125,62 +138,41 @@ def parse_property_page(response: ScrapeApiResponse):
     return data
 
 
-def parse_search_api(response: ScrapeApiResponse):
-    """parse JSON data from the search API"""
-    # skip invalid API responses
-    if response.scrape_result["content_type"].split(";")[0] != "application/json":
-        # retry failed requests
-        response  = SCRAPFLY.scrape(ScrapeConfig(response.context["url"], **BASE_CONFIG, headers={"accept": "application/json"}))
-    try:
-        data = json.loads(response.scrape_result['content'])
-    except:
-        return
-    max_search_pages = data["searchResponseModel"]["resultlist.resultlist"]["paging"]["numberOfPages"]
-    search_data = data["searchResponseModel"]["resultlist.resultlist"]["resultlistEntries"][0]["resultlistEntry"]
-    # remove similar property listings from each property data
-    for json_object in search_data:
-        if "similarObjects" in json_object.keys():
-            json_object.pop("similarObjects")
-    return {
-        "max_search_pages": max_search_pages,
-        "search_data": search_data
-    }
+def parse_search(response: ScrapeApiResponse) -> List[Dict]:
+    """parse script tags for json search results """
+    selector = response.selector
+    script = selector.xpath("//script[contains(text(),'searchResponseModel')]/text()").get()
+    json_data = [i for i in list(find_json_objects(script)) if "searchResponseModel" in i][0]["searchResponseModel"]["resultlist.resultlist"]
+    search_data = json_data["resultlistEntries"][0]["resultlistEntry"]
+    max_pages = json_data["paging"]["numberOfPages"]
+    return {"search_data": search_data, "max_pages": max_pages}
 
 
-async def obtain_session(url: str) -> str:
-    """create a session to save the cookies and authorize the search API"""
-    session_id="immobilienscout24_search_session"
-    await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, session=session_id
-    ))
-    return session_id
 
 
 async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int = 10) -> List[Dict]:
-    """scrape property listings from the search API, which follows the same search page URLs"""
-    log.info("warming up a search session")
-    session_id = await obtain_session(url=url)
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, headers={"accept": "application/json"}, session=session_id))
-    result_data = parse_search_api(first_page)
-    search_data = result_data["search_data"]
-    max_search_pages = result_data["max_search_pages"]
+    """scrape immobilienscout24 search pages"""
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    data = parse_search(first_page)
+    search_data = data["search_data"]
+    max_search_pages = data["max_pages"]
+
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         max_scrape_pages = max_scrape_pages
     # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     else:
         max_scrape_pages = max_search_pages
-    log.info("scraping search {} pagination ({} more pages)", url, max_scrape_pages - 1)
-    # scrape the remaining search pages
-    for page in range(2, max_scrape_pages + 1):
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(
-            first_page.context["url"].split("?pagenumber")[0] + f"?pagenumber={page}", **BASE_CONFIG, headers={"accept": "application/json"}, session=session_id))
-        try:
-            data = parse_search_api(response)["search_data"]
-            search_data.extend(data)
-        except:
-            log.info("invalid search page")
-            pass
-    log.info("scraped {} proprties from {}", len(search_data), url)
+    print(f"scraping search {url} pagination ({max_scrape_pages - 1} more pages)")
+
+    # scrape the remaining search pages concurrently
+    to_scrape = [
+        ScrapeConfig(url + f"?pagenumber={page}", **BASE_CONFIG)
+        for page in range(2, max_scrape_pages + 1)
+    ]
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        search_data.extend(parse_search(response)["search_data"])
+
+    print(f"scraped {len(search_data)} proprties from {url}")
     return search_data
 
 
