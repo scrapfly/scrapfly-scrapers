@@ -62,7 +62,7 @@ jobs:
             text: "Test failed",
             attachments: [{
               color: "danger",
-              text: `${{ matrix.project_dir }} ${{ matrix.test }} failed`,
+              text: `${process.env.AS_WORKFLOW_RUN} ${{ matrix.project_dir }}: ${{ matrix.test }}`,
             }]
           }
       env:
