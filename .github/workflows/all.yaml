@@ -12,10 +12,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - project_dir: ebay-scraper
-            test: test_product_scraping
-          - project_dir: linkedin-scraper
-            test: test_job_page_scraping
+          - project_dir: glassdoor-scraper
+            test: test_salary_scraping
+          - project_dir: zoopla-scraper
+            test: test_properties_scraping
 
     steps:
     - uses: actions/checkout@v2
@@ -52,19 +52,38 @@ jobs:
         poetry run pytest test.py -k ${{ matrix.test }}
     
     - name: Record failed job
+      id: failure_report
       if: failure()
       run: |
-        echo "failed_jobs=\${{ env.failed_jobs }}${{ matrix.test }}: ${{ matrix.project_dir }}"$'\n' >> $GITHUB_ENV
-        echo "${{ env.failed_jobs }}"
+        echo "${{ matrix.test }}: ${{ matrix.project_dir }}" >> failed_jobs.txt
+
+    - name: Upload failed jobs artifact
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: failed-jobs
+        path: failed_jobs.txt
 
   notify:
     runs-on: ubuntu-latest
     needs: test
     if: always()
     steps:
+    - name: Download failed jobs artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: failed-jobs
+        path: ./
+
+    - name: Read failed jobs
+      id: read_failed_jobs
+      run: |
+        failed_jobs=$(cat failed_jobs.txt)
+        echo "failed_jobs=$failed_jobs" >> $GITHUB_ENV
+      
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
-      if: ${{ needs.test.result == 'failure' }}
+      if: ${{ env.failed_jobs }}
       with:
         status: custom
         fields: workflowRun
@@ -73,7 +92,7 @@ jobs:
             "text": "Test failed",
             "attachments": [{
               "color": "danger",
-              "text": "${{ env.failed_jobs }}",
+              "text": "failed jobs:\n${{ env.failed_jobs }}"
             }]
           }
       env:
