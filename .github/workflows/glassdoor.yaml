@@ -51,13 +51,20 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     needs: test
-    if: ${{ needs.test.result == 'failure' }} 
+    if: failure()  # only report failures
     steps:
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
       with:
-        status: ${{ needs.test.result }}
+        status: ${{ job.status }}
         fields: workflowRun
+        custom_payload: |
+          {
+            attachments: [{
+              color: "danger",
+              text: `${process.env.AS_WORFKLOW} ${process.env.AS_JOB} failed: ${{ job.status }}`,
+            }]
+          }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
