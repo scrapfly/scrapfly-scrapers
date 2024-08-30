@@ -55,32 +55,32 @@ jobs:
       id: failure_report
       if: failure()
       run: |
-        echo "${{ matrix.test }}: ${{ matrix.project_dir }}" >> failed_jobs.txt
+        echo "${{ matrix.test }}: ${{ matrix.project_dir }}\n" >> failed_jobs_${{ matrix.project_dir }}.txt
 
     - name: Upload failed jobs artifact
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: failed-jobs
-        path: failed_jobs.txt
+        name: failed-jobs-${{ matrix.project_dir }}
+        path: failed_jobs_${{ matrix.project_dir }}.txt
 
   notify:
     runs-on: ubuntu-latest
     needs: test
     if: always()
     steps:
-    - name: Download failed jobs artifact
+    - name: Download all failed job artifacts
       uses: actions/download-artifact@v2
       with:
-        name: failed-jobs
+        name: failed-jobs-*
         path: ./
 
-    - name: Read failed jobs
-      id: read_failed_jobs
+    - name: Combine failed jobs
+      id: combine_failed_jobs
       run: |
-        failed_jobs=$(cat failed_jobs.txt)
-        echo "failed_jobs=$failed_jobs" >> $GITHUB_ENV
-      
+        cat failed_jobs_*.txt > all_failed_jobs.txt
+        echo "failed_jobs=$(cat all_failed_jobs.txt)" >> $GITHUB_ENV
+
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
       if: ${{ env.failed_jobs }}
@@ -92,7 +92,7 @@ jobs:
             "text": "Test failed",
             "attachments": [{
               "color": "danger",
-              "text": "failed jobs:\n${{ env.failed_jobs }}"
+              "text": "Failed jobs:\n${{ env.failed_jobs }}"
             }]
           }
       env:
