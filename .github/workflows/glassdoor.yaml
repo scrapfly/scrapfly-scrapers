@@ -51,15 +51,17 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     needs: test
-    if: failure()  # only report failures
+    if: always()  # this is required
     steps:
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
+      if: ${{ needs.test.result == 'failure' }}
       with:
-        status: ${{ job.status }}
+        status: failure
         fields: workflowRun
         custom_payload: |
           {
+            text: "Test failed",
             attachments: [{
               color: "danger",
               text: `${process.env.AS_WORFKLOW} ${process.env.AS_JOB} failed: ${{ job.status }}`,
