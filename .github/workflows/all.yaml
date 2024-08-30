@@ -1,0 +1,77 @@
+name: Scraper Tests
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        include:
+          - project_dir: nordstorm-scraper
+            test: test_search_scraping
+          - project_dir: ebay-scraper
+            test: test_product_scraping
+          - project_dir: linkedin-scraper
+            test: test_job_page_scraping
+
+    container:
+      image: ghcr.io/python-poetry/poetry:1.6.0-python3.10
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Poetry virtual environment
+      uses: actions/cache@v2
+      id: cache
+      with:
+        path: ~/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-poetry-${{ hashFiles('**/${{ matrix.project_dir }}/pyproject.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-poetry-
+
+    - name: Install dependencies
+      run: |
+        cd ${{ matrix.project_dir }}
+        poetry install
+
+    - name: Run test
+      env:
+        SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
+      run: |
+        cd ${{ matrix.project_dir }}
+        poetry run pytest test.py -k ${{ matrix.test }}
+    
+    - name: Record failed job
+      if: failure()
+      run: |
+        echo "failed_jobs=\${{ env.failed_jobs }}${{ matrix.test }}: ${{ matrix.project_dir }}"$'\n' >> $GITHUB_ENV
+        echo "${{ env.failed_jobs }}"
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    steps:
+    - name: Send Slack notification
+      uses: 8398a7/action-slack@v3
+      if: ${{ failure() }}
+      with:
+        status: failure
+        fields: workflowRun
+        custom_payload: |
+          {
+            "text": "Test failed",
+            "attachments": [{
+              "color": "danger",
+              "text": "${{ env.failed_jobs }}",
+            }]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        failed_jobs: ${{ env.failed_jobs }}
