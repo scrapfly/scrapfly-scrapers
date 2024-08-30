@@ -59,10 +59,10 @@ jobs:
         fields: workflowRun
         custom_payload: |
           {
-            text: "Test failed",
+            text: "",
             attachments: [{
               color: "danger",
-              text: `${process.env.AS_JOB} ${{ matrix.project_dir }}: ${{ matrix.test | replace('test_', '')}}`,
+              text: `${process.env.AS_JOB} ${{ matrix.project_dir }}: ${{ matrix.test }}`,
             }]
           }
       env:
