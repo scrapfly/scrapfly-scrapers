@@ -66,7 +66,7 @@ jobs:
     steps:
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
-      if: ${{ failure() }}
+      if: ${{ needs.test.result == 'failure' }}
       with:
         status: failure
         fields: workflowRun
