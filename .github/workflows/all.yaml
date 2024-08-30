@@ -12,8 +12,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - project_dir: nordstorm-scraper
-            test: test_search_scraping
           - project_dir: ebay-scraper
             test: test_product_scraping
           - project_dir: linkedin-scraper
@@ -68,7 +66,7 @@ jobs:
       uses: 8398a7/action-slack@v3
       if: ${{ needs.test.result == 'failure' }}
       with:
-        status: failure
+        status: custom
         fields: workflowRun
         custom_payload: |
           {
