@@ -1,0 +1,53 @@
+name: Scraper Tests
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * MON'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project_dir: nordstorm-scraper
+            test: test_search_scraping
+          - project_dir: ebay-scraper
+            test: test_product_scraping
+          - project_dir: linkedin-scraper
+            test: test_job_page_scraping
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.10"
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Cache Poetry virtual environment
+      uses: actions/cache@v2
+      id: cache
+      with:
+        path: ~/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-poetry-${{ hashFiles('**/${{ matrix.project_dir }}/pyproject.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-poetry-
+
+    - name: Install dependencies
+      run: |
+        cd ${{ matrix.project_dir }}
+        poetry install
+
+    - name: Run test
+      env:
+        SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
+      run: |
+        cd ${{ matrix.project_dir }}
+        poetry run pytest test.py -k ${{ matrix.test }}
