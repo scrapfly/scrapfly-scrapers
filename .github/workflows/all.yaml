@@ -1,14 +1,12 @@
-name: Scraper Tests
+name: Matrix Workflow
+
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 12 * * *'
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 4
       fail-fast: false
       matrix:
         include:
@@ -20,82 +18,34 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.10"
-
-    - name: Install Poetry
+    - name: Record test results
       run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        echo "${{ matrix.test }} failed in ${{ matrix.project_dir }}" >> test_failures.txt
 
-    - name: Cache Poetry virtual environment
-      uses: actions/cache@v2
-      id: cache
-      with:
-        path: ~/.cache/pypoetry/virtualenvs
-        key: ${{ runner.os }}-poetry-${{ hashFiles('**/${{ matrix.project_dir }}/pyproject.toml') }}
-        restore-keys: |
-          ${{ runner.os }}-poetry-
-
-    - name: Install dependencies
-      run: |
-        cd ${{ matrix.project_dir }}
-        poetry install
-
-    - name: Run test
-      env:
-        SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
-      run: |
-        cd ${{ matrix.project_dir }}
-        poetry run pytest test.py -k ${{ matrix.test }}
-    
-    - name: Record failed job
-      id: failure_report
-      if: failure()
-      run: |
-        echo "${{ matrix.test }}: ${{ matrix.project_dir }}\n" >> failed_jobs_${{ matrix.project_dir }}.txt
-
-    - name: Upload failed jobs artifact
+    - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: failed-jobs-${{ matrix.project_dir }}
-        path: failed_jobs_${{ matrix.project_dir }}.txt
+        name: test-results-${{ matrix.project_dir }}
+        path: test_failures.txt
 
-  notify:
+  report:
     runs-on: ubuntu-latest
     needs: test
-    if: always()
     steps:
-    - name: Download all failed job artifacts
+    - name: Download test results
       uses: actions/download-artifact@v2
       with:
-        name: failed-jobs-*
+        name: test-results-*
         path: ./
 
-    - name: Combine failed jobs
-      id: combine_failed_jobs
+    - name: Aggregate test failures
       run: |
-        cat failed_jobs_*.txt > all_failed_jobs.txt
-        echo "failed_jobs=$(cat all_failed_jobs.txt)" >> $GITHUB_ENV
+        echo "Aggregating test results..."
+        cat test-results-*.txt > all_test_failures.txt
 
-    - name: Send Slack notification
-      uses: 8398a7/action-slack@v3
-      if: ${{ env.failed_jobs }}
-      with:
-        status: custom
-        fields: workflowRun
-        custom_payload: |
-          {
-            "text": "Test failed",
-            "attachments": [{
-              "color": "danger",
-              "text": "Failed jobs:\n${{ env.failed_jobs }}"
-            }]
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        failed_jobs: ${{ env.failed_jobs }}
+    - name: Report test failures
+      if: failure()
+      run: |
+        echo "Test failures found:"
+        cat all_test_failures.txt
