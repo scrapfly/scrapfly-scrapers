@@ -127,7 +127,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
 def parse_salaries(result: ScrapeApiResponse) -> Dict:
     """Parse Glassdoor salaries page for salary data"""
     cache = find_hidden_data(result)
-    salaries = next(v for k, v in cache.items() if k.startswith("salariesByEmployer") and v.get("results"))
+    salaries = next(v for k, v in cache.items() if k.startswith("aggregatedSalaryEstimates") and v.get("results"))
     return salaries
 
 
@@ -136,7 +136,7 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
     log.info("scraping salaries from {}", url)
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, **BASE_CONFIG))
     salaries = parse_salaries(first_page)
-    total_pages = salaries["pages"]
+    total_pages = salaries["numPages"]
     if max_pages and total_pages > max_pages:
         total_pages = max_pages
 

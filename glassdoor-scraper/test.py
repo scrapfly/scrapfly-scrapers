@@ -93,35 +93,41 @@ async def test_salary_scraping():
     schema = {
         "salaryCount": {"type": "integer"},
         "jobTitleCount": {"type": "integer"},
-        "pages": {"type": "integer"},
+        "numPages": {"type": "integer"},
         "results": {
             "type": "list",
             "schema": {
                 "type": "dict",
                 "schema": {
-                    "count": {"type": "integer"},
-                    "minBasePay": {"type": "float"},
-                    "medianBasePay": {"type": "float"},
-                    "maxBasePay": {"type": "float"},
-                    "totalCompMin": {"type": "float"},
-                    "totalCompMax": {"type": "float"},
-                    "totalCompMedian": {"type": "float"},
-                    "totalAdditionalCashPayMin": {"type": "float"},
-                    "totalAdditionalCashPayMax": {"type": "float"},
-                    "totalAdditionalCashPayMedian": {"type": "float"},
-                    "totalPayInsights": {
+                    "currency": {
                         "type": "dict",
                         "schema": {
-                            "isHigh": {"type": "boolean"},
-                            "percentage": {"type": "integer"},
-                        },
+                            "__typename": {"type": "string"},
+                            "code": {"type": "string"},
+                        }
                     },
                     "jobTitle": {
                         "type": "dict",
                         "schema": {
-                            "text": {"type": "string"},
                             "id": {"type": "integer"},
-                        },
+                            "text": {"type": "string"},
+                        }
+                    },
+                    "salaryCount": {"type": "integer"},
+                    "basePayStatistics": {
+                        "type": "dict",
+                        "schema": {
+                            "percentiles": {
+                                "type": "list",  # This ensures the validator expects a list
+                                "schema": {
+                                    "type": "dict",  # Each item in the list is a dictionary
+                                    "schema": {
+                                        "ident": {"type": "string"},
+                                        "value": {"type": "float"},
+                                    }
+                                }
+                            }
+                        }
                     },
                 },
             },
