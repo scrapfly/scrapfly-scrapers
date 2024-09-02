@@ -100,8 +100,8 @@ async def test_product_scraping():
     products_data = await vestiairecollective.scrape_products(
         urls=[
             "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/metallic-steel-nautilus-patek-philippe-watch-21827899.shtml",
-            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/silver-white-gold-nautilus-patek-philippe-watch-21341338.shtml",
-            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/silver-white-gold-nautilus-patek-philippe-watch-20953166.shtml",
+            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/brown-pink-gold-nautilus-patek-philippe-watch-46098315.shtml",
+            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/black-gold-plated-world-time-patek-philippe-watch-45943664.shtml",
         ]
     )
     validator = Validator(product_schema, allow_unknown=True)
