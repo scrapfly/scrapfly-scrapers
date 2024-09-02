@@ -65,21 +65,13 @@ search_schema = {
     },
     "categories": {
         "type": "list",
-        "schema": {
-            "type": "dict",
-            "schema": {
-                "parent_id": {"type": "integer", "nullable": True},
-                "name": {"type": "string"},
-                "id": {"type": "integer"},
-                "slug": {"type": "string"},
-            },
-        },
+        "schema": { "type": "string" },
     },
     "condition": {"type": "string"},
     "discounted_price": {"type": "integer"},
     "discounted_tier": {"type": "integer"},
-    "priced_at": {"type": "string"},
-    "priced_at": {"type": "string"},
+    "price": {"type": "integer"},
+    "priced_at": {"type": "integer"},
     "id": {"type": "integer"},
 }
 
@@ -107,4 +99,4 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 3
+    assert len(search_data) == 360

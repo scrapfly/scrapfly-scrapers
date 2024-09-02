@@ -57,23 +57,24 @@ async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
     # scrape first page
     result_first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     data_first_page = find_hidden_data(result_first_page)
-    data_first_page = data_first_page["props"]["pageProps"]["initialState"]["listingPageReducer"]["listingData"]
-    results = data_first_page["results"]
+    data_first_page = data_first_page["props"]["pageProps"]["serverState"]["initialResults"][
+        "prod_ecom_products_date_desc"
+    ]["results"][0]
+    results = data_first_page["hits"]
 
     # find total page count
-    total_pages = data_first_page["pages"]
+    total_pages = data_first_page["nbPages"]
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
 
     # scrape remaining pages
     log.info(f"scraping search pagination ({total_pages-1} more pages)")
     to_scrape = [
-        ScrapeConfig(update_url_parameter(url, page=page), **BASE_CONFIG)
-        for page in range(2, total_pages + 1)
+        ScrapeConfig(update_url_parameter(url, page=page), **BASE_CONFIG) for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         data = find_hidden_data(result)
-        data = data["props"]["pageProps"]["initialState"]["listingPageReducer"]["listingData"]
-        results.extend(data["results"])
+        data = data["props"]["pageProps"]["serverState"]["initialResults"]["prod_ecom_products_date_desc"]["results"][0]
+        results.extend(data["hits"])
     log.success(f"scraped {len(results)} product listings from search pages")
     return results
