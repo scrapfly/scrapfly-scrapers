@@ -4,6 +4,7 @@ This is an example web scraper for domain.com.au
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+
 import os
 import json
 import jmespath
@@ -17,7 +18,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 
 BASE_CONFIG = {
-    # bypass domain.com.au scraping blocking    
+    # bypass domain.com.au scraping blocking
     "asp": True,
     # set the proxy country to australia
     "country": "AU",
@@ -42,11 +43,11 @@ def parse_repoerty_data(response: ScrapeApiResponse):
     script = selector.xpath("//script[@id='__NEXT_DATA__']/text()").get()
     json_data = json.loads(script)
     # property pages data are found in different structures
-    try:
+    try:  # listed property
         data = json_data["props"]["pageProps"]["componentProps"]
         data = parse_component_props(data)
         return data
-    except:
+    except Exception:  # usually sold property has different data structure
         data = json_data["props"]["pageProps"]
         data = parse_page_props(data)
         return data
@@ -56,24 +57,24 @@ def parse_page_props(data: Dict) -> Dict:
     """refine property pages data"""
     if not data:
         return
+    data = data["__APOLLO_STATE__"]
+    key = next(k for k in data if k.startswith("Property:"))
+    data = data[key]
     result = jmespath.search(
         """{
-    title: layoutProps.title,
-    canonical: layoutProps.title,
-    description: layoutProps.title,
-    digitalData: layoutProps.event_parameters,
-    address: layoutProps.linkedData.details.address,
-    hero: heroProps,
-    coords: profileMapProps.coords,
-    agent: agentShowcaseProps,
-    propertyStory: propertyStoryProps,
-    propertyTimeline: propertyTimelineProps
+        propertyId: propertyId,
+        unitNumber: address.unitNumber,
+        streetNumber: address.streetNumber,
+        suburb: address.suburb,
+        postcode: address.postcode
     }""",
         data,
     )
     # parse the photo data
-    photos = [i["images"]["original"]["url"] for i in result["hero"]["photos"]]
-    result["hero"]["photos"] = photos
+    image_key = next(k for k in data if k.startswith("media("))
+    result["gallery"] = []
+    for image in data[image_key]:
+        result["gallery"].append(image["url"])
     return result
 
 
@@ -117,7 +118,7 @@ def parse_component_props(data: Dict) -> Dict:
 def parse_search_page(data):
     """refine search pages data"""
     if not data:
-        return    
+        return
     data = data["listingsMap"]
     result = []
     # iterate over card items in the search data
@@ -129,7 +130,7 @@ def parse_search_page(data):
         listingType: listingType,
         listingModel: listingModel
       }""",
-        item,
+            item,
         )
         # execulde the skeletonImages key from the data
         parsed_data["listingModel"].pop("skeletonImages")
@@ -178,9 +179,9 @@ async def scrape_search(url: str, max_scrape_pages: int = None):
     ]
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
-        # parse the data from script tag        
+        # parse the data from script tag
         data = parse_hidden_data(response)
-        # aappend the data to the list after refining        
+        # append the data to the list after refining
         search_data.extend(parse_search_page(data))
     log.success(f"scraped ({len(search_data)}) from {url}")
     return search_data
