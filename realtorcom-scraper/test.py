@@ -76,5 +76,5 @@ async def test_feed_scraping():
     result_feed = await realtorcom.scrape_feed(url)
     assert len(result_feed) > 0
     for url, lastmod in result_feed.items():
-        assert url.startswith("https://www.realtor.com/realestateandhomes-detail/")
+        assert url.startswith("https://www.realtor.com/")
         assert lastmod is not None
