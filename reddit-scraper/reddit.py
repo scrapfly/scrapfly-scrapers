@@ -31,9 +31,9 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
     info["id"] = url.split("/r")[-1].replace("/", "")
     info["description"] = selector.xpath("//shreddit-subreddit-header/@description").get()
     members = selector.xpath("//shreddit-subreddit-header/@subscribers").get()
-    rank = selector.xpath("//strong[@id='position']/*/@number").get()    
+    rank = selector.xpath("//strong[@id='position']/text()").get()
+    info["rank"] = rank.strip() if rank else None
     info["members"] = int(members) if members else None
-    info["rank"] = int(rank) if rank else None
     info["bookmarks"] = {}
     for item in selector.xpath("//div[faceplate-tracker[@source='community_menu']]/faceplate-tracker"):
         name = item.xpath(".//a/span/span/span/text()").get()
@@ -50,11 +50,11 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
         comment_count = box.xpath(".//shreddit-post/@comment-count").get()
         attachment_type = box.xpath(".//shreddit-post/@post-type").get()
         if attachment_type and attachment_type == "image":
-            attachment_link = box.xpath(".//div[@slot='thumbnail']/*/*/@src").get()
+            attachment_link = box.xpath(".//div[contains(@class, 'img')]/*/@src").get()
         elif attachment_type == "video":
             attachment_link = box.xpath(".//shreddit-player/@preview").get()
         else:
-            attachment_link = box.xpath(".//div[@slot='thumbnail']/a/@href").get()
+            attachment_link = None
         post_data.append({
             "authorProfile": "https://www.reddit.com/user/" + author if author else None,
             "authorId": box.xpath(".//shreddit-post/@author-id").get(),            

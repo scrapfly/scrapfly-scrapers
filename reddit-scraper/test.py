@@ -73,7 +73,7 @@ subreddit_schema = {
             "id": {"type": "string"},
             "description": {"type": "string"},
             "members": {"type": "integer"},
-            "rank": {"type": "integer"},
+            "rank": {"type": "string"},
             "bookmarks": {
                 "type": "dict",
                 "schema": {
@@ -92,12 +92,12 @@ subreddit_schema = {
             "type": "dict",
             "schema": {
                 "authorProfile": {"type": "string"},
-                "authorId": {"type": "string"},
+                "authorId": {"type": "string", "nullable": True}, # deleted profiles
                 "title": {"type": "string"},
                 "link": {"type": "string"},
                 "publishingDate": {"type": "string"},
                 "postId": {"type": "string"},
-                "postLabel": {"type": "string"},
+                "postLabel": {"type": "string", "nullable": True},
                 "postUpvotes": {"type": "integer"},
                 "commentCount": {"type": "integer"},
                 "attachmentType": {"type": "string"},
