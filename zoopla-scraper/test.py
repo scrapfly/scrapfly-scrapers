@@ -186,9 +186,9 @@ async def test_search_scraping():
 async def test_properties_scraping():
     properties_data = await zoopla.scrape_properties(
         urls=[
-            "https://www.zoopla.co.uk/new-homes/details/65773035",
+            "https://www.zoopla.co.uk/new-homes/details/67644753/",
             "https://www.zoopla.co.uk/new-homes/details/66702316/",
-            "https://www.zoopla.co.uk/new-homes/details/67005655/"
+            "https://www.zoopla.co.uk/new-homes/details/68145936/"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)

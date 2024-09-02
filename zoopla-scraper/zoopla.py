@@ -4,6 +4,7 @@ This is an example web scraper for zoopla.com.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+
 import os
 import json
 import jmespath
@@ -15,10 +16,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
-BASE_CONFIG = {
-    "asp": True,
-    "country": "GB"
-}
+BASE_CONFIG = {"asp": True, "country": "GB"}
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
@@ -26,6 +24,7 @@ output.mkdir(exist_ok=True)
 
 class PropertyResult(TypedDict):
     """type hint of what the scraped property would look like"""
+
     listing_id: str
     title: str
     description: str
@@ -72,7 +71,9 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
         photos: propertyImage[].{filename: filename, caption: caption},
         details: analyticsTaxonomy,
         agency: branch
-    }""", {"root": data["listingDetails"]})
+    }""",
+        {"root": data["listingDetails"]},
+    )
     return result
 
 
@@ -91,21 +92,32 @@ def parse_search(response: ScrapeApiResponse):
     """parse property data from Zoopla search pages"""
     selector = response.selector
     data = []
-    total_results = int(selector.xpath("//p[@data-testid='total-results']/text()").get().split(" ")[0])
-    total_pages = total_results // 25 # each page contains 25 results
-    for box in selector.xpath("//div[@data-testid='regular-listings']/div"):
+    total_results = int(
+        selector.xpath("//p[@data-testid='total-results']/text()").get().split(" ")[0]
+    )
+    total_pages = total_results // 25  # each page contains 25 results
+    boxes = selector.xpath("//div[@data-testid='regular-listings']/div")
+    for box in boxes:
         url = box.xpath(".//a/@href").get()
+        if not url:
+            continue
         price = box.xpath(".//p[@data-testid='listing-price']/text()").get()
         price = int(price.replace("£", "").replace(",", "")) if price else None
         sq_ft = box.xpath(".//span[contains(text(),'sq. ft')]/text()").get()
         sq_ft = int(sq_ft.split(" ")[0]) if sq_ft else None
         listed_on = box.xpath(".//li[contains(text(), 'Listed on')]/text()").get()
         listed_on = listed_on.split("on")[-1].strip() if listed_on else None
-        bathrooms = box.xpath(".//li[span[text()='Bathrooms']]/span[not(contains(text(), 'Bathrooms'))]/text()").get()
-        bedrooms = box.xpath(".//li[span[text()='Bedrooms']]/span[not(contains(text(), 'Bedrooms'))]/text()").get()
-        livingrooms = box.xpath(".//li[span[text()='Living rooms']]/span[not(contains(text(), 'Living'))]/text()").get()
+        bathrooms = box.xpath(
+            ".//li[span[text()='Bathrooms']]/span[not(contains(text(), 'Bathrooms'))]/text()"
+        ).get()
+        bedrooms = box.xpath(
+            ".//li[span[text()='Bedrooms']]/span[not(contains(text(), 'Bedrooms'))]/text()"
+        ).get()
+        livingrooms = box.xpath(
+            ".//li[span[text()='Living rooms']]/span[not(contains(text(), 'Living'))]/text()"
+        ).get()
         image = box.xpath(".//picture/source/@srcset").get()
-        data.append({
+        item = {
             "title": box.xpath(".//h2[@data-testid='listing-title']/text()").get(),
             "price": price,
             "priceCurrency": "Sterling pound £",
@@ -116,11 +128,14 @@ def parse_search(response: ScrapeApiResponse):
             "numBathrooms": int(bathrooms) if bathrooms else None,
             "numBedrooms": int(bedrooms) if bedrooms else None,
             "numLivingRoom": int(livingrooms) if livingrooms else None,
-            "description": box.xpath(".//div[h2[@data-testid='listing-title']]/p/text()").get(),
+            "description": box.xpath(
+                ".//div[h2[@data-testid='listing-title']]/p/text()"
+            ).get(),
             "justAdded": bool(box.xpath(".//div[text()='Just added']/text()").get()),
             "propertyType": box.xpath(".//ul[position()=2]/li/div/div/text()").get(),
-            "timeAdded": listed_on
-        })
+            "timeAdded": listed_on,
+        }
+        data.append(item)
     return {"search_data": data, "total_pages": total_pages}
 
 
@@ -136,28 +151,39 @@ async def scrape_search(
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=f"https://www.zoopla.co.uk/search/?view_type=list&section={query_type}&q={encoded_query}&geo_autocomplete_identifier=&search_source=home&sort=newest_listings",
-            **BASE_CONFIG, render_js=True
+            **BASE_CONFIG,
+            render_js=True,
         )
     )
     data = parse_search(first_page)
     # extract property listings
     search_data = data["search_data"]
-    # get the number of the available search pages 
+    # get the number of the available search pages
     max_search_pages = data["total_pages"]
     # scrape all available pages in the search if scrape_all_pages = True or max_search_pages > max_scrape_pages
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         total_pages_to_scrape = max_scrape_pages
     else:
         total_pages_to_scrape = max_search_pages
-    log.info("scraping search page {} remaining ({} more pages)", first_page.context['url'], total_pages_to_scrape - 1)
+    log.info(
+        "scraping search page {} remaining ({} more pages)",
+        first_page.context["url"],
+        total_pages_to_scrape - 1,
+    )
     # add the remaining search pages to a scraping list
     _other_pages = [
-        ScrapeConfig(f"{first_page.context['url']}&pn={page}", **BASE_CONFIG, render_js=True)
+        ScrapeConfig(
+            f"{first_page.context['url']}&pn={page}", **BASE_CONFIG, render_js=True
+        )
         for page in range(2, total_pages_to_scrape + 1)
     ]
     # scrape the remaining search page concurrently
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):
         page_data = parse_search(result)["search_data"]
         search_data.extend(page_data)
-    log.info("scraped {} search listings from {}", len(search_data), first_page.context['url'])
+    log.info(
+        "scraped {} search listings from {}",
+        len(search_data),
+        first_page.context["url"],
+    )
     return search_data
