@@ -58,7 +58,7 @@ company_schema = {
             "schema": {
                 "id": {"type": "string"},
                 "name": {"type": "string"},
-                "employees": {"type": "integer"},
+                "employees": {"type": "string"},
                 "revenue": {"type": "string"},
                 "logo": {"type": "string"},
                 "index": {"type": "integer"},

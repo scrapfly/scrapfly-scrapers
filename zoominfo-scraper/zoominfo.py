@@ -21,26 +21,11 @@ BASE_CONFIG = {
 }
 
 
-def _unescape_angular(text):
-    """Helper function to unescape Angular quoted text"""
-    ANGULAR_ESCAPE = {
-        "&a;": "&",
-        "&q;": '"',
-        "&s;": "'",
-        "&l;": "<",
-        "&g;": ">",
-    }
-    for from_, to in ANGULAR_ESCAPE.items():
-        text = text.replace(from_, to)
-    return text
-
-
 def parse_company(response: ScrapeApiResponse) -> List[Dict]:
     """parse zoominfo company page for company data"""
     selector = response.selector
-    data = selector.css("script#app-root-state::text").get()
-    data = _unescape_angular(data)
-    data = json.loads(data)["cd-pageData"]
+    data = selector.css("script#ng-state::text").get()
+    data = json.loads(data)["pageData"]
     return data
 
 
@@ -99,7 +84,7 @@ def parse_faqs(response: ScrapeApiResponse) -> List[Dict]:
         if not answer:
             answer = faq.css("span.answer > p::text").get()
         faqs.append({
-            "question": question,
+            "question": question.strip() if question else None,
             "answer": answer
         })
     return faqs
