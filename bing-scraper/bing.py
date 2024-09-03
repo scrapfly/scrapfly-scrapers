@@ -83,7 +83,7 @@ def parse_rich_snippet(response: ScrapeApiResponse) -> Dict:
     data = {}
     data["title"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/h2/span/text()").get()
     data["link"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/@href").get()
-    data["heading"] = selector.xpath("//div[contains(@class, 'header_txt')]/text()").get()
+    data["heading"] = " ".join(selector.xpath("//a[@title]/h2/span/text()").getall())
     data["links"] = {}
     for item in selector.xpath("//div[contains(@class, 'webicons')]/div"):
         name = item.xpath(".//a/@title").get()
