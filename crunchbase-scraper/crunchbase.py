@@ -22,6 +22,8 @@ BASE_CONFIG = {
     # Crunchbase.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
+    "render_js": True,
+    "proxy_pool": "public_residential_pool"
 }
 
 
@@ -54,18 +56,28 @@ def parse_company(result: ScrapeApiResponse) -> CompanyData:
     }
 
 
-async def scrape_company(url: str) -> CompanyData:
+async def scrape_company(url: str, _retries: int = 0) -> CompanyData:
     """scrape crunchbase company page for organization and employee data"""
     # note: we use /people tab because it contains the most data:
     log.info(f"scraping company: {url}")
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    try:    
+        result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    except:
+        while _retries <= 2:
+            log.debug("retrying failed request")
+            return await scrape_company(url, _retries=_retries + 1)
     return parse_company(result)
 
 
-async def scrape_person(url: str) -> Dict:
+async def scrape_person(url: str, _retries: int = 0) -> Dict:
     log.info(f"scraping person: {url}")
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    return parse_person(result)
+    try:
+        result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    except:
+        while _retries <= 2:
+            log.debug("retrying failed request")
+            return await scrape_person(url, _retries=_retries + 1)
+    return parse_person(result)            
 
 
 def parse_person(result: ScrapeApiResponse) -> Dict:

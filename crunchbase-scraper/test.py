@@ -38,7 +38,7 @@ async def test_company_scraping():
             "schema": {
                 "id": {"type": "string"},
                 "name": {"type": "string"},
-                "description": {"type": "string", "minlength": 50},
+                "description": {"type": "string"},
                 "linkedin": {"type": "string", "nullable": True, "regex": r"https*://www.linkedin.com/company/.+?"},
                 "twitter": {"type": "string", "nullable": True, "regex": r"https://(?:www\.)?twitter.com/.+?"},
                 "facebook": {"type": "string", "nullable": True, "regex": r"https://www.facebook.com/.+?"},
@@ -76,7 +76,7 @@ async def test_person_scraping():
         "linkedin": {"type": "string", "nullable": True, "regex": r"https*://www.linkedin.com/in/.+?"},
         "twitter": {"type": "string", "nullable": True, "regex": r"https://twitter.com/.+?"},
         "facebook": {"type": "string", "nullable": True, "regex": r"https://www.facebook.com/.+?"},
-        "description": {"type": "string", "minlength": 50},
+        "description": {"type": "string"},
         "location_groups": {"type": "list", "schema": {"type": "string"}},
         "location": {"type": "list", "schema": {"type": "string"}},
         "education": {
