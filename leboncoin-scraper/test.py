@@ -1,8 +1,9 @@
-from cerberus import Validator
+import asyncio
 import pytest
 import leboncoin
 import pprint
 
+from cerberus import Validator
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -95,7 +96,18 @@ async def test_search_scraping():
 
 @pytest.mark.asyncio
 async def test_ad_scraping():
-    ad_data = await leboncoin.scrape_ad(url="https://www.leboncoin.fr/arts_de_la_table/2426724825.htm")
+    data = []
+    to_scrape = [
+        leboncoin.scrape_ad(url)
+        for url in [
+            "https://www.leboncoin.fr/ad/ventes_immobilieres/2809308201",
+            "https://www.leboncoin.fr/ad/ventes_immobilieres/2820947069",
+            "https://www.leboncoin.fr/ad/ventes_immobilieres/2787737700"
+        ]
+    ]
+    for response in asyncio.as_completed(to_scrape):
+        data.append(await response)
     validator = Validator(ad_schema, allow_unknown=True)
-    validate_or_fail(ad_data, validator)
+    for i in data:
+        validate_or_fail(i, validator)
     

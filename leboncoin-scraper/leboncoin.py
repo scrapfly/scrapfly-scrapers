@@ -29,6 +29,7 @@ def parse_search(result: ScrapeApiResponse):
     ads_data = json.loads(next_data)["props"]["pageProps"]["searchData"]["ads"]
     return ads_data
 
+
 def _max_search_pages(result: ScrapeApiResponse):
     """get the number of max pages in the search"""
     next_data = result.selector.css("script[id='__NEXT_DATA__']::text").get()
@@ -73,9 +74,15 @@ async def scrape_search(
     return search_data
 
 
-async def scrape_ad(url: str) -> Dict:
+async def scrape_ad(url: str, _retries: int = 0) -> Dict:
     """scrape ad page"""
     log.info("scraping ad {}", url)
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    ad_data = parse_ad(result)
+    try:
+        result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+        ad_data = parse_ad(result)
+    except:
+        if _retries < 2:
+            # requests get blocked and redirected to homepage
+            log.debug("retrying failed request")
+            result = await scrape_ad(url, _retries=_retries + 1)
     return ad_data
