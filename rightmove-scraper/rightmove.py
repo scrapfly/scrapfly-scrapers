@@ -103,15 +103,26 @@ def parse_property(data) -> PropertyResult:
     return results
 
 
+def find_json_objects(text: str, decoder=json.JSONDecoder()):
+    """Find JSON objects in text, and generate decoded JSON data"""
+    pos = 0
+    while True:
+        match = text.find("{", pos)
+        if match == -1:
+            break
+        try:
+            result, index = decoder.raw_decode(text[match:])
+            yield result
+            pos = match + index
+        except ValueError:
+            pos = match + 1
+
+
 def extract_property(result: ScrapeApiResponse) -> dict:
     """extract property data from rightmove PAGE_MODEL javascript variable"""
     data = result.selector.xpath("//script[contains(.,'PAGE_MODEL = ')]/text()").get()
-    if not data:
-        print(f"page {result.context['url']} is not a property listing page")
-        return
-    data = data.split("PAGE_MODEL = ", 1)[1].strip()
-    data = json.loads(data)
-    return data["propertyData"]
+    json_data = list(find_json_objects(data))[0]
+    return json_data["propertyData"]
 
 
 async def scrape_properties(urls: List[str]) -> List[PropertyResult]:

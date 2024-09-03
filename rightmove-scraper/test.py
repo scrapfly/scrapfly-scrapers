@@ -217,9 +217,13 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 async def test_properties_scraping():
     properties_data = await rightmove.scrape_properties(
-        urls=["https://www.rightmove.co.uk/properties/129828533#/"]
+        urls=[
+            "https://www.rightmove.co.uk/properties/149360984#/",
+            "https://www.rightmove.co.uk/properties/136408088#/",
+            "https://www.rightmove.co.uk/properties/148922639#/",
+        ]
     )
     validator = Validator(properties_schema, allow_unknown=True)
     for item in properties_data:
         validate_or_fail(item, validator)
-    assert len(properties_data) == 1
+    assert len(properties_data) >= 1

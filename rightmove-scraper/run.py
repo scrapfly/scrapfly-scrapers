@@ -21,7 +21,11 @@ async def run():
     print("running rightmove scrape and saving results to ./results directory")
 
     properties_data = await rightmove.scrape_properties(
-        urls=["https://www.rightmove.co.uk/properties/129828533#/"]
+        urls=[
+            "https://www.rightmove.co.uk/properties/149360984#/",
+            "https://www.rightmove.co.uk/properties/136408088#/",
+            "https://www.rightmove.co.uk/properties/148922639#/",
+        ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
         json.dump(properties_data, file, indent=2, ensure_ascii=False)
