@@ -37,7 +37,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
     total_listings = script["numberOfItems"]
     total_pages = math.ceil(total_listings / 64)
 
-    for product in selector.xpath("//div[@data-search-results-lg]/ol/li"):
+    for product in selector.xpath("//div[@data-search-results-lg]/ul/li"):
         link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
         rate = product.xpath(".//div[@class='streamline-spacing-shop-rating']/div/span/span/text()").get()
         number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
@@ -48,6 +48,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
         original_price = product.xpath(".//span[contains(text(),'Original Price')]/text()").get()
         discount = strip_text(product.xpath(".//span[contains(text(),'off')]/text()").get())
         seller = product.xpath(".//span[contains(text(),'From shop')]/text()").get()
+        currency = product.xpath(".//span[@class='currency-symbol']/text()").get()
         data.append({
             "productLink": '/'.join(link.split('/')[:5]) if link else None,
             "productTitle": strip_text(product.xpath(".//h3[contains(@class, 'text-caption')]/text()").get()),
@@ -58,8 +59,8 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
             "numberOfReviews": int(number_of_reviews) if number_of_reviews else None,
             "freeShipping": "Yes" if product.xpath(".//span[contains(text(),'Free shipping')]/text()").get() else "No",
             "productPrice": float(price.replace(",", "")) if price else None,
-            "priceCurrency": product.xpath(".//span[@class='currency-symbol']/text()").get(),
-            "originalPrice": float(original_price.split("$")[-1].strip()) if original_price else "No discount",
+            "priceCurrency": currency,
+            "originalPrice": float(original_price.split(currency)[-1].strip()) if original_price else "No discount",
             "discount": discount if discount else "No discount",
         })
     return {
