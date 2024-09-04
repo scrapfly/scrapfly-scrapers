@@ -193,6 +193,9 @@ def parse_alternatives(response: ScrapeApiResponse):
         pass
     data = []
     for alt in selector.xpath("//div[@class='product-listing--competitor']"):
+        sponsored = alt.xpath(".//strong[text()='Sponsored']").get()
+        if sponsored: # ignore sponsored cards
+            continue
         name = alt.xpath(".//div[@itemprop='name']/text()").get()
         link = alt.xpath(".//h3/a[contains(@class, 'link')]/@href").get()
         ranking = alt.xpath(".//div[@class='product-listing__number']/text()").get()
