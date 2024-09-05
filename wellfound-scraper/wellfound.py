@@ -102,6 +102,28 @@ def parse_company(result: ScrapeApiResponse) -> CompanyData:
     return unpack_node_references(company, graph)
 
 
+async def retry_failure(url: str, _retries: int = 0):
+    """retry failed requests with a maximum number of retries"""
+    max_retries = 3
+    try:
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool")
+        )
+        if response.status_code == 403:
+            if _retries < max_retries:
+                log.debug("Retrying failed request")
+                return await retry_failure(url, _retries=_retries + 1)
+            else:
+                raise Exception("Unable to scrape rge first search page, max retries exceeded")
+        return response
+    except Exception as e:
+        if _retries < max_retries:
+            log.debug("Retrying failed request")
+            return await retry_failure(url, _retries=_retries + 1)
+        else:
+            raise Exception("Unable to scrape rge first search page, max retries exceeded")
+
+
 async def scrape_search(role: str = "", location: str = "", max_pages: int = None) -> List[CompanyData]:
     """scrape wellfound.com search"""
     # wellfound.com has 3 types of search urls: for roles, for locations and for combination of both
@@ -113,10 +135,9 @@ async def scrape_search(role: str = "", location: str = "", max_pages: int = Non
         url = f"https://wellfound.com/location/{location}"
     else:
         raise ValueError("need to pass either role or location argument to scrape search")
-
     companies = []
     log.info(f"scraping first page of search, {role} in {location}")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    first_page = await retry_failure(url)
     graph = extract_apollo_state(first_page)
     companies.extend([unpack_node_references(graph[key], graph) for key in graph if key.startswith("StartupResult")])
     seo_landing_key = next(key for key in graph["ROOT_QUERY"]["talent"] if "seoLandingPageJobSearchResults" in key)
@@ -129,8 +150,12 @@ async def scrape_search(role: str = "", location: str = "", max_pages: int = Non
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")    
     other_pages = [ScrapeConfig(url + f"?page={page}", **BASE_CONFIG) for page in range(2, total_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
-        graph = extract_apollo_state(response)
-        companies.extend([unpack_node_references(graph[key], graph) for key in graph if key.startswith("StartupResult")])
+        try:
+            graph = extract_apollo_state(response)
+            companies.extend([unpack_node_references(graph[key], graph) for key in graph if key.startswith("StartupResult")])
+        except Exception as e:
+            log.debug(f"Error occured while crawling search: {e}")
+            pass
     log.success(f"scraped {len(companies)} job listings from search pages")        
     return companies
 
@@ -146,4 +171,3 @@ async def scrape_companies(urls: List[str]) -> List[CompanyData]:
             pass
     log.success(f"scraped {len(companies)} comapny listings data from company pages")         
     return companies
-
