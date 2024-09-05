@@ -210,6 +210,9 @@ def parse_product(result) -> Product:
         if not value:
             value = row.css("td span::text").get("").strip()
         info_table[label] = value
+    info_table['Customer Reviews'] = sel.xpath("//td[div[@id='averageCustomerReviews']]//span[@class='a-icon-alt']/text()").get()
+    rank = sel.xpath("//tr[th[text()=' Best Sellers Rank ']]//td//text()").getall()
+    info_table['Best Sellers Rank'] = ' '.join([text.strip() for text in rank if text.strip()])
     parsed['info_table'] = info_table
     return parsed
 

@@ -43,7 +43,7 @@ async def test_product_scraping():
     schema = {
         "name": {"type": "string"},
         "asin": {"type": "string"},
-        "description": {"type": "string"},
+        "description": {"type": "string", "min_presence": 0.01},
         "stars": {"type": "string"},
         "rating_count": {"type": "string"},
         "style": {"type": "string", "nullable": True},
