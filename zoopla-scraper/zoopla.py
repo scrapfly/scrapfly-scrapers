@@ -102,7 +102,7 @@ def parse_search(response: ScrapeApiResponse):
         if not url:
             continue
         price = box.xpath(".//p[@data-testid='listing-price']/text()").get()
-        price = int(price.replace("£", "").replace(",", "")) if price else None
+        price = int(price.replace("£", "").replace(",", "").replace(" pcm", "")) if price else None
         sq_ft = box.xpath(".//span[contains(text(),'sq. ft')]/text()").get()
         sq_ft = int(sq_ft.split(" ")[0]) if sq_ft else None
         listed_on = box.xpath(".//li[contains(text(), 'Listed on')]/text()").get()

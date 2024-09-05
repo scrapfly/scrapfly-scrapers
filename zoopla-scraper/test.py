@@ -184,12 +184,17 @@ async def test_search_scraping():
 
 @pytest.mark.asyncio
 async def test_properties_scraping():
+    # dynamically retrieve the property urls
+    data = await zoopla.scrape_search(
+        scrape_all_pages=False,
+        max_scrape_pages=1,
+        query="Islington, London",
+        query_type= "to-rent"
+    )
+    urls = [i['url'] for i in data]
+    
     properties_data = await zoopla.scrape_properties(
-        urls=[
-            "https://www.zoopla.co.uk/new-homes/details/67644753/",
-            "https://www.zoopla.co.uk/new-homes/details/66702316/",
-            "https://www.zoopla.co.uk/new-homes/details/68145936/"
-        ]
+        urls=urls[:3]
     )
     validator = Validator(property_schema, allow_unknown=True)
     for item in properties_data:
