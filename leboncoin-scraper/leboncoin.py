@@ -77,6 +77,7 @@ async def scrape_search(
 async def scrape_ad(url: str, _retries: int = 0) -> Dict:
     """scrape ad page"""
     log.info("scraping ad {}", url)
+    ad_data = None
     try:
         result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
         ad_data = parse_ad(result)
@@ -85,4 +86,6 @@ async def scrape_ad(url: str, _retries: int = 0) -> Dict:
             # requests get blocked and redirected to homepage
             log.debug("retrying failed request")
             result = await scrape_ad(url, _retries=_retries + 1)
+        else:
+            return None
     return ad_data
