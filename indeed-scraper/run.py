@@ -24,7 +24,7 @@ async def run():
     result_search = await indeed.scrape_search(url, max_results=100)
     output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    jobs = ["4c1e2988b22fa223", "483d39cbe1b6c1fe"]
+    jobs = ["9100493864fe1d6e", "5361f22542fe4a95"]
     result_jobs = await indeed.scrape_jobs(jobs)
     output.joinpath("jobs.json").write_text(json.dumps(result_jobs, indent=2, ensure_ascii=False), encoding="utf-8")
 

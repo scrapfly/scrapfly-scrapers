@@ -29,7 +29,7 @@ async def test_search_scraping():
 
 @pytest.mark.asyncio
 async def test_job_scraping():
-    jobs = ["4c1e2988b22fa223", "483d39cbe1b6c1fe"]
+    jobs = ["9100493864fe1d6e", "5361f22542fe4a95"]
     result = await indeed.scrape_jobs(jobs)
     assert len(result) == 2
     for r in result:
