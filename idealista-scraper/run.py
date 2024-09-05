@@ -37,13 +37,24 @@ async def run():
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
         json.dump(properties_data, file, indent=2, ensure_ascii=False)
 
-    search_data = await idealista.scrape_search(
+    crawl_data = await idealista.crawl_search(
         url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",
         # remove the max_scrape_pages paremeter to scrape all pages
         max_scrape_pages=2
     )
-    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+    with open(output.joinpath("crawl.json"), "w", encoding="utf-8") as file:
+        json.dump(crawl_data, file, indent=2, ensure_ascii=False)
+
+
+    search_data = await idealista.scrape_search(
+        url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",
+        # remove the max_scrape_pages paremeter to scrape all pages
+        max_scrape_pages=3
+    )
+    with open(output.joinpath("search_data.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
+
+
 
 if __name__ == "__main__":
     asyncio.run(run())

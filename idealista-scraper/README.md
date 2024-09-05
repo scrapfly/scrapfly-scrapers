@@ -43,4 +43,5 @@ This Idealista.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi
     # or specific scraping areas
     $ poetry run pytest test.py -k test_idealista_scraping
     $ poetry run pytest test.py -k test_provinces_scraping
+    $ poetry run pytest test.py -k test_search_scraping
     ```

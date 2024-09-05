@@ -105,18 +105,57 @@ async def scrape_provinces(urls: List[str]) -> List[str]:
     for search page urls like:
     https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/
     """
-    # add province pages to a scraping list
+    # Add province pages to a scraping list
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     search_urls = []
-    # scrape the province pages concurrently
-    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        search_urls.extend(parse_province(response))
-    log.success(f"scraped {len(search_urls)} search URLs")
+    
+    for _ in range(3):  # retry falied requests
+        async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+            parsed_urls = parse_province(response)
+            if parsed_urls:
+                search_urls.extend(parsed_urls)
+        
+        if search_urls:
+            break
+        else:
+            log.debug("No results retrieved, retrying...")
+
+    log.success(f"Scraped {len(search_urls)} search URLs")
     return search_urls
 
 
+def parse_search_data(response: ScrapeApiResponse) -> List[Dict]:
+    """parse search result data"""
+    selector = response.selector
+    total_results = selector.css("h1#h1-container").re(": (.+) houses")[0]
+    max_pages = math.ceil(int(total_results.replace(",", "")) / 30)
+    max_pages = 60  if max_pages > 60 else max_pages
+    search_data = []
+    for box in selector.xpath("//section[contains(@class, 'items-list')]/article[contains(@class, 'item')]"):
+        ad = box.xpath(".//p[@class='adv_txt']") # ignore ad listings
+        if ad:
+            continue
+        price = box.xpath(".//span[contains(@class, 'item-price')]/text()").get()
+        parking = box.xpath(".//span[@class='item-parking']").get()
+        company_url = box.xpath(".//picture[@class='logo-branding']/a/@href").get()
+        search_data.append({
+            "title": box.xpath(".//div/a/@title").get(),
+            "link": "https://www.idealista.com" + box.xpath(".//div/a/@href").get(),
+            "picture": box.xpath(".//img/@src").get(),
+            "price": int(price.replace(",", '')) if price else None,
+            "currency": box.xpath(".//span[contains(@class, 'item-price')]/span/text()").get(),
+            "parking_included": True if parking else False,
+            "details": box.xpath(".//div[@class='item-detail-char']/span/text()").getall(),
+            "description": box.xpath(".//div[contains(@class, 'item-description')]/p/text()").get().replace('\n', ''),
+            "tags": box.xpath(".//div[@class='listing-tags-container']/span/text()").getall(),
+            "listing_company": box.xpath(".//picture[@class='logo-branding']/a/@title").get(),
+            "listing_company_url": "https://www.idealista.com" + company_url if company_url else None
+        })
+    return {"max_pages": max_pages, "search_data": search_data}
+
+
 def parse_search(response: ScrapeApiResponse) -> List[str]:
-    """Parse search result page for 30 listings"""
+    """Parse search result page for 30 listing URLs"""
     selector = response.selector
     urls = selector.css("article.item .item-link::attr(href)").getall()
     return [urljoin(str(response.context["url"]), url) for url in urls]
@@ -137,9 +176,9 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
     return properties
 
 
-async def scrape_search(url: str, max_scrape_pages: int = None) -> List[str]:
+async def crawl_search(url: str, max_scrape_pages: int = None) -> List[str]:
     """
-    Scrape search urls like:
+    Crawl search urls like:
     https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/
     for proprety urls
     :param url: Search URL
@@ -170,3 +209,28 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[str]:
     log.info(f"scraping {len(property_urls)} of proeprty pages concurrently")
     properties = await scrape_properties(urls=property_urls)
     return properties
+
+
+async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
+    """scrape Idealista search results"""
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    data = parse_search_data(first_page)
+    search_data = data["search_data"]
+    max_pages = data["max_pages"]
+
+    # get the number of total pages to scrape
+    if max_scrape_pages and max_scrape_pages < max_pages:
+        max_pages = max_scrape_pages
+
+    # scrape the remaining pages concurrently
+    to_scrape = [
+        ScrapeConfig(url + f"pagina-{page}.htm", **BASE_CONFIG)
+        for page in range(2, max_pages + 1)
+    ]
+    log.info(f"scraping search pagination, {max_pages - 1} pages remaining")
+
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        # skip invalid property pages
+        search_data.extend(parse_search_data(response)["search_data"])
+    log.success(f"scraped {len(search_data)} property listings from search pages")
+    return search_data
