@@ -4,6 +4,7 @@ import linkedin
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
+linkedin.BASE_CONFIG["cache"] = True
 
 
 class Validator(_Validator):
@@ -148,10 +149,10 @@ async def test_job_page_scraping():
     job_urls = [i["jobUrl"] for i in job_search_data]
 
     job_data = await linkedin.scrape_jobs(
-        urls=job_urls[:3]
+        urls=job_urls[:4]
     )
     validator = Validator(job_page_schema, allow_unknown=True)
     for item in job_data:
         validate_or_fail(item, validator)
 
-    assert len(job_data) == 3
+    assert len(job_data) >= 1

@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache
-    linkedin.BASE_CONFIG["cache"] = False
+    linkedin.BASE_CONFIG["cache"] = True
     linkedin.BASE_CONFIG["debug"] = True
 
     print("running Linkedin scrape and saving results to ./results directory")
@@ -50,9 +50,9 @@ async def run():
 
     job_data = await linkedin.scrape_jobs(
         urls=[
-            "https://www.linkedin.com/jobs/view/python-developer-internship-at-mindpal-3703081824",
-            "https://www.linkedin.com/jobs/view/python-developer-at-donato-technologies-inc-3861152070",
-            "https://www.linkedin.com/jobs/view/python-developer-at-ltimindtree-3846584680"
+            "https://in.linkedin.com/jobs/view/data-center-engineering-operations-engineer-hyd-infinity-dceo-at-amazon-web-services-aws-4017265505",
+            "https://www.linkedin.com/jobs/view/content-strategist-google-cloud-content-strategy-and-experience-at-google-4015776107",
+            "https://www.linkedin.com/jobs/view/sr-content-marketing-manager-brand-protection-brand-protection-at-amazon-4007942181"
         ]
     )
     with open(output.joinpath("jobs.json"), "w", encoding="utf-8") as file:
