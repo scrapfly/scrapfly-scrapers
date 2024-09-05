@@ -212,6 +212,8 @@ jobs:
             test: test_idealista_scraping
           - project_dir: idealista-scraper
             test: test_provinces_scraping
+          - project_dir: idealista-scraper
+            test: test_search_scraping
           - project_dir: glassdoor-scraper
             test: test_find_companies
           - project_dir: glassdoor-scraper
