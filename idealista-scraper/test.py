@@ -114,7 +114,7 @@ async def test_idealista_scraping():
 @pytest.mark.asyncio
 async def test_provinces_scraping():
     urls_data = await idealista.scrape_provinces(
-        urls=["https://www.idealista.com/en/venta-viviendas/balears-illes/con-chalets/municipios"]
+        urls=["https://www.idealista.com/venta-viviendas/almeria-provincia/municipios"]
     )
     assert len(urls_data) >= 2
 

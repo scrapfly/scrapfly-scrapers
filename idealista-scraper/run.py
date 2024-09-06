@@ -20,7 +20,7 @@ async def run():
     print("running Idealista scrape and saving results to ./results directory")
 
     search_urls = await idealista.scrape_provinces(
-        urls = ["https://www.idealista.com/en/venta-viviendas/balears-illes/con-chalets/municipios"]
+        urls = ["https://www.idealista.com/venta-viviendas/almeria-provincia/municipios"]
     )
     with open(output.joinpath("search_URLs.json"), "w", encoding="utf-8") as file:
         json.dump(search_urls, file, indent=2, ensure_ascii=False)
