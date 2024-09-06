@@ -88,12 +88,32 @@ async def scrape_products(urls: List[str]) -> dict:
     return products
 
 
+async def retry_failure(url: str, _retries: int = 0):
+    """retry failed requests with a maximum number of retries"""
+    max_retries = 3
+    try:
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool")
+        )
+        if response.status_code != 200:
+            if _retries < max_retries:
+                log.debug("Retrying failed request")
+                return await retry_failure(url, _retries=_retries + 1)
+            else:
+                raise Exception("Unable to scrape first search page, max retries exceeded")
+        return response            
+    except Exception as e:
+        if _retries < max_retries:
+            log.debug("Retrying failed request")
+            return await retry_failure(url, _retries=_retries + 1)
+        else:
+            raise Exception("Unable to scrape first search page, max retries exceeded")
+
+
 async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
     log.info(f"scraping search page {url}")
     # first, scrape the first search page while enabling render_js to capture the xhr calls
-    result_first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(url, **BASE_CONFIG, render_js=True)
-    )
+    result_first_page = await retry_failure(url)
     # then, parse the first page response to get the headers, payload, data and the number of total pages
     first_page_api_result = parse_xhr_call(result_first_page)
     headers = first_page_api_result["headers"]
@@ -109,7 +129,11 @@ async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
     # next, scrape the remaining search pages directly from the API
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
     for offset in range(48, total_products, 48):
-        result = await send_api_request(headers, payload, offset)
-        results.extend(parse_search_api(result))
+        try:        
+            result = await send_api_request(headers, payload, offset)
+            results.extend(parse_search_api(result))
+        except Exception as e:
+            log.debug(f"Error occured while requesting search API: {e}")
+            pass            
     log.success(f"scraped {len(results)} product listings from search pages")
     return results
