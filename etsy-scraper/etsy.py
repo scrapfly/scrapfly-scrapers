@@ -35,9 +35,8 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
     script = json.loads(selector.xpath("//script[@type='application/ld+json']/text()").get())
     # get the total number of pages
     total_listings = script["numberOfItems"]
-    total_pages = math.ceil(total_listings / 64)
-
-    for product in selector.xpath("//div[@data-search-results-lg]/ul/li"):
+    total_pages = math.ceil(total_listings / 48)
+    for product in selector.xpath("//div[@data-search-results-lg]/ul/li[div[@data-appears-component-name]]"):
         link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
         rate = product.xpath(".//div[@class='streamline-spacing-shop-rating']/div/span/span/text()").get()
         number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
@@ -51,7 +50,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
         currency = product.xpath(".//span[@class='currency-symbol']/text()").get()
         data.append({
             "productLink": '/'.join(link.split('/')[:5]) if link else None,
-            "productTitle": strip_text(product.xpath(".//h3[contains(@class, 'text-caption')]/text()").get()),
+            "productTitle": strip_text(product.xpath(".//h3[contains(@class, 'v2-listing-card__titl')]/@title").get()),
             "productImage": product.xpath("//img[@data-listing-card-listing-image]/@src").get(),
             "seller": seller.replace("From shop ", "") if seller else None,
             "listingType": "Paid listing" if product.xpath(".//span[@data-ad-label='Ad by Etsy seller']") else "Free listing",
