@@ -5,6 +5,7 @@ https://scrapfly.io/blog/how-to-scrape-aliexpress/
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+import uuid
 import json
 import math
 import os
@@ -106,141 +107,129 @@ class Product(TypedDict):
 
 def parse_product(result: ScrapeApiResponse) -> Product:
     """parse product HTML page for product data"""
-    script_with_data = result.selector.xpath('//script[contains(text(),"window.runParams")]/text()').get()
-    data = re.findall(r".+?data:\s*({.+?)};", script_with_data, re.DOTALL)
-    data = json.loads(data[0])
-    # newstyle data
-    if "skuModule" not in data:
-        product = jmespath.search("""{
-            name: productInfoComponent.subject,
-            total_orders: tradeComponent.formatTradeCount,
-            feedback: feedbackComponent,
-            description_url: productDescComponent.descriptionUrl,
-            description_short: metaDataComponent.description,
-            keywords: metaDataComponent.keywords,
-            images: imageComponent.imagePathList,
-            stock: inventoryComponent.totalAvailQuantity,
-            seller: sellerComponent.{
-                id: storeNum,
-                url: storeURL,
-                name: storeName,
-                country: countryCompleteName,
-                positive_rating: positiveRate,
-                positive_rating_count: positiveNum,
-                started_on: openTime,
-                is_top_rated: topRatedSeller
-            },
-            specification: productPropComponent.props[].{
-                name: attrName,
-                value: attrValue
-            },
-            variants: priceComponent.skuPriceList[].{
-                name: skuAttr,
-                sku: skuId,
-                available: skuVal.availQuantity,
-                stock: skuVal.inventory,
-                full_price: skuVal.skuAmount.value,
-                discount_price: skuVal.skuActivityAmount.value,
-                currency: skuVal.skuAmount.currency
-            }
-        }""", data)
-    else:
-        product = jmespath.search("""{
-            name: titleModule.subject,
-            total_orders: titleModule.formatTradeCount,
-            feedback: titleModule.feedbackRating,
-            description_url: descriptionModule.descriptionUrl,
-            description_short: pageModule.description,
-            keywords: pageModule.keywords,
-            images: imageModule.imagePathList,
-            stock: quantityModule.totalAvailQuantity,
-            seller: storeModule.{
-                id: storeNum,
-                url: storeURL,
-                name: storeName,
-                country: countryCompleteName,
-                positive_rating: positiveRate,
-                positive_rating_count: positiveNum,
-                started_on: openTime,
-                is_top_rated: topRatedSeller
-            },
-            specification: specsModule.props[].{
-                name: attrName,
-                value: attrValue
-            },
-            variants: skuModule.skuPriceList[].{
-                name: skuAttr,
-                sku: skuId,
-                available: skuVal.availQuantity,
-                stock: skuVal.inventory,
-                full_price: skuVal.skuAmount.value,
-                discount_price: skuVal.skuActivityAmount.value,
-                currency: skuVal.skuAmount.currency
-            }
-        }""", data)
-    product['specification'] = dict([v.values() for v in product.get('specification', {})])
-    return product
+    selector = result.selector
+    reviews = selector.xpath("//a[contains(@class,'reviewer--reviews')]/text()").get()
+    rate = selector.xpath("//div[contains(@class,'rating--wrap')]/div").getall()
+    sold_count = selector.xpath("//span[contains(@class,'reviewer--sold')]/text()").get()
+    available_count = selector.xpath("//div[contains(@class,'quantity--info')]/div/span/text()").get()
+    info = {
+        "name": selector.xpath("//h1[@data-pl]/text()").get(),
+        "productId": int(result.context["url"].split("item/")[-1].split(".")[0]),
+        "link": result.context["url"],
+        "media": selector.xpath("//div[contains(@class,'slider--img')]/img/@src").getall(),
+        "rate": len(rate) if rate else None,
+        "reviews": int(reviews.replace(" Reviews", "")) if reviews else None,
+        "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else None,
+        "availableCount": int(available_count.replace(" available", "")) if available_count else None
+    }
+    price = selector.xpath("//span[contains(@class,'currentPrice')]/text()").get()
+    original_price = selector.xpath("//span[contains(@class,'price--originalText')]/text()").get()
+    discount = selector.xpath("//span[contains(@class,'price--discount')]/text()").get()
+    pricing = {
+        "priceCurrency": "USD $",        
+        "price": float(price.split("$")[-1]) if price else None, # for US localization
+        "originalPrice": float(original_price.split("$")[-1]) if price else "No discount",
+        "discount": discount if discount else "No discount",
+    }
+    shipping_cost = selector.xpath("//strong[contains(text(),'Shipping')]/text()").get()
+    shipping = {
+        "cost": float(shipping_cost.split("$")[-1]) if shipping_cost else None,
+        "currency": "$",
+        "delivery": selector.xpath("(//div[contains(@class,'dynamic-shipping-line')])[2]/span[2]/span/strong/text()").get()
+    }
+    specifications = []
+    for i in selector.xpath("//div[contains(@class,'specification--prop')]"):
+        specifications.append({
+            "name": i.xpath(".//div[contains(@class,'specification--title')]/span/text()").get(),
+            "value": i.xpath(".//div[contains(@class,'specification--desc')]/span/text()").get()
+        })
+    faqs = []
+    for i in selector.xpath("//div[@class='ask-list']/ul/li"):
+        faqs.append({
+            "question": i.xpath(".//p[@class='ask-content']/text()").get(),
+            "answer": i.xpath(".//ul[@class='answer-box']/li/p/text()").get()
+        })
+    seller_link = selector.xpath("//a[@data-pl='store-name']/@href").get()
+    seller = {
+        "name": selector.xpath("//a[@data-pl='store-name']/text()").get(),
+        "link": seller_link.split("?")[0] if seller_link else None,
+        "id": int(seller_link.split("store/")[-1].split("?")[0]) if seller_link else None,
+        "info": {
+            "positiveFeedback": selector.xpath("//div[contains(@class,'store-info')]/strong/text()").get(),
+            "followers": selector.xpath("//div[contains(@class,'store-info')]/strong[2]/text()").get()
+        }
+    }
+    return {
+        "info": info,
+        "pricing": pricing,
+        "specifications": specifications,
+        "shipping": shipping,
+        "faqs": faqs,
+        "seller": seller,
+    }
+
+
+async def obtain_session() -> str:
+    """create a session to bypass aliexpress blocking"""
+    session_id = str(uuid.uuid4())
+    url = "https://www.aliexpress.com/"
+    await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, **BASE_CONFIG, render_js=True, session=session_id
+    ))
+    return session_id
 
 
 async def scrape_product(url: str) -> List[Product]:
     """scrape aliexpress products by id"""
+    log.info("retrieving a session ID")
+    session_id = await obtain_session()
     log.info("scraping product: {}", url)
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    return parse_product(result)
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, **BASE_CONFIG, render_js=True, auto_scroll=True, session=session_id,
+        js_scenario=[
+            {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
+            {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
+        ]
+    ))
+    data = parse_product(result)
+    reviews = await scrape_product_reviews(data["info"]["productId"], max_scrape_pages=3)
+    data["reviewData"] = reviews
+    log.success("successfully scraped product: {}", url)    
+    return data
 
 
 def parse_review_page(result: ScrapeApiResponse):
-    """parse single review page"""
-    parsed = []
-    for review_box in result.selector.css(".feedback-item"):
-        # to get star score we have to rely on styling where's 1 star == 20% width, e.g. 4 stars is 80%
-        stars = int(review_box.css(".star-view>span::attr(style)").re("width:(\d+)%")[0]) / 20
-        # to get options we must iterate through every options container
-        options = {}
-        for option in review_box.css("div.user-order-info>span"):
-            name = option.css("strong::text").get("").strip()
-            value = "".join(option.xpath("text()").getall()).strip()
-            options[name] = value
-        # parse remaining fields
-        parsed.append(
-            {
-                "country": review_box.css(".user-country>b::text").get("").strip(),
-                "text": review_box.xpath('.//dt[contains(@class,"buyer-feedback")]/span[1]/text()').get("").strip(),
-                "post_time": review_box.xpath('.//dt[contains(@class,"buyer-feedback")]/span[2]/text()').get("").strip(),
-                "stars": stars,
-                "order_info": options,
-                "user_name": review_box.css(".user-name>a::text").get(),
-                "user_url": review_box.css(".user-name>a::attr(href)").get(),
-            }
-        )
-    return parsed
+    data = json.loads(result.content)["data"]
+    return {
+        "max_pages": data["totalPage"],
+        "reviews": data["evaViewList"],
+        "evaluation_stats": data["productEvaluationStatistic"]
+    }
 
 
-async def scrape_product_reviews(seller_id: str, product_id: str, max_pages: int = 60):
+async def scrape_product_reviews(product_id: str, max_scrape_pages: int = None):
     """scrape all reviews of aliexpress product"""
 
     def scrape_config_for_page(page):
-        data = f"ownerMemberId={seller_id}&memberType=seller&productId={product_id}&companyId=&evaStarFilterValue=all+Stars&evaSortValue=sortlarest%40feedback&page={page}&currentPage={page-1 if page > 1 else 1}&startValidDate=&i18n=true&withPictures=false&withAdditionalFeedback=false&onlyFromMyCountry=false&version=&isOpened=true&translate=+Y+&jumpToTop=true&v=2"
+        url = f"https://feedback.aliexpress.com/pc/searchEvaluation.do?productId={product_id}&lang=en_US&country=US&page={page}&pageSize=10&filter=all&sort=complex_default"
         return ScrapeConfig(
-            "https://feedback.aliexpress.com/display/productEvaluation.htm",
-            body=data,
-            method="POST",
-            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            url
         )
 
     # scrape first page of reviews and find total count of review pages
     first_page_result = await SCRAPFLY.async_scrape(scrape_config_for_page(1))
-    total_reviews = first_page_result.selector.css("div.customer-reviews").re(r"\((\d+)\)")[0]
-    total_pages = int(math.ceil(int(total_reviews) / 10))
-    if total_pages > max_pages:
-        total_pages = max_pages
+    data = parse_review_page(first_page_result)
+    max_pages = data["max_pages"]
 
-    # create scrape configs for other pages
-    # then scrape remaining review pages concurrently
-    log.info(f"scraping reviews of product {product_id}, found {total_reviews} total reviews")
-    scrape_configs = [scrape_config_for_page(page) for page in range(2, total_pages + 1)]
-    reviews = parse_review_page(first_page_result)
-    async for result in SCRAPFLY.concurrent_scrape(scrape_configs):
-        reviews.extend(parse_review_page(result))
-    return reviews
+    if max_scrape_pages and max_scrape_pages < max_pages:
+        max_pages = max_scrape_pages
+
+    # create scrape configs for other pages and scrape them concurrently
+    log.info(f"scraping reviews pagination of product {product_id}, {max_pages - 1} pages remaining")
+    to_scrape = [scrape_config_for_page(page) for page in range(2, max_pages + 1)]
+    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        data["reviews"].extend(parse_review_page(result)["reviews"])
+    log.success(f"scraped {len(data["reviews"])} from review pages")
+    data.pop("max_pages")
+    return data
 
