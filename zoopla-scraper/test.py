@@ -29,7 +29,7 @@ search_schema = {
     "title": {"type": "string"},
     "price": {"type": "integer"},
     "url": {"type": "string"},
-    "image": {"type": "string"},
+    "image": {"type": "string", "nullable": True},
     "address": {"type": "string"},
     "squareFt": {"type": "integer", "nullable": True},
     "numBathrooms": {"type": "integer", "nullable": True},
