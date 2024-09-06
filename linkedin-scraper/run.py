@@ -50,7 +50,7 @@ async def run():
 
     job_data = await linkedin.scrape_jobs(
         urls=[
-            "https://in.linkedin.com/jobs/view/data-center-engineering-operations-engineer-hyd-infinity-dceo-at-amazon-web-services-aws-4017265505",
+            "https://www.linkedin.com/jobs/view/data-center-engineering-operations-engineer-hyd-infinity-dceo-at-amazon-web-services-aws-4017265505",
             "https://www.linkedin.com/jobs/view/content-strategist-google-cloud-content-strategy-and-experience-at-google-4015776107",
             "https://www.linkedin.com/jobs/view/sr-content-marketing-manager-brand-protection-brand-protection-at-amazon-4007942181"
         ]

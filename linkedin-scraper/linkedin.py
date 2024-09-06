@@ -224,6 +224,6 @@ async def scrape_jobs(urls: List[str]) -> List[Dict]:
         try:
             data.append(parse_job_page(response))
         except:
-            log.debug(f"Job page with {response.context["url"]} URL is expired")
+            log.debug(f"Job page with {response.context['url']} URL is expired")
     log.success(f"scraped {len(data)} jobs from Linkedin")
     return data
