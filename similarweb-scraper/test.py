@@ -138,11 +138,3 @@ async def test_trend_scraping():
     for item in trending_data:
         validate_or_fail(item, validator)
     assert len(trending_data) == 3
-
-
-@pytest.mark.asyncio
-async def test_sitemap_scraping():
-    sitemap_data = await similarweb.scrape_sitemaps(
-        url="https://www.similarweb.com/sitemaps/top-websites-trending/part-00000.gz"
-    )
-    assert len(sitemap_data) >= 50

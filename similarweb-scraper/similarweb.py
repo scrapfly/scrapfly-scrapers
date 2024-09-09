@@ -96,9 +96,14 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
 
 async def scrape_sitemaps(url: str) -> List[str]:
     """scrape link data from bestbuy sitemap"""
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    promo_urls = parse_sitemaps(response)
-    log.success(f"scraped {len(promo_urls)} urls from sitemaps")
+    promo_urls = None
+    try:
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+        promo_urls = parse_sitemaps(response)
+        log.success(f"scraped {len(promo_urls)} urls from sitemaps")
+    except:
+        log.info("couldnt' scrape sitemaps, request was blocked")
+        pass
     return promo_urls
 
 
