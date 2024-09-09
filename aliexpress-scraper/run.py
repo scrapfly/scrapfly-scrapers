@@ -18,9 +18,10 @@ async def run():
     # enable scrapfly cache for basic use
     # aliexpress.BASE_CONFIG["cache"] = True # session can't be combined with cache
     aliexpress.BASE_CONFIG["country"] = "US"
+    aliexpress.BASE_CONFIG["debug"] = True
 
     print("running Aliexpress scrape and saving results to ./results directory")
-    # # note: aliexpress search has a bug where wholsepages show no results without `SearchText` parameter for some reason
+    # note: aliexpress search has a bug where wholsepages show no results without `SearchText` parameter for some reason
     url = "https://www.aliexpress.com/w/wholesale-drills.html?catId=0&SearchText=drills"
     search_results = await aliexpress.scrape_search(url, max_pages=2)
     output.joinpath("search.json", ).write_text(json.dumps(search_results, indent=2, ensure_ascii=False), encoding="utf-8")

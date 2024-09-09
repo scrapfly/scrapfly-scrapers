@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Aliexpress.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "asp": True
 }
 
 
@@ -97,12 +97,13 @@ async def scrape_search(url, max_pages: int = 60):
 
 
 class Product(TypedDict):
-    name: str
-    sku: str
-    available: bool
-    full_price: float
-    discounted_price: float
-    currency: str
+    info: Dict
+    pricing: Dict
+    specifications: List[Dict]
+    shipping: Dict
+    faqs: List[Dict]
+    seller: Dict
+    reviewData: Dict
 
 
 def parse_product(result: ScrapeApiResponse) -> Product:
@@ -150,13 +151,14 @@ def parse_product(result: ScrapeApiResponse) -> Product:
             "answer": i.xpath(".//ul[@class='answer-box']/li/p/text()").get()
         })
     seller_link = selector.xpath("//a[@data-pl='store-name']/@href").get()
+    seller_followers = selector.xpath("//div[contains(@class,'store-info')]/strong[2]/text()").get()
     seller = {
         "name": selector.xpath("//a[@data-pl='store-name']/text()").get(),
-        "link": seller_link.split("?")[0] if seller_link else None,
+        "link": seller_link.split("?")[0].replace("//", "") if seller_link else None,
         "id": int(seller_link.split("store/")[-1].split("?")[0]) if seller_link else None,
         "info": {
             "positiveFeedback": selector.xpath("//div[contains(@class,'store-info')]/strong/text()").get(),
-            "followers": selector.xpath("//div[contains(@class,'store-info')]/strong[2]/text()").get()
+            "followers": int (seller_followers) if seller_followers else None
         }
     }
     return {
@@ -186,7 +188,7 @@ async def scrape_product(url: str) -> List[Product]:
     log.info("scraping product: {}", url)
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
         url, **BASE_CONFIG, render_js=True, auto_scroll=True, session=session_id,
-        js_scenario=[
+        rendering_wait=10000, retry=False, timeout=150000, js_scenario=[
             {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
             {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
         ]
@@ -229,7 +231,7 @@ async def scrape_product_reviews(product_id: str, max_scrape_pages: int = None):
     to_scrape = [scrape_config_for_page(page) for page in range(2, max_pages + 1)]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         data["reviews"].extend(parse_review_page(result)["reviews"])
-    log.success(f"scraped {len(data["reviews"])} from review pages")
+    log.success(f"scraped {len(data['reviews'])} from review pages")
     data.pop("max_pages")
     return data
 
