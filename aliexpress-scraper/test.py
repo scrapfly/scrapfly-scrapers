@@ -43,6 +43,7 @@ review_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     url = "https://www.aliexpress.com/item/4000927436411.html"
     result = await aliexpress.scrape_product(url)
@@ -118,6 +119,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     url = "https://www.aliexpress.com/w/wholesale-drills.html?catId=0&SearchText=drills"
     result = await aliexpress.scrape_search(url, max_pages=2)
@@ -136,6 +138,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     result = await aliexpress.scrape_product_reviews("1005006717259012", max_scrape_pages=2)
     assert len(result["reviews"]) > 30
