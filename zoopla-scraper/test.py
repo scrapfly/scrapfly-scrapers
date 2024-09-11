@@ -27,7 +27,7 @@ def require_min_presence(items, key, min_perc=0.1):
 
 search_schema = {
     "title": {"type": "string"},
-    "price": {"type": "integer"},
+    "price": {"type": "string"},
     "url": {"type": "string"},
     "image": {"type": "string", "nullable": True},
     "address": {"type": "string"},
