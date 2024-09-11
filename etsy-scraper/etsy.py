@@ -38,7 +38,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
     total_pages = math.ceil(total_listings / 48)
     for product in selector.xpath("//div[@data-search-results-lg]/ul/li[div[@data-appears-component-name]]"):
         link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
-        rate = product.xpath(".//div[@class='streamline-spacing-shop-rating']/div/span/span/text()").get()
+        rate = product.xpath(".//span[contains(@class, 'review_stars')]/span/text()").get()
         number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
         if number_of_reviews:
             number_of_reviews = number_of_reviews.replace("(", "").replace(")", "")
@@ -54,7 +54,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
             "productImage": product.xpath("//img[@data-listing-card-listing-image]/@src").get(),
             "seller": seller.replace("From shop ", "") if seller else None,
             "listingType": "Paid listing" if product.xpath(".//span[@data-ad-label='Ad by Etsy seller']") else "Free listing",
-            "productRate": float(rate) if rate else None,
+            "productRate": float(rate.strip()) if rate else None,
             "numberOfReviews": int(number_of_reviews) if number_of_reviews else None,
             "freeShipping": "Yes" if product.xpath(".//span[contains(text(),'Free shipping')]/text()").get() else "No",
             "productPrice": float(price.replace(",", "")) if price else None,

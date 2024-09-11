@@ -103,6 +103,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     product_data = await etsy.scrape_product(
         urls = [
@@ -118,6 +119,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_shop_scraping():
     shop_data = await etsy.scrape_shop(
         urls = [
@@ -132,6 +134,7 @@ async def test_shop_scraping():
     assert len(shop_data) >= 1
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await etsy.scrape_search(
         url="https://www.etsy.com/search?q=wood+laptop+stand", max_pages=2
