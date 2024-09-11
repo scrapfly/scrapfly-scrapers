@@ -92,10 +92,9 @@ search_schema = {
     "dutyFree": {"type": "boolean"},
 }
 
-import json
-
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     products_data = await vestiairecollective.scrape_products(
         urls=[
@@ -111,6 +110,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await vestiairecollective.scrape_search(
         url="https://www.vestiairecollective.com/search/?q=louis+vuitton", max_pages=3

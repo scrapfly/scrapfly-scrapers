@@ -106,7 +106,7 @@ async def scrape_provinces(urls: List[str]) -> List[str]:
     https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/
     """
     # Add province pages to a scraping list
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool") for url in urls]
     search_urls = []
     
     for _ in range(3):  # retry falied requests

@@ -89,6 +89,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_idealista_scraping():
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
@@ -112,6 +113,7 @@ async def test_idealista_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_provinces_scraping():
     urls_data = await idealista.scrape_provinces(
         urls=["https://www.idealista.com/venta-viviendas/almeria-provincia/municipios"]
@@ -120,6 +122,7 @@ async def test_provinces_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await idealista.scrape_search(
         url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",

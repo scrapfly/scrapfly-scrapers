@@ -17,6 +17,7 @@ def validate_or_fail(item, validator):
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_company_scraping():
     url = "https://www.crunchbase.com/organization/tesla-motors/people"
     result = await crunchbase.scrape_company(url)
@@ -65,6 +66,7 @@ async def test_company_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_person_scraping():
     url = "https://www.crunchbase.com/person/danny-hayes-8e1b"
     result = await crunchbase.scrape_person(url)

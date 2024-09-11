@@ -84,6 +84,7 @@ ad_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await leboncoin.scrape_search(
         url="https://www.leboncoin.fr/recherche?text=coffe", max_pages=2, scrape_all_pages=False
@@ -95,6 +96,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_ad_scraping():
     data = []
     to_scrape = [
