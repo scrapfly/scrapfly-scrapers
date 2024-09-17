@@ -70,6 +70,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     product_data = await bestbuy.scrape_products(
         urls=[
@@ -86,6 +87,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_sitemap_scraping():
     sitemap_data = await bestbuy.scrape_sitemaps(
         url="https://sitemaps.bestbuy.com/sitemaps_promos.0000.xml.gz"
@@ -106,6 +108,7 @@ async def test_review_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await bestbuy.scrape_search(
         search_query="macbook",
