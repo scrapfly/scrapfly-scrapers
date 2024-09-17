@@ -21,7 +21,8 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Aliexpress.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True
+    "asp": True,
+    "country": "US"
 }
 
 
@@ -187,8 +188,8 @@ async def scrape_product(url: str) -> List[Product]:
     session_id = await obtain_session()
     log.info("scraping product: {}", url)
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, auto_scroll=True, session=session_id,
-        rendering_wait=10000, retry=False, timeout=150000, js_scenario=[
+        url, **BASE_CONFIG, render_js=True, session=session_id, auto_scroll=True,
+        rendering_wait=15000, retry=False, timeout=150000, js_scenario=[
             {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
             {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
         ]
