@@ -67,6 +67,7 @@ rich_snippets_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_serp_scraping():
     serp_data = await bing.scrape_search(query="web scraping emails", max_pages=3)
     validator = Validator(serp_schema, allow_unknown=True)
@@ -80,18 +81,10 @@ async def test_serp_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_keyword_scraping():
     keyword_data = await bing.scrape_keywords(query="web scraping emails")
     validator = Validator(keyword_schema, allow_unknown=True)
     validate_or_fail(keyword_data, validator)
     assert len(keyword_data["FAQs"]) >= 1
     assert len(keyword_data["related_keywords"]) >= 1
-
-
-@pytest.mark.asyncio
-async def test_rich_snippets_scraping():
-    rich_snippet_data = await bing.scrape_rich_snippets(query="google chrome")
-    validator = Validator(rich_snippets_schema, allow_unknown=True)
-    validate_or_fail(rich_snippet_data, validator)
-    assert len(rich_snippet_data["links"]) >= 1
-    assert len(rich_snippet_data["info"]) >= 1

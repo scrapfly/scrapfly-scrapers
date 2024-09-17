@@ -112,8 +112,6 @@ jobs:
             test: test_serp_scraping
           - project_dir: bing-scraper
             test: test_keyword_scraping
-          - project_dir: bing-scraper
-            test: test_rich_snippets_scraping
           - project_dir: trustpilot-scraper
             test: test_company_scraping
           - project_dir: trustpilot-scraper

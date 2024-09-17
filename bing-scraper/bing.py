@@ -59,7 +59,7 @@ def parse_keywords(response: ScrapeApiResponse) -> Dict:
     """parse FAQs and popular keywords on bing search pages"""
     selector = response.selector
     faqs = []
-    for faq in selector.xpath("//div[@class='b_slidebar']/div/div[contains(@data-tag, 'QnA')]"):
+    for faq in selector.xpath("//div[@class='b_slidebar']/div/div[contains(@data-tag, 'RelatedQnA.Item')]"):
         url = faq.xpath(".//h2/a/@href").get()
         faqs.append(
             {
@@ -81,7 +81,7 @@ def parse_rich_snippet(response: ScrapeApiResponse) -> Dict:
     """parse rich snippets from Bing search"""
     selector = response.selector
     data = {}
-    data["title"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/h2/span/text()").get()
+    data["title"] = " ".join(selector.xpath("//div[@class='l_ecrd_hero_ttl']//h2//text()").getall())
     data["link"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/@href").get()
     data["heading"] = " ".join(selector.xpath("//a[@title]/h2/span/text()").getall())
     data["links"] = {}
