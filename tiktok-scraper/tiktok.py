@@ -21,7 +21,7 @@ BASE_CONFIG = {
     # bypass tiktok.com web scraping blocking
     "asp": True,
     # set the proxy country to US
-    "country": "US",
+    "country": "AU",
 }
 
 def parse_post(response: ScrapeApiResponse) -> Dict:
@@ -266,7 +266,7 @@ async def scrape_channel(url: str) -> List[Dict]:
     js="""const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? console.log("Reached the bottom or maximum iterations. Stopping further iterations.") : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 3000)); scrollToEnd();"""
     log.info(f"scraping channel page with the URL {url} for post data")
     response = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, asp=True, country="GB", render_js=True, rendering_wait=2000, js=js
+        url, asp=True, country="AU", render_js=True, rendering_wait=2000, js=js
     ))
     data = parse_channel(response)
     log.success(f"scraped {len(data)} posts data")
