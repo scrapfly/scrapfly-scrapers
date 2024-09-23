@@ -99,13 +99,14 @@ async def test_search_scraping():
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_ad_scraping():
     data = []
+    ads = await leboncoin.scrape_search(
+        url="https://www.leboncoin.fr/recherche?text=coffe", max_pages=1, scrape_all_pages=False
+    )
+    ad_urls = [i['url'] for i in ads if i and 'url' in i]
+
     to_scrape = [
         leboncoin.scrape_ad(url)
-        for url in [
-            "https://www.leboncoin.fr/ad/ventes_immobilieres/2809308201",
-            "https://www.leboncoin.fr/ad/ventes_immobilieres/2820947069",
-            "https://www.leboncoin.fr/ad/ventes_immobilieres/2787737700"
-        ]
+        for url in ad_urls[:3]
     ]
     for response in asyncio.as_completed(to_scrape):
         data.append(await response)

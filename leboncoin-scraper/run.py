@@ -30,7 +30,7 @@ async def run():
         for url in [
             "https://www.leboncoin.fr/ad/ventes_immobilieres/2809308201",
             "https://www.leboncoin.fr/ad/ventes_immobilieres/2820947069",
-            "https://www.leboncoin.fr/ad/ventes_immobilieres/2787737700"
+            "https://www.leboncoin.fr/ad/ventes_immobilieres/2643327428"
         ]
     ]
     for response in asyncio.as_completed(to_scrape):
