@@ -22,7 +22,12 @@ BASE_CONFIG = {
     # Aliexpress.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
-    "country": "US"
+    "country": "US",
+    # aliexpress returns differnt results based on localization settings
+    # apply localization settings from the browser and then copy the aep_usuc_f cookie from devtools
+    "headers": {
+        "cookie": "aep_usuc_f=site=glo&province=&city=&c_tp=USD&region=EG&b_locale=en_US&ae_u_p_s=2"
+    }
 }
 
 
@@ -153,13 +158,14 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         })
     seller_link = selector.xpath("//a[@data-pl='store-name']/@href").get()
     seller_followers = selector.xpath("//div[contains(@class,'store-info')]/strong[2]/text()").get()
+    seller_followers = int(float(seller_followers.replace('K', '')) * 1000) if seller_followers and 'K' in seller_followers else int(seller_followers) if seller_followers else None
     seller = {
         "name": selector.xpath("//a[@data-pl='store-name']/text()").get(),
         "link": seller_link.split("?")[0].replace("//", "") if seller_link else None,
         "id": int(seller_link.split("store/")[-1].split("?")[0]) if seller_link else None,
         "info": {
             "positiveFeedback": selector.xpath("//div[contains(@class,'store-info')]/strong/text()").get(),
-            "followers": int (seller_followers) if seller_followers else None
+            "followers": seller_followers
         }
     }
     return {
