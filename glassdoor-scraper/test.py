@@ -24,6 +24,7 @@ def test_glassdoor_url():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_find_companies():
     results = await glassdoor.find_companies("Ebay")
     expected = [
@@ -63,6 +64,7 @@ def find_errors(errors, prefix=""):
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_job_scraping():
     url = "https://www.glassdoor.com/Jobs/eBay-Jobs-E7853.htm?filter.countryId=1"
     result = await glassdoor.scrape_jobs(url, max_pages=2)
@@ -87,6 +89,7 @@ async def test_job_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_salary_scraping():
     url = "https://www.glassdoor.com/Salary/eBay-Salaries-E7853.htm"
     result = await glassdoor.scrape_salaries(url, max_pages=3)
@@ -138,6 +141,7 @@ async def test_salary_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     url = "https://www.glassdoor.com/Reviews/eBay-Reviews-E7853.htm"
     result = await glassdoor.scrape_reviews(url, max_pages=3)

@@ -33,6 +33,7 @@ USER_SCHEMA = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_tweet_scraping():
     url = "https://x.com/robinhanson/status/1621310291030974465"
     result = await twitter.scrape_tweet(url)
@@ -41,6 +42,7 @@ async def test_tweet_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_user_scraping():
     url = "https://x.com/scrapfly_dev"
     result = await twitter.scrape_profile(url)
