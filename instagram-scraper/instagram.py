@@ -22,6 +22,7 @@ BASE_CONFIG = {
     "country": "CA",  # change country for relevant results
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
+INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
 
 
 def parse_user(data: Dict) -> Dict:
@@ -183,25 +184,24 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
     else:
         shortcode = url_or_shortcode
     log.info("scraping instagram post: {}", shortcode)
-
-    variables = {
-        "shortcode": shortcode,
-        "child_comment_count": 20,
-        "fetch_comment_count": 100,
-        "parent_comment_count": 24,
-        "has_threaded_comments": True,
-    }
-    url = "https://www.instagram.com/graphql/query/?query_hash=b3055c01b4b222b8a47dc12b090e4e64&variables="
-    print(url + quote(json.dumps(variables)))
+    variables = quote(json.dumps({
+        'shortcode':shortcode,'fetch_tagged_user_count':None,
+        'hoisted_comment_id':None,'hoisted_reply_id':None
+    }, separators=(',', ':')))
+    body = f"variables={variables}&doc_id={INSTAGRAM_DOCUMENT_ID}"
+    url = "https://www.instagram.com/graphql/query"
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url=url + quote(json.dumps(variables)),
-            headers={"x-ig-app-id": INSTAGRAM_APP_ID},
-            **BASE_CONFIG,
+            url=url,
+            method="POST",
+            body=body,
+            headers={"content-type": "application/x-www-form-urlencoded"},
+            **BASE_CONFIG
         )
     )
+    
     data = json.loads(result.content)
-    return parse_post(data["data"]["shortcode_media"])
+    return parse_post(data["data"]["xdt_shortcode_media"])
 
 
 async def scrape_user_posts(user_id: str, page_size=24, max_pages: Optional[int] = None):
