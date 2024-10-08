@@ -28,7 +28,7 @@ async def run():
 
     properties_data = await immobilienscout24.scrape_properties(
         urls = [
-            "https://www.immobilienscout24.de/expose/152878574#/",
+            "https://www.immobilienscout24.de/expose/153142187#/",
             "https://www.immobilienscout24.de/expose/150757843#/",
             "https://www.immobilienscout24.de/expose/151476545#/",
         ]

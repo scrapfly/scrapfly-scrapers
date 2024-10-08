@@ -243,12 +243,15 @@ search_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
+    search_data = await immobilienscout24.scrape_search(
+        url="https://www.immobilienscout24.de/Suche/de/bayern/muenchen/wohnung-mieten",
+        scrape_all_pages=False,
+        max_scrape_pages=1,
+    )
+    urls = ["https://www.immobilienscout24.de/expose/" + i["@id"] for i in search_data]
+
     properties_data = await immobilienscout24.scrape_properties(
-        urls=[
-            "https://www.immobilienscout24.de/expose/152878574#/",
-            "https://www.immobilienscout24.de/expose/150757843#/",
-            "https://www.immobilienscout24.de/expose/151476545#/",
-        ]
+        urls=urls[:3]
     )
     validator = Validator(property_schema, allow_unknown=True)
     for item in properties_data:
