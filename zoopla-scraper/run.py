@@ -21,7 +21,7 @@ async def run():
 
     properties_data = await zoopla.scrape_properties(
         urls=[
-            "https://www.zoopla.co.uk/new-homes/details/68145936",
+            "https://www.zoopla.co.uk/new-homes/details/67644732/",
             "https://www.zoopla.co.uk/new-homes/details/66702316/",
             "https://www.zoopla.co.uk/new-homes/details/67644753/"
         ]

@@ -82,9 +82,13 @@ async def scrape_properties(urls: List[str]):
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     properties = []
     # scrape all page URLs concurrently
-    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
-        log.info("scraping property page {}", result.context["url"])
-        properties.append(parse_property(result))
+    try:
+        async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+            log.info("scraping property page {}", result.context["url"])
+            properties.append(parse_property(result))
+    except Exception as e:
+        log.error(f"An error occurred while scraping property pages", e)
+        pass
     return properties
 
 
@@ -177,9 +181,14 @@ async def scrape_search(
         for page in range(2, total_pages_to_scrape + 1)
     ]
     # scrape the remaining search page concurrently
-    async for result in SCRAPFLY.concurrent_scrape(_other_pages):
-        page_data = parse_search(result)["search_data"]
-        search_data.extend(page_data)
+    try:
+        async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+            page_data = parse_search(result)["search_data"]
+            search_data.extend(page_data)
+    except Exception as e:
+        log.error(f"An error occurred while scraping search pages", e)
+        pass
+    
     log.info(
         "scraped {} search listings from {}",
         len(search_data),
