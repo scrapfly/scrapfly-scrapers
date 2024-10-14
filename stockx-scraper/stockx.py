@@ -19,6 +19,9 @@ BASE_CONFIG = {
     # StockX.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
+    "render_js": True,
+    "proxy_pool": "public_residential_pool",
+    "country": "US"
 }
 
 

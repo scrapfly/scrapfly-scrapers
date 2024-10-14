@@ -17,6 +17,7 @@ def validate_or_fail(item, validator):
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     result = await stockx.scrape_product("https://stockx.com/nike-x-stussy-bucket-hat-black")
     _market_schema = {
@@ -81,6 +82,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     result = await stockx.scrape_search("https://stockx.com/search?s=nike", max_pages=2)
     schema = {
