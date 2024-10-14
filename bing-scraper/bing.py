@@ -18,6 +18,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the poxy location to US to get the result in English
     "country": "US",
+    "proxy_pool": "public_residential_pool",
 }
 
 
