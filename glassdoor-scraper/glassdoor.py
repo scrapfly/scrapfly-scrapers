@@ -20,7 +20,8 @@ BASE_CONFIG = {
     # Glassdoor.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
-    "country": "US",
+    "country": "GB",
+    "render_js": True
 }
 
 
