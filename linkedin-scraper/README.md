@@ -27,17 +27,21 @@ This Linkedin.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.
     ```shell
     $ export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"
     ```
-2. Clone and install Python environment:
+2. Install Poetry:
+    ```shell
+    $ curl -sSL https://install.python-poetry.org | python3 -
+    ```   
+3. Clone and install Python environment:
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/linkedin-scraper
     $ poetry install
     ```
-3. Run example scrape:
+4. Run example scrape:
     ```shell
     $ poetry run python run.py
     ```
-4. Run tests:
+5. Run tests:
     ```shell
     $ poetry install --with dev
     $ poetry run pytest test.py
