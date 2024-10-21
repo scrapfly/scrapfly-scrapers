@@ -30,8 +30,8 @@ async def run():
         json.dump(posts_data, file, indent=2, ensure_ascii=False)
 
     commnets_data = await tiktok.scrape_comments(
-        # the post/video id, such as: https://www.tiktok.com/@oddanimalspecimens/video/7198206283571285294
-        post_id=7198206283571285294,
+        # the post/video URL containing the comments
+        post_url='https://www.tiktok.com/@oddanimalspecimens/video/7198206283571285294',
         # total comments to scrape, omitting it will scrape all the avilable comments
         max_comments=24,
         # default is 20, it can be overriden to scrape more comments in each call but it can't be > the total comments on the post

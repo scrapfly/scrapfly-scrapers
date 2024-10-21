@@ -123,7 +123,7 @@ channel_schema = {
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_comment_scraping():
     commnets_data = await tiktok.scrape_comments(
-        post_id=7198206283571285294,
+        post_url='https://www.tiktok.com/@oddanimalspecimens/video/7198206283571285294',
         max_comments=24,
         comments_count=20
     )    

@@ -11,7 +11,7 @@ import secrets
 import json
 import jmespath
 from typing import Dict, List
-from urllib.parse import urlencode, quote
+from urllib.parse import urlencode, quote, urlparse, parse_qs
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -23,6 +23,7 @@ BASE_CONFIG = {
     # set the proxy country to US
     "country": "AU",
 }
+
 
 def parse_post(response: ScrapeApiResponse) -> Dict:
     """parse hidden post data from HTML"""
@@ -42,7 +43,7 @@ def parse_post(response: ScrapeApiResponse) -> Dict:
         suggestedWords: suggestedWords,
         contents: contents[].{textExtra: textExtra[].{hashtagName: hashtagName}}
         }""",
-        post_data
+        post_data,
     )
     return parsed_post_data
 
@@ -79,31 +80,49 @@ def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
             unique_id: user.unique_id,
             aweme_id: aweme_id
             }""",
-            comment
+            comment,
         )
         parsed_comments.append(result)
     return {"comments": parsed_comments, "total_comments": total_comments}
 
 
-async def scrape_comments(post_id: int, comments_count: int = 20, max_comments: int = None) -> List[Dict]:
+async def retrieve_comment_params(post_url: str) -> Dict:
+    """retrieve query parameters for the comments API"""
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            post_url, **BASE_CONFIG, render_js=True,
+            rendering_wait=5000, wait_for_selector="//a[@data-e2e='comment-avatar-1']"
+        )
+    )
+
+    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
+    for i in _xhr_calls:
+        if "api/comment/list" not in i["url"]:
+            continue
+        url = urlparse(i["url"])
+        qs = parse_qs(url.query)
+        # remove the params we'll override
+        for key in ["count", "cursor"]:
+            _ = qs.pop(key, None)
+        api_params = {key: value[0] for key, value in qs.items()}
+        return api_params
+
+
+async def scrape_comments(post_url: str, comments_count: int = 20, max_comments: int = None) -> List[Dict]:
     """scrape comments from tiktok posts using hidden APIs"""
-    
+    post_id = post_url.split("/video/")[1].split("?")[0]
+    api_params = await retrieve_comment_params(post_url)
+
     def form_api_url(cursor: int):
         """form the reviews API URL and its pagination values"""
         base_url = "https://www.tiktok.com/api/comment/list/?"
-        params = {
-            "aweme_id": post_id,
-            'count': comments_count,
-            'cursor': cursor # the index to start from      
-        }
+        params = {"count": comments_count, "cursor": cursor, **api_params}  # the index to start from
         return base_url + urlencode(params)
-    
+
     log.info("scraping the first comments batch")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(
-        form_api_url(cursor=0), **BASE_CONFIG, headers={
-            "content-type": "application/json"
-        }
-    ))
+    first_page = await SCRAPFLY.async_scrape(
+        ScrapeConfig(form_api_url(cursor=0), **BASE_CONFIG, headers={"content-type": "application/json"})
+    )
     data = parse_comments(first_page)
     comments_data = data["comments"]
     total_comments = data["total_comments"]
@@ -130,7 +149,7 @@ def parse_profile(response: ScrapeApiResponse):
     """parse profile data from hidden scripts on the HTML"""
     selector = response.selector
     data = selector.xpath("//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()").get()
-    profile_data = json.loads(data)["__DEFAULT_SCOPE__"]["webapp.user-detail"]["userInfo"]  
+    profile_data = json.loads(data)["__DEFAULT_SCOPE__"]["webapp.user-detail"]["userInfo"]
     return profile_data
 
 
@@ -151,7 +170,7 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
     search_data = data["data"]
     parsed_search = []
     for item in search_data:
-        if item["type"] == 1: # get the item if it was item only
+        if item["type"] == 1:  # get the item if it was item only
             result = jmespath.search(
                 """{
                 id: id,
@@ -162,7 +181,7 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
                 stats: stats,
                 authorStats: authorStats
                 }""",
-                item["item"]
+                item["item"],
             )
             result["type"] = item["type"]
             parsed_search.append(result)
@@ -174,10 +193,8 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
 
 async def obtain_session(url: str) -> str:
     """create a session to save the cookies and authorize the search API"""
-    session_id="tiktok_search_session"
-    await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, session=session_id
-    ))
+    session_id = "tiktok_search_session"
+    await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
     return session_id
 
 
@@ -186,7 +203,7 @@ async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -
 
     def generate_search_id():
         # get the current datetime and format it as YYYYMMDDHHMMSS
-        timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         # calculate the length of the random hex required for the total length (32)
         random_hex_length = (32 - len(timestamp)) // 2  # calculate bytes needed
         random_hex = secrets.token_hex(random_hex_length).upper()
@@ -198,8 +215,8 @@ async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -
         base_url = "https://www.tiktok.com/api/search/general/full/?"
         params = {
             "keyword": quote(keyword),
-            "offset": cursor, # the index to start from
-            "search_id": generate_search_id()
+            "offset": cursor,  # the index to start from
+            "search_id": generate_search_id(),
         }
         return base_url + urlencode(params)
 
@@ -207,20 +224,24 @@ async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -
     session_id = await obtain_session(url="https://www.tiktok.com/search?q=" + quote(keyword))
 
     log.info("scraping the first search batch")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(
-        form_api_url(cursor=0), **BASE_CONFIG, headers={
-            "content-type": "application/json",
-        }, session=session_id
-    ))
+    first_page = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            form_api_url(cursor=0),
+            **BASE_CONFIG,
+            headers={
+                "content-type": "application/json",
+            },
+            session=session_id,
+        )
+    )
     search_data = parse_search(first_page)
 
     # scrape the remaining comments concurrently
     log.info(f"scraping search pagination, remaining {max_search // search_count} more pages")
     _other_pages = [
-        ScrapeConfig(form_api_url(cursor=cursor), **BASE_CONFIG, headers={
-            "content-type": "application/json"
-        }, session=session_id
-    )
+        ScrapeConfig(
+            form_api_url(cursor=cursor), **BASE_CONFIG, headers={"content-type": "application/json"}, session=session_id
+        )
         for cursor in range(search_count, max_search + search_count, search_count)
     ]
     async for response in SCRAPFLY.concurrent_scrape(_other_pages):
@@ -254,21 +275,20 @@ def parse_channel(response: ScrapeApiResponse):
             stats: stats,
             contents: contents[].{desc: desc, textExtra: textExtra[].{hashtagName: hashtagName}}
             }""",
-            post
+            post,
         )
-        parsed_data.append(result)    
+        parsed_data.append(result)
     return parsed_data
 
 
 async def scrape_channel(url: str) -> List[Dict]:
     """scrape video data from a channel (profile with videos)"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js="""const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? console.log("Reached the bottom or maximum iterations. Stopping further iterations.") : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 3000)); scrollToEnd();"""
+    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? console.log("Reached the bottom or maximum iterations. Stopping further iterations.") : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 3000)); scrollToEnd();"""
     log.info(f"scraping channel page with the URL {url} for post data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, asp=True, country="AU", render_js=True, rendering_wait=2000, js=js
-    ))
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, asp=True, country="AU", render_js=True, rendering_wait=2000, js=js)
+    )
     data = parse_channel(response)
     log.success(f"scraped {len(data)} posts data")
     return data
-    
