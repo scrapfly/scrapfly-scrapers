@@ -75,10 +75,47 @@ async def test_product_scraping():
             "type": "dict",
             "schema": _market_schema,
         },
+        "pricing": {
+            "type": "dict",
+            "schema": {
+                "minimumBid": {"type": "float"},
+                "market": {
+                    "type": "dict",
+                    "schema": {
+                        "state": {
+                            "type": "dict",
+                            "schema": {
+                                "lowestAsk": {
+                                    "type": "dict",
+                                    "schema": {
+                                        "amount": {"type": "float"},
+                                        "currency": {"type": "string"},
+                                    },
+                                },
+                                "highestBid": {
+                                    "type": "dict",
+                                    "schema": {
+                                        "amount": {"type": "float"},
+                                    },
+                                },
+                                "numberOfAsks": {"type": "integer"},
+                                "numberOfBids": {"type": "integer"},
+                            },
+                        }
+                    },
+                },
+                "variants": {
+                    "type": "list",
+                    "schema": {
+                        "type": "dict",
+                        "schema": {"id": {"type": "string"}},
+                    },
+                },
+            },
+        },
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
-
 
 
 @pytest.mark.asyncio
@@ -86,13 +123,13 @@ async def test_product_scraping():
 async def test_search_scraping():
     result = await stockx.scrape_search("https://stockx.com/search?s=nike", max_pages=2)
     schema = {
-       "id": {"type": "string"},
-       "name": {"type": "string"},
-       "urlKey": {"type": "string"},
-       "title": {"type": "string"},
-       "brand": {"type": "string"},
-       "description": {"type": "string"},
-       "model": {"type": "string"},
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "urlKey": {"type": "string"},
+        "title": {"type": "string"},
+        "brand": {"type": "string"},
+        "description": {"type": "string"},
+        "model": {"type": "string"},
     }
     validator = Validator(schema, allow_unknown=True)
     for item in result:

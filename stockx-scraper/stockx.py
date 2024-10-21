@@ -35,16 +35,47 @@ def parse_nextjs(result: ScrapeApiResponse) -> Dict:
     return data
 
 
+def parse_pricing(result: ScrapeApiResponse, sku: str = None) -> Dict:
+    """extractproduct data from xhr responses"""
+    sku = "ef4b2b9b-ab4d-41af-b56a-c4937e8f7a1e"
+    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
+    json_calls = []
+    for xhr in _xhr_calls:
+        if xhr["response"]["body"] is None:
+            continue
+        try:
+            data = json.loads(xhr["response"]["body"])
+        except json.JSONDecodeError:
+            continue
+        json_calls.append(data)
+
+    for xhr in json_calls:
+        if "data" not in xhr or "product" not in xhr["data"] or "uuid" not in xhr["data"]["product"]:
+            continue
+        if sku == xhr["data"]["product"]["uuid"]:
+            data = xhr["data"]["product"]
+            return {
+                "minimumBid": data["minimumBid"],
+                "market": data["market"],
+                "variants": data["variants"],
+            }
+    return None
+
+
+
 async def scrape_product(url: str) -> Dict:
     """scrape a single stockx product page for product data"""
     log.info("scraping product {}", url)
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, **BASE_CONFIG, rendering_wait=5000, wait_for_selector="//h2[@data-testid='trade-box-buy-amount']"
+    ))
     data = parse_nextjs(result)
     # extract all products datasets from page cache
     products = nested_lookup("product", data)
     # find the current product dataset
     try:
         product = next(p for p in products if p.get("urlKey") in result.context["url"])
+        product["pricing"] = parse_pricing(result, product["id"])
     except StopIteration:
         raise ValueError("Could not find product dataset in page cache", result.context)
     return product
