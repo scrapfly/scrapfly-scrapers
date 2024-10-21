@@ -37,7 +37,6 @@ def parse_nextjs(result: ScrapeApiResponse) -> Dict:
 
 def parse_pricing(result: ScrapeApiResponse, sku: str = None) -> Dict:
     """extractproduct data from xhr responses"""
-    sku = "ef4b2b9b-ab4d-41af-b56a-c4937e8f7a1e"
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
     json_calls = []
     for xhr in _xhr_calls:
