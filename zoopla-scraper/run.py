@@ -32,8 +32,8 @@ async def run():
     search_data = await zoopla.scrape_search(
         scrape_all_pages=False,
         max_scrape_pages=2,
-        # make sure you query is valid first by using it in the search
-        query="Islington, London",
+        # make sure you location_slug is valid first by using it in the search
+        location_slug="london/islington",
         query_type= "to-rent"
     )
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:

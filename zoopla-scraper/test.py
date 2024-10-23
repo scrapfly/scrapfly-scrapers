@@ -6,7 +6,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-zoopla.BASE_CONFIG["cache"] = True
+zoopla.BASE_CONFIG["cache"] = False
 
 def validate_or_fail(item, validator):
     if not validator.validate(item):
@@ -184,14 +184,14 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+# @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
     # dynamically retrieve the property urls
     data = await zoopla.scrape_search(
         scrape_all_pages=False,
         max_scrape_pages=1,
-        query="Islington, London",
-        query_type= "to-rent"
+        location_slug="london/islington",
+        query_type= "for-sale"
     )
     urls = [i['url'] for i in data]
     

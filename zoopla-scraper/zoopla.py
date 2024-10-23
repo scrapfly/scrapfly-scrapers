@@ -44,7 +44,7 @@ class PropertyResult(TypedDict):
 def parse_next_data(result: ScrapeApiResponse) -> Dict:
     """parse hidden data from script tags"""
     next_data = result.selector.css("script#__NEXT_DATA__::text").get()
-    next_data_json = json.loads(next_data)["props"]["pageProps"]
+    next_data_json = json.loads(next_data)["props"]["pageProps"] if next_data else None
     return next_data_json
 
 
@@ -52,7 +52,7 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     """refine property data using JMESPath"""
     data = parse_next_data(response)
     if not data:
-        return
+        raise Exception("Hidden script data aren't found")
     result = jmespath.search(
         """root.{
         id: listingId,
@@ -82,13 +82,13 @@ async def scrape_properties(urls: List[str]):
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     properties = []
     # scrape all page URLs concurrently
-    try:
-        async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        try:
             log.info("scraping property page {}", result.context["url"])
             properties.append(parse_property(result))
-    except Exception as e:
-        log.error(f"An error occurred while scraping property pages", e)
-        pass
+        except Exception as e:
+            log.error(f"An error occurred while scraping property pages", e)
+            continue
     return properties
 
 
@@ -144,18 +144,20 @@ def parse_search(response: ScrapeApiResponse):
 
 async def scrape_search(
     scrape_all_pages: bool,
-    query: str,
+    location_slug: str,
     max_scrape_pages: int = 10,
     query_type: Literal["for-sale", "to-rent"] = "for-sale",
 ) -> List[Dict]:
     """scrape zoopla search pages for roperty listings"""
-    encoded_query = urllib.parse.quote(query)
     # scrape the first search page first
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url=f"https://www.zoopla.co.uk/search/?view_type=list&section={query_type}&q={encoded_query}&geo_autocomplete_identifier=&search_source=home&sort=newest_listings",
+            url = f"https://www.zoopla.co.uk/{query_type}/property/{location_slug}",
             **BASE_CONFIG,
             render_js=True,
+            auto_scroll=True,
+            rendering_wait=5000,
+            wait_for_selector="//p[@data-testid='total-results']"
         )
     )
     data = parse_search(first_page)
