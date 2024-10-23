@@ -90,8 +90,11 @@ async def retrieve_comment_params(post_url: str) -> Dict:
     """retrieve query parameters for the comments API"""
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            post_url, **BASE_CONFIG, render_js=True,
-            rendering_wait=5000, wait_for_selector="//a[@data-e2e='comment-avatar-1']"
+            post_url,
+            **BASE_CONFIG,
+            render_js=True,
+            rendering_wait=5000,
+            wait_for_selector="//a[@data-e2e='comment-avatar-1']",
         )
     )
 
@@ -284,10 +287,20 @@ def parse_channel(response: ScrapeApiResponse):
 async def scrape_channel(url: str) -> List[Dict]:
     """scrape video data from a channel (profile with videos)"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? console.log("Reached the bottom or maximum iterations. Stopping further iterations.") : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 3000)); scrollToEnd();"""
+    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 5000)); scrollToEnd();"""
     log.info(f"scraping channel page with the URL {url} for post data")
     response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(url, asp=True, country="AU", render_js=True, rendering_wait=2000, js=js)
+        ScrapeConfig(
+            url,
+            asp=True,
+            country="AU",
+            wait_for_selector="//div[@data-e2e='user-post-item-list']",
+            render_js=True,
+            auto_scroll=True,
+            rendering_wait=10000,
+            js=js,
+            debug=True,
+        )
     )
     data = parse_channel(response)
     log.success(f"scraped {len(data)} posts data")
