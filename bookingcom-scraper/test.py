@@ -14,12 +14,14 @@ bookingcom.BASE_CONFIG["debug"] = True
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     result_search = await bookingcom.scrape_search(query="Malta", checkin="2023-06-10", checkout="2023-06-20", max_pages=3)
     assert len(result_search) >= 50
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_hotel_scraping():
     bookingcom.BASE_CONFIG["cache"] = False
     urls = [
