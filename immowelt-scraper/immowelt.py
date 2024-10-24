@@ -76,7 +76,7 @@ def parse_search_pages(response: ScrapeApiResponse) -> List[Dict]:
     script = selector.xpath('//script[contains(text(),"classified-serp-init-data")]/text()').get()
     script = script.replace('window["__UFRN_FETCHER__"]=JSON.parse("', '').replace('");', '')
     script = script.encode().decode('unicode_escape')
-    data = json.loads(script)['classified-serp-init-data']['pageProps']
+    data = json.loads(script)['data']['classified-serp-init-data']['pageProps'] 
     search_data = []
     for k, v in data['classifiedsData'].items():
         search_data.append(v)
