@@ -15,6 +15,15 @@ def validate_or_fail(item, validator):
         pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
 
 
+def require_min_presence(items, key, min_perc=0.1):
+    """check whether dataset contains items with some amount of non-null values for a given key"""
+    count = sum(1 for item in items if item.get(key))
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
+        )
+
+
 company_schema = {
     "__typename": {"type": "string"},
     "id": {"type": "string"},
@@ -56,7 +65,7 @@ search_schema = {
     "__typename": {"type": "string"},
     "id": {"type": "string"},
     "companySize": {"type": "string"},
-    "highConcept": {"type": "string"},
+    "highConcept": {"type": "string", "nullable": True},
     "logoUrl": {"type": "string"},
     "name": {"type": "string"},
     "slug": {"type": "string"},
@@ -84,4 +93,6 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)
+    for k in search_schema:
+        require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))
     assert len(search_data) >= 10
