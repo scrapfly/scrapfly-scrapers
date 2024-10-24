@@ -168,7 +168,10 @@ async def scrape_search(
     ]
     log.info(f"scraping search results from the graphql api: {len(to_scrape)} pages to request")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        data.extend(parse_graphql_response(response))
+        try:
+            data.extend(parse_graphql_response(response))
+        except Exception as e:
+            log.error("Failed to parse search results: {}", e)
     log.success(f"scraped {len(data)} results from search pages")
     return data
        
@@ -208,9 +211,10 @@ def parse_hotel(result: ScrapeApiResponse) -> Hotel:
 
     css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
     lat, lng = sel.css(".show_map_hp_link::attr(data-atlas-latlng)").get("0,0").split(",")
+    id = re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)
     data = {
         "url": result.context["url"],
-        "id": re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)[0],
+        "id": id[0] if id else None,
         "title": sel.css("h2::text").get(),
         "description": css("div#property_description_content ::text", "\n"),
         "address": css(".hp_address_subtitle::text"),
