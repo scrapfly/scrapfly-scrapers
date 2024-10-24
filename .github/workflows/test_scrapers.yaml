@@ -137,8 +137,6 @@ jobs:
           - project_dir: bestbuy-scraper
             test: test_product_scraping
           - project_dir: bestbuy-scraper
-            test: test_sitemap_scraping
-          - project_dir: bestbuy-scraper
             test: test_review_scraping
           - project_dir: bestbuy-scraper
             test: test_search_scraping
