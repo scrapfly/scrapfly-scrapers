@@ -176,6 +176,20 @@ Below is the list of available web scrapers for the supported domains along with
 </tr>
 
 <tr>
+    <td><a href="/google-scraper/">Google.com</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-google/">How to Scrape Google Search Results</a> - <a href="https://scrapfly.io/blog/how-to-scrape-google-maps/">How to Scrape Google Maps</a></td>
+    <td>
+    <ul>
+        <li><a href="./google-scraper/results/serp.json">SERP data</a></li>
+        <li><a href="./google-scraper/results/keywords.json">Keyword data</a></li>
+        <li><a href="./google-scraper/results/google_map_places_urls.json">Google Maps place URLs</a></li>
+        <li><a href="./google-scraper/results/google_map_places.json">Google Maps place data</a></li>
+    </ul>
+    </td>
+    <td><img src="https://img.shields.io/badge/Google_scraper-success-brightgreen" alt="goat-scraper-status"></td>
+</tr>
+
+<tr>
     <td><a href="/homegate-scraper/">Homegate.ch</a></td>
     <td><a href="https://scrapfly.io/blog/how-to-scrape-homegate-ch-real-estate-property-data/">How to Scrape Homegate.ch Real Estate Property Data</a></td>
     <td>

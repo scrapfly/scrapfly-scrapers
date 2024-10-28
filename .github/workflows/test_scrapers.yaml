@@ -144,6 +144,14 @@ jobs:
             test: test_search_scraping
           - project_dir: goat-scraper
             test: test_product_scraping
+          - project_dir: google-scraper
+            test: test_serp_scraping
+          - project_dir: google-scraper
+            test: test_keyword_scraping
+          - project_dir: google-scraper
+            test: test_place_url_scraping
+          - project_dir: google-scraper
+            test: test_place_scraping
           - project_dir: yelp-scraper
             test: test_review_scraping
           - project_dir: yelp-scraper
