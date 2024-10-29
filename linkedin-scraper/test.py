@@ -88,6 +88,7 @@ job_page_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_profile_scraping():
     profile_data = await linkedin.scrape_profile(
         urls=[
@@ -102,6 +103,7 @@ async def test_profile_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_company_scraping():
     company_data = await linkedin.scrape_company(
         urls=[
@@ -121,6 +123,7 @@ async def test_company_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_job_search_scraping():
     job_search_data = await linkedin.scrape_job_search(
         # it include other search parameters, refer to the search pages on browser for more details
@@ -139,6 +142,7 @@ async def test_job_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_job_page_scraping():
     job_search_data = await linkedin.scrape_job_search(
         # it include other search parameters, refer to the search pages on browser for more details
