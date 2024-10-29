@@ -60,13 +60,13 @@ def parse_keywords(response: ScrapeApiResponse) -> Dict:
     """parse FAQs and popular keywords on bing search pages"""
     selector = response.selector
     faqs = []
-    for faq in selector.xpath("//div[@class='b_slidebar']/div/div[contains(@data-tag, 'RelatedQnA.Item')]"):
-        url = faq.xpath(".//h2/a/@href").get()
+    for faq in selector.xpath("//*[*[div[contains(@data-tag, 'RelatedQnA.Item')]]]"):
+        url = faq.xpath(".//a/@href").get()
         faqs.append(
             {
-                "query": faq.xpath("./@data-query").get(),
+                "query": faq.xpath(".//div[contains(@data-tag, 'RelatedQnA.Item')]/@data-query").get(),
                 "answer": faq.xpath(".//span[contains(@data-tag, 'QnA')]/text()").get(),
-                "title": "".join(faq.xpath(".//div[@class='b_algo']/h2/a//text()").extract()),
+                "title": "".join(faq.xpath(".//div[@class='b_algo']/h2/*//text()").extract()),
                 "domain": url.split("https://")[-1].split("/")[0].replace("www.", "")if url else None,
                 "url": url,
             }
