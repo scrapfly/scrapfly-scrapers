@@ -103,7 +103,7 @@ async def find_google_map_places(query: str) -> List[Dict]:
     """
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url=f"https://www.google.com/maps/search/{query.replace(" ", "+")}/?hl=en",
+            url=f"https://www.google.com/maps/search/{query.replace(' ', '+')}/?hl=en",
             render_js=True,
             js=script,
             country="US",
