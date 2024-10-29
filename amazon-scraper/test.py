@@ -31,6 +31,7 @@ def validate_or_fail(item, validator):
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     urls = [
         "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
@@ -59,6 +60,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     url = "https://www.amazon.com/s?k=kindle"
     result = await amazon.scrape_search(url, max_pages=2)
@@ -80,6 +82,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     url = "https://www.amazon.com/PlayStation-PS5-Console-Ragnar%C3%B6k-Bundle-5/product-reviews/B0BHC395WW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
     result = await amazon.scrape_reviews(url, max_pages=3)
