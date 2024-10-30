@@ -151,15 +151,18 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
-    properties_data = await immoscout24.scrape_properties(
-        urls=[
-            "https://www.immoscout24.ch/rent/4001413696",
-            "https://www.immoscout24.ch/rent/4001377896",
-            "https://www.immoscout24.ch/rent/4000759629",
-            "https://www.immoscout24.ch/rent/4000924213"
-        ]
+    search_data = await immoscout24.scrape_search(
+        url="https://www.immoscout24.ch/en/real-estate/rent/city-bern",
+        scrape_all_pages=False,
+        max_scrape_pages=2,        
     )
+    urls = ["https://www.immoscout24.ch/rent/" + item["listing"]["id"] for item in search_data]
+
+    properties_data = await immoscout24.scrape_properties(
+        urls=urls[:4]
+    )    
     validator = Validator(property_schema, allow_unknown=True)
     for item in properties_data:
         validate_or_fail(item, validator)
@@ -167,6 +170,7 @@ async def test_properties_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await immoscout24.scrape_search(
         url="https://www.immoscout24.ch/en/real-estate/rent/city-bern",
