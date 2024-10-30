@@ -158,35 +158,36 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
 class FoundCompany(TypedDict):
     """type hint for company search result"""
     name: str
-    id: str
-    url_overview: str
-    url_jobs: str
-    url_reviews: str
-    url_salaries: str
+    id: int
+    logoURL: str
+    employerId: int
+    employerName: str
 
 
 async def find_companies(query: str) -> List[FoundCompany]:
     """find company Glassdoor ID and name by query. e.g. "ebay" will return "eBay" with ID 7853"""
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url=f"https://www.glassdoor.com/searchsuggest/typeahead?numSuggestions=8&source=GD_V2&version=NEW&rf=full&fallback=token&input={query}",
+            url=f"https://www.glassdoor.com/api-web/employer/find.htm?autocomplete=true&maxEmployersForAutocomplete=50&term={query}",
             **BASE_CONFIG,
         )
     )
     data = json.loads(result.content)
     companies = []
     for result in data:
-        if result["category"] == "company":
-            companies.append(
-                {
-                    "name": result["suggestion"],
-                    "id": result["employerId"],
-                    "url_overview": Url.overview(result["suggestion"], result["employerId"]),
-                    "url_jobs": Url.jobs(result["suggestion"], result["employerId"]),
-                    "url_reviews": Url.reviews(result["suggestion"], result["employerId"]),
-                    "url_salaries": Url.salaries(result["suggestion"], result["employerId"]),
-                }
-            )
+        companies.append(
+            {
+                "name": result["label"],
+                "id": result["id"],
+                "logoURL": result["logoURL"],
+                "employerId": (
+                    result["parentRelationshipVO"]["employerId"] if result["parentRelationshipVO"] is not None else None
+                ),
+                "employerName": (
+                    result["parentRelationshipVO"]["employerName"] if result["parentRelationshipVO"] is not None else None
+                ),
+            }
+        )
     return companies
 
 
