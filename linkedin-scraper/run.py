@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache
-    linkedin.BASE_CONFIG["cache"] = True
+    linkedin.BASE_CONFIG["cache"] = False
     linkedin.BASE_CONFIG["debug"] = True
 
     print("running Linkedin scrape and saving results to ./results directory")

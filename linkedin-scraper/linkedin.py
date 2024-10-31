@@ -54,8 +54,12 @@ async def scrape_profile(urls: List[str]) -> List[Dict]:
     data = []
     # scrape the URLs concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        profile_data = parse_profile(response)
-        data.append(profile_data)
+        try:
+            profile_data = parse_profile(response)
+            data.append(profile_data)
+        except Exception as e:
+            log.error("An occured while scraping profile pages", e)
+            pass
     log.success(f"scraped {len(data)} profiles from Linkedin")
     return data
 
@@ -135,14 +139,19 @@ async def scrape_company(urls: List[str]) -> List[Dict]:
     data = []
     # scrape main company URLs then then the life page
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        # create the life page URL from the overiew page response
-        company_id = str(response.context["url"]).split("/")[-1]
-        company_life_url = f"https://linkedin.com/company/{company_id}/life"
-        # request the company life page
-        life_page_response = await SCRAPFLY.async_scrape(ScrapeConfig(company_life_url, **BASE_CONFIG))
-        overview = parse_company_overview(response)
-        life = parse_company_life(life_page_response)
-        data.append({"overview": overview, "life": life})
+        try:
+            # create the life page URL from the overiew page response
+            company_id = str(response.context["url"]).split("/")[-1]
+            company_life_url = f"https://linkedin.com/company/{company_id}/life"
+            # request the company life page
+            life_page_response = await SCRAPFLY.async_scrape(ScrapeConfig(company_life_url, **BASE_CONFIG))
+            overview = parse_company_overview(response)
+            life = parse_company_life(life_page_response)
+            data.append({"overview": overview, "life": life})
+        except Exception as e:
+            log.error("An occured while scraping company pages", e)
+            pass
+
     log.success(f"scraped {len(data)} companies from Linkedin")
     return data
 
@@ -181,7 +190,6 @@ async def scrape_job_search(keyword: str, location: str, max_pages: int = None) 
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(first_page_url, **BASE_CONFIG))
     data = parse_job_search(first_page)["data"]
     total_results = parse_job_search(first_page)["total_results"]
-
     # get the total number of pages to scrape, each page contain 25 results
     if max_pages and max_pages * 25 < total_results:
         total_results = max_pages * 25
@@ -194,8 +202,12 @@ async def scrape_job_search(keyword: str, location: str, max_pages: int = None) 
         for index in range(25, total_results + 25, 25)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        page_data = parse_job_search(response)["data"]
-        data.extend(page_data)
+        try:
+            page_data = parse_job_search(response)["data"]
+            data.extend(page_data)
+        except Exception as e:
+            log.error("An occured while scraping search pagination", e)
+            pass
 
     log.success(f"scraped {len(data)} jobs from Linkedin job search")
     return data

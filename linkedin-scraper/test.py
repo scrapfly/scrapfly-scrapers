@@ -4,7 +4,7 @@ import linkedin
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
-linkedin.BASE_CONFIG["cache"] = True
+linkedin.BASE_CONFIG["cache"] = False
 
 
 class Validator(_Validator):
