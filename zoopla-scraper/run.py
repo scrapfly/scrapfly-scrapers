@@ -15,7 +15,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    zoopla.BASE_CONFIG["cache"] = True
+    zoopla.BASE_CONFIG["cache"] = False
 
     print("running zoopla scrape and saving results to ./results directory")
 

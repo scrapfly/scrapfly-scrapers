@@ -171,7 +171,7 @@ async def test_search_scraping():
         scrape_all_pages=False,
         max_scrape_pages=2,
         location_slug="london/islington",
-        query_type= "for-sale"
+        query_type= "to-rent"
     )
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
