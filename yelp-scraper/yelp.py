@@ -6,6 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
+import uuid
 import json
 import math
 import base64
@@ -22,6 +23,8 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
+    # set the proxy pool to residential
+    "proxy_pool": "public_residential_pool",
 }
 
 
@@ -44,7 +47,7 @@ def parse_page(response: ScrapeApiResponse):
         name = day.xpath("text()").get().strip()
         value = day.xpath("../following-sibling::td//p/text()").get().strip()
         open_hours[name.lower()] = value
-        
+
     return dict(
         name=xpath("//h1/text()"),
         website=xpath('//p[contains(text(),"Business website")]/following-sibling::p/a/text()'),
@@ -82,7 +85,7 @@ def parse_review_data(response: ScrapeApiResponse):
             businessVideos: businessVideos,
             availableReactions: availableReactionsContainer.availableReactions[].{displayText: displayText, reactionType: reactionType, count: count}
             }""",
-            review["node"]
+            review["node"],
         )
         parsed_reviews.append(result)
     total_reviews = data[0]["data"]["business"]["reviewCount"]
@@ -90,10 +93,12 @@ def parse_review_data(response: ScrapeApiResponse):
 
 
 def parse_search(response: ScrapeApiResponse):
-    """parse listing data from the search JSON data"""
-    data = json.loads(response.scrape_result["content"])
+    """parse listing data from the search XHR data"""
     search_data = []
-    for item in data["searchPageProps"]["mainContentComponentsListProps"]:
+    selector = response.selector
+    script = selector.xpath("//script[@data-id='react-root-props']/text()").get()
+    data = json.loads(script.split("react_root_props = ")[-1].rsplit(";", 1)[0])
+    for item in data["legacyProps"]["searchAppProps"]["searchPageProps"]["mainContentComponentsListProps"]:
         # filter search data cards
         if "bizId" in item.keys():
             search_data.append(item)
@@ -116,67 +121,56 @@ async def scrape_pages(urls: List[str]) -> List[Dict]:
 
 async def request_reviews_api(url: str, start_index: int, business_id):
     """request the graphql API for review data"""
-    pagionation_data = {
-        "version": 1,
-        "type": "offset",
-        "offset": start_index
-    }
+    pagionation_data = {"version": 1, "type": "offset", "offset": start_index}
     pagionation_data = json.dumps(pagionation_data)
-    after = base64.b64encode(pagionation_data.encode('utf-8')).decode('utf-8') # decode the pagination values for the payload
+    after = base64.b64encode(pagionation_data.encode("utf-8")).decode(
+        "utf-8"
+    )  # decode the pagination values for the payload
 
-    payload = json.dumps([
-        {
-            "operationName": "GetBusinessReviewFeed",
-            "variables": {
-            "encBizId": f"{business_id}",
-            "reviewsPerPage": 10,
-            "selectedReviewEncId": "",
-            "hasSelectedReview": False,
-            "sortBy": "DATE_DESC",
-            "languageCode": "en",
-            "ratings": [
-                5,
-                4,
-                3,
-                2,
-                1
-            ],
-            "isSearching": False,
-            "after": after, # pagination parameter
-            "isTranslating": False,
-            "translateLanguageCode": "en",
-            "reactionsSourceFlow": "businessPageReviewSection",
-            "minConfidenceLevel": "HIGH_CONFIDENCE",
-            "highlightType": "",
-            "highlightIdentifier": "",
-            "isHighlighting": False
-            },
-            "extensions": {
-            "operationType": "query",
-            # static value
-            "documentId": "ef51f33d1b0eccc958dddbf6cde15739c48b34637a00ebe316441031d4bf7681"
+    payload = json.dumps(
+        [
+            {
+                "operationName": "GetBusinessReviewFeed",
+                "variables": {
+                    "encBizId": f"{business_id}",
+                    "reviewsPerPage": 10,
+                    "selectedReviewEncId": "",
+                    "hasSelectedReview": False,
+                    "sortBy": "DATE_DESC",
+                    "languageCode": "en",
+                    "ratings": [5, 4, 3, 2, 1],
+                    "isSearching": False,
+                    "after": after,  # pagination parameter
+                    "isTranslating": False,
+                    "translateLanguageCode": "en",
+                    "reactionsSourceFlow": "businessPageReviewSection",
+                    "minConfidenceLevel": "HIGH_CONFIDENCE",
+                    "highlightType": "",
+                    "highlightIdentifier": "",
+                    "isHighlighting": False,
+                },
+                "extensions": {
+                    "operationType": "query",
+                    # static value
+                    "documentId": "ef51f33d1b0eccc958dddbf6cde15739c48b34637a00ebe316441031d4bf7681",
+                },
             }
-        }
-    ])
+        ]
+    )
 
     headers = {
-        'authority': 'www.yelp.com',
-        'accept': '*/*',
-        'accept-language': 'en-US,en;q=0.9',
-        'cache-control': 'no-cache',
-        'content-type': 'application/json',
-        'origin': 'https://www.yelp.com',
-        'referer': url, # main business page URL 
-        'x-apollo-operation-name': 'GetBusinessReviewFeed'
+        "authority": "www.yelp.com",
+        "accept": "*/*",
+        "accept-language": "en-US,en;q=0.9",
+        "cache-control": "no-cache",
+        "content-type": "application/json",
+        "origin": "https://www.yelp.com",
+        "referer": url,  # main business page URL
+        "x-apollo-operation-name": "GetBusinessReviewFeed",
     }
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.yelp.com/gql/batch",
-            headers=headers,
-            body=payload,
-            method="POST",
-            asp=True,
-            country="US"
+            url="https://www.yelp.com/gql/batch", headers=headers, body=payload, method="POST", asp=True, country="US"
         )
     )
     return response
@@ -184,8 +178,11 @@ async def request_reviews_api(url: str, start_index: int, business_id):
 
 async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     # first find business ID from business URL
+    log.info("obtaining a session to bypass yelp blocking")
+    session_id = await obtain_session()
+
     log.info("scraping the business id from the business page")
-    response_business = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    response_business = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
     business_id = parse_business_id(response_business)
 
     log.info("scraping the first review page")
@@ -200,36 +197,42 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
 
     # next, scrape the remaining review pages
     log.info(f"scraping review pagination, remaining ({total_reviews // 10}) more pages")
-
     for offset in range(11, total_reviews, 10):
-        response = await request_reviews_api(url=url, business_id=business_id, start_index=offset)
-        new_review_data = parse_review_data(response)["reviews"]
-        reviews.extend(new_review_data)
+        try:
+            response = await request_reviews_api(url=url, business_id=business_id, start_index=offset)
+            new_review_data = parse_review_data(response)["reviews"]
+            reviews.extend(new_review_data)
+        except Exception as e:
+            log.error(f"An error occurred while scraping search pages", e)
+            pass
     log.success(f"scraped {len(reviews)} reviews from review pages")
     return reviews
+
+
+async def obtain_session() -> str:
+    """create a session to bypass aliexpress blocking"""
+    session_id = str(uuid.uuid4())
+    url = "https://www.yelp.com/"
+    await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
+    return session_id
 
 
 async def scrape_search(keyword: str, location: str, max_pages: int = None):
     """scrape single page of yelp search"""
 
     def make_search_url(offset):
-        base_url = "https://www.yelp.com/search/snippet?"
-        params = {
-            "find_desc": keyword,
-            "find_loc": location,
-            "start": offset,
-            "parent_request": "",
-            "ns": 1,
-            "request_origin": "user",
-        }
+        base_url = "https://www.yelp.com/search?"
+        params = {"find_desc": keyword, "find_loc": location, "start": offset}
         return base_url + urlencode(params)
         # final url example:
-        # https://www.yelp.com/search/snippet?find_desc=plumbers&find_loc=Toronto%2C+Ontario%2C+Canada&ns=1&start=210&parent_request_id=54233ce74d09d270&request_origin=user
+        # https://www.yelp.com/search?find_desc=plumbers&find_loc=Seattle%2C+WA&start=1
 
-    log.info(f"scraping the first search page")
-    # the JSON data is a large file that require enabling render_js
+    log.info("obtaining a session to bypass yelp blocking")
+    session_id = await obtain_session()
+
+    log.info("scraping the first search page")
     first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True)
+        ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True, session=session_id)
     )
     data = parse_search(first_page)
     search_data = data["search_data"]
@@ -247,6 +250,10 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
         for offset in range(11, total_pages * 10, 10)
     ]
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
-        search_data.extend(parse_search(response)["search_data"])
+        try:
+            search_data.extend(parse_search(response)["search_data"])
+        except Exception as e:
+            log.error(f"An error occurred while scraping search pages", e)
+            pass
     log.success(f"scraped {len(search_data)} listings from search pages")
     return search_data

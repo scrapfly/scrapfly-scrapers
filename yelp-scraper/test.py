@@ -6,7 +6,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-yelp.BASE_CONFIG["cache"] = True
+yelp.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -103,6 +103,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     reviews_data = await yelp.scrape_reviews(
         url="https://www.yelp.com/biz/vons-1000-spirits-seattle-4",
@@ -116,6 +117,7 @@ async def test_review_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_page_scraping():
     business_data = await yelp.scrape_pages(
         urls=[
@@ -131,6 +133,7 @@ async def test_page_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await yelp.scrape_search(
         keyword="plumbers", location="Seattle, WA", max_pages=2
