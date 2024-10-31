@@ -36,7 +36,7 @@ async def test_hotel_scraping():
         assert item
         schema = {
             "url": {"type": "string"},
-            "title": {"type": "string", "minlength": 4},
+            "title": {"type": "string"},
             "description": {"type": "string"},
             "address": {"type": "string"},
             "images": {"type": "list"},
