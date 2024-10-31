@@ -153,7 +153,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
     faqs = []
     for i in selector.xpath("//div[@class='ask-list']/ul/li"):
         faqs.append({
-            "question": i.xpath(".//p[@class='ask-content']/text()").get(),
+            "question": i.xpath(".//p[@class='ask-content']/span/text()").get(),
             "answer": i.xpath(".//ul[@class='answer-box']/li/p/text()").get()
         })
     seller_link = selector.xpath("//a[@data-pl='store-name']/@href").get()
