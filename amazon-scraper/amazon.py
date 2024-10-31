@@ -53,7 +53,7 @@ def parse_search(result: ScrapeApiResponse) -> List[ProductPreview]:
         url = urljoin(result.context["url"], box.css("h2>a::attr(href)").get()).split("?")[0]
         if "/slredirect/" in url:  # skip ads etc.
             continue
-        rating = box.css("span[aria-label~=stars]::attr(aria-label)").re_first(r"(\d+\.*\d*) out")
+        rating = box.css("span[aria-label~=rating]::attr(aria-label)").re_first(r"(\d+\.*\d*) out")
         rating_count = box.xpath("//div[contains(@data-csa-c-content-id, 'ratings-count')]/span/@aria-label").get()
         previews.append(
             {
