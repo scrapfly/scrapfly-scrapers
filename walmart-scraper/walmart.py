@@ -20,6 +20,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
+    "proxy_pool": "public_residential_pool"
 }
 
 
@@ -94,7 +95,7 @@ async def scrape_search(
     # scrape the first search page
     log.info(f"scraping the first search page with the query ({query})")
     first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(make_search_url(1), **BASE_CONFIG)
+        ScrapeConfig(make_search_url(1), render_js=True, **BASE_CONFIG)
     )
     data = parse_search(first_page)
     search_data = data["results"]
