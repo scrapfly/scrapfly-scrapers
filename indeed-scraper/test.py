@@ -8,6 +8,7 @@ indeed.BASE_CONFIG["cache"] = True
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     url = "https://www.indeed.com/jobs?q=python&l=Texas"
     result_search = await indeed.scrape_search(url, max_results=20)
@@ -28,6 +29,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_job_scraping():
     jobs = ["9100493864fe1d6e", "5361f22542fe4a95"]
     result = await indeed.scrape_jobs(jobs)
