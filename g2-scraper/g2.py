@@ -192,7 +192,7 @@ def parse_alternatives(response: ScrapeApiResponse):
     except:
         pass
     data = []
-    for alt in selector.xpath("//div[@class='product-listing--competitor']"):
+    for alt in selector.xpath("//div[contains(@class, 'product-listing--competitor')]"):
         sponsored = alt.xpath(".//strong[text()='Sponsored']").get()
         if sponsored: # ignore sponsored cards
             continue
