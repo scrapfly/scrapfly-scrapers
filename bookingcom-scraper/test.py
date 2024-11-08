@@ -26,7 +26,8 @@ async def test_hotel_scraping():
     bookingcom.BASE_CONFIG["cache"] = False
     urls = [
         "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
-        "https://www.booking.com/hotel/fr/hotelf1-paris-porte-de-montmartre.en-gb.html",
+        "https://www.booking.com/hotel/fr/avenir-jonquiere.en-gb.html",
+        "https://www.booking.com/hotel/fr/hotelkyriaditaliegobelins.en-gb.html"
     ]
     for url in urls:
         item = await bookingcom.scrape_hotel(
