@@ -23,7 +23,9 @@ BASE_CONFIG = {
     "country": "US",
     "headers": {
         "Accept-Language": "en-US,en;q=0.5"
-    }
+    },
+    "render_js": True,
+    "proxy_pool": "public_residential_pool"    
 }
 
 def refine_profile(data: Dict) -> Dict: 
