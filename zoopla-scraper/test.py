@@ -26,8 +26,8 @@ def require_min_presence(items, key, min_perc=0.1):
 
 
 search_schema = {
-    "title": {"type": "string"},
-    "price": {"type": "string"},
+    "price": {"type": "integer"},
+    "priceCurrency": {"type": "string"},
     "url": {"type": "string"},
     "image": {"type": "string", "nullable": True},
     "address": {"type": "string"},
@@ -35,9 +35,9 @@ search_schema = {
     "numBathrooms": {"type": "integer", "nullable": True},
     "numBedrooms": {"type": "integer", "nullable": True},
     "numLivingRoom": {"type": "integer", "nullable": True},
+    "description": {"type": "string"},
     "justAdded": {"type": "boolean", "nullable": True},
-    "propertyType": {"type": "string", "nullable": True},
-    "timeAdded": {"type": "string"},
+    "agency": {"type": "string", "nullable": True}
 }
 
 property_schema = {
@@ -165,7 +165,7 @@ property_schema = {
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+# @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await zoopla.scrape_search(
         scrape_all_pages=False,

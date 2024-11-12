@@ -97,10 +97,12 @@ def parse_search(response: ScrapeApiResponse):
     selector = response.selector
     data = []
     total_results = int(
-        selector.xpath("//p[@data-testid='total-results']/text()").get().split(" ")[0]
+        json.loads(selector.xpath("//script[@id='__ZAD_TARGETING__']/text()").get())["search_results_count"]
     )
-    total_pages = total_results // 25  # each page contains 25 results
     boxes = selector.xpath("//div[@data-testid='regular-listings']/div")
+    _results_count = len(boxes)
+    total_pages = total_results // _results_count
+
     for box in boxes:
         url = box.xpath(".//a/@href").get()
         if not url:
@@ -110,33 +112,24 @@ def parse_search(response: ScrapeApiResponse):
         sq_ft = int(sq_ft.split(" ")[0]) if sq_ft else None
         listed_on = box.xpath(".//li[contains(text(), 'Listed on')]/text()").get()
         listed_on = listed_on.split("on")[-1].strip() if listed_on else None
-        bathrooms = box.xpath(
-            ".//li[span[text()='Bathrooms']]/span[not(contains(text(), 'Bathrooms'))]/text()"
-        ).get()
-        bedrooms = box.xpath(
-            ".//li[span[text()='Bedrooms']]/span[not(contains(text(), 'Bedrooms'))]/text()"
-        ).get()
-        livingrooms = box.xpath(
-            ".//li[span[text()='Living rooms']]/span[not(contains(text(), 'Living'))]/text()"
-        ).get()
+        bathrooms = box.xpath(".//span[(contains(text(), 'bath'))]/text()").get()
+        bedrooms = box.xpath(".//span[(contains(text(), 'bed'))]/text()").get()
+        livingrooms = box.xpath(".//span[(contains(text(), 'reception'))]/text()").get()
         image = box.xpath(".//picture/source/@srcset").get()
+        agency = box.xpath(".//div[a[@data-testid='listing-card-content']]/div")
         item = {
-            "title": box.xpath(".//h2[@data-testid='listing-title']/text()").get(),
-            "price": price,
+            "price": int(price.split(" ")[0].replace("£", "").replace(",", "")) if price else None,
             "priceCurrency": "Sterling pound £",
             "url": "https://www.zoopla.co.uk" + url.split("?")[0] if url else None,
             "image": image.split(":p")[0] if image else None,
             "address": box.xpath(".//address/text()").get(),
             "squareFt": sq_ft,
-            "numBathrooms": int(bathrooms) if bathrooms else None,
-            "numBedrooms": int(bedrooms) if bedrooms else None,
-            "numLivingRoom": int(livingrooms) if livingrooms else None,
-            "description": box.xpath(
-                ".//div[h2[@data-testid='listing-title']]/p/text()"
-            ).get(),
+            "numBathrooms": int(bathrooms.split(" ")[0]) if bathrooms else None,
+            "numBedrooms": int(bedrooms.split(" ")[0]) if bedrooms else None,
+            "numLivingRoom": int(livingrooms.split(" ")[0]) if livingrooms else None,
+            "description": box.xpath(".//div[address]/p/text()").get(),
             "justAdded": bool(box.xpath(".//div[text()='Just added']/text()").get()),
-            "propertyType": box.xpath(".//ul[position()=2]/li/div/div/text()").get(),
-            "timeAdded": listed_on,
+            "agency": agency.xpath(".//img/@alt").get() or agency.xpath(".//p/text()").get(),
         }
         data.append(item)
     return {"search_data": data, "total_pages": total_pages}
@@ -152,12 +145,12 @@ async def scrape_search(
     # scrape the first search page first
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url = f"https://www.zoopla.co.uk/{query_type}/property/{location_slug}",
+            url=f"https://www.zoopla.co.uk/{query_type}/property/{location_slug}",
             **BASE_CONFIG,
             render_js=True,
             auto_scroll=True,
             rendering_wait=5000,
-            wait_for_selector="//p[@data-testid='total-results']"
+            wait_for_selector="//p[@data-testid='total-results']",
         )
     )
     data = parse_search(first_page)
@@ -177,9 +170,7 @@ async def scrape_search(
     )
     # add the remaining search pages to a scraping list
     _other_pages = [
-        ScrapeConfig(
-            f"{first_page.context['url']}&pn={page}", **BASE_CONFIG, render_js=True
-        )
+        ScrapeConfig(f"{first_page.context['url']}&pn={page}", **BASE_CONFIG, render_js=True)
         for page in range(2, total_pages_to_scrape + 1)
     ]
     # scrape the remaining search page concurrently
@@ -190,7 +181,7 @@ async def scrape_search(
     except Exception as e:
         log.error(f"An error occurred while scraping search pages", e)
         pass
-    
+
     log.info(
         "scraped {} search listings from {}",
         len(search_data),
