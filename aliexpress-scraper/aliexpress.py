@@ -178,23 +178,12 @@ def parse_product(result: ScrapeApiResponse) -> Product:
     }
 
 
-async def obtain_session() -> str:
-    """create a session to bypass aliexpress blocking"""
-    session_id = str(uuid.uuid4())
-    url = "https://www.aliexpress.com/"
-    await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, session=session_id
-    ))
-    return session_id
-
-
 async def scrape_product(url: str) -> List[Product]:
     """scrape aliexpress products by id"""
     log.info("retrieving a session ID")
-    session_id = await obtain_session()
     log.info("scraping product: {}", url)
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, session=session_id, auto_scroll=True,
+        url, **BASE_CONFIG, render_js=True, auto_scroll=True,
         rendering_wait=15000, retry=False, timeout=150000, js_scenario=[
             {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
             {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
