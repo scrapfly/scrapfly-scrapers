@@ -158,6 +158,18 @@ jobs:
             test: test_page_scraping
           - project_dir: yelp-scraper
             test: test_search_scraping
+          - project_dir: youtube-scraper
+            test: test_video_scraping
+          - project_dir: youtube-scraper
+            test: test_comment_scraping
+          - project_dir: youtube-scraper
+            test: test_channel_scraping
+          - project_dir: youtube-scraper
+            test: test_channel_videos_scraping
+          - project_dir: youtube-scraper
+            test: test_search_scraping
+          - project_dir: youtube-scraper
+            test: test_shorts_scraping
           - project_dir: immoscout24-scraper
             test: test_search_scraping
           - project_dir: immoscout24-scraper

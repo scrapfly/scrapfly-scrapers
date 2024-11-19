@@ -566,6 +566,23 @@ Below is the list of available web scrapers for the supported domains along with
 </tr>
 
 <tr>
+    <td><a href="/youtube-scraper/">YouTube.com</a></td>
+</a></td>
+    <td>
+    <ul>
+        <li><a href="./youtube-scraper/results/channel_videos.json">Channel videos</a></li>
+        <li><a href="./youtube-scraper/results/channels.json">Channel metadata</a></li>
+        <li><a href="./youtube-scraper/results/channel_videos.json">Channel videos</a></li>
+        <li><a href="./youtube-scraper/results/videos.json">Video metadata</a></li>
+        <li><a href="./youtube-scraper/results/comments.json">Video comments</a></li>
+        <li><a href="./youtube-scraper/results/shorts.json">Shorts' metadata</a></li>
+    </ul>
+    </td>
+    <td><img src="https://img.shields.io/badge/YouTube_scraper-success-brightgreen" alt="YouTube-scraper-status"></td>
+</tr>
+
+
+<tr>
     <td><a href="/zillow-scraper/">Zillow.com</a></td>
     <td><a href="https://scrapfly.io/blog/how-to-scrape-zillow/">How to Scrape Zillow Real Estate Property Data in Python</a></td>
     <td>
