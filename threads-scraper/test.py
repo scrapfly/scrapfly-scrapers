@@ -35,7 +35,7 @@ THREAD_SCHEMA = {
     "has_audio": {"type": "boolean", "nullable": True, "min_presence": 0},  # audio videos hard to find for now
     "reply_count": {"type": "integer", "min": 0, "max": 100_000, "nullable": True, "min_presence": 0.01},  # not many posts have replies yet
     "like_count": {"type": "integer", "min": 0, "max": 10_000_000, "nullable": True},
-    "image_count": {"type": "integer", "min": 0, "max": 10, "nullable": True, "min_presence": 0.01},  # rare field for now too
+    "image_count": {"type": "integer", "min": 0, "nullable": True, "min_presence": 0.01},  # rare field for now too
 }
 
 USER_SCHEMA = {
