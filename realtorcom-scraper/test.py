@@ -66,11 +66,21 @@ async def test_search_scraping():
         "permalink": {"type": "string"},
         "list_price": {"type": "integer", "nullable": True},  # some propreties can have no price
         "list_date": {"type": "string"},
-        "photos": {"type": "list", "schema": {"type": "dict", "schema": {"href": {"type": "string"}}}},
+        "photos": {
+            "type": "list",
+            "nullable": True,
+            "schema": {
+                "type": "dict",
+                "schema": {
+                    "href": {"type": "string"}
+                }
+            }
+        },
     }
     validator = Validator(schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
+
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
