@@ -8,10 +8,11 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import json
 import jmespath
-import urllib.parse
 from pathlib import Path
 from loguru import logger as log
+from urllib.parse import urlparse, parse_qs
 from typing import List, Dict, Literal, TypedDict, Optional
+
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -50,36 +51,82 @@ def parse_next_data(result: ScrapeApiResponse) -> Dict:
 
 def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     """refine property data using JMESPath"""
-    data = parse_next_data(response)
-    if not data:
-        raise Exception("Hidden script data aren't found")
-    result = jmespath.search(
-        """root.{
-        id: listingId,
-        title: title,
-        description: detailedDescription,
-        url: listingUris.detail,
-        price: pricing.label,
-        type: propertyType,
-        date: publishedOn,
-        category: category,
-        section: section,
-        features: features.bullets,
-        floor_plan: floorPlan.image.{filename:filename, caption: caption}, 
-        nearby: pointsOfInterest[].{title: title, distance: distanceMiles},
-        coordinates: location.coordinates.{lat:latitude, lng: longitude},
-        photos: propertyImage[].{filename: filename, caption: caption},
-        details: analyticsTaxonomy,
-        agency: branch
-    }""",
-        {"root": data["listingDetails"]},
-    )
+    selector = response.selector
+    url = selector.xpath("//meta[@property='og:url']/@content").get()
+    price = selector.xpath("//p[contains(text(),'£')]/text()").get()
+    receptions = selector.xpath("//p[contains(text(),'reception')]/text()").get()
+    baths = selector.xpath("//p[contains(text(),'bath')]/text()").get()
+    beds = selector.xpath("//p[contains(text(),'bed')]/text()").get()
+    gmap_source = selector.xpath("(//section[@aria-labelledby='local-area']//picture/source/@srcset)[last()]").get()
+    coordinates = parse_qs(urlparse(gmap_source).query).get("center", [None])[0] if gmap_source else None
+
+    info = []
+    for i in selector.xpath("//section[h2[@id='key-info']]/ul/li"):
+        info.append(
+            {
+                "title": i.xpath(".//p/text()").get(),
+                "value": i.xpath(".//div/p/text()").get(),
+            }
+        )
+
+    nearby = []
+    for i in selector.xpath("//div[section[contains(@aria-label,'Travel')]]/section[3]//li/div"):
+        distance = i.xpath(".//p[2]/text()").get()
+        nearby.append(
+            {
+                "title": i.xpath(".//p[1]/text()").get(),
+                "distance": float(distance.split(" ")[0]) if distance else None,
+                "unit": distance.split(" ")[1] if distance else None,
+            }
+        )
+
+    result = {
+        "id": int(url.split("details/")[-1].split("/")[0]) if url else None,
+        "url": url,
+        "title": selector.xpath("//title/text()").get(),
+        "address": selector.xpath("//address/text()").get(),
+        "price": {
+            "amount": int(price.replace("£", "").replace(",", "")) if price else None,
+            "currency": "£",
+        },
+        "gallery": selector.xpath("//li[contains(@data-key,'gallery')]/picture/source[last()]/@srcset").getall(),
+        "epcRating": selector.xpath("//p[contains(text(),'EPC')]/text()").get(),
+        "floorArea": selector.xpath("//p[contains(text(),'ft')]/text()").get(),
+        "numOfReceptions": int(receptions.split(" ")[0]) if receptions else None,
+        "numOfBathrooms": int(baths.split(" ")[0]) if baths else None,
+        "numOfBedrooms": int(beds.split(" ")[0]) if beds else None,
+        "propertyTags": selector.xpath("(//section/ul)[1]/li/p/text()").getall(),
+        "propertyInfo": info,
+        "propertyDescription": selector.xpath("//section[@aria-labelledby='about']/ul/li/p/span/text()").getall(),
+        "coordinates": {
+            "googleMapeSource": gmap_source,
+            "latitude": float(coordinates.split(",")[0]) if coordinates else None,
+            "longitude": float(coordinates.split(",")[1]) if coordinates else None,
+        },
+        "nearby": nearby,
+        "agent": {
+            "name": selector.xpath("//section[@aria-labelledby='listed-by']//p/text()").get(),
+            "logo": selector.xpath("//section[@aria-labelledby='listed-by']//img/@src").get(),
+            "url": "https://www.zoopla.co.uk"
+            + selector.xpath("//section[@aria-labelledby='listed-by']//a/@href").get(),
+        }
+    }
+
     return result
 
 
 async def scrape_properties(urls: List[str]):
     """scrape zoopla property listings from property pages"""
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    to_scrape = [
+        ScrapeConfig(
+            url,
+            **BASE_CONFIG,
+            render_js=True,
+            auto_scroll=True,
+            wait_for_selector="//section[@aria-labelledby='local-area']",
+        )
+        for url in urls
+    ]
     properties = []
     # scrape all page URLs concurrently
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
