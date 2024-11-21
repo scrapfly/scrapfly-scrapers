@@ -22,30 +22,62 @@ BASE_CONFIG = {
     "country": "US",
 }
 
+def create_search_payload(query_data: dict, page_number: int = None):
+    """create a search payload for Zillow's search API"""
+    payload = {
+        "searchQueryState": query_data,
+        "wants": {"cat1": ["listResults", "mapResults"], "cat2": ["total"]},
+        "requestId": random.randint(2, 10),
+    }
+    if page_number:
+        payload["searchQueryState"]["pagination"] = {"currentPage": page_number}
+    return json.dumps(payload)
 
-async def scrape_search(url: str) -> List[dict]:
+
+async def scrape_search(url: str, max_scrape_pages: int=None) -> List[dict]:
     """base search function which is used by sale and rent search functions"""
+    search_data = []
     log.info(f"scraping search: {url}")
     # first scrape the search HTML page and find query variables for this search
     html_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     script_data = json.loads(html_result.selector.xpath("//script[@id='__NEXT_DATA__']/text()").get())
     query_data = script_data["props"]["pageProps"]["searchPageState"]["queryState"]
-    full_query = {
-        "searchQueryState": query_data,
-        "wants": {"cat1": ["listResults", "mapResults"], "cat2": ["total"]},
-        "requestId": random.randint(2, 10),
-    }
+
     # then scrape Zillow's backend API for all query results:
     _backend_url = "https://www.zillow.com/async-create-search-page-state"
     api_result = await SCRAPFLY.async_scrape(
         ScrapeConfig(_backend_url, **BASE_CONFIG, headers={"content-type": "application/json"},
-                      body=json.dumps(full_query), method="PUT")
+                      body=create_search_payload(query_data), method="PUT")
     )
     data = json.loads(api_result.content)
-    _total = data["categoryTotals"]["cat1"]["totalResultCount"]
-    if _total > 500:
-        log.warning(f'more than 500 results ({_total}) for query "{url}" ')
-    return data["cat1"]["searchResults"]["mapResults"]
+    property_data = data["cat1"]["searchResults"]["listResults"]
+    search_data.extend(property_data)
+    _total_pages = data["cat1"]["searchList"]["totalPages"]
+
+    # if no pagination data, return
+    if _total_pages == 1:
+        log.success(f"scraped {len(search_data)} properties from search pages")
+        return search_data
+
+    # else paginate remaining pages
+    if max_scrape_pages and max_scrape_pages < _total_pages:
+        _total_pages = max_scrape_pages
+
+    log.info(f"scraping search pagination, {_total_pages} more pages remaining")
+    to_scrape = [
+        ScrapeConfig(
+            _backend_url, **BASE_CONFIG, headers={"content-type": "application/json"},
+            body=create_search_payload(query_data, page_number=page), method="PUT"
+        )
+        for page in range(2, _total_pages + 1)
+    ]
+
+    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        property_data = json.loads(result.content)["cat1"]["searchResults"]["listResults"]
+        search_data.extend(property_data)
+
+    log.success(f"scraped {len(search_data)} properties from search pages")
+    return search_data
 
 
 async def scrape_properties(urls: List[str]):
