@@ -178,11 +178,8 @@ async def request_reviews_api(url: str, start_index: int, business_id):
 
 async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     # first find business ID from business URL
-    log.info("obtaining a session to bypass yelp blocking")
-    session_id = await obtain_session()
-
     log.info("scraping the business id from the business page")
-    response_business = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
+    response_business = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
     business_id = parse_business_id(response_business)
 
     log.info("scraping the first review page")
@@ -209,14 +206,6 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     return reviews
 
 
-async def obtain_session() -> str:
-    """create a session to bypass aliexpress blocking"""
-    session_id = str(uuid.uuid4())
-    url = "https://www.yelp.com/"
-    await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
-    return session_id
-
-
 async def scrape_search(keyword: str, location: str, max_pages: int = None):
     """scrape single page of yelp search"""
 
@@ -227,12 +216,10 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
         # final url example:
         # https://www.yelp.com/search?find_desc=plumbers&find_loc=Seattle%2C+WA&start=1
 
-    log.info("obtaining a session to bypass yelp blocking")
-    session_id = await obtain_session()
 
     log.info("scraping the first search page")
     first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True, session=session_id)
+        ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True)
     )
     data = parse_search(first_page)
     search_data = data["search_data"]

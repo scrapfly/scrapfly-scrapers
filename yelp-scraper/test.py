@@ -88,11 +88,12 @@ search_schema = {
                                 "license_verification_url": {"type": "string"},
                                 "license_verification_status": {"type": "string"},
                                 "license_verification_date": {"type": "string"},
-                                "license_issuing_authority": {"type": "string"},
+                                "license_issuing_authority": {"type": "string", "nullable": True},
                                 "license_type": {"type": "string"},
                                 "license_source": {"type": "string"},
                             },
                         },
+                        "nullable": True,
                     }
                 },
             },
