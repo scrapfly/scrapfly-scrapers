@@ -23,15 +23,11 @@ async def run():
 
     url = "https://www.amazon.com/s?k=kindle"
     search = await amazon.scrape_search(url, max_pages=2)
-    output.joinpath("search.json").write_text(json.dumps(search, indent=2))
+    output.joinpath("search.json").write_text(json.dumps(search, indent=2, ensure_ascii=False), encoding="utf-8")
 
     url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
     product = await amazon.scrape_product(url)
-    output.joinpath("product.json").write_text(json.dumps(product, indent=2))
-
-    url = "https://www.amazon.com/PlayStation-PS5-Console-Ragnar%C3%B6k-Bundle-5/product-reviews/B0BHC395WW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
-    reviews = await amazon.scrape_reviews(url, max_pages=3)
-    output.joinpath("reviews.json").write_text(json.dumps(reviews, indent=2))
+    output.joinpath("product.json").write_text(json.dumps(product, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":

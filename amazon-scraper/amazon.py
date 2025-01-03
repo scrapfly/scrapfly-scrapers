@@ -50,19 +50,19 @@ def parse_search(result: ScrapeApiResponse) -> List[ProductPreview]:
     previews = []
     product_boxes = result.selector.css("div.s-result-item[data-component-type=s-search-result]")
     for box in product_boxes:
-        url = urljoin(result.context["url"], box.css("h2>a::attr(href)").get()).split("?")[0]
+        url = urljoin(result.context["url"], box.css("div>a::attr(href)").get()).split("?")[0]
         if "/slredirect/" in url:  # skip ads etc.
             continue
-        rating = box.css("span[aria-label~=rating]::attr(aria-label)").re_first(r"(\d+\.*\d*) out")
-        rating_count = box.xpath("//div[contains(@data-csa-c-content-id, 'ratings-count')]/span/@aria-label").get()
+        rating = box.xpath("//div[@data-cy='reviews-block']//a[contains(@aria-label, 'out of')]/@aria-label").re_first(r"(\d+\.*\d*) out")
+        rating_count = box.xpath("//div[@data-cy='reviews-block']//a[contains(@aria-label, 'ratings')]/@aria-label").get()
         previews.append(
             {
                 "url": url,
-                "title": box.css("h2>a>span::text").get(),
+                "title": box.css("div>a>h2::attr(aria-label)").get(),
                 # big price text is discounted price
                 "price": box.css(".a-price[data-a-size=xl] .a-offscreen::text").get(),
                 # small price text is "real" price
-                "real_price": box.css(".a-price[data-a-size=b] .a-offscreen::text").get(),
+                "real_price": box.xpath("//div[@data-cy='secondary-offer-recipe']//span[contains(@class, 'a-color-base') and contains(text(), '$')]/text()").get(),
                 "rating": float(rating) if rating else None,
                 "rating_count": int(rating_count.replace(',','').replace(" ratings", "")) if rating_count else None,
             }
