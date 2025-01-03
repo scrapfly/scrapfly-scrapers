@@ -58,7 +58,8 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     baths = selector.xpath("//p[contains(text(),'bath')]/text()").get()
     beds = selector.xpath("//p[contains(text(),'bed')]/text()").get()
     gmap_source = selector.xpath("(//section[@aria-labelledby='local-area']//picture/source/@srcset)[last()]").get()
-    coordinates = parse_qs(urlparse(gmap_source).query).get("center", [None])[0] if gmap_source else None
+    coordinates = gmap_source.split("/static/")[1].split("/")[0] if gmap_source else None
+    agent_path = selector.xpath("//section[@aria-label='Contact agent']//a/@href").get()
 
     info = []
     for i in selector.xpath("//section[h2[@id='key-info']]/ul/li"):
@@ -105,10 +106,9 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
         },
         "nearby": nearby,
         "agent": {
-            "name": selector.xpath("//section[@aria-labelledby='listed-by']//p/text()").get(),
-            "logo": selector.xpath("//section[@aria-labelledby='listed-by']//img/@src").get(),
-            "url": "https://www.zoopla.co.uk"
-            + selector.xpath("//section[@aria-labelledby='listed-by']//a/@href").get(),
+            "name": selector.xpath("//section[@aria-label='Contact agent']//p/text()").get(),
+            "logo": selector.xpath("//section[@aria-label='Contact agent']//img/@src").get(),
+            "url": "https://www.zoopla.co.uk" + agent_path if agent_path else None,
         }
     }
 
@@ -174,7 +174,7 @@ def parse_search(response: ScrapeApiResponse):
             "numBathrooms": int(bathrooms.split(" ")[0]) if bathrooms else None,
             "numBedrooms": int(bedrooms.split(" ")[0]) if bedrooms else None,
             "numLivingRoom": int(livingrooms.split(" ")[0]) if livingrooms else None,
-            "description": box.xpath(".//div[address]/p/text()").get(),
+            "description": box.xpath(".//a[address]/p/text()").get(),
             "justAdded": bool(box.xpath(".//div[text()='Just added']/text()").get()),
             "agency": agency.xpath(".//img/@alt").get() or agency.xpath(".//p/text()").get(),
         }

@@ -26,16 +26,16 @@ def require_min_presence(items, key, min_perc=0.1):
 
 
 search_schema = {
-    "price": {"type": "integer"},
+    "price": {"type": "integer", "nullable": True},
     "priceCurrency": {"type": "string"},
-    "url": {"type": "string"},
+    "url": {"type": "string", "nullable": True},
     "image": {"type": "string", "nullable": True},
-    "address": {"type": "string"},
+    "address": {"type": "string", "nullable": True},
     "squareFt": {"type": "integer", "nullable": True},
     "numBathrooms": {"type": "integer", "nullable": True},
     "numBedrooms": {"type": "integer", "nullable": True},
     "numLivingRoom": {"type": "integer", "nullable": True},
-    "description": {"type": "string"},
+    "description": {"type": "string", "nullable": True},
     "justAdded": {"type": "boolean", "nullable": True},
     "agency": {"type": "string", "nullable": True}
 }
@@ -97,9 +97,9 @@ property_schema = {
         "schema": {
             "type": "dict",
             "schema": {
-                "title": {"type": "string"},
-                "distance": {"type": "float"},
-                "unit": {"type": "string"},
+                "title": {"type": "string", "nullable": True},
+                "distance": {"type": "float", "nullable": True},
+                "unit": {"type": "string", "nullable": True},
             }
         }
     },
@@ -137,10 +137,10 @@ async def test_search_scraping():
 async def test_properties_scraping():
     properties_data = await zoopla.scrape_properties(
         urls=[
-        "https://www.zoopla.co.uk/new-homes/details/67644732/",
-        "https://www.zoopla.co.uk/new-homes/details/66702316/",
-        "https://www.zoopla.co.uk/new-homes/details/67644753/"
-    ]
+            "https://www.zoopla.co.uk/new-homes/details/67644732/",
+            "https://www.zoopla.co.uk/new-homes/details/66702316/",
+            "https://www.zoopla.co.uk/new-homes/details/67644753/"
+        ]
     )
     validator = Validator(property_schema, allow_unknown=True)
     for item in properties_data:
