@@ -29,7 +29,11 @@ async def run():
         json.dump(search_data, file, indent=2, ensure_ascii=False)
 
     property_data = await seloger.scrape_property(
-        url="https://www.seloger.com/annonces/achat-de-prestige/appartement/bordeaux-33/saint-bruno-saint-augustin/215096735.htm"
+        urls=[
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/232628697.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/capucins-saint-michel-nansouty-saint-genes/230616779.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/228767099.htm"
+        ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
         json.dump(property_data, file, indent=2, ensure_ascii=False)

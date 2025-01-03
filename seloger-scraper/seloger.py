@@ -93,11 +93,12 @@ async def scrape_search(
     return search_data
 
 
-async def scrape_property(url: str) -> Dict:
-    """scrape seloger property pages, which follows this URL structure:
-    https://www.seloger.com/annonces/achat/appartement/bordeaux-33/grand-parc-chartrons-paul-doumer/207269613.htm
-    """
-    log.info("scraping property {}", url)
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    property_data = parse_property_page(result)
-    return property_data
+async def scrape_property(urls: List[str]) -> List[Dict]:
+    """scrape seloger property pages"""
+    data = []
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        property_data = parse_property_page(result)
+        data.append(property_data)
+    log.success(f"scraped {len(data)} properties from Seloger property pages")
+    return data

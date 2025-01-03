@@ -49,7 +49,7 @@ property_schema = {
                     "descriptive": {"type": "string"},
                     "roomCount": {"type": "integer"},
                     "bedroomCount": {"type": "integer"},
-                    "surface": {"type": "integer"},
+                    "surface": {"type": "float"},
                     "surfaceUnit": {"type": "string"},
                     "isExclusiveSalesMandate": {"type": "boolean"},
                     "isRentChargesIncluded": {"type": "boolean", "nullable": True},
@@ -194,7 +194,13 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 async def test_property_scraping():
     property_data = await seloger.scrape_property(
-        "https://www.seloger.com/annonces/achat-de-prestige/appartement/bordeaux-33/saint-bruno-saint-augustin/215096735.htm"
+        urls=[
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/232628697.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/capucins-saint-michel-nansouty-saint-genes/230616779.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/228767099.htm"
+        ]
     )
     validator = Validator(property_schema, allow_unknown=True)
-    validate_or_fail(property_data, validator)
+    for property in property_data:
+        validate_or_fail(property, validator)
+    assert len(property_data) >= 1

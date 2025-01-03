@@ -1,474 +1,1096 @@
-{
-  "listing": {
-    "listingDetail": {
-      "id": 205085253,
-      "transactionTypeId": 2,
-      "transactionType": "vente",
-      "propertyTypeId": 1,
-      "propertyType": "Appartement",
-      "propertySubTypeId": null,
-      "propertySubType": null,
-      "propertyNatureId": 1,
-      "publicationTypeIdSl": 50,
-      "publicationTypeId": 1,
-      "publicationId": 30002426,
-      "address": {
-        "city": "Paris 13ème",
-        "superCity": "Paris",
-        "postalCode": "75013",
-        "street": null,
-        "district": "Salpêtrière-Austerlitz",
-        "countryId": 250,
-        "divisionId": 2238
-      },
-      "reference": "4690-LAVIEIMMO",
-      "descriptive": "2 Pièces. Paris 13ème. Secteur Salpêtrière. Possibilité Profession Libérale\r\n\r\nÀ vendre : venez découvrir cet appartement de 2 pièces de 31 m² localisé à Paris (75013). Au pied du Métro Saint Marcel. Proche commerces. \r\nIl est situé dans un immeuble 19ème siècle de six étages. Il s'agit d'une copropriété de 35 lots. \r\nCet appartement situé au RDC dispose d'une entrée, une cuisine ouverte, un séjour/salle à manger sur rue, une chambre sur cour, une salle d'eau et un WC séparé. Le chauffage est collectif. L'intérieur de l'appartement est en bon état. Lumineux. Traversant. Belle Hauteur sous plafond. Belle vue sur cour. Une cave complète ce bien.\r\n\r\nDes établissements scolaires de tous niveaux se trouvent à moins de 10 minutes à pied. Côté transports, À proximité : RER C (Austerlitz), bus, gares (Paris Austerlitz et Paris Austerlitz RER), métros (lignes 5, 7, 6 et 10). Vous trouverez marchés, cinémas, restaurants, théâtres, conservatoire, commerces, boulangeries, supermarchés, bureaux de poste et supérettes. Enfin, 2 marchés animent les environs.\r\n\r\nN'hésitez pas à prendre contact avec notre agence pour une première visite de ce T2 en vente.\r\nHonoraires inclus de 6.42% TTC à la charge de l'acquéreur. Prix hors honoraires 272 500 euros. Dans une copropriété de 35 lots. Quote-part moyenne du budget prévisionnel 840 euros/an. Aucune procédure n'est en cours. Classe énergie G, Classe climat F Logement à consommation énergétique excessive. La loi impose que le niveau de performance énergétique (DPE) du bien immobilier, actuellement de classe G, soit compris, à compter du 1er janvier 2028, entre la classe A et la classe E. Montant moyen estimé des dépenses annuelles d'énergie pour un usage standard, établi à partir des prix de l'énergie de l'année 2021 : entre 920.00 et 1300.00 euros.",
-      "roomCount": 2,
-      "bedroomCount": 1,
-      "surface": 31,
-      "surfaceUnit": "m²",
-      "isExclusiveSalesMandate": false,
-      "isRentChargesIncluded": null,
-      "listingPrice": {
-        "price": 290000,
-        "priceInformation": null,
-        "priceUnit": "€",
-        "lifeAnnuityPrice": null,
-        "pricePerSquareMeter": 9355,
-        "priceRange": null,
-        "hasPriceRange": false,
-        "priceEvolutionTrend": 0,
-        "monthlyPayment": 1618,
-        "alur": {
-          "siHonoraireChargeVendeur": false,
-          "siHonoraireChargeAcquereur": true,
-          "pourcentagesHonoraires": 6.42,
-          "prixHorsHonoraires": 272500,
-          "tranchePrixHorsHonoraire": null,
-          "idTypeResponsableHonoraires": 1,
-          "idTypeChargesLocationHonoraires": null,
-          "complementLoyer": 0,
-          "chargesForfaitaire": 0,
-          "honorairesLocataire": 0,
-          "honorairesEtatsDesLieux": 0,
-          "garantieLocation": 0,
-          "siProvisionsSurCharges": false,
-          "siForfaitaire": false,
-          "siRemboursementAnnuel": false,
-          "loyerReferenceMajore": null
+[
+  {
+    "listing": {
+      "listingDetail": {
+        "id": 228767099,
+        "transactionTypeId": 2,
+        "transactionType": "vente",
+        "propertyTypeId": 1,
+        "propertyType": "Appartement",
+        "propertySubTypeId": null,
+        "propertySubType": null,
+        "propertyNatureId": 1,
+        "publicationTypeIdSl": 50,
+        "publicationTypeId": 1,
+        "publicationId": 30522613,
+        "address": {
+          "city": "Bordeaux",
+          "superCity": null,
+          "postalCode": "33000",
+          "street": null,
+          "district": "Hôtel de Ville-Quinconce-Saint Seurin-Fondaudège",
+          "countryId": 250,
+          "divisionId": 2229
         },
-        "propertyPricesUrl": "https://www.seloger.com/prix-de-l-immo/vente/ile-de-france/paris/paris-13eme/salpetriere-austerlitz/48232.htm",
-        "averagePricePerSquareMeter": 9149,
-        "minPricePerSquareMeter": 6862,
-        "maxPricePerSquareMeter": 13724
-      },
-      "priceEvolutions": [],
-      "coOwnership": {
-        "annualCharges": 840,
-        "numberOfLots": 35,
-        "isSyndicProcedure": false
-      },
-      "energyPerformanceCertificate": {
-        "electricityConsumption": 488,
-        "energyFinalConsumption": null,
-        "electricityRating": "G",
-        "electricityDiagnosisDate": "2021-01-01T00:00:00",
-        "electricityEstimateCostMin": 920,
-        "electricityEstimateCostMax": 1300,
-        "gasEmission": 88,
-        "gasRating": "F",
-        "status": 0,
-        "version": 2
-      },
-      "coordinates": {
-        "latitude": 48.837959,
-        "longitude": 2.356715,
-        "polygon": null,
-        "street": "RUE DUMERIL",
-        "polygonTypeId": null
-      },
-      "media": {
-        "photos": [
-          {
-            "id": 1504596497,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/x/f/c/0xfcf2vo14kl2pc3x3eav7uw5mknk4w9cnsptd0o0.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/x/f/c/0xfcf2vo14kl2pc3x3eav7uw5mknk4w9cnsptd0o0.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/x/f/c/0xfcf2vo14kl2pc3x3eav7uw5mknk4w9cnsptd0o0.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/x/f/c/0xfcf2vo14kl2pc3x3eav7uw5mknk4w9cnsptd0o0.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/x/f/c/0xfcf2vo14kl2pc3x3eav7uw5mknk4w9cnsptd0o0.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/x/f/c/0xfcf2vo14kl2pc3x3eav7uw5mknk4w9cnsptd0o0.jpg"
+        "reference": "167331",
+        "descriptive": "BORDEAUX - Pey Berland\r\n\r\nEfficity vous propose cet appartement 3 pièces d'une surface d'environ 60 m² comprenant 2 chambres.\r\n\r\nNiché au dernier étage d'une copropriété en pierre situé sur la place Pey Berland, cet appartement bénéficiant d'une exposition sud-est et d'une belle luminosité, offre un cadre de vie exceptionnel.\r\n\r\nVous découvrirez une cuisine aménagée et équipée ouverte sur la pièce de vie, l'espace nuit comprend 2 chambres et une salle d'eau.\r\n\r\nCet appartement allie charme de l'ancien et confort moderne, pas de travaux à prévoir. Proche de toutes les commodités.\r\n Les informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Georisque : georisques. gouv. fr\r\n Robin Denis - EI - est Agent Commercial mandataire en immobilier, immatriculé au Registre Spécial des Agents Commerciaux du Tribunal de Commerce de Bordeaux sous le n°905144929.\r\nSiège social du mandant : effiCity, 48 avenue de Villiers - 75017 PARIS - Société par Actions Simplifiée, société au capital de 132 373,05 euros, immatriculée au RCS Paris 497 617 746 et titulaire de la Carte professionnelle CPI 7501 2015 000 002 025 - CCI Paris IDF - Caisse de Garantie : GALIAN Assurances 89 rue de la Boétie 75008 Paris",
+        "roomCount": 3,
+        "bedroomCount": 2,
+        "surface": 62,
+        "surfaceUnit": "m²",
+        "isExclusiveSalesMandate": false,
+        "isRentChargesIncluded": null,
+        "listingPrice": {
+          "price": 350000,
+          "priceInformation": null,
+          "priceUnit": "€",
+          "lifeAnnuityPrice": null,
+          "pricePerSquareMeter": 5645,
+          "priceRange": null,
+          "hasPriceRange": false,
+          "priceEvolutionTrend": null,
+          "monthlyPayment": 1908,
+          "alur": {
+            "siHonoraireChargeVendeur": true,
+            "siHonoraireChargeAcquereur": false,
+            "pourcentagesHonoraires": 0,
+            "prixHorsHonoraires": 350000,
+            "tranchePrixHorsHonoraire": null,
+            "idTypeResponsableHonoraires": 2,
+            "idTypeChargesLocationHonoraires": null,
+            "complementLoyer": 0,
+            "chargesForfaitaire": 0,
+            "honorairesLocataire": 0,
+            "honorairesEtatsDesLieux": 0,
+            "garantieLocation": 0,
+            "siProvisionsSurCharges": false,
+            "siForfaitaire": false,
+            "siRemboursementAnnuel": false,
+            "loyerReferenceMajore": null
           },
-          {
-            "id": 1504596495,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/1/s/s/l/1ssl6eewv0yofvmlgkr69p8efpttubgq7afeqzhk0.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/s/s/l/1ssl6eewv0yofvmlgkr69p8efpttubgq7afeqzhk0.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/s/s/l/1ssl6eewv0yofvmlgkr69p8efpttubgq7afeqzhk0.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/s/s/l/1ssl6eewv0yofvmlgkr69p8efpttubgq7afeqzhk0.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/s/s/l/1ssl6eewv0yofvmlgkr69p8efpttubgq7afeqzhk0.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/1/s/s/l/1ssl6eewv0yofvmlgkr69p8efpttubgq7afeqzhk0.jpg"
+          "propertyPricesUrl": "https://www.seloger.com/prix-de-l-immo/vente/aquitaine/gironde/bordeaux/hotel-de-ville-quinconce-saint-seurin-fondaudege/48321.htm",
+          "averagePricePerSquareMeter": 5325,
+          "minPricePerSquareMeter": 3994,
+          "maxPricePerSquareMeter": 7987
+        },
+        "priceEvolutions": null,
+        "coOwnership": {
+          "annualCharges": 1300,
+          "numberOfLots": 20,
+          "isSyndicProcedure": false
+        },
+        "energyPerformanceCertificate": {
+          "electricityConsumption": 360,
+          "energyFinalConsumption": null,
+          "electricityRating": "F",
+          "electricityDiagnosisDate": "2021-01-01T00:00:00",
+          "electricityEstimateCostMin": 900,
+          "electricityEstimateCostMax": 1300,
+          "gasEmission": 20,
+          "gasRating": "C",
+          "status": 0,
+          "version": 2
+        },
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "polygon": "POLYGON ((-0.58097000000998378 44.836449999944307, -0.57617999997455627 44.837399999960326, -0.5789700000314042 44.839720000047237, -0.57863000000361353 44.841810000012629, -0.58004999998956919 44.841559999971651, -0.58108100004028529 44.841611000010744, -0.58264999999664724 44.841520000016317, -0.581110000028275 44.8368199999677, -0.58097000000998378 44.836449999944307))",
+          "street": null,
+          "polygonTypeId": 1
+        },
+        "media": {
+          "photos": [
+            {
+              "id": 1961672999,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/m/u/f/0muf9qugx6j5d64b1vqhdosru5mi7w391todyq2ec.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/m/u/f/0muf9qugx6j5d64b1vqhdosru5mi7w391todyq2ec.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/m/u/f/0muf9qugx6j5d64b1vqhdosru5mi7w391todyq2ec.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/m/u/f/0muf9qugx6j5d64b1vqhdosru5mi7w391todyq2ec.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/m/u/f/0muf9qugx6j5d64b1vqhdosru5mi7w391todyq2ec.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/m/u/f/0muf9qugx6j5d64b1vqhdosru5mi7w391todyq2ec.jpg"
+            },
+            {
+              "id": 1961672997,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/3/u/o/23uob95c6a0dvk7m9mnk1yu315147t18en5v72dno.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/3/u/o/23uob95c6a0dvk7m9mnk1yu315147t18en5v72dno.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/3/u/o/23uob95c6a0dvk7m9mnk1yu315147t18en5v72dno.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/3/u/o/23uob95c6a0dvk7m9mnk1yu315147t18en5v72dno.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/3/u/o/23uob95c6a0dvk7m9mnk1yu315147t18en5v72dno.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/3/u/o/23uob95c6a0dvk7m9mnk1yu315147t18en5v72dno.jpg"
+            },
+            {
+              "id": 1961673001,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/a/3/v/0a3v65hsem1mubqk9v0xjrnrku5y0wyewf5av2vtw.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/a/3/v/0a3v65hsem1mubqk9v0xjrnrku5y0wyewf5av2vtw.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/a/3/v/0a3v65hsem1mubqk9v0xjrnrku5y0wyewf5av2vtw.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/a/3/v/0a3v65hsem1mubqk9v0xjrnrku5y0wyewf5av2vtw.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/a/3/v/0a3v65hsem1mubqk9v0xjrnrku5y0wyewf5av2vtw.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/a/3/v/0a3v65hsem1mubqk9v0xjrnrku5y0wyewf5av2vtw.jpg"
+            },
+            {
+              "id": 1961673003,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/2/n/x/02nxra1ujk5hpipf4vqbqluurjd3tbn8ubxnl7e78.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/2/n/x/02nxra1ujk5hpipf4vqbqluurjd3tbn8ubxnl7e78.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/2/n/x/02nxra1ujk5hpipf4vqbqluurjd3tbn8ubxnl7e78.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/2/n/x/02nxra1ujk5hpipf4vqbqluurjd3tbn8ubxnl7e78.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/2/n/x/02nxra1ujk5hpipf4vqbqluurjd3tbn8ubxnl7e78.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/2/n/x/02nxra1ujk5hpipf4vqbqluurjd3tbn8ubxnl7e78.jpg"
+            },
+            {
+              "id": 1961673005,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/p/m/q/0pmqaxhmz5ocvc1l4hsv3ldnmoye5tv9donz29oys.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/p/m/q/0pmqaxhmz5ocvc1l4hsv3ldnmoye5tv9donz29oys.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/p/m/q/0pmqaxhmz5ocvc1l4hsv3ldnmoye5tv9donz29oys.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/p/m/q/0pmqaxhmz5ocvc1l4hsv3ldnmoye5tv9donz29oys.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/p/m/q/0pmqaxhmz5ocvc1l4hsv3ldnmoye5tv9donz29oys.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/p/m/q/0pmqaxhmz5ocvc1l4hsv3ldnmoye5tv9donz29oys.jpg"
+            },
+            {
+              "id": 1961673009,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/1/8/d/2/18d2ctog1afu2iy03nt0wppcijncq5zsahd934n1g.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/8/d/2/18d2ctog1afu2iy03nt0wppcijncq5zsahd934n1g.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/8/d/2/18d2ctog1afu2iy03nt0wppcijncq5zsahd934n1g.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/8/d/2/18d2ctog1afu2iy03nt0wppcijncq5zsahd934n1g.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/8/d/2/18d2ctog1afu2iy03nt0wppcijncq5zsahd934n1g.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/1/8/d/2/18d2ctog1afu2iy03nt0wppcijncq5zsahd934n1g.jpg"
+            },
+            {
+              "id": 1991535251,
+              "isHorizontal": false,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/height/600/visuels/1/b/x/p/1bxp74kiy8sjpwk3t0ycgndtb1hifkrhlov8pfrj6.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/b/x/p/1bxp74kiy8sjpwk3t0ycgndtb1hifkrhlov8pfrj6.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/b/x/p/1bxp74kiy8sjpwk3t0ycgndtb1hifkrhlov8pfrj6.jpg",
+              "mobileUrl": "https://v.seloger.com/s/height/600/visuels/1/b/x/p/1bxp74kiy8sjpwk3t0ycgndtb1hifkrhlov8pfrj6.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/b/x/p/1bxp74kiy8sjpwk3t0ycgndtb1hifkrhlov8pfrj6.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/height/400/visuels/1/b/x/p/1bxp74kiy8sjpwk3t0ycgndtb1hifkrhlov8pfrj6.jpg"
+            }
+          ],
+          "totalPhotoCount": 7,
+          "videoUrl": null,
+          "visit3DUrl": null
+        },
+        "businessUnitType": "SL",
+        "seoLinkBox": {
+          "commodityList": [
+            {
+              "url": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-3-pieces/",
+              "text": "Achat appartement 3 pièces à Bordeaux"
+            },
+            {
+              "url": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-2-chambres/",
+              "text": "Achat appartement 2 chambres Bordeaux"
+            },
+            {
+              "url": "https://www.seloger.com/immobilier/i/achat/immo-bordeaux-33/bien-appartement/commodite-handicape/",
+              "text": "Achat appartement avec accès pour handicapés à Bordeaux"
+            },
+            {
+              "url": "https://www.seloger.com/immobilier/i/achat/immo-bordeaux-33/bien-appartement/commodite-passoire-thermique/",
+              "text": "Achat appartement passoire thermique Bordeaux"
+            }
+          ]
+        },
+        "seoTitle": "Vente Appartement 3 pièces Bordeaux - Appartement F3/T3/3 pièces 62 m² 350000€",
+        "title": "Vente Appartement 3 pièces Bordeaux - Appartement F3/T3/3 pièces 62 m² 350000€",
+        "mainTitle": "Appartement à vendre",
+        "featuresPopupTitle": "appartement",
+        "shortDescription": "BORDEAUX - Pey Berland\r\n\r\nEfficity vous propose cet appartement 3 pièces d'une surface d'environ 60 m² comprenant 2 chambres.\r\n\r\nNiché au dernier étage d'une copropriété en pierre situé sur la place Pey Berland, cet appartement bénéficiant d'une",
+        "featureCategories": {
+          "header": {
+            "title": null,
+            "features": [
+              {
+                "name": "room",
+                "title": "3 pièces",
+                "visibleInMainView": false
+              },
+              {
+                "name": "bedroom",
+                "title": "2 chambres",
+                "visibleInMainView": false
+              },
+              {
+                "name": "livingspace",
+                "title": "62 m²",
+                "visibleInMainView": false
+              },
+              {
+                "name": "floor",
+                "title": "Étage 4/–",
+                "visibleInMainView": false
+              }
+            ]
           },
-          {
-            "id": 1504596499,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/8/4/3/2843zjeyxi0ygbext6uprknu78al5403qza7v55eo.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/8/4/3/2843zjeyxi0ygbext6uprknu78al5403qza7v55eo.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/8/4/3/2843zjeyxi0ygbext6uprknu78al5403qza7v55eo.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/8/4/3/2843zjeyxi0ygbext6uprknu78al5403qza7v55eo.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/8/4/3/2843zjeyxi0ygbext6uprknu78al5403qza7v55eo.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/8/4/3/2843zjeyxi0ygbext6uprknu78al5403qza7v55eo.jpg"
+          "general": null,
+          "outside": null,
+          "situation": {
+            "title": "Cadre et situation",
+            "features": [
+              {
+                "name": "orientation",
+                "title": "Exposition Sud",
+                "visibleInMainView": true
+              }
+            ]
           },
-          {
-            "id": 1504596505,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/1/e/b/01ebh1nt4jsq606v8wdofypzs261zd8wlnywjm1sw.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/1/e/b/01ebh1nt4jsq606v8wdofypzs261zd8wlnywjm1sw.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/1/e/b/01ebh1nt4jsq606v8wdofypzs261zd8wlnywjm1sw.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/1/e/b/01ebh1nt4jsq606v8wdofypzs261zd8wlnywjm1sw.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/1/e/b/01ebh1nt4jsq606v8wdofypzs261zd8wlnywjm1sw.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/1/e/b/01ebh1nt4jsq606v8wdofypzs261zd8wlnywjm1sw.jpg"
+          "additionalSurface": null,
+          "serviceAndAccessibility": {
+            "title": "Services et accessibilité",
+            "features": [
+              {
+                "name": "elevator",
+                "title": "Pas d'ascenseur",
+                "visibleInMainView": true
+              },
+              {
+                "name": "handicapaccess",
+                "title": "Accès handicapé",
+                "visibleInMainView": true
+              }
+            ]
           },
-          {
-            "id": 1504596509,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/1/3/m/213m6egtv7j1cpwja1s4eq9sw44pn6mb4j6vksqlc.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/1/3/m/213m6egtv7j1cpwja1s4eq9sw44pn6mb4j6vksqlc.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/1/3/m/213m6egtv7j1cpwja1s4eq9sw44pn6mb4j6vksqlc.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/1/3/m/213m6egtv7j1cpwja1s4eq9sw44pn6mb4j6vksqlc.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/1/3/m/213m6egtv7j1cpwja1s4eq9sw44pn6mb4j6vksqlc.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/1/3/m/213m6egtv7j1cpwja1s4eq9sw44pn6mb4j6vksqlc.jpg"
+          "kitchen": null,
+          "hygiene": {
+            "title": "Hygiène",
+            "features": [
+              {
+                "name": "shower",
+                "title": "Salle d'eau (douche)",
+                "visibleInMainView": false
+              },
+              {
+                "name": "toilet",
+                "title": "Toilettes",
+                "visibleInMainView": false
+              }
+            ]
           },
-          {
-            "id": 1504596501,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/a/7/9/2a790wt7dj5tzxe75swyibfo636rzv30al2nb8f4w.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/a/7/9/2a790wt7dj5tzxe75swyibfo636rzv30al2nb8f4w.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/a/7/9/2a790wt7dj5tzxe75swyibfo636rzv30al2nb8f4w.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/a/7/9/2a790wt7dj5tzxe75swyibfo636rzv30al2nb8f4w.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/a/7/9/2a790wt7dj5tzxe75swyibfo636rzv30al2nb8f4w.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/a/7/9/2a790wt7dj5tzxe75swyibfo636rzv30al2nb8f4w.jpg"
-          },
-          {
-            "id": 1504596513,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/1/x/7/t/1x7tz2n7uil77is425cu8ootmrf5kx34rhsu5uf8g.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/x/7/t/1x7tz2n7uil77is425cu8ootmrf5kx34rhsu5uf8g.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/x/7/t/1x7tz2n7uil77is425cu8ootmrf5kx34rhsu5uf8g.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/x/7/t/1x7tz2n7uil77is425cu8ootmrf5kx34rhsu5uf8g.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/x/7/t/1x7tz2n7uil77is425cu8ootmrf5kx34rhsu5uf8g.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/1/x/7/t/1x7tz2n7uil77is425cu8ootmrf5kx34rhsu5uf8g.jpg"
-          },
-          {
-            "id": 1504596493,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/q/n/l/0qnldobe62lqrhrpuwuay6kwk3nepe7i7yud24asg.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/q/n/l/0qnldobe62lqrhrpuwuay6kwk3nepe7i7yud24asg.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/q/n/l/0qnldobe62lqrhrpuwuay6kwk3nepe7i7yud24asg.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/q/n/l/0qnldobe62lqrhrpuwuay6kwk3nepe7i7yud24asg.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/q/n/l/0qnldobe62lqrhrpuwuay6kwk3nepe7i7yud24asg.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/q/n/l/0qnldobe62lqrhrpuwuay6kwk3nepe7i7yud24asg.jpg"
-          },
-          {
-            "id": 1504596515,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/1/6/u/216uwxoz0h5wh8iw4kgipae4dwjsaugfkw81lq8bk.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/1/6/u/216uwxoz0h5wh8iw4kgipae4dwjsaugfkw81lq8bk.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/1/6/u/216uwxoz0h5wh8iw4kgipae4dwjsaugfkw81lq8bk.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/1/6/u/216uwxoz0h5wh8iw4kgipae4dwjsaugfkw81lq8bk.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/1/6/u/216uwxoz0h5wh8iw4kgipae4dwjsaugfkw81lq8bk.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/1/6/u/216uwxoz0h5wh8iw4kgipae4dwjsaugfkw81lq8bk.jpg"
-          },
-          {
-            "id": 1504761701,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/1/x/s/y/1xsym4ln9cco3pxvcwxg0ghxol40h0c4vhgxdzrls.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/x/s/y/1xsym4ln9cco3pxvcwxg0ghxol40h0c4vhgxdzrls.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/x/s/y/1xsym4ln9cco3pxvcwxg0ghxol40h0c4vhgxdzrls.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/x/s/y/1xsym4ln9cco3pxvcwxg0ghxol40h0c4vhgxdzrls.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/x/s/y/1xsym4ln9cco3pxvcwxg0ghxol40h0c4vhgxdzrls.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/1/x/s/y/1xsym4ln9cco3pxvcwxg0ghxol40h0c4vhgxdzrls.jpg"
-          },
-          {
-            "id": 1504761703,
-            "isHorizontal": true,
-            "descriptiveFr": null,
-            "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/1/j/n/01jnnjn1mhb56p8rnr01yvgufru9vr2sph8wtygm8.jpg",
-            "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/1/j/n/01jnnjn1mhb56p8rnr01yvgufru9vr2sph8wtygm8.jpg",
-            "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/1/j/n/01jnnjn1mhb56p8rnr01yvgufru9vr2sph8wtygm8.jpg",
-            "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/1/j/n/01jnnjn1mhb56p8rnr01yvgufru9vr2sph8wtygm8.jpg",
-            "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/1/j/n/01jnnjn1mhb56p8rnr01yvgufru9vr2sph8wtygm8.jpg",
-            "photoDescriptionTags": null,
-            "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/1/j/n/01jnnjn1mhb56p8rnr01yvgufru9vr2sph8wtygm8.jpg"
+          "livingSpace": null,
+          "heating": {
+            "title": "Chauffage",
+            "features": [
+              {
+                "name": "heatingtype",
+                "title": "Chauffage individuel électrique",
+                "visibleInMainView": false
+              }
+            ]
           }
-        ],
-        "totalPhotoCount": 11,
-        "videoUrl": null,
-        "visit3DUrl": "https://my.matterport.com/show/?m=SBJQPJ3W11N"
+        },
+        "yearOfConstruction": null,
+        "transport": null
       },
-      "businessUnitType": "SL",
-      "seoLinkBox": {
-        "commodityList": [
+      "listingBreadcrumb": {
+        "breadcrumb": [
           {
-            "url": "https://www.seloger.com/immobilier/i/achat/immo-paris-13eme-75/bien-appartement/commodite-ascenseur/",
-            "text": "Achat appartement avec ascenseur à Paris 13ème"
+            "label": "Immobilier",
+            "link": "https://www.seloger.com"
           },
           {
-            "url": "https://www.seloger.com/immobilier/i/achat/immo-paris-13eme-75/bien-appartement/commodite-passoire-thermique/",
-            "text": "Achat appartement passoire thermique Paris 13ème"
+            "label": "Annonces",
+            "link": "https://www.seloger.com/immobilier/"
           },
           {
-            "url": "https://www.seloger.com/immobilier/i/achat/immo-paris-13eme-75/bien-appartement/commodite-cave/",
-            "text": "Achat appartement avec cave à Paris 13ème"
+            "label": "Appartement 2 chambres Aquitaine à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/bien-appartement/type-2-chambres/aquitaine.htm"
           },
           {
-            "url": "https://www.seloger.com/immobilier/achat/immo-paris-13eme-75/bien-appartement/type-2-pieces/",
-            "text": "Achat appartement 2 pièces à Paris 13ème"
+            "label": "Appartement 2 chambres Gironde à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/33/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Appartement 2 chambres Bordeaux à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Appartement 2 chambres Hôtel de Ville-Quinconce-Saint Seurin-Fondaudège à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/quartier-hotel-de-ville-quinconce-saint-seurin-fondaudege/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Vente Appartement 3 pièces 62 m² Bordeaux - Hôtel de Ville-Quinconce-Saint Seurin-Fondaudège",
+            "link": null
           }
         ]
       },
-      "seoTitle": "Vente Appartement 2 pièces Paris 13ème - Appartement F2/T2/2 pièces 31 m² 290000€",
-      "title": "Vente Appartement 2 pièces Paris 13ème - Appartement F2/T2/2 pièces 31 m² 290000€",
-      "mainTitle": "Appartement à vendre",
-      "featuresPopupTitle": "appartement",
-      "shortDescription": "2 Pièces. Paris 13ème. Secteur Salpêtrière. Possibilité Profession Libérale\r\n\r\nÀ vendre : venez découvrir cet appartement de 2 pièces de 31 m² localisé à Paris (75013). Au pied du Métro Saint Marcel. Proche commerces. \r\nIl est situé dans un immeuble",
-      "featureCategories": {
-        "header": {
-          "title": null,
-          "features": [
+      "url": {
+        "value": "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/228767099.htm",
+        "businessUnitType": "SL",
+        "nature": 1
+      },
+      "earlyAccess": null
+    },
+    "agency": {
+      "id": 522613,
+      "idRcu": "RC-1883644",
+      "name": "Efficity   Robin Denis",
+      "professionType": "Agents commerciaux",
+      "address": "",
+      "logo": "https://v.seloger.com/s/width/150/logos/0/h/0/l/0h0leun3rcbdmdyf0pb8fdq1wkqufnq0wjzms4qw6.jpg",
+      "organisationLogo": null,
+      "description": null,
+      "tierId": 1027134,
+      "feesUrl": null,
+      "websiteUrl": "https://www.efficity.com/rdenis",
+      "profilPageUrl": "/professionnels/agents-commerciaux/bordeaux-33000/agence-347259/",
+      "phoneNumber": "06 63 65 10 80",
+      "contactHidden": false,
+      "rating": {
+        "rating": 4.7,
+        "reviewCount": 3,
+        "reviewUrl": "/professionnels/agents-commerciaux/bordeaux-33000/agence-347259/#?avisImmo=true"
+      },
+      "legalNotice": {
+        "socialReason": null,
+        "shareCapital": 0,
+        "professionalCardNumber": null,
+        "professionalCardPrefecture": null,
+        "financialGuaranteeFund": null,
+        "financialGuaranteeAmount": null,
+        "headquarterAddress": null,
+        "rcsSiren": "905144929",
+        "isIndividual": false,
+        "legalForm": null
+      }
+    }
+  },
+  {
+    "listing": {
+      "listingDetail": {
+        "id": 230616779,
+        "transactionTypeId": 2,
+        "transactionType": "vente",
+        "propertyTypeId": 1,
+        "propertyType": "Appartement",
+        "propertySubTypeId": null,
+        "propertySubType": null,
+        "propertyNatureId": 1,
+        "publicationTypeIdSl": 50,
+        "publicationTypeId": 1,
+        "publicationId": 30108056,
+        "address": {
+          "city": "Bordeaux",
+          "superCity": null,
+          "postalCode": "33000",
+          "street": null,
+          "district": "Capucins-Saint Michel-Nansouty-Saint Genès",
+          "countryId": 250,
+          "divisionId": 2229
+        },
+        "reference": "GB00199065",
+        "descriptive": "BORDEAUX HYPER-CENTRE / VICTOIRE : Au calme sur la cour intérieure d'un immeuble pierre bien entretenu, très bel appartement T3 d'environ 70m². Beaucoup de charme et rénové avec goûts, il est composé de 2 chambres, salle de bains, WC séparé, cuisine ouverte avec ilot, buanderie et bel pièce de vie.",
+        "roomCount": 3,
+        "bedroomCount": 2,
+        "surface": 71.75,
+        "surfaceUnit": "m²",
+        "isExclusiveSalesMandate": false,
+        "isRentChargesIncluded": null,
+        "listingPrice": {
+          "price": 350000,
+          "priceInformation": null,
+          "priceUnit": "€",
+          "lifeAnnuityPrice": null,
+          "pricePerSquareMeter": 4878,
+          "priceRange": null,
+          "hasPriceRange": false,
+          "priceEvolutionTrend": 0,
+          "monthlyPayment": 1908,
+          "alur": {
+            "siHonoraireChargeVendeur": true,
+            "siHonoraireChargeAcquereur": false,
+            "pourcentagesHonoraires": 0,
+            "prixHorsHonoraires": 350000,
+            "tranchePrixHorsHonoraire": null,
+            "idTypeResponsableHonoraires": 2,
+            "idTypeChargesLocationHonoraires": null,
+            "complementLoyer": 0,
+            "chargesForfaitaire": 0,
+            "honorairesLocataire": 0,
+            "honorairesEtatsDesLieux": 0,
+            "garantieLocation": 0,
+            "siProvisionsSurCharges": false,
+            "siForfaitaire": false,
+            "siRemboursementAnnuel": false,
+            "loyerReferenceMajore": null
+          },
+          "propertyPricesUrl": "https://www.seloger.com/prix-de-l-immo/vente/aquitaine/gironde/bordeaux/capucins-saint-michel-nansouty-saint-genes/48323.htm",
+          "averagePricePerSquareMeter": 4599,
+          "minPricePerSquareMeter": 3449,
+          "maxPricePerSquareMeter": 6899
+        },
+        "priceEvolutions": [],
+        "coOwnership": null,
+        "energyPerformanceCertificate": {
+          "electricityConsumption": 114,
+          "energyFinalConsumption": null,
+          "electricityRating": "C",
+          "electricityDiagnosisDate": null,
+          "electricityEstimateCostMin": null,
+          "electricityEstimateCostMax": null,
+          "gasEmission": 24,
+          "gasRating": "C",
+          "status": 0,
+          "version": 1
+        },
+        "coordinates": {
+          "latitude": 44.833013,
+          "longitude": -0.573116,
+          "polygon": null,
+          "street": "RUE SAINTE CATHERINE",
+          "polygonTypeId": null
+        },
+        "media": {
+          "photos": [
             {
-              "name": "room",
-              "title": "2 pièces",
-              "visibleInMainView": false
+              "id": 2035890739,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/799/visuels/2/6/e/q/26eq545ysksy8805qmtr3h362oexk5ox0gc1puro3.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/6/e/q/26eq545ysksy8805qmtr3h362oexk5ox0gc1puro3.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/6/e/q/26eq545ysksy8805qmtr3h362oexk5ox0gc1puro3.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/6/e/q/26eq545ysksy8805qmtr3h362oexk5ox0gc1puro3.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/6/e/q/26eq545ysksy8805qmtr3h362oexk5ox0gc1puro3.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/399/visuels/2/6/e/q/26eq545ysksy8805qmtr3h362oexk5ox0gc1puro3.jpg"
             },
             {
-              "name": "bedroom",
-              "title": "1 chambre",
-              "visibleInMainView": false
+              "id": 2035890741,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/799/visuels/1/1/b/c/11bctu4itk8zo524p6sgguwqlt5e0isahycqmr2qb.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/1/b/c/11bctu4itk8zo524p6sgguwqlt5e0isahycqmr2qb.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/1/b/c/11bctu4itk8zo524p6sgguwqlt5e0isahycqmr2qb.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/1/b/c/11bctu4itk8zo524p6sgguwqlt5e0isahycqmr2qb.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/1/b/c/11bctu4itk8zo524p6sgguwqlt5e0isahycqmr2qb.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/399/visuels/1/1/b/c/11bctu4itk8zo524p6sgguwqlt5e0isahycqmr2qb.jpg"
             },
             {
-              "name": "livingspace",
-              "title": "31 m²",
-              "visibleInMainView": false
+              "id": 2035890743,
+              "isHorizontal": false,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/height/800/visuels/1/w/z/s/1wzsjqv8t3jaxf6zebwxrlsxgwyp211emo89x5lsj.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/w/z/s/1wzsjqv8t3jaxf6zebwxrlsxgwyp211emo89x5lsj.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/w/z/s/1wzsjqv8t3jaxf6zebwxrlsxgwyp211emo89x5lsj.jpg",
+              "mobileUrl": "https://v.seloger.com/s/height/600/visuels/1/w/z/s/1wzsjqv8t3jaxf6zebwxrlsxgwyp211emo89x5lsj.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/w/z/s/1wzsjqv8t3jaxf6zebwxrlsxgwyp211emo89x5lsj.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/height/400/visuels/1/w/z/s/1wzsjqv8t3jaxf6zebwxrlsxgwyp211emo89x5lsj.jpg"
             },
             {
-              "name": "floor",
-              "title": "Étage 0/6",
-              "visibleInMainView": false
+              "id": 2035890745,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/799/visuels/2/a/u/r/2aurlzw6y67k5c6pzn9ohjqd8q635bqafvpbg7uz7.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/a/u/r/2aurlzw6y67k5c6pzn9ohjqd8q635bqafvpbg7uz7.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/a/u/r/2aurlzw6y67k5c6pzn9ohjqd8q635bqafvpbg7uz7.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/a/u/r/2aurlzw6y67k5c6pzn9ohjqd8q635bqafvpbg7uz7.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/a/u/r/2aurlzw6y67k5c6pzn9ohjqd8q635bqafvpbg7uz7.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/399/visuels/2/a/u/r/2aurlzw6y67k5c6pzn9ohjqd8q635bqafvpbg7uz7.jpg"
+            },
+            {
+              "id": 2035890747,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/799/visuels/1/8/e/5/18e52cgmswqzzeg9ig5ek57pdn7bu0prnjzlj9doz.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/8/e/5/18e52cgmswqzzeg9ig5ek57pdn7bu0prnjzlj9doz.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/8/e/5/18e52cgmswqzzeg9ig5ek57pdn7bu0prnjzlj9doz.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/8/e/5/18e52cgmswqzzeg9ig5ek57pdn7bu0prnjzlj9doz.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/8/e/5/18e52cgmswqzzeg9ig5ek57pdn7bu0prnjzlj9doz.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/399/visuels/1/8/e/5/18e52cgmswqzzeg9ig5ek57pdn7bu0prnjzlj9doz.jpg"
+            },
+            {
+              "id": 2035890749,
+              "isHorizontal": false,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/height/800/visuels/0/m/u/g/0muggt93mzdw38gw9uun1d408mocoxh35fgnfo0b7.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/m/u/g/0muggt93mzdw38gw9uun1d408mocoxh35fgnfo0b7.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/m/u/g/0muggt93mzdw38gw9uun1d408mocoxh35fgnfo0b7.jpg",
+              "mobileUrl": "https://v.seloger.com/s/height/600/visuels/0/m/u/g/0muggt93mzdw38gw9uun1d408mocoxh35fgnfo0b7.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/m/u/g/0muggt93mzdw38gw9uun1d408mocoxh35fgnfo0b7.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/height/400/visuels/0/m/u/g/0muggt93mzdw38gw9uun1d408mocoxh35fgnfo0b7.jpg"
+            },
+            {
+              "id": 2035890751,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/799/visuels/1/x/c/v/1xcv9lm1gvjra1h36nw3blfrt7usj12tpjl8g9i8j.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/x/c/v/1xcv9lm1gvjra1h36nw3blfrt7usj12tpjl8g9i8j.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/x/c/v/1xcv9lm1gvjra1h36nw3blfrt7usj12tpjl8g9i8j.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/x/c/v/1xcv9lm1gvjra1h36nw3blfrt7usj12tpjl8g9i8j.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/x/c/v/1xcv9lm1gvjra1h36nw3blfrt7usj12tpjl8g9i8j.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/399/visuels/1/x/c/v/1xcv9lm1gvjra1h36nw3blfrt7usj12tpjl8g9i8j.jpg"
+            }
+          ],
+          "totalPhotoCount": 7,
+          "videoUrl": null,
+          "visit3DUrl": null
+        },
+        "businessUnitType": "SL",
+        "seoLinkBox": {
+          "commodityList": [
+            {
+              "url": "https://www.seloger.com/immobilier/i/achat/immo-bordeaux-33/bien-appartement/commodite-cave/",
+              "text": "Achat appartement avec cave à Bordeaux"
+            },
+            {
+              "url": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-3-pieces/",
+              "text": "Achat appartement 3 pièces à Bordeaux"
+            },
+            {
+              "url": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-2-chambres/",
+              "text": "Achat appartement 2 chambres Bordeaux"
             }
           ]
         },
-        "general": {
-          "title": null,
-          "features": [
-            {
-              "name": "yearofconstruction",
-              "title": "Construit en 1900",
-              "visibleInMainView": true
-            }
-          ]
+        "seoTitle": "Vente Appartement 3 pièces Bordeaux - Appartement F3/T3/3 pièces 71,75 m² 350000€",
+        "title": "Vente Appartement 3 pièces Bordeaux - Appartement F3/T3/3 pièces 71,75 m² 350000€",
+        "mainTitle": "Appartement à vendre",
+        "featuresPopupTitle": "appartement",
+        "shortDescription": "BORDEAUX HYPER-CENTRE / VICTOIRE : Au calme sur la cour intérieure d'un immeuble pierre bien entretenu, très bel appartement T3 d'environ 70m². Beaucoup de charme et rénové avec goûts, il est composé de 2 chambres, salle de bains, WC séparé, cuisine",
+        "featureCategories": {
+          "header": {
+            "title": null,
+            "features": [
+              {
+                "name": "room",
+                "title": "3 pièces",
+                "visibleInMainView": false
+              },
+              {
+                "name": "bedroom",
+                "title": "2 chambres",
+                "visibleInMainView": false
+              },
+              {
+                "name": "livingspace",
+                "title": "72 m²",
+                "visibleInMainView": false
+              },
+              {
+                "name": "floor",
+                "title": "Étage 2/–",
+                "visibleInMainView": false
+              }
+            ]
+          },
+          "general": null,
+          "outside": null,
+          "situation": {
+            "title": "Cadre et situation",
+            "features": [
+              {
+                "name": "orientation",
+                "title": "Exposition Est/Ouest",
+                "visibleInMainView": true
+              },
+              {
+                "name": "calm",
+                "title": "Calme",
+                "visibleInMainView": true
+              }
+            ]
+          },
+          "additionalSurface": {
+            "title": "Surfaces annexes",
+            "features": [
+              {
+                "name": "cellar",
+                "title": "Cave",
+                "visibleInMainView": true
+              }
+            ]
+          },
+          "serviceAndAccessibility": {
+            "title": "Services et accessibilité",
+            "features": [
+              {
+                "name": "elevator",
+                "title": "Pas d'ascenseur",
+                "visibleInMainView": true
+              }
+            ]
+          },
+          "kitchen": null,
+          "hygiene": {
+            "title": "Hygiène",
+            "features": [
+              {
+                "name": "bathroom",
+                "title": "Salle de bain (baignoire)",
+                "visibleInMainView": false
+              },
+              {
+                "name": "toilet",
+                "title": "Toilettes",
+                "visibleInMainView": false
+              },
+              {
+                "name": "separatetoilet",
+                "title": "Toilettes séparées",
+                "visibleInMainView": false
+              }
+            ]
+          },
+          "livingSpace": null,
+          "heating": {
+            "title": "Chauffage",
+            "features": [
+              {
+                "name": "heatingtype",
+                "title": "Chauffage individuel",
+                "visibleInMainView": false
+              }
+            ]
+          }
         },
-        "outside": null,
-        "situation": {
-          "title": "Cadre et situation",
-          "features": [
+        "yearOfConstruction": null,
+        "transport": {
+          "iconType": "Bordeaux",
+          "metroLines": null,
+          "rerLines": null,
+          "transilienLines": null,
+          "tramLines": [
             {
-              "name": "view",
-              "title": "Belle vue",
-              "visibleInMainView": true
+              "id": 56,
+              "typeId": 5,
+              "name": "B",
+              "color": "d8232a"
             }
-          ]
-        },
-        "additionalSurface": {
-          "title": "Surfaces annexes",
-          "features": [
-            {
-              "name": "cellar",
-              "title": "Cave",
-              "visibleInMainView": true
-            }
-          ]
-        },
-        "serviceAndAccessibility": {
-          "title": "Services et accessibilité",
-          "features": [
-            {
-              "name": "elevator",
-              "title": "Ascenseur",
-              "visibleInMainView": true
-            },
-            {
-              "name": "digitallock",
-              "title": "Digicode",
-              "visibleInMainView": false
-            },
-            {
-              "name": "buildingintercom",
-              "title": "Interphone",
-              "visibleInMainView": false
-            }
-          ]
-        },
-        "kitchen": null,
-        "hygiene": {
-          "title": "Hygiène",
-          "features": [
-            {
-              "name": "shower",
-              "title": "Salle d'eau (douche)",
-              "visibleInMainView": false
-            },
-            {
-              "name": "toilet",
-              "title": "Toilettes",
-              "visibleInMainView": false
-            }
-          ]
-        },
-        "livingSpace": {
-          "title": "Pièces à vivre",
-          "features": [
-            {
-              "name": "lounge",
-              "title": "Séjour / salon",
-              "visibleInMainView": false
-            },
-            {
-              "name": "diningroom",
-              "title": "Salle à manger",
-              "visibleInMainView": false
-            },
-            {
-              "name": "entrance",
-              "title": "Entrée séparée",
-              "visibleInMainView": false
-            }
-          ]
-        },
-        "heating": {
-          "title": "Chauffage",
-          "features": [
-            {
-              "name": "heatingtype",
-              "title": "Chauffage : non communiqué",
-              "visibleInMainView": false
-            }
-          ]
+          ],
+          "airportShuttleLines": null,
+          "funicularLines": null
         }
       },
-      "yearOfConstruction": 1900,
-      "transport": {
-        "iconType": "Paris",
-        "metroLines": [
+      "listingBreadcrumb": {
+        "breadcrumb": [
           {
-            "id": 19,
-            "typeId": 3,
-            "name": "7",
-            "color": "f3a4ba"
+            "label": "Immobilier",
+            "link": "https://www.seloger.com"
           },
           {
-            "id": 17,
-            "typeId": 3,
-            "name": "5",
-            "color": "f28e42"
+            "label": "Annonces",
+            "link": "https://www.seloger.com/immobilier/"
+          },
+          {
+            "label": "Appartement 2 chambres Aquitaine à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/bien-appartement/type-2-chambres/aquitaine.htm"
+          },
+          {
+            "label": "Appartement 2 chambres Gironde à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/33/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Appartement 2 chambres Bordeaux à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Appartement 2 chambres Capucins-Saint Michel-Nansouty-Saint Genès à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/quartier-capucins-saint-michel-nansouty-saint-genes/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Vente Appartement 3 pièces 71,75 m² Bordeaux - Capucins-Saint Michel-Nansouty-Saint Genès - Rue Sainte Catherine",
+            "link": null
           }
-        ],
-        "rerLines": null,
-        "transilienLines": null,
-        "tramLines": null,
-        "airportShuttleLines": null,
-        "funicularLines": null
+        ]
+      },
+      "url": {
+        "value": "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/capucins-saint-michel-nansouty-saint-genes/230616779.htm",
+        "businessUnitType": "SL",
+        "nature": 1
+      },
+      "earlyAccess": null
+    },
+    "agency": {
+      "id": 108056,
+      "idRcu": "RC-025507",
+      "name": "Lamy Transaction",
+      "professionType": "Agences immobilières",
+      "address": "19 RUE DE VIENNE\nTSA10034\n75801 PARIS CEDEX 08",
+      "logo": "https://v.seloger.com/s/width/150/logos/2/9/c/g/29cggd2t3qxetrh9qp5oaqd9j5ee5l85n10k0grrq.jpg",
+      "organisationLogo": null,
+      "description": null,
+      "tierId": 161703,
+      "feesUrl": "https://vd.seloger.com/files/2/0/o/v/20ovud5ln3rfmp1h2wk34phamjd1tj26pe6js7i80/Baremes+internet+2022+TRANSACTION+et+LOCATION.pdf",
+      "websiteUrl": null,
+      "profilPageUrl": "/professionnels/agences-immobilieres/paris-8eme-arrondissement-75008/agence-75719/",
+      "phoneNumber": "05 24 07 39 94",
+      "contactHidden": false,
+      "rating": {
+        "rating": null,
+        "reviewCount": 0,
+        "reviewUrl": null
+      },
+      "legalNotice": {
+        "socialReason": null,
+        "shareCapital": 0,
+        "professionalCardNumber": null,
+        "professionalCardPrefecture": null,
+        "financialGuaranteeFund": null,
+        "financialGuaranteeAmount": null,
+        "headquarterAddress": null,
+        "rcsSiren": "487530099",
+        "isIndividual": false,
+        "legalForm": null
       }
-    },
-    "listingBreadcrumb": {
-      "breadcrumb": [
-        {
-          "label": "Immobilier",
-          "link": "https://www.seloger.com"
-        },
-        {
-          "label": "Annonces",
-          "link": "https://www.seloger.com/immobilier/"
-        },
-        {
-          "label": "Appartement Île-de-France à vendre",
-          "link": "https://www.seloger.com/immobilier/achat/bien-appartement/ile-de-france.htm"
-        },
-        {
-          "label": "Appartement Paris à vendre",
-          "link": "https://www.seloger.com/immobilier/achat/75/bien-appartement/"
-        },
-        {
-          "label": "Appartement Paris 13ème à vendre",
-          "link": "https://www.seloger.com/immobilier/achat/immo-paris-13eme-75/bien-appartement/"
-        },
-        {
-          "label": "Appartement Salpêtrière-Austerlitz à vendre",
-          "link": "https://www.seloger.com/immobilier/achat/immo-paris-13eme-75/quartier-salpetriere-austerlitz/bien-appartement/"
-        },
-        {
-          "label": "Vente Appartement 2 pièces 31 m² Paris 13ème - Salpêtrière-Austerlitz - Rue Dumeril",
-          "link": null
-        }
-      ]
-    },
-    "url": {
-      "value": "https://www.seloger.com/annonces/achat/appartement/paris-13eme-75/salpetriere-austerlitz/205085253.htm",
-      "businessUnitType": "SL",
-      "nature": 1
-    },
-    "earlyAccess": null
+    }
   },
-  "agency": {
-    "id": 2426,
-    "idRcu": "RC-022105",
-    "name": "La Vie Immobiliere / Agences Reunies",
-    "professionType": "Agences immobilières",
-    "address": "4 rue Berthollet \r\n75005 Paris",
-    "logo": "https://v.seloger.com/s/height/150/logos/0/3/n/5/03n5djx4nglxettk2nfrrwiv5nr2s2vbcnyk51nly.jpg",
-    "organisationLogo": null,
-    "description": "Il est primordial aujourd'hui de faire confiance à un professionnel de l'immobilier pour optimiser au mieux la gestion de son patrimoine.\r\n\r\nEn effet l'évolution du marché Immobilier, la complexité des procédures et des lois pour Vendre ou Louer son Appartement rendent indispensables les conseils d'un spécialiste.\r\n\r\nInstallés depuis plus de 30 ans dans le 5ème Arr. Nous nous sommes imposés comme leader et mettons tout en ouvre pour le rester afin d'arriver à un seul et unique But : VOTRE SATISFACTION.\r\n                                                       Marc SAKOUN\r\n",
-    "tierId": 4557,
-    "feesUrl": "https://vd.seloger.com/files/1/0/f/m/10fms2nvrxp21ph9h4d5folgifiqeu5knlzctaq68/Bareme+LVI.pdf",
-    "websiteUrl": "http://www.vie-immobiliere.fr/",
-    "profilPageUrl": "/professionnels/agences-immobilieres/paris-5eme-arrondissement-75005/agence-160722/",
-    "phoneNumber": "01 43 36 20 83",
-    "rating": {
-      "rating": 4.8,
-      "reviewCount": 135,
-      "reviewUrl": "/professionnels/agences-immobilieres/paris-5eme-arrondissement-75005/agence-160722/#?avisImmo=true"
+  {
+    "listing": {
+      "listingDetail": {
+        "id": 232628697,
+        "transactionTypeId": 2,
+        "transactionType": "vente",
+        "propertyTypeId": 1,
+        "propertyType": "Appartement",
+        "propertySubTypeId": null,
+        "propertySubType": null,
+        "propertyNatureId": 1,
+        "publicationTypeIdSl": 50,
+        "publicationTypeId": 1,
+        "publicationId": 30003088,
+        "address": {
+          "city": "Bordeaux",
+          "superCity": null,
+          "postalCode": "33000",
+          "street": null,
+          "district": "Hôtel de Ville-Quinconce-Saint Seurin-Fondaudège",
+          "countryId": 250,
+          "divisionId": 2229
+        },
+        "reference": "14658",
+        "descriptive": "BORDEAUX - JUDAÏQUE. L'agence GRANGE-DELMAS vous propose à la vente ce charmant appartement situé au 1er étage d'un petit immeuble pierre, proche de la place Gambetta. \nIl se compose d'une entrée ouvrant sur une agréable pièce de vie baignée de lumière par 3 grandes fenêtre et une cuisine ouverte. Ce bien a conservé ses belles prestations anciennes avec parquet, cheminée et murs en pierre apparente. \nLe coin nuit propose 2 jolies chambres donnant sur un balcon, au calme, une buanderie et une salle de bain. \nL'emplacement est central, proche des écoles, commerces et transports bus n°1,16, 51 et 82.\nPrix : 356.000 EUR FAI. (5.01 % d'honoraires TTC à la charge de l'acquéreur.)",
+        "roomCount": 3,
+        "bedroomCount": 2,
+        "surface": 66,
+        "surfaceUnit": "m²",
+        "isExclusiveSalesMandate": false,
+        "isRentChargesIncluded": null,
+        "listingPrice": {
+          "price": 356000,
+          "priceInformation": null,
+          "priceUnit": "€",
+          "lifeAnnuityPrice": null,
+          "pricePerSquareMeter": 5394,
+          "priceRange": null,
+          "hasPriceRange": false,
+          "priceEvolutionTrend": null,
+          "monthlyPayment": 1940,
+          "alur": {
+            "siHonoraireChargeVendeur": false,
+            "siHonoraireChargeAcquereur": true,
+            "pourcentagesHonoraires": 5.014749,
+            "prixHorsHonoraires": 339000,
+            "tranchePrixHorsHonoraire": null,
+            "idTypeResponsableHonoraires": 1,
+            "idTypeChargesLocationHonoraires": null,
+            "complementLoyer": 0,
+            "chargesForfaitaire": 0,
+            "honorairesLocataire": 0,
+            "honorairesEtatsDesLieux": 0,
+            "garantieLocation": 0,
+            "siProvisionsSurCharges": false,
+            "siForfaitaire": false,
+            "siRemboursementAnnuel": false,
+            "loyerReferenceMajore": null
+          },
+          "propertyPricesUrl": "https://www.seloger.com/prix-de-l-immo/vente/aquitaine/gironde/bordeaux/hotel-de-ville-quinconce-saint-seurin-fondaudege/48321.htm",
+          "averagePricePerSquareMeter": 5325,
+          "minPricePerSquareMeter": 3994,
+          "maxPricePerSquareMeter": 7987
+        },
+        "priceEvolutions": null,
+        "coOwnership": null,
+        "energyPerformanceCertificate": {
+          "electricityConsumption": null,
+          "energyFinalConsumption": null,
+          "electricityRating": null,
+          "electricityDiagnosisDate": null,
+          "electricityEstimateCostMin": 0,
+          "electricityEstimateCostMax": 0,
+          "gasEmission": null,
+          "gasRating": null,
+          "status": 1,
+          "version": null
+        },
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "polygon": "POLYGON ((-0.598960000090301 44.836609999998473, -0.59064999991096556 44.838239999953657, -0.585630000103265 44.839990000007674, -0.5851000000257045 44.841329999966547, -0.59324999991804361 44.84066999994684, -0.59929999988526106 44.8401999999769, -0.598960000090301 44.836609999998473))",
+          "street": null,
+          "polygonTypeId": 1
+        },
+        "media": {
+          "photos": [
+            {
+              "id": 71973686,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/8/a/0/28a099dqi9wecaxl3x225m2vzytp1x26cl7a4k8tc.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/8/a/0/28a099dqi9wecaxl3x225m2vzytp1x26cl7a4k8tc.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/8/a/0/28a099dqi9wecaxl3x225m2vzytp1x26cl7a4k8tc.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/8/a/0/28a099dqi9wecaxl3x225m2vzytp1x26cl7a4k8tc.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/8/a/0/28a099dqi9wecaxl3x225m2vzytp1x26cl7a4k8tc.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/8/a/0/28a099dqi9wecaxl3x225m2vzytp1x26cl7a4k8tc.jpg"
+            },
+            {
+              "id": 71973566,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/2/8/5/y/285yjw14bh4x1xkbs0x00l7j87i0ygpzsnk119hgh.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/2/8/5/y/285yjw14bh4x1xkbs0x00l7j87i0ygpzsnk119hgh.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/2/8/5/y/285yjw14bh4x1xkbs0x00l7j87i0ygpzsnk119hgh.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/2/8/5/y/285yjw14bh4x1xkbs0x00l7j87i0ygpzsnk119hgh.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/2/8/5/y/285yjw14bh4x1xkbs0x00l7j87i0ygpzsnk119hgh.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/2/8/5/y/285yjw14bh4x1xkbs0x00l7j87i0ygpzsnk119hgh.jpg"
+            },
+            {
+              "id": 71973602,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/p/l/e/0pleetopssstdog40b5csv0492yfgu6b8mcx7r0dc.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/p/l/e/0pleetopssstdog40b5csv0492yfgu6b8mcx7r0dc.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/p/l/e/0pleetopssstdog40b5csv0492yfgu6b8mcx7r0dc.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/p/l/e/0pleetopssstdog40b5csv0492yfgu6b8mcx7r0dc.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/p/l/e/0pleetopssstdog40b5csv0492yfgu6b8mcx7r0dc.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/p/l/e/0pleetopssstdog40b5csv0492yfgu6b8mcx7r0dc.jpg"
+            },
+            {
+              "id": 71973538,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/1/7/j/z/17jzom7gyfglo48xzng88bjwputyy71jw6d38uk68.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/1/7/j/z/17jzom7gyfglo48xzng88bjwputyy71jw6d38uk68.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/1/7/j/z/17jzom7gyfglo48xzng88bjwputyy71jw6d38uk68.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/1/7/j/z/17jzom7gyfglo48xzng88bjwputyy71jw6d38uk68.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/1/7/j/z/17jzom7gyfglo48xzng88bjwputyy71jw6d38uk68.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/1/7/j/z/17jzom7gyfglo48xzng88bjwputyy71jw6d38uk68.jpg"
+            },
+            {
+              "id": 71973670,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/g/0/n/0g0ngrxdwlofp5tf6cg89hs3r3mmx5vgnnfowruzk.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/g/0/n/0g0ngrxdwlofp5tf6cg89hs3r3mmx5vgnnfowruzk.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/g/0/n/0g0ngrxdwlofp5tf6cg89hs3r3mmx5vgnnfowruzk.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/g/0/n/0g0ngrxdwlofp5tf6cg89hs3r3mmx5vgnnfowruzk.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/g/0/n/0g0ngrxdwlofp5tf6cg89hs3r3mmx5vgnnfowruzk.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/g/0/n/0g0ngrxdwlofp5tf6cg89hs3r3mmx5vgnnfowruzk.jpg"
+            },
+            {
+              "id": 71973550,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/l/1/h/0l1h7b3v8ibq9a0glrbuqiud4mah6l80a2wma77vk.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/l/1/h/0l1h7b3v8ibq9a0glrbuqiud4mah6l80a2wma77vk.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/l/1/h/0l1h7b3v8ibq9a0glrbuqiud4mah6l80a2wma77vk.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/l/1/h/0l1h7b3v8ibq9a0glrbuqiud4mah6l80a2wma77vk.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/l/1/h/0l1h7b3v8ibq9a0glrbuqiud4mah6l80a2wma77vk.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/l/1/h/0l1h7b3v8ibq9a0glrbuqiud4mah6l80a2wma77vk.jpg"
+            },
+            {
+              "id": 71973648,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/h/y/5/0hy5sx7dcwj0mi3zk5jwncyz6qcix3rw2kijyy6xs.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/h/y/5/0hy5sx7dcwj0mi3zk5jwncyz6qcix3rw2kijyy6xs.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/h/y/5/0hy5sx7dcwj0mi3zk5jwncyz6qcix3rw2kijyy6xs.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/h/y/5/0hy5sx7dcwj0mi3zk5jwncyz6qcix3rw2kijyy6xs.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/h/y/5/0hy5sx7dcwj0mi3zk5jwncyz6qcix3rw2kijyy6xs.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/h/y/5/0hy5sx7dcwj0mi3zk5jwncyz6qcix3rw2kijyy6xs.jpg"
+            },
+            {
+              "id": 71973658,
+              "isHorizontal": true,
+              "descriptiveFr": null,
+              "defaultUrl": "https://v.seloger.com/s/width/800/visuels/0/l/v/j/0lvj8zbrmeqhad2eiqr3p121puo3a1m7fz8fxso0w.jpg",
+              "squareUrl": "https://v.seloger.com/s/crop/200x200/visuels/0/l/v/j/0lvj8zbrmeqhad2eiqr3p121puo3a1m7fz8fxso0w.jpg",
+              "squareLargeUrl": "https://v.seloger.com/s/crop/414x414/visuels/0/l/v/j/0lvj8zbrmeqhad2eiqr3p121puo3a1m7fz8fxso0w.jpg",
+              "mobileUrl": "https://v.seloger.com/s/width/600/visuels/0/l/v/j/0lvj8zbrmeqhad2eiqr3p121puo3a1m7fz8fxso0w.jpg",
+              "originalUrl": "https://v.seloger.com/s/cdn/x/visuels/0/l/v/j/0lvj8zbrmeqhad2eiqr3p121puo3a1m7fz8fxso0w.jpg",
+              "photoDescriptionTags": null,
+              "lowResolutionUrl": "https://v.seloger.com/s/width/400/visuels/0/l/v/j/0lvj8zbrmeqhad2eiqr3p121puo3a1m7fz8fxso0w.jpg"
+            }
+          ],
+          "totalPhotoCount": 8,
+          "videoUrl": null,
+          "visit3DUrl": "https://youtu.be/HVzxVaCpPu8"
+        },
+        "businessUnitType": "SL",
+        "seoLinkBox": {
+          "commodityList": [
+            {
+              "url": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-2-chambres/",
+              "text": "Achat appartement 2 chambres Bordeaux"
+            },
+            {
+              "url": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-3-pieces/",
+              "text": "Achat appartement 3 pièces à Bordeaux"
+            }
+          ]
+        },
+        "seoTitle": "Vente Appartement 3 pièces Bordeaux - Appartement F3/T3/3 pièces 66 m² 356000€",
+        "title": "Vente Appartement 3 pièces Bordeaux - Appartement F3/T3/3 pièces 66 m² 356000€",
+        "mainTitle": "Appartement à vendre",
+        "featuresPopupTitle": "appartement",
+        "shortDescription": "BORDEAUX - JUDAÏQUE. L'agence GRANGE-DELMAS vous propose à la vente ce charmant appartement situé au 1er étage d'un petit immeuble pierre, proche de la place Gambetta. \nIl se compose d'une entrée ouvrant sur une agréable pièce de vie baignée de",
+        "featureCategories": {
+          "header": {
+            "title": null,
+            "features": [
+              {
+                "name": "room",
+                "title": "3 pièces",
+                "visibleInMainView": false
+              },
+              {
+                "name": "bedroom",
+                "title": "2 chambres",
+                "visibleInMainView": false
+              },
+              {
+                "name": "livingspace",
+                "title": "66 m²",
+                "visibleInMainView": false
+              },
+              {
+                "name": "floor",
+                "title": "Étage 1/2",
+                "visibleInMainView": false
+              }
+            ]
+          },
+          "general": null,
+          "outside": null,
+          "situation": null,
+          "additionalSurface": null,
+          "serviceAndAccessibility": {
+            "title": "Services et accessibilité",
+            "features": [
+              {
+                "name": "elevator",
+                "title": "Ascenseur : non communiqué",
+                "visibleInMainView": true
+              }
+            ]
+          },
+          "kitchen": null,
+          "hygiene": null,
+          "livingSpace": {
+            "title": "Pièces à vivre",
+            "features": [
+              {
+                "name": "entrance",
+                "title": "Entrée séparée",
+                "visibleInMainView": false
+              }
+            ]
+          },
+          "heating": {
+            "title": "Chauffage",
+            "features": [
+              {
+                "name": "heatingtype",
+                "title": "Chauffage : non communiqué",
+                "visibleInMainView": false
+              }
+            ]
+          }
+        },
+        "yearOfConstruction": null,
+        "transport": null
+      },
+      "listingBreadcrumb": {
+        "breadcrumb": [
+          {
+            "label": "Immobilier",
+            "link": "https://www.seloger.com"
+          },
+          {
+            "label": "Annonces",
+            "link": "https://www.seloger.com/immobilier/"
+          },
+          {
+            "label": "Appartement 2 chambres Aquitaine à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/bien-appartement/type-2-chambres/aquitaine.htm"
+          },
+          {
+            "label": "Appartement 2 chambres Gironde à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/33/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Appartement 2 chambres Bordeaux à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Appartement 2 chambres Hôtel de Ville-Quinconce-Saint Seurin-Fondaudège à vendre",
+            "link": "https://www.seloger.com/immobilier/achat/immo-bordeaux-33/quartier-hotel-de-ville-quinconce-saint-seurin-fondaudege/bien-appartement/type-2-chambres/"
+          },
+          {
+            "label": "Vente Appartement 3 pièces 66 m² Bordeaux - Hôtel de Ville-Quinconce-Saint Seurin-Fondaudège",
+            "link": null
+          }
+        ]
+      },
+      "url": {
+        "value": "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/232628697.htm",
+        "businessUnitType": "SL",
+        "nature": 1
+      },
+      "earlyAccess": null
     },
-    "legalNotice": {
-      "socialReason": null,
-      "shareCapital": 0,
-      "professionalCardNumber": null,
-      "professionalCardPrefecture": null,
-      "financialGuaranteeFund": null,
-      "financialGuaranteeAmount": null,
-      "headquarterAddress": null,
-      "rcsSiren": "377775135",
-      "isIndividual": false,
-      "legalForm": null
+    "agency": {
+      "id": 3088,
+      "idRcu": "RC-035271",
+      "name": "Grange Delmas Immobilier",
+      "professionType": "Agences immobilières",
+      "address": "143 rue Georges Mandel \r\n33000 Bordeaux",
+      "logo": "https://v.seloger.com/s/width/150/logos/1/i/8/7/1i870528o8j063099u4r7sk9gqvgr35b1ur2ejaez.jpg",
+      "organisationLogo": "//static.poliris.com/z/portail/svx/portals/sv6_annonces/images/logo_fnaim_60.gif",
+      "description": "GRANGE- DELMAS IMMOBILIER Achats Ventes Maisons,échoppes,  hôtels particuliers et appartements de standing.\r\nBordeaux Rive Gauche et proche banlieue résidentielle.\r\nAgence connue pour son sérieux et son efficacité depuis 1963.\r\nEquipe dynamique renforcée par l'arrivée de la nouvelle génération....\r\n",
+      "tierId": 13492,
+      "feesUrl": null,
+      "websiteUrl": "http://www.grange-immobilier.fr/",
+      "profilPageUrl": "/professionnels/agences-immobilieres/bordeaux-33000/agence-48208/",
+      "phoneNumber": "05 56 24 33 00",
+      "contactHidden": false,
+      "rating": {
+        "rating": null,
+        "reviewCount": 0,
+        "reviewUrl": null
+      },
+      "legalNotice": {
+        "socialReason": "GRANGE-DELMAS IMMOBILIER",
+        "shareCapital": 10000,
+        "professionalCardNumber": "63.504",
+        "professionalCardPrefecture": "préfecture de la gironde",
+        "financialGuaranteeFund": "CGAIM",
+        "financialGuaranteeAmount": 120000,
+        "headquarterAddress": "143 rue Georges Mandel 33000 BORDEAUX FRANCE",
+        "rcsSiren": "479903130",
+        "isIndividual": false,
+        "legalForm": "SARL"
+      }
     }
   }
-}
+]
