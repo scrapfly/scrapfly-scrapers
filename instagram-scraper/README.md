@@ -30,7 +30,7 @@ This Instagram.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi
 2. Clone and install Python environment:
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
-    $ cd scrapfly-scrapers/crunchbase-scraper
+    $ cd scrapfly-scrapers/instagram-scraper
     $ poetry install
     ```
 3. Run example scrape:
@@ -44,6 +44,5 @@ This Instagram.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi
     # or specific scraping areas
     $ poetry run pytest test.py -k test_user_scraping
     $ poetry run pytest test.py -k test_post_scraping
-    $ poetry run pytest test.py -k test_user_post_scraping
     ```
 
