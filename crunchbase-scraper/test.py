@@ -41,10 +41,10 @@ async def test_company_scraping():
                 "name": {"type": "string"},
                 "description": {"type": "string"},
                 "linkedin": {"type": "string", "nullable": True, "regex": r"https*://www.linkedin.com/company/.+?"},
-                "twitter": {"type": "string", "nullable": True, "regex": r"https://(?:www\.)?twitter.com/.+?"},
+                "twitter": {"type": "string", "nullable": True, "regex": r"https://(?:www\.)?x.com/.+?"},
                 "facebook": {"type": "string", "nullable": True, "regex": r"https://www.facebook.com/.+?"},
                 "email": {"type": "string", "nullable": True, "regex": r".+?@.+?"},
-                "phone": {"type": "string", "nullable": True, "regex": r"[\d-]+?"},
+                "phone": {"type": "string", "nullable": True, "regex": r"^\+?[\d\s-]+$"},
                 "website": {"type": "string", "nullable": True, "regex": r"https*://.+?"},
                 "categories": {"type": "list", "schema": {"type": "string"}},
                 "investments": {
