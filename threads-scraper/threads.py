@@ -88,11 +88,13 @@ async def scrape_thread(url: str) -> Dict:
             break
     else:
         raise Exception('encountered endless login requirement redirect loop - does the post exist?')
+
+    if 'error=invalid_post' in result.context['url']:
+        log.debug('post not found or deleted: {}', url)
+        return {}
+
     hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
     for hidden_dataset in hidden_datasets:
-        if 'error=invalid_post' in result.context['url']:
-            log.debug('post not found or deleted: {}', url)
-            return {}
         # skip loading datasets that clearly don't contain threads data
         if '"ScheduledServerJS"' not in hidden_dataset:
             continue
