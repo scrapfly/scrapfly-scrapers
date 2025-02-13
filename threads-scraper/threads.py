@@ -84,6 +84,8 @@ async def scrape_thread(url: str) -> Dict:
         result = await SCRAPFLY.async_scrape(
             ScrapeConfig(url, **BASE_CONFIG)
         )
+        if 'error=invalid_post' in result.context['url']:
+            raise Exception('Post not found or may have been deleted. Please verify if the post is accessible in an incognito window.')
         if '/accounts/login' not in result.context['url']:
             break
     else:
