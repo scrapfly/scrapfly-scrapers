@@ -84,14 +84,16 @@ async def scrape_thread(url: str) -> Dict:
         result = await SCRAPFLY.async_scrape(
             ScrapeConfig(url, **BASE_CONFIG)
         )
-        if 'error=invalid_post' in result.context['url']:
-            raise Exception('Post not found or may have been deleted. Please verify if the post is accessible in an incognito window.')
         if '/accounts/login' not in result.context['url']:
             break
+
     else:
         raise Exception('encountered endless login requirement redirect loop - does the post exist?')
     hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
     for hidden_dataset in hidden_datasets:
+        if 'error=invalid_post' in result.context['url']:
+            log.debug('post not found or deleted: {}', url)
+            return {}
         # skip loading datasets that clearly don't contain threads data
         if '"ScheduledServerJS"' not in hidden_dataset:
             continue
