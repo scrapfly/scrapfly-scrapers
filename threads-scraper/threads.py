@@ -86,7 +86,6 @@ async def scrape_thread(url: str) -> Dict:
         )
         if '/accounts/login' not in result.context['url']:
             break
-
     else:
         raise Exception('encountered endless login requirement redirect loop - does the post exist?')
     hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
