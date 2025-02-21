@@ -6,6 +6,7 @@ To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 from pathlib import Path
+from loguru import logger as log
 import asyncio
 import json
 import instagram
@@ -30,10 +31,11 @@ async def run():
     post_multi_image = await instagram.scrape_post("https://www.instagram.com/p/Csthn7EO99u/")
     output.joinpath("multi-image-post.json").write_text(json.dumps(post_multi_image, indent=2, ensure_ascii=False), encoding='utf-8')
 
-    # 1067259270 is the user id of @google (see the result of the scrape_user function)
+    # scrape_user_posts requires the profile username
     posts_all = []
-    async for post in instagram.scrape_user_posts("1067259270", max_pages=3):
+    async for post in instagram.scrape_user_posts("google", max_pages=3):
         posts_all.append(post)
+    log.success("scraped {} posts", len(posts_all))
     output.joinpath("all-user-posts.json").write_text(json.dumps(posts_all, indent=2, ensure_ascii=False), encoding='utf-8')
 
 

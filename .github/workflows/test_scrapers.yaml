@@ -196,6 +196,8 @@ jobs:
             test: test_user_scraping
           - project_dir: instagram-scraper
             test: test_post_scraping
+          - project_dir: instagram-scraper
+            test: test_user_post_scraping
           - project_dir: homegate-scraper
             test: test_search_scraping
           - project_dir: homegate-scraper

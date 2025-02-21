@@ -23,7 +23,7 @@ BASE_CONFIG = {
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
 INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
-
+INSTAGRAM_ACCOUNT_DOCUMENT_ID = "9310670392322965"
 
 def parse_user(data: Dict) -> Dict:
     """Reduce the user data to the relevant fields"""
@@ -204,32 +204,85 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
     return parse_post(data["data"]["xdt_shortcode_media"])
 
 
-async def scrape_user_posts(user_id: str, page_size=24, max_pages: Optional[int] = None):
-    """Scrape all posts of an instagram user of given numeric user id"""
-    base_url = "https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables="
+def parse_user_posts(data: Dict) -> Dict:
+    """Reduce users posts' dataset to the most important fields"""
+    log.debug("parsing post data {}", data["code"])
+    result = jmespath.search(
+        """{
+        id: id,
+        shortcode: code,
+        caption: caption,
+        taken_at: taken_at,
+        video_versions: video_versions,
+        image_versions2: image_versions2,
+        original_height: original_height,
+        original_width: original_width,
+        link: link,
+        title: title,
+        comment_count: comment_count,
+        top_likers: top_likers,
+        like_count: like_count,
+        usertags: usertags,
+        clips_metadata: clips_metadata,
+        comments: comments
+    }""",
+        data,
+    )
+
+    return result
+
+
+async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int] = None):
+    """Scrape all posts of an instagram user of given the username"""
+    base_url = "https://www.instagram.com/graphql/query"
     variables = {
-        "id": user_id,
-        "first": page_size,
         "after": None,
+        "before": None,
+        "data": {
+            "count": page_size,
+            "include_reel_media_seen_timestamp": True,
+            "include_relationship_info": True,
+            "latest_besties_reel_media": True,
+            "latest_reel_media": True
+        },
+        "first": page_size,
+        "last": None,
+        "username": f"{username}",
+        "__relay_internal__pv__PolarisIsLoggedInrelayprovider": True,
+        "__relay_internal__pv__PolarisShareSheetV3relayprovider": True
     }
+
+    prev_cursor = None
     _page_number = 1
+
     while True:
-        url = base_url + quote(json.dumps(variables))
-        result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+        body = f"variables={quote(json.dumps(variables, separators=(',', ':')))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
+
+        result = await SCRAPFLY.async_scrape(ScrapeConfig(
+            base_url, **BASE_CONFIG, method="POST", body=body,
+            headers={"content-type": "application/x-www-form-urlencoded"},
+        ))
+
         data = json.loads(result.content)
-        posts = data["data"]["user"]["edge_owner_to_timeline_media"]
+
+        with open("ts2.json", "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        posts = data["data"]["xdt_api__v1__feed__user_timeline_graphql_connection"]
         for post in posts["edges"]:
-            yield parse_post(post["node"])
+            yield parse_user_posts(post["node"])
+
         page_info = posts["page_info"]
-        if _page_number == 1:
-            log.info(f"scraping total {posts['count']} posts of {user_id}")
-        else:
-            log.info(f"scraping posts page {_page_number}")
         if not page_info["has_next_page"]:
+            log.info(f"scraping posts page {_page_number}")
             break
-        if variables["after"] == page_info["end_cursor"]:
+
+        if page_info["end_cursor"] == prev_cursor:
+            log.warning("found no new posts, breaking")
             break
+
+        prev_cursor = page_info["end_cursor"] 
         variables["after"] = page_info["end_cursor"]
         _page_number += 1
+
         if max_pages and _page_number > max_pages:
             break
