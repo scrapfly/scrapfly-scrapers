@@ -90,3 +90,8 @@ async def test_user_post_scraping():
         validate_or_fail(post, validator)
 
     assert len(posts_all) > 12
+
+
+if __name__ == '__main__':
+    import asyncio
+    asyncio.run(test_user_scraping())

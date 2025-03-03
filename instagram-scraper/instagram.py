@@ -8,11 +8,12 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import os
 from typing import Dict, Optional
-from urllib.parse import quote
-
+from urllib.parse import quote, urlencode
+import ipdb
 import jmespath
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient
+
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -22,7 +23,7 @@ BASE_CONFIG = {
     "country": "CA",  # change country for relevant results
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
-INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
+INSTAGRAM_DOCUMENT_ID = "7950326061742207" # constant id for post documents instagram.com
 INSTAGRAM_ACCOUNT_DOCUMENT_ID = "9310670392322965"
 
 def parse_user(data: Dict) -> Dict:
@@ -173,7 +174,8 @@ def parse_post(data: Dict) -> Dict:
     )
     comments_data = parse_comments(data)
     result.update(comments_data)
-
+    if result["is_video"]:
+        ipdb.set_trace()
     return result
 
 
@@ -199,7 +201,7 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
             **BASE_CONFIG
         )
     )
-    
+
     data = json.loads(result.content)
     return parse_post(data["data"]["xdt_shortcode_media"])
 
@@ -234,22 +236,22 @@ def parse_user_posts(data: Dict) -> Dict:
 
 async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int] = None):
     """Scrape all posts of an instagram user of given the username"""
-    base_url = "https://www.instagram.com/graphql/query"
+    base_url = "https://www.instagram.com/graphql/query/"
     variables = {
         "after": None,
         "before": None,
-        "data": {
-            "count": page_size,
-            "include_reel_media_seen_timestamp": True,
-            "include_relationship_info": True,
-            "latest_besties_reel_media": True,
-            "latest_reel_media": True
-        },
+        # "data": {
+        #     "count": page_size,
+        #     "include_reel_media_seen_timestamp": True,
+        #     "include_relationship_info": True,
+        #     "latest_besties_reel_media": True,
+        #     "latest_reel_media": True
+        # },
         "first": page_size,
         "last": None,
-        "username": f"{username}",
-        "__relay_internal__pv__PolarisIsLoggedInrelayprovider": True,
-        "__relay_internal__pv__PolarisShareSheetV3relayprovider": True
+        # "username": f"{username}",
+        # "__relay_internal__pv__PolarisIsLoggedInrelayprovider": True,
+        # "__relay_internal__pv__PolarisShareSheetV3relayprovider": True
     }
 
     prev_cursor = None
@@ -257,9 +259,15 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
 
     while True:
         body = f"variables={quote(json.dumps(variables, separators=(',', ':')))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
+        params = {
+            "doc_id": INSTAGRAM_ACCOUNT_DOCUMENT_ID,  # e.g., "7950326061742207"
+            "variables": json.dumps(variables, separators=(",", ":"))
+        }
 
+        # Build the final URL by appending the query string to the base URL
+        final_url = f"{base_url}?{urlencode(params)}"
         result = await SCRAPFLY.async_scrape(ScrapeConfig(
-            base_url, **BASE_CONFIG, method="POST", body=body,
+            final_url, **BASE_CONFIG, method="GET",
             headers={"content-type": "application/x-www-form-urlencoded"},
         ))
 
@@ -267,7 +275,9 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
 
         with open("ts2.json", "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        posts = data["data"]["xdt_api__v1__feed__user_timeline_graphql_connection"]
+        
+        ipdb.set_trace()
+        posts = data["data"]["edge_owner_to_timeline_media"]
         for post in posts["edges"]:
             yield parse_user_posts(post["node"])
 
