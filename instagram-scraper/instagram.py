@@ -8,11 +8,11 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import os
 from typing import Dict, Optional
-from urllib.parse import quote
-
+from urllib.parse import quote, urlencode
 import jmespath
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient
+
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -96,7 +96,9 @@ async def scrape_user(username: str) -> Dict:
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=f"https://i.instagram.com/api/v1/users/web_profile_info/?username={username}",
-            headers={"x-ig-app-id": INSTAGRAM_APP_ID},
+            headers={
+                "x-ig-app-id": INSTAGRAM_APP_ID,
+                },
             **BASE_CONFIG,
         )
     )
@@ -184,10 +186,10 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
     else:
         shortcode = url_or_shortcode
     log.info("scraping instagram post: {}", shortcode)
-    variables = quote(json.dumps({
+    variables = json.dumps({
         'shortcode':shortcode,'fetch_tagged_user_count':None,
         'hoisted_comment_id':None,'hoisted_reply_id':None
-    }, separators=(',', ':')))
+    }, separators=(',', ':'))
     body = f"variables={variables}&doc_id={INSTAGRAM_DOCUMENT_ID}"
     url = "https://www.instagram.com/graphql/query"
     result = await SCRAPFLY.async_scrape(
@@ -195,11 +197,13 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
             url=url,
             method="POST",
             body=body,
-            headers={"content-type": "application/x-www-form-urlencoded"},
+           headers={
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
             **BASE_CONFIG
         )
     )
-    
+
     data = json.loads(result.content)
     return parse_post(data["data"]["xdt_shortcode_media"])
 
@@ -234,7 +238,7 @@ def parse_user_posts(data: Dict) -> Dict:
 
 async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int] = None):
     """Scrape all posts of an instagram user of given the username"""
-    base_url = "https://www.instagram.com/graphql/query"
+    base_url = "https://www.instagram.com/graphql/query/"
     variables = {
         "after": None,
         "before": None,
@@ -256,17 +260,24 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
     _page_number = 1
 
     while True:
-        body = f"variables={quote(json.dumps(variables, separators=(',', ':')))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
+        body = f"variables={json.dumps(variables, separators=(',', ':'))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
+        params = {
+            "doc_id": INSTAGRAM_ACCOUNT_DOCUMENT_ID,  # e.g., "7950326061742207"
+            "variables": json.dumps(variables, separators=(",", ":"))
+        }
 
+        # Build the final URL by appending the query string to the base URL
+        final_url = f"{base_url}?{urlencode(params)}"
         result = await SCRAPFLY.async_scrape(ScrapeConfig(
-            base_url, **BASE_CONFIG, method="POST", body=body,
+            final_url, **BASE_CONFIG, method="GET",
             headers={"content-type": "application/x-www-form-urlencoded"},
         ))
 
         data = json.loads(result.content)
-
+        
         with open("ts2.json", "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
+        
         posts = data["data"]["xdt_api__v1__feed__user_timeline_graphql_connection"]
         for post in posts["edges"]:
             yield parse_user_posts(post["node"])

@@ -72,7 +72,7 @@ async def test_user_post_scraping():
             "type": "dict",
             "schema": {
                 "created_at": {"type": "integer"},
-                "text": {"type": "integer"},
+                "text": {"type": "string"},
                 "pk": {"type": "string"}
             },
         },
@@ -90,3 +90,4 @@ async def test_user_post_scraping():
         validate_or_fail(post, validator)
 
     assert len(posts_all) > 12
+    
