@@ -9,7 +9,6 @@ import json
 import os
 from typing import Dict, Optional
 from urllib.parse import quote, urlencode
-import ipdb
 import jmespath
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient
