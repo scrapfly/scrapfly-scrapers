@@ -98,7 +98,6 @@ async def scrape_user(username: str) -> Dict:
             url=f"https://i.instagram.com/api/v1/users/web_profile_info/?username={username}",
             headers={
                 "x-ig-app-id": INSTAGRAM_APP_ID,
-                "x-ig-www-claim": 0,
                 },
             **BASE_CONFIG,
         )
@@ -176,8 +175,7 @@ def parse_post(data: Dict) -> Dict:
     )
     comments_data = parse_comments(data)
     result.update(comments_data)
-    if result["is_video"]:
-        ipdb.set_trace()
+
     return result
 
 
