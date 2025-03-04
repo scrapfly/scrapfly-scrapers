@@ -23,7 +23,7 @@ BASE_CONFIG = {
     "country": "CA",  # change country for relevant results
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
-INSTAGRAM_DOCUMENT_ID = "7950326061742207" # constant id for post documents instagram.com
+INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
 INSTAGRAM_ACCOUNT_DOCUMENT_ID = "9310670392322965"
 
 def parse_user(data: Dict) -> Dict:
@@ -97,7 +97,10 @@ async def scrape_user(username: str) -> Dict:
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=f"https://i.instagram.com/api/v1/users/web_profile_info/?username={username}",
-            headers={"x-ig-app-id": INSTAGRAM_APP_ID},
+            headers={
+                "x-ig-app-id": INSTAGRAM_APP_ID,
+                "x-ig-www-claim": 0,
+                },
             **BASE_CONFIG,
         )
     )
@@ -186,10 +189,10 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
     else:
         shortcode = url_or_shortcode
     log.info("scraping instagram post: {}", shortcode)
-    variables = quote(json.dumps({
+    variables = json.dumps({
         'shortcode':shortcode,'fetch_tagged_user_count':None,
         'hoisted_comment_id':None,'hoisted_reply_id':None
-    }, separators=(',', ':')))
+    }, separators=(',', ':'))
     body = f"variables={variables}&doc_id={INSTAGRAM_DOCUMENT_ID}"
     url = "https://www.instagram.com/graphql/query"
     result = await SCRAPFLY.async_scrape(
@@ -197,7 +200,9 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
             url=url,
             method="POST",
             body=body,
-            headers={"content-type": "application/x-www-form-urlencoded"},
+           headers={
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
             **BASE_CONFIG
         )
     )
@@ -240,25 +245,25 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
     variables = {
         "after": None,
         "before": None,
-        # "data": {
-        #     "count": page_size,
-        #     "include_reel_media_seen_timestamp": True,
-        #     "include_relationship_info": True,
-        #     "latest_besties_reel_media": True,
-        #     "latest_reel_media": True
-        # },
+        "data": {
+            "count": page_size,
+            "include_reel_media_seen_timestamp": True,
+            "include_relationship_info": True,
+            "latest_besties_reel_media": True,
+            "latest_reel_media": True
+        },
         "first": page_size,
         "last": None,
-        # "username": f"{username}",
-        # "__relay_internal__pv__PolarisIsLoggedInrelayprovider": True,
-        # "__relay_internal__pv__PolarisShareSheetV3relayprovider": True
+        "username": f"{username}",
+        "__relay_internal__pv__PolarisIsLoggedInrelayprovider": True,
+        "__relay_internal__pv__PolarisShareSheetV3relayprovider": True
     }
 
     prev_cursor = None
     _page_number = 1
 
     while True:
-        body = f"variables={quote(json.dumps(variables, separators=(',', ':')))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
+        body = f"variables={json.dumps(variables, separators=(',', ':'))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
         params = {
             "doc_id": INSTAGRAM_ACCOUNT_DOCUMENT_ID,  # e.g., "7950326061742207"
             "variables": json.dumps(variables, separators=(",", ":"))
@@ -272,12 +277,11 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
         ))
 
         data = json.loads(result.content)
-
+        
         with open("ts2.json", "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
         
-        ipdb.set_trace()
-        posts = data["data"]["edge_owner_to_timeline_media"]
+        posts = data["data"]["xdt_api__v1__feed__user_timeline_graphql_connection"]
         for post in posts["edges"]:
             yield parse_user_posts(post["node"])
 
