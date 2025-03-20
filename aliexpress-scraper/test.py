@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import pytest
 
@@ -6,9 +9,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-# enable cache?
-# aliexpress.BASE_CONFIG["cache"] = True
-
+aliexpress.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 def validate_or_fail(item, validator):
     if not validator.validate(item):
@@ -116,6 +117,8 @@ async def test_product_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/product.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -135,6 +138,8 @@ async def test_search_scraping():
     validator = Validator(schema, allow_unknown=True)
     for product in result:
         validate_or_fail(product, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -144,3 +149,5 @@ async def test_review_scraping():
     assert len(result["reviews"]) > 30
     validator = Validator(review_schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/reviews.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
