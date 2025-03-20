@@ -111,16 +111,16 @@ class Review(TypedDict):
 
 def parse_reviews(result: ScrapeApiResponse) -> List[Review]:
     """parse review from single review page"""
-    review_boxes = result.selector.css("#cm_cr-review_list div.review")
+    review_boxes = result.selector.css("#cm-cr-dp-review-list li.review")
     parsed = []
     for box in review_boxes:
-        rating = box.css("*[data-hook*=review-star-rating] ::text").re_first(r"(\d+\.*\d*) out")
+        rating = box.css("[data-hook=review-star-rating] ::text").re_first(r"(\d+\.*\d*) out")
         parsed.append(
             {
-                "text": "".join(box.css("span[data-hook=review-body] ::text").getall()).strip(),
+                "text": "".join(box.css("[data-hook=review-collapsed] ::text").getall()).strip(),
                 "title": box.css("*[data-hook=review-title]>span::text").get(),
                 "location_and_date": box.css("span[data-hook=review-date] ::text").get(),
-                "verified": bool(box.css("span[data-hook=avp-badge] ::text").get()),
+                "verified": bool(box.css("span[data-hook=avp-badge-linkless] ::text").get()),
                 "rating": float(rating) if rating else None,
             }
         )
@@ -131,34 +131,9 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Revi
     """scrape product reviews of a given URL of an amazon product"""
     if max_pages > 10:
         raise ValueError("max_pages cannot be greater than 10 as Amazon paging stops at 10 pages. Try splitting search through multiple filters and sorting to get more results")
-    url = url.split("/ref=")[0]
-    url = _add_or_replace_url_parameters(url, pageSize=20)  # Amazon.com allows max 20 reviews per page
-    asin = url.split("/product-reviews/")[1].split("/")[0]
-    # scrape first review page
     log.info(f"scraping review page: {url}")
-    first_page_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    reviews = parse_reviews(first_page_result)
-
-    # find total reviews
-    total_reviews = first_page_result.selector.css("div[data-hook=cr-filter-info-review-rating-count] ::text").re(
-        r"(\d+,*\d*)"
-    )[1]
-    total_reviews = int(total_reviews.replace(",", ""))
-    _reviews_per_page = len(reviews)
-
-    total_pages = int(math.ceil(total_reviews / _reviews_per_page))
-    if max_pages and total_pages > max_pages:
-        total_pages = max_pages
-
-    log.info(f"found total {total_reviews} reviews across {total_pages} pages -> scraping")
-    other_pages = []
-    for page in range(2, total_pages + 1):
-        url = f"https://www.amazon.com/product-reviews/{asin}/ref=cm_cr_getr_d_paging_btm_next_{page}?pageNumber={page}&pageSize={_reviews_per_page}"
-        other_pages.append(ScrapeConfig(url, **BASE_CONFIG))
-    async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        page_reviews = parse_reviews(result)
-        reviews.extend(page_reviews)
-    log.info(f"scraped total {len(reviews)} reviews")
+    api_response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    reviews = parse_reviews(api_response)
     return reviews
 
 
@@ -180,14 +155,11 @@ def parse_product(result) -> Product:
     """parse Amazon's product page (e.g. https://www.amazon.com/dp/B07KR2N2GF) for essential product data"""
     # images are stored in javascript state data found in the html
     # for this we can use a simple regex pattern that can be in one of those locations:
-    color_images = re.findall(r"colorImages':.*'initial':\s*(\[.+?\])},\n", result.content)
-    image_gallery = re.findall(r"imageGalleryData'\s*:\s*(\[.+\]),\n", result.content)
-    if color_images:
+    images = []
+    if color_images := re.findall(r"colorImages':.*'initial':\s*(\[.+?\])},\n", result.content):
         images = [img['large'] for img in json.loads(color_images[0])]
-    elif image_gallery:
+    if image_gallery := re.findall(r"imageGalleryData'\s*:\s*(\[.+\]),\n", result.content):
         images = [img['mainUrl'] for img in json.loads(image_gallery[0])]
-    else:
-        log.debug(f"no images found for {result.context['url']}")
 
     # the other fields can be extracted with simple css selectors
     # we can define our helper functions to keep our code clean
@@ -195,7 +167,7 @@ def parse_product(result) -> Product:
     parsed = {
         "name": sel.css("#productTitle::text").get("").strip(),
         "asin": sel.css("input[name=ASIN]::attr(value)").get("").strip(),
-        "style": sel.xpath("//span[@class='selection']/text()").get("").strip(),
+        "style": ''.join(sel.xpath("//span[contains(@id, 'style_name_')]//text()").getall()).strip(),
         "description": '\n'.join(sel.css("#productDescription p span ::text").getall()).strip(),
         "stars": sel.css("i[data-hook=average-star-rating] ::text").get("").strip(),
         "rating_count": sel.css("span[data-hook=total-review-count] ::text").get("").strip(),
@@ -223,7 +195,10 @@ async def scrape_product(url: str) -> List[Product]:
     asin = url.split("/dp/")[-1]
     log.info(f"scraping product {url}")
     product_result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, wait_for_selector="#productDetails_detailBullets_sections1 tr"
+        url, 
+        **BASE_CONFIG, 
+        render_js=True, 
+        wait_for_selector="#productDetails_detailBullets_sections1 tr",
     ))
     variants = [parse_product(product_result)]
 

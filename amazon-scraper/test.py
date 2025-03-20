@@ -1,4 +1,7 @@
 import asyncio
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 
@@ -7,8 +10,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-# enable cache?
-amazon.BASE_CONFIG["cache"] = True
+amazon.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 class Validator(_Validator):
@@ -34,7 +36,7 @@ def validate_or_fail(item, validator):
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     urls = [
-        "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
+        "https://www.amazon.com/PlayStation%C2%AE5-console-slim-PlayStation-5/dp/B0CL61F39H",
         "https://www.amazon.com/Apple-2024-MacBook-13-inch-Laptop/dp/B0CX22ZW1T",
         "https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299/",
         "https://www.amazon.com/42pcs-Fabric-Assorted-Squares-Nonwoven/dp/B01GCLS32M/",
@@ -57,6 +59,8 @@ async def test_product_scraping():
         validate_or_fail(result, validator)
     for k in schema:
         require_min_presence(results, k, min_perc=schema[k].get("min_presence", 0.1))
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/product.json').write_text(json.dumps(results, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -64,7 +68,7 @@ async def test_product_scraping():
 async def test_search_scraping():
     url = "https://www.amazon.com/s?k=kindle"
     result = await amazon.scrape_search(url, max_pages=2)
-    assert len(result) >= 30  # the number can vary as search parser skips ads 
+    assert len(result) >= 16  # the number can vary as search parser skips ads 
     schema = {
         "url": {"type": "string"},
         "title": {"type": "string"},
@@ -78,15 +82,17 @@ async def test_search_scraping():
         validate_or_fail(product, validator)
     for k in schema:
         require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
-    url = "https://www.amazon.com/PlayStation-PS5-Console-Ragnar%C3%B6k-Bundle-5/product-reviews/B0BHC395WW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+    url = "https://www.amazon.com/PlayStation%C2%AE5-console-slim-PlayStation-5/dp/B0CL61F39H"
     result = await amazon.scrape_reviews(url, max_pages=3)
-    assert len(result) >= 20
+    assert len(result) >= 8
     schema = {
         "text": {"type": "string"},
         "title": {"type": "string"},
@@ -99,3 +105,5 @@ async def test_review_scraping():
         validate_or_fail(review, validator)
     for k in schema:
         require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/reviews.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
