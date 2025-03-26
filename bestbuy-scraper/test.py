@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import bestbuy
@@ -5,7 +8,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-bestbuy.BASE_CONFIG["cache"] = False
+bestbuy.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 class Validator(_Validator):
     def _validate_min_presence(self, min_presence, field, value):
@@ -58,13 +61,12 @@ review_schema = {
 search_schema = {
     "name": {"type": "string"},
     "link": {"type": "string"},
-    "image": {"type": "string"},
+    "images": {"type": "list", "schema": {"type": "string"}},
     "sku": {"type": "string"},
     "model": {"type": "string"},
-    "price": {"type": "integer"},
-    "original_price": {"type": "integer", "nullable": True},
-    "save": {"type": "string", "nullable": True},
-    "rating": {"type": "float", "nullable": True},
+    "price": {"type": "string", "regex": r"\d+\.\d{2}"},
+    "original_price": {"type": "string", "regex": r"\d+\.\d{2}", "nullable": True},
+    "rating": {"type": "string", "nullable": True, "regex": r"\d+\.*\d*"},
     "rating_count": {"type": "integer", "nullable": True},
 }
 
@@ -84,6 +86,8 @@ async def test_product_scraping():
     for item in product_data:
         validate_or_fail(item, validator)
     assert len(product_data) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/products.json').write_text(json.dumps(product_data, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -93,6 +97,8 @@ async def test_sitemap_scraping():
         url="https://sitemaps.bestbuy.com/sitemaps_promos.0000.xml.gz"
     )
     assert len(sitemap_data) > 100
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/promos.json').write_text(json.dumps(sitemap_data, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -105,6 +111,8 @@ async def test_review_scraping():
     for item in review_data:
         validate_or_fail(item, validator)
     assert len(review_data) >= 40
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/reviews.json').write_text(json.dumps(review_data, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -119,3 +127,5 @@ async def test_search_scraping():
         validate_or_fail(item, validator)
     for k in search_schema:
         require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))    
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(search_data, indent=2, ensure_ascii=False))

@@ -28,7 +28,7 @@ BASE_CONFIG = {
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
     # decode the .gz file
-    bytes_data = response.scrape_result['content'].getvalue()
+    bytes_data = response.scrape_result['content'].encode('latin1')
     xml = str(gzip.decompress(bytes_data), 'utf-8')
     selector = Selector(xml)
     data = []
@@ -111,37 +111,36 @@ def parse_search(response: ScrapeApiResponse):
     """parse search data from search pages"""
     selector = response.selector
     data = []
-    for item in selector.xpath("//ol[@class='sku-item-list']/li[@class='sku-item']"):
-        name = item.xpath(".//h4[@class='sku-title']/a/text()").get()
-        link = item.xpath(".//h4[@class='sku-title']/a/@href").get()
-        price = item.xpath(".//div[@data-testid='customer-price']/span/text()").get()
-        price = int(price[price.index("$") + 1:].replace(",", "").replace(".", "")) // 100 if price else None
-        original_price = item.xpath(".//div[@data-testid='regular-price']/span/text()").get()
-        original_price = int(original_price[original_price.index("$") + 1:].replace(",", "").replace(".", "")) // 100 if original_price else None
-        sku = item.xpath(".//div[@class='sku-model']/div[2]/span[@class='sku-value']/text()").get()
-        model = item.xpath(".//div[@class='sku-model']/div[1]/span[@class='sku-value']/text()").get()
-        rating = item.xpath(".//p[contains(text(),'out of 5')]/text()").get()
-        rating_count = item.xpath(".//span[contains(@class,'c-reviews')]/text()").get()
-        is_sold_out = bool(item.xpath(".//strong[text()='Sold Out']").get())
-        image = item.xpath(".//img[contains(@class,'product-image')]/@src").get()
+    for item in selector.css("#main-results .sku-item-list>li.sku-item"):
+        name = item.css(".sku-title a::text").get()
+        link = item.css(".sku-title a::attr(href)").get()
+        price = selector.css('[data-testid=customer-price]>span::text').re('\d+\.\d{2}')[0]
+        original_price = (selector.css('[data-testid=regular-price]>span::text').re('\d+\.\d{2}') or [None]) [0]
+        sku = item.xpath("@data-sku-id").get()
+        model = item.css(".sku-model .sku-value::text").get()
+        _rating_data = item.css(".ratings-reviews p::text")
+        rating = (_rating_data.re(r"\d+\.*\d*") or [None])[0]
+        rating_count = int((_rating_data.re('(\d+) reviews') or [0])[0])
+        images = item.css(".product-image::attr(src)").getall()
 
         data.append({
             "name": name,
             "link": "https://www.bestbuy.com" + link,
-            "image": image,
+            "images": images,
             "sku": sku,
             "model": model,
             "price": price,
             "original_price": original_price,
-            "save": f"{round((1 - price / original_price) * 100, 2):.2f}%" if price and original_price else None,
-            "rating": float(rating[rating.index(" "):rating.index(" out")].strip()) if rating else None,
-            "rating_count": int(rating_count.replace("(", "").replace(")", "").replace(",", "")) if rating_count and rating_count != "Not Yet Reviewed" else None,
-            "is_sold_out": is_sold_out,
+            "rating": rating,
+            "rating_count": rating_count,
         })
-    total_count = selector.xpath("//span[@class='item-count']/text()").get()
-    total_count = int(total_count.split(" ")[0]) // 18 # convert the total items to pages, 18 items in each page
+    if len(data):
+        _total_count = selector.css(".item-count::text").re('\d+')[0]
+        total_pages = int(_total_count) // len(data)
+    else:
+        total_pages = 1
 
-    return {"data": data, "total_count": total_count}
+    return {"data": data, "total_pages": total_pages}
 
 
 async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Best-Discount"] = None, max_pages=None):
@@ -151,27 +150,27 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         """form the search url"""
         base_url = "https://www.bestbuy.com/site/searchpage.jsp?"
         # search parameters
-        params = {
-            "st": quote_plus(search_query),
-            "sp": sort, # None = best match
-            "cp": page_number
-        }
+        params = {"st": quote_plus(search_query)}
+        if page_number > 1:
+            params["cp"] = page_number
+        if sort:
+            params["sp"] = sort
         return base_url + urlencode(params)
     
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(form_search_url(1), **BASE_CONFIG))
     data = parse_search(first_page)
     search_data = data["data"]
-    total_count = data["total_count"]
+    total_pages = data["total_pages"]
 
     # get the number of total search pages to scrape
-    if max_pages and max_pages < total_count:
-        total_count = max_pages
+    if max_pages and max_pages < total_pages:
+        total_pages = max_pages
 
-    log.info(f"scraping search pagination, {total_count - 1} more pages")
+    log.info(f"scraping search pagination, {total_pages - 1} more pages")
     # add the remaining pages to a scraping list to scrape them concurrently
     to_scrape = [
         ScrapeConfig(form_search_url(page_number), **BASE_CONFIG)
-        for page_number in range(2, total_count + 1)
+        for page_number in range(2, total_pages + 1)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_search(response)["data"]
