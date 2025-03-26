@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import bing
@@ -6,7 +9,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache
-bing.BASE_CONFIG["cache"] = False
+bing.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 class Validator(_Validator):
@@ -78,6 +81,8 @@ async def test_serp_scraping():
             serp_data, k, min_perc=serp_schema[k].get("min_presence", 0.1)
         )
     assert len(serp_data) >= 10
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/serps.json').write_text(json.dumps(serp_data, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -88,3 +93,5 @@ async def test_keyword_scraping():
     validate_or_fail(keyword_data, validator)
     assert len(keyword_data["FAQs"]) >= 1
     assert len(keyword_data["related_keywords"]) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/keywords.json').write_text(json.dumps(keyword_data, indent=2, ensure_ascii=False))
