@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 from cerberus import Validator
 import immoscout24
 import pytest
@@ -5,6 +7,7 @@ import pprint
 import json
 
 pp = pprint.PrettyPrinter(indent=4)
+immoscout24.BASE_CONFIG['cache'] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -160,24 +163,34 @@ async def test_properties_scraping():
     )
     urls = ["https://www.immoscout24.ch/rent/" + item["listing"]["id"] for item in search_data]
 
-    properties_data = await immoscout24.scrape_properties(
+    result = await immoscout24.scrape_properties(
         urls=urls[:4]
     )    
     validator = Validator(property_schema, allow_unknown=True)
-    for item in properties_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(properties_data) >= 1
+    assert len(result) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/properties.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    search_data = await immoscout24.scrape_search(
+    result = await immoscout24.scrape_search(
         url="https://www.immoscout24.ch/en/real-estate/rent/city-bern",
         scrape_all_pages=False,
         max_scrape_pages=2,
     )
     validator = Validator(search_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 2
+    assert len(result) >= 2
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
