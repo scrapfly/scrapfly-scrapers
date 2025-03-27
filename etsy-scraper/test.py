@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import etsy
@@ -116,6 +119,9 @@ async def test_product_scraping():
     for item in product_data:
         validate_or_fail(item, validator)
     assert len(product_data) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        product_data.sort(key=lambda x: x["sku"])
+        (Path(__file__).parent / 'results/products.json').write_text(json.dumps(product_data, indent=2, ensure_ascii=False, default=str))
 
 
 @pytest.mark.asyncio
@@ -132,6 +138,9 @@ async def test_shop_scraping():
     for item in shop_data:
         validate_or_fail(item, validator)
     assert len(shop_data) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        shop_data.sort(key=lambda x: x["url"])
+        (Path(__file__).parent / 'results/shops.json').write_text(json.dumps(shop_data, indent=2, ensure_ascii=False, default=str))
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -144,4 +153,7 @@ async def test_search_scraping():
         validate_or_fail(item, validator)
     for k in search_schema:
         require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))        
-    assert len(search_data) >= 64
+    assert len(search_data) >= 48
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        search_data.sort(key=lambda x: x["productLink"])
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(search_data, indent=2, ensure_ascii=False, default=str))

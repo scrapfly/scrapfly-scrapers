@@ -159,6 +159,7 @@ async def scrape_shop(urls: List[str]) -> List[Dict]:
     # scrape all the shop pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_shop_page(response)
+        data['url'] = response.context['url']
         shops.append(data)
     log.success(f"scraped {len(shops)} shops from shop pages")
     return shops
