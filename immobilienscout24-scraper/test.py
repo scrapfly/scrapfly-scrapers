@@ -1,9 +1,13 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import immobilienscout24
 import pytest
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
+immobilienscout24.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -250,24 +254,36 @@ async def test_properties_scraping():
     )
     urls = ["https://www.immobilienscout24.de/expose/" + i["@id"] for i in search_data]
 
-    properties_data = await immobilienscout24.scrape_properties(
+    result = await immobilienscout24.scrape_properties(
         urls=urls[:3]
     )
     validator = Validator(property_schema, allow_unknown=True)
-    for item in properties_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(properties_data) >= 1
+    assert len(result) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/properties.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
+
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    search_data = await immobilienscout24.scrape_search(
+    result = await immobilienscout24.scrape_search(
         url="https://www.immobilienscout24.de/Suche/de/bayern/muenchen/wohnung-mieten",
         scrape_all_pages=False,
         max_scrape_pages=3,
     )
     validator = Validator(search_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 1
+    assert len(result) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["@id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
+
