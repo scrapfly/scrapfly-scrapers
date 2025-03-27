@@ -1,4 +1,7 @@
 import asyncio
+import json
+import os
+from pathlib import Path
 import pytest
 import leboncoin
 import pprint
@@ -8,7 +11,7 @@ from cerberus import Validator
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache
-leboncoin.BASE_CONFIG["cache"] = False
+leboncoin.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -86,19 +89,24 @@ ad_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    search_data = await leboncoin.scrape_search(
+    result = await leboncoin.scrape_search(
         url="https://www.leboncoin.fr/recherche?text=coffe", max_pages=2, scrape_all_pages=False
     )
     validator = Validator(ad_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 2
+    assert len(result) >= 2
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["list_id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_ad_scraping():
-    data = []
+    result = []
     ads = await leboncoin.scrape_search(
         url="https://www.leboncoin.fr/recherche?text=coffe", max_pages=1, scrape_all_pages=False
     )
@@ -109,8 +117,12 @@ async def test_ad_scraping():
         for url in ad_urls[:3]
     ]
     for response in asyncio.as_completed(to_scrape):
-        data.append(await response)
+        result.append(await response)
     validator = Validator(ad_schema, allow_unknown=True)
-    for i in data:
+    for i in result:
         validate_or_fail(i, validator)
-    
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["list_id"])
+        (Path(__file__).parent / 'results/ads.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
