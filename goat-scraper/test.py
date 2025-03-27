@@ -1,12 +1,15 @@
+import json
+from pathlib import Path
 from cerberus import Validator
 import goat
 import pytest
 import pprint
+import os
 
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-goat.BASE_CONFIG["cache"] = True
+goat.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -60,7 +63,7 @@ search_schema = {
 
 @pytest.mark.asyncio
 async def test_product_scraping():
-    products_data = await goat.scrape_products(
+    result = await goat.scrape_products(
         urls=[
             "https://www.goat.com/sneakers/air-jordan-3-retro-white-cement-reimagined-dn3707-100",
             "https://www.goat.com/sneakers/travis-scott-x-air-jordan-1-retro-high-og-cd4487-100",
@@ -68,15 +71,25 @@ async def test_product_scraping():
         ]
     )
     validator = Validator(product_schema, allow_unknown=True)
-    for item in products_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(products_data) >= 1
+    assert len(result) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/products.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    search_data = await goat.scrape_search("pumar dark", max_pages=3)
+    result = await goat.scrape_search("pumar dark", max_pages=3)
     validator = Validator(search_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 3
+    assert len(result) >= 3
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
