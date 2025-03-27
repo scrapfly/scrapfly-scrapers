@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import homegate
 import pytest
@@ -6,7 +9,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-homegate.BASE_CONFIG["cache"] = True
+homegate.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -267,7 +270,7 @@ search_schema = {
 
 @pytest.mark.asyncio
 async def test_properties_scraping():
-    properties_data = await homegate.scrape_properties(
+    result = await homegate.scrape_properties(
         urls=[
             "https://www.homegate.ch/rent/4000654211",
             "https://www.homegate.ch/rent/3001913945",
@@ -275,19 +278,29 @@ async def test_properties_scraping():
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
-    for item in properties_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(properties_data) >= 1
+    assert len(result) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/properties.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    search_data = await homegate.scrape_search(
+    result = await homegate.scrape_search(
         url="https://www.homegate.ch/rent/real-estate/city-bern/matching-list",
         scrape_all_pages=False,
         max_scrape_pages=2,
     )
     validator = Validator(search_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 2
+    assert len(result) >= 2
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
