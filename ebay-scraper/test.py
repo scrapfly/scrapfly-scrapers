@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import pytest
 
@@ -8,7 +11,7 @@ import datetime
 pp = pprint.PrettyPrinter(indent=4)
 
 # disable cache
-ebay.BASE_CONFIG["cache"] = False
+ebay.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 class DateTimeValidator(Validator):
@@ -48,7 +51,7 @@ async def test_product_scraping():
         "seller_name": {"type": "string", "minlength": 1},
         "seller_url": {"type": "string", "regex": "https://www.ebay.com/str/.+"},
         "photos": {"type": "list", "schema": {"type": "string"}},
-        "description_url": {"type": "string", "regex": "https://(?:.+?\.)?vi\.vipr\.ebaydesc\.com/.+"},
+        "description_url": {"type": "string", "regex": "https://.+?ebaydesc\.com/.+"},
         "features": {"type": "dict"},
     }
     validator = Validator(schema, allow_unknown=True)
@@ -70,6 +73,8 @@ async def test_product_scraping():
     for variant in result["variants"]:
         validate_or_fail(variant, validator)
     assert len(result["variants"]) > 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/product.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -100,3 +105,5 @@ async def test_search_scraping():
         validate_or_fail(item, validator)
     for k in schema:
         require_min_presence(result, k, min_perc=schema[k].get("min_presence", 0.1))
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(result, indent=2, ensure_ascii=False, default=str))

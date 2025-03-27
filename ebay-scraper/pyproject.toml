@@ -9,7 +9,6 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 scrapfly-sdk = {extras = ["all"], version = "^0.8.5"}
-jmespath = "^1.0.1"
 loguru = "^0.7.0"
 python-dateutil = "^2.8.2"
 nested-lookup = "^0.2.25"
