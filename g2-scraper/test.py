@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import g2
@@ -83,6 +86,11 @@ async def test_review_scraping():
             review_data, k, min_perc=review_schema[k].get("min_presence", 0.1)
         )
     assert len(review_data) >= 20
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        review_data.sort(key=lambda x: x["review"]["reviewData"])
+        (Path(__file__).parent / 'results/reviews.json').write_text(
+            json.dumps(review_data, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -98,6 +106,11 @@ async def test_search_scraping():
             search_data, k, min_perc=search_schema[k].get("min_presence", 0.1)
         )
     assert len(search_data) >= 20
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        search_data.sort(key=lambda x: x["link"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(search_data, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -113,3 +126,8 @@ async def test_alternative_scraping():
             min_perc=alternatives_schema[k].get("min_presence", 0.1),
         )
     assert len(alternatives_data) == 10
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        alternatives_data.sort(key=lambda x: x["link"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(alternatives_data, indent=2, ensure_ascii=False, default=str)
+        )
