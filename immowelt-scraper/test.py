@@ -1,9 +1,13 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import immowelt
 import pytest
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
+immowelt.BASE_CONFIG['cache'] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -89,29 +93,37 @@ search_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
-    properties_data = await immowelt.scrape_properties(
+    result = await immowelt.scrape_properties(
         urls=[
-            "https://www.immowelt.de/expose/27t9c5f",
-            "https://www.immowelt.de/expose/27dgc5f",
-            "https://www.immowelt.de/expose/9175275c-9b96-454f-a770-7f4ef0e720be",
-            "https://www.immowelt.de/expose/95aba3fb-8449-47d3-8394-9ab71e705160",
-            "https://www.immowelt.de/expose/ac9dc8d0-a729-4d79-849e-93ec9d4cf16a"
+            "https://www.immowelt.de/expose/86611a24-fcd7-4d11-9bb6-fbdd66581c0b",
+            "https://www.immowelt.de/expose/f72774f5-7192-4d85-8bca-37546df27812",
+            "https://www.immowelt.de/expose/2fab259",
         ]
     )
     validator = Validator(proeprty_schema, allow_unknown=True)
-    for item in properties_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(properties_data) >= 1
+    assert len(result) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/properties.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    search_data = await immowelt.scrape_search(
+    result = await immowelt.scrape_search(
         url="https://www.immowelt.de/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08DE6345",
         max_scrape_pages=3
     )
     validator = Validator(search_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 2
+    assert len(result) >= 2
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )

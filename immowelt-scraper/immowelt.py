@@ -8,6 +8,7 @@ import os
 import json
 import math
 
+import re
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
@@ -32,11 +33,18 @@ def parse_property_pages(response: ScrapeApiResponse) -> Dict:
     # proeprty_id = str(response.context["url"]).split("expose/")[-1]
     selector = response.selector
     # extract the data from the script tag
-    next_data = selector.xpath("//script[@id='__NEXT_DATA__']/text()").get()
-    next_data = json.loads(next_data)["props"]["pageProps"]["classified"]
+    data_script = selector.xpath("//script[contains(text(),'UFRN_LIFECYCLE_SERVERREQUEST')]/text()").get()
+    # find data in JSON.parse("<data>") pattern:
+    _hidden_datasets = re.findall(r'JSON.parse\("(.*)"\)', data_script)
+    # unescape escaped json characters like `\\"` to `"`
+    _property_datastring = _hidden_datasets[0].encode('utf-8').decode('unicode_escape')
+    property_data = json.loads(_property_datastring)
     # remove web app related keys
-    {key: next_data.pop(key, None) for key in ['metadata', 'tracking', 'advertising', 'seo', 'defaultBackToSearch']}
-    return next_data
+    parsed = {
+        key: value for key, value in property_data['app_cldp']['data']['classified'].items() 
+        if key in ['sections', 'id', 'brand', 'tags', 'contactSections',]
+    }
+    return parsed
 
 
 async def scrape_properties(urls: List[str]) -> List[Dict]:
@@ -49,8 +57,8 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
         try:
             data = parse_property_pages(response)
             properties.append(data)
-        except:
-            log.warning("expired property page")
+        except Exception as e:
+            log.warning("expired property page: {}", e)
     log.success(f"scraped {len(properties)} property listings")
     return properties
 
