@@ -147,6 +147,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         # parse the data from script tag and refine it
         data = parse_repoerty_data(response)
+        data['url'] = response.context['url']
         properties.append(data)
     log.success(f"scraped {len(properties)} property listings")
     return properties

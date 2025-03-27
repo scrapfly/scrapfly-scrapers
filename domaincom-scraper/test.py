@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import domaincom
 import pytest
@@ -7,7 +10,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 # enable scrapfly cache
-domaincom.BASE_CONFIG["cache"] = False
+domaincom.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -131,15 +134,17 @@ search_schema = {
 async def test_properties_scraping():
     properties_data = await domaincom.scrape_properties(
         urls = [
-            "https://www.domain.com.au/610-399-bourke-street-melbourne-vic-3000-2018835548",
+            "https://www.domain.com.au/type-10c-250-spencer-street-melbourne-vic-3000-2018950519",
             "https://www.domain.com.au/property-profile/308-9-degraves-street-melbourne-vic-3000",
-            "https://www.domain.com.au/101-29-31-market-street-melbourne-vic-3000-2018799963"
+            "https://www.domain.com.au/1223-422-collins-street-melbourne-vic-3000-2019894035",
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
     # for item in properties_data:
     validate_or_fail(properties_data[0], validator)
     assert len(properties_data) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/properties.json').write_text(json.dumps(properties_data, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -151,3 +156,5 @@ async def test_search_scraping():
     for item in search_data:
         validate_or_fail(item, validator)
     assert len(search_data) >= 2
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(search_data, indent=2, ensure_ascii=False))
