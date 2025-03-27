@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 from cerberus import Validator
 import idealista
 import pytest
@@ -104,34 +106,49 @@ async def test_idealista_scraping():
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         property_urls.extend(idealista.parse_search(response))
-    search_data = await idealista.scrape_properties(urls=property_urls[:3])
+    result = await idealista.scrape_properties(urls=property_urls[:3])
     validator = Validator(property_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
-    assert len(search_data) >= 2
+    assert len(result) >= 2
     assert len(property_urls) >= 30
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["url"])
+        (Path(__file__).parent / 'results/properties.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_provinces_scraping():
-    urls_data = await idealista.scrape_provinces(
+    result = await idealista.scrape_provinces(
         urls=["https://www.idealista.com/venta-viviendas/almeria-provincia/municipios"]
     )
-    assert len(urls_data) >= 2
+    assert len(result) >= 2
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort()
+        (Path(__file__).parent / 'results/search_URLs.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    search_data = await idealista.scrape_search(
+    result = await idealista.scrape_search(
         url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",
         # remove the max_scrape_pages paremeter to scrape all pages
         max_scrape_pages=3,
     )
     validator = Validator(search_schema, allow_unknown=True)
-    for item in search_data:
+    for item in result:
         validate_or_fail(item, validator)
     for k in search_schema:
-        require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))
-    assert len(search_data) > 60
+        require_min_presence(result, k, min_perc=search_schema[k].get("min_presence", 0.1))
+    assert len(result) > 60
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["link"])
+        (Path(__file__).parent / 'results/search_data.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
