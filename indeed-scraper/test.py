@@ -1,17 +1,20 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import pytest
 
 import indeed
 
 # enable cache?
-indeed.BASE_CONFIG["cache"] = True
+indeed.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     url = "https://www.indeed.com/jobs?q=python&l=Texas"
-    result_search = await indeed.scrape_search(url, max_results=20)
+    result = await indeed.scrape_search(url, max_results=20)
 
     schema = {
         "jobkey": {"type": "string"},
@@ -23,9 +26,14 @@ async def test_search_scraping():
         "displayTitle": {"type": "string"},
     }
     validator = Validator(schema, allow_unknown=True)
-    for item in result_search:
+    for item in result:
         if not validator.validate(item):
             raise Exception({"item": item, "errors": validator.errors})
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["jobkey"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -66,3 +74,8 @@ async def test_job_scraping():
         validator = Validator(schema, allow_unknown=True)
         if not validator.validate(r):
             raise Exception({"item": r, "errors": validator.errors})
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["jobTitle"])
+        (Path(__file__).parent / 'results/jobs.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
