@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import pytest
 
@@ -7,7 +10,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=2)
 
 # enable cache?
-crunchbase.BASE_CONFIG["cache"] = True
+crunchbase.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -63,6 +66,8 @@ async def test_company_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/company.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -131,3 +136,5 @@ async def test_person_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/person.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
