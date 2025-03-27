@@ -1,8 +1,11 @@
-"""
-"""
 from datetime import datetime, timedelta
+import json
+import os
+from pathlib import Path
 import pytest
+
 from cerberus import Validator
+
 import bookingcom
 
 # enable cache?
@@ -10,7 +13,7 @@ import bookingcom
 NOW = datetime.now().strftime('%Y-%m-%d')
 WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')
 MONTH_FROM_NOW = (datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')
-bookingcom.BASE_CONFIG["debug"] = True
+bookingcom.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 @pytest.mark.asyncio
@@ -18,6 +21,8 @@ bookingcom.BASE_CONFIG["debug"] = True
 async def test_search_scraping():
     result_search = await bookingcom.scrape_search(query="Malta", checkin="2023-06-10", checkout="2023-06-20", max_pages=3)
     assert len(result_search) >= 50
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
 
 
 @pytest.mark.asyncio
@@ -29,6 +34,7 @@ async def test_hotel_scraping():
         "https://www.booking.com/hotel/fr/avenir-jonquiere.en-gb.html",
         "https://www.booking.com/hotel/fr/hotelkyriaditaliegobelins.en-gb.html"
     ]
+    results = []
     for url in urls:
         item = await bookingcom.scrape_hotel(
             url,
@@ -66,3 +72,7 @@ async def test_hotel_scraping():
         validator = Validator(schema, allow_unknown=True)
         if not validator.validate(item):
             raise Exception({"item": item, "errors": validator.errors})
+        results.append(item)
+
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/hotel.json').write_text(json.dumps(results, indent=2, ensure_ascii=False))

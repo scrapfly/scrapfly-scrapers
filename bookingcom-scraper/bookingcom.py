@@ -206,19 +206,22 @@ def parse_hotel(result: ScrapeApiResponse) -> Hotel:
     features = defaultdict(list)
     for box in sel.xpath('//div[@data-testid="property-section--content"]/div[2]/div'):
         type_ = box.xpath('.//span[contains(@data-testid, "facility-group-icon")]/../text()').get()
+        if not type_:
+            continue
         feats = [f.strip() for f in box.css("li ::text").getall() if f.strip()]
         features[type_] = feats
 
     css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
+    xpath = lambda selector, sep="": sep.join(sel.xpath(selector).getall()).strip()
     lat, lng = sel.css(".show_map_hp_link::attr(data-atlas-latlng)").get("0,0").split(",")
     id = re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)
     data = {
         "url": result.context["url"],
         "id": id[0] if id else None,
         "title": sel.css("h2::text").get(),
-        "description": css("div#property_description_content ::text", "\n"),
-        "address": css(".hp_address_subtitle::text"),
-        "images": sel.css("a.bh-photo-grid-item>img::attr(src)").getall(),
+        "description": css('[data-capla-component-boundary="b-property-web-property-page/PropertyDescriptionDesktop"] ::text', "\n"),
+        "address": xpath("//*[@id='map_trigger_header_pin']/following-sibling::span[1]//text()"),
+        "images": sel.css("#photo_wrapper img::attr(src)").getall(),
         "lat": lat,
         "lng": lng,
         "features": dict(features),
