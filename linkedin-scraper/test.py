@@ -1,10 +1,13 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import linkedin
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
-linkedin.BASE_CONFIG["cache"] = False
+linkedin.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 class Validator(_Validator):
@@ -100,6 +103,10 @@ async def test_profile_scraping():
         validate_or_fail(item, validator)
 
     assert len(profile_data) == 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/profile.json').write_text(
+            json.dumps(profile_data, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -120,25 +127,35 @@ async def test_company_scraping():
         require_min_presence(company_data, k, min_perc=company_schema[k].get("min_presence", 0.1))
 
     assert len(company_data) == 3
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        company_data.sort(key=lambda x: x['overview']["name"])
+        (Path(__file__).parent / 'results/company.json').write_text(
+            json.dumps(company_data, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_job_search_scraping():
-    job_search_data = await linkedin.scrape_job_search(
+    result = await linkedin.scrape_job_search(
         # it include other search parameters, refer to the search pages on browser for more details
         keyword="Python Developer",
         location="United States",
         max_pages=3
     )
     validator = Validator(job_search_schema, allow_unknown=True)
-    for item in job_search_data:
+    for item in result:
         validate_or_fail(item, validator)
 
     for k in job_search_schema:
-        require_min_presence(job_search_data, k, min_perc=job_search_schema[k].get("min_presence", 0.1))        
+        require_min_presence(result, k, min_perc=job_search_schema[k].get("min_presence", 0.1))        
 
-    assert len(job_search_data) > 20
+    assert len(result) > 20
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["title"])
+        (Path(__file__).parent / 'results/job_search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -160,3 +177,8 @@ async def test_job_page_scraping():
         validate_or_fail(item, validator)
 
     assert len(job_data) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        job_data.sort(key=lambda x: x["title"])
+        (Path(__file__).parent / 'results/jobs.json').write_text(
+            json.dumps(job_data, indent=2, ensure_ascii=False, default=str)
+        )

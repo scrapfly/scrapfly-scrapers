@@ -107,8 +107,9 @@ def parse_company_life(response: ScrapeApiResponse) -> Dict:
 def parse_company_overview(response: ScrapeApiResponse) -> Dict:
     """parse company main overview page"""
     selector = response.selector
-    script_data = json.loads(selector.xpath("//script[@type='application/ld+json']/text()").get())
-    script_data = jmespath.search(
+    _script_data = json.loads(selector.xpath("//script[@type='application/ld+json']/text()").get())
+    _company_types = [item for item in _script_data['@graph'] if item['@type'] == 'Organization']
+    microdata = jmespath.search(
         """{
         name: name,
         url: url,
@@ -117,21 +118,16 @@ def parse_company_overview(response: ScrapeApiResponse) -> Dict:
         numberOfEmployees: numberOfEmployees.value,
         logo: logo
         }""",
-        script_data
+        _company_types[0],
     )
     company_about = {}
     for element in selector.xpath("//div[contains(@data-test-id, 'about-us')]"):
         name = element.xpath(".//dt/text()").get().strip()
         value = element.xpath(".//dd/text()").get().strip()
+        if not value:
+            value = ' '.join(element.xpath(".//dd//text()").getall()).strip().split('\n')[0]
         company_about[name] = value
-    addresses = []
-    for element in selector.xpath("//div[contains(@id, 'address') and @id != 'address-0']"):
-        address_lines = element.xpath(".//p/text()").getall()
-        address = ", ".join(line.replace("\n", "").strip() for line in address_lines)
-        addresses.append(address)
-    
-    company_overview = {**script_data, **company_about}
-    company_overview["addresses"] = addresses
+    company_overview = {**microdata, **company_about}
     return company_overview
 
 
