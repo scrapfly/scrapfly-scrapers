@@ -1,3 +1,6 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator
 import pytest
 
@@ -7,7 +10,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache?
-glassdoor.BASE_CONFIG["cache"] = True
+glassdoor.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def test_glassdoor_url():
@@ -52,6 +55,11 @@ async def test_find_companies():
     for item in results:
         validate_or_fail(item, validator)    
     assert len(results) > 5
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        results.sort(key=lambda x: x["id"])
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(results, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -77,6 +85,11 @@ async def test_job_scraping():
     validator = Validator(schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["jobLink"])
+        (Path(__file__).parent / 'results/jobs.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -129,6 +142,10 @@ async def test_salary_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/salaries.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -171,3 +188,7 @@ async def test_review_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/search.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
