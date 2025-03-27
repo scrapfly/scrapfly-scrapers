@@ -1,51 +1,42 @@
 [
   {
     "position": 1,
-    "title": "Blog - ScrapFly",
-    "url": "https://scrapfly.io/blog/",
+    "title": "Everything to Know to Start Web Scraping in Python Today",
+    "url": "https://scrapfly.io/blog/everything-to-know-about-web-scraping-python/",
     "origin": "Scrapfly",
     "domain": "scrapfly.io",
-    "description": null,
-    "date": null
+    "description": "Scrapfly's Web Scraping API can manage a fleet of cloud headless browsers for you and simplify the entire browser automation process. Here's an ...‎Web Scraping Overview · ‎Basic Web Scraping Example · ‎Step 1: Scraping The Data",
+    "date": "Dec 2, 2024"
   },
   {
     "position": 2,
-    "title": "Scrapfly Web Scraping Academy",
-    "url": "https://scrapfly.io/academy",
+    "title": "Blog",
+    "url": "https://scrapfly.io/blog/",
     "origin": "Scrapfly",
     "domain": "scrapfly.io",
-    "description": "Learn everything about web scraping! Scrapfly Academy covers modern web scraping issues and their solutions walking you through them step-by-step.Missing: blog ‎| Show results with: blog",
+    "description": "Tutorial on web scraping with scrapy and Python through a real world example project. Best practices, extension highlights and common challenges.",
     "date": null
   },
   {
     "position": 3,
-    "title": "Scrapfly Web Scraping API | Academy - Scraper Blocking",
-    "url": "https://scrapfly.io/academy/scraper-blocking",
-    "origin": "Scrapfly",
-    "domain": "scrapfly.io",
-    "description": "Introduction to web scraper blocking. How scrapers are identified and blocked and what can be done to bypass this.",
+    "title": "Scrapfly review, overview and benchmarks",
+    "url": "https://scrapeway.com/web-scraping-api/scrapfly",
+    "origin": "Scrapeway",
+    "domain": "scrapeway.com",
+    "description": "Pros · Exceptional and fair scraper blocking bypass. · Below average pricing for most targets. · Javascript rendering with custom javascript ...",
     "date": null
   },
   {
     "position": 4,
-    "title": "Scrapfly Web Scraping API | Project & Environment",
-    "url": "https://scrapfly.io/docs/project",
-    "origin": "Scrapfly",
-    "domain": "scrapfly.io",
-    "description": "Scrapfly Projects provide a way to control multiple web scraping projects with its own budgets, quotas and configurations for web scraping entrepeneurs.",
+    "title": "Intro to Web Scraping using ScrapFly SDK and Python",
+    "url": "https://www.youtube.com/watch?v=y7FbFJ4jOW8",
+    "origin": "YouTube · Scrapfly",
+    "domain": "youtube.com",
+    "description": null,
     "date": null
   },
   {
     "position": 5,
-    "title": "Scrapfly Web Scraping API | Use Case",
-    "url": "https://scrapfly.io/use-case",
-    "origin": "Scrapfly",
-    "domain": "scrapfly.io",
-    "description": "Scrapfly is dedicated to simplifying the extraction of information from websites. We work in a variety of areas including public data, advertising, and more.",
-    "date": null
-  },
-  {
-    "position": 6,
     "title": "Scrapfly",
     "url": "https://github.com/scrapfly",
     "origin": "GitHub",
@@ -54,201 +45,228 @@
     "date": null
   },
   {
-    "position": 7,
-    "title": "Web Scraping API FAQ",
-    "url": "https://scrapfly.io/docs/scrape-api/faq",
-    "origin": "Scrapfly",
-    "domain": "scrapfly.io",
-    "description": "Scrapfly can be used to scrape binary data like images, PDFs, etc. The scraped result type is indicated in result.format field, it can be TEXT or BINARY .",
-    "date": null
-  },
-  {
-    "position": 8,
-    "title": "Scrapfly Web Data APIs for developers",
-    "url": "https://scrapfly.io/",
-    "origin": "Scrapfly",
-    "domain": "scrapfly.io",
-    "description": "all through our fast, reliable APIs that work for you.‎Blog · ‎Web Scraping With Scrapy · ‎Web Scraping Graphql with... · ‎Products",
-    "date": null
-  },
-  {
-    "position": 11,
-    "title": "Introducing Scrapfly Typescript Web Scraping SDK",
-    "url": "https://medium.com/@scrapfly/introducing-scrapfly-typescript-web-scraping-sdk-cb55967ee516",
+    "position": 6,
+    "title": "Introducing Scrapfly Typescript Web Scraping SDK - Medium",
+    "url": "https://scrapfly.medium.com/introducing-scrapfly-typescript-web-scraping-sdk-cb55967ee516?source=rss-------1",
     "origin": "Medium · Scrapfly",
-    "domain": "medium.com",
+    "domain": "scrapfly.medium.com",
     "description": "Scrapfly is a language-agnostic HTTP API for web scraping now it's much easier to use with Typescript as it's just one npm install a way.",
     "date": null
   },
   {
-    "position": 12,
-    "title": "How to Scrape Sitemaps to Discover Scraping Targets",
-    "url": "https://dev.to/scrapfly/how-to-scrape-sitemaps-to-discover-scraping-targets-d8o",
-    "origin": "DEV Community",
-    "domain": "dev.to",
-    "description": "It's mostly used to tell search engines what to index though in web scraping we can use them to discover targets to scrape. ... scrapfly.io/blog/ ...",
-    "date": "Apr 10, 2023"
-  },
-  {
-    "position": 13,
-    "title": "Scraping Websites with Complex Navigation",
-    "url": "https://usescraper.com/blog/scraping-websites-with-complex-navigation",
-    "origin": "UseScraper",
-    "domain": "usescraper.com",
-    "description": "ScrapFly API. Selenium. Selenium is one of the oldest browser automation tools, supporting both WebDriver and CDP protocols. It has a large ...",
-    "date": "Nov 1, 2023"
-  },
-  {
-    "position": 14,
-    "title": "A Year of Writing about Web Scraping in Review",
-    "url": "https://scrapecrow.com/year-of-writing-in-review.html",
-    "origin": "Scrapecrow",
-    "domain": "scrapecrow.com",
-    "description": "At the beginning of 2022 I've joined Scrapfly.io - a small web scraping API company. One of my main roles is to keep our blog running with ...Missing: scrapgly ‎| Show results with: scrapgly",
-    "date": "Jan 2, 2023"
-  },
-  {
-    "position": 15,
-    "title": "Best web scraping api's at the moment? : r/webscraping",
-    "url": "https://www.reddit.com/r/webscraping/comments/1016j3l/best_web_scraping_apis_at_the_moment/",
-    "origin": "Reddit · r/webscraping",
-    "domain": "reddit.com",
-    "description": "Would like to keep scrapfly and find another solution and get rid of scrapingbee and scraperapi. ScrapingFish and Scrapeops Proxy look good.54 answers  ·  Top answer: Scrapfly definitely the best at the moment, to have tested and used almost all serious web scraping ...Missing: scrapgly ‎blog",
+    "position": 7,
+    "title": "Scrapfly - Web Scraping Integration Guide",
+    "url": "https://scrapeops.io/proxy-providers/scrapfly/python-scrapfly-proxy-api-guide/",
+    "origin": "ScrapeOps",
+    "domain": "scrapeops.io",
+    "description": "Scrapfly is built as a one-stop shop for all of your scraping needs. They manage proxy pools so you don't have to manage individual proxies.",
     "date": null
   },
   {
-    "position": 16,
-    "title": "Integrate Scrapfly for scaping any web page as HTML, Text ...",
-    "url": "https://community.n8n.io/t/integrate-scrapfly-for-scaping-any-web-page-as-html-text-or-markdown-for-training-llms/47489",
-    "origin": "n8n Community",
-    "domain": "community.n8n.io",
-    "description": "... training with scraped data for building RAG systems to create context-aware models. ScrapFly is a web scraping API that enables extra…",
-    "date": "May 30, 2024"
-  },
-  {
-    "position": 17,
-    "title": "Capture screenshots of any website using Scrapfly's ...",
-    "url": "https://www.youtube.com/watch?v=1Y-XvvWlyzk",
-    "origin": "YouTube · Scrapfly",
-    "domain": "youtube.com",
-    "description": null,
+    "position": 8,
+    "title": "scrapfly/scrapfly-scrapers: Scalable Python web scraping ...",
+    "url": "https://github.com/scrapfly/scrapfly-scrapers",
+    "origin": "GitHub",
+    "domain": "github.com",
+    "description": "This repository contains educational example scrapers for popular web scraping targets using the ScrapFly web scraping API and Python.",
     "date": null
   },
   {
-    "position": 18,
+    "position": 9,
     "title": "Scrapfly SDK",
     "url": "https://jsr.io/@scrapfly/scrapfly-sdk",
     "origin": "JSR: the JavaScript Registry",
     "domain": "jsr.io",
-    "description": "Typescript/Javascript SDK for Scrapfly.io web scraping API which allows to: For web scraping guides see our blog and #scrapeguide tag for how to scrape ...",
+    "description": "For web scraping guides see our blog and #scrapeguide tag for how to scrape specific targets. The SDK is distributed through: npmjs.com/package/scrapfly-sdk ...",
+    "date": null
+  },
+  {
+    "position": 10,
+    "title": "A Year of Writing about Web Scraping in Review",
+    "url": "https://scrapecrow.com/year-of-writing-in-review.html",
+    "origin": "Scrapecrow",
+    "domain": "scrapecrow.com",
+    "description": "Educational blog about web-scraping, crawling and related data extraction subjects.",
+    "date": "Jan 2, 2023"
+  },
+  {
+    "position": 11,
+    "title": "Web Scraping Blog",
+    "url": "https://www.zenrows.com/blog",
+    "origin": "ZenRows",
+    "domain": "zenrows.com",
+    "description": "Master your web scraping skills. Learn all the tips and insights we know about data collection at scale. Everything from guides to easy-to-follow tutorials.",
+    "date": null
+  },
+  {
+    "position": 12,
+    "title": "A Year of Writing about Web Scraping in Review",
+    "url": "https://scrapecrow.com/year-of-writing-in-review.html",
+    "origin": "Scrapecrow",
+    "domain": "scrapecrow.com",
+    "description": "Educational blog about web-scraping, crawling and related data extraction subjects.Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Jan 2, 2023"
+  },
+  {
+    "position": 13,
+    "title": "ScrapingBee's Blog",
+    "url": "https://www.scrapingbee.com/blog/",
+    "origin": "scrapingbee.com",
+    "domain": "scrapingbee.com",
+    "description": "The ScrapingBee Blog. We help you get better at web-scraping: detailed tutorials, case studies and writings by industry experts.Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Mar 3, 2025"
+  },
+  {
+    "position": 14,
+    "title": "scrapfly/scrapfly-scrapers: Scalable Python web scraping ...",
+    "url": "https://github.com/scrapfly/scrapfly-scrapers",
+    "origin": "GitHub",
+    "domain": "github.com",
+    "description": "This repository contains educational example scrapers for popular web scraping targets using the ScrapFly web scraping API and Python.",
+    "date": null
+  },
+  {
+    "position": 15,
+    "title": "What is web scraping?",
+    "url": "https://blog.apify.com/what-is-web-scraping/",
+    "origin": "Apify Blog",
+    "domain": "blog.apify.com",
+    "description": "Web scraping is the process of automatically extracting data from a website. You use a program called a web scraper to access a web page, ...",
+    "date": "Oct 15, 2024"
+  },
+  {
+    "position": 16,
+    "title": "Python Web Scraping: Full Tutorial With Examples (2025)",
+    "url": "https://www.scrapingbee.com/blog/web-scraping-101-with-python/",
+    "origin": "scrapingbee.com",
+    "domain": "scrapingbee.com",
+    "description": "Learn about web scraping in Python with this step-by-step tutorial. We will cover almost all of the tools Python offers to scrape the web.",
+    "date": "Jan 20, 2025"
+  },
+  {
+    "position": 17,
+    "title": "Web Scraper - The #1 web scraping extension",
+    "url": "https://webscraper.io/",
+    "origin": "Web Scraper",
+    "domain": "webscraper.io",
+    "description": "The most popular web scraping extension. Start scraping in minutes. Automate your tasks with our Cloud Scraper. No software to download, no coding needed.Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": null
+  },
+  {
+    "position": 18,
+    "title": "Web Scraping Blog",
+    "url": "https://scrapingant.com/blog/",
+    "origin": "ScrapingAnt API",
+    "domain": "scrapingant.com",
+    "description": "Web scraping, a powerful tool in the digital age, automates the data collection process, making it faster and more efficient. This technique is widely used ...",
     "date": null
   },
   {
     "position": 19,
-    "title": "scrapfly-sdk",
-    "url": "https://pypi.org/project/scrapfly-sdk/",
-    "origin": "PyPI",
-    "domain": "pypi.org",
-    "description": "Document Understanding and Extraction; Autonomous Agents that can perform research and take actions. In the context of web scraping, web page data can be ...",
-    "date": null
-  },
-  {
-    "position": 20,
-    "title": "Web scraping with Python open knowledge",
-    "url": "https://news.ycombinator.com/item?id=31531694",
-    "origin": "Hacker News",
-    "domain": "news.ycombinator.com",
-    "description": "I recently joined a brilliant web scraping API company called ScrapFly ... 2 - https://scrapfly.io/blog/how-to-scrape-without-getting-block ...Missing: scrapgly ‎| Show results with: scrapgly",
-    "date": "May 27, 2022"
-  },
-  {
-    "position": 21,
-    "title": "scrapfly-sdk",
-    "url": "https://pypi.org/project/scrapfly-sdk/",
-    "origin": "PyPI",
-    "domain": "pypi.org",
-    "description": "Scrapfly SDK for Scrapfly. ... Tags scraping, web scraping, data, extraction, scrapfly, sdk, cloud, scrapy ... PyPI Blog · Infrastructure dashboard · Statistics ...",
-    "date": null
-  },
-  {
-    "position": 22,
-    "title": "Capture screenshots of any website using Scrapfly's ...",
-    "url": "https://www.youtube.com/watch?v=1Y-XvvWlyzk",
-    "origin": "YouTube · Scrapfly",
+    "title": "Scrape blog posts with Python",
+    "url": "https://www.youtube.com/watch?v=U90vK84bq4s",
+    "origin": "YouTube · John Watson Rooney",
     "domain": "youtube.com",
     "description": null,
     "date": null
   },
   {
+    "position": 20,
+    "title": "Octoparse: Web Scraping Tool & Free Web Crawlers",
+    "url": "https://www.octoparse.com/",
+    "origin": "Octoparse",
+    "domain": "octoparse.com",
+    "description": "Easy Web Scraping for Anyone. Octoparse is your no-coding solution for web scraping to turn pages into structured data within clicks. Start a free trialMissing: scrapgly ‎| Show results with: scrapgly",
+    "date": null
+  },
+  {
+    "position": 21,
+    "title": "Blog",
+    "url": "https://webscraper.io/blog",
+    "origin": "Web Scraper",
+    "domain": "webscraper.io",
+    "description": "We're thrilled to introduce the latest and greatest version of Web Scraper. Take your experience to a new level with the newly updated Link Selector and more.",
+    "date": "Aug 8, 2024"
+  },
+  {
+    "position": 22,
+    "title": "Is there a tool that lets us scrape blog websites according ...",
+    "url": "https://www.quora.com/Is-there-a-tool-that-lets-us-scrape-blog-websites-according-to-a-subject-topic",
+    "origin": "Quora",
+    "domain": "quora.com",
+    "description": "Have you ever wondered if there's a web scraper capable of seamlessly extracting data from multiple websites? I've asked myself the same ...",
+    "date": null
+  },
+  {
     "position": 23,
-    "title": "Machine Learning For Web-Scrapping",
-    "url": "https://mydataprovider.com/blog/machine-learning-for-web-scrapping/",
-    "origin": "mydataprovider.com",
-    "domain": "mydataprovider.com",
-    "description": "... Blog » Machine Learning For Web-Scrapping ... Websites. Online ... [2] How web scraping can revolutionize machine learning?, https://scrapfly ...",
-    "date": "Aug 2, 2023"
+    "title": "What Is Web Scraping? [A Complete Step-by-Step Guide]",
+    "url": "https://careerfoundry.com/blog/data-analytics/web-scraping-guide/",
+    "origin": "CareerFoundry",
+    "domain": "careerfoundry.com",
+    "description": "What is web scraping and what is it used for? How can you scrape the web for data? Discover everything you need to know in this guide.",
+    "date": "Aug 13, 2021"
   },
   {
     "position": 24,
-    "title": "Web Scraping Blog",
-    "url": "https://www.zenrows.com/blog",
-    "origin": "ZenRows",
-    "domain": "zenrows.com",
-    "description": "Web Scraping Blog. You'll find it easier to scrape any website with our step-by-step tutorials from beginner to pro. Most popular articles.",
-    "date": null
+    "title": "Python Web Scraping Tutorial: Step-By-Step [2024 Guide]",
+    "url": "https://oxylabs.io/blog/python-web-scraping",
+    "origin": "Oxylabs",
+    "domain": "oxylabs.io",
+    "description": "In this web scraping tutorial, we'll outline how to run a Python script with a simple application. You'll learn:",
+    "date": "Mar 5, 2024"
   },
   {
     "position": 25,
-    "title": "ScrapFly Integrations | Connect Your Apps with Zapier",
-    "url": "https://zapier.com/apps/scrapfly/integrations",
-    "origin": "Zapier",
-    "domain": "zapier.com",
-    "description": "Blog. Read all about ... scrapfly logo. Apps · ScrapFly; Integrations. scrapfly logo. About ScrapFly. ScrapFly is a web scraping API for extracting data from web ...",
-    "date": null
+    "title": "Web Scraping in C#: Complete Guide 2025",
+    "url": "https://www.zenrows.com/blog/web-scraping-c-sharp",
+    "origin": "ZenRows",
+    "domain": "zenrows.com",
+    "description": "In this step-by-step tutorial, you'll see how to do web scraping in C# using libraries like Selenium and Html Agility Pack. Let's get started!",
+    "date": "Feb 14, 2025"
   },
   {
     "position": 26,
-    "title": "ScrapFly",
-    "url": "https://pixeljets.com/web-scraping-api/scrapfly/",
-    "origin": "Pixeljets",
-    "domain": "pixeljets.com",
-    "description": "Pixeljets logo. Home · Web scraping APIs; ScrapFly. ScrapFly. Founded: 2020 Website: scrapfly.io/ ... My blog posts. Choosing a proxy for web scraping. Once you' ...",
-    "date": null
+    "title": "What is Web Scraping and What is it Used For?",
+    "url": "https://www.parsehub.com/blog/what-is-web-scraping/",
+    "origin": "ParseHub",
+    "domain": "parsehub.com",
+    "description": "Web scraping refers to the extraction of data from a website. This information is collected and then exported into a format that is more useful for the user.",
+    "date": "Apr 14, 2023"
   },
   {
     "position": 27,
-    "title": "Scrapfly",
-    "url": "https://twitter.com/Scrapfly_dev/status/1664267318053179398",
-    "origin": "X · Scrapfly_dev",
-    "domain": "twitter.com",
-    "description": "A new blog post has been published! Top 10 Web Scraping Packages for Python Checkout it out https://t.co/d2iFdAV2LJ.",
+    "title": "Different ways / designs to scrape blog sites",
+    "url": "https://stackoverflow.com/questions/38826707/different-ways-designs-to-scrape-blog-sites",
+    "origin": "Stack Overflow",
+    "domain": "stackoverflow.com",
+    "description": "I want to crawl all blog sites for specific fields. For eg. title, description, tags, date, author etc. I am using scrapy library build in python.2 answers  ·  Top answer: There are quie few packages that do this, most of them are just clever algorithms around ...",
     "date": null
   },
   {
     "position": 28,
-    "title": "How we compare to other web scraping APIs",
-    "url": "https://scrapingfish.com/how-we-compare",
-    "origin": "Scraping Fish",
-    "domain": "scrapingfish.com",
-    "description": "See how Scraping Fish compares to other Web Scraping APIs. Scraping ... BlogDocsFeaturesPricingFAQContact · Log in →. How ... ScrapFly, Residential, Min. $30/mo ...",
+    "title": "Web Scraping Blog",
+    "url": "https://webscraping.blog/",
+    "origin": "webscraping.blog",
+    "domain": "webscraping.blog",
+    "description": "A powerful web scraping library that excels in handling asynchronous loading, infinite scrolling, and other dynamic elements with ease.",
     "date": null
   },
   {
     "position": 29,
-    "title": "Find free alternative to Scrapfly Web Scraping API for ...",
-    "url": "https://freestuff.dev/alternative/scrapfly-web-scraping-api",
-    "origin": "Free Stuff .dev",
-    "domain": "freestuff.dev",
-    "description": "Scrapfly is a Web Scraping API providing residential proxies, headless browser to extract data and bypass captcha / anti bot vendors. Tags: scraping, crawling.",
+    "title": "Web Scraping With Python – 2025 Full Guide",
+    "url": "https://brightdata.com/blog/how-tos/web-scraping-with-python",
+    "origin": "Bright Data",
+    "domain": "brightdata.com",
+    "description": "Web scraping with python guide - Easily begin scraping websites on your own. Learn to build a web scraper in Python for beginners and experts.",
     "date": null
   },
   {
     "position": 30,
-    "title": "Scrapfly Reviews 2024. Verified Reviews, Pros & Cons",
-    "url": "https://www.capterra.com/p/212653/Scrapfly/reviews/",
-    "origin": "Capterra",
-    "domain": "capterra.com",
-    "description": "Maybe notify via email if scraping website is ... \"Scrapfly is an excellent general purpose web scraper service ... Blog & Research · Glossary; Write a ...4.9(121) ",
+    "title": "Web Scraper - Free Web Scraping - Chrome Web Store",
+    "url": "https://chromewebstore.google.com/detail/web-scraper-free-web-scra/jnhgnonknehpejjnehehllkliplmbmhn?hl=en",
+    "origin": "Chrome Web Store",
+    "domain": "chromewebstore.google.com",
+    "description": "Web Scraper is a simple web scraping tool that allows you to use many advanced features to get the exact information you are looking for.",
     "date": null
   }
 ]

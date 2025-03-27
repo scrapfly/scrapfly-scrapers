@@ -1,9 +1,13 @@
+import json
+import os
+from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import google
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
+google.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 class Validator(_Validator):
@@ -68,41 +72,55 @@ map_place_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_serp_scraping():
-    serp_data = await google.scrape_serp(
+    result = await google.scrape_serp(
         query="scrapgly blog web scraping",
         max_pages=3,
     )
 
     validator = Validator(serp_schema)
-    for item in serp_data:
+    for item in result:
         validate_or_fail(item, validator)
     for k in serp_schema:
         require_min_presence(
-            serp_data, k, min_perc=serp_schema[k].get("min_presence", 0.1)
+            result, k, min_perc=serp_schema[k].get("min_presence", 0.1)
         )
-    assert len(serp_data) >= 20
+    assert len(result) >= 20
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["position"])
+        (Path(__file__).parent / 'results/serp.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_keyword_scraping():
-    keyword_data = await google.scrape_keywords(
+    result = await google.scrape_keywords(
         query="web scraping emails",
     )
 
     validator = Validator(keywords_schema)
-    validate_or_fail(keyword_data, validator)
-    assert len(keyword_data["related_search"]) > 1
-    assert len(keyword_data["people_ask_for"]) > 1
+    validate_or_fail(result, validator)
+    assert len(result["related_search"]) > 1
+    assert len(result["people_ask_for"]) > 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/keywords.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_place_url_scraping():
-    urls = await google.find_google_map_places(
+    result = await google.find_google_map_places(
         query="museum in paris",
     )
-    assert len(urls) >= 3
+    assert len(result) >= 3
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort()
+        (Path(__file__).parent / 'results/google_map_places_urls.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
 
 
 @pytest.mark.asyncio
@@ -112,12 +130,17 @@ async def test_place_scraping():
         query="museum in paris",
     )
 
-    google_map_places = await google.scrape_google_map_places(urls=urls[:3])
+    result = await google.scrape_google_map_places(urls=urls[:3])
     validator = Validator(map_place_schema)
-    for item in google_map_places:
+    for item in result:
         validate_or_fail(item, validator)
     for k in map_place_schema:
         require_min_presence(
-            google_map_places, k, min_perc=map_place_schema[k].get("min_presence", 0.1)
+            result, k, min_perc=map_place_schema[k].get("min_presence", 0.1)
         )
-    assert len(google_map_places) > 1
+    assert len(result) > 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        result.sort(key=lambda x: x["name"])
+        (Path(__file__).parent / 'results/google_map_places.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
