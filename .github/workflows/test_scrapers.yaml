@@ -263,7 +263,7 @@ jobs:
 
     - name: Install Poetry
       run: |
-        curl -sSL https://install.python-poetry.org | python3 - --version 1.8.5
+        curl -sSL https://install.python-poetry.org | python3 - --version 2.1.3
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
     - name: Cache Poetry virtual environment
