@@ -278,7 +278,7 @@ jobs:
     - name: Install dependencies
       run: |
         cd ${{ matrix.project_dir }}
-        poetry install
+        poetry install --no-root
 
     - name: Run test
       env:
