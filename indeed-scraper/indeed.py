@@ -25,8 +25,12 @@ BASE_CONFIG = {
 
 def parse_search_page(result):
     """Find hidden web data of search results in Indeed.com search page HTML"""
-    data = re.findall(r'window.mosaic.providerData\["mosaic-provider-jobcards"\]=(\{.+?\});', result.content)
-    data = json.loads(data[0])
+    regex_pattern = r'window\.mosaic\.providerData\["mosaic-provider-jobcards"\]=((\[[^\}]+)?\{s*[^\}\{]{3,}?:.*\}([^\{]+\])?);'
+    match = re.findall(regex_pattern, result.content)
+    if match:
+        json_string = match[0][0]
+        data = json.loads(json_string)
+
     return {
         "results": data["metaData"]["mosaicProviderJobCardsModel"]["results"],
         "meta": data["metaData"]["mosaicProviderJobCardsModel"]["tierSummaries"],
@@ -54,12 +58,16 @@ async def scrape_search(url: str, max_results: int = 1000) -> List[Dict]:
     if total_results > max_results:
         total_results = max_results
 
-    print(f"scraping remaining {(total_results - 10) / 10} pages")
+    remaining_pages = (total_results - 10) / 10
+    if not remaining_pages:
+        return results
+    
     other_pages = [
         ScrapeConfig(_add_url_parameter(url, start=offset), **BASE_CONFIG)
         for offset in range(10, total_results + 10, 10)
     ]
-    log.info("found total pages {} search pages", math.ceil(total_results / 10))
+    log.info(f"scraping remaining {remaining_pages} pages")
+
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
         if not isinstance(result, ScrapflyScrapeError):
             data = parse_search_page(result)

@@ -21,7 +21,7 @@ async def run():
     print("running Indeed scrape and saving results to ./results directory")
 
     url = "https://www.indeed.com/jobs?q=python&l=Texas"
-    result_search = await indeed.scrape_search(url, max_results=100)
+    result_search = await indeed.scrape_search(url, max_results=10)
     output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False), encoding="utf-8")
 
     jobs = ["9100493864fe1d6e", "5361f22542fe4a95"]

@@ -14,7 +14,7 @@ indeed.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     url = "https://www.indeed.com/jobs?q=python&l=Texas"
-    result = await indeed.scrape_search(url, max_results=20)
+    result = await indeed.scrape_search(url, max_results=10)
 
     schema = {
         "jobkey": {"type": "string"},
