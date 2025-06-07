@@ -62,13 +62,17 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     agent_path = selector.xpath("//section[@aria-label='Contact agent']//a/@href").get()
 
     info = []
-    for i in selector.xpath("//section[h2[@id='key-info']]/ul/li"):
-        info.append(
-            {
-                "title": i.xpath(".//p/text()").get(),
-                "value": i.xpath(".//div/p/text()").get(),
-            }
-        )
+    for i in selector.xpath("//section[@aria-labelledby='key-info']//li"):
+        title = i.xpath(".//p/text()").get()
+        value = i.xpath(".//div/p/text()").get()
+
+        if value is not None:
+            info.append(
+                {
+                    "title": title,
+                    "value": value
+                }
+            )
 
     nearby = []
     for i in selector.xpath("//div[section[contains(@aria-label,'Travel')]]/section[3]//li/div"):
@@ -163,7 +167,7 @@ def parse_search(response: ScrapeApiResponse):
         bedrooms = box.xpath(".//span[(contains(text(), 'bed'))]/text()").get()
         livingrooms = box.xpath(".//span[(contains(text(), 'reception'))]/text()").get()
         image = box.xpath(".//picture/source/@srcset").get()
-        agency = box.xpath(".//div[a[@data-testid='listing-card-content']]/div")
+        agency = box.xpath("//img[contains(@src,'agent')]/@alt").get()
         item = {
             "price": int(price.split(" ")[0].replace("£", "").replace(",", "")) if price else None,
             "priceCurrency": "Sterling pound £",
@@ -176,7 +180,7 @@ def parse_search(response: ScrapeApiResponse):
             "numLivingRoom": int(livingrooms.split(" ")[0]) if livingrooms else None,
             "description": box.xpath(".//a[address]/p/text()").get(),
             "justAdded": bool(box.xpath(".//div[text()='Just added']/text()").get()),
-            "agency": agency.xpath(".//img/@alt").get() or agency.xpath(".//p/text()").get(),
+            "agency": agency
         }
         data.append(item)
     return {"search_data": data, "total_pages": total_pages}
