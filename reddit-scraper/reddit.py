@@ -173,9 +173,11 @@ async def scrape_post(url: str, sort: Union["old", "new", "top"]) -> Dict:
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     post_data = {}
     post_data["info"] = parse_post_info(response)
+    # get the post link from postLink, otherwise use the attachmentLink
+    post_link = post_data["info"]["postLink"] if post_data["info"]["postLink"] else post_data["info"]["attachmentLink"]
     # scrape the comments from the old.reddit version, with the same post URL
-    # click the load more button on the page to retrieve another results    
-    bulk_comments_page_url = post_data["info"]["postLink"].replace("www", "old") + f"?sort={sort}&limit=500"
+    # click the load more button on the page to retrieve more results    
+    bulk_comments_page_url = post_link.replace("www", "old") + f"?sort={sort}&limit=500"
     response = await SCRAPFLY.async_scrape(ScrapeConfig(bulk_comments_page_url, **BASE_CONFIG))
     post_data["comments"] = parse_post_comments(response) 
     log.success(f"scraped {len(post_data['comments'])} comments from the post {url}")
