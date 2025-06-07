@@ -29,7 +29,7 @@ async def run():
     result_search = await realtorcom.scrape_search("CA", "San-Francisco", max_pages=2)
     output.joinpath("search.json").write_text(json.dumps(result_search, indent=2))
 
-    url = "https://www.realtor.com/realestateandhomes-detail/sitemap-rss-price/rss-price-ca.xml"
+    url = "https://cdn.realtor.ca/sitemap/realtorsitemap/sitemap.xml"
     result_feed = await realtorcom.scrape_feed(url)
     output.joinpath("feed.json").write_text(json.dumps(result_feed, indent=2, cls=DateTimeEncoder))
 

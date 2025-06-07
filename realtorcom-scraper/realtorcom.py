@@ -137,12 +137,12 @@ async def scrape_feed(url) -> Dict[str, datetime]:
     """scrapes atom RSS feed and returns all entries in "url:publish date" format"""
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, retry=True))
     body = result.content
-    selector = Selector(text=body, type="xml")    
+    selector = Selector(text=body)
     results = {}
-    for item in selector.xpath("//item"):
-        url = item.xpath("link/text()").get()
-        pub_date = item.xpath("pubDate/text()").get()
-        results[url] = datetime.strptime(pub_date, "%a, %d %b %Y %H:%M:%S")
+    for item in selector.xpath("//sitemap"):
+        url = item.xpath("loc/text()").get()
+        pub_date = item.xpath("lastmod/text()").get()
+        results[url] = datetime.fromisoformat(pub_date)
     return results
 
 

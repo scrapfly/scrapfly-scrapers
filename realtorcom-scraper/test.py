@@ -85,9 +85,9 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_feed_scraping():
-    url = "https://www.realtor.com/realestateandhomes-detail/sitemap-rss-price/rss-price-ca.xml"
+    url = "https://cdn.realtor.ca/sitemap/realtorsitemap/sitemap.xml"
     result_feed = await realtorcom.scrape_feed(url)
     assert len(result_feed) > 0
     for url, lastmod in result_feed.items():
-        assert url.startswith("https://www.realtor.com/")
+        assert url.startswith("https://www.realtor.ca/")
         assert lastmod is not None
