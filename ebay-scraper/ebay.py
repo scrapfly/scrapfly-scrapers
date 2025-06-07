@@ -145,7 +145,13 @@ async def scrape_product(url: str) -> Dict:
 def parse_search(result: ScrapeApiResponse) -> List[Dict]:
     """Parse ebay.com search result page for product previews"""
     previews = []
+    best_selling_boxes = result.selector.xpath("//*[*[h2[contains(text(),'Best selling products')]]]//li[contains(@class, 's-item')]")
+    best_selling_html_set = set([b.get() for b in best_selling_boxes])
+
     for box in result.selector.css(".srp-results li.s-item"):
+        if box.get() in best_selling_html_set:
+                continue  # skip boxes inside the best selling container
+
         css = lambda css: box.css(css).get("").strip() or None  # get first CSS match
         css_all = lambda css: box.css(css).getall()  # get all CSS matches
         css_re = lambda css, pattern: box.css(css).re_first(pattern, default="").strip()  # get first css regex match
