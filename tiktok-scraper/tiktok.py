@@ -9,6 +9,7 @@ import os
 import datetime
 import secrets
 import json
+import uuid
 import jmespath
 from typing import Dict, List
 from urllib.parse import urlencode, quote, urlparse, parse_qs
@@ -86,7 +87,7 @@ def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
     return {"comments": parsed_comments, "total_comments": total_comments}
 
 
-async def retrieve_comment_params(post_url: str) -> Dict:
+async def retrieve_comment_params(post_url: str, session: str) -> Dict:
     """retrieve query parameters for the comments API"""
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
@@ -94,6 +95,7 @@ async def retrieve_comment_params(post_url: str) -> Dict:
             **BASE_CONFIG,
             render_js=True,
             rendering_wait=5000,
+            session=session,
             wait_for_selector="//a[@data-e2e='comment-avatar-1']",
         )
     )
@@ -114,17 +116,22 @@ async def retrieve_comment_params(post_url: str) -> Dict:
 async def scrape_comments(post_url: str, comments_count: int = 20, max_comments: int = None) -> List[Dict]:
     """scrape comments from tiktok posts using hidden APIs"""
     post_id = post_url.split("/video/")[1].split("?")[0]
-    api_params = await retrieve_comment_params(post_url)
+    session_id = uuid.uuid4().hex  # generate a random session ID for the comments API
+    api_params = await retrieve_comment_params(post_url, session_id)
 
     def form_api_url(cursor: int):
         """form the reviews API URL and its pagination values"""
         base_url = "https://www.tiktok.com/api/comment/list/?"
         params = {"count": comments_count, "cursor": cursor, **api_params}  # the index to start from
         return base_url + urlencode(params)
-
+    
     log.info("scraping the first comments batch")
     first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(form_api_url(cursor=0), **BASE_CONFIG, headers={"content-type": "application/json"})
+        ScrapeConfig(
+            form_api_url(cursor=0), **BASE_CONFIG,
+            headers={"content-type": "application/json"},
+            render_js=True, session=session_id
+        )
     )
     data = parse_comments(first_page)
     comments_data = data["comments"]
@@ -135,13 +142,22 @@ async def scrape_comments(post_url: str, comments_count: int = 20, max_comments:
         total_comments = max_comments
 
     # scrape the remaining comments concurrently
-    log.info(f"scraping comments pagination, remaining {total_comments // comments_count - 1} more pages")
     _other_pages = [
-        ScrapeConfig(form_api_url(cursor=cursor), **BASE_CONFIG, headers={"content-type": "application/json"})
+        ScrapeConfig(
+            form_api_url(cursor=cursor), **BASE_CONFIG,
+            headers={"content-type": "application/json"},
+            session=session_id, render_js=True
+        )
         for cursor in range(comments_count, total_comments + comments_count, comments_count)
     ]
-    async for response in SCRAPFLY.concurrent_scrape(_other_pages):
-        data = parse_comments(response)["comments"]
+    
+    for scrape_config in _other_pages:
+        response = await SCRAPFLY.async_scrape(scrape_config)
+        try:
+            data = parse_comments(response)["comments"]
+        except Exception as e:
+            log.error(f"error scraping comments: {e}")
+            continue
         comments_data.extend(data)
 
     log.success(f"scraped {len(comments_data)} from the comments API from the post with the ID {post_id}")
