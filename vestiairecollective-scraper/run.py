@@ -25,19 +25,19 @@ async def run():
 
     products_data = await vestiairecollective.scrape_products(
         urls=[
-            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/metallic-steel-nautilus-patek-philippe-watch-21827899.shtml",
-            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/brown-pink-gold-nautilus-patek-philippe-watch-46098315.shtml",
-            "https://www.vestiairecollective.com/men-accessories/watches/patek-philippe/black-gold-plated-world-time-patek-philippe-watch-45943664.shtml",
+            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/multicolour-pink-gold-patek-philippe-watch-52859536.shtml",
+            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-gold-perpetual-calendar-patek-philippe-watch-55732655.shtml",
+            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
         ]
     )
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
         json.dump(products_data, file, indent=2, ensure_ascii=False)
 
-    products_data = await vestiairecollective.scrape_search(
-        url="https://www.vestiairecollective.com/search/?q=louis+vuitton", max_pages=2
-    )
-    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-        json.dump(products_data, file, indent=2, ensure_ascii=False)
+    # products_data = await vestiairecollective.scrape_search(
+    #     url="https://www.vestiairecollective.com/search/?q=louis+vuitton", max_pages=2
+    # )
+    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+    #     json.dump(products_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
