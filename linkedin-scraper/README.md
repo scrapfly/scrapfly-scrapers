@@ -11,6 +11,7 @@ This scraper scrapes:
 - Linkedin company pages for company data
 - Linkedin job search pages for job data
 - Linkedin job pages for detailed job data
+- Linkedin article pages for article data
 
 For output examples see the `./results` directory.
 
@@ -46,4 +47,5 @@ This Linkedin.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.
     $ poetry run pytest test.py -k test_company_scraping
     $ poetry run pytest test.py -k test_job_search_scraping
     $ poetry run pytest test.py -k test_job_page_scraping
+    $ poetry run pytest test.py -k test_article_scraping
     ```

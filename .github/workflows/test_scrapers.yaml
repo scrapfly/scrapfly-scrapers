@@ -80,6 +80,8 @@ jobs:
             test: test_job_search_scraping
           - project_dir: linkedin-scraper
             test: test_job_page_scraping
+          - project_dir: linkedin-scraper
+            test: test_article_scraping            
           - project_dir: wellfound-scraper
             test: test_company_scraping
           - project_dir: wellfound-scraper

@@ -533,6 +533,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./linkedin-scraper/results/company.json">Company pages</a></li>
         <li><a href="./linkedin-scraper/results/job_search.json">Job search pages</a></li>
         <li><a href="./linkedin-scraper/results/jobs.json">Job pages</a></li>
+        <li><a href="./linkedin-scraper/results/articles.json">Article pages</a></li>
     </ul>
     </td>
     <td><img src="https://img.shields.io/badge/LinkedIn_scraper-success-brightgreen" alt="LinkedIn-scraper-status"></td>

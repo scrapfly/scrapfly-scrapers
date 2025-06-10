@@ -59,6 +59,17 @@ async def run():
         json.dump(job_data, file, indent=2, ensure_ascii=False)
 
 
+    artcile_data = await linkedin.scrape_articles(
+        urls=[
+            "https://www.linkedin.com/pulse/last-chapter-my-career-bill-gates-tvlnc",
+            "https://www.linkedin.com/pulse/drone-didis-taking-flight-bill-gates-b1okc",
+            "https://www.linkedin.com/pulse/world-has-lot-learn-from-india-bill-gates-vaubc"
+        ]
+    )
+    with open(output.joinpath("articles.json"), "w", encoding="utf-8") as file:
+        json.dump(artcile_data, file, indent=2, ensure_ascii=False)    
+
+
 if __name__ == "__main__":
     asyncio.run(run())
         

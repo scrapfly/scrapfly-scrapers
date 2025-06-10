@@ -34,9 +34,6 @@ def refine_profile(data: Dict) -> Dict:
     profile_data = [key for key in data["@graph"] if key["@type"]=="Person"][0]
     profile_data["worksFor"] = [profile_data["worksFor"][0]]
     articles = [key for key in data["@graph"] if key["@type"]=="Article"]
-    for article in articles:
-        selector = Selector(article["articleBody"])
-        article["articleBody"] = "".join(selector.xpath("//p/text()").getall())
     parsed_data["profile"] = profile_data
     parsed_data["posts"] = articles
     return parsed_data
@@ -160,7 +157,11 @@ def parse_job_search(response: ScrapeApiResponse) -> List[Dict]:
     total_results = selector.xpath("//span[contains(@class, 'job-count')]/text()").get()
     total_results = int(total_results.replace(",", "").replace("+", "")) if total_results else None
     data = []
-    for element in selector.xpath("//section[contains(@class, 'results-list')]/ul/li"):
+    search_elements = selector.xpath("//section[contains(@class, 'results-list')]/ul/li")
+    if len(search_elements) == 0: # pagination pages have a different structure
+        search_elements = selector.xpath("//li")
+
+    for element in search_elements:
         data.append({
             "title": element.xpath(".//div/a/span/text()").get().strip(),
             "company": element.xpath(".//div/div[contains(@class, 'info')]/h4/a/text()").get().strip(),
@@ -168,7 +169,6 @@ def parse_job_search(response: ScrapeApiResponse) -> List[Dict]:
             "timeAdded": element.xpath(".//div/div[contains(@class, 'info')]/div/time/@datetime").get(),
             "jobUrl": element.xpath(".//div/a/@href").get().split("?")[0],
             "companyUrl": element.xpath(".//div/div[contains(@class, 'info')]/h4/a/@href").get().split("?")[0],
-            "salary": strip_text(element.xpath(".//span[contains(@class, 'salary')]/text()").get())
         })
     return {"data": data, "total_results": total_results}
 
@@ -236,4 +236,27 @@ async def scrape_jobs(urls: List[str]) -> List[Dict]:
         except:
             log.debug(f"Job page with {response.context['url']} URL is expired")
     log.success(f"scraped {len(data)} jobs from Linkedin")
+    return data
+
+
+def parse_article_page(response: ScrapeApiResponse) -> Dict:
+    """parse individual article data from Linkedin article pages"""
+    selector = response.selector
+    script_data = json.loads(selector.xpath("//script[@type='application/ld+json']/text()").get())
+    script_data["articleBody"] = "".join(selector.xpath("//article/div[@data-test-id='article-content-blocks']/div/p/span/text()").getall())
+    return script_data
+
+
+async def scrape_articles(urls: List[str]) -> List[Dict]:
+    """scrape Linkedin articles"""
+    to_scrape = [ScrapeConfig(url, asp=True, country="us") for url in urls]
+    data = []
+    # scrape the URLs concurrently
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        try:
+            data.append(parse_article_page(response))
+        except Exception as e:
+            log.error("An error occured while scraping article pages", e)
+            pass
+    log.success(f"scraped {len(data)} articles from Linkedin")
     return data

@@ -49,7 +49,6 @@ profile_schema = {
             "type": "dict",
             "schema": {
                 "name": {"type": "string"},
-                "articleBody": {"type": "string"},
                 "url": {"type": "string"},
             }
         }
@@ -89,6 +88,41 @@ job_page_schema = {
     "validThrough": {"type": "string"},
 }
 
+article_schema = {
+    "headline": {"type": "string"},
+    "url": {"type": "string"},
+    "publisher": {"type": "string", "nullable": True},
+    "name": {"type": "string", "nullable": True},
+    "commentCount": {"type": "integer", "nullable": True},
+    "interactionStatistic": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "interactionType": {"type": "string"},
+                "userInteractionCount": {"type": "integer"}
+            }
+        }
+    },
+    "datePublished": {"type": "string"},
+    "mainEntityOfPage": {"type": "string"},
+    "isAccessibleForFree": {"type": "boolean"},
+    "image": {
+        "type": "dict",
+        "schema": {
+            "url": {"type": "string"},
+        }
+    },
+    "author": {
+        "type": "dict",
+        "schema": {
+            "name": {"type": "string"},
+            "url": {"type": "string"},
+            "image": {"type": "string"},
+        }
+    },
+    "articleBody": {"type": "string"},
+}
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -181,4 +215,25 @@ async def test_job_page_scraping():
         job_data.sort(key=lambda x: x["title"])
         (Path(__file__).parent / 'results/jobs.json').write_text(
             json.dumps(job_data, indent=2, ensure_ascii=False, default=str)
+        )
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_article_scraping():
+    article_data = await linkedin.scrape_articles(
+        urls=[
+            "https://www.linkedin.com/pulse/last-chapter-my-career-bill-gates-tvlnc",
+            "https://www.linkedin.com/pulse/drone-didis-taking-flight-bill-gates-b1okc",
+            "https://www.linkedin.com/pulse/world-has-lot-learn-from-india-bill-gates-vaubc"
+        ]
+    )
+    validator = Validator(article_schema, allow_unknown=True)
+    for item in article_data:
+        validate_or_fail(item, validator)
+
+    assert len(article_data) >= 1
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/articles.json').write_text(
+            json.dumps(article_data, indent=2, ensure_ascii=False, default=str)
         )
