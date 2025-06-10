@@ -68,11 +68,11 @@ website_compare_schema = {
                 "schema": {
                     "description": {"type": "string"},
                     "countryAlpha2Code": {"type": "string"},
-                    "globalRank": {"type": "integer"},
+                    "globalRank": {"type": "integer", "nullable": True},
                     "globalRankChange": {"type": "integer"},
-                    "countryRank": {"type": "integer"},
+                    "countryRank": {"type": "integer", "nullable": True},
                     "countryRankChange": {"type": "integer"},
-                    "categoryRank": {"type": "integer"},
+                    "categoryRank": {"type": "integer", "nullable": True},
                 }
             }
         }

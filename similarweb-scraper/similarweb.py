@@ -59,7 +59,8 @@ def parse_website_compare(response: ScrapeApiResponse, first_domain: str, second
             traffic: traffic,
             trafficSources: trafficSources,
             ranking: ranking,
-            demographics: geography
+            demographics: demographics,
+            geography: geography
             }""",
             data_key
         )
