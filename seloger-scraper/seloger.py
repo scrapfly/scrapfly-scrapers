@@ -25,45 +25,40 @@ output.mkdir(exist_ok=True)
 def parse_search(result: ScrapeApiResponse):
     """parse property listing data from seloger search pages"""
     # select the script tag from the HTML
-    script_jsons = result.selector.xpath("//script[contains(., 'window[\"initialData\"]')]/text()").re(
-        r'JSON.parse\("(.+?)"\)'
-    )
-    # decode the JSON data
-    datasets = [json.loads(script_json.encode("utf-8").decode("unicode_escape")) for script_json in script_jsons]
-    cards = []
-    # validate the cards data to avoid advertisement cards
-    for card in datasets[0]["cards"]["list"]:
-        if card["cardType"] == "classified":
-            cards.append(card)
-    search_meta = datasets[0]["navigation"]
-    return {"results": cards, "search": search_meta}
+    selector = result.selector
+    data = []
+    for i in selector.xpath("//div[@data-testid='serp-core-classified-card-testid']"):
+        data.append({
+            "title": i.xpath(".//a[@data-testid='card-mfe-covering-link-testid']/@title").get(),
+            "url": i.xpath(".//a[@data-testid='card-mfe-covering-link-testid']/@href").get(),
+            "images": i.xpath(".//div[contains(@data-testid, 'cardmfe-picture')]//img/@src").getall(),
+            "price": i.xpath(".//div[contains(@data-testid, 'cardmfe-price')]/@aria-label").get(),
+            "price_per_m2": i.xpath(".//div[contains(@data-testid, 'cardmfe-price')]//span[contains(text(),'m²')]/text()").get(),
+            "property_facts": i.xpath(".//div[contains(@data-testid, 'keyfacts')]/div[text() != '·']/text()").getall(),
+            "address": i.xpath(".//div[contains(@data-testid, 'address')]/text()").get(),
+            "agency": i.xpath(".//div[contains(@data-testid, 'cardmfe-bottom')]/div//span[not(contains(text(), 'sur SeLoger Neuf'))]/text()").get(),
+        })
+    max_results = result.selector.xpath("//h1[contains(@data-testid, 'serp-title')]/text()").get()
+    max_results = int(max_results.split('-')[-1].strip().split(' ')[0])
 
-
-def _max_search_pages(search_meta: Dict) -> int:
-    """get the maximum number of pages available on the search"""
-    return search_meta["counts"]["count"] // search_meta["pagination"]["resultsPerPage"]
+    return {"results": data, "max_results": max_results}
 
 
 def parse_property_page(result: ScrapeApiResponse):
     """parse property data from the nextjs cache"""
     # select the script tag from the HTML
     next_data = result.selector.css("script[id='__NEXT_DATA__']::text").get()
-    listing_data = json.loads(next_data)["props"]["pageProps"]["listingData"]
-    # extract property data from the property page
-    property_data = {}
-    property_data["listing"] = listing_data["listing"]
-    property_data["agency"] = listing_data["agency"]
-    return property_data
+    listing_data = json.loads(next_data)["props"]["initialReduxState"]["detailsAnnonce"]["annonce"]
+    return listing_data
 
 
 async def scrape_search(
     url: str,
-    scrape_all_pages: bool,
     max_pages: int = 10,
 ) -> List[Dict]:
     """
     scrape seloger search pages, which supports pagination by adding a LISTING-LISTpg parameter at the end of the URL
-    https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/?LISTING-LISTpg=page_number
+    https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08FR13100&page=page_number
     """
     log.info("scraping search page {}", url)
     # scrape the first page first
@@ -72,18 +67,16 @@ async def scrape_search(
     # extract the property listing data
     search_data = search_page_result["results"]
     # get the max search pages number
-    total_search_pages = _max_search_pages(search_page_result["search"])
-    # scrape a specfic amount of search pages
-    if scrape_all_pages == False and max_pages < total_search_pages:
-        total_pages = max_pages
-    # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
-    else:
-        total_pages = total_search_pages
-    log.info("scraping search {} pagination ({} more pages)", url, total_pages - 1)
+    total_search_pages = search_page_result["max_results"] // 30 # 30 results per page
+    # get the number of pages to scrape
+    if max_pages and max_pages <= total_search_pages:
+        total_search_pages = max_pages
+    
+    log.info("scraping search {} pagination ({} more pages)", url, total_search_pages - 1)
     # add the ramaining pages in a scraping list
     _other_pages = [
-        ScrapeConfig(f"{first_page.context['url']}?LISTING-LISTpg={page}", **BASE_CONFIG)
-        for page in range(2, total_pages + 1)
+        ScrapeConfig(first_page.context['url'] + f"&page={page}", **BASE_CONFIG)
+        for page in range(2, total_search_pages + 1)
     ]
     # scrape the remaining pages concurrently
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):

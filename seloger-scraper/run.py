@@ -21,8 +21,7 @@ async def run():
     print("running Seloger scrape and saving results to ./results directory")
 
     search_data = await seloger.scrape_search(
-        url="https://www.seloger.com/immobilier/achat/immo-bordeaux-33/bien-appartement/",
-        scrape_all_pages=False,
+        url="https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08FR13100",
         max_pages=2,
     )
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
@@ -30,9 +29,9 @@ async def run():
 
     property_data = await seloger.scrape_property(
         urls=[
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/232628697.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/capucins-saint-michel-nansouty-saint-genes/230616779.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/228767099.htm"
+            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243499653/",
+            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243499653/",
+            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243175295/"
         ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
