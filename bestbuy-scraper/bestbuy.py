@@ -4,7 +4,7 @@ This is an example web scraper for BestBuy.com.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
-
+import re
 import os
 import gzip
 import json
@@ -22,6 +22,9 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
+    "headers": {
+        "cookie": "intl_splash=false"
+    }
 }
 
 
@@ -79,26 +82,71 @@ def refine_product(data: Dict) -> Dict:
     return parsed_product
 
 
+def extract_json(script: str) -> Dict:
+    """extract JSON data from a script tag content"""
+    start_index = script.find('.push(')
+    brace_start = script.find('{', start_index)
+
+    # find the JSON block
+    brace_count = 0
+    for i in range(brace_start, len(script)):
+        if script[i] == '{':
+            brace_count += 1
+        elif script[i] == '}':
+            brace_count -= 1
+            if brace_count == 0:
+                brace_end = i + 1
+                break
+
+    raw_json = script[brace_start:brace_end]
+    cleaned_json = raw_json.replace("undefined", "null")
+    parsed_data = json.loads(cleaned_json)
+    return parsed_data
+
+
+def _extract_nested(data, keys, default=None):
+    for key in keys:
+        data = data.get(key, {})
+    return data or default
+
+
 def parse_product(response: ScrapeApiResponse) -> Dict:
     """parse product data from bestbuy product pages"""
     selector = response.selector
     data = {}
-    data["shop-specifications"] = json.loads(selector.xpath("//script[contains(@id, 'shop-specifications')]/text()").get())
-    data["faqs"] = json.loads(selector.xpath("//script[contains(@id, 'content-question')]/text()").get())
-    data["pricing"] = json.loads(selector.xpath("//script[contains(@id, 'pricing-price')]/text()").get())
-    data["reviews"] = json.loads(selector.xpath("//script[contains(@id, 'ratings-and-reviews')]/text()").get())
- 
-    parsed_product = refine_product(data)
-    return parsed_product
+    
+    product_info = extract_json( 
+        selector.xpath("//script[contains(text(),'productBySkuId')]/text()").get()
+    )
+    product_features = extract_json(
+        selector.xpath("//script[contains(text(),'R1eapefmjttrkq')]/text()").get()
+    )
+    buying_options = extract_json(
+        selector.xpath("//script[contains(text(), 'R3vmipefmjttrkqH1')]/text()").get()
+    )
+    product_faq = extract_json(
+        selector.xpath("//script[contains(text(), 'ProductQuestionConnection')]/text()").get()
+    )
+
+    data["product-info"] = _extract_nested(product_info, ["rehydrate", ":Rp9efmjttrkq:", "data", "productBySkuId"])
+    data["product-features"] = _extract_nested(product_features, ["rehydrate", ":R1eapefmjttrkq:", "data", "productBySkuId", "features"])
+    data["buying-options"] = _extract_nested(buying_options, ["rehydrate", ":R3vmipefmjttrkqH1:", "data", "productBySkuId", "buyingOptions"])
+    data["product-faq"] = _extract_nested(product_faq, ["rehydrate", ":R1fapefmjttrkq:", "data", "productBySkuId", "questions"])
+
+    return data
 
 
-async def scrape_products(urls: List[str]) -> List[Dict]:
+async def scrape_products(urls: List[str], max_review_pages: int = 1) -> List[Dict]:
     """scrapy product data from bestbuy product pages"""
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             product_data = parse_product(response)
+            product_data["product_reviews"] = await scrape_reviews(
+                product_data["product-info"]["skuId"],
+                max_pages=max_review_pages
+            )
             data.append(product_data)
         except:
             pass
@@ -111,31 +159,29 @@ def parse_search(response: ScrapeApiResponse):
     """parse search data from search pages"""
     selector = response.selector
     data = []
-    for item in selector.css("#main-results .sku-item-list>li.sku-item"):
-        name = item.css(".sku-title a::text").get()
-        link = item.css(".sku-title a::attr(href)").get()
-        price = selector.css('[data-testid=customer-price]>span::text').re('\d+\.\d{2}')[0]
-        original_price = (selector.css('[data-testid=regular-price]>span::text').re('\d+\.\d{2}') or [None]) [0]
-        sku = item.xpath("@data-sku-id").get()
-        model = item.css(".sku-model .sku-value::text").get()
-        _rating_data = item.css(".ratings-reviews p::text")
+    for item in selector.css("#main-results li"):
+        name = item.css(".product-title::attr(title)").get()
+        link = item.css("a.product-list-item-link::attr(href)").get()
+        price = selector.css('div.customer-price::text').re('\d+\.\d{2}')[0]
+        original_price = (selector.css('div.regular-price::text').re('\d+\.\d{2}') or [None]) [0]
+        sku = item.xpath("@data-testid").get()
+        _rating_data = item.css(".c-ratings-reviews p::text")
         rating = (_rating_data.re(r"\d+\.*\d*") or [None])[0]
         rating_count = int((_rating_data.re('(\d+) reviews') or [0])[0])
-        images = item.css(".product-image::attr(src)").getall()
+        images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
 
         data.append({
             "name": name,
-            "link": "https://www.bestbuy.com" + link,
+            "link": "https://www.bestbuy.com" + link if link else None,
             "images": images,
             "sku": sku,
-            "model": model,
             "price": price,
             "original_price": original_price,
             "rating": rating,
             "rating_count": rating_count,
         })
     if len(data):
-        _total_count = selector.css(".item-count::text").re('\d+')[0]
+        _total_count = selector.css("div.results-title span:nth-of-type(2)::text").re('\d+')[0]
         total_pages = int(_total_count) // len(data)
     else:
         total_pages = 1
@@ -157,7 +203,12 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
             params["sp"] = sort
         return base_url + urlencode(params)
     
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(form_search_url(1), **BASE_CONFIG))
+    first_page = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            form_search_url(1), render_js=True, rendering_wait=5000,auto_scroll=True,
+            wait_for_selector="#main-results li", **BASE_CONFIG
+        )
+    )
     data = parse_search(first_page)
     search_data = data["data"]
     total_pages = data["total_pages"]

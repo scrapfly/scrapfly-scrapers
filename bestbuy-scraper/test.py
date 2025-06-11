@@ -30,25 +30,6 @@ def validate_or_fail(item, validator):
         pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
 
 
-product_schema = {
-    "pricing": {
-        "type": "dict",
-        "schema": {
-            "skuId": {"type": "string"},
-        }
-    },
-    "faqs": {
-        "type": "list",
-        "schema": {
-            "type": "dict",
-            "schema": {
-                "sku": {"type": "string"},
-                "questionTitle": {"type": "string"}
-            }
-        }
-    }
-}
-
 review_schema = {
     "id": {"type": "string"},
     "topicType": {"type": "string"},
@@ -58,12 +39,83 @@ review_schema = {
     "author": {"type": "string", "nullable": True},
 }
 
+product_schema = {
+    "product-info": {
+        "type": "dict",
+        "schema": {
+            "brand": {"type": "string"},
+            "skuId": {"type": "string"},
+            "whatItIs": {
+                "type": "list",
+                "schema": {"type": "string"}
+            }
+        }
+    },
+    "product-features": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "description": {"type": "string"},
+                "sequence": {"type": "integer"}
+            }
+        }
+    },
+    "buying-options": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "__typename": {"type": "string"},
+                "description": {"type": "string"},
+                "product": {
+                    "type": "dict",
+                    "schema": {
+                        "brand": {"type": "string"},
+                        "skuId": {"type": "string"},
+                        "price": {
+                            "type": "dict",
+                            "schema": {
+                                # Changed from integer to number to allow floats
+                                "customerPrice": {"type": "number"},
+                                "skuId": {"type": "string"}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "product-faq": {
+        "type": "dict",
+        "schema": {
+            "results": {
+                "type": "list",
+                "schema": {
+                    "type": "dict",
+                    "schema": {
+                        "id": {"type": "string"},
+                        "title": {"type": "string"},
+                        "userNickname": {"type": "string", "nullable": True},
+                    }
+                }
+            }
+        }
+    },
+    "product_reviews": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": review_schema
+        }
+    }
+}
+
 search_schema = {
-    "name": {"type": "string"},
-    "link": {"type": "string"},
+    "name": {"type": "string", "nullable": True},
+    "link": {"type": "string", "nullable": True},
     "images": {"type": "list", "schema": {"type": "string"}},
     "sku": {"type": "string"},
-    "model": {"type": "string"},
     "price": {"type": "string", "regex": r"\d+\.\d{2}"},
     "original_price": {"type": "string", "regex": r"\d+\.\d{2}", "nullable": True},
     "rating": {"type": "string", "nullable": True, "regex": r"\d+\.*\d*"},
@@ -76,9 +128,9 @@ search_schema = {
 async def test_product_scraping():
     product_data = await bestbuy.scrape_products(
         urls=[
-            "https://www.bestbuy.com/site/macbook-air-13-6-laptop-apple-m2-chip-8gb-memory-256gb-ssd-midnight/6509650.p"
+            "https://www.bestbuy.com/site/apple-macbook-air-13-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-256gb-ssd-midnight/6565862.p",
             "https://www.bestbuy.com/site/apple-geek-squad-certified-refurbished-macbook-pro-16-display-intel-core-i7-16gb-memory-amd-radeon-pro-5300m-512gb-ssd-space-gray/6489615.p",
-            "https://www.bestbuy.com/site/apple-macbook-air-15-laptop-m2-chip-8gb-memory-256gb-ssd-midnight/6534606.p",
+            "https://www.bestbuy.com/site/apple-macbook-pro-14-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-512gb-ssd-space-black/6602741.p",
             "https://www.bestbuy.com/site/apple-macbook-pro-14-laptop-m3-pro-chip-18gb-memory-14-core-gpu-512gb-ssd-latest-model-space-black/6534615.p"
         ]
     )

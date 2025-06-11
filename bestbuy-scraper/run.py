@@ -33,11 +33,12 @@ async def run():
     product_data = await bestbuy.scrape_products(
         # note that the parsing logic for hidden data can differ based on the product type
         urls=[
-            "https://www.bestbuy.com/site/macbook-air-13-6-laptop-apple-m2-chip-8gb-memory-256gb-ssd-midnight/6509650.p"
+            "https://www.bestbuy.com/site/apple-macbook-air-13-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-256gb-ssd-midnight/6565862.p",
             "https://www.bestbuy.com/site/apple-geek-squad-certified-refurbished-macbook-pro-16-display-intel-core-i7-16gb-memory-amd-radeon-pro-5300m-512gb-ssd-space-gray/6489615.p",
-            "https://www.bestbuy.com/site/apple-macbook-air-15-laptop-m2-chip-8gb-memory-256gb-ssd-midnight/6534606.p",
+            "https://www.bestbuy.com/site/apple-macbook-pro-14-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-512gb-ssd-space-black/6602741.p",
             "https://www.bestbuy.com/site/apple-macbook-pro-14-laptop-m3-pro-chip-18gb-memory-14-core-gpu-512gb-ssd-latest-model-space-black/6534615.p"
-        ]
+        ],
+        max_review_pages=1
     )
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
         json.dump(product_data, file, indent=2, ensure_ascii=False)
@@ -45,7 +46,7 @@ async def run():
 
     search_data = await bestbuy.scrape_search(
         search_query="macbook",
-        max_pages=3        
+        max_pages=3
     )
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
