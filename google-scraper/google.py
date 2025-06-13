@@ -164,7 +164,7 @@ async def scrape_keywords(query: str) -> List[str]:
     """request google search page for keyword data"""
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            f"https://www.google.com/search?hl=en&q={quote(query)}", **BASE_CONFIG
+            f"https://www.google.com/search?hl=en&q={quote(query)}", **BASE_CONFIG, render_js=True
         )
     )
     data = parse_keywords(response)
