@@ -22,7 +22,7 @@ async def run():
 
     products_data = await nordstorm.scrape_products(
         urls=[
-            "https://www.nordstrom.com/s/nike-air-max-270-sneaker-women/4700177",
+            "https://www.nordstrom.com/s/nike-air-max-90-sneaker-men/6549520",
             "https://www.nordstrom.com/s/nike-sportswear-club-hoodie/6049642",
             "https://www.nordstrom.com/s/nike-phoenix-fleece-crewneck-sweatshirt/6665302",
         ]
@@ -30,11 +30,11 @@ async def run():
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
         json.dump(products_data, file, indent=2, ensure_ascii=False)
 
-    search_data = await nordstorm.scrape_search(
-        url="https://www.nordstrom.com/sr?origin=keywordsearch&keyword=indigo", max_pages=2
-    )
-    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-        json.dump(search_data, file, indent=2, ensure_ascii=False)
+    # search_data = await nordstorm.scrape_search(
+    #     url="https://www.nordstrom.com/sr?origin=keywordsearch&keyword=indigo", max_pages=2
+    # )
+    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+    #     json.dump(search_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":

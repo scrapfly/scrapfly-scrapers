@@ -105,7 +105,7 @@ search_schema = {
 async def test_product_scraping():
     products_data = await nordstorm.scrape_products(
         urls=[
-            "https://www.nordstrom.com/s/nike-air-max-270-sneaker-women/4700177",
+            "https://www.nordstrom.com/s/nike-air-max-90-sneaker-men/6549520",
             "https://www.nordstrom.com/s/nike-sportswear-club-hoodie/6049642",
             "https://www.nordstrom.com/s/nike-phoenix-fleece-crewneck-sweatshirt/6665302",
         ]
