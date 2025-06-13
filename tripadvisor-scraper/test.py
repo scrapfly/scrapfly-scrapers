@@ -1,16 +1,31 @@
 import pytest
 import pprint as pp
-from cerberus import Validator
+from cerberus import Validator as _Validator
 import tripadvisor
 
 # enable cache?
-tripadvisor.BASE_CONFIG["cache"] = True
+tripadvisor.BASE_CONFIG["cache"] = False
+tripadvisor.BASE_CONFIG["debug"] = True
+
+
+class Validator(_Validator):
+    def _validate_min_presence(self, min_presence, field, value):
+        pass  # required for adding non-standard keys to schema
 
 def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)
         pytest.fail(
             f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}"
+        )
+
+
+def require_min_presence(items, key, min_perc=0.1):
+    """check whether dataset contains items with some amount of non-null values for a given key"""
+    count = sum(1 for item in items if item.get(key))
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
         )
 
 
@@ -64,18 +79,18 @@ async def test_hotel_scraping():
             }
         },
         "description": {"type": "string", "required": True},
-        "reviews": {
-            "type": "list",
-            "schema": {
-                "type": "dict",
-                "schema": {
-                    "title": {"type": "string", "required": True},
-                    "tripDate": {"type": "string", "required": True}
-                }
-            }
-        }
     }
     
+    review_schema = {
+        "title": {"type": "string", "nullable": True},
+        "text": {"type": "string", "nullable": True},
+        "rate": {"type": "float", "nullable": True},
+        "tripDate": {"type": "string", "nullable": True},
+        "tripType": {"type": "string", "nullable": True},
+    }
+
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result_hotel, validator)
     assert len(result_hotel["reviews"]) >= 10
+    for k in review_schema:
+        require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))        

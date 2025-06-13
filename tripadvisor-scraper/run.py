@@ -17,6 +17,7 @@ output.mkdir(exist_ok=True)
 async def run():
     # enable scrapfly cache for basic use
     tripadvisor.BASE_CONFIG["cache"] = False
+    tripadvisor.BASE_CONFIG["debug"] = True
 
     print("running Tripadvisor scrape and saving results to ./results directory")
     result_location = await tripadvisor.scrape_location_data(query="Malta")

@@ -135,8 +135,8 @@ def parse_search_page(result: ScrapeApiResponse) -> List[Preview]:
     parsed = []
     # Search results are contain in boxes which can be in two locations.
     # this is location #1:
-    for box in result.selector.css("span.listItem"):
-        title = box.css("div[data-automation=hotel-card-title] a ::text").getall()[1]
+    for box in result.selector.xpath("//div[@data-test-target='hotels-main-list']//ol/li"):
+        title = box.xpath(".//div[@data-automation='hotel-card-title']/a/h3/text()").getall()[1]
         url = box.css("div[data-automation=hotel-card-title] a::attr(href)").get()
         parsed.append(
             {
@@ -179,7 +179,7 @@ async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Pre
 
     # extract pagination metadata to scrape all pages concurrently
     page_size = len(results)
-    total_results = first_page.selector.xpath("//span/text()").re("(\d*\,*\d+) properties")[0]
+    total_results = first_page.selector.xpath("//div[@data-test-target='hotels-main-list']//span").re(r"(\d[\d,]*)")[0]
     total_results = int(total_results.replace(",", ""))
     next_page_url = first_page.selector.css('a[aria-label="Next page"]::attr(href)').get()
     next_page_url = urljoin(hotel_search_url, next_page_url)  # turn url absolute
@@ -208,22 +208,26 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
     """parse hotel data from hotel pages"""
     selector = result.selector
     basic_data = json.loads(selector.xpath("//script[contains(text(),'aggregateRating')]/text()").get())
-    description = selector.css("div.fIrGe._T::text").get()
+    description = selector.xpath("//div[@data-automation='aboutTabDescription']/div/div/div/text()").get()
     amenities = []
     for feature in selector.xpath("//div[contains(@data-test-target, 'amenity')]/text()"):
         amenities.append(feature.get())
+
     reviews = []
-    for review in selector.xpath("//div[@data-reviewid]"):
-        title = review.xpath(".//div[@data-test-target='review-title']/a/span/span/text()").get()
-        text = "".join(review.xpath(".//span[contains(@data-automation, 'reviewText')]/span/text()").extract())
-        rate = review.xpath(".//div[@data-test-target='review-rating']/*/*[contains(text(),'of 5 bubbles')]/text()").get()
+    for review in selector.xpath("//div[contains(text(), 'wrote a review')]/ancestor::div[6]"):
+        title = review.xpath(".//div[@data-test-target='review-title']/div/a/text()").get()
+        text = "".join(review.xpath(".//span[contains(@data-automation, 'reviewText')]/text()").extract())
+        rate = review.xpath(".//*[contains(text(),'of 5 bubbles')]/text()").get()
         rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
-        trip_data = review.xpath(".//span[span[contains(text(),'Date of stay')]]/text()").get()
+        trip_data = review.xpath(".//div[1]/div[2]/div[1]/div[2]/text()").get()
+        trip_type = review.xpath(".//div[1]/div[2]/div/div[4]/text()").get()
+
         reviews.append({
             "title": title,
             "text": text,
             "rate": rate,
-            "tripDate": trip_data
+            "tripDate": trip_data,
+            "tripType": trip_type,
         })
 
     return {
@@ -236,7 +240,7 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
 
 async def scrape_hotel(url: str, max_review_pages: Optional[int] = None) -> Dict:
     """Scrape hotel data and reviews"""
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
     hotel_data = parse_hotel_page(first_page)
 
     # get the number of total review pages
@@ -252,10 +256,10 @@ async def scrape_hotel(url: str, max_review_pages: Optional[int] = None) -> Dict
     review_urls = [
         # note: "or" stands for "offset reviews"
         url.replace("-Reviews-", f"-Reviews-or{_review_page_size * i}-")
-        for i in range(1, total_review_pages)
+        for i in range(1, total_review_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape([
-            ScrapeConfig(url, **BASE_CONFIG)
+            ScrapeConfig(url, **BASE_CONFIG, render_js=True)
             for url in review_urls
         ]):
         data = parse_hotel_page(result)
