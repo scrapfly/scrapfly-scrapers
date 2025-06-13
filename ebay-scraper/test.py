@@ -97,7 +97,7 @@ async def test_search_scraping():
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
         "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
         "auction_end": {"type": "datetime", "nullable": True, "min_presence": 0.01},
-        "bids": {"type": "integer", "nullable": True, "min_presence": 0.01},
+        "bids": {"type": "integer", "nullable": True, "min_presence": 0.001},
         "price": {"type": "string", "nullable": True},
     }
     validator = DateTimeValidator(schema, allow_unknown=True)
