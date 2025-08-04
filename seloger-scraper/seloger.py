@@ -6,6 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import os
 import json
+import re
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 from typing import Dict, List
 from pathlib import Path
@@ -35,12 +36,12 @@ def parse_search(result: ScrapeApiResponse):
             "price": i.xpath(".//div[contains(@data-testid, 'cardmfe-price')]/@aria-label").get(),
             "price_per_m2": i.xpath(".//div[contains(@data-testid, 'cardmfe-price')]//span[contains(text(),'m²')]/text()").get(),
             "property_facts": i.xpath(".//div[contains(@data-testid, 'keyfacts')]/div[text() != '·']/text()").getall(),
-            "address": i.xpath(".//div[contains(@data-testid, 'address')]/text()").get(),
+            "address": i.xpath(".//div[contains(@data-testid, 'address')]//text()").get(),
             "agency": i.xpath(".//div[contains(@data-testid, 'cardmfe-bottom')]/div//span[not(contains(text(), 'sur SeLoger Neuf'))]/text()").get(),
         })
-    max_results = result.selector.xpath("//h1[contains(@data-testid, 'serp-title')]/text()").get()
-    max_results = int(max_results.split('-')[-1].strip().split(' ')[0])
 
+    max_results = result.selector.xpath("//h1[contains(@data-testid, 'serp-title')]/text()").get()
+    max_results = int(re.sub(r'\D', '', max_results)) if re.search(r'\d', max_results) else max_results
     return {"results": data, "max_results": max_results}
 
 
@@ -48,7 +49,7 @@ def parse_property_page(result: ScrapeApiResponse):
     """parse property data from the nextjs cache"""
     # select the script tag from the HTML
     next_data = result.selector.css("script[id='__NEXT_DATA__']::text").get()
-    listing_data = json.loads(next_data)["props"]["initialReduxState"]["detailsAnnonce"]["annonce"]
+    listing_data = json.loads(next_data)["props"]["initialReduxState"]
     return listing_data
 
 

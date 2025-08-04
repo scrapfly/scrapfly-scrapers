@@ -88,7 +88,7 @@ search_schema = {
         "schema": {"type": "string"}
     },
     "address": {"type": "string"},
-    "agency": {"type": "string"}
+    "agency": {"type": "string", "nullable": True},
 }
 
 
