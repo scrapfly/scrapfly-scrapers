@@ -108,9 +108,9 @@ async def test_search_scraping():
 async def test_property_scraping():
     property_data = await seloger.scrape_property(
         urls=[
-            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243499653/",
-            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243499653/",
-            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243175295/"
+            "https://www.selogerneuf.com/immobilier/neuf/bien-programme/ile-de-france/",
+            "https://www.selogerneuf.com/recherche/?idtypebien=1,2,9&idtt=9&tri=datepublicationantechronologique&localities=239",
+            "https://www.selogerneuf.com/recherche/?idtypebien=1,2,9&idtt=9&tri=selection&localities=5092"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)

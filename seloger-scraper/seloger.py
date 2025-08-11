@@ -17,6 +17,8 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     "asp": True,
     "country": "fr",
+    "proxy_pool": "public_residential_pool",
+    "render_js": True,
 }
 
 output = Path(__file__).parent / "results"
@@ -49,7 +51,7 @@ def parse_property_page(result: ScrapeApiResponse):
     """parse property data from the nextjs cache"""
     # select the script tag from the HTML
     next_data = result.selector.css("script[id='__NEXT_DATA__']::text").get()
-    listing_data = json.loads(next_data)["props"]["initialReduxState"]
+    listing_data = json.loads(next_data)["props"]["initialReduxState"]["searchPrograms"]
     return listing_data
 
 
