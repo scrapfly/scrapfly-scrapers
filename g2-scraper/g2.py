@@ -133,7 +133,7 @@ def parse_review_page(response: ScrapeApiResponse):
     """parse reviews data from G2 company pages"""
     selector = response.selector
 
-    # Corrected selector for total reviews
+    # selector for total reviews
     total_reviews_text = selector.xpath("//h3[contains(text(), 'DigitalOcean Reviews')]/text()").get()
     if total_reviews_text:
         total_reviews = int(total_reviews_text.split()[0])
@@ -145,7 +145,7 @@ def parse_review_page(response: ScrapeApiResponse):
         total_pages = 0
 
     data = []
-    # Corrected main review container selector from 'div' to 'article'
+    # main review container selector from 'div' to 'article'
     for review in selector.xpath("//article[.//div[@itemprop='reviewBody']]"):
         author_name = review.xpath(".//div[@itemprop='author']/meta[@itemprop='name']/@content").get()
         author_profile = review.xpath(".//div[contains(@class, 'avatar')]/parent::a/@href").get()
@@ -157,17 +157,17 @@ def parse_review_page(response: ScrapeApiResponse):
         author_position = author_details[0] if author_details and len(author_details) > 0 else None
         author_company_size = next((detail for detail in author_details if "emp." in detail), None)
 
-        # Corrected selector for review tags
+        # selector for review tags
         review_tags = review.xpath(
             ".//div[contains(@class, 'gap-3') and contains(@class, 'flex-wrap')]//label/text()"
         ).getall()
 
         review_date = review.xpath(".//meta[@itemprop='datePublished']/@content").get()
-        # Corrected selector for review rate using the reliable itemprop meta tag
+        # selector for review rate using the reliable itemprop meta tag
         review_rate = review.xpath(".//span[@itemprop='reviewRating']/meta[@itemprop='ratingValue']/@content").get()
         review_title = review.xpath(".//div[@itemprop='name']//text()").get()
 
-        # Corrected selectors for review likes and dislikes
+        # selectors for review likes and dislikes
         review_likes_parts = review.xpath(
             ".//section[div[contains(text(), 'What do you like best')]]/p//text()"
         ).getall()
