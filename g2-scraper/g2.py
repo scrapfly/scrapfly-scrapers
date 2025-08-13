@@ -289,26 +289,27 @@ async def scrape_alternatives(
     """scrape product alternatives from G2 alternative pages"""
     # the default alternative is top 10, which takes to argument
     url = f"https://www.g2.com/products/{product}/competitors/alternatives/{alternatives}"
-    log.info(f"scraping alternative page {url}")
+    log.info(f"Scraping alternative page {url} (attempt 1: no JS)")
+
+    data = []
     try:
+        # 1. First, try the cheap and fast request without JavaScript
         response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
         data = parse_alternatives(response)
-    except Exception as e:  # Catching any exception
-        log.error(f"Error encountered: {e}, trying")
-        pass
-    if not data:
-        log.debug("request is blocked, trying again with render_js enabled and residential proxies")
-        try:
-            response = await SCRAPFLY.async_scrape(
-                ScrapeConfig(
-                    url,
-                    **BASE_CONFIG,
-                    render_js=True,
-                    proxy_pool="public_residential_pool",
-                )
-            )
+
+        # 2. Check if the first attempt failed to get descriptions
+        # This checks if we got data, but the description field in all items is empty
+        descriptions_missing = data and not any(item.get("description") for item in data)
+
+        if descriptions_missing:
+            log.warning("Descriptions missing. Retrying with JavaScript rendering (attempt 2).")
+            # 3. If descriptions are missing, retry with render_js=True
+            js_config = ScrapeConfig(url, **BASE_CONFIG, render_js=True)
+            response = await SCRAPFLY.async_scrape(js_config)
             data = parse_alternatives(response)
-        except:
-            return
-    log.success(f"scraped {len(data)} company alternatives from G2 alternative pages")
+
+    except Exception as e:
+        log.error(f"An exception occurred during scraping: {e}")
+
+    log.success(f"Scraped {len(data)} company alternatives from G2 alternative pages")
     return data
