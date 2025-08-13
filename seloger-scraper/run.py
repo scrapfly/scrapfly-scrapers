@@ -5,6 +5,7 @@ It scrapes ads data and saves it to ./results/
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+
 import asyncio
 import json
 from pathlib import Path
@@ -29,9 +30,9 @@ async def run():
 
     property_data = await seloger.scrape_property(
         urls=[
-            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243499653/",
-            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243499653/",
-            "https://www.selogerneuf.com/annonces/neuf/programme/bordeaux-33/243175295/"
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/247611919.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/le-lac-bacalan/245875571.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm",
         ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
