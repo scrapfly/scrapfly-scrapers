@@ -5,6 +5,7 @@ It scrapes ads data and saves it to ./results/
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+
 import asyncio
 import json
 from pathlib import Path
@@ -29,9 +30,10 @@ async def run():
 
     property_data = await seloger.scrape_property(
         urls=[
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/247611919.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/le-lac-bacalan/245875571.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL"        ]   
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/247611919.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/le-lac-bacalan/245875571.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm",
+        ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
         json.dump(property_data, file, indent=2, ensure_ascii=False)

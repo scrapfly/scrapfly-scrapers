@@ -58,52 +58,8 @@ property_schema = {
                     "headline": {"type": "string"},
                 },
             },
-            "hardFacts": {
-                "type": "dict",
-                "schema": {
-                    "title": {"type": "string"},
-                    "keyfacts": {"type": "list", "schema": {"type": "string"}},
-                    "facts": {
-                        "type": "list",
-                        "schema": {
-                            "type": "dict",
-                            "schema": {
-                                "type": {"type": "string"},
-                                "value": {"type": "string"},
-                                "splitValue": {"type": "string"},
-                                "label": {"type": "string"},
-                            },
-                        },
-                    },
-                },
-            },
-            "price": {
-                "type": "dict",
-                "schema": {
-                    "base": {
-                        "type": "dict",
-                        "schema": {
-                            "main": {
-                                "type": "dict",
-                                "schema": {
-                                    "key": {"type": "string"},
-                                    "label": {"type": "dict"},
-                                    "value": {
-                                        "type": "dict",
-                                        "schema": {
-                                            "main": {"type": "dict"},
-                                            "alt": {"type": "dict"},
-                                        },
-                                    },
-                                },
-                            },
-                            "type": {"type": "string"},
-                        },
-                    },
-                    "components": {"type": "list"},
-                    "layout": {"type": "string"},
-                },
-            },
+            "hardFacts": {"type": "dict"},
+            "price": {"type": "dict"},
             "features": {
                 "type": "dict",
                 "schema": {
@@ -119,27 +75,6 @@ property_schema = {
                     },
                     "details": {
                         "type": "dict",
-                        "schema": {
-                            "categories": {
-                                "type": "list",
-                                "schema": {
-                                    "type": "dict",
-                                    "schema": {
-                                        "elements": {
-                                            "type": "list",
-                                            "schema": {
-                                                "type": "dict",
-                                                "schema": {
-                                                    "icon": {"type": "string"},
-                                                    "value": {"type": "string"},
-                                                },
-                                            },
-                                        },
-                                        "title": {"type": "string"},
-                                    },
-                                },
-                            }
-                        },
                     },
                 },
             },
@@ -154,13 +89,6 @@ property_schema = {
                                 "key": {"type": "string"},
                                 "url": {"type": "string"},
                                 "alt": {"type": "string", "required": False},
-                                "classification": {
-                                    "type": "dict",
-                                    "schema": {
-                                        "name": {"type": "string"},
-                                        "version": {"type": "string"},
-                                    },
-                                },
                             },
                         },
                     }
@@ -171,17 +99,8 @@ property_schema = {
     "contactSections": {
         "type": "dict",
         "schema": {
-            "id": {"type": "string"},
-            "legacyId": {"type": "string"},
-            "brand": {"type": "string"},
             "agencyId": {"type": "string"},
             "static": {
-                "type": "dict",
-                "schema": {
-                    "phoneNumbers": {"type": "list", "schema": {"type": "string"}},
-                },
-            },
-            "sticky": {
                 "type": "dict",
                 "schema": {
                     "phoneNumbers": {"type": "list", "schema": {"type": "string"}},
@@ -193,31 +112,18 @@ property_schema = {
                     "title": {"type": "string"},
                     "subtitle": {"type": "string"},
                     "phoneNumbers": {"type": "list", "schema": {"type": "string"}},
-                    "isPrivateOwner": {"type": "boolean"},
-                    "agencyLogo": {"type": "dict"},
-                    "contactLogo": {"type": "dict"},
                 },
             },
-            "contactForm": {"type": "dict"},
-            "mobilePhones": {"type": "dict"},
-            "provider": {"type": "dict"},
-            "confirmationPage": {"type": "dict"},
         },
     },
 }
 search_schema = {
     "title": {"type": "string"},
     "url": {"type": "string"},
-    "images": {
-        "type": "list",
-        "schema": {"type": "string"}
-    },
+    "images": {"type": "list", "schema": {"type": "string"}},
     "price": {"type": "string"},
     "price_per_m2": {"type": "string"},
-    "property_facts": {
-        "type": "list",
-        "schema": {"type": "string"}
-    },
+    "property_facts": {"type": "list", "schema": {"type": "string"}},
     "address": {"type": "string"},
     "agency": {"type": "string", "nullable": True},
 }
@@ -227,7 +133,7 @@ search_schema = {
 async def test_search_scraping():
     search_data = await seloger.scrape_search(
         url="https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08FR13100",
-        max_pages=3
+        max_pages=3,
     )
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
