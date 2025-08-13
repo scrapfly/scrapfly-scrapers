@@ -44,7 +44,6 @@ def parse_search_page(response: ScrapeApiResponse):
     for result in selector.xpath("//section[.//a[contains(@href, '/products/')]]"):
         name = result.xpath(".//div[contains(@class, 'elv-text-lg')]/text()").get()
 
-        # CORRECTED LINE: Use urljoin() from urllib.parse
         relative_link = result.xpath(".//div[contains(@class, 'elv-text-lg')]/parent::a/@href").get()
         link = urljoin(response.request.url, relative_link)
 
