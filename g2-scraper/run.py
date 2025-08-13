@@ -38,7 +38,7 @@ async def run():
         product="digitalocean"
     )
     with open(output.joinpath("alternatives.json"), "w", encoding="utf-8") as file:
-        json.dump(alternatives_data, file, indent=2, ensure_ascii=False)    
+        json.dump(alternatives_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
