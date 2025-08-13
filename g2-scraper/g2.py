@@ -195,7 +195,7 @@ def parse_review_page(response: ScrapeApiResponse):
                     "reviewRate": float(review_rate) if review_rate else None,
                     "reviewTitle": (review_title.replace('"', "").strip() if review_title else None),
                     "reviewLikes": review_likes,
-                    "reviewDilikes": review_dislikes,  # Typo from original code, kept for consistency
+                    "reviewDislikes": review_dislikes,
                 },
             }
         )
