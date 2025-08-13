@@ -29,10 +29,9 @@ async def run():
 
     property_data = await seloger.scrape_property(
         urls=[
-            "https://www.selogerneuf.com/immobilier/neuf/bien-programme/ile-de-france/",
-            "https://www.selogerneuf.com/recherche/?idtypebien=1,2,9&idtt=9&tri=datepublicationantechronologique&localities=239",
-            "https://www.selogerneuf.com/recherche/?idtypebien=1,2,9&idtt=9&tri=selection&localities=5092"
-        ]
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/247611919.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/le-lac-bacalan/245875571.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL"        ]   
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
         json.dump(property_data, file, indent=2, ensure_ascii=False)
