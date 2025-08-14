@@ -154,7 +154,7 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
     )
     best_selling_html_set = set([b.get() for b in best_selling_boxes])
 
-    for box in result.selector.css(".srp-results li.s-item"):
+    for box in result.selector.css("ul.srp-results > li.s-item"):
         if box.get() in best_selling_html_set:
             continue  # skip boxes inside the best selling container
 
