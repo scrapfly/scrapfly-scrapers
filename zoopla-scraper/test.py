@@ -83,7 +83,7 @@ property_schema = {
         "schema": {
             "type": "string",
         },
-    },    
+    },
     "coordinates": {
         "type": "dict",
         "schema": {
@@ -127,7 +127,7 @@ async def test_search_scraping():
         validate_or_fail(item, validator)
 
     for k in search_schema:
-        require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))  
+        require_min_presence(search_data, k, min_perc=search_schema[k].get("min_presence", 0.1))
 
     assert len(search_data) >= 25
 
@@ -137,9 +137,9 @@ async def test_search_scraping():
 async def test_properties_scraping():
     properties_data = await zoopla.scrape_properties(
         urls=[
-            "https://www.zoopla.co.uk/new-homes/details/70116262/",
+            "https://www.zoopla.co.uk/new-homes/details/70550180/",
             "https://www.zoopla.co.uk/new-homes/details/66702316/",
-            "https://www.zoopla.co.uk/new-homes/details/70337559/"
+            "https://www.zoopla.co.uk/new-homes/details/70725316/"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)

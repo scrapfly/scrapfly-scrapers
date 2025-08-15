@@ -31,7 +31,7 @@ async def test_search_scraping():
             raise Exception({"item": item, "errors": validator.errors})
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["jobkey"])
-        (Path(__file__).parent / 'results/search.json').write_text(
+        (Path(__file__).parent / "results/search.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )
 
@@ -76,6 +76,6 @@ async def test_job_scraping():
             raise Exception({"item": r, "errors": validator.errors})
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["jobTitle"])
-        (Path(__file__).parent / 'results/jobs.json').write_text(
+        (Path(__file__).parent / "results/jobs.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )

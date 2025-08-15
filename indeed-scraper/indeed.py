@@ -25,16 +25,19 @@ BASE_CONFIG = {
 
 def parse_search_page(result):
     """Find hidden web data of search results in Indeed.com search page HTML"""
-    regex_pattern = r'window\.mosaic\.providerData\["mosaic-provider-jobcards"\]=((\[[^\}]+)?\{s*[^\}\{]{3,}?:.*\}([^\{]+\])?);'
+    regex_pattern = (
+        r'window\.mosaic\.providerData\["mosaic-provider-jobcards"\]=((\[[^\}]+)?\{s*[^\}\{]{3,}?:.*\}([^\{]+\])?);'
+    )
     match = re.findall(regex_pattern, result.content)
     if match:
         json_string = match[0][0]
         data = json.loads(json_string)
-
-    return {
-        "results": data["metaData"]["mosaicProviderJobCardsModel"]["results"],
-        "meta": data["metaData"]["mosaicProviderJobCardsModel"]["tierSummaries"],
-    }
+        return {
+            "results": data["metaData"]["mosaicProviderJobCardsModel"]["results"],
+            "meta": data["metaData"]["mosaicProviderJobCardsModel"]["tierSummaries"],
+        }
+    else:
+        return {"results": [], "meta": []}
 
 
 def _add_url_parameter(url, **kwargs):
@@ -61,7 +64,7 @@ async def scrape_search(url: str, max_results: int = 1000) -> List[Dict]:
     remaining_pages = (total_results - 10) / 10
     if not remaining_pages:
         return results
-    
+
     other_pages = [
         ScrapeConfig(_add_url_parameter(url, start=offset), **BASE_CONFIG)
         for offset in range(10, total_results + 10, 10)
@@ -83,7 +86,7 @@ def parse_job_page(result: ScrapeApiResponse):
     data = json.loads(data[0])
     data = data["jobInfoWrapperModel"]["jobInfoModel"]
     return {
-        "description": data['sanitizedJobDescription'],
+        "description": data["sanitizedJobDescription"],
         **data["jobMetadataHeaderModel"],
         **(data["jobTagModel"] or {}),
         **data["jobInfoHeaderModel"],
@@ -94,10 +97,7 @@ async def scrape_jobs(job_keys: List[str]):
     """scrape job page"""
     log.info(f"scraping {len(job_keys)} job listings")
     results = []
-    urls = [
-        f"https://www.indeed.com/viewjob?jk={job_key}" 
-        for job_key in job_keys
-    ]
+    urls = [f"https://www.indeed.com/viewjob?jk={job_key}" for job_key in job_keys]
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         results.append(parse_job_page(result))
