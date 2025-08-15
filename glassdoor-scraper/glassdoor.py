@@ -21,7 +21,7 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
     "country": "GB",
-    "render_js": True
+    "render_js": True,
 }
 
 
@@ -97,7 +97,10 @@ async def scrape_jobs(url: str, max_pages: Optional[int] = None) -> List[Dict]:
 def parse_reviews(result: ScrapeApiResponse) -> Dict:
     """parse Glassdoor reviews page for review data"""
     cache = find_hidden_data(result)
-    reviews = next(v for k, v in cache.items() if k.startswith("employerReviews") and v.get("reviews"))
+    reviews = next((v for k, v in cache.items() if k.startswith("employerReviews") and v.get("reviews")), None)
+    if reviews is None:
+        log.warning("No reviews found in the page: {}", result.context["url"])
+        return {"reviews": [], "numberOfPages": 0}
     return reviews
 
 
@@ -128,7 +131,12 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
 def parse_salaries(result: ScrapeApiResponse) -> Dict:
     """Parse Glassdoor salaries page for salary data"""
     cache = find_hidden_data(result)
-    salaries = next(v for k, v in cache.items() if k.startswith("aggregatedSalaryEstimates") and v.get("results"))
+    salaries = next(
+        (v for k, v in cache.items() if k.startswith("aggregatedSalaryEstimates") and v.get("results")), None
+    )
+    if salaries is None:
+        log.warning("No salaries found in the page: {}", result.context["url"])
+        return {"results": [], "numPages": 0}
     return salaries
 
 
@@ -157,6 +165,7 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
 
 class FoundCompany(TypedDict):
     """type hint for company search result"""
+
     name: str
     id: int
     logoURL: str
@@ -184,7 +193,9 @@ async def find_companies(query: str) -> List[FoundCompany]:
                     result["parentRelationshipVO"]["employerId"] if result["parentRelationshipVO"] is not None else None
                 ),
                 "employerName": (
-                    result["parentRelationshipVO"]["employerName"] if result["parentRelationshipVO"] is not None else None
+                    result["parentRelationshipVO"]["employerName"]
+                    if result["parentRelationshipVO"] is not None
+                    else None
                 ),
             }
         )
@@ -249,9 +260,9 @@ class Url:
     @staticmethod
     def reviews(employer: str, employer_id: str, region: Optional[Region] = None) -> str:
         employer = employer.replace(" ", "-")
-        url = f"https://www.glassdoor.com/Reviews/{employer}-Reviews-E{employer_id}.htm?"
+        url = f"https://www.glassdoor.com/Reviews/{employer}-Reviews-E{employer_id}.htm"
         if region:
-            return url + f"?filter.countryId={region.value}"
+            url += f"?filter.countryId={region.value}"
         return url
 
     @staticmethod
