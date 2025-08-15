@@ -27,13 +27,11 @@ output.mkdir(exist_ok=True)
 def parse_next_data(response: ScrapeApiResponse) -> Dict:
     """parse data from script tags"""
     selector = response.selector
-    # extract data in JSON from script tags
-    next_data = selector.xpath(
-        "//script[contains(text(),'window.__INITIAL_STATE__')]/text()"
-    ).get()
+    next_data = selector.xpath("//script[contains(text(),'window.__INITIAL_STATE__')]/text()").get()
     if not next_data:
         return
-    next_data_json = json.loads(next_data.strip("window.__INITIAL_STATE__="))
+    next_data_json = json.loads(next_data.split("=", 1)[1].strip())
+
     return next_data_json
 
 
@@ -55,9 +53,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     return properties
 
 
-async def scrape_search(
-    url: str, scrape_all_pages: bool, max_scrape_pages: int = 10
-) -> List[Dict]:
+async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int = 10) -> List[Dict]:
     """scrape listing data from homegate search pages"""
     # scrape the first search page first
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True, country="CH"))
@@ -80,8 +76,6 @@ async def scrape_search(
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         data = parse_next_data(response)
-        search_data.extend(
-            data["resultList"]["search"]["fullSearch"]["result"]["listings"]
-        )
+        search_data.extend(data["resultList"]["search"]["fullSearch"]["result"]["listings"])
     log.info("scraped {} proprties from {}", len(search_data), url)
     return search_data
