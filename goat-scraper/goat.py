@@ -66,11 +66,11 @@ async def scrape_search(query: str, max_pages: int = 10) -> List[Dict]:
             "num_results_per_page": "24",
             "sort_by": "relevance",
             "sort_order": "descending",
-            "fmt_options[hidden_fields]": "gp_lowest_price_cents_3",
-            "fmt_options[hidden_fields]": "gp_instant_ship_lowest_price_cents_3",
-            "fmt_options[hidden_facets]": "gp_lowest_price_cents_3",
-            "fmt_options[hidden_facets]": "gp_instant_ship_lowest_price_cents_3",
-            "_dt": int(datetime.utcnow().timestamp() * 1000),  # current timestamp in milliseconds
+            "fmt_options[hidden_fields]": "gp_lowest_price_cents_",
+            "fmt_options[hidden_fields]": "gp_instant_ship_lowest_price_cents_",
+            "fmt_options[hidden_facets]": "gp_lowest_price_cents_",
+            "fmt_options[hidden_facets]": "gp_instant_ship_lowest_price_cents_",
+            "_dt": int(datetime.now().timestamp() * 1000),  # current timestamp in milliseconds
         }
         return f"https://ac.cnstrc.com/search/{quote(query)}?{urlencode(params)}"
 
