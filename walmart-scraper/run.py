@@ -25,15 +25,12 @@ async def run():
         urls=[
             "https://www.walmart.com/ip/1736740710",
             "https://www.walmart.com/ip/715596133",
-            "https://www.walmart.com/ip/496918359",
         ]
     )
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
         json.dump(products_data, file, indent=2, ensure_ascii=False)
 
-    search_data = await walmart.scrape_search(
-        query="laptop", sort="best_seller", max_pages=3
-    )
+    search_data = await walmart.scrape_search(query="laptop", sort="best_seller", max_pages=3)
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
 

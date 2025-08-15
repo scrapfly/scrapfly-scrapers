@@ -5,6 +5,7 @@ https://scrapfly.io/blog/how-to-scrape-ebay/
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+
 import json
 import math
 import os
@@ -51,7 +52,10 @@ def parse_variants(result: ScrapeApiResponse) -> dict:
     if not script:
         return {}
     all_data = list(_find_json_objects(script))
-    data = nested_lookup("MSKU", all_data)[0]
+    msku_data = nested_lookup("MSKU", all_data)
+    if not msku_data:
+        return {}  # No variants found for this product
+    data = msku_data[0]
     # First retrieve names for all selection options (e.g. Model, Color)
     selection_names = {}
     for menu in data["selectMenus"]:
@@ -145,12 +149,14 @@ async def scrape_product(url: str) -> Dict:
 def parse_search(result: ScrapeApiResponse) -> List[Dict]:
     """Parse ebay.com search result page for product previews"""
     previews = []
-    best_selling_boxes = result.selector.xpath("//*[*[h2[contains(text(),'Best selling products')]]]//li[contains(@class, 's-item')]")
+    best_selling_boxes = result.selector.xpath(
+        "//*[*[h2[contains(text(),'Best selling products')]]]//li[contains(@class, 's-item')]"
+    )
     best_selling_html_set = set([b.get() for b in best_selling_boxes])
 
-    for box in result.selector.css(".srp-results li.s-item"):
+    for box in result.selector.css("ul.srp-results > li.s-item"):
         if box.get() in best_selling_html_set:
-                continue  # skip boxes inside the best selling container
+            continue  # skip boxes inside the best selling container
 
         css = lambda css: box.css(css).get("").strip() or None  # get first CSS match
         css_all = lambda css: box.css(css).getall()  # get all CSS matches
@@ -159,7 +165,7 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         css_float = lambda css: float(box.css(css).re_first(r"(\d+\.*\d*)", default="0.0")) if box.css(css) else None
         auction_end = css_re(".s-item__time-end::text", r"\((.+?)\)") or None
         if auction_end:
-            auction_end = dateutil.parser.parse(auction_end.replace("Today", ""))        
+            auction_end = dateutil.parser.parse(auction_end.replace("Today", ""))
         item = {
             "url": css("a.s-item__link::attr(href)").split("?")[0],
             "title": css(".s-item__title span::text"),

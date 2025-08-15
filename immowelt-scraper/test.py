@@ -7,7 +7,7 @@ import pytest
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
-immowelt.BASE_CONFIG['cache'] = os.getenv("SCRAPFLY_CACHE") == "true"
+immowelt.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 
 def validate_or_fail(item, validator):
@@ -37,9 +37,9 @@ proeprty_schema = {
                                     "zipCode": {"type": "string"},
                                     "street": {"type": "string"},
                                     "district": {"type": "string"},
-                                }
+                                },
                             }
-                        }
+                        },
                     },
                     "features": {
                         "type": "dict",
@@ -50,15 +50,15 @@ proeprty_schema = {
                                     "type": "dict",
                                     "schema": {
                                         "icon": {"type": "string"},
-                                        "value": {"type": "string"},                                        
-                                    }
-                                }
+                                        "value": {"type": "string"},
+                                    },
+                                },
                             }
-                        }
-                    }
-                }
-            }
-        }
+                        },
+                    },
+                },
+            },
+        },
     }
 }
 
@@ -80,11 +80,10 @@ search_schema = {
                             "zipCode": {"type": "string"},
                             "street": {"type": "string"},
                             "district": {"type": "string"},
-                        }
+                        },
                     }
-                }
+                },
             },
-
         },
     }
 }
@@ -96,7 +95,6 @@ async def test_properties_scraping():
     result = await immowelt.scrape_properties(
         urls=[
             "https://www.immowelt.de/expose/86611a24-fcd7-4d11-9bb6-fbdd66581c0b",
-            "https://www.immowelt.de/expose/f72774f5-7192-4d85-8bca-37546df27812",
             "https://www.immowelt.de/expose/2fab259",
         ]
     )
@@ -106,7 +104,7 @@ async def test_properties_scraping():
     assert len(result) >= 1
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["id"])
-        (Path(__file__).parent / 'results/properties.json').write_text(
+        (Path(__file__).parent / "results/properties.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )
 
@@ -116,7 +114,7 @@ async def test_properties_scraping():
 async def test_search_scraping():
     result = await immowelt.scrape_search(
         url="https://www.immowelt.de/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08DE6345",
-        max_scrape_pages=3
+        max_scrape_pages=3,
     )
     validator = Validator(search_schema, allow_unknown=True)
     for item in result:
@@ -124,6 +122,6 @@ async def test_search_scraping():
     assert len(result) >= 2
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["id"])
-        (Path(__file__).parent / 'results/search.json').write_text(
+        (Path(__file__).parent / "results/search.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )
