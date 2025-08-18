@@ -112,7 +112,7 @@ def parse_reviews(result: ScrapeApiResponse) -> Dict:
 async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     """Scrape Glassdoor reviews listings from reviews page (with pagination)"""
     log.info("scraping reviews from {}", url)
-    first_page_config = ScrapeConfig(url=url, **BASE_CONFIG, timeout=60000, retry=False)
+    first_page_config = ScrapeConfig(url=url, **BASE_CONFIG)
     first_page = await SCRAPFLY.async_scrape(first_page_config)
     if isinstance(first_page, ScrapflyScrapeError):
         log.error(f"Failed to scrape the first page {url}, got: {first_page.message}")
