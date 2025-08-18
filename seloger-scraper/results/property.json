@@ -158,7 +158,7 @@
         ],
         "certificates": [
           {
-            "key": "a9c01349-6a89-4621-8860-67ca72ea12ac",
+            "key": "38c616b3-9eb9-4dff-9af5-ae93e4cffea7",
             "features": [
               {
                 "type": "minMaxEstimation",
@@ -178,7 +178,7 @@
             ],
             "scales": [
               {
-                "key": "828dfa1f-1ded-44ea-aa4b-7011f42025f9",
+                "key": "5a7daf8e-d19a-45a8-a02b-248b6b521b8d",
                 "efficiencyClass": {
                   "index": 3,
                   "rating": "D"
@@ -229,7 +229,7 @@
                 "displayUnhappyHouseIcon": false
               },
               {
-                "key": "fb239cc1-6bc0-4391-b577-a37c8c1b1a0a",
+                "key": "dc65378b-035c-4e0c-aa3e-38ef703a3e51",
                 "efficiencyClass": {
                   "index": 1,
                   "rating": "B"
@@ -295,7 +295,7 @@
       "price": {
         "base": {
           "main": {
-            "key": "21a59475-67cd-4318-bfa4-f21439e2447b",
+            "key": "530af97b-99e1-40c3-a3f8-1cf0e7174d9e",
             "label": {
               "main": "Prix du bien"
             },
@@ -314,14 +314,14 @@
         },
         "components": [
           {
-            "key": "cb9f023f-527a-4460-9578-74f12184bb68",
+            "key": "1a672aaf-c76f-427a-9b4a-c98a28d985a0",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "d873a60b-d091-4861-80f3-51c995c3dfed",
+                "key": "28b55172-acdd-46c4-bde7-ea4b5b522426",
                 "main": {
                   "price": {
-                    "key": "554ef756-4393-4122-ab68-2c341fc4e606",
+                    "key": "6d3aa6d3-f6ec-4e87-94c5-02c001b15c9e",
                     "label": {
                       "main": "Prix du bien",
                       "alt": "honoraires inclus"
@@ -345,11 +345,11 @@
                 },
                 "details": [
                   {
-                    "key": "e1cfbddf-3204-4f05-ac7d-d60a0c4d9969",
+                    "key": "80a30100-619b-4bfb-bdf6-4c2721de8e31",
                     "label": "Inclus",
                     "prices": [
                       {
-                        "key": "4c298fab-ae07-4f0a-ba5d-8dd1b3f129a2",
+                        "key": "ec3fe37c-fbc4-4f24-810b-6c05ddb9dd23",
                         "label": {
                           "main": "Prix hors honoraires"
                         },
@@ -361,7 +361,7 @@
                         }
                       },
                       {
-                        "key": "4406b524-3346-4121-bab1-2c7d1d87f609",
+                        "key": "02d2eaaa-0f23-4a2d-98fb-760455a50429",
                         "label": {
                           "main": "Honoraires TTC Ã  la charge de l'acquÃ©reur"
                         },
@@ -377,10 +377,10 @@
                 ]
               },
               {
-                "key": "a37c9b74-c50d-41ed-833f-c3a6f091e8ee",
+                "key": "096525f8-93db-4fcf-9b12-7245fdb4855d",
                 "main": {
                   "price": {
-                    "key": "9f4da2bd-9aa4-4da5-a4c7-1771ac01fcf7",
+                    "key": "71fbbab5-b6cc-4e76-a4fb-c0373378b25d",
                     "label": {
                       "main": "Frais de notaires estimÃ©s"
                     },
@@ -397,10 +397,10 @@
                 }
               },
               {
-                "key": "443514bd-95b7-45bd-bdba-9096169ed542",
+                "key": "ee858194-85a2-4ca9-8158-a8bfcfed944a",
                 "main": {
                   "price": {
-                    "key": "afc0d21e-6d8a-4501-b930-49963c986fdd",
+                    "key": "72ba92fc-9e45-4be7-b9a3-e7a5035d3625",
                     "label": {
                       "main": "Montant estimÃ© du projet"
                     },
@@ -417,15 +417,15 @@
             ]
           },
           {
-            "key": "54daefa2-056a-4f10-912f-2999e972f42c",
+            "key": "35bae369-877d-4579-a92e-0236bf1ac728",
             "type": "SECONDARY",
             "units": [
               {
-                "key": "f4714e66-75d3-46fb-8e44-7b5a1b9c9e85",
+                "key": "40cb02a0-1c05-4d50-a4af-e99144127ae4",
                 "label": "CoÃ»ts de fonctionnement",
                 "main": {
                   "price": {
-                    "key": "4d5b5761-a7b9-4ebd-868e-2254637fc494",
+                    "key": "20cd1385-70d7-4797-82dd-f4b1f918b0f5",
                     "label": {
                       "main": "Estimation de la facture Ã©nergÃ©tique"
                     },
@@ -661,9 +661,9 @@
         "headline": "Informations supplÃ©mentaires"
       },
       "statistics": {
-        "published": "il y a 3 jours",
-        "views": "59 vues",
-        "saves": "0 favori"
+        "published": "8 jours en ligne",
+        "views": "146 vues",
+        "saves": "1 favori"
       }
     },
     "contactSections": {
@@ -1253,7 +1253,7 @@
       "isExclusive": false,
       "has3DVisit": false,
       "hasBrokerageFee": false,
-      "isNew": true
+      "isNew": false
     },
     "abVariant": "B",
     "rawData": {
@@ -1384,7 +1384,7 @@
         ],
         "certificates": [
           {
-            "key": "23ebba53-524f-4084-9931-a205858ad7ef",
+            "key": "5e0a4928-9661-493c-8b0d-2e32cc6833da",
             "features": [
               {
                 "type": "minMaxEstimation",
@@ -1404,7 +1404,7 @@
             ],
             "scales": [
               {
-                "key": "c5b1c826-999b-4adc-8c66-797f8a523c05",
+                "key": "7e666187-97d6-4dcf-bc26-bd71b053ed78",
                 "efficiencyClass": {
                   "index": 2,
                   "rating": "C"
@@ -1459,7 +1459,7 @@
                 "displayUnhappyHouseIcon": false
               },
               {
-                "key": "138ce1ce-ad69-4795-a44a-aabc5d70c63e",
+                "key": "f71be615-96d6-4be7-9237-fc13db317708",
                 "efficiencyClass": {
                   "index": 0,
                   "rating": "A"
@@ -1525,7 +1525,7 @@
       "price": {
         "base": {
           "main": {
-            "key": "e48cd988-a1bb-4973-877e-176bd40e1722",
+            "key": "cb975033-811e-449d-9b6e-6d9227f6c069",
             "label": {
               "main": "Prix du bien"
             },
@@ -1544,14 +1544,14 @@
         },
         "components": [
           {
-            "key": "3a341117-c6de-4bdc-9c9d-132efc6e4a26",
+            "key": "422199c1-a46d-433a-b173-6b47891fa5f5",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "004fe752-ec9e-4a69-979f-7a782608b5d0",
+                "key": "322bdc7a-a3d6-41f5-b914-6970666f061e",
                 "main": {
                   "price": {
-                    "key": "fe8b64b6-5048-4d37-aaa5-fc9c8eba6853",
+                    "key": "3078bcd4-aec6-4c90-a4b8-a58e7fdcda8b",
                     "label": {
                       "main": "Prix du bien",
                       "alt": "honoraires inclus"
@@ -1575,11 +1575,11 @@
                 },
                 "details": [
                   {
-                    "key": "00bc92ed-0673-4722-a650-dc51a20f7c90",
+                    "key": "5935be65-5116-4df8-b3b1-ea2c3457b42b",
                     "label": "Inclus",
                     "prices": [
                       {
-                        "key": "912e3f82-9a95-4842-8200-29261bdba741",
+                        "key": "13b9758e-a93c-42ea-92ee-13ef7d15647e",
                         "label": {
                           "main": "Prix hors honoraires"
                         },
@@ -1591,7 +1591,7 @@
                         }
                       },
                       {
-                        "key": "cb2ae88c-6a4d-4bdd-be8f-c04de6c4f2ee",
+                        "key": "4718e778-5593-4023-9a2d-e2e58437e304",
                         "label": {
                           "main": "Honoraires TTC Ã  la charge de l'acquÃ©reur"
                         },
@@ -1607,10 +1607,10 @@
                 ]
               },
               {
-                "key": "07522c61-32fd-46d8-b0a8-91af089dab29",
+                "key": "e50f8949-0e09-43fe-ad1d-7ff5a8f7bfae",
                 "main": {
                   "price": {
-                    "key": "cc7756a6-7c9d-42df-b981-93bae515eb64",
+                    "key": "d83dd3fe-b98e-4948-b6d6-e61bfc8494a5",
                     "label": {
                       "main": "Frais de notaires estimÃ©s"
                     },
@@ -1627,10 +1627,10 @@
                 }
               },
               {
-                "key": "6a421a18-6c18-4325-98ba-dfd1f5d11fa5",
+                "key": "f5f6956c-2dc1-4f92-8a97-f98a06381b5e",
                 "main": {
                   "price": {
-                    "key": "bdfabfea-50c3-4ad5-9257-7e04e9d179d2",
+                    "key": "3cc6edc3-2e31-4ce4-a4cc-1aac1ff10f78",
                     "label": {
                       "main": "Montant estimÃ© du projet"
                     },
@@ -1647,15 +1647,15 @@
             ]
           },
           {
-            "key": "7cabace4-a3e4-4819-859e-6a9cb03c156d",
+            "key": "69f6a8f3-d7b6-4617-8383-ffeab8c22d30",
             "type": "SECONDARY",
             "units": [
               {
-                "key": "ce07ec39-f210-4022-bb4d-76064a3d235f",
+                "key": "8e0c1c0f-8cd0-425a-b1d4-73630bc67e3e",
                 "label": "CoÃ»ts de fonctionnement",
                 "main": {
                   "price": {
-                    "key": "2cf20c45-59a3-4530-add8-0af20312be65",
+                    "key": "802d4b49-2054-486b-83d8-f57050570cf0",
                     "label": {
                       "main": "Estimation de la facture Ã©nergÃ©tique"
                     },
@@ -1669,10 +1669,10 @@
                 },
                 "details": [
                   {
-                    "key": "c6d20dab-cecf-491d-9ade-c751c95bee20",
+                    "key": "dcc5a43c-e29f-430a-a1f2-f8465ad7de70",
                     "prices": [
                       {
-                        "key": "f7e57b36-627e-40a1-a2bc-a684df57e0a5",
+                        "key": "1bf2889f-7c56-4d48-8b56-f154d0bdf44c",
                         "label": {
                           "main": "Charges de copropriÃ©tÃ©"
                         },
@@ -1971,9 +1971,9 @@
         "headline": "Informations supplÃ©mentaires"
       },
       "statistics": {
-        "published": "juillet 2025",
-        "views": "+100 vues",
-        "saves": "10 favoris"
+        "published": "1 mois en ligne",
+        "views": "668 vues",
+        "saves": "13 favoris"
       }
     },
     "contactSections": {
@@ -2633,7 +2633,7 @@
           "5 piÃ¨ces",
           "4 chambres",
           "117 mÂ²",
-          "Dernier Ã©tage, Ãtage 7/7"
+          "Ãtage 7/7"
         ],
         "facts": [
           {
@@ -2656,9 +2656,9 @@
           },
           {
             "type": "numberOfFloors",
-            "value": "Dernier Ã©tage, Ãtage 7/7",
-            "splitValue": "Dernier",
-            "label": "Ã©tage, Ãtage 7/7"
+            "value": "Ãtage 7/7",
+            "splitValue": "Ãtage",
+            "label": "7/7"
           }
         ],
         "price": {
@@ -2687,7 +2687,7 @@
         ],
         "certificates": [
           {
-            "key": "e4596bf3-91a5-475f-87cb-6c3c8636471a",
+            "key": "d938f175-85de-4403-9d4f-81451fdb6ec0",
             "features": [
               {
                 "type": "nameOfCertificate",
@@ -2697,7 +2697,7 @@
             ],
             "scales": [
               {
-                "key": "853016b6-e7f5-42fc-9f79-6baf8e8acbc9",
+                "key": "84a61f04-e9c2-46c3-9840-d652f4aa2eed",
                 "efficiencyClass": {
                   "index": 1,
                   "rating": "B"
@@ -2748,7 +2748,7 @@
                 "displayUnhappyHouseIcon": false
               },
               {
-                "key": "c5ebe13c-f5bd-40a9-913e-b79a6adb88d8",
+                "key": "663c77a4-249d-4cc4-9ef7-0f8e3a4c2798",
                 "efficiencyClass": {
                   "index": 0,
                   "rating": "A"
@@ -2814,7 +2814,7 @@
       "price": {
         "base": {
           "main": {
-            "key": "857e7905-690c-4eca-aee4-f3e1712f7085",
+            "key": "c631984c-e2f4-483b-900b-95a3db4e6c53",
             "label": {
               "main": "Prix du bien"
             },
@@ -2833,14 +2833,14 @@
         },
         "components": [
           {
-            "key": "5b94ff30-9e1c-4867-b8a8-a9be8eed1d1b",
+            "key": "23925acd-6737-4e02-95ec-a9f1192ae64b",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "b5f3333b-02cc-456e-9e8b-4712828cf6fc",
+                "key": "586f4563-125c-45f4-9c3a-c1eed86fbc46",
                 "main": {
                   "price": {
-                    "key": "25596219-72ac-4162-ba12-7763fe4be6ba",
+                    "key": "e6b46b29-8024-4d92-b3ed-331d288f94d4",
                     "label": {
                       "main": "Prix du bien"
                     },
@@ -2863,10 +2863,10 @@
                 }
               },
               {
-                "key": "6b386734-2108-4294-a485-41ca4b43fda6",
+                "key": "0f529767-8db7-4910-9baf-9ac91f5f3b16",
                 "main": {
                   "price": {
-                    "key": "682cc93f-934c-499e-bdd8-3f6331c6bd6a",
+                    "key": "26abcc21-ead8-4eed-89a0-25b968264e2a",
                     "label": {
                       "main": "Frais de notaires estimÃ©s"
                     },
@@ -2883,10 +2883,10 @@
                 }
               },
               {
-                "key": "d5613b6e-335a-43f5-81cd-30017e7d2670",
+                "key": "c03786a1-3ae6-418e-8108-d4abd7db8ad4",
                 "main": {
                   "price": {
-                    "key": "461bf8f9-f5cf-42de-a04f-11400d3c64bc",
+                    "key": "afdeef01-83e0-462d-a48a-51ac4cdedb92",
                     "label": {
                       "main": "Montant estimÃ© du projet"
                     },
@@ -2903,18 +2903,18 @@
             ]
           },
           {
-            "key": "3a6b66bd-cd2f-4f2c-bdfe-3d9897063aed",
+            "key": "becd6be1-a431-4ad7-91be-3175ab43013a",
             "type": "SECONDARY",
             "units": [
               {
-                "key": "563df010-d85d-4d63-a25a-0a72943bc175",
+                "key": "19b59ae9-cde5-417c-88a6-4221cd8af2e5",
                 "label": "CoÃ»ts de fonctionnement",
                 "details": [
                   {
-                    "key": "09367398-2e74-496a-83da-9e4c33e125db",
+                    "key": "424b16eb-c900-4417-92cb-9e7e19f73e3b",
                     "prices": [
                       {
-                        "key": "5722695a-f60c-4535-876f-49701829fb87",
+                        "key": "30ef8046-1e6d-4d5a-b501-0e58a1a1fb70",
                         "label": {
                           "main": "Charges de copropriÃ©tÃ©"
                         },
@@ -3047,7 +3047,7 @@
           {
             "key": "1384cd51-41e4-406f-841f-6a4d03757f76",
             "url": "https://mms.seloger.com/1/3/8/4/1384cd51-41e4-406f-841f-6a4d03757f76.jpg?ci_seal=c2e91543395447d329544aae6a8b464c21b39f96",
-            "alt": "Duplex Ã  vendre 470â¯000Â â¬ 5 piÃ¨ces 4 chambres 117 mÂ² Dernier Ã©tage, Ãtage 7/7 Le Lac-Bacalan Bordeaux 33300",
+            "alt": "Duplex Ã  vendre 470â¯000Â â¬ 5 piÃ¨ces 4 chambres 117 mÂ² Ãtage 7/7 Le Lac-Bacalan Bordeaux 33300",
             "classification": {
               "name": "KITCHEN",
               "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
@@ -3170,7 +3170,7 @@
           {
             "key": "b96982d7-c3e6-462a-a7d6-3fedbe4721f0",
             "url": "https://mms.seloger.com/b/9/6/9/b96982d7-c3e6-462a-a7d6-3fedbe4721f0.jpg?ci_seal=3fb3b8b9ec443bb01ba44614cc81b1abc65d8cc2",
-            "alt": "Duplex Ã  vendre 470â¯000Â â¬ 5 piÃ¨ces 4 chambres 117 mÂ² Dernier Ã©tage, Ãtage 7/7 Le Lac-Bacalan Bordeaux 33300",
+            "alt": "Duplex Ã  vendre 470â¯000Â â¬ 5 piÃ¨ces 4 chambres 117 mÂ² Ãtage 7/7 Le Lac-Bacalan Bordeaux 33300",
             "classification": {
               "name": "FLOORPLAN",
               "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
@@ -3233,9 +3233,9 @@
         "headline": "Informations supplÃ©mentaires"
       },
       "statistics": {
-        "published": "il y a 9 jours",
-        "views": "+100 vues",
-        "saves": "6 favoris"
+        "published": "14 jours en ligne",
+        "views": "412 vues",
+        "saves": "17 favoris"
       }
     },
     "contactSections": {
