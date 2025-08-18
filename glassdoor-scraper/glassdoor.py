@@ -21,11 +21,11 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
     "country": "GB",
-    "render_js": True
+    "render_js": True,
 }
 
 
-def find_hidden_data(result: ScrapeApiResponse) -> dict:
+def find_hidden_data(result: ScrapeApiResponse) -> Optional[dict]:
     """
     Extract hidden web cache (Apollo Graphql framework) from Glassdoor page HTML
     It's either in NEXT_DATA script or direct apolloState js variable
@@ -34,9 +34,13 @@ def find_hidden_data(result: ScrapeApiResponse) -> dict:
     data = result.selector.css("script#__NEXT_DATA__::text").get()
     if data:
         data = json.loads(data)["props"]["pageProps"]["apolloCache"]
-    else:  # or in direct apolloState cache
-        data = re.findall(r'apolloState":\s*({.+})};', result.content)[0]
-        data = json.loads(data)
+    else:
+        match = re.search(r'apolloState":\s*({.+})};', result.content)
+        if match:
+            data = json.loads(match.group(1))
+        else:
+            log.warning(f"Could not find __NEXT_DATA__ or apolloState on page {result.context['url']}")
+            return None
 
     def _unpack_apollo_data(apollo_data):
         """
@@ -55,6 +59,8 @@ def find_hidden_data(result: ScrapeApiResponse) -> dict:
             else:
                 return data
 
+        if not apollo_data:
+            return {}
         return resolve_refs(apollo_data.get("ROOT_QUERY") or apollo_data, apollo_data)
 
     return _unpack_apollo_data(data)
@@ -97,17 +103,27 @@ async def scrape_jobs(url: str, max_pages: Optional[int] = None) -> List[Dict]:
 def parse_reviews(result: ScrapeApiResponse) -> Dict:
     """parse Glassdoor reviews page for review data"""
     cache = find_hidden_data(result)
-    reviews = next(v for k, v in cache.items() if k.startswith("employerReviews") and v.get("reviews"))
-    return reviews
+    if not cache:
+        return {}
+    reviews_data = next((v for k, v in cache.items() if k.startswith("employerReviewsRG")), {})
+    return reviews_data
 
 
 async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     """Scrape Glassdoor reviews listings from reviews page (with pagination)"""
     log.info("scraping reviews from {}", url)
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, **BASE_CONFIG))
+    first_page_config = ScrapeConfig(url=url, **BASE_CONFIG, timeout=60000, retry=False)
+    first_page = await SCRAPFLY.async_scrape(first_page_config)
+    if isinstance(first_page, ScrapflyScrapeError):
+        log.error(f"Failed to scrape the first page {url}, got: {first_page.message}")
+        return {"reviews": [], "message": "Failed to scrape initial page"}
 
     reviews = parse_reviews(first_page)
-    total_pages = reviews["numberOfPages"]
+    if not reviews or not reviews.get("reviews"):
+        log.warning("Could not find review data on page {}. Returning empty results.", url)
+        return {"reviews": [], "message": "No data found"}
+
+    total_pages = reviews.get("numberOfPages", 1)
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
 
@@ -118,9 +134,14 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     ]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
         if not isinstance(result, ScrapflyScrapeError):
-            reviews["reviews"].extend(parse_reviews(result)["reviews"])
+            parsed_page = parse_reviews(result)
+            if parsed_page and parsed_page.get("reviews"):
+                reviews["reviews"].extend(parsed_page["reviews"])
         else:
-            log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
+            if result.api_response:
+                log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
+            else:
+                log.error(f"An unknown scraping error occurred: {result.message}")
     log.info("scraped {} reviews from {} in {} pages", len(reviews["reviews"]), url, total_pages)
     return reviews
 
@@ -157,6 +178,7 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
 
 class FoundCompany(TypedDict):
     """type hint for company search result"""
+
     name: str
     id: int
     logoURL: str
@@ -184,7 +206,9 @@ async def find_companies(query: str) -> List[FoundCompany]:
                     result["parentRelationshipVO"]["employerId"] if result["parentRelationshipVO"] is not None else None
                 ),
                 "employerName": (
-                    result["parentRelationshipVO"]["employerName"] if result["parentRelationshipVO"] is not None else None
+                    result["parentRelationshipVO"]["employerName"]
+                    if result["parentRelationshipVO"] is not None
+                    else None
                 ),
             }
         )
