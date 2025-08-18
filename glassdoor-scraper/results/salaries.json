@@ -1,9 +1,9 @@
 {
   "__typename": "AggregatedSalaryEstimates",
-  "numPages": 215,
-  "jobTitleCount": 2148,
-  "salaryCount": 12425,
-  "mostRecent": "2025-03-24T11:08:31.107",
+  "numPages": 219,
+  "jobTitleCount": 2186,
+  "salaryCount": 12605,
+  "mostRecent": "2025-08-15T07:33:21.240",
   "queryLocation": {
     "__typename": "Country",
     "id": 1,
@@ -25,34 +25,34 @@
         "id": 3027911,
         "text": "Software Engineer 3"
       },
-      "salaryCount": 915,
+      "salaryCount": 916,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 140691.72
+            "value": 143425.57
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 151300.87
+            "value": 153725.32
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 164040.59
+            "value": 166049.78
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 177853.01
+            "value": 179362.33
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 191264.39
+            "value": 192242.78
           }
         ]
       },
@@ -62,27 +62,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 10072.68
+            "value": 8090.78
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 13025.01
+            "value": 10462.21
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 17366.68
+            "value": 13949.61
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 24313.36
+            "value": 19529.46
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 31781.03
+            "value": 25527.79
           }
         ]
       },
@@ -100,27 +100,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 16917.2
+            "value": 17770.92
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 21875.68
+            "value": 22979.64
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 29167.57
+            "value": 30639.51
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 40834.6
+            "value": 42895.32
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 53376.66
+            "value": 56070.31
           }
         ]
       },
@@ -134,27 +134,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 26989.86
+            "value": 25861.69
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 34900.69
+            "value": 33441.84
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 46534.25
+            "value": 44589.12
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 65147.95
+            "value": 62424.77
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 85157.68
+            "value": 81598.09
           }
         ]
       },
@@ -164,27 +164,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 167681.58
+            "value": 169287.26
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 186201.56
+            "value": 187167.16
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 210574.84
+            "value": 210638.9
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 243000.96
+            "value": 241787.1
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 276422.07
+            "value": 273840.87
           }
         ]
       }
@@ -200,34 +200,34 @@
         "id": 4279,
         "text": "Software Engineer"
       },
-      "salaryCount": 762,
+      "salaryCount": 781,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 130080.44
+            "value": 112697.49
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 143935.06
+            "value": 128072.87
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 161081.34
+            "value": 147646.22
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 180270.18
+            "value": 170210.95
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 199470.41
+            "value": 193432.93
           }
         ]
       },
@@ -237,27 +237,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 10246.04
+            "value": 7439.06
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 13249.18
+            "value": 9619.47
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 17665.57
+            "value": 12825.95
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 24731.8
+            "value": 17956.33
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 32328
+            "value": 23471.49
           }
         ]
       },
@@ -275,27 +275,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 17473.54
+            "value": 17207.13
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 22595.09
+            "value": 22250.59
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 30126.78
+            "value": 29667.45
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 42177.5
+            "value": 41534.43
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 55132.01
+            "value": 54291.44
           }
         ]
       },
@@ -309,27 +309,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 27719.56
+            "value": 24646.17
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 35844.26
+            "value": 31870.05
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 47792.35
+            "value": 42493.4
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 66909.29
+            "value": 59490.76
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 87460
+            "value": 77762.92
           }
         ]
       },
@@ -339,27 +339,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 157800
+            "value": 137343.66
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 179779.32
+            "value": 159942.92
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 208873.69
+            "value": 190139.62
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 247179.47
+            "value": 229701.71
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 286930.41
+            "value": 271195.85
           }
         ]
       }
@@ -375,34 +375,34 @@
         "id": 17959,
         "text": "Senior Software Engineer"
       },
-      "salaryCount": 484,
+      "salaryCount": 489,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 176081.92
+            "value": 157857.16
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 192735.93
+            "value": 172776.6
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 213111.75
+            "value": 191029.01
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 235641.68
+            "value": 211209.62
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 257928.91
+            "value": 231171.52
           }
         ]
       },
@@ -412,27 +412,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 19565.85
+            "value": 12583.66
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 25300.67
+            "value": 16271.97
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 33734.22
+            "value": 21695.96
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 47227.91
+            "value": 30374.35
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 61733.63
+            "value": 39703.61
           }
         ]
       },
@@ -450,27 +450,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 44577.37
+            "value": 33717.36
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 57643.15
+            "value": 43600.03
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 76857.53
+            "value": 58133.37
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 107600.55
+            "value": 81386.72
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 140649.28
+            "value": 106384.07
           }
         ]
       },
@@ -484,27 +484,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 64143.21
+            "value": 46301.01
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 82943.81
+            "value": 59872
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 110591.75
+            "value": 79829.33
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 154828.45
+            "value": 111761.06
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 202382.9
+            "value": 146087.67
           }
         ]
       },
@@ -514,27 +514,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 240225.13
+            "value": 204158.17
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 275679.74
+            "value": 232648.6
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 323703.5
+            "value": 270858.34
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 390470.13
+            "value": 322970.68
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 460311.81
+            "value": 377259.19
           }
         ]
       }
@@ -557,27 +557,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 151178.21
+            "value": 147971.86
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 164375.8
+            "value": 166942.67
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 180409.15
+            "value": 190908.13
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 198006.41
+            "value": 218313.95
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 215292.01
+            "value": 246303
           }
         ]
       },
@@ -587,27 +587,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 10907.58
+            "value": 11837.72
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 14104.62
+            "value": 15307.39
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 18806.16
+            "value": 20409.85
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 26328.63
+            "value": 28573.79
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 34415.28
+            "value": 37350.03
           }
         ]
       },
@@ -621,7 +621,33 @@
       },
       "stockBonusStatistics": {
         "__typename": "StatisticsResult",
-        "percentiles": []
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 20161.42
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 26070.8
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 34761.06
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 48665.49
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 63612.74
+          }
+        ]
       },
       "tipsStatistics": {
         "__typename": "StatisticsResult",
@@ -633,27 +659,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 10907.57
+            "value": 31999.13
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 14104.62
+            "value": 41378.18
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 18806.16
+            "value": 55170.91
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 26328.62
+            "value": 77239.27
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 34415.27
+            "value": 100962.77
           }
         ]
       },
@@ -663,27 +689,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 162085.78
+            "value": 179970.99
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 178480.42
+            "value": 208320.85
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 199215.31
+            "value": 246079.04
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 224335.03
+            "value": 295553.22
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 249707.28
+            "value": 347265.77
           }
         ]
       }
@@ -699,34 +725,34 @@
         "id": 920906,
         "text": "Software Engineer 2"
       },
-      "salaryCount": 395,
+      "salaryCount": 396,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 128808.97
+            "value": 130411.42
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 138608.87
+            "value": 137317.2
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 150384.63
+            "value": 145426.89
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 163160.82
+            "value": 154015.51
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 175574.25
+            "value": 162171.21
           }
         ]
       },
@@ -736,27 +762,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 8427.81
+            "value": 7049.82
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 10898.02
+            "value": 9116.14
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 14530.69
+            "value": 12154.85
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 20342.97
+            "value": 17016.79
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 26591.17
+            "value": 22243.38
           }
         ]
       },
@@ -774,27 +800,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 13411.39
+            "value": 13229.06
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 17342.31
+            "value": 17106.54
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 23123.07
+            "value": 22808.72
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 32372.3
+            "value": 31932.21
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 42315.22
+            "value": 41739.96
           }
         ]
       },
@@ -808,27 +834,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 21839.18
+            "value": 20278.87
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 28240.32
+            "value": 26222.68
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 37653.76
+            "value": 34963.57
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 52715.26
+            "value": 48949
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 68906.38
+            "value": 63983.33
           }
         ]
       },
@@ -838,27 +864,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 150648.15
+            "value": 150690.29
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 166849.19
+            "value": 163539.88
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 188038.39
+            "value": 180390.46
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 215876.08
+            "value": 202964.51
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 244480.63
+            "value": 226154.54
           }
         ]
       }
@@ -874,34 +900,34 @@
         "id": 4514,
         "text": "Software Engineer III"
       },
-      "salaryCount": 386,
+      "salaryCount": 387,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 151147.99
+            "value": 142331.91
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 165217.7
+            "value": 154569.27
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 182406.82
+            "value": 169416.96
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 201384.28
+            "value": 185690.91
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 220130.28
+            "value": 201656.16
           }
         ]
       },
@@ -911,27 +937,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 13668.27
+            "value": 9171.54
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 17674.49
+            "value": 11859.75
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 23565.98
+            "value": 15813
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 32992.38
+            "value": 22138.2
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 43125.75
+            "value": 28937.79
           }
         ]
       },
@@ -949,27 +975,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 25128.34
+            "value": 19459.81
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 32493.54
+            "value": 25163.55
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 43324.72
+            "value": 33551.39
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 60654.61
+            "value": 46971.95
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 79284.24
+            "value": 61399.05
           }
         ]
       },
@@ -983,27 +1009,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 38796.61
+            "value": 28631.35
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 50168.03
+            "value": 37023.29
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 66890.7
+            "value": 49364.39
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 93646.98
+            "value": 69110.15
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 122409.98
+            "value": 90336.83
           }
         ]
       },
@@ -1013,27 +1039,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 189944.6
+            "value": 170963.26
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 215385.73
+            "value": 191592.56
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 249297.52
+            "value": 218781.35
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 295031.26
+            "value": 254801.06
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 342540.26
+            "value": 291992.99
           }
         ]
       }
@@ -1049,34 +1075,34 @@
         "id": 4513,
         "text": "Software Engineer II"
       },
-      "salaryCount": 342,
+      "salaryCount": 344,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 140331.6
+            "value": 125219.29
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 151607.09
+            "value": 134203.76
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 165212.76
+            "value": 144953.72
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 180039.45
+            "value": 156564.78
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 194505.43
+            "value": 167798.28
           }
         ]
       },
@@ -1086,27 +1112,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 11521.65
+            "value": 6896.62
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 14898.69
+            "value": 8918.04
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 19864.91
+            "value": 11890.71
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 27810.88
+            "value": 16647
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 36352.79
+            "value": 21760
           }
         ]
       },
@@ -1124,27 +1150,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 18364.43
+            "value": 15485.11
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 23747.11
+            "value": 20023.85
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 31662.81
+            "value": 26698.46
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 44327.94
+            "value": 37377.85
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 57942.95
+            "value": 48858.19
           }
         ]
       },
@@ -1158,27 +1184,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 29886.08
+            "value": 22381.72
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 38645.79
+            "value": 28941.88
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 51527.72
+            "value": 38589.17
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 72138.81
+            "value": 54024.84
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 94295.73
+            "value": 70618.18
           }
         ]
       },
@@ -1188,27 +1214,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 170217.68
+            "value": 147601.01
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 190252.88
+            "value": 163145.64
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 216740.48
+            "value": 183542.89
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 252178.26
+            "value": 210589.62
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 288801.16
+            "value": 238416.46
           }
         ]
       }
@@ -1224,34 +1250,34 @@
         "id": 633616,
         "text": "MTS-2 Software Engineer"
       },
-      "salaryCount": 317,
+      "salaryCount": 319,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 167113.09
+            "value": 149525.62
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 182681.3
+            "value": 170413.52
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 201702.51
+            "value": 197085.31
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 222704.24
+            "value": 227931.57
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 243451.31
+            "value": 259772.33
           }
         ]
       },
@@ -1261,27 +1287,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 15920.73
+            "value": 12165.77
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 20587.14
+            "value": 15731.59
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 27449.52
+            "value": 20975.45
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 38429.33
+            "value": 29365.63
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 50232.63
+            "value": 38385.08
           }
         ]
       },
@@ -1299,27 +1325,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 32038.06
+            "value": 31926.48
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 41428.52
+            "value": 41284.23
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 55238.02
+            "value": 55045.64
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 77333.23
+            "value": 77063.9
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 101085.58
+            "value": 100733.53
           }
         ]
       },
@@ -1333,27 +1359,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 47958.77
+            "value": 44092.23
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 62015.65
+            "value": 57015.82
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 82687.54
+            "value": 76021.09
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 115762.56
+            "value": 106429.53
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 151318.2
+            "value": 139118.59
           }
         ]
       },
@@ -1363,27 +1389,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 215071.86
+            "value": 193617.85
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 244696.95
+            "value": 227429.34
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 284390.05
+            "value": 273106.4
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 338466.8
+            "value": 334361.1
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 394769.51
+            "value": 398890.92
           }
         ]
       }
@@ -1399,34 +1425,34 @@
         "id": 61585,
         "text": "Product Manager"
       },
-      "salaryCount": 253,
+      "salaryCount": 256,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 113983.33
+            "value": 111678.24
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 131984.25
+            "value": 128141.88
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 155359.14
+            "value": 149315.24
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 182873.81
+            "value": 173987.15
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 211754.32
+            "value": 199636.39
           }
         ]
       },
@@ -1436,27 +1462,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 10849.48
+            "value": 10731.21
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 14029.5
+            "value": 13876.56
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 18706
+            "value": 18502.07
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 26188.4
+            "value": 25902.9
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 34231.98
+            "value": 33858.79
           }
         ]
       },
@@ -1474,27 +1500,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 18228.15
+            "value": 20123.85
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 23570.88
+            "value": 26022.22
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 31427.84
+            "value": 34696.29
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 43998.98
+            "value": 48574.81
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 57512.95
+            "value": 63494.22
           }
         ]
       },
@@ -1508,27 +1534,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 29077.63
+            "value": 30855.05
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 37600.38
+            "value": 39898.77
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 50133.84
+            "value": 53198.36
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 70187.38
+            "value": 74477.7
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 91744.93
+            "value": 97353
           }
         ]
       },
@@ -1538,27 +1564,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 143060.96
+            "value": 142533.29
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 169584.63
+            "value": 168040.65
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 205492.98
+            "value": 202513.6
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 253061.19
+            "value": 248464.85
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 303499.25
+            "value": 296989.39
           }
         ]
       }
@@ -1574,34 +1600,34 @@
         "id": 34553,
         "text": "Senior Product Manager"
       },
-      "salaryCount": 229,
+      "salaryCount": 234,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 152089.5
+            "value": 153013.24
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 167963.19
+            "value": 170541.79
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 187568.11
+            "value": 192401.87
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 209461.34
+            "value": 217063.97
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 231322.97
+            "value": 241929.91
           }
         ]
       },
@@ -1611,27 +1637,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 15691.6
+            "value": 17333.33
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 20290.86
+            "value": 22413.78
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 27054.48
+            "value": 29885.04
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 37876.28
+            "value": 41839.06
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 49509.7
+            "value": 54689.63
           }
         ]
       },
@@ -1649,27 +1675,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 29358
+            "value": 32615.03
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 37962.93
+            "value": 42174.61
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 50617.23
+            "value": 56232.8
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 70864.13
+            "value": 78725.92
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 92629.54
+            "value": 102906.03
           }
         ]
       },
@@ -1683,27 +1709,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 45049.59
+            "value": 49948.35
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 58253.78
+            "value": 64588.38
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 77671.71
+            "value": 86117.84
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 108740.39
+            "value": 120564.98
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 142139.23
+            "value": 157595.65
           }
         ]
       },
@@ -1713,27 +1739,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 197139.09
+            "value": 202961.59
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 226216.97
+            "value": 235130.17
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 265239.82
+            "value": 278519.71
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 318201.73
+            "value": 337628.95
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 373462.2
+            "value": 399525.56
           }
         ]
       }
@@ -1749,34 +1775,34 @@
         "id": 592263,
         "text": "Senior Product Manager I - Technical"
       },
-      "salaryCount": 76,
+      "salaryCount": 77,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 147463.4
+            "value": 127155.44
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 166812.99
+            "value": 146713.77
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 191326.02
+            "value": 172015.54
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 219441.22
+            "value": 201680.77
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 248235.48
+            "value": 232702.17
           }
         ]
       },
@@ -1786,27 +1812,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 15326.13
+            "value": 14732.26
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 19818.27
+            "value": 19050.33
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 26424.35
+            "value": 25400.44
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 36994.09
+            "value": 35560.62
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 48356.57
+            "value": 46482.81
           }
         ]
       },
@@ -1824,27 +1850,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 32899.72
+            "value": 26825.1
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 42542.73
+            "value": 34687.63
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 56723.64
+            "value": 46250.17
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 79413.1
+            "value": 64750.24
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 103804.27
+            "value": 84637.82
           }
         ]
       },
@@ -1858,27 +1884,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 48225.83
+            "value": 41557.35
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 62360.99
+            "value": 53737.96
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 83147.99
+            "value": 71650.61
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 116407.19
+            "value": 100310.85
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 152160.82
+            "value": 131120.62
           }
         ]
       },
@@ -1888,27 +1914,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 195689.23
+            "value": 168712.79
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 229173.98
+            "value": 200451.73
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 274474.01
+            "value": 243666.15
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 335848.41
+            "value": 301991.62
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 400396.3
+            "value": 363822.79
           }
         ]
       }
@@ -1924,34 +1950,34 @@
         "id": 63697,
         "text": "Manager"
       },
-      "salaryCount": 74,
+      "salaryCount": 76,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 92659.16
+            "value": 107699.35
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 114681.71
+            "value": 131330.61
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 145369.83
+            "value": 163745.82
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 184269.9
+            "value": 204161.79
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 228065.83
+            "value": 248958.72
           }
         ]
       },
@@ -1961,27 +1987,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 11616.38
+            "value": 15349.52
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 15021.18
+            "value": 19848.52
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 20028.24
+            "value": 26464.68
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 28039.54
+            "value": 37050.56
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 36651.68
+            "value": 48430.37
           }
         ]
       },
@@ -1995,7 +2021,33 @@
       },
       "stockBonusStatistics": {
         "__typename": "StatisticsResult",
-        "percentiles": []
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 25778.46
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 33334.21
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 44445.61
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 62223.86
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 81335.47
+          }
+        ]
       },
       "tipsStatistics": {
         "__typename": "StatisticsResult",
@@ -2007,27 +2059,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 11616.38
+            "value": 41127.97
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 15021.18
+            "value": 53182.72
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 20028.24
+            "value": 70910.29
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 28039.54
+            "value": 99274.41
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 36651.68
+            "value": 129765.83
           }
         ]
       },
@@ -2037,27 +2089,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 104275.54
+            "value": 148827.32
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 129702.89
+            "value": 184513.33
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 165398.07
+            "value": 234656.11
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 212309.44
+            "value": 303436.2
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 264717.51
+            "value": 378724.55
           }
         ]
       }
@@ -2080,27 +2132,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 98123.15
+            "value": 106366.3
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 116995.28
+            "value": 121491.26
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 142273.39
+            "value": 140849.25
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 173013.1
+            "value": 163291.68
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 206288.89
+            "value": 186511.26
           }
         ]
       },
@@ -2110,27 +2162,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 7654.29
+            "value": 7807.14
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 9897.78
+            "value": 10095.43
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 13197.04
+            "value": 13460.57
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 18475.86
+            "value": 18844.8
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 24150.59
+            "value": 24632.85
           }
         ]
       },
@@ -2148,27 +2200,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 14870.57
+            "value": 15883.8
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 19229.18
+            "value": 20539.39
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 25638.9
+            "value": 27385.85
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 35894.46
+            "value": 38340.19
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 46919.19
+            "value": 50116.11
           }
         ]
       },
@@ -2182,27 +2234,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 22524.85
+            "value": 23690.92
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 29126.96
+            "value": 30634.81
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 38835.94
+            "value": 40846.42
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 54370.32
+            "value": 57184.99
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 71069.77
+            "value": 74748.95
           }
         ]
       },
@@ -2212,27 +2264,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 120648
+            "value": 130057.22
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 146122.24
+            "value": 152126.07
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 181109.33
+            "value": 181695.67
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 227383.42
+            "value": 220476.67
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 277358.66
+            "value": 261260.21
           }
         ]
       }
@@ -2255,27 +2307,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 91601.7
+            "value": 70007.59
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 106550.99
+            "value": 83287.08
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 126056.84
+            "value": 101032.38
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 149133.55
+            "value": 122558.53
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 173471.98
+            "value": 145806.23
           }
         ]
       },
@@ -2285,27 +2337,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6910.79
+            "value": 4335.58
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 8936.37
+            "value": 5606.35
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 11915.15
+            "value": 7475.13
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 16681.21
+            "value": 10465.19
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 21804.73
+            "value": 13679.49
           }
         ]
       },
@@ -2331,27 +2383,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6910.79
+            "value": 4335.58
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 8936.36
+            "value": 5606.35
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 11915.15
+            "value": 7475.13
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 16681.21
+            "value": 10465.18
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 21804.72
+            "value": 13679.49
           }
         ]
       },
@@ -2361,27 +2413,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 98512.49
+            "value": 74343.17
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 115487.35
+            "value": 88893.43
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 137971.99
+            "value": 108507.51
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 165814.76
+            "value": 133023.71
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 195276.7
+            "value": 159485.72
           }
         ]
       }
@@ -2404,27 +2456,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 92187.07
+            "value": 105494.34
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 109282.99
+            "value": 120302.15
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 132041.94
+            "value": 139222.07
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 159540.62
+            "value": 161117.52
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 189127.12
+            "value": 183732.93
           }
         ]
       },
@@ -2434,27 +2486,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 8474.19
+            "value": 9621.2
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 10958
+            "value": 12441.21
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 14610.66
+            "value": 16588.27
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 20454.93
+            "value": 23223.58
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 26737.51
+            "value": 30356.54
           }
         ]
       },
@@ -2472,27 +2524,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 12035.26
+            "value": 13788.36
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 15562.83
+            "value": 17829.77
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 20750.44
+            "value": 23773.02
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 29050.62
+            "value": 33282.23
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 37973.31
+            "value": 43504.63
           }
         ]
       },
@@ -2506,27 +2558,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 20509.44
+            "value": 23409.55
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 26520.82
+            "value": 30270.97
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 35361.1
+            "value": 40361.29
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 49505.54
+            "value": 56505.81
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 64710.81
+            "value": 73861.16
           }
         ]
       },
@@ -2536,27 +2588,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 112696.51
+            "value": 128903.89
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 135803.81
+            "value": 150573.12
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 167403.04
+            "value": 179583.36
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 209046.16
+            "value": 217623.33
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 253837.93
+            "value": 257594.09
           }
         ]
       }
@@ -2579,27 +2631,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 125239.53
+            "value": 120098.06
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 139002.81
+            "value": 137928.57
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 156091.23
+            "value": 160881.93
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 175280.43
+            "value": 187655.09
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 194542.97
+            "value": 215515.53
           }
         ]
       },
@@ -2609,27 +2661,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 9186.08
+            "value": 8655.29
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 11878.55
+            "value": 11192.18
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 15838.06
+            "value": 14922.9
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 22173.29
+            "value": 20892.06
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 28983.65
+            "value": 27308.91
           }
         ]
       },
@@ -2647,27 +2699,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 15227.4
+            "value": 17233.45
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 19690.6
+            "value": 22284.63
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 26254.13
+            "value": 29712.83
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 36755.79
+            "value": 41597.97
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 48045.06
+            "value": 54374.48
           }
         ]
       },
@@ -2681,27 +2733,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 24413.47
+            "value": 25888.72
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 31569.14
+            "value": 33476.8
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 42092.19
+            "value": 44635.73
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 58929.07
+            "value": 62490.02
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 77028.71
+            "value": 81683.39
           }
         ]
       },
@@ -2711,27 +2763,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 149653
+            "value": 145986.78
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 170571.95
+            "value": 171405.37
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 198183.42
+            "value": 205517.66
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 234209.5
+            "value": 250145.11
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 271571.68
+            "value": 297198.92
           }
         ]
       }
@@ -2754,27 +2806,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 99511.56
+            "value": 76751.54
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 113280.47
+            "value": 93289.12
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 130840.3
+            "value": 115896.01
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 151122.12
+            "value": 143981.25
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 172032.11
+            "value": 175004.76
           }
         ]
       },
@@ -2784,27 +2836,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6418.65
+            "value": 5617.93
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 8299.98
+            "value": 7264.56
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 11066.63
+            "value": 9686.08
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 15493.29
+            "value": 13560.52
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 20251.94
+            "value": 17725.53
           }
         ]
       },
@@ -2818,7 +2870,33 @@
       },
       "stockBonusStatistics": {
         "__typename": "StatisticsResult",
-        "percentiles": []
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 11700.8
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 15130.35
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 20173.79
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 28243.31
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 36918.04
+          }
+        ]
       },
       "tipsStatistics": {
         "__typename": "StatisticsResult",
@@ -2830,27 +2908,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6418.65
+            "value": 17318.72
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 8299.97
+            "value": 22394.9
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 11066.63
+            "value": 29859.87
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 15493.28
+            "value": 41803.82
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 20251.93
+            "value": 54643.56
           }
         ]
       },
@@ -2860,27 +2938,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 105930.21
+            "value": 94070.26
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 121580.44
+            "value": 115684.02
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 141906.93
+            "value": 145755.88
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 166615.4
+            "value": 185785.07
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 192284.04
+            "value": 229648.32
           }
         ]
       }
@@ -2896,34 +2974,34 @@
         "id": 37856,
         "text": "Project Manager"
       },
-      "salaryCount": 53,
+      "salaryCount": 54,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 66903.23
+            "value": 85260.16
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 83336.78
+            "value": 104161.24
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 106392.87
+            "value": 130139.16
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 135827.68
+            "value": 162595.99
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 169191.26
+            "value": 198641.43
           }
         ]
       },
@@ -2933,27 +3011,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6067.74
+            "value": 7014.58
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 7846.22
+            "value": 9070.57
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 10461.62
+            "value": 12094.09
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 14646.27
+            "value": 16931.73
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 19144.77
+            "value": 22132.19
           }
         ]
       },
@@ -2979,27 +3057,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6067.74
+            "value": 7014.57
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 7846.22
+            "value": 9070.57
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 10461.62
+            "value": 12094.09
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 14646.27
+            "value": 16931.73
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 19144.76
+            "value": 22132.18
           }
         ]
       },
@@ -3009,27 +3087,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 72970.97
+            "value": 92274.73
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 91183
+            "value": 113231.81
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 116854.49
+            "value": 142233.25
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 150473.95
+            "value": 179527.72
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 188336.02
+            "value": 220773.61
           }
         ]
       }
@@ -3052,27 +3130,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 152048.68
+            "value": 151428.4
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 167416.49
+            "value": 170011.92
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 186336.63
+            "value": 193367.37
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 207394.98
+            "value": 219931.28
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 228356.73
+            "value": 246921.57
           }
         ]
       },
@@ -3082,27 +3160,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 15196.32
+            "value": 15516.61
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 19650.41
+            "value": 20064.58
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 26200.54
+            "value": 26752.77
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 36680.76
+            "value": 37453.88
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 47946.99
+            "value": 48957.57
           }
         ]
       },
@@ -3120,27 +3198,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 29647.8
+            "value": 32276.13
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 38337.66
+            "value": 41736.38
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 51116.88
+            "value": 55648.5
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 71563.64
+            "value": 77907.9
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 93543.9
+            "value": 101836.76
           }
         ]
       },
@@ -3154,27 +3232,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 44844.1
+            "value": 47792.74
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 57988.06
+            "value": 61800.95
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 77317.42
+            "value": 82401.27
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 108244.39
+            "value": 115361.78
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 141490.88
+            "value": 150794.32
           }
         ]
       },
@@ -3184,27 +3262,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 196892.78
+            "value": 199221.14
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 225404.55
+            "value": 231812.87
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 263654.05
+            "value": 275768.64
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 315639.37
+            "value": 335293.06
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 369847.61
+            "value": 397715.89
           }
         ]
       }
@@ -3227,27 +3305,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 193647.87
+            "value": 176731.65
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 209896.52
+            "value": 200697.01
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 229571.44
+            "value": 231182.15
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 251090.61
+            "value": 266297.87
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 272159.19
+            "value": 302408.68
           }
         ]
       },
@@ -3257,27 +3335,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 24410.59
+            "value": 21801.92
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 31565.41
+            "value": 28192.14
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 42087.21
+            "value": 37589.51
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 58922.1
+            "value": 52625.32
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 77019.6
+            "value": 68788.81
           }
         ]
       },
@@ -3295,27 +3373,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 56901.6
+            "value": 69432.99
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 73579.65
+            "value": 89784.03
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 98106.2
+            "value": 119712.04
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 137348.68
+            "value": 167596.86
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 179534.35
+            "value": 219073.04
           }
         ]
       },
@@ -3329,27 +3407,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 81312.18
+            "value": 91234.9
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 105145.06
+            "value": 117976.16
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 140193.41
+            "value": 157301.55
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 196270.77
+            "value": 220222.17
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 256553.94
+            "value": 287861.84
           }
         ]
       },
@@ -3359,27 +3437,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 274960.05
+            "value": 267966.55
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 315041.58
+            "value": 318673.17
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 369764.85
+            "value": 388483.7
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 447361.38
+            "value": 486520.04
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 528713.13
+            "value": 590270.52
           }
         ]
       }
@@ -3402,27 +3480,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 130754.54
+            "value": 128453.65
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 143290.1
+            "value": 137765.59
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 158646.21
+            "value": 148915.54
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 175648
+            "value": 160967.9
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 192487.54
+            "value": 172636.88
           }
         ]
       },
@@ -3432,27 +3510,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 8621.34
+            "value": 7943.56
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 11148.28
+            "value": 10271.85
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 14864.37
+            "value": 13695.79
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 20810.12
+            "value": 19174.11
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 27201.8
+            "value": 25063.3
           }
         ]
       },
@@ -3470,27 +3548,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 14091.46
+            "value": 15365.11
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 18221.71
+            "value": 19868.68
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 24295.61
+            "value": 26491.56
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 34013.86
+            "value": 37088.19
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 44460.97
+            "value": 48479.56
           }
         ]
       },
@@ -3504,27 +3582,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 22712.79
+            "value": 23308.66
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 29369.99
+            "value": 30140.51
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 39159.98
+            "value": 40187.35
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 54823.97
+            "value": 56262.29
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 71662.76
+            "value": 73542.85
           }
         ]
       },
@@ -3534,27 +3612,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 153467.33
+            "value": 151762.31
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 172660.09
+            "value": 167906.1
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 197806.19
+            "value": 189102.89
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 230471.97
+            "value": 217230.19
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 264150.3
+            "value": 246179.73
           }
         ]
       }
@@ -3570,34 +3648,34 @@
         "id": 60210,
         "text": "Customer Service Representative"
       },
-      "salaryCount": 195,
+      "salaryCount": 203,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 31206.31
+            "value": 32260.34
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 36443.19
+            "value": 36356.63
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 43305.01
+            "value": 41525.44
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 51458.83
+            "value": 47429.09
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 60094.39
+            "value": 53451.46
           }
         ]
       },
@@ -3657,27 +3735,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 31206.31
+            "value": 32260.34
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 36443.19
+            "value": 36356.63
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 43305.01
+            "value": 41525.44
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 51458.83
+            "value": 47429.09
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 60094.39
+            "value": 53451.46
           }
         ]
       }
@@ -3700,27 +3778,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 176419.26
+            "value": 166632.52
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 196939.89
+            "value": 186269.84
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 222574.21
+            "value": 210836.34
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 251545.18
+            "value": 238642.83
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 280804.25
+            "value": 266766.43
           }
         ]
       },
@@ -3730,27 +3808,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 20426.71
+            "value": 16370.28
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 26413.85
+            "value": 21168.46
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 35218.46
+            "value": 28224.61
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 49305.85
+            "value": 39514.46
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 64449.79
+            "value": 51651.04
           }
         ]
       },
@@ -3768,27 +3846,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 44266.88
+            "value": 40000.48
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 57241.65
+            "value": 51724.75
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 76322.2
+            "value": 68966.33
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 106851.08
+            "value": 96552.87
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 139669.63
+            "value": 126208.39
           }
         ]
       },
@@ -3802,27 +3880,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 64693.58
+            "value": 56370.75
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 83655.49
+            "value": 72893.21
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 111540.66
+            "value": 97190.94
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 156156.92
+            "value": 136067.32
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 204119.41
+            "value": 177859.42
           }
         ]
       },
@@ -3832,27 +3910,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 241112.84
+            "value": 223003.27
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 280595.38
+            "value": 259163.05
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 334114.87
+            "value": 308027.28
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 407702.1
+            "value": 374710.15
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 484923.66
+            "value": 444625.85
           }
         ]
       }
@@ -3875,27 +3953,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 190450.34
+            "value": 170764.17
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 204513.81
+            "value": 192608.49
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 221375.58
+            "value": 220196.63
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 239627.57
+            "value": 251736.34
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 257322.45
+            "value": 283938.69
           }
         ]
       },
@@ -3905,27 +3983,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 24160.64
+            "value": 17357.02
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 31242.21
+            "value": 22444.41
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 41656.27
+            "value": 29925.88
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 58318.78
+            "value": 41896.24
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 76230.98
+            "value": 54764.37
           }
         ]
       },
@@ -3943,27 +4021,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 53034.21
+            "value": 48375.13
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 68578.72
+            "value": 62554.04
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 91438.29
+            "value": 83405.38
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 128013.61
+            "value": 116767.54
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 167332.08
+            "value": 152631.85
           }
         ]
       },
@@ -3977,27 +4055,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 77194.84
+            "value": 65732.13
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 99820.92
+            "value": 84998.45
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 133094.56
+            "value": 113331.26
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 186332.38
+            "value": 158663.76
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 243563.04
+            "value": 207396.21
           }
         ]
       },
@@ -4007,27 +4085,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 267645.18
+            "value": 236496.3
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 304334.73
+            "value": 277606.94
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 354470.14
+            "value": 333527.89
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 425959.95
+            "value": 410400.1
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 500885.49
+            "value": 491334.9
           }
         ]
       }
@@ -4050,27 +4128,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 136791.1
+            "value": 122891.14
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 164153.93
+            "value": 143965.7
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 201055.74
+            "value": 171671.41
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 246253.08
+            "value": 204708.99
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 295512
+            "value": 239814.46
           }
         ]
       },
@@ -4080,27 +4158,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 19236.66
+            "value": 11998.86
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 24874.99
+            "value": 15515.76
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 33166.65
+            "value": 20687.68
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 46433.31
+            "value": 28962.76
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 60694.97
+            "value": 37858.46
           }
         ]
       },
@@ -4118,27 +4196,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 43838.16
+            "value": 25542.17
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 56687.27
+            "value": 33028.66
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 75583.02
+            "value": 44038.21
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 105816.23
+            "value": 61653.5
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 138316.93
+            "value": 80589.93
           }
         ]
       },
@@ -4152,27 +4230,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 63074.81
+            "value": 37541.02
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 81562.25
+            "value": 48544.42
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 108749.67
+            "value": 64725.89
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 152249.54
+            "value": 90616.25
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 199011.9
+            "value": 118448.38
           }
         ]
       },
@@ -4182,27 +4260,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 199865.91
+            "value": 160432.16
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 245716.18
+            "value": 192510.12
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 309805.41
+            "value": 236397.3
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 398502.62
+            "value": 295325.24
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 494523.9
+            "value": 358262.84
           }
         ]
       }
@@ -4218,34 +4296,34 @@
         "id": 119899,
         "text": "Data Scientist"
       },
-      "salaryCount": 134,
+      "salaryCount": 135,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 122534.66
+            "value": 123210.44
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 138385.05
+            "value": 140028.69
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 158430.14
+            "value": 161440.24
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 181378.75
+            "value": 186125.79
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 204840.89
+            "value": 211531.99
           }
         ]
       },
@@ -4255,27 +4333,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 10240.51
+            "value": 10700.74
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 13242.03
+            "value": 13837.17
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 17656.04
+            "value": 18449.55
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 24718.46
+            "value": 25829.37
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 32310.56
+            "value": 33762.68
           }
         ]
       },
@@ -4293,27 +4371,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 17755.06
+            "value": 21136.55
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 22959.13
+            "value": 27331.74
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 30612.17
+            "value": 36442.32
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 42857.04
+            "value": 51019.25
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 56020.28
+            "value": 66689.45
           }
         ]
       },
@@ -4327,27 +4405,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 27995.56
+            "value": 31837.28
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 36201.16
+            "value": 41168.9
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 48268.21
+            "value": 54891.87
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 67575.49
+            "value": 76848.62
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 88330.82
+            "value": 100452.12
           }
         ]
       },
@@ -4357,27 +4435,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 150530.22
+            "value": 155047.72
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 174586.21
+            "value": 181197.59
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 206698.35
+            "value": 216332.11
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 248954.24
+            "value": 262974.41
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 293171.71
+            "value": 311984.11
           }
         ]
       }
@@ -4393,34 +4471,34 @@
         "id": 17167,
         "text": "Senior Manager"
       },
-      "salaryCount": 117,
+      "salaryCount": 119,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 135969.13
+            "value": 153190.72
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 157577.06
+            "value": 172878.7
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 185661.24
+            "value": 197757.48
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 218750.73
+            "value": 226216.54
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 253514.14
+            "value": 255289.76
           }
         ]
       },
@@ -4430,27 +4508,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 15940.5
+            "value": 22944.46
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 20612.71
+            "value": 29669.56
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 27483.61
+            "value": 39559.4
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 38477.06
+            "value": 55383.16
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 50295.01
+            "value": 72393.71
           }
         ]
       },
@@ -4468,27 +4546,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 28895.47
+            "value": 41314.98
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 37364.83
+            "value": 53424.54
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 49819.77
+            "value": 71232.72
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 69747.68
+            "value": 99725.81
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 91170.18
+            "value": 130355.88
           }
         ]
       },
@@ -4502,27 +4580,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 44835.96
+            "value": 64259.43
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 57977.54
+            "value": 83094.09
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 77303.38
+            "value": 110792.12
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 108224.73
+            "value": 155108.97
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 141465.19
+            "value": 202749.58
           }
         ]
       },
@@ -4532,27 +4610,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 180805.09
+            "value": 217450.15
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 215554.6
+            "value": 255972.79
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 262964.62
+            "value": 308549.6
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 326975.46
+            "value": 381325.51
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 394979.33
+            "value": 458039.34
           }
         ]
       }
@@ -4568,34 +4646,34 @@
         "id": 40730,
         "text": "Director"
       },
-      "salaryCount": 107,
+      "salaryCount": 113,
       "basePayStatistics": {
         "__typename": "StatisticsResult",
         "percentiles": [
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 162042.63
+            "value": 188571.74
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 189319.69
+            "value": 215026.99
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 225077.19
+            "value": 248826.53
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 267588.35
+            "value": 287938.92
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 312632.18
+            "value": 328334.67
           }
         ]
       },
@@ -4605,27 +4683,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 28289.06
+            "value": 39012.04
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 36580.68
+            "value": 50446.6
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 48774.23
+            "value": 67262.13
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 68283.93
+            "value": 94166.99
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 89256.85
+            "value": 123089.7
           }
         ]
       },
@@ -4643,27 +4721,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 43122.67
+            "value": 87331.45
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 55762.08
+            "value": 112928.59
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 74349.43
+            "value": 150571.45
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 104089.21
+            "value": 210800.03
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 136059.46
+            "value": 275545.76
           }
         ]
       },
@@ -4677,27 +4755,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 71411.72
+            "value": 126343.48
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 92342.74
+            "value": 163375.18
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 123123.66
+            "value": 217833.58
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 172373.12
+            "value": 304967.01
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 225316.3
+            "value": 398635.45
           }
         ]
       },
@@ -4707,27 +4785,202 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 233454.35
+            "value": 314915.22
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 281662.43
+            "value": 378402.17
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 348200.85
+            "value": 466660.11
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 439961.47
+            "value": 592905.93
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 537948.48
+            "value": 726970.12
+          }
+        ]
+      }
+    },
+    {
+      "__typename": "AggregatedSalaryEstimatesResult",
+      "currency": {
+        "__typename": "Currency",
+        "code": "USD"
+      },
+      "jobTitle": {
+        "__typename": "JobTitle",
+        "id": 518087,
+        "text": "MTS1 Software Engineer"
+      },
+      "salaryCount": 93,
+      "basePayStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 145434.32
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 163426.01
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 186058.75
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 211825.87
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 238030.86
+          }
+        ]
+      },
+      "cashBonusStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 11666.41
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 15085.88
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 20114.5
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 28160.3
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 36809.54
+          }
+        ]
+      },
+      "profitSharingStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": []
+      },
+      "salesCommissionStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": []
+      },
+      "stockBonusStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 29193.23
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 37749.86
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 50333.14
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 70466.4
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 92109.65
+          }
+        ]
+      },
+      "tipsStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": []
+      },
+      "totalAdditionalPayStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 40859.63
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 52835.73
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 70447.64
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 98626.7
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 128919.18
+          }
+        ]
+      },
+      "totalPayStatistics": {
+        "__typename": "StatisticsResult",
+        "percentiles": [
+          {
+            "__typename": "Percentile",
+            "ident": "P10",
+            "value": 186293.95
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P25",
+            "value": 216261.74
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P50",
+            "value": 256506.39
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P75",
+            "value": 310452.57
+          },
+          {
+            "__typename": "Percentile",
+            "ident": "P90",
+            "value": 366950.04
           }
         ]
       }
@@ -4750,27 +5003,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 89974.35
+            "value": 81505.92
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 106343.05
+            "value": 93784.88
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 128065.33
+            "value": 109623.52
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 154224.73
+            "value": 128137.03
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 182282.26
+            "value": 147441.01
           }
         ]
       },
@@ -4780,27 +5033,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6905.81
+            "value": 5638.5
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 8929.92
+            "value": 7291.17
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 11906.56
+            "value": 9721.55
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 16669.19
+            "value": 13610.17
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 21789.01
+            "value": 17790.44
           }
         ]
       },
@@ -4826,27 +5079,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 6905.8
+            "value": 5638.5
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 8929.92
+            "value": 7291.16
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 11906.56
+            "value": 9721.55
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 16669.18
+            "value": 13610.17
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 21789
+            "value": 17790.44
           }
         ]
       },
@@ -4856,202 +5109,27 @@
           {
             "__typename": "Percentile",
             "ident": "P10",
-            "value": 96880.15
+            "value": 87144.42
           },
           {
             "__typename": "Percentile",
             "ident": "P25",
-            "value": 115272.97
+            "value": 101076.04
           },
           {
             "__typename": "Percentile",
             "ident": "P50",
-            "value": 139971.89
+            "value": 119345.07
           },
           {
             "__typename": "Percentile",
             "ident": "P75",
-            "value": 170893.91
+            "value": 141747.2
           },
           {
             "__typename": "Percentile",
             "ident": "P90",
-            "value": 204071.26
-          }
-        ]
-      }
-    },
-    {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
-      "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 518087,
-        "text": "MTS1 Software Engineer"
-      },
-      "salaryCount": 91,
-      "basePayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 148608.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 164206.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 183482.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 205021.12
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 226540.7
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 14183.83
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 18341.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 24454.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 34236.82
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 44752.42
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 22348.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 28899.2
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 38532.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 53945.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 70514.04
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 36532.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 47240.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 62987.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 88181.98
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 115266.45
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 185140.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 211447.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 246469.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 293203.1
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 341807.15
+            "value": 165231.45
           }
         ]
       }
