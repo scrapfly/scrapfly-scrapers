@@ -9,6 +9,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import math
 import os
+import re
 from collections import defaultdict
 from typing import Dict, List, Optional
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
@@ -149,6 +150,7 @@ async def scrape_product(url: str) -> Dict:
 def parse_search(result: ScrapeApiResponse) -> List[Dict]:
     """Parse ebay.com search result page for product previews"""
     previews = []
+    # This logic for best-selling items remains the same.
     best_selling_boxes = result.selector.xpath(
         "//*[*[h2[contains(text(),'Best selling products')]]]//li[contains(@class, 's-item')]"
     )
@@ -158,27 +160,35 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         if box.get() in best_selling_html_set:
             continue  # skip boxes inside the best selling container
 
-        css = lambda css: box.css(css).get("").strip() or None  # get first CSS match
-        css_all = lambda css: box.css(css).getall()  # get all CSS matches
-        css_re = lambda css, pattern: box.css(css).re_first(pattern, default="").strip()  # get first css regex match
-        css_int = lambda css: int(box.css(css).re_first(r"(\d+)", default="0")) if box.css(css) else None
+        css = lambda css: box.css(css).get("").strip() or None
+        css_all = lambda css: box.css(css).getall()
+        css_re = lambda css, pattern: box.css(css).re_first(pattern, default="").strip()
         css_float = lambda css: float(box.css(css).re_first(r"(\d+\.*\d*)", default="0.0")) if box.css(css) else None
+
+        bids_text = box.xpath(".//span[contains(text(), 'bid')]/text()").get()
+        bids_count = 0
+        if bids_text:
+            bids_match = re.search(r"(\d+)", bids_text)
+            if bids_match:
+                bids_count = int(bids_match.group(1))
+
         auction_end = css_re(".s-item__time-end::text", r"\((.+?)\)") or None
         if auction_end:
             auction_end = dateutil.parser.parse(auction_end.replace("Today", ""))
+
         item = {
             "url": css("a.s-item__link::attr(href)").split("?")[0],
             "title": css(".s-item__title span::text"),
-            "price": css(".s-item__price::text"),
+            "price": css(".s-item__price span::text") or css(".s-item__price::text"),
             "shipping": css_float(".s-item__shipping::text"),
             "auction_end": auction_end,
-            "bids": css_int(".s-item__bidCount::text"),
+            "bids": bids_count,
             "location": css(".s-item__itemLocation::text"),
             "subtitles": css_all(".s-item__subtitle::text"),
             "condition": css(".SECONDARY_INFO::text"),
             "photo": css("img::attr(data-src)") or css("img::attr(src)"),
             "rating": css_float(".s-item__reviews .clipped::text"),
-            "rating_count": css_int(".s-item__reviews-count span::text"),
+            "rating_count": int(box.css(".s-item__reviews-count span::text").re_first(r"(\d+)", default="0")),
         }
         previews.append(item)
     return previews
