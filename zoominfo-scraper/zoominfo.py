@@ -32,7 +32,7 @@ def parse_company(response: ScrapeApiResponse) -> List[Dict]:
 def parse_directory(response: ScrapeApiResponse) -> dict:
     """parse zoominfo directory pages"""
     selector = response.selector
-    companies = selector.css("a.company-name.link::attr(href)").getall()
+    companies = selector.css("td.company-name a::attr(href)").getall()
     pagination = selector.css("a.page-link::attr(href)").getall()
     return {"companies": companies, "pagination": pagination}
 
@@ -46,12 +46,14 @@ async def scrape_comapnies(urls: List[str]) -> List[Dict]:
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
             companies.append(parse_company(response))
     except ScrapflyAspError:
-            failed.append(response.context['url'])
+        failed.append(response.context["url"])
     if len(failed) != 0:
         log.debug(f"{len(failed)} requests are blocked, trying again with render_js enabled and residential proxies")
         for url in failed:
             try:
-                response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool"))
+                response = await SCRAPFLY.async_scrape(
+                    ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool")
+                )
                 companies.append(parse_company(response))
             except ScrapflyAspError:
                 pass
@@ -83,18 +85,15 @@ def parse_faqs(response: ScrapeApiResponse) -> List[Dict]:
         answer = faq.css("span.answer::text").get()
         if not answer:
             answer = faq.css("span.answer > p::text").get()
-        faqs.append({
-            "question": question.strip() if question else None,
-            "answer": answer
-        })
+        faqs.append({"question": question.strip() if question else None, "answer": answer})
     return faqs
 
 
 async def scrape_faqs(url: str) -> List[Dict]:
-    """scrape faqs from Zoominfo company pages"""       
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url=url, **BASE_CONFIG, render_js=True, auto_scroll=True, wait_for_selector="div.faqs"
-    ))
+    """scrape faqs from Zoominfo company pages"""
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url=url, **BASE_CONFIG, render_js=True, auto_scroll=True, wait_for_selector="div.faqs")
+    )
     faqs = parse_faqs(response)
     log.success(f"scraped {len(faqs)} FAQs from company page")
     return faqs
