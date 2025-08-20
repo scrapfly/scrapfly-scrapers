@@ -112,7 +112,7 @@
         "name": "CUDA",
         "logo": "https://storage.googleapis.com/datanyze-data/technologies/47f9be7c4109a1c1b2326061579d8ec3426b46a5.png",
         "marketShareLink": "market-share/other-audio-video-graphics-software--419/cuda-market-share",
-        "numberOfCompaniesUsingTech": "2,391",
+        "numberOfCompaniesUsingTech": "2,395",
         "techMarketShare": "0.11%",
         "technologiesUsageByVendor": {
           "companyId": "136118787",
@@ -145,18 +145,18 @@
               "url": "/companies/weizmann-institute-of-science/114786394"
             },
             {
-              "companyId": "1332946155",
-              "name": "Hut 8",
-              "revenue": "132459",
-              "displayName": "Hut 8",
-              "fullName": "Hut 8 Corp",
-              "logo": "https://res.cloudinary.com/zoominfo-com/image/upload/w_70,h_70,c_fit/hut8.com",
-              "url": "/companies/hut-8/1332946155"
+              "companyId": "8310287",
+              "name": "Alibaba Group",
+              "revenue": "136275151",
+              "displayName": "Alibaba Group",
+              "fullName": "Alibaba Group Holding Ltd",
+              "logo": "https://res.cloudinary.com/zoominfo-com/image/upload/w_70,h_70,c_fit/alibabagroup.com",
+              "url": "/companies/alibaba-group/8310287"
             },
             {
               "companyId": "126828694",
               "name": "Verizon",
-              "revenue": "135292003",
+              "revenue": "137000002",
               "displayName": "Verizon",
               "fullName": "Verizon Communications Inc",
               "logo": "https://res.cloudinary.com/zoominfo-com/image/upload/w_70,h_70,c_fit/verizon.com",
@@ -224,26 +224,6 @@
     },
     "acquisitions": [
       {
-        "id": "121569875",
-        "name": "PortalPlayer",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "61130392",
-        "name": "MediaQ",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "25363262",
-        "name": "ModViz",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "64913421",
-        "name": "3dfx Interactive",
-        "date": "Jul 18, 2022"
-      },
-      {
         "id": "49267122",
         "name": "The Portland Group",
         "date": "Jul 18, 2022"
@@ -269,18 +249,33 @@
         "date": "Jul 18, 2022"
       },
       {
+        "id": "121569875",
+        "name": "PortalPlayer",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "61130392",
+        "name": "MediaQ",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "25363262",
+        "name": "ModViz",
+        "date": "Jul 18, 2022"
+      },
+      {
         "id": "24543376",
         "name": "Mental Images",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "24477911",
-        "name": "Mellanox Technologies",
+        "id": "64913421",
+        "name": "3dfx Interactive",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "28902389",
-        "name": "Kotura",
+        "id": "24477911",
+        "name": "Mellanox Technologies",
         "date": "Jul 18, 2022"
       },
       {
@@ -291,6 +286,11 @@
       {
         "id": "243728625",
         "name": "Tilera",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "28902389",
+        "name": "Kotura",
         "date": "Jul 18, 2022"
       },
       {
@@ -457,42 +457,68 @@
     },
     "newsFeed": [
       {
-        "url": "https://finance.yahoo.com/news/prediction-unstoppable-stock-founding-member-230300309.html",
-        "title": "Prediction: This Unstoppable Stock Will Be a Founding Member of the $6 Trillion Club by 2027",
-        "content": "Take an industry leader, add in a healthy dose of secular tailwinds and a large addressable market, and you get an artificial intelligence (AI) pioneer ready to break new ground.",
-        "date": "2025-08-17T11:03:00Z",
+        "url": "https://www.digitimes.com/news/a20250819PD230/hbm3e-samsung-demand-nvidia-hbm4.html",
+        "title": "Samsung's HBM3E supply to Nvidia loses strategic significance as focus shifts to HBM4 in 2026",
+        "content": "Driven by the booming demand for artificial intelligence (AI) servers, high-bandwidth memory (HBM) has become a key factor reshaping the memory industry landscape. Micron recently announced that its entire HBM supply for 2026 is already fully booked, intensifying competition among the three major memory manufacturers in the HBM market.",
+        "date": "2025-08-19T10:53:00Z",
+        "domain": "www.digitimes.com"
+      },
+      {
+        "url": "https://finance.yahoo.com/news/astera-amd-lead-tech-selloff-213720123.html",
+        "title": "Astera, AMD Lead Tech Selloff; Nvidia, Broadcom, Qualcomm Fall",
+        "content": "Nvidia, AMD Face Revenue-Share Deal in China; Stocks Trade Lower",
+        "date": "2025-08-19T09:37:00Z",
         "domain": "finance.yahoo.com"
       },
       {
-        "url": "https://finance.yahoo.com/news/prediction-nvidias-china-deal-game-220000098.html",
-        "title": "Prediction: Nvidia's New China Deal Will Be a Game-Changer. Here's Why",
-        "content": "Nvidia has agreed to pay 15% of its China sales to the U.S. government.",
-        "date": "2025-08-17T10:00:00Z",
-        "domain": "finance.yahoo.com"
+        "url": "https://nypost.com/2025/08/19/business/nvidia-developing-more-powerful-ai-chip-to-sell-in-china-report/",
+        "title": "Nvidia developing more powerful AI chip to sell in China: report",
+        "content": "The new chip, tentatively named the B30A, is a less advanced version of Nvidia's Blackwell B300, according to a report.",
+        "date": "2025-08-19T06:23:00Z",
+        "domain": "nypost.com"
       },
       {
-        "url": "https://finance.yahoo.com/news/piper-sandler-raises-nvidia-nvda-212249458.html",
-        "title": "Piper Sandler Raises NVIDIA (NVDA) Price Target to $225 Ahead of Earnings",
-        "content": "NVIDIA Corporation (NASDAQ:NVDA) is one of the AI Stocks Investors Are Watching Right Now. On August 13, Piper Sandler analyst Harsh Kumar raised the price target on the stock to $225.00 (from $180.00) while maintaining an Overweight rating. The rating affirmation comes ahead of Nvidia’s upcoming quarterly report, with Piper Sandler anticipating another positive quarter […]",
-        "date": "2025-08-17T09:22:00Z",
-        "domain": "finance.yahoo.com"
+        "url": "https://stocktwits.com/news-articles/markets/equity/lutnick-says-us-may-take-intel-stake-to-counter-china-risk/chsglN4Rdgw",
+        "title": "Lutnick Says US May Take Intel Stake To Counter China Risk, Highlights Nvidia CEO's ...",
+        "content": "The Commerce Secretary also criticized U.S. subsidies flowing to Taiwan’s TSMC, saying Washington cannot rely on Taiwan to make chips for the country.",
+        "date": "2025-08-19T05:32:00Z",
+        "domain": "stocktwits.com"
       },
       {
-        "url": "https://finance.yahoo.com/news/nvidia-corporation-nvda-spend-lot-211354053.html",
-        "title": "NVIDIA Corporation (NVDA): I Spend A Lot Of Time Shooting Down Rumors, Says Jim Cramer",
-        "content": "We recently published 12 Latest Stocks Jim Cramer Discussed. NVIDIA Corporation (NASDAQ:NVDA) is one of the stocks Jim Cramer recently discussed. August has been an interesting month for NVIDIA Corporation (NASDAQ:NVDA), as after the firm received the Trump administration’s approval to sell China the H20 GPUs, reports started to flow about potential security vulnerabilities or […]",
-        "date": "2025-08-17T09:13:00Z",
-        "domain": "finance.yahoo.com"
-      },
-      {
-        "url": "https://finance.yahoo.com/news/nvidia-quietly-buys-more-stock-210300633.html",
-        "title": "Nvidia quietly buys more stock in AI infrastructure favorite",
-        "content": "This little-known firm is now Nvidia's largest outside stock holding",
-        "date": "2025-08-17T09:03:00Z",
+        "url": "https://finance.yahoo.com/news/nvda-nvidia-broadcom-lead-citi-161753224.html",
+        "title": "NVDA: Nvidia, Broadcom Lead as Citi Bets on More Upside in Chip Sector",
+        "content": "Citi says buy the dip: AI chip stocks power semiconductor rebound",
+        "date": "2025-08-19T04:17:00Z",
         "domain": "finance.yahoo.com"
       }
     ],
     "pic": [
+      {
+        "personId": "2988156355",
+        "fullName": "David Reber",
+        "title": "Chief Security Officer & Head of Product Security",
+        "picture": "",
+        "personUrl": "/p/David-Reber/2988156355",
+        "orgChartTier": 3,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "David",
+        "lastName": "Reber",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "11607284674",
+        "fullName": "Ursula Myller",
+        "title": "Risk Controller",
+        "picture": "",
+        "personUrl": "/p/Ursula-Myller/11607284674",
+        "orgChartTier": 3,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Ursula",
+        "lastName": "Myller",
+        "companyCountry": "United States"
+      },
       {
         "personId": "2185407563",
         "fullName": "Huang Renxun",
@@ -520,19 +546,6 @@
         "companyCountry": "United States"
       },
       {
-        "personId": "2988156355",
-        "fullName": "David Reber",
-        "title": "Chief Security Officer & Head of Product Security",
-        "picture": "",
-        "personUrl": "/p/David-Reber/2988156355",
-        "orgChartTier": 3,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "David",
-        "lastName": "Reber",
-        "companyCountry": "United States"
-      },
-      {
         "personId": "4136981089",
         "fullName": "Ran Trester",
         "title": "Financial Controller",
@@ -543,32 +556,6 @@
         "isLikelyToEngageEmail": false,
         "firstName": "Ran",
         "lastName": "Trester",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "11607284674",
-        "fullName": "Ursula Myller",
-        "title": "Risk Controller",
-        "picture": "",
-        "personUrl": "/p/Ursula-Myller/11607284674",
-        "orgChartTier": 3,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Ursula",
-        "lastName": "Myller",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "3546443796",
-        "fullName": "Sonu Nayyar",
-        "title": "Senior Vice President and Chief Information Officer",
-        "picture": "",
-        "personUrl": "/p/Sonu-Nayyar/3546443796",
-        "orgChartTier": 2,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Sonu",
-        "lastName": "Nayyar",
         "companyCountry": "United States"
       },
       {
@@ -608,6 +595,19 @@
         "isLikelyToEngageEmail": false,
         "firstName": "Michael",
         "lastName": "Kagan",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "3546443796",
+        "fullName": "Sonu Nayyar",
+        "title": "Senior Vice President and Chief Information Officer",
+        "picture": "",
+        "personUrl": "/p/Sonu-Nayyar/3546443796",
+        "orgChartTier": 2,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Sonu",
+        "lastName": "Nayyar",
         "companyCountry": "United States"
       }
     ],
@@ -666,20 +666,28 @@
     "copilotContent": {
       "signals": [
         {
-          "signal": "Product Launch: Get notified when <span class=\"bold-name\">NVIDIA</span> launches new products",
-          "originalSignal": "Product Launch: Get notified when {company_name} launches new products"
-        },
-        {
           "signal": "Check if <span class=\"bold-name\">NVIDIA</span> has recently received funding, and reach out quickly before it becomes old news!",
           "originalSignal": "Check if {company_name} has recently received funding, and reach out quickly before it becomes old news!"
         },
         {
-          "signal": "Competitive Alert! Recent activity has been detected by your competitor <span class=\"masked-content\">Masked Content</span>",
-          "originalSignal": "Competitive Alert! Recent activity has been detected by your competitor {masked_content}"
+          "signal": "Product Launch: Get notified when <span class=\"bold-name\">NVIDIA</span> launches new products",
+          "originalSignal": "Product Launch: Get notified when {company_name} launches new products"
         },
         {
-          "signal": "Check out if <span class=\"bold-name\">NVIDIA</span> is spiking on competitors!",
-          "originalSignal": "Check out if {company_name} is spiking on competitors!"
+          "signal": "Earning: See what the market has to say on <span class=\"bold-name\">NVIDIA</span> recently announced quarterly report",
+          "originalSignal": "Earning: See what the market has to say on {company_name} recently announced quarterly report"
+        },
+        {
+          "signal": "Congratulate <span class=\"masked-content\">Masked Content</span> for being promoted to <span class=\"masked-content\">Masked Content</span> at <span class=\"bold-name\">NVIDIA</span>",
+          "originalSignal": "Congratulate {masked_content} for being promoted to {masked_content} at {company_name}"
+        },
+        {
+          "signal": "<span class=\"bold-name\">NVIDIA</span>, which may be a good buyer, showed buying intent in <span class=\"masked-content\">Masked Content</span> Topic",
+          "originalSignal": "{company_name}, which may be a good buyer, showed buying intent in {masked_content} Topic"
+        },
+        {
+          "signal": "Click to see if <span class=\"bold-name\">NVIDIA</span> had a recent Job posting/layoffs",
+          "originalSignal": "Click to see if {company_name} had a recent Job posting/layoffs"
         },
         {
           "signal": "Funding: Get notified immidiatlly once <span class=\"bold-name\">NVIDIA</span> has new funding data",
@@ -690,20 +698,12 @@
           "originalSignal": "Website visits: Recent activity has been detected on your website"
         },
         {
-          "signal": "Congratulate <span class=\"masked-content\">Masked Content</span> for being promoted to <span class=\"masked-content\">Masked Content</span> at <span class=\"bold-name\">NVIDIA</span>",
-          "originalSignal": "Congratulate {masked_content} for being promoted to {masked_content} at {company_name}"
+          "signal": "Competitive Alert! Recent activity has been detected by your competitor <span class=\"masked-content\">Masked Content</span>",
+          "originalSignal": "Competitive Alert! Recent activity has been detected by your competitor {masked_content}"
         },
         {
-          "signal": "Click to see if <span class=\"bold-name\">NVIDIA</span> had a recent Job posting/layoffs",
-          "originalSignal": "Click to see if {company_name} had a recent Job posting/layoffs"
-        },
-        {
-          "signal": "<span class=\"bold-name\">NVIDIA</span>, which may be a good buyer, showed buying intent in <span class=\"masked-content\">Masked Content</span> Topic",
-          "originalSignal": "{company_name}, which may be a good buyer, showed buying intent in {masked_content} Topic"
-        },
-        {
-          "signal": "Earning: See what the market has to say on <span class=\"bold-name\">NVIDIA</span> recently announced quarterly report",
-          "originalSignal": "Earning: See what the market has to say on {company_name} recently announced quarterly report"
+          "signal": "Check out if <span class=\"bold-name\">NVIDIA</span> is spiking on competitors!",
+          "originalSignal": "Check out if {company_name} is spiking on competitors!"
         }
       ],
       "recommendedActions": [
@@ -711,9 +711,9 @@
           "contentLogo": "/ge-assets/common/2023_email.svg",
           "ctaText": "Send Email",
           "ctaAction": "ClickedSendEmailCoP",
-          "originalAction": "Introduce yourself to {masked_content}, who has shown a strong intent to purchase lately",
+          "originalAction": "Reach out to {masked_content} who joined {company_name_regular} as {masked_content}",
           "ctaLogo": "/ge-assets/common/ai-email-logo.svg",
-          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_email.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/>Introduce yourself to <span class=\"masked-content\">Masked Content</span>, who has shown a strong intent to purchase lately"
+          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_email.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/>Reach out to <span class=\"masked-content\">Masked Content</span> who joined NVIDIA as <span class=\"masked-content\">Masked Content</span>"
         },
         {
           "contentLogo": "/ge-assets/common/2023_contact.svg",
@@ -1613,16 +1613,16 @@
         "signalScore": "100",
         "signalsNumber": "3",
         "graphVersion": 4,
-        "randomLocation": "Europe",
-        "yesterdayDate": "8/17/25"
+        "randomLocation": "Asia",
+        "yesterdayDate": "8/19/25"
       },
       {
         "topic": "Data Analytics",
         "signalScore": "74",
         "signalsNumber": "4",
         "graphVersion": 5,
-        "randomLocation": "Australia",
-        "yesterdayDate": "8/17/25"
+        "randomLocation": "Asia",
+        "yesterdayDate": "8/19/25"
       },
       {
         "topic": "",
@@ -9081,46 +9081,6 @@
         "date": "Jul 18, 2022"
       },
       {
-        "id": "77482610",
-        "name": "DeepMetrix",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "94111732",
-        "name": "FolderShare",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "56822891",
-        "name": "DATAllegro",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "72336500",
-        "name": "Opalis Software",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "61244888",
-        "name": "Parlano",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "11272775",
-        "name": "Digital Anvil",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "42352810",
-        "name": "Winternals Software",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "25101387",
-        "name": "ImageVision",
-        "date": "Jul 18, 2022"
-      },
-      {
         "id": "41058778",
         "name": "Visio",
         "date": "Jul 18, 2022"
@@ -9178,61 +9138,6 @@
       {
         "id": "97566757",
         "name": "Whale Communications",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "25985436",
-        "name": "Musiwave",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "101271168",
-        "name": "Prodiance",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "14910500",
-        "name": "devBiz Business Solutions",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "2642159",
-        "name": "AdECN",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "1115394115",
-        "name": "aQuantive",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "16581687",
-        "name": "DRIVE Performance Media",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "344281145",
-        "name": "Surface Studio",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "31916327",
-        "name": "Maximal Innovative Intelligence",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "63540613",
-        "name": "Interactive Supercomputing",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "213680615",
-        "name": "Perceptive Pixel",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "37765174",
-        "name": "Tegic Communications",
         "date": "Jul 18, 2022"
       },
       {
@@ -9296,6 +9201,46 @@
         "date": "Jul 18, 2022"
       },
       {
+        "id": "77482610",
+        "name": "DeepMetrix",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "94111732",
+        "name": "FolderShare",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "56822891",
+        "name": "DATAllegro",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "72336500",
+        "name": "Opalis Software",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "61244888",
+        "name": "Parlano",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "11272775",
+        "name": "Digital Anvil",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "42352810",
+        "name": "Winternals Software",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "25101387",
+        "name": "ImageVision",
+        "date": "Jul 18, 2022"
+      },
+      {
         "id": "27001240",
         "name": "NCompass Labs",
         "date": "Jul 18, 2022"
@@ -9331,58 +9276,58 @@
         "date": "Jul 18, 2022"
       },
       {
-        "id": "1107518480",
-        "name": "Major League Gaming",
+        "id": "25985436",
+        "name": "Musiwave",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "42813379",
-        "name": "Major League Gaming",
+        "id": "101271168",
+        "name": "Prodiance",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "1153102018",
-        "name": "GameBattles",
+        "id": "14910500",
+        "name": "devBiz Business Solutions",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "467342169",
-        "name": "Why Grey Matters",
+        "id": "2642159",
+        "name": "AdECN",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "123635051",
-        "name": "Guitar Hero",
+        "id": "1115394115",
+        "name": "aQuantive",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "34652449",
-        "name": "Shaba Games",
+        "id": "16581687",
+        "name": "DRIVE Performance Media",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "212812228",
-        "name": "Peltarion",
+        "id": "344281145",
+        "name": "Surface Studio",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "18484829",
-        "name": "Centerscore",
+        "id": "31916327",
+        "name": "Maximal Innovative Intelligence",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "1243096827",
-        "name": "Sierra Entertainment",
+        "id": "63540613",
+        "name": "Interactive Supercomputing",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "23315024",
-        "name": "Lynda.com",
+        "id": "213680615",
+        "name": "Perceptive Pixel",
         "date": "Jul 18, 2022"
       },
       {
-        "id": "18221626",
-        "name": "Bizo",
+        "id": "37765174",
+        "name": "Tegic Communications",
         "date": "Jul 18, 2022"
       },
       {
@@ -9403,21 +9348,6 @@
       {
         "id": "287883337",
         "name": "Varolii",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "54247658",
-        "name": "Vocada",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "23429339",
-        "name": "MacSpeech",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "290685028",
-        "name": "VirtuOz",
         "date": "Jul 18, 2022"
       },
       {
@@ -9486,6 +9416,56 @@
         "date": "Jul 18, 2022"
       },
       {
+        "id": "104399187",
+        "name": "SNAPin",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "163922846",
+        "name": "LocusDialog",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "23068761",
+        "name": "Loquendo",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "54247658",
+        "name": "Vocada",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "23429339",
+        "name": "MacSpeech",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "290685028",
+        "name": "VirtuOz",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "297435255",
+        "name": "Vlingo",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "13288107",
+        "name": "eScription",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "74678970",
+        "name": "Medremote",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "69290602",
+        "name": "Language and Computing",
+        "date": "Jul 18, 2022"
+      },
+      {
         "id": "28115349",
         "name": "Notable Solutions",
         "date": "Jul 18, 2022"
@@ -9511,43 +9491,63 @@
         "date": "Jul 18, 2022"
       },
       {
-        "id": "104399187",
-        "name": "SNAPin",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "163922846",
-        "name": "LocusDialog",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "23068761",
-        "name": "Loquendo",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "297435255",
-        "name": "Vlingo",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "13288107",
-        "name": "eScription",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "74678970",
-        "name": "Medremote",
-        "date": "Jul 18, 2022"
-      },
-      {
-        "id": "69290602",
-        "name": "Language and Computing",
-        "date": "Jul 18, 2022"
-      },
-      {
         "id": "72155978",
         "name": "Rhetorical",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "1107518480",
+        "name": "Major League Gaming",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "42813379",
+        "name": "Major League Gaming",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "467342169",
+        "name": "Why Grey Matters",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "123635051",
+        "name": "Guitar Hero",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "34652449",
+        "name": "Shaba Games",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "212812228",
+        "name": "Peltarion",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "1153102018",
+        "name": "GameBattles",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "18484829",
+        "name": "Centerscore",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "1243096827",
+        "name": "Sierra Entertainment",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "23315024",
+        "name": "Lynda.com",
+        "date": "Jul 18, 2022"
+      },
+      {
+        "id": "18221626",
+        "name": "Bizo",
         "date": "Jul 18, 2022"
       },
       {
@@ -9816,13 +9816,13 @@
         "date": "Feb 13, 2013"
       },
       {
-        "id": "356146409",
-        "name": "Newsle",
+        "id": "356139965",
+        "name": "AGNITIO",
         "date": "Jan 11, 2013"
       },
       {
-        "id": "356139965",
-        "name": "AGNITIO",
+        "id": "356146409",
+        "name": "Newsle",
         "date": "Jan 11, 2013"
       },
       {
@@ -9991,11 +9991,6 @@
         "date": "Nov 21, 2009"
       },
       {
-        "id": "352097421",
-        "name": "Accelarad",
-        "date": "Nov 21, 2009"
-      },
-      {
         "id": "351610853",
         "name": "Information Technologies Australia",
         "date": "Nov 21, 2009"
@@ -10003,6 +9998,11 @@
       {
         "id": "351820458",
         "name": "TouchCommerce",
+        "date": "Nov 21, 2009"
+      },
+      {
+        "id": "352097421",
+        "name": "Accelarad",
         "date": "Nov 21, 2009"
       },
       {
@@ -10099,53 +10099,41 @@
     },
     "newsFeed": [
       {
-        "url": "https://www.intelligentciso.com/2025/08/18/catholic-education-wa-boosts-microsoft-365-resilience-with-veeam/",
-        "title": "Catholic Education WA boosts Microsoft 365 resilience with Veeam - Intelligent CISO",
-        "date": "2025-08-18T07:51:00Z",
-        "domain": "www.intelligentciso.com"
-      },
-      {
-        "url": "https://news.vocofm.com/en/technology-news/156773/",
-        "title": "Intel engineer sentenced for leaking secrets to Microsoft - VOCO News",
-        "content": "The tech industry has been plagued by leaks lately. Last month, TSMC implicated a former employee, and now Intel is facing a similar incident. Varun Gupta, an engineer who had worked at Intel for 10 years, copied 4000 confidential documents before leaving and subsequently joining Microsoft. He was subsequently sentenced to two years' probation and ordered to pay a $2 fine by a US court.",
-        "date": "2025-08-18T05:33:00Z",
-        "domain": "news.vocofm.com"
-      },
-      {
-        "url": "https://borncity.com/win/2025/08/18/windows-server-2019-update-kb5063877-fixes-cluster-service-bug/",
-        "title": "Windows Server 2019: Update KB5063877 fixes cluster service bug - BornCity",
-        "date": "2025-08-17T11:18:00Z",
-        "domain": "borncity.com"
-      },
-      {
-        "url": "https://www.forbes.com/sites/zakdoffman/2025/08/17/microsoft-confirms-last-update-for-700-million-windows-users/",
-        "title": "Microsoft Confirms 'Last Update' For 700 Million Windows Users - Forbes",
-        "content": "This is the deadline — you must act now.",
-        "date": "2025-08-17T10:34:00Z",
+        "url": "https://www.forbes.com/sites/zakdoffman/2025/08/19/microsoft-confirms-windows-is-broken-emergency-update-on-way/",
+        "title": "Microsoft Confirms Windows Is Broken—Do Not Reset Your PC - Forbes",
+        "content": "This is critical — your device “might fail.”",
+        "date": "2025-08-20T12:25:00Z",
         "domain": "www.forbes.com"
       },
       {
-        "url": "https://finance.yahoo.com/news/citi-reiterates-buy-microsoft-msft-212354634.html",
-        "title": "Citi Reiterates Buy on Microsoft (MSFT), Calls It a Top Software Pick",
-        "content": "Microsoft Corporation (NASDAQ:MSFT) is one of the AI Stocks Investors Are Watching Right Now. One of the biggest analyst calls on August 14 was for Microsoft. Citi reiterated the stock as “Buy” stating the tech giant remains a top idea at the firm. “MSFT remains a top pick in software, and we believe this week’s […]",
-        "date": "2025-08-17T09:23:00Z",
-        "domain": "finance.yahoo.com"
+        "url": "https://www.thenationalnews.com/business/2025/08/19/microsoft-workers-protest-at-company-hq-against-israeli-ties/",
+        "title": "Microsoft workers protest at company HQ against Israeli ties - The National News",
+        "content": "Gaza war demonstrators set up tents and declared the space a 'liberated zone'",
+        "date": "2025-08-19T10:56:00Z",
+        "domain": "www.thenationalnews.com"
+      },
+      {
+        "url": "https://www.windowslatest.com/2025/08/19/microsoft-admits-it-broke-reset-this-pc-in-windows-11-23h2-kb5063875-windows-10-kb5063709/",
+        "title": "Microsoft admits it broke \"Reset this PC\" in Windows 11 23H2 KB5063875, Windows 10 KB5063709",
+        "content": "Microsoft has warned millions of users on Windows 11 23H2/22H2 and Windows 10 against using the built-in Reset and Recovery feature.",
+        "date": "2025-08-19T10:35:00Z",
+        "domain": "www.windowslatest.com"
+      },
+      {
+        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-workaround-for-teams-couldnt-connect-error/",
+        "title": "Microsoft shares workaround for Teams \"couldn't connect\" error - Bleeping Computer",
+        "content": "Microsoft is resolving a known issue that causes \"couldn't connect\" errors when launching the Microsoft Teams desktop and web applications.",
+        "date": "2025-08-19T09:37:00Z",
+        "domain": "www.bleepingcomputer.com"
+      },
+      {
+        "url": "https://iscanner.com/microsoft-lens-is-shutting-down-iscanner-awaits-you/",
+        "title": "Microsoft Lens Is Shutting Down–iScanner Awaits You",
+        "date": "2025-08-19T07:27:00Z",
+        "domain": "iscanner.com"
       }
     ],
     "pic": [
-      {
-        "personId": "2602473719",
-        "fullName": "Vinayak Mishra",
-        "title": "Chief Executive Officer",
-        "picture": "",
-        "personUrl": "/p/Vinayak-Mishra/2602473719",
-        "orgChartTier": 1,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Vinayak",
-        "lastName": "Mishra",
-        "companyCountry": "United States"
-      },
       {
         "personId": "2152559205",
         "fullName": "Satya Nadella",
@@ -10160,68 +10148,42 @@
         "companyCountry": "United States"
       },
       {
-        "personId": "10132905960",
-        "fullName": "Rafael Loza",
-        "title": "President & Chief Executive Officer (Mexico)",
+        "personId": "-2080359251",
+        "fullName": "Kara Karmel",
+        "title": "Director, Chief of Staff",
         "picture": "",
-        "personUrl": "/p/Rafael-Loza/10132905960",
-        "orgChartTier": 1,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Rafael",
-        "lastName": "Loza",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "1358201321",
-        "fullName": "Sandeep Alur",
-        "title": "Chief Technology Officer, At Microsoft Innovation HUB (India)",
-        "picture": "",
-        "personUrl": "/p/Sandeep-Alur/1358201321",
-        "orgChartTier": 2,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Sandeep",
-        "lastName": "Alur",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "2070439566",
-        "fullName": "Deb Cupp",
-        "title": "President, Microsoft (US)",
-        "picture": "",
-        "personUrl": "/p/Deb-Cupp/2070439566",
+        "personUrl": "/p/Kara-Karmel/-2080359251",
         "orgChartTier": 2,
         "isLikelyToEngagePhone": true,
         "isLikelyToEngageEmail": true,
-        "firstName": "Deb",
-        "lastName": "Cupp",
+        "firstName": "Kara",
+        "lastName": "Karmel",
         "companyCountry": "United States"
       },
       {
-        "personId": "356105905",
-        "fullName": "Gill Bates",
-        "title": "Chief Executive Officer",
+        "personId": "1795826417",
+        "fullName": "Brandon Knoertzer",
+        "title": "Chief of Staff",
         "picture": "",
-        "personUrl": "/p/Gill-Bates/356105905",
-        "orgChartTier": 1,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Gill",
-        "lastName": "Bates",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "14732024142",
-        "fullName": "Christopher Hicks",
-        "title": "Field Chief Technology Officer & Account Technology Strategist & Director",
-        "picture": "",
-        "personUrl": "/p/Christopher-Hicks/14732024142",
+        "personUrl": "/p/Brandon-Knoertzer/1795826417",
         "orgChartTier": 2,
         "isLikelyToEngagePhone": false,
         "isLikelyToEngageEmail": false,
-        "firstName": "Christopher",
-        "lastName": "Hicks",
+        "firstName": "Brandon",
+        "lastName": "Knoertzer",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "14732710690",
+        "fullName": "James Robertson",
+        "title": "Chief Technology Officer, Account Strategic Account & At Microsoft Technology Strategist",
+        "picture": "",
+        "personUrl": "/p/James-Robertson/14732710690",
+        "orgChartTier": 2,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "James",
+        "lastName": "Robertson",
         "companyCountry": "United States"
       },
       {
@@ -10238,6 +10200,19 @@
         "companyCountry": "United States"
       },
       {
+        "personId": "2602473719",
+        "fullName": "Vinayak Mishra",
+        "title": "Chief Executive Officer",
+        "picture": "",
+        "personUrl": "/p/Vinayak-Mishra/2602473719",
+        "orgChartTier": 1,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Vinayak",
+        "lastName": "Mishra",
+        "companyCountry": "United States"
+      },
+      {
         "personId": "1348092034",
         "fullName": "Paulette Zimmerman",
         "title": "Azure Databases Chief of Staff",
@@ -10248,6 +10223,32 @@
         "isLikelyToEngageEmail": false,
         "firstName": "Paulette",
         "lastName": "Zimmerman",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "10132905960",
+        "fullName": "Rafael Loza",
+        "title": "President & Chief Executive Officer (Mexico)",
+        "picture": "",
+        "personUrl": "/p/Rafael-Loza/10132905960",
+        "orgChartTier": 1,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Rafael",
+        "lastName": "Loza",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "356105905",
+        "fullName": "Gill Bates",
+        "title": "Chief Executive Officer",
+        "picture": "",
+        "personUrl": "/p/Gill-Bates/356105905",
+        "orgChartTier": 1,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Gill",
+        "lastName": "Bates",
         "companyCountry": "United States"
       }
     ],
@@ -10305,24 +10306,20 @@
     "copilotContent": {
       "signals": [
         {
-          "signal": "Check if <span class=\"bold-name\">Microsoft</span> has recently received funding, and reach out quickly before it becomes old news!",
-          "originalSignal": "Check if {company_name} has recently received funding, and reach out quickly before it becomes old news!"
+          "signal": "Website visits: Recent activity has been detected on your website",
+          "originalSignal": "Website visits: Recent activity has been detected on your website"
         },
         {
-          "signal": "Check out if <span class=\"bold-name\">Microsoft</span> is spiking on competitors!",
-          "originalSignal": "Check out if {company_name} is spiking on competitors!"
-        },
-        {
-          "signal": "Product Launch: Get notified when <span class=\"bold-name\">Microsoft</span> launches new products",
-          "originalSignal": "Product Launch: Get notified when {company_name} launches new products"
+          "signal": "Earning: See what the market has to say on <span class=\"bold-name\">Microsoft</span> recently announced quarterly report",
+          "originalSignal": "Earning: See what the market has to say on {company_name} recently announced quarterly report"
         },
         {
           "signal": "Competitive Alert! Recent activity has been detected by your competitor <span class=\"masked-content\">Masked Content</span>",
           "originalSignal": "Competitive Alert! Recent activity has been detected by your competitor {masked_content}"
         },
         {
-          "signal": "Earning: See what the market has to say on <span class=\"bold-name\">Microsoft</span> recently announced quarterly report",
-          "originalSignal": "Earning: See what the market has to say on {company_name} recently announced quarterly report"
+          "signal": "Product Launch: Get notified when <span class=\"bold-name\">Microsoft</span> launches new products",
+          "originalSignal": "Product Launch: Get notified when {company_name} launches new products"
         },
         {
           "signal": "<span class=\"bold-name\">Microsoft</span>, which may be a good buyer, showed buying intent in <span class=\"masked-content\">Masked Content</span> Topic",
@@ -10341,8 +10338,12 @@
           "originalSignal": "Click to see if {company_name} had a recent Job posting/layoffs"
         },
         {
-          "signal": "Website visits: Recent activity has been detected on your website",
-          "originalSignal": "Website visits: Recent activity has been detected on your website"
+          "signal": "Check out if <span class=\"bold-name\">Microsoft</span> is spiking on competitors!",
+          "originalSignal": "Check out if {company_name} is spiking on competitors!"
+        },
+        {
+          "signal": "Check if <span class=\"bold-name\">Microsoft</span> has recently received funding, and reach out quickly before it becomes old news!",
+          "originalSignal": "Check if {company_name} has recently received funding, and reach out quickly before it becomes old news!"
         }
       ],
       "recommendedActions": [
@@ -10350,9 +10351,9 @@
           "contentLogo": "/ge-assets/common/2023_email.svg",
           "ctaText": "Send Email",
           "ctaAction": "ClickedSendEmailCoP",
-          "originalAction": "Reach out to {masked_content} who joined {company_name_regular} as {masked_content}",
+          "originalAction": "Find VP level buyers at {company_name_regular}",
           "ctaLogo": "/ge-assets/common/ai-email-logo.svg",
-          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_email.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/>Reach out to <span class=\"masked-content\">Masked Content</span> who joined Microsoft as <span class=\"masked-content\">Masked Content</span>"
+          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_email.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/>Find VP level buyers at Microsoft"
         },
         {
           "contentLogo": "/ge-assets/common/2023_contact.svg",
@@ -11271,16 +11272,16 @@
         "signalScore": "100",
         "signalsNumber": "5",
         "graphVersion": 2,
-        "randomLocation": "North America",
-        "yesterdayDate": "8/17/25"
+        "randomLocation": "Europe",
+        "yesterdayDate": "8/19/25"
       },
       {
         "topic": "Recruiting",
         "signalScore": "86",
         "signalsNumber": "4",
         "graphVersion": 3,
-        "randomLocation": "Europe",
-        "yesterdayDate": "8/17/25"
+        "randomLocation": "North America",
+        "yesterdayDate": "8/19/25"
       },
       {
         "topic": "",
@@ -11770,8 +11771,8 @@
     },
     "acquisitions": [
       {
-        "id": "57509193",
-        "name": "Riviera Tool",
+        "id": "211157163",
+        "name": "SolarCity",
         "date": "Jul 18, 2022"
       },
       {
@@ -11785,8 +11786,8 @@
         "date": "Jul 18, 2022"
       },
       {
-        "id": "211157163",
-        "name": "SolarCity",
+        "id": "57509193",
+        "name": "Riviera Tool",
         "date": "Jul 18, 2022"
       },
       {
@@ -11902,55 +11903,42 @@
     },
     "newsFeed": [
       {
-        "url": "https://finance.yahoo.com/news/palantir-next-tesla-160000073.html",
-        "title": "Is Palantir the Next Tesla?",
-        "content": "Palantir's institutional ownership is low compared to its peers, similar to Tesla.",
-        "date": "2025-08-17T04:00:00Z",
+        "url": "https://www.globenewswire.com/news-release/2025/08/19/3136018/3080/en/Tesla-Inc-Sued-for-Securities-Law-Violations-Contact-Levi-Korsinsky-Before-October-3-2025-to-Discuss-Your-Rights-TSLA.html",
+        "title": "Tesla, Inc. Sued for Securities Law Violations - Contact Levi & Korsinsky Before October 3, 2025 to Discuss Your Rights – TSLA",
+        "content": "NEW YORK, Aug. 19, 2025 (GLOBE NEWSWIRE) -- Levi & Korsinsky, LLP notifies investors in Tesla, Inc. (\"Tesla, Inc.\" or the \"Company\") (NASDAQ: TSLA) of a class action securities lawsuit.",
+        "date": "2025-08-19T08:10:00Z",
+        "domain": "www.globenewswire.com"
+      },
+      {
+        "url": "https://techstartups.com/2025/08/19/the-humanoid-hoax-unmasking-the-human-puppets-behind-tesla-and-nvidias-robot-demos/",
+        "title": "The Humanoid Hoax: Unmasking the Human Puppets Behind Tesla and Nvidia’s Robot Demos",
+        "content": "Tesla and Nvidia love the spotlight. Their humanoid demos rack up millions of views, showcasing bots folding laundry, serving drinks, or waving like futuristic hosts. But there’s a catch—many of these “autonomous” performances are run by people behind the curtain. […] The post The Humanoid Hoax: Unmasking the Human Puppets Behind Tesla and Nvidia’s Robot Demos first appeared on Tech Startups.",
+        "date": "2025-08-19T03:30:00Z",
+        "domain": "techstartups.com"
+      },
+      {
+        "url": "https://www.cnbc.com/2025/08/19/tesla-cybertruck-sales-musk.html",
+        "title": "Why Tesla Cybertruck sales are falling short of expectations",
+        "content": "Tesla said Cybertruck demand was \"off the charts.\" Sales never met expectations and have been falling. But some owners love their trucks. So, what happened?",
+        "date": "2025-08-19T02:55:00Z",
+        "domain": "www.cnbc.com"
+      },
+      {
+        "url": "https://finance.yahoo.com/news/cheaper-tesla-leases-hit-uk-213240712.html",
+        "title": "Cheaper Tesla Leases Hit UK as Sales Slide",
+        "content": "Musk's EV maker turns to 40% discounts to clear cars",
+        "date": "2025-08-18T09:32:00Z",
         "domain": "finance.yahoo.com"
       },
       {
-        "url": "https://timesofindia.indiatimes.com/technology/tech-news/tesla-senior-vp-sells-82-shares-ceo-elon-musk-says-if-they-dont-they-will-be/articleshow/123330910.cms",
-        "title": "Tesla Senior VP sells 82% shares, CEO Elon Musk says 'If they don't….they will be…' - Times of India",
-        "content": "Tech News : Tesla's Tom Zhu has sold over 82% of his Tesla shares since 2023. The sales occurred between 2023 and 2024. Elon Musk warned short sellers of potentia",
-        "date": "2025-08-17T03:49:00Z",
-        "domain": "timesofindia.indiatimes.com"
-      },
-      {
-        "url": "https://www.teslarati.com/tesla-rivals-ceo-makes-shock-suggestion-customers-model-y/",
-        "title": "Tesla rival's CEO makes shock suggestion to customers about Model Y",
-        "content": "Xiaomi CEO Lei Jun said that if YU7 customers cannot wait for a car, they should consider one of its biggest rivals.",
-        "date": "2025-08-16T04:17:00Z",
-        "domain": "www.teslarati.com"
-      },
-      {
-        "url": "https://www.prnewswire.com/news-releases/pomerantz-law-firm-announces-the-filing-of-a-class-action-against-tesla-inc-and-certain-officers--tsla-302527385.html",
-        "title": "Pomerantz Law Firm Announces the Filing of a Class Action Against Tesla, Inc. and Certain Officers - TSLA",
-        "content": "NEW YORK, Aug. 16, 2025 /PRNewswire/ -- Pomerantz LLP announces that a class action lawsuit has been filed against Tesla, Inc. (\"Tesla\" or the \"Company\") (NASDAQ: TSLA) and certain officers. The class action, filed in the United States District Court for the Western District of Texas, and...",
-        "date": "2025-08-16T02:00:00Z",
-        "domain": "www.prnewswire.com"
-      },
-      {
-        "url": "https://finance.yahoo.com/news/finally-little-good-news-tesla-072100463.html",
-        "title": "Finally, a Little Good News for Tesla Investors",
-        "content": "2025 has largely been a year to forget for Tesla investors, but here's some good news for the future.",
-        "date": "2025-08-16T07:21:00Z",
+        "url": "https://finance.yahoo.com/news/wall-street-watch-tesla-tsla-173127994.html",
+        "title": "Wall Street Watch: Tesla (TSLA) Neutral, Robotaxi Push Targets Half of U.S.",
+        "content": "Tesla, Inc. (NASDAQ:TSLA) is one the Buzzing AI Stocks on Wall Street. On August 15, Bank of America reiterated the stock as “Neutral” stating that the company is making “strides” in expanding its robotaxi network. “In addition, TSLA is taking first steps needed for entrance into other markets including: New York City, Phoenix, Miami, San Francisco/Bay Area, […]",
+        "date": "2025-08-18T05:31:00Z",
         "domain": "finance.yahoo.com"
       }
     ],
     "pic": [
-      {
-        "personId": "12508323294",
-        "fullName": "Gia Rucker",
-        "title": "Controller",
-        "picture": "",
-        "personUrl": "/p/Gia-Rucker/12508323294",
-        "orgChartTier": 3,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Gia",
-        "lastName": "Rucker",
-        "companyCountry": "United States"
-      },
       {
         "personId": "11154283937",
         "fullName": "Julien Bankovacki",
@@ -11965,6 +11953,19 @@
         "companyCountry": "United States"
       },
       {
+        "personId": "14312034514",
+        "fullName": "Laura H",
+        "title": "Chief Technology Officer",
+        "picture": "",
+        "personUrl": "/p/Laura-H/14312034514",
+        "orgChartTier": 2,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Laura",
+        "lastName": "H",
+        "companyCountry": "United States"
+      },
+      {
         "personId": "5541258391",
         "fullName": "Estrella Sanchez",
         "title": "Operation Center Controller",
@@ -11975,6 +11976,45 @@
         "isLikelyToEngageEmail": false,
         "firstName": "Estrella",
         "lastName": "Sanchez",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "12508323294",
+        "fullName": "Gia Rucker",
+        "title": "Controller",
+        "picture": "",
+        "personUrl": "/p/Gia-Rucker/12508323294",
+        "orgChartTier": 3,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Gia",
+        "lastName": "Rucker",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "8750329135",
+        "fullName": "Alex D",
+        "title": "Chief Executive Officer",
+        "picture": "",
+        "personUrl": "/p/Alex-D/8750329135",
+        "orgChartTier": 1,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Alex",
+        "lastName": "D",
+        "companyCountry": "United States"
+      },
+      {
+        "personId": "11641369361",
+        "fullName": "Sally Wu",
+        "title": "Vice President, Corporate Controller",
+        "picture": "",
+        "personUrl": "/p/Sally-Wu/11641369361",
+        "orgChartTier": 3,
+        "isLikelyToEngagePhone": false,
+        "isLikelyToEngageEmail": false,
+        "firstName": "Sally",
+        "lastName": "Wu",
         "companyCountry": "United States"
       },
       {
@@ -12004,55 +12044,16 @@
         "companyCountry": "United States"
       },
       {
-        "personId": "3450384961",
-        "fullName": "Vaibhav Taneja",
-        "title": "Chief Financial Officer",
-        "picture": "https://discoverorg-content.s3-us-west-1.amazonaws.com/P/png/9/9/6/7/8/01f81d.png",
-        "personUrl": "/p/Vaibhav-Taneja/3450384961",
+        "personId": "1477483862",
+        "fullName": "Brandon Ehrhart",
+        "title": "General Counsel & Corporate Secretary",
+        "picture": "",
+        "personUrl": "/p/Brandon-Ehrhart/1477483862",
         "orgChartTier": 2,
         "isLikelyToEngagePhone": false,
         "isLikelyToEngageEmail": false,
-        "firstName": "Vaibhav",
-        "lastName": "Taneja",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "14312034514",
-        "fullName": "Laura H",
-        "title": "Chief Technology Officer",
-        "picture": "",
-        "personUrl": "/p/Laura-H/14312034514",
-        "orgChartTier": 2,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Laura",
-        "lastName": "H",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "11270140535",
-        "fullName": "Nagaraj Veerachari",
-        "title": "Payroll Controller",
-        "picture": "",
-        "personUrl": "/p/Nagaraj-Veerachari/11270140535",
-        "orgChartTier": 3,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Nagaraj",
-        "lastName": "Veerachari",
-        "companyCountry": "United States"
-      },
-      {
-        "personId": "11641369361",
-        "fullName": "Sally Wu",
-        "title": "Vice President, Corporate Controller",
-        "picture": "",
-        "personUrl": "/p/Sally-Wu/11641369361",
-        "orgChartTier": 3,
-        "isLikelyToEngagePhone": false,
-        "isLikelyToEngageEmail": false,
-        "firstName": "Sally",
-        "lastName": "Wu",
+        "firstName": "Brandon",
+        "lastName": "Ehrhart",
         "companyCountry": "United States"
       }
     ],
@@ -12119,24 +12120,24 @@
     "copilotContent": {
       "signals": [
         {
-          "signal": "Click to see if <span class=\"bold-name\">Tesla</span> had a recent Job posting/layoffs",
-          "originalSignal": "Click to see if {company_name} had a recent Job posting/layoffs"
+          "signal": "Website visits: Recent activity has been detected on your website",
+          "originalSignal": "Website visits: Recent activity has been detected on your website"
         },
         {
           "signal": "Competitive Alert! Recent activity has been detected by your competitor <span class=\"masked-content\">Masked Content</span>",
           "originalSignal": "Competitive Alert! Recent activity has been detected by your competitor {masked_content}"
         },
         {
-          "signal": "Website visits: Recent activity has been detected on your website",
-          "originalSignal": "Website visits: Recent activity has been detected on your website"
+          "signal": "Click to see if <span class=\"bold-name\">Tesla</span> had a recent Job posting/layoffs",
+          "originalSignal": "Click to see if {company_name} had a recent Job posting/layoffs"
         },
         {
-          "signal": "Funding: Get notified immidiatlly once <span class=\"bold-name\">Tesla</span> has new funding data",
-          "originalSignal": "Funding: Get notified immidiatlly once {company_name} has new funding data"
+          "signal": "Check if <span class=\"bold-name\">Tesla</span> has recently received funding, and reach out quickly before it becomes old news!",
+          "originalSignal": "Check if {company_name} has recently received funding, and reach out quickly before it becomes old news!"
         },
         {
-          "signal": "Check out if <span class=\"bold-name\">Tesla</span> is spiking on competitors!",
-          "originalSignal": "Check out if {company_name} is spiking on competitors!"
+          "signal": "Earning: See what the market has to say on <span class=\"bold-name\">Tesla</span> recently announced quarterly report",
+          "originalSignal": "Earning: See what the market has to say on {company_name} recently announced quarterly report"
         },
         {
           "signal": "<span class=\"bold-name\">Tesla</span>, which may be a good buyer, showed buying intent in <span class=\"masked-content\">Masked Content</span> Topic",
@@ -12147,12 +12148,12 @@
           "originalSignal": "Product Launch: Get notified when {company_name} launches new products"
         },
         {
-          "signal": "Check if <span class=\"bold-name\">Tesla</span> has recently received funding, and reach out quickly before it becomes old news!",
-          "originalSignal": "Check if {company_name} has recently received funding, and reach out quickly before it becomes old news!"
+          "signal": "Funding: Get notified immidiatlly once <span class=\"bold-name\">Tesla</span> has new funding data",
+          "originalSignal": "Funding: Get notified immidiatlly once {company_name} has new funding data"
         },
         {
-          "signal": "Earning: See what the market has to say on <span class=\"bold-name\">Tesla</span> recently announced quarterly report",
-          "originalSignal": "Earning: See what the market has to say on {company_name} recently announced quarterly report"
+          "signal": "Check out if <span class=\"bold-name\">Tesla</span> is spiking on competitors!",
+          "originalSignal": "Check out if {company_name} is spiking on competitors!"
         },
         {
           "signal": "Congratulate <span class=\"masked-content\">Masked Content</span> for being promoted to <span class=\"masked-content\">Masked Content</span> at <span class=\"bold-name\">Tesla</span>",
@@ -12164,16 +12165,16 @@
           "contentLogo": "/ge-assets/common/2023_email.svg",
           "ctaText": "Send Email",
           "ctaAction": "ClickedSendEmailCoP",
-          "originalAction": "Reach out to {masked_content} who joined {company_name_regular} as {masked_content}",
+          "originalAction": "Introduce yourself to {masked_content}, who has shown a strong intent to purchase lately",
           "ctaLogo": "/ge-assets/common/ai-email-logo.svg",
-          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_email.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/>Reach out to <span class=\"masked-content\">Masked Content</span> who joined Tesla as <span class=\"masked-content\">Masked Content</span>"
+          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_email.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/>Introduce yourself to <span class=\"masked-content\">Masked Content</span>, who has shown a strong intent to purchase lately"
         },
         {
           "contentLogo": "/ge-assets/common/2023_contact.svg",
           "ctaText": "Find Buyers",
           "ctaAction": "ClickedFindBuyersCoP",
-          "originalAction": "Find 2 more new buyers",
-          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_contact.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/><span class=\"semi-bold-name\">Find 2 more new buyers</span>"
+          "originalAction": "Find more new buyers",
+          "content": "<img class=\"lazy\" height=\"16\" width=\"16\" src=\"/ge-assets/common/2023_contact.svg\" alt=\"\" style=\"margin-right: 4px; vertical-align:middle;\"/><span class=\"semi-bold-name\">Find more new buyers</span>"
         }
       ]
     },
@@ -13099,8 +13100,8 @@
         "signalScore": "100",
         "signalsNumber": "3",
         "graphVersion": 1,
-        "randomLocation": "Europe",
-        "yesterdayDate": "8/17/25"
+        "randomLocation": "Asia",
+        "yesterdayDate": "8/19/25"
       },
       {
         "topic": "Enterprise Resource Planning",
@@ -13108,7 +13109,7 @@
         "signalsNumber": "5",
         "graphVersion": 2,
         "randomLocation": "North America",
-        "yesterdayDate": "8/17/25"
+        "yesterdayDate": "8/19/25"
       },
       {
         "topic": "",
