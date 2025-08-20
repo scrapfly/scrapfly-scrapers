@@ -31,9 +31,12 @@ def parse_company(response: ScrapeApiResponse) -> List[Dict]:
 
 def parse_directory(response: ScrapeApiResponse) -> dict:
     """parse zoominfo directory pages"""
-    selector = response.selector
-    companies = selector.css("td.company-name a::attr(href)").getall()
-    pagination = selector.css("a.page-link::attr(href)").getall()
+    data = response.selector.css("script#ng-state::text").get()
+    data = json.loads(data)
+    companies_data = data.get("companiesSearchData", {}).get("companies", [])
+    companies = [company.get("companyUrl") for company in companies_data]
+    pagination_data = data.get("companiesSearchData", {}).get("paginationData", {}).get("pages", [])
+    pagination = [page.get("url") for page in pagination_data if page.get("url")]
     return {"companies": companies, "pagination": pagination}
 
 
