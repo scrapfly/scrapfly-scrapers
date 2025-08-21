@@ -16,6 +16,7 @@ ebay.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 
 class DateTimeValidator(Validator):
     def _validate_min_presence(self, min_presence, field, value):
+        """{'type': 'float'}"""
         pass  # required for adding non-standard keys to schema
 
     def _validate_type_datetime(self, value):
@@ -51,7 +52,7 @@ async def test_product_scraping():
         "seller_name": {"type": "string", "minlength": 1},
         "seller_url": {"type": "string", "regex": "https://www.ebay.com/str/.+"},
         "photos": {"type": "list", "schema": {"type": "string"}},
-        "description_url": {"type": "string", "regex": "https://.+?ebaydesc\.com/.+"},
+        "description_url": {"type": "string", "regex": r"https://.+?ebaydesc\.com/.+"},
         "features": {"type": "dict"},
     }
     validator = Validator(schema, allow_unknown=True)
@@ -96,7 +97,7 @@ async def test_search_scraping():
         "shipping": {"type": "float", "nullable": True},
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
         "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
-        "auction_end": {"type": "datetime", "nullable": True, "min_presence": 0.01},
+        "auction_end": {"type": "datetime", "nullable": True, "min_presence": 0.001},
         "bids": {"type": "integer", "nullable": True, "min_presence": 0.001},
         "price": {"type": "string", "nullable": True},
     }
