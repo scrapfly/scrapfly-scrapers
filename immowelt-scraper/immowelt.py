@@ -13,6 +13,7 @@ from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from lzstring import LZString
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -20,7 +21,7 @@ BASE_CONFIG = {
     # bypass web scraping blocking
     "asp": True,
     # set the proxy country to switzerland
-    "country": "DE"
+    "country": "DE",
 }
 
 output = Path(__file__).parent / "results"
@@ -37,12 +38,20 @@ def parse_property_pages(response: ScrapeApiResponse) -> Dict:
     # find data in JSON.parse("<data>") pattern:
     _hidden_datasets = re.findall(r'JSON.parse\("(.*)"\)', data_script)
     # unescape escaped json characters like `\\"` to `"`
-    _property_datastring = _hidden_datasets[0].encode('utf-8').decode('unicode_escape')
+    _property_datastring = _hidden_datasets[0].encode("utf-8").decode("unicode_escape")
     property_data = json.loads(_property_datastring)
     # remove web app related keys
     parsed = {
-        key: value for key, value in property_data['app_cldp']['data']['classified'].items() 
-        if key in ['sections', 'id', 'brand', 'tags', 'contactSections',]
+        key: value
+        for key, value in property_data["app_cldp"]["data"]["classified"].items()
+        if key
+        in [
+            "sections",
+            "id",
+            "brand",
+            "tags",
+            "contactSections",
+        ]
     }
     return parsed
 
@@ -78,18 +87,21 @@ def find_json_objects(text: str, decoder=json.JSONDecoder()):
             pos = match + 1
 
 
-def parse_search_pages(response: ScrapeApiResponse) -> List[Dict]:
-    """parse search data from script tags"""
+def parse_search_pages(response: ScrapeApiResponse) -> Dict:
+    """Parse search data from script tags using LZ-String decompression."""
     selector = response.selector
-    script = selector.xpath('//script[contains(text(),"classified-serp-init-data")]/text()').get()
-    script = script.replace('window["__UFRN_FETCHER__"]=JSON.parse("', '').replace('");', '')
-    script = script.encode().decode('unicode_escape')
-    data = json.loads(script)['data']['classified-serp-init-data']['pageProps'] 
-    search_data = []
-    for k, v in data['classifiedsData'].items():
-        search_data.append(v)
-    max_pages = math.ceil(data['totalCount'] / 30)
-    return {'search_data': search_data, 'max_pages': max_pages}
+    script_content = selector.xpath('//script[contains(text(),"classified-serp-init-data")]/text()').get()
+    json_blob_string = script_content.split('JSON.parse("', 1)[1].rsplit('")', 1)[0]
+    outer_data = json.loads(json_blob_string.encode().decode("unicode_escape"))
+    compressed_data = outer_data["data"]["classified-serp-init-data"]
+    lz = LZString()
+    decompressed_string = lz.decompressFromBase64(compressed_data)
+    data = json.loads(decompressed_string)
+    classifieds_data = data["pageProps"]["classifiedsData"]
+    search_data = list(classifieds_data.values())
+    total_count = data["pageProps"]["totalCount"]
+    max_pages = math.ceil(total_count / len(search_data)) if search_data else 1
+    return {"search_data": search_data, "max_pages": max_pages}
 
 
 async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
@@ -97,8 +109,8 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
     log.info("scraping first search page")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     data = parse_search_pages(first_page)
-    search_data = data['search_data']
-    max_pages = data['max_pages']
+    search_data = data["search_data"]
+    max_pages = data["max_pages"]
 
     # get the total number of pages to scrape
     if max_scrape_pages and max_scrape_pages < max_pages:
@@ -106,11 +118,8 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
     log.info(f"scraping search pagination, remaining ({max_pages - 1}) more pages")
 
     # scrape the remaining search pages concurrently
-    to_scrape = [
-        ScrapeConfig(url + f'&page={page}', **BASE_CONFIG)
-        for page in range(2, max_pages + 1)
-    ]
+    to_scrape = [ScrapeConfig(url + f"&page={page}", **BASE_CONFIG) for page in range(2, max_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        search_data.extend(parse_search_pages(response)['search_data'])
+        search_data.extend(parse_search_pages(response)["search_data"])
     log.success(f"scraped {len(search_data)} properties from search")
     return search_data

@@ -22,17 +22,15 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
-    "headers": {
-        "cookie": "intl_splash=false"
-    }
+    "headers": {"cookie": "intl_splash=false"},
 }
 
 
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
     # decode the .gz file
-    bytes_data = response.scrape_result['content'].encode('latin1')
-    xml = str(gzip.decompress(bytes_data), 'utf-8')
+    bytes_data = response.scrape_result["content"].encode("latin1")
+    xml = str(gzip.decompress(bytes_data), "utf-8")
     selector = Selector(xml)
     data = []
     for url in selector.xpath("//url/loc/text()"):
@@ -84,15 +82,15 @@ def refine_product(data: Dict) -> Dict:
 
 def extract_json(script: str) -> Dict:
     """extract JSON data from a script tag content"""
-    start_index = script.find('.push(')
-    brace_start = script.find('{', start_index)
+    start_index = script.find(".push(")
+    brace_start = script.find("{", start_index)
 
     # find the JSON block
     brace_count = 0
     for i in range(brace_start, len(script)):
-        if script[i] == '{':
+        if script[i] == "{":
             brace_count += 1
-        elif script[i] == '}':
+        elif script[i] == "}":
             brace_count -= 1
             if brace_count == 0:
                 brace_end = i + 1
@@ -114,24 +112,22 @@ def parse_product(response: ScrapeApiResponse) -> Dict:
     """parse product data from bestbuy product pages"""
     selector = response.selector
     data = {}
-    
-    product_info = extract_json( 
-        selector.xpath("//script[contains(text(),'productBySkuId')]/text()").get()
-    )
-    product_features = extract_json(
-        selector.xpath("//script[contains(text(),'R1eapefmjttrkq')]/text()").get()
-    )
-    buying_options = extract_json(
-        selector.xpath("//script[contains(text(), 'R3vmipefmjttrkqH1')]/text()").get()
-    )
-    product_faq = extract_json(
-        selector.xpath("//script[contains(text(), 'ProductQuestionConnection')]/text()").get()
-    )
 
-    data["product-info"] = _extract_nested(product_info, ["rehydrate", ":Rp9efmjttrkq:", "data", "productBySkuId"])
-    data["product-features"] = _extract_nested(product_features, ["rehydrate", ":R1eapefmjttrkq:", "data", "productBySkuId", "features"])
-    data["buying-options"] = _extract_nested(buying_options, ["rehydrate", ":R3vmipefmjttrkqH1:", "data", "productBySkuId", "buyingOptions"])
-    data["product-faq"] = _extract_nested(product_faq, ["rehydrate", ":R1fapefmjttrkq:", "data", "productBySkuId", "questions"])
+    product_info = extract_json(selector.xpath("//script[contains(text(),'productBySkuId')]/text()").get())
+    product_features = extract_json(selector.xpath("//script[contains(text(),'Rn5en7rajttrkq')]/text()").get())
+    buying_options = extract_json(selector.xpath("//script[contains(text(), 'R1cn7rajttrkqH4')]/text()").get())
+    product_faq = extract_json(selector.xpath("//script[contains(text(), 'ProductQuestionConnection')]/text()").get())
+
+    data["product-info"] = _extract_nested(product_info, ["rehydrate", ":Rn5en7rajttrkq:", "data", "productBySkuId"])
+    data["product-features"] = _extract_nested(
+        product_features, ["rehydrate", ":Rn5en7rajttrkq:", "data", "productBySkuId", "features"]
+    )
+    data["buying-options"] = _extract_nested(
+        buying_options, ["rehydrate", ":R1cn7rajttrkqH4:", "data", "productBySkuId", "buyingOptions"]
+    )
+    data["product-faq"] = _extract_nested(
+        product_faq, ["rehydrate", ":Rnlen7rajttrkq:", "data", "productBySkuId", "questions"]
+    )
 
     return data
 
@@ -144,8 +140,7 @@ async def scrape_products(urls: List[str], max_review_pages: int = 1) -> List[Di
         try:
             product_data = parse_product(response)
             product_data["product_reviews"] = await scrape_reviews(
-                product_data["product-info"]["skuId"],
-                max_pages=max_review_pages
+                product_data["product-info"]["skuId"], max_pages=max_review_pages
             )
             data.append(product_data)
         except:
@@ -162,26 +157,28 @@ def parse_search(response: ScrapeApiResponse):
     for item in selector.css("#main-results li"):
         name = item.css(".product-title::attr(title)").get()
         link = item.css("a.product-list-item-link::attr(href)").get()
-        price = selector.css('div.customer-price::text').re('\d+\.\d{2}')[0]
-        original_price = (selector.css('div.regular-price::text').re('\d+\.\d{2}') or [None]) [0]
+        price = selector.css("div.customer-price::text").re("\d+\.\d{2}")[0]
+        original_price = (selector.css("div.regular-price::text").re("\d+\.\d{2}") or [None])[0]
         sku = item.xpath("@data-testid").get()
         _rating_data = item.css(".c-ratings-reviews p::text")
         rating = (_rating_data.re(r"\d+\.*\d*") or [None])[0]
-        rating_count = int((_rating_data.re('(\d+) reviews') or [0])[0])
+        rating_count = int((_rating_data.re("(\d+) reviews") or [0])[0])
         images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
 
-        data.append({
-            "name": name,
-            "link": "https://www.bestbuy.com" + link if link else None,
-            "images": images,
-            "sku": sku,
-            "price": price,
-            "original_price": original_price,
-            "rating": rating,
-            "rating_count": rating_count,
-        })
+        data.append(
+            {
+                "name": name,
+                "link": "https://www.bestbuy.com" + link if link else None,
+                "images": images,
+                "sku": sku,
+                "price": price,
+                "original_price": original_price,
+                "rating": rating,
+                "rating_count": rating_count,
+            }
+        )
     if len(data):
-        _total_count = selector.css("div.results-title span:nth-of-type(2)::text").re('\d+')[0]
+        _total_count = selector.css("div.results-title span:nth-of-type(2)::text").re("\d+")[0]
         total_pages = int(_total_count) // len(data)
     else:
         total_pages = 1
@@ -202,11 +199,15 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         if sort:
             params["sp"] = sort
         return base_url + urlencode(params)
-    
+
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            form_search_url(1), render_js=True, rendering_wait=5000,auto_scroll=True,
-            wait_for_selector="#main-results li", **BASE_CONFIG
+            form_search_url(1),
+            render_js=True,
+            rendering_wait=5000,
+            auto_scroll=True,
+            wait_for_selector="#main-results li",
+            **BASE_CONFIG,
         )
     )
     data = parse_search(first_page)
@@ -219,32 +220,30 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
 
     log.info(f"scraping search pagination, {total_pages - 1} more pages")
     # add the remaining pages to a scraping list to scrape them concurrently
-    to_scrape = [
-        ScrapeConfig(form_search_url(page_number), **BASE_CONFIG)
-        for page_number in range(2, total_pages + 1)
-    ]
+    to_scrape = [ScrapeConfig(form_search_url(page_number), **BASE_CONFIG) for page_number in range(2, total_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_search(response)["data"]
         search_data.extend(data)
-    
+
     log.success(f"scraped {len(search_data)} products from search pages")
     return search_data
 
 
 def parse_reviews(response: ScrapeApiResponse) -> List[Dict]:
     """parse review data from the review API responses"""
-    data = json.loads(response.scrape_result['content'])
+    data = json.loads(response.scrape_result["content"])
     total_count = data["totalPages"]
     review_data = data["topics"]
     return {"data": review_data, "total_count": total_count}
 
 
-async def scrape_reviews(skuid: int, max_pages: int=None) -> List[Dict]:
+async def scrape_reviews(skuid: int, max_pages: int = None) -> List[Dict]:
     """scrape review data from the reviews API"""
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(
-        f"https://www.bestbuy.com/ugc/v2/reviews?page=1&pageSize=20&sku={skuid}&sort=MOST_RECENT",
-        **BASE_CONFIG
-    ))
+    first_page = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            f"https://www.bestbuy.com/ugc/v2/reviews?page=1&pageSize=20&sku={skuid}&sort=MOST_RECENT", **BASE_CONFIG
+        )
+    )
     data = parse_reviews(first_page)
     review_data = data["data"]
     total_count = data["total_count"]
@@ -258,7 +257,7 @@ async def scrape_reviews(skuid: int, max_pages: int=None) -> List[Dict]:
     to_scrape = [
         ScrapeConfig(
             f"https://www.bestbuy.com/ugc/v2/reviews?page={page_number}&pageSize=20&sku={skuid}&sort=MOST_RECENT",
-            **BASE_CONFIG
+            **BASE_CONFIG,
         )
         for page_number in range(2, total_count + 1)
     ]

@@ -27,15 +27,24 @@ output.mkdir(exist_ok=True)
 def parse_next_data(response: ScrapeApiResponse) -> Dict:
     """parse listing data from script tags"""
     selector = response.selector
-    # extract data in JSON from script tags
-    script = selector.xpath("//script[contains(text(),'INITIAL_STATE')]/text()").get()
-    if not script:
-        return
-    next_data = script.strip("window.__INITIAL_STATE__=")
-    # replace undefined values
-    next_data = next_data.replace("undefined", "null")
-    next_data_json = json.loads(next_data)
-    return next_data_json
+    # The '.' checks the entire string content of the tag, not just the immediate text node.
+    script_content = selector.xpath("//script[contains(., 'window.__INITIAL_STATE__')]/text()").get()
+    if not script_content:
+        log.warning(f"Could not find __INITIAL_STATE__ on page: {response.context['url']}")
+        return None
+    try:
+        start = script_content.find("{")
+        end = script_content.rfind("}") + 1
+        if start == -1 or end == 0:
+            log.warning(f"Could not extract JSON object from script on: {response.context['url']}")
+            return None
+        json_str = script_content[start:end]
+        # Replace JavaScript's 'undefined' with a valid JSON 'null'
+        json_str = json_str.replace("undefined", "null")
+        return json.loads(json_str)
+    except (json.JSONDecodeError, TypeError) as e:
+        log.error(f"Error parsing JSON from {response.context['url']}: {e}")
+        return None
 
 
 async def scrape_properties(urls: List[str]) -> List[Dict]:
@@ -56,9 +65,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     return properties
 
 
-async def scrape_search(
-    url: str, scrape_all_pages: bool, max_scrape_pages: int = 10
-) -> List[Dict]:
+async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int = 10) -> List[Dict]:
     """scrape listing data from immoscout24 search pages"""
     # scrape the first search page first
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
@@ -67,7 +74,7 @@ async def scrape_search(
     search_data = data["listings"]
     # get the number of maximum search pages available
     max_search_pages = data["resultCount"]
-     # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
+    # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         total_pages = max_scrape_pages
     else:
@@ -81,8 +88,6 @@ async def scrape_search(
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         data = parse_next_data(response)
-        search_data.extend(
-            data["resultList"]["search"]["fullSearch"]["result"]["listings"]
-        )
+        search_data.extend(data["resultList"]["search"]["fullSearch"]["result"]["listings"])
     log.info("scraped {} proprties from {}", len(search_data), url)
     return search_data

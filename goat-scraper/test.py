@@ -45,19 +45,49 @@ product_schema = {
 }
 
 search_schema = {
-    "id": {"type": "string"},
-    "sku": {"type": "string"},
+    "id": {"type": "string", "required": True},
+    "status": {"type": "string"},
     "slug": {"type": "string"},
-    "color": {"type": "string"},
+    "title": {"type": "string"},
+    "pictureUrl": {"type": "string"},
+    "inStock": {"type": "boolean"},
     "category": {"type": "string"},
-    "image_url": {"type": "string"},
-    "product_type": {"type": "string"},
-    "release_date": {"type": "integer"},
-    "release_date_year": {"type": "integer"},
-    "retail_price_cents": {"type": "integer"},
-    "variation_id": {"type": "string"},
-    "box_condition": {"type": "string"},
-    "product_condition": {"type": "string"},
+    "productType": {"type": "string"},
+    "brandName": {"type": "string"},
+    "gender": {"type": "string"},
+    "releaseDate": {
+        "type": "dict",
+        "nullable": True,
+        "schema": {"seconds": {"type": "integer"}, "nanos": {"type": "integer"}},
+    },
+    "localizedRetailPriceCents": {
+        "type": "dict",
+        "nullable": True,
+        "schema": {"amountCents": {"type": "integer"}, "currency": {"type": "string"}},
+    },
+    "variantsList": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "productCondition": {"type": "integer"},
+                "boxCondition": {"type": "integer"},
+                "size": {
+                    "type": "dict",
+                    "schema": {
+                        "gender": {"type": "integer"},
+                        "sizeUnit": {"type": "integer"},
+                        "size": {"type": "string"},
+                        "displayName": {"type": "string"},
+                    },
+                },
+                "localizedLowestPriceCents": {
+                    "type": "dict",
+                    "schema": {"amountCents": {"type": "integer"}, "currency": {"type": "string"}},
+                },
+            },
+        },
+    },
 }
 
 
@@ -76,7 +106,7 @@ async def test_product_scraping():
     assert len(result) >= 1
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["id"])
-        (Path(__file__).parent / 'results/products.json').write_text(
+        (Path(__file__).parent / "results/products.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )
 
@@ -90,6 +120,6 @@ async def test_search_scraping():
     assert len(result) >= 3
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["id"])
-        (Path(__file__).parent / 'results/search.json').write_text(
+        (Path(__file__).parent / "results/search.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )

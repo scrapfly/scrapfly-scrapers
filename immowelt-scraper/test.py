@@ -78,12 +78,21 @@ search_schema = {
                             "country": {"type": "string"},
                             "city": {"type": "string"},
                             "zipCode": {"type": "string"},
-                            "street": {"type": "string"},
-                            "district": {"type": "string"},
                         },
                     }
                 },
             },
+            "hardFacts": {
+                "type": "dict",
+                "schema": {"title": {"type": "string"}},
+                "allow_unknown": True,
+            },
+            "mainDescription": {
+                "type": "dict",
+                "schema": {"headline": {"type": "string"}},
+                "allow_unknown": True,
+            },
+            "url": {"type": "string"},
         },
     }
 }

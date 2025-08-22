@@ -95,16 +95,17 @@ def parse_review_data(response: ScrapeApiResponse):
 def parse_search(response: ScrapeApiResponse):
     """parse listing data from the search XHR data"""
     search_data = []
+    total_results = 0
     selector = response.selector
     script = selector.xpath("//script[@data-id='react-root-props']/text()").get()
     data = json.loads(script.split("react_root_props = ")[-1].rsplit(";", 1)[0])
-    for item in data["legacyProps"]["searchAppProps"]["searchPageProps"]["mainContentComponentsListProps"]:
-        # filter search data cards
-        if "bizId" in item.keys():
+    search_page_props = data.get("legacyProps", {}).get("searchAppProps", {}).get("searchPageProps", {})
+    if search_page_props:
+        total_results = search_page_props.get("paginationInfo", {}).get("totalResults", 0)
+    main_content = search_page_props.get("mainContentComponentsListProps", [])
+    for item in main_content:
+        if item.get("bizId"):
             search_data.append(item)
-        # filter the max results count
-        elif "totalResults" in item["props"]:
-            total_results = item["props"]["totalResults"]
     return {"search_data": search_data, "total_results": total_results}
 
 
@@ -216,11 +217,8 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
         # final url example:
         # https://www.yelp.com/search?find_desc=plumbers&find_loc=Seattle%2C+WA&start=1
 
-
     log.info("scraping the first search page")
-    first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True)
-    )
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True))
     data = parse_search(first_page)
     search_data = data["search_data"]
     total_results = data["total_results"]
