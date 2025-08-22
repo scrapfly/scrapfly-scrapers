@@ -82,6 +82,9 @@ def parse_product_page(response: ScrapeApiResponse) -> Dict:
     """parse hidden product data from product pages"""
     selector = response.selector
     script = selector.xpath("//script[contains(text(),'offers')]/text()").get()
+    if not script:
+        log.warning(f"Could not find product data script on {response.context['url']}")
+        return {}
     data = json.loads(script)
     return data
 
@@ -159,7 +162,7 @@ async def scrape_shop(urls: List[str]) -> List[Dict]:
     # scrape all the shop pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_shop_page(response)
-        data['url'] = response.context['url']
+        data["url"] = response.context["url"]
         shops.append(data)
     log.success(f"scraped {len(shops)} shops from shop pages")
     return shops
