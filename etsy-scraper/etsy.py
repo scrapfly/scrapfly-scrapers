@@ -93,9 +93,15 @@ def parse_shop_page(response: ScrapeApiResponse) -> Dict:
     """parse hidden shop data from shop pages"""
     selector = response.selector
     script = selector.xpath("//script[contains(text(),'itemListElement')]/text()").get()
-    data = json.loads(script)
-    return data
-
+    if not script:
+        log.warning(f"Could not find shop data script on {response.context['url']}")
+        return {}
+    try:
+        data = json.loads(script)
+        return data
+    except json.JSONDecodeError as e:
+        log.error(f"Failed to parse JSON from shop page {response.context['url']}: {e}")
+        return {}
 
 async def scrape_search(url: str, max_pages: int = None) -> List[Dict]:
     """scrape product listing data from Etsy search pages"""
