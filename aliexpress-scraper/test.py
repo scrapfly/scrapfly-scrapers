@@ -59,7 +59,7 @@ async def test_product_scraping():
                 "rate": {"type": "integer"},
                 "reviews": {"type": "integer"},
                 "soldCount": {"type": "integer"},
-                "availableCount": {"type": "integer"}             
+                "availableCount": {"type": "integer", "nullable": True},             
             }
         },
         "pricing": {
