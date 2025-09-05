@@ -1,344 +1,182 @@
 [
   {
     "position": 1,
-    "title": "Web Scraping Emails with Python",
-    "url": "https://scrapfly.io/blog/how-to-scrape-emails-using-python/",
+    "title": "Web Scraping Emails using Python - ScrapFly Blog",
+    "url": "https://scrapfly.io/blog/posts/how-to-scrape-emails-using-python",
     "origin": "Scrapfly",
     "domain": "scrapfly.io",
-    "description": "Aug 22, 2024 · How to create a email scraping tool using Python. Intro to email address crawling and how to solve common challenges like email obfuscation.",
-    "date": "Aug 22, 2024"
+    "description": "22 Aug 2024 · How to create a email scraping tool using Python. Intro to email address crawling and how to solve common challenges like email obfuscation.",
+    "date": "22 Aug 2024"
   },
   {
     "position": 2,
-    "title": "How to Scrape Emails from any Website | ParseHub",
-    "url": "https://www.parsehub.com/blog/scrape-emails/",
-    "origin": "ParseHub",
-    "domain": "parsehub.com",
-    "description": "",
-    "date": null
-  },
-  {
-    "position": 3,
-    "title": "How to scrape emails from a website (with …",
-    "url": "https://axiom.ai/blog/how-to-scrape-emails",
-    "origin": "axiom.ai",
-    "domain": "axiom.ai",
-    "description": "️ Scraping emails from websites can be challenging since they may not be present or in consistent locations on webpages. If you're looking to gain skills to automate and build bots with …",
-    "date": null
-  },
-  {
-    "position": 4,
     "title": "How to Scrape Emails from Any Website in 2025: The …",
     "url": "https://www.marketingscoop.com/tech/web-scraping/how-to-scrape-emails-from-any-website-for-sales-prospecting/",
     "origin": "Marketing Scoop",
     "domain": "marketingscoop.com",
-    "description": "Apr 16, 2024 · Learn how to use Python, Google Sheets, and third-party tools to extract email addresses from websites for email marketing, lead generation, and other purposes. This guide covers the technical setups, pros and cons, and …",
-    "date": "Apr 16, 2024"
+    "description": "16 Apr 2024 · Learn how to use Python, Google Sheets, and third-party tools to extract email addresses from websites for email marketing, lead generation, …",
+    "date": "16 Apr 2024"
   },
   {
-    "position": 5,
-    "title": "Email scraping: overview, use cases, …",
-    "url": "https://research.aimultiple.com/email-scraping/",
-    "origin": "AIMultiple",
-    "domain": "research.aimultiple.com",
-    "description": "Mar 11, 2025 · These email scraping tools enable users to retrieve valid email addresses from websites and social media platforms, such as LinkedIn and Crunchbase. Email scraping …",
-    "date": "Mar 11, 2025"
+    "position": 3,
+    "title": "How to Web Scrape Emails and Data from a Website …",
+    "url": "https://fuelyourdigital.com/post/how-to-web-scrape-emails-and-data-from-a-website/",
+    "origin": "fuelyourdigital.com",
+    "domain": "fuelyourdigital.com",
+    "description": "10 Dec 2024 · This guide will walk you through the safe and effective methods for web scraping emails and data from websites, detailing the necessary steps, …",
+    "date": "10 Dec 2024"
   },
   {
-    "position": 6,
-    "title": "How to Scrape Emails from a Website",
-    "url": "https://www.scrapehero.com/scrape-emails-from-website/",
-    "origin": "ScrapeHero",
-    "domain": "scrapehero.com",
-    "description": "May 2, 2024 · parseMail () extracts emails from a page. It uses BeautifulSoup for scraping from the links and RegEx for extracting emails from plain text. The function: Finds all the plain text matching the email pattern and appends it to …",
-    "date": "May 2, 2024"
-  },
-  {
-    "position": 7,
-    "title": "How to scrape emails from any website - ScrapingBee",
-    "url": "https://www.scrapingbee.com/blog/how-to-scrape-emails-from-any-website-for-sales-prospecting/",
-    "origin": "ScrapingBee",
-    "domain": "scrapingbee.com",
-    "description": "Mar 4, 2024 · In this article, we'll be exploring three different ways to scrape emails from websites and compile lists of addresses of prospective customers: with a specialised scraping API, with custom Python code, and with Google …",
-    "date": "Mar 4, 2024"
-  },
-  {
-    "position": 8,
-    "title": "How To Scrape Email Addresses From …",
-    "url": "https://www.scrapingdog.com/blog/scrape-email-addresses-from-website/",
-    "origin": "Scrapingdog",
-    "domain": "scrapingdog.com",
-    "description": "Nov 5, 2024 · In this article, we will use Python and Google Sheets to collect emails from the web. First, we will use Web Scraping API to collect emails of prospects who can be …",
-    "date": "Nov 5, 2024"
-  },
-  {
-    "position": 9,
-    "title": "Scrape all Emails from Any Website using …",
-    "url": "https://medium.com/@19emilabos/scrape-all-emails-from-any-website-using-python-bfa7529580df",
-    "origin": "Medium",
-    "domain": "medium.com",
-    "description": "In this post, we’ll delve into a Python script that effortlessly scrapes email addresses from websites. Before we begin, you need to install the necessary libraries to scrape data from the...",
-    "date": null
-  },
-  {
-    "position": 10,
-    "title": "How to Scrape Emails from Any Website: The Ultimate Guide",
-    "url": "https://webscrapingsite.com/blog/how-to-scrape-emails-from-any-website-the-ultimate-guide/",
-    "origin": "webscrapingsite.com",
-    "domain": "webscrapingsite.com",
-    "description": "In this ultimate guide, we‘ll walk through exactly how to scrape emails step-by-step using a variety of methods. Whether you want to use a ready-made scraping API, code your own scraper in …",
-    "date": null
+    "position": 4,
+    "title": "14 Best Email Scrapers in 2025 (Updated)",
+    "url": "https://www.scrapediary.com/best-email-scrapers/",
+    "origin": "scrapediary.com",
+    "domain": "scrapediary.com",
+    "description": "13 Feb 2025 · Octoparse is a powerful web scraping tool that lets users collect email addresses without writing code. It works well for businesses of all sizes …",
+    "date": "13 Feb 2025"
   },
   {
     "position": 21,
-    "title": "How to scrape emails from a website (with …",
-    "url": "https://axiom.ai/blog/how-to-scrape-emails",
-    "origin": "axiom.ai",
-    "domain": "axiom.ai",
-    "description": "️ Scraping emails from websites can be challenging since they may not be present or in consistent locations on webpages. If you're looking to gain skills to automate and build bots with …",
+    "title": "Extract Emails, Socials and Contacts from Any Website · Apify",
+    "url": "https://www.bing.com/ck/a?!&&p=9d72a892de00563cfd42128dce348612d578208f1702d2c07e58f2f09ad21c07JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly9hcGlmeS5jb20vbG9naWNhbF9zY3JhcGVycy9leHRyYWN0LWVtYWlsLWZyb20tYW55LXdlYnNpdGU&ntb=1",
+    "origin": "Apify",
+    "domain": "bing.com",
+    "description": "Extract Emails, Social links and Contact Information From Any Website An advanced Apify Actor for extracting comprehensive contact information from websites, including email addresses, social media links, and phone numbers from both static and JavaScript-rendered pages. This tool is perfect for web scraping, contact collection, and lead generation. Features 📧 Email Extraction: …",
     "date": null
   },
   {
     "position": 22,
-    "title": "Scrape all Emails from Any Website using …",
-    "url": "https://medium.com/@19emilabos/scrape-all-emails-from-any-website-using-python-bfa7529580df",
-    "origin": "Medium",
-    "domain": "medium.com",
-    "description": "Feb 5, 2024 · def scrape_email_from_website(url): ... Web scraping data-rich sites like Google Maps can be a quick and efficient way to gather information about businesses …",
-    "date": "Feb 5, 2024"
+    "title": "Web Scraping for Email Marketing - How to Scrape Emails From …",
+    "url": "https://www.bing.com/ck/a?!&&p=c4606b5e90f5f2c3fd7e49d730d26b047887ffad997cf49204f02d62a61568ddJmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly9zY3JhcGluZ2FudC5jb20vYmxvZy9lbWFpbC1tYXJrZXRpbmctd2ViLXNjcmFwaW5n&ntb=1",
+    "origin": "ScrapingAnt",
+    "domain": "bing.com",
+    "description": "30 Jan 2023 · Web scraping is a powerful tool for email marketing, allowing you to scrape emails from websites for direct outreach. By using web scraping techniques, you can easily get a list of emails related to your target audience which can be used for effective campaigns.",
+    "date": "30 Jan 2023"
   },
   {
     "position": 23,
-    "title": "Web scraping of Emails and Phone numbers from …",
-    "url": "https://github.com/KatrojuSaiChaitanya/Web-Scraping-using-Python",
-    "origin": "Github",
-    "domain": "github.com",
-    "description": "Firstly, It generates a link for the input which is being provided. It does this using 'search' from the google-search library and stores the present and all the successive urls in the 'web_urls.txt'",
+    "title": "How to Scrape Emails from Any Website: The Ultimate Guide - Web ...",
+    "url": "https://www.bing.com/ck/a?!&&p=af818d914735331a88c04c4c0c051cf8ef8fedc7c8a3c5a55a58205581021007JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly93ZWJzY3JhcGluZ3NpdGUuY29tL2Jsb2cvaG93LXRvLXNjcmFwZS1lbWFpbHMtZnJvbS1hbnktd2Vic2l0ZS10aGUtdWx0aW1hdGUtZ3VpZGUv&ntb=1",
+    "origin": "webscrapingsite.com",
+    "domain": "bing.com",
+    "description": "Learn how to scrape emails from any website, we show you how to bypass bot protection to extract the emails you need.",
     "date": null
   },
   {
     "position": 24,
-    "title": "Web scraper for extracting emails based on keywords …",
-    "url": "https://www.geeksforgeeks.org/web-scraper-for-extracting-emails-based-on-keywords-and-regions/",
-    "origin": "GeeksForGeeks",
-    "domain": "geeksforgeeks.org",
-    "description": "Nov 2, 2022 · Scraper will start scraping and storing all the emails to the file emails.csv that is created automatically. And so the results are: Extracted emails are stored in a csv file . Comment ... Web scraping is a technique to retrieve …",
-    "date": "Nov 2, 2022"
+    "title": "How to Effectively Use Web Scraping for Email …",
+    "url": "https://www.bing.com/ck/a?!&&p=6b09f631e6c5159b3521dab35b5142961d1a5fa70d429005b067e979c0dc0880JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly9zY3JhcGluZ2FudC5jb20vYmxvZy93ZWItc2NyYXBpbmctZW1haWwtZXh0cmFjdGlvbi11c2UtY2FzZQ&ntb=1",
+    "origin": "ScrapingAnt",
+    "domain": "bing.com",
+    "description": "21 Apr 2024 · Discover an impactful ScrapingAnt’s case study about the highly effective email extraction at scale with a web scraping API.",
+    "date": "21 Apr 2024"
   },
   {
     "position": 25,
-    "title": "8 best email scrapers in 2025 (free and …",
-    "url": "https://blog.apify.com/best-email-scrapers/",
-    "origin": "Apify Blog",
-    "domain": "blog.apify.com",
-    "description": "Mar 3, 2025 · Pre-built web scraping tools. Actors Build and run serverless programs. Integrations Connect with apps and services. Storage ... Apify provides you with $5 free usage …",
-    "date": "Mar 3, 2025"
+    "title": "15 Best Email Scraping Tools in 2025 [Free & Paid]",
+    "url": "https://www.bing.com/ck/a?!&&p=f378ebb6a1107a5c27b4030bd35bdb8f506f807d95b38f130a1a05d8cbefcbe7JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly9ldmFib290LmNvbS9ibG9nL2VtYWlsLXNjcmFwaW5nLXRvb2xz&ntb=1",
+    "origin": "Evaboot",
+    "domain": "bing.com",
+    "description": "13 Aug 2025 · Boost your cold email ROI with these 15 best email scraping tools. Find the best solutions to supercharge your lead generation and close more …",
+    "date": "13 Aug 2025"
   },
   {
     "position": 26,
-    "title": "6 Best Email Scraping Tools of 2025 - Marketing Scoop",
-    "url": "https://www.marketingscoop.com/ai/email-scrapers/",
-    "origin": "Marketing Scoop",
-    "domain": "marketingscoop.com",
-    "description": "Mar 17, 2024 · An email scraper is an automated web scraping tool that extracts email addresses from websites, social media platforms, directories, and other online sources. Key capabilities …",
-    "date": "Mar 17, 2024"
+    "title": "11 Best Email Scraping Tools to Find Verified Emails …",
+    "url": "https://www.bing.com/ck/a?!&&p=7f0822b873bffb6b859ea953818ca0b843ae55105ded5aedc746f50b955b3891JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly93d3cuc2FsZXNoYW5keS5jb20vYmxvZy9lbWFpbC1zY3JhcGluZy10b29scy8&ntb=1",
+    "origin": "Saleshandy",
+    "domain": "bing.com",
+    "description": "26 Jun 2025 · I've listed the best email scraping tools to find verified emails from websites, LinkedIn, and databases. Get accurate leads at your fingertips.",
+    "date": "26 Jun 2025"
   },
   {
     "position": 27,
-    "title": "Outils à ne pas manquer pour extraire les …",
-    "url": "https://www.octoparse.fr/blog/les-meilleurs-extracteurs-de-mails",
-    "origin": "Octoparse",
-    "domain": "octoparse.fr",
-    "description": "Scraper les emails avec un outil de web scraping. Le scraping d’e-mails peut vous aider à collecter des adresses e-mail affichées publiquement à l’aide d’un robot. Ce qui est génial, …",
+    "title": "Extract emails from website HTMLs | n8n workflow template",
+    "url": "https://www.bing.com/ck/a?!&&p=8d7817888b1b3d16a6290406f996f92b76c0c90f9d24883badb47db15637a8e6JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly9uOG4uaW8vd29ya2Zsb3dzLzIxMzQtZXh0cmFjdC1lbWFpbHMtZnJvbS13ZWJzaXRlLWh0bWxzLw&ntb=1",
+    "origin": "n8n.io",
+    "domain": "bing.com",
+    "description": "How to scrap emails from websites This workflow shows how to quickly build an Email scraping API using n8n. Email marketing is at the core of most marketing...",
     "date": null
   },
   {
     "position": 28,
-    "title": "How to Web Scrape Emails and Data from a Website Safely and …",
-    "url": "https://fuelyourdigital.com/post/how-to-web-scrape-emails-and-data-from-a-website/",
-    "origin": "fuelyourdigital.com",
-    "domain": "fuelyourdigital.com",
-    "description": "Dec 10, 2024 · Step-by-Step Guide to Web Scraping Emails and Data. Here’s a simple guide to get started with web scraping for emails or other data: Step 1: Identify Target Websites and …",
-    "date": "Dec 10, 2024"
+    "title": "How to Scrape Emails for Marketing (+ 6 Top Tools in 2025)",
+    "url": "https://www.bing.com/ck/a?!&&p=b67d2b1401c53b90445810b0efcd979aca8399ac0e43f4ae459d55ff8098b6b8JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly93d3cubGluZHkuYWkvYmxvZy9zY3JhcGluZy1lbWFpbHM&ntb=1",
+    "origin": "Lindy.ai",
+    "domain": "bing.com",
+    "description": "Learn how to scrape emails using popular tools (some with AI) in 2025. This guide breaks down tools, best practices, and a step-by-step workflow to do it correctly.",
+    "date": null
   },
   {
     "position": 29,
-    "title": "Top 11 Email Scrapers in 2025 - Octoparse",
-    "url": "https://www.octoparse.com/blog/best-email-scraping-tools-for-sales-prospecting-in-2019",
-    "origin": "Octoparse",
-    "domain": "octoparse.com",
-    "description": "Aug 2, 2024 · After learning about this, you now have clear ideas about email scraping, and choose one tool below. Top 11 Email Scrapers – Free & Paid 1. Octoparse – Free Email Extractor. …",
-    "date": "Aug 2, 2024"
+    "title": "8 best email scrapers in 2025 - Apify Blog",
+    "url": "https://www.bing.com/ck/a?!&&p=32de9592f2dd6722201b787727da89aee2a2574d019ded38ba7f4c930f0c1bcfJmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly9ibG9nLmFwaWZ5LmNvbS9iZXN0LWVtYWlsLXNjcmFwZXJzLw&ntb=1",
+    "origin": "Apify Blog",
+    "domain": "bing.com",
+    "description": "3 Mar 2025 · The best email collection tools for tasks ranging from quick lookups to large-scale web data extraction.",
+    "date": "3 Mar 2025"
   },
   {
     "position": 30,
-    "title": "Extract Emails From Any Website · Apify",
-    "url": "https://apify.com/logical_scrapers/extract-email-from-any-website",
-    "origin": "Apify",
-    "domain": "apify.com",
-    "description": "Email Extractor, Web Scraper, Lead Generation Tool, Apify Actor, Playwright Email Extraction, Contact Page Scanner, JavaScript Rendering Scraper, Bulk Email Scraping. For more …",
-    "date": null
-  },
-  {
-    "position": 31,
-    "title": "email-scraper · GitHub Topics · GitHub",
-    "url": "https://github.com/topics/email-scraper",
-    "origin": "Github",
-    "domain": "github.com",
-    "description": "Oct 20, 2024 · A tool for scraping email addresses from web search results. flask scraper email-scraper. Updated May 22, 2023; Python; oxylabs / web-scraping-php. Star 9. Code Issues Pull requests A tutorial and code samples of web …",
-    "date": "Oct 20, 2024"
-  },
-  {
-    "position": 32,
-    "title": "How to Effectively Use Web Scraping for Email Extraction - Case …",
-    "url": "https://scrapingant.com/blog/web-scraping-email-extraction-use-case",
-    "origin": "ScrapingAnt",
-    "domain": "scrapingant.com",
-    "description": "Apr 21, 2024 · In conclusion, web scraping for email extraction has proven to be an invaluable tool for businesses, streamlining their lead generation and outreach processes. By leveraging the …",
-    "date": "Apr 21, 2024"
-  },
-  {
-    "position": 33,
-    "title": "7 Best Free Email Extractor Tools - scrapelead.io",
-    "url": "https://scrapelead.io/blog/7-best-free-email-extractor-tools/",
-    "origin": "scrapelead.io",
-    "domain": "scrapelead.io",
-    "description": "Dec 9, 2024 · Web Scraping: Where you use automated bots or software to scan web pages for visible email addresses, often found in contact sections or HTML code. PDF/Document …",
-    "date": "Dec 9, 2024"
-  },
-  {
-    "position": 34,
-    "title": "10 Practical Use Cases of Web Scraping in 2025 | Outscraper",
-    "url": "https://outscraper.com/10-practical-use-cases-web-scraping/",
-    "origin": "Outscraper",
-    "domain": "outscraper.com",
-    "description": "Feb 19, 2025 · Web Scraping Solutions: This is more about how you use the data. ... Scraping Best Emails and Contact Scrapers for Lead List Building Boost your leads with the best email …",
-    "date": "Feb 19, 2025"
+    "title": "Les 11 meilleurs email scrapers pour la génération de …",
+    "url": "https://www.bing.com/ck/a?!&&p=2e193b9332084416e5fea587c651a0bd44ae49b1d2a4c0d905dddc8b0db70f0aJmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=15054652-1ed8-68f1-042c-500c1f8269fa&u=a1aHR0cHM6Ly93d3cub2N0b3BhcnNlLmZyL2Jsb2cvbGVzLW1laWxsZXVycy1leHRyYWN0ZXVycy1kZS1tYWlscw&ntb=1",
+    "origin": "Octoparse",
+    "domain": "bing.com",
+    "description": "29 Aug 2025 · 10 extracteurs d’email pour les spécialistes de marketing Quand un outil de web scraping comme Octoparse est adapté à ceux qui recherche une …",
+    "date": "29 Aug 2025"
   },
   {
     "position": 11,
-    "title": "How To Scrape Email Addresses From Any Website",
-    "url": "https://www.scrapingdog.com/blog/scrape-email-addresses-from-website/",
-    "origin": "Scrapingdog",
-    "domain": "scrapingdog.com",
-    "description": "Nov 5, 2024 · In this article, we will use Python and Google Sheets to collect emails from the web. First, we will use Web Scraping API to collect emails of prospects who can be targeted for product sales. Later, we will use Google …",
-    "date": "Nov 5, 2024"
+    "title": "How to scrape emails from any website - ScrapingBee",
+    "url": "https://www.bing.com/ck/a?!&&p=2eca80fa11a78740e5f4773ce0c9e63717bbf8ecb2d9b49d7ee3f0cc6aa5a58eJmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=33828dc2-a47e-63dd-103d-9b9ca52162c0&u=a1aHR0cHM6Ly93d3cuc2NyYXBpbmdiZWUuY29tL2Jsb2cvaG93LXRvLXNjcmFwZS1lbWFpbHMtZnJvbS1hbnktd2Vic2l0ZS1mb3Itc2FsZXMtcHJvc3BlY3Rpbmcv&ntb=1",
+    "origin": "ScrapingBee",
+    "domain": "bing.com",
+    "description": "4 Mar 2024 · Learn how to scrape emails from any website, we show you how to bypass bot protection to extract the emails you need.",
+    "date": "4 Mar 2024"
   },
   {
     "position": 12,
-    "title": "How to Scrape Emails from Any Website: The Ultimate Guide - Web ...",
-    "url": "https://webscrapingsite.com/blog/how-to-scrape-emails-from-any-website-the-ultimate-guide/",
-    "origin": "webscrapingsite.com",
-    "domain": "webscrapingsite.com",
-    "description": "This is where email scraping comes in. Email scraping refers to the process of automatically extracting email addresses from websites and compiling them into lists for marketing purposes. With the right tools and techniques, you can build laser-focused lists of prospects by scraping relevant sites in your niche.",
-    "date": null
+    "title": "How To Scrape Email Addresses From Any Website",
+    "url": "https://www.bing.com/ck/a?!&&p=050ce30ba27ff97f2cbf06d09e56d1911f9dd48bbc58b075f2e37772ac7df26cJmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=33828dc2-a47e-63dd-103d-9b9ca52162c0&u=a1aHR0cHM6Ly93d3cuc2NyYXBpbmdkb2cuY29tL2Jsb2cvc2NyYXBlLWVtYWlsLWFkZHJlc3Nlcy1mcm9tLXdlYnNpdGUv&ntb=1",
+    "origin": "Scrapingdog",
+    "domain": "bing.com",
+    "description": "5 Nov 2024 · In this blog, we have explained how you can scrape email address from websites. We have used Google Sheets and scraped Google search …",
+    "date": "5 Nov 2024"
   },
   {
     "position": 13,
-    "title": "How to Scrape Emails on the Web? [8 Easy Steps …",
-    "url": "https://techjury.net/blog/how-to-scrape-emails-on-the-web/",
-    "origin": "Techjury",
-    "domain": "techjury.net",
-    "description": "Nov 21, 2023 · 2.4 billion emails are sent every second, indicating how emails are a great source of information—especially for business.This led to the start of email address harvesting. Email scraping (or email address harvesting) is the …",
-    "date": "Nov 21, 2023"
+    "title": "How to Scrape Emails from a Website",
+    "url": "https://www.bing.com/ck/a?!&&p=5716aac897853af3e9e6c67bad1932397cd4e92db5fe0eddbf9f5d25cd3cf4a0JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=33828dc2-a47e-63dd-103d-9b9ca52162c0&u=a1aHR0cHM6Ly93d3cuc2NyYXBlaGVyby5jb20vc2NyYXBlLWVtYWlscy1mcm9tLXdlYnNpdGUv&ntb=1",
+    "origin": "ScrapeHero",
+    "domain": "bing.com",
+    "description": "2 May 2024 · You must understand these techniques before learning how to scrape emails from any website. This code also does not use techniques to …",
+    "date": "2 May 2024"
   },
   {
     "position": 14,
-    "title": "Web Scraping for Email Marketing: Scrape Emails …",
-    "url": "https://www.datahen.com/blog/web-scraping-for-email-marketing/",
-    "origin": "DataHen",
-    "domain": "datahen.com",
-    "description": "Nov 9, 2023 · Web Scraping Web Scraping for Email Marketing - How to Scrape Emails From Websites. Unlock email marketing potential by learning about email scrapers. Effortless web scraping to precisely scrape emails & transform web …",
-    "date": "Nov 9, 2023"
+    "title": "How to Efficiently Scrape Emails from Websites",
+    "url": "https://www.bing.com/ck/a?!&&p=2b76cc1898deb61a2291e128d0528aebbb39a040f75a55df1d232c56532679a3JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=33828dc2-a47e-63dd-103d-9b9ca52162c0&u=a1aHR0cHM6Ly9jcmF3bGJhc2UuY29tL2Jsb2cvc2NyYXBlLWVtYWlscy1mcm9tLXdlYnNpdGVzLw&ntb=1",
+    "origin": "crawlbase.com",
+    "domain": "bing.com",
+    "description": "Learn how to extract email addresses from websites using Python. Understand the legal side of scraping emails.",
+    "date": null
   },
   {
     "position": 15,
-    "title": "Web Scraping for Email Marketing - How to Scrape …",
-    "url": "https://scrapingant.com/blog/email-marketing-web-scraping",
-    "origin": "ScrapingAnt",
-    "domain": "scrapingant.com",
-    "description": "Jan 30, 2023 · When web scraping for email marketing, it’s important to be aware of the legal implications. In many countries, it’s illegal to use web scraping for commercial purposes. Additionally, some countries have specific laws …",
-    "date": "Jan 30, 2023"
+    "title": "How to Web Scrape Emails and Data from a Website …",
+    "url": "https://www.bing.com/ck/a?!&&p=037b853494e7bf262e1b542b89582805bfd26fad9ca095bd177f6a78bdc77947JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=33828dc2-a47e-63dd-103d-9b9ca52162c0&u=a1aHR0cHM6Ly9mdWVseW91cmRpZ2l0YWwuY29tL3Bvc3QvaG93LXRvLXdlYi1zY3JhcGUtZW1haWxzLWFuZC1kYXRhLWZyb20tYS13ZWJzaXRlLw&ntb=1",
+    "origin": "fuelyourdigital.com",
+    "domain": "bing.com",
+    "description": "10 Dec 2024 · Learn how to web scrape emails and data from websites safely and ethically. This guide covers tools, best practices, legal considerations, and …",
+    "date": "10 Dec 2024"
   },
   {
     "position": 16,
-    "title": "How to Scrape Emails from a Website",
-    "url": "https://www.scrapehero.com/scrape-emails-from-website/",
-    "origin": "ScrapeHero",
-    "domain": "scrapehero.com",
-    "description": "May 2, 2024 · Email scraping allows you to build a large email database by automatically gathering emails from the internet. This database can be immensely helpful for marketing campaigns necessary for your business’s growth. ... This …",
-    "date": "May 2, 2024"
-  },
-  {
-    "position": 17,
-    "title": "GitHub - AdrianTomin/email-scraper: A Python-based …",
-    "url": "https://github.com/AdrianTomin/email-scraper",
-    "origin": "Github",
-    "domain": "github.com",
-    "description": "📧 A Python-based web scraping tool that recursively collects email addresses from websites. 🌐 It follows links to multiple pages and extracts emails using BeautifulSoup and regex. - AdrianTomin/ema...",
-    "date": null
-  },
-  {
-    "position": 18,
-    "title": "11 Email Scrapers to Power Your Marketing - Web Scraping Site",
-    "url": "https://webscrapingsite.com/guide/11-email-scrapers-you-should-know-about/",
-    "origin": "webscrapingsite.com",
-    "domain": "webscrapingsite.com",
-    "description": "Octopus provides an easy open-source web scraping solution great for basic email harvesting projects. Key Octopus Capabilities: Open-source and 100% free to use . Point-and-click scraper requiring no coding skills. Scrapes emails, names, addresses, and other contact data. Exports results to CSV/Excel spreadsheets",
-    "date": null
-  },
-  {
-    "position": 19,
-    "title": "How to scrape emails from a website (with chatGpt)",
-    "url": "https://axiom.ai/blog/how-to-scrape-emails",
-    "origin": "axiom.ai",
-    "domain": "axiom.ai",
-    "description": "️ Scraping emails from websites can be challenging since they may not be present or in consistent locations on webpages. If you're looking to gain skills to automate and build bots with powerful 🧠 🤖 AI capabilities, you've come to the …",
-    "date": null
-  },
-  {
-    "position": 20,
-    "title": "Scrape all Emails from Any Website using Python",
-    "url": "https://medium.com/@19emilabos/scrape-all-emails-from-any-website-using-python-bfa7529580df",
-    "origin": "Medium",
-    "domain": "medium.com",
-    "description": "Feb 5, 2024 · In the world of digital marketing, creating a strong email list is essential for businesses aiming to grow and engage with their audience. Python, known for its versatility, offers a simple yet…",
-    "date": "Feb 5, 2024"
-  },
-  {
-    "position": 21,
-    "title": "Web scraping of Emails and Phone numbers from …",
-    "url": "https://github.com/KatrojuSaiChaitanya/Web-Scraping-using-Python",
-    "origin": "Github",
-    "domain": "github.com",
-    "description": "Firstly, It generates a link for the input which is being provided. It does this using 'search' from the google-search library and stores the present and all the successive urls in the 'web_urls.txt'",
-    "date": null
-  },
-  {
-    "position": 22,
-    "title": "Web scraper for extracting emails based on keywords and regions",
-    "url": "https://www.geeksforgeeks.org/web-scraper-for-extracting-emails-based-on-keywords-and-regions/",
-    "origin": "GeeksForGeeks",
-    "domain": "geeksforgeeks.org",
-    "description": "Nov 2, 2022 · Scraper will start scraping and storing all the emails to the file emails.csv that is created automatically. And so the results are: Extracted emails are stored in a csv file . Comment ... Web scraping is a technique to retrieve data from websites. Scraping is still somewhat new to most people. And as data science evolves, this practice becomes ...",
-    "date": "Nov 2, 2022"
-  },
-  {
-    "position": 23,
-    "title": "8 best email scrapers in 2025 (free and paid) - Apify Blog",
-    "url": "https://blog.apify.com/best-email-scrapers/",
+    "title": "How to scrape emails from any website (Python guide)",
+    "url": "https://www.bing.com/ck/a?!&&p=9b53cf1e853a91a3ca012966e86cd31507394e8175ee2558c90d885d6da68c06JmltdHM9MTc1NzAzMDQwMA&ptn=3&ver=2&hsh=4&fclid=33828dc2-a47e-63dd-103d-9b9ca52162c0&u=a1aHR0cHM6Ly9ibG9nLmFwaWZ5LmNvbS9zY3JhcGUtZW1haWxzLWZyb20td2Vic2l0ZXMv&ntb=1",
     "origin": "Apify Blog",
-    "domain": "blog.apify.com",
-    "description": "Mar 3, 2025 · Pre-built web scraping tools. Actors Build and run serverless programs. Integrations Connect with apps and services. Storage ... Apify provides you with $5 free usage credits every month on the Free plan, and you can scrape over 500 emails from Google Maps for those credits. If you need to extract data regularly, you should get an Apify ...",
-    "date": "Mar 3, 2025"
-  },
-  {
-    "position": 24,
-    "title": "6 Best Email Scraping Tools of 2025 - Marketing Scoop",
-    "url": "https://www.marketingscoop.com/ai/email-scrapers/",
-    "origin": "Marketing Scoop",
-    "domain": "marketingscoop.com",
-    "description": "Mar 17, 2024 · An email scraper is an automated web scraping tool that extracts email addresses from websites, social media platforms, directories, and other online sources. Key capabilities of email scrapers include: Crawl specified websites or URLs to detect email patterns; Extract only publicly available email IDs ; Remove duplicate emails",
-    "date": "Mar 17, 2024"
+    "domain": "bing.com",
+    "description": "18 Mar 2025 · Email addresses are still among the most valuable pieces of information, especially in marketing and lead generation. Manually capturing …",
+    "date": "18 Mar 2025"
   }
 ]
