@@ -89,8 +89,8 @@ async def scrape_location_data(query: str) -> List[LocationData]:
                         "includeRecent": True,
                     }
                 },
-                "query": "84b17ed122fbdbd4",
-                "extensions": {"preRegisteredQueryId": "84b17ed122fbdbd4"},
+                "query": "c2e5695e939386e4",
+                "extensions": {"preRegisteredQueryId": "c2e5695e939386e4"},
             }
         ]
     )
