@@ -129,13 +129,14 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else None,
         "availableCount": int(available_count.replace(" available", "")) if available_count else None
     }
-    price = selector.xpath("//span[contains(@class,'currentPrice')]/text()").get()
-    original_price = selector.xpath("//span[contains(@class,'price--originalText')]/text()").get()
+    price = selector.xpath("//span[contains(@class,'price-default--current')]/text()").get()
+    original_price = selector.xpath("//span[contains(@class,'price-default--original')]//text()").get()
+    discount = selector.xpath("//span[contains(@class,'price--discount')]/text()").get()
     discount = selector.xpath("//span[contains(@class,'price--discount')]/text()").get()
     pricing = {
         "priceCurrency": "USD $",        
         "price": float(price.split("$")[-1]) if price else None, # for US localization
-        "originalPrice": float(original_price.split("$")[-1]) if price else "No discount",
+        "originalPrice": float(original_price.split("$")[-1]) if original_price else "No discount",
         "discount": discount if discount else "No discount",
     }
     shipping_cost = selector.xpath("//strong[contains(text(),'Shipping')]/text()").get()
