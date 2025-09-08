@@ -154,34 +154,61 @@ def parse_search(response: ScrapeApiResponse):
     """parse search data from search pages"""
     selector = response.selector
     data = []
-    for item in selector.css("#main-results li"):
-        name = item.css(".product-title::attr(title)").get()
-        link = item.css("a.product-list-item-link::attr(href)").get()
-        price = selector.css("div.customer-price::text").re("\d+\.\d{2}")[0]
-        original_price = (selector.css("div.regular-price::text").re("\d+\.\d{2}") or [None])[0]
-        sku = item.xpath("@data-testid").get()
-        _rating_data = item.css(".c-ratings-reviews p::text")
-        rating = (_rating_data.re(r"\d+\.*\d*") or [None])[0]
-        rating_count = int((_rating_data.re("(\d+) reviews") or [0])[0])
-        images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
 
-        data.append(
-            {
+    for item in selector.css("main.product-grid-view-container li"):
+        if item.css(".a-skeleton-shimmer").get():
+            continue
+        name = item.css(".product-title::attr(title)").get()
+
+        link = item.css("a.product-list-item-link::attr(href)").get()
+
+        sku = item.xpath("@data-testid").get()
+
+        price_element = item.css('[data-testid="price-block-customer-price"] span::text').get()
+        price = re.sub(r'[^\d.]', '', price_element or '') or None
+        
+        original_price = None
+        original_price_elements = item.css('[data-testid="price-block-regular-price"] span::text').getall()
+        for elem in original_price_elements:
+            if '$' in elem:
+                original_price = re.sub(r'[^\d.]', '', elem) or None
+                break
+
+        rating = item.css('.font-weight-bold::text').get()
+        
+        rating_count = 0
+        rating_count_element = item.css('.c-reviews::text').get()
+        if rating_count_element:
+            count_matches = re.findall(r'\(([0-9,]+)\s+reviews?\)', rating_count_element)
+            if count_matches:
+                rating_count = int(count_matches[0].replace(',', ''))
+        
+        images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
+        
+        if name and sku:
+            data.append({
                 "name": name,
-                "link": "https://www.bestbuy.com" + link if link else None,
+                "link": link if (link and link.startswith('http')) else (f"https://www.bestbuy.com{link}" if link else None),
                 "images": images,
                 "sku": sku,
                 "price": price,
                 "original_price": original_price,
                 "rating": rating,
                 "rating_count": rating_count,
-            }
-        )
+            })
+
+    # Calculate total pages from pagination
+    total_pages = 1
     if len(data):
-        _total_count = selector.css("div.results-title span:nth-of-type(2)::text").re("\d+")[0]
-        total_pages = int(_total_count) // len(data)
-    else:
-        total_pages = 1
+        try:
+            pagination_text = selector.css(".pagination-num-found::text").get()
+            if pagination_text:
+                total_matches = re.findall(r'of (\d+)', pagination_text.replace(',', ''))
+                if total_matches:
+                    total_count = int(total_matches[0])
+                    total_pages = (total_count + len(data) - 1) // len(data) 
+        except:
+            total_pages = 1
 
     return {"data": data, "total_pages": total_pages}
 
@@ -199,7 +226,6 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         if sort:
             params["sp"] = sort
         return base_url + urlencode(params)
-
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             form_search_url(1),
