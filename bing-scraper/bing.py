@@ -19,6 +19,10 @@ BASE_CONFIG = {
     # set the poxy location to US to get the result in English
     "country": "GB",
     "proxy_pool": "public_residential_pool",
+    "debug":True,
+    "os":"linux",
+    "auto_scroll":True,
+
 }
 
 
@@ -130,7 +134,6 @@ async def scrape_search(query: str, max_pages: int = None):
 async def scrape_keywords(query: str):
     """scrape bing search pages for keyword data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
-    print(f"url:{url}")
     log.info("scraping Bing search for keyword data")
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
     keyword_data = parse_keywords(response)
