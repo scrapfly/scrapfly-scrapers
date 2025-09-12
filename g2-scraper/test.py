@@ -66,7 +66,7 @@ search_schema = {
 alternatives_schema = {
     "name": {"type": "string"},
     "link": {"type": "string"},
-    "ranking": {"type": "string"},
+    "ranking": {"type": "integer"},
     "numberOfReviews": {"type": "integer"},
     "rate": {"type": "float"},
     "description": {"type": "string"},

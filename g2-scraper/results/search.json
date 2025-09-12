@@ -4,7 +4,7 @@
     "link": "https://www.g2.com/products/oracle-oracle-cloud-infrastructure/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_2753ea8c7953188158425365667be750/oracle-oracle-cloud-infrastructure.png",
     "rate": 4.2,
-    "reviewsNumber": 376,
+    "reviewsNumber": 377,
     "description": null,
     "categories": [
       "Product Suites"
@@ -91,7 +91,7 @@
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-vault/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_ebc397a24911cc79962c8898752c5359/oracle-cloud-infrastructure-vault.png",
     "rate": 4.3,
-    "reviewsNumber": 36,
+    "reviewsNumber": 37,
     "description": "Oracle Cloud Infrastructure Key Management is a managed service that enables you to encrypt your data using keys that you control.",
     "categories": [
       "Encryption Key Management"
@@ -158,7 +158,7 @@
     "link": "https://www.g2.com/products/google-cloud-infrastructure-manager/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_9bffa359ebdf62613b74920d787d784b/google-cloud-infrastructure-manager.jpg",
     "rate": 4.2,
-    "reviewsNumber": 13,
+    "reviewsNumber": 14,
     "description": "Google Cloud Infrastructure Manager\n\nProduct Description:\n\nGoogle Cloud Infrastructure Manager is a managed service that automates the deployment and management of Google Cloud infrastructure resources using Terraform. By integrating Terraform's infrastructure-as-code capabilities directly into the Google Cloud ecosystem, Infra Manager enables users to define, deploy, and manage cloud resources in a consistent, repeatable, and efficient manner. This service eliminates the need for maintaining se",
     "categories": [
       "Cloud Infrastructure Automation"
@@ -193,6 +193,17 @@
     ]
   },
   {
+    "name": "Oracle Cloud Infrastructure Archive Storage Classic",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-archive-storage-classic/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-archive-storage-classic.jpg",
+    "rate": 4.4,
+    "reviewsNumber": 34,
+    "description": "The most cost-effective storage in the industry, designed for infrequently accessed data with enterprise-grade security, resilience, and elastic scalability.",
+    "categories": [
+      "Archive Storage Solutions"
+    ]
+  },
+  {
     "name": "Oracle Cloud Infrastructure Tagging",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-tagging/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-tagging.png",
@@ -215,17 +226,6 @@
     ]
   },
   {
-    "name": "Oracle Cloud Infrastructure Archive Storage Classic",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-archive-storage-classic/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-archive-storage-classic.jpg",
-    "rate": 4.4,
-    "reviewsNumber": 34,
-    "description": "The most cost-effective storage in the industry, designed for infrequently accessed data with enterprise-grade security, resilience, and elastic scalability.",
-    "categories": [
-      "Archive Storage Solutions"
-    ]
-  },
-  {
     "name": "Oracle Cloud Infrastructure Email Delivery",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-email-delivery/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_c530bc70f0bda21b5716a731ba2b0b4e/oracle-cloud-infrastructure-email-delivery.jpg",
@@ -237,14 +237,14 @@
     ]
   },
   {
-    "name": "Oracle Cloud Infrastructure Object Storage",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-object-storage/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-object-storage.png",
-    "rate": 4.2,
-    "reviewsNumber": 20,
-    "description": "Automatically replicates objects across multiple fault domains for high durability. Actively monitored for data integrity and availability",
+    "name": "Oracle Cloud Infrastructure File Storage",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-file-storage/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-file-storage.png",
+    "rate": 4.3,
+    "reviewsNumber": 17,
+    "description": "Oracle Cloud Infrastructure File Storage is a persistent shared filesystem in the cloud with massive scalability, availability, durability, and performance. Oracle File Storage supports NFSv3, snapshots, and encryption",
     "categories": [
-      "Object Storage Solutions"
+      "Cloud File Storage"
     ]
   }
 ]
