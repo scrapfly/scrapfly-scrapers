@@ -17,8 +17,12 @@ BASE_CONFIG = {
     # bypass Bing web scraping blocking
     "asp": True,
     # set the poxy location to US to get the result in English
-    "country": "US",
+    "country": "GB",
     "proxy_pool": "public_residential_pool",
+    "debug":True,
+    "os":"linux",
+    "auto_scroll":True,
+
 }
 
 
