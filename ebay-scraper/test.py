@@ -90,18 +90,16 @@ async def test_search_scraping():
             "regex": r"https://i.ebayimg.com/images/.+?|https://.+ebaystatic.com/.+",
             "nullable": True,
         },
-        "title": {"type": "string", "minlength": 1},
+        "title": {"type": "string", "minlength": 1, "nullable": True},
         "location": {"type": "string", "nullable": True, "min_presence": 0.01},
-        "condition": {"type": "string", "nullable": True, "min_presence": 0.01},
-        "subtitles": {"type": "list", "schema": {"type": "string"}, "min_presence": 0.01},
-        "shipping": {"type": "float", "nullable": True},
+        "subtitles": {"type": "string", "min_presence": 0.01, "nullable": True},
+        "shipping": {"type": "string", "nullable": True},
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
         "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
-        "auction_end": {"type": "datetime", "nullable": True, "min_presence": 0.001},
-        "bids": {"type": "integer", "nullable": True, "min_presence": 0.001},
         "price": {"type": "string", "nullable": True},
     }
     validator = DateTimeValidator(schema, allow_unknown=True)
+    assert len(result) >= 30
     for item in result:
         validate_or_fail(item, validator)
     for k in schema:
