@@ -205,6 +205,12 @@ async def crawl_search(url: str, max_scrape_pages: int = None) -> List[str]:
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         property_urls.extend(parse_search(response))
+
+    max_properties = max_scrape_pages * 20 if max_scrape_pages else len(property_urls)
+    if len(property_urls) > max_properties:
+        property_urls = property_urls[:max_properties]
+        log.info(f"limited to {max_properties} properties based on max_scrape_pages={max_scrape_pages}")
+    
     # then scrape all property pages found in the search pages
     log.info(f"scraping {len(property_urls)} of proeprty pages concurrently")
     properties = await scrape_properties(urls=property_urls)

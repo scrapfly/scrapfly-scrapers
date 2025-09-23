@@ -28,9 +28,9 @@ async def run():
 
     properties_data = await immobilienscout24.scrape_properties(
         urls = [
-            "https://www.immobilienscout24.de/expose/126279482#/",
-            "https://www.immobilienscout24.de/expose/159774694#/",
-            "https://www.immobilienscout24.de/expose/159732430#/",
+            "https://www.immobilienscout24.de/expose/160519246#/",
+            "https://www.immobilienscout24.de/expose/160756318#/",
+            "https://www.immobilienscout24.de/expose/161789365#/",
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:

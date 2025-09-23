@@ -28,6 +28,39 @@ def require_min_presence(items, key, min_perc=0.1):
             f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
         )
 
+@pytest.mark.asyncio
+async def test_hotel_scraping():
+    result_hotel = await tripadvisor.scrape_hotel(
+        "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
+        max_review_pages=3,
+    )
+    # test hotel info
+    schema = {
+        "basic_data": {
+            "type": "dict",
+            "schema": {
+                "name": {"type": "string", "required": True},
+                "url": {"type": "string", "required": True},
+                "image": {"type": "string", "required": True},
+                "priceRange": {"type": "string", "required": True},
+            }
+        },
+        "description": {"type": "string", "required": True},
+    }
+    
+    review_schema = {
+        "title": {"type": "string", "nullable": True},
+        "text": {"type": "string", "nullable": True},
+        "rate": {"type": "float", "nullable": True},
+        "tripDate": {"type": "string", "nullable": True},
+        "tripType": {"type": "string", "nullable": True},
+    }
+
+    validator = Validator(schema, allow_unknown=True)
+    validate_or_fail(result_hotel, validator)
+    assert len(result_hotel["reviews"]) >= 10
+    for k in review_schema:
+        require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))   
 
 @pytest.mark.asyncio
 async def test_location_data_scraping():
@@ -61,36 +94,4 @@ async def test_search_scraping():
         assert validator.validate(item), {"item": item, "errors": validator.errors}
 
 
-@pytest.mark.asyncio
-async def test_hotel_scraping():
-    result_hotel = await tripadvisor.scrape_hotel(
-        "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
-        max_review_pages=3,
-    )
-    # test hotel info
-    schema = {
-        "basic_data": {
-            "type": "dict",
-            "schema": {
-                "name": {"type": "string", "required": True},
-                "url": {"type": "string", "required": True},
-                "image": {"type": "string", "required": True},
-                "priceRange": {"type": "string", "required": True},
-            }
-        },
-        "description": {"type": "string", "required": True},
-    }
-    
-    review_schema = {
-        "title": {"type": "string", "nullable": True},
-        "text": {"type": "string", "nullable": True},
-        "rate": {"type": "float", "nullable": True},
-        "tripDate": {"type": "string", "nullable": True},
-        "tripType": {"type": "string", "nullable": True},
-    }
-
-    validator = Validator(schema, allow_unknown=True)
-    validate_or_fail(result_hotel, validator)
-    assert len(result_hotel["reviews"]) >= 10
-    for k in review_schema:
-        require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))        
+     

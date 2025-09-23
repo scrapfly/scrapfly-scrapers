@@ -89,8 +89,8 @@ async def scrape_location_data(query: str) -> List[LocationData]:
                         "includeRecent": True,
                     }
                 },
-                "query": "84b17ed122fbdbd4",
-                "extensions": {"preRegisteredQueryId": "84b17ed122fbdbd4"},
+                "query": "c2e5695e939386e4",
+                "extensions": {"preRegisteredQueryId": "c2e5695e939386e4"},
             }
         ]
     )
@@ -214,13 +214,13 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
         amenities.append(feature.get())
 
     reviews = []
-    for review in selector.xpath("//div[contains(text(), 'wrote a review')]/ancestor::div[6]"):
-        title = review.xpath(".//div[@data-test-target='review-title']/div/a/text()").get()
-        text = "".join(review.xpath(".//span[contains(@data-automation, 'reviewText')]/text()").extract())
+    for review in selector.xpath("//div[@data-test-target='HR_CC_CARD']"):
+        title = review.xpath(".//div[@data-test-target='review-title']//span//text()").get()
+        text = "".join(review.xpath(".//div[@class='_c']//div[contains(@class, 'fIrGe')]//span[contains(@class, 'JguWG')]//span/text()").extract())
         rate = review.xpath(".//*[contains(text(),'of 5 bubbles')]/text()").get()
         rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
-        trip_data = review.xpath(".//div[1]/div[2]/div[1]/div[2]/text()").get()
-        trip_type = review.xpath(".//div[1]/div[2]/div/div[4]/text()").get()
+        trip_data = review.xpath(".//div[contains(@class, 'MZTIt')]//div[contains(@class, 'CPHmk')][1]//span[contains(@class, 'xENVe')]/text()").get()
+        trip_type = review.xpath(".//div[contains(@class, 'MZTIt')]//div[contains(@class, 'CPHmk')][2]//span[contains(@class, 'xENVe')]/text()").get()
 
         reviews.append({
             "title": title,

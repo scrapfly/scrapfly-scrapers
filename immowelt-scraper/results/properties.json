@@ -13,10 +13,68 @@
         },
         "isAddressPublished": true,
         "geometry": {
-          "type": "Point",
+          "type": "MultiPolygon",
           "coordinates": [
-            11.483917380291253,
-            48.11423580159582
+            [
+              [
+                [
+                  11.48026,
+                  48.13151
+                ],
+                [
+                  11.47476,
+                  48.13225
+                ],
+                [
+                  11.47256,
+                  48.12984
+                ],
+                [
+                  11.46486,
+                  48.12787
+                ],
+                [
+                  11.46309,
+                  48.10537
+                ],
+                [
+                  11.47463,
+                  48.10459
+                ],
+                [
+                  11.47188,
+                  48.10015
+                ],
+                [
+                  11.48616,
+                  48.09853
+                ],
+                [
+                  11.49302,
+                  48.10116
+                ],
+                [
+                  11.50135,
+                  48.10869
+                ],
+                [
+                  11.50405,
+                  48.12521
+                ],
+                [
+                  11.49785,
+                  48.12555
+                ],
+                [
+                  11.49221,
+                  48.12952
+                ],
+                [
+                  11.48026,
+                  48.13151
+                ]
+              ]
+            ]
           ]
         }
       },
@@ -90,7 +148,7 @@
       "price": {
         "base": {
           "main": {
-            "key": "7250363e-a1ae-426d-9653-06f036e55cc2",
+            "key": "0f72b2a2-d287-411e-aeee-25af384ed295",
             "label": {
               "main": "Kaufpreis"
             },
@@ -100,47 +158,22 @@
               }
             }
           },
-          "commissionFee": {
-            "label": "Provision fÃ¼r KÃ¤ufer",
-            "value": "Bitte beachte, das Angebot kann bei Vertragsabschluss die Zahlung einer Provision beinhalten. Weitere Informationen erhÃ¤ltst Du vom Anbieter."
-          },
           "type": "SALE"
         },
         "components": [
           {
-            "key": "58db4231-3c89-4c11-8477-40dd8d4bae82",
+            "key": "28db31df-1980-43f9-9aa7-1722f26e41d9",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "060b6b04-376c-488d-aa58-58c3f475aa58",
+                "key": "a5e04178-0450-4332-ad23-0769a280527b",
                 "main": {
                   "price": {
-                    "key": "b3b0bf2e-f771-49e9-ab80-9987742de27c",
+                    "key": "b1795811-55c7-461a-ae43-76bb5b0a3121",
                     "value": {
                       "main": {
                         "value": "Preis auf Anfrage"
                       }
-                    },
-                    "highlighted": true
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "key": "35cd1306-fc98-4e66-a060-09cdebadd331",
-            "type": "SECONDARY",
-            "units": [
-              {
-                "key": "60b340d3-6575-4190-9f4c-1984895d08af",
-                "text": {
-                  "value": "Bitte beachte, das Angebot kann bei Vertragsabschluss die Zahlung einer Provision beinhalten. Weitere Informationen erhÃ¤ltst Du vom Anbieter."
-                },
-                "main": {
-                  "price": {
-                    "key": "0471df96-cca5-4ec6-ae68-750a17e0064c",
-                    "label": {
-                      "main": "Provision fÃ¼r KÃ¤ufer"
                     },
                     "highlighted": true
                   }
@@ -185,92 +218,92 @@
       "gallery": {
         "images": [
           {
-            "key": "57cb40aa-f57a-43a0-8fc8-1d104a5e26e9",
-            "url": "https://mms.immowelt.de/5/7/c/b/57cb40aa-f57a-43a0-8fc8-1d104a5e26e9.jpg?ci_seal=3adb74cd0b881ebb6d0b1a3089cdf52c24d15dd5",
+            "key": "295ba735-0dc8-41a6-a091-414e358ec768",
+            "url": "https://mms.immowelt.de/2/9/5/b/295ba735-0dc8-41a6-a091-414e358ec768.jpg?ci_seal=42aa5b3c212b40366af11ccdedd58242b927865c",
             "description": "Aussen A.jpg",
             "alt": "Neubauprojekt zum Kauf WÃ¼rmtalstr. 79 Hadern MÃ¼nchen 81375",
             "title": "Aussen A.jpg",
             "ariaLabel": "Aussen A.jpg",
             "classification": {
               "name": "BUILDING_FACADE",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "2dbbcc3a-80c6-4d0f-b109-7b3e04e46094",
-            "url": "https://mms.immowelt.de/2/d/b/b/2dbbcc3a-80c6-4d0f-b109-7b3e04e46094.jpg?ci_seal=d59e94ce8319e682ef4a1c71c6328275915ab19c",
+            "key": "f637f632-3448-4db4-9bb6-afd4484a8e6d",
+            "url": "https://mms.immowelt.de/f/6/3/7/f637f632-3448-4db4-9bb6-afd4484a8e6d.jpg?ci_seal=8494ab06137e55f0df38c1751e9e0d101451cdcf",
             "description": "Aussen B + C.jpg",
             "title": "Aussen B + C.jpg",
             "ariaLabel": "Aussen B + C.jpg",
             "classification": {
-              "name": "EXTERIOR_VIEW",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "name": "HOUSE_FACADE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "a01b2534-9466-464f-88ec-350ee3cde231",
-            "url": "https://mms.immowelt.de/a/0/1/b/a01b2534-9466-464f-88ec-350ee3cde231.jpg?ci_seal=5555afeb989850c77c425236ba5d86f3f5b8e4e0",
+            "key": "5839baa2-d958-41a9-9d23-df605f0d4227",
+            "url": "https://mms.immowelt.de/5/8/3/9/5839baa2-d958-41a9-9d23-df605f0d4227.jpg?ci_seal=9174d7a3146b6e45553a34538bb9f8bfe5515caf",
             "description": "Aussen B+C.jpg",
             "title": "Aussen B+C.jpg",
             "ariaLabel": "Aussen B+C.jpg",
             "classification": {
               "name": "HOUSE_FACADE",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "94f00bde-b0a3-4e6c-88a1-0ef1043f5c00",
-            "url": "https://mms.immowelt.de/9/4/f/0/94f00bde-b0a3-4e6c-88a1-0ef1043f5c00.jpg?ci_seal=07509aa8169be4bf5d9ceaefbe037005424ea792",
+            "key": "13a6d6cb-d538-45e2-b3ec-cf0f6b696da8",
+            "url": "https://mms.immowelt.de/1/3/a/6/13a6d6cb-d538-45e2-b3ec-cf0f6b696da8.jpg?ci_seal=d89e368ee0e47b512664c1c487d600606f2968af",
             "description": "AussenA.jpg",
             "title": "AussenA.jpg",
             "ariaLabel": "AussenA.jpg",
             "classification": {
-              "name": "BUILDING_FACADE",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "name": "HOUSE_FACADE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "05ee944b-38bb-42bf-8992-4564785f05dd",
-            "url": "https://mms.immowelt.de/0/5/e/e/05ee944b-38bb-42bf-8992-4564785f05dd.jpg?ci_seal=1fdbb1e7e1ce35c35f5699a8f0dbd2ae2911694e",
+            "key": "03a7d580-c274-4b19-9ab0-98da1da16bac",
+            "url": "https://mms.immowelt.de/0/3/a/7/03a7d580-c274-4b19-9ab0-98da1da16bac.jpg?ci_seal=0c8b0cdf693941628adaca74e8ad4b6ae6a696ae",
             "description": "Bad.jpg",
             "title": "Bad.jpg",
             "ariaLabel": "Bad.jpg",
             "classification": {
               "name": "BATHROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "4acf7b98-3623-4e62-8cc4-0c39c7c79935",
-            "url": "https://mms.immowelt.de/4/a/c/f/4acf7b98-3623-4e62-8cc4-0c39c7c79935.jpg?ci_seal=7be869eae051b94fddad8ee1796fa7c161926bdc",
+            "key": "e50a179a-1d11-4c72-8742-7c7c9e9ac307",
+            "url": "https://mms.immowelt.de/e/5/0/a/e50a179a-1d11-4c72-8742-7c7c9e9ac307.jpg?ci_seal=0163f15f0770a2b4c9838f370f07623c51ee8cba",
             "description": "Schlafen.jpg",
             "title": "Schlafen.jpg",
             "ariaLabel": "Schlafen.jpg",
             "classification": {
               "name": "BEDROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "b548daef-bc80-4e4c-ab97-e88e8320549e",
-            "url": "https://mms.immowelt.de/b/5/4/8/b548daef-bc80-4e4c-ab97-e88e8320549e.jpg?ci_seal=6959709a6e02cf309f399d88cc71f218c2393508",
+            "key": "2a59e36d-6d7b-4b92-b64b-7c3d2a01ea34",
+            "url": "https://mms.immowelt.de/2/a/5/9/2a59e36d-6d7b-4b92-b64b-7c3d2a01ea34.jpg?ci_seal=b5f75a2d4f66f63e392951aa0938fd524a3ce5b4",
             "description": "Wohnen.jpg",
             "title": "Wohnen.jpg",
             "ariaLabel": "Wohnen.jpg",
             "classification": {
               "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           },
           {
-            "key": "ef1e7455-28ac-4e1d-9b3d-4c8c4e47d19e",
-            "url": "https://mms.immowelt.de/e/f/1/e/ef1e7455-28ac-4e1d-9b3d-4c8c4e47d19e.jpg?ci_seal=496affb7bdde7e71884faa8294358f7f9542d6a5",
+            "key": "8ec5f51d-25db-406c-8ae7-3133b3a8956a",
+            "url": "https://mms.immowelt.de/8/e/c/5/8ec5f51d-25db-406c-8ae7-3133b3a8956a.jpg?ci_seal=bc0f739191a4f5a9da5e114633d8022ed08a39f3",
             "description": "Wohnen_Kochen.jpg",
             "title": "Wohnen_Kochen.jpg",
             "ariaLabel": "Wohnen_Kochen.jpg",
             "classification": {
               "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-9"
             }
           }
         ]
@@ -279,9 +312,9 @@
         "display": true,
         "files": [
           {
-            "key": "c7526eba-d383-4a75-b3e0-5f394f8777d0",
-            "url": "https://mms.immowelt.de/c/7/5/2/c7526eba-d383-4a75-b3e0-5f394f8777d0.pdf?ci_seal=aacddd407c4e2ed7b16cf4c17b9826e0fcdb6c23",
-            "title": "WÃRMTALGÃRTEN_BroschÃ¼re_small.pdf",
+            "key": "0a1e538e-eb8d-4717-8679-1ca9fe80e24e",
+            "url": "https://mms.immowelt.de/0/a/1/e/0a1e538e-eb8d-4717-8679-1ca9fe80e24e.pdf?ci_seal=25a30d68973f330c557dd238056e71c2b32b7205",
+            "title": "2025-08-20-BroschuÌre-WuÌrmtalgaÌrten_FINAL_WEB_small.pdf",
             "subtitle": "PDF-Dokument"
           }
         ]
@@ -309,7 +342,7 @@
       },
       "sellerLeadLink": {},
       "mainDescription": {
-        "headline": "Ãber dieses projekt",
+        "headline": "Ãber dieses Projekt",
         "description": "Ein Viertel, ein Zuhause, ein Ort des GlÃ¼cks. Wer das Besondere sucht, wird es hier zwischen WÃ¼rmtal- und GaberlstraÃe finden. Wo die Natur wortwÃ¶rtlich vor der TÃ¼re liegt und jede Perspektive Hoffnung macht. Denn GrÃ¼n ist hier Ã¼berall zu finden. Inmitten der drei attraktiven WohngebÃ¤ude gehen die privaten GÃ¤rten in einen gemeinschaftlichen Freiraum Ã¼ber. Platz fÃ¼r Lebensfreude und Leichtigkeit, fÃ¼r Inspiration und Ideen, fÃ¼r Gemeinschaft und Einzigartigkeit. FÃ¼r unvergessliche Momente in jedem Alter und zu jeder Zeit. Willkommen in den WÃRMTALGÃRTEN!",
         "metadata": {
           "language": "de"
@@ -322,9 +355,9 @@
         "headline": "Weitere Informationen"
       },
       "statistics": {
-        "published": "14 Tage online",
-        "views": "953 gesehen",
-        "saves": "4 favorisiert"
+        "published": "1 Monat online",
+        "views": "999+ gesehen",
+        "saves": "6 favorisiert"
       }
     },
     "contactSections": {
@@ -394,10 +427,10 @@
         "displayLinks": true,
         "badges": [
           {
-            "title": "immowelt Partner",
-            "description": "immowelt Partner vermarkten ihre Objekte professionell Ã¼ber immowelt.de und Ã¼ber die Portale des immowelt Digital Networks.",
-            "imageUrl": "https://s.immowelt.org/shared/images/partner-badges/partner.svg",
-            "duration": "Partnerschaft"
+            "title": "Business Partner",
+            "description": "Nach 3 Jahren professioneller Zusammenarbeit werden immowelt Partner mit dem immowelt Business Partner Award ausgezeichnet.",
+            "imageUrl": "https://s.immowelt.org/shared/images/partner-badges/business-partner.svg",
+            "duration": "3 Jahre Partnerschaft"
           }
         ],
         "address": "MÃ¼nchener StraÃe 25, 85540 Haar",
@@ -416,113 +449,193 @@
   },
   {
     "brand": "immowelt",
-    "id": "23ICA92239LA",
+    "id": "246V2P5Z527M",
     "sections": {
       "location": {
         "address": {
-          "country": "DEU",
+          "country": "DE",
           "city": "MÃ¼nchen",
-          "zipCode": "80689",
-          "street": "Kleinhaderner Str. 23",
-          "district": "Hadern"
+          "zipCode": "81475",
+          "street": "Oberbrunner StraÃe 20",
+          "district": "Thalk.Obersendl.-Forsten-FÃ¼rstenr.-Solln"
         },
         "isAddressPublished": true,
         "geometry": {
-          "type": "Point",
+          "type": "MultiPolygon",
           "coordinates": [
-            11.485394477844238,
-            48.1263542175293
+            [
+              [
+                [
+                  11.5471,
+                  48.106
+                ],
+                [
+                  11.5418,
+                  48.10345
+                ],
+                [
+                  11.50938,
+                  48.10386
+                ],
+                [
+                  11.50432,
+                  48.10209
+                ],
+                [
+                  11.49638,
+                  48.1054
+                ],
+                [
+                  11.49302,
+                  48.10116
+                ],
+                [
+                  11.48616,
+                  48.09853
+                ],
+                [
+                  11.47188,
+                  48.10015
+                ],
+                [
+                  11.47421,
+                  48.09545
+                ],
+                [
+                  11.47214,
+                  48.09033
+                ],
+                [
+                  11.47649,
+                  48.08869
+                ],
+                [
+                  11.47094,
+                  48.083
+                ],
+                [
+                  11.48694,
+                  48.07632
+                ],
+                [
+                  11.48608,
+                  48.07423
+                ],
+                [
+                  11.4876,
+                  48.0761
+                ],
+                [
+                  11.50365,
+                  48.06917
+                ],
+                [
+                  11.50422,
+                  48.06227
+                ],
+                [
+                  11.50879,
+                  48.0616
+                ],
+                [
+                  11.51156,
+                  48.06433
+                ],
+                [
+                  11.51544,
+                  48.06343
+                ],
+                [
+                  11.51719,
+                  48.06671
+                ],
+                [
+                  11.52294,
+                  48.06652
+                ],
+                [
+                  11.52382,
+                  48.06838
+                ],
+                [
+                  11.52825,
+                  48.06896
+                ],
+                [
+                  11.53252,
+                  48.07728
+                ],
+                [
+                  11.53973,
+                  48.07795
+                ],
+                [
+                  11.54232,
+                  48.08115
+                ],
+                [
+                  11.54965,
+                  48.09103
+                ],
+                [
+                  11.54978,
+                  48.10036
+                ],
+                [
+                  11.55392,
+                  48.10333
+                ],
+                [
+                  11.5471,
+                  48.106
+                ]
+              ]
+            ]
           ]
         }
       },
       "description": {
-        "description": "Sehr geehrter Interessent, <br><br>im Juni 2024 wurde dieses kl. Mehrfamilienhaus mit nur 5 Eigentumswohnungen als Effizienzhaus 55 ( EH55) fertig gestellt. Die verkauften Wohnungen sind bereits bewohnt.<br><br>Dieses charmante Penthouse verfÃ¼gt Ã¼ber 3 WohnrÃ¤ume, 1 groÃes Bad mit Wanne + Dusche, GÃ¤ste-WC mit WM-Anschluss, beide mit Tageslicht + ein Abstellraum in der Wohnung sowie ein weiterer Abstellraum begehbar von der Dachterrasse. <br><br>2 sonnige Dachterrassen mit Blick ins GrÃ¼ne und nahezu uneinsehbar laden zum Verweilen ein.<br><br>Die Diele hat eine el. zu Ã¶ffnende Lichtkuppel - Tageslicht.<br><br>Die Wohnung ist vom KellergeschoÃ mit dem Lift zu erreichen. Der Lift fÃ¼hrt direkt in die Wohnung und ist nur mit einem SchlÃ¼ssel zu bedienen.<br><br>Die Innenausstattung kÃ¶nnen Sie noch individuell wÃ¤hlen:  BodenbelÃ¤ge + die BÃ¤der ( SanitÃ¤r + Fliesen), TÃ¼ren. Sofern alle Materialien normal lieferbar sind, wÃ¤re die Wohnung in ca. 2 Monaten bezugsfertig.<br>Der abgebildete Parkettboden ist nur digital verlegt!<br><br>Die Energie wird durch eine Luft-/WasserwÃ¤rmepumpe in Verbindung mit<br>einer Solarthermie zur VerfÃ¼gung gestellt. Somit ist im Sommer der Betrieb der<br>Luft-WÃ¤rmepumpe i.d.R. nicht notwendig, Die Warmwasserbereitung<br>erfolgt Ã¼ber einen Pufferspeicher mit externen<br>WohnungsÃ¼bergabestationen mit Frischwassersystem im Durchlaufprinzip â Vorteil das keine LegionellenprÃ¼fungen notwendig sind, da kein Warmwasser in den Leitungen steht.<br><br>5% degressive Afa  fÃ¼r den Erwerb zur Vermietung auf dieses Objekt  anwendbar! <br>Der GebÃ¤udeanteil zur Abschreibung betrÃ¤gt 63% und eignet sich daher auch gut zur Investition.( Diese Info ersetzt keine steuerliche Beratung) \n\nLage\nDer dÃ¶rfliche Charakter macht sich neben dem LebensgefÃ¼hl <br>auch beim Wohnen bemerkbar. Viele Ein- und ZweifamilienhÃ¤user gibt es, <br>die meisten sind mit groÃzÃ¼gigen GÃ¤rten versehen. <br><br>Und mit dem Fahrrad ist man in einer Viertelstunde im GrÃ¼nen. In GroÃhadern gibt sich das alte Bauerndorf modern. Neben dem Klinikum haben sich in den letzten Jahren das Genzentrum, die UniversitÃ¤t u. Weitere Firmen angesiedelt.<br><br>Die vielen Familien finden eine intakte Infrastruktur im Viertel vor. <br>Einkaufen am Ende der Kleinhaderner am HÃ¶nigschmidplatz : EDEKA, VINZENZ MURR, ZÃTTL, ROSSMANN, Apotheke etc., Schule, Sport, alles um die Ecke. <br>Verschiedene Busverbindungen bieten Anschluss zur U-Bahn oder S-Bahn.<br><br>A95 und A96 sind in wenigen Minuten erreichbar.<br><br>âU5 Erweiterungâ und âTrambahn Westtangenteâ  VerlÃ¤ngerung FÃ¼rstenriederstr. bereits im Bau.<br><br>https://westtangente.mvg.de/ <br><br>https://www.mvv-muenchen.de/mvv-und-service/die-mvv-gmbh/projekte/u-bahn-planung/index.html<br><br>âWochenmarktâ immer Mittwochs 8-12<br>Blumenauerstr. 2 -16 â nur 1 km entfernt \n\nWeitere Informationen\nBesichtigungstermine\nHaben wir Ihr Interesse geweckt? Dann zÃ¶gern Sie nicht uns zu kontaktieren, gerne vereinbaren wir einen Besichtigungstermin mit Ihnen.<br><br>Ihr Creativ Haus Team\n\nÃber Uns\nSeit 35 Jahren werden von der âCREATIV- HAUSâ <br>nur in ausgesucht guten Lagen kleinere Wohnanlagen oder FamilienhÃ¤user <br>in und um MÃ¼nchen gebaut. <br>Besonderen Wert legen wir auf eine anspruchsvolle Architektur, <br>wertige Baustoffe und modernste Heiztechnik. <br><br>Hierbei arbeiten wir ausschlieÃlich mit Handwerksfirmen aus MÃ¼nchen<br> und dem nahen Umland zusammen<br> und das in der Regel seit sehr vielen Jahren. <br>Wir vergeben alle Arbeiten direkt ohne GeneralÃ¼bernehmer, koordiniert wird dies alles von unserem technischen Leiter.<br><br>Neben einer sehr hochwertigen Bau-und AusstattungsqualitÃ¤t ist es uns wichtig, <br>auch die individuellen WÃ¼nsche unserer Kunden <br>mit in die Planung einflieÃen zu lassen. <br><br>So entsteht Wohneigentum, das seinen Besitzern nachhaltig Freude bereitet. <br><br>Gerne beraten wir Sie ausfÃ¼hrlich und individuell zu allen Fragen <br>rund um den Immobilienkauf.<br><br>CREATIV-HAUS Baugesellschaft mbH<br>Nicht alles fÃ¼r Jeden, sondern das Besondere fÃ¼r Sie. Seit 1990<br>Am Knie 16, 81241 MÃ¼nchen<br>+89.546132-13 / +49.1728872074<br>verkauf@creativ-haus.de<br>www.creativ-haus.de\n\nStichworte\nSonstiges/Wohnen: seniorengerechtes Wohnen\nVersorgung: StÃ¤dtische Stromversorgung, Eigene Stromversorgung\nSonstiges: Neubaustandard",
+        "description": "AKTUELL kÃ¶nnen wir Ihnen NOCH VIER WOHNUNGEN anbieten!\\n\\nHochwertig und mit viel FeingefÃ¼hl haben wir zwei attraktive MehrfamilienhÃ¤user mit Aufzug in einem sehr ruhigen Wohngebiet in Forstenried-Maxhof, der Oberbrunner StraÃe 20 errichtet. Die beiden HÃ¤user wurden nach dem energiesparenden Standard Effizienzhaus 55 gebaut und gliedern sich in Haus A mit 6 Parteien und in Haus B mit 5 Parteien auf. Die Wohneinheiten sind auf alle individuellen BedÃ¼rfnisse und WÃ¼nsche abgestimmt â fÃ¼r Singles, Paare und Familien - von ca. 69 mÂ² bis zur Wohnung mit ca. 110 mÂ² WohnflÃ¤che. Sie bestechen durch ihre gut durchdachte Raumaufteilung und anspruchsvolle Ausstattung, damit ein besonderes Ambiente und WohlfÃ¼hlen geschaffen wird. Die offen gestalteten Wohn-Ess-KÃ¼chenbereiche rufen eine entsprechende GroÃzÃ¼gigkeit hervor. Der Einbau der bodentiefen FenstertÃ¼r-Elemente und groÃen DachflÃ¤chenfenster gewÃ¤hrleisten ein Maximum an Lichteinfall. Unsere Gartenwohnungen erhielten jeweils eigene Gartenanteile. Drei der EG-Wohnungen umfassen zusÃ¤tzliche Souterrainbereiche, die taghell und in WohnraumqualitÃ¤t ausgebaut sind. Die Terrassen und Balkone sind sÃ¼dwestlich ausgerichtet und laden zum schÃ¶nen Ausklang des Tages ein. Eine Tiefgarage komplettiert unser Ã¼beraus ansprechendes Neubauobjekt. Die verwendeten Materialien wurden sogfÃ¤ltig ausgewÃ¤hlt und die Haustechnik entspricht modernsten Standards. Handwerklich erstklassig ausgefÃ¼hrte Arbeiten garantieren Ihnen eine besondere WohnqualitÃ¤t und eine hohe WertbestÃ¤ndigkeit der Immobilie. Zur Erreichung dieser Ziele pflegt die RS-Wohnbau Jahrzehnte wÃ¤hrende Beziehungen mit Handwerkern und Lieferanten aus der Region.",
         "texts": [
           {
-            "text": "Sehr geehrter Interessent, <br><br>im Juni 2024 wurde dieses kl. Mehrfamilienhaus mit nur 5 Eigentumswohnungen als Effizienzhaus 55 ( EH55) fertig gestellt. Die verkauften Wohnungen sind bereits bewohnt.<br><br>Dieses charmante Penthouse verfÃ¼gt Ã¼ber 3 WohnrÃ¤ume, 1 groÃes Bad mit Wanne + Dusche, GÃ¤ste-WC mit WM-Anschluss, beide mit Tageslicht + ein Abstellraum in der Wohnung sowie ein weiterer Abstellraum begehbar von der Dachterrasse. <br><br>2 sonnige Dachterrassen mit Blick ins GrÃ¼ne und nahezu uneinsehbar laden zum Verweilen ein.<br><br>Die Diele hat eine el. zu Ã¶ffnende Lichtkuppel - Tageslicht.<br><br>Die Wohnung ist vom KellergeschoÃ mit dem Lift zu erreichen. Der Lift fÃ¼hrt direkt in die Wohnung und ist nur mit einem SchlÃ¼ssel zu bedienen.<br><br>Die Innenausstattung kÃ¶nnen Sie noch individuell wÃ¤hlen:  BodenbelÃ¤ge + die BÃ¤der ( SanitÃ¤r + Fliesen), TÃ¼ren. Sofern alle Materialien normal lieferbar sind, wÃ¤re die Wohnung in ca. 2 Monaten bezugsfertig.<br>Der abgebildete Parkettboden ist nur digital verlegt!<br><br>Die Energie wird durch eine Luft-/WasserwÃ¤rmepumpe in Verbindung mit<br>einer Solarthermie zur VerfÃ¼gung gestellt. Somit ist im Sommer der Betrieb der<br>Luft-WÃ¤rmepumpe i.d.R. nicht notwendig, Die Warmwasserbereitung<br>erfolgt Ã¼ber einen Pufferspeicher mit externen<br>WohnungsÃ¼bergabestationen mit Frischwassersystem im Durchlaufprinzip â Vorteil das keine LegionellenprÃ¼fungen notwendig sind, da kein Warmwasser in den Leitungen steht.<br><br>5% degressive Afa  fÃ¼r den Erwerb zur Vermietung auf dieses Objekt  anwendbar! <br>Der GebÃ¤udeanteil zur Abschreibung betrÃ¤gt 63% und eignet sich daher auch gut zur Investition.( Diese Info ersetzt keine steuerliche Beratung)"
-          },
-          {
-            "headline": "Lage",
-            "text": "Der dÃ¶rfliche Charakter macht sich neben dem LebensgefÃ¼hl <br>auch beim Wohnen bemerkbar. Viele Ein- und ZweifamilienhÃ¤user gibt es, <br>die meisten sind mit groÃzÃ¼gigen GÃ¤rten versehen. <br><br>Und mit dem Fahrrad ist man in einer Viertelstunde im GrÃ¼nen. In GroÃhadern gibt sich das alte Bauerndorf modern. Neben dem Klinikum haben sich in den letzten Jahren das Genzentrum, die UniversitÃ¤t u. Weitere Firmen angesiedelt.<br><br>Die vielen Familien finden eine intakte Infrastruktur im Viertel vor. <br>Einkaufen am Ende der Kleinhaderner am HÃ¶nigschmidplatz : EDEKA, VINZENZ MURR, ZÃTTL, ROSSMANN, Apotheke etc., Schule, Sport, alles um die Ecke. <br>Verschiedene Busverbindungen bieten Anschluss zur U-Bahn oder S-Bahn.<br><br>A95 und A96 sind in wenigen Minuten erreichbar.<br><br>âU5 Erweiterungâ und âTrambahn Westtangenteâ  VerlÃ¤ngerung FÃ¼rstenriederstr. bereits im Bau.<br><br>https://westtangente.mvg.de/ <br><br>https://www.mvv-muenchen.de/mvv-und-service/die-mvv-gmbh/projekte/u-bahn-planung/index.html<br><br>âWochenmarktâ immer Mittwochs 8-12<br>Blumenauerstr. 2 -16 â nur 1 km entfernt"
-          },
-          {
-            "headline": "Weitere Informationen",
-            "text": "Besichtigungstermine\nHaben wir Ihr Interesse geweckt? Dann zÃ¶gern Sie nicht uns zu kontaktieren, gerne vereinbaren wir einen Besichtigungstermin mit Ihnen.<br><br>Ihr Creativ Haus Team\n\nÃber Uns\nSeit 35 Jahren werden von der âCREATIV- HAUSâ <br>nur in ausgesucht guten Lagen kleinere Wohnanlagen oder FamilienhÃ¤user <br>in und um MÃ¼nchen gebaut. <br>Besonderen Wert legen wir auf eine anspruchsvolle Architektur, <br>wertige Baustoffe und modernste Heiztechnik. <br><br>Hierbei arbeiten wir ausschlieÃlich mit Handwerksfirmen aus MÃ¼nchen<br> und dem nahen Umland zusammen<br> und das in der Regel seit sehr vielen Jahren. <br>Wir vergeben alle Arbeiten direkt ohne GeneralÃ¼bernehmer, koordiniert wird dies alles von unserem technischen Leiter.<br><br>Neben einer sehr hochwertigen Bau-und AusstattungsqualitÃ¤t ist es uns wichtig, <br>auch die individuellen WÃ¼nsche unserer Kunden <br>mit in die Planung einflieÃen zu lassen. <br><br>So entsteht Wohneigentum, das seinen Besitzern nachhaltig Freude bereitet. <br><br>Gerne beraten wir Sie ausfÃ¼hrlich und individuell zu allen Fragen <br>rund um den Immobilienkauf.<br><br>CREATIV-HAUS Baugesellschaft mbH<br>Nicht alles fÃ¼r Jeden, sondern das Besondere fÃ¼r Sie. Seit 1990<br>Am Knie 16, 81241 MÃ¼nchen<br>+89.546132-13 / +49.1728872074<br>verkauf@creativ-haus.de<br>www.creativ-haus.de\n\nStichworte\nSonstiges/Wohnen: seniorengerechtes Wohnen\nVersorgung: StÃ¤dtische Stromversorgung, Eigene Stromversorgung\nSonstiges: Neubaustandard"
+            "text": "AKTUELL kÃ¶nnen wir Ihnen NOCH VIER WOHNUNGEN anbieten!\\n\\nHochwertig und mit viel FeingefÃ¼hl haben wir zwei attraktive MehrfamilienhÃ¤user mit Aufzug in einem sehr ruhigen Wohngebiet in Forstenried-Maxhof, der Oberbrunner StraÃe 20 errichtet. Die beiden HÃ¤user wurden nach dem energiesparenden Standard Effizienzhaus 55 gebaut und gliedern sich in Haus A mit 6 Parteien und in Haus B mit 5 Parteien auf. Die Wohneinheiten sind auf alle individuellen BedÃ¼rfnisse und WÃ¼nsche abgestimmt â fÃ¼r Singles, Paare und Familien - von ca. 69 mÂ² bis zur Wohnung mit ca. 110 mÂ² WohnflÃ¤che. Sie bestechen durch ihre gut durchdachte Raumaufteilung und anspruchsvolle Ausstattung, damit ein besonderes Ambiente und WohlfÃ¼hlen geschaffen wird. Die offen gestalteten Wohn-Ess-KÃ¼chenbereiche rufen eine entsprechende GroÃzÃ¼gigkeit hervor. Der Einbau der bodentiefen FenstertÃ¼r-Elemente und groÃen DachflÃ¤chenfenster gewÃ¤hrleisten ein Maximum an Lichteinfall. Unsere Gartenwohnungen erhielten jeweils eigene Gartenanteile. Drei der EG-Wohnungen umfassen zusÃ¤tzliche Souterrainbereiche, die taghell und in WohnraumqualitÃ¤t ausgebaut sind. Die Terrassen und Balkone sind sÃ¼dwestlich ausgerichtet und laden zum schÃ¶nen Ausklang des Tages ein. Eine Tiefgarage komplettiert unser Ã¼beraus ansprechendes Neubauobjekt. Die verwendeten Materialien wurden sogfÃ¤ltig ausgewÃ¤hlt und die Haustechnik entspricht modernsten Standards. Handwerklich erstklassig ausgefÃ¼hrte Arbeiten garantieren Ihnen eine besondere WohnqualitÃ¤t und eine hohe WertbestÃ¤ndigkeit der Immobilie. Zur Erreichung dieser Ziele pflegt die RS-Wohnbau Jahrzehnte wÃ¤hrende Beziehungen mit Handwerkern und Lieferanten aus der Region."
           }
         ],
-        "headline": "Erstbezug kurzfristig -  Lichtdurchflutetes 3-Zi.- Penthouse in ruhiger Lage - 2 Dachterrassen, Lift, Tageslichtbad"
+        "headline": "WOHNKOMFORT + QUALITÃT . Hochwertige Neubauwohnungen in ruhiger Wohnlage in MÃ¼nchen-Forstenried (Maxhof) - O20 L|I|V|I|N|G - Oberbrunner StraÃe 20"
       },
       "hardFacts": {
-        "title": "Penthouse zum Kauf - Neubau",
-        "titleAdditions": [
-          "provisionsfrei"
-        ],
+        "title": "WOHNKOMFORT + QUALITÃT . Hochwertige Neubauwohnungen in ruhiger Wohnlage in MÃ¼nchen-Forstenried (Maxhof) - O20 L|I|V|I|N|G - Oberbrunner StraÃe 20",
         "keyfacts": [
-          "3 Zimmer",
-          "96,4 mÂ²",
-          "3. Geschoss",
-          "frei ab sofort"
+          "Bezugsbereit ab sofort",
+          "2,5 bis 3,5 Zimmer",
+          "69 bis 108 mÂ²"
         ],
         "facts": [
           {
+            "type": "deliveryDate",
+            "value": "Bezugsbereit ab sofort",
+            "splitValue": "Bezugsbereit",
+            "label": "ab sofort"
+          },
+          {
             "type": "numberOfRooms",
-            "value": "3 Zimmer",
-            "splitValue": "3",
-            "label": "Zimmer"
+            "value": "2,5 bis 3,5 Zimmer",
+            "splitValue": "2,5",
+            "label": "bis 3,5 Zimmer"
           },
           {
             "type": "livingSpace",
-            "value": "96,4 mÂ²",
-            "splitValue": "96,4",
-            "label": "mÂ²"
-          },
-          {
-            "type": "numberOfFloors",
-            "value": "3. Geschoss",
-            "splitValue": "3.",
-            "label": "Geschoss"
-          },
-          {
-            "type": "availability",
-            "value": "frei ab sofort",
-            "splitValue": "frei",
-            "label": "ab sofort"
+            "value": "69 bis 108 mÂ²",
+            "splitValue": "69",
+            "label": "bis 108 mÂ²"
           }
         ],
-        "locationDescription": "Der dÃ¶rfliche Charakter macht sich neben dem LebensgefÃ¼hl <br>auch beim Wohnen bemerkbar. Viele Ein- und ZweifamilienhÃ¤user gibt es, <br>die meisten sind mit groÃzÃ¼gigen GÃ¤rten versehen. <br><br>Und mit dem Fahrrad ist man in einer Viertelstunde im GrÃ¼nen. In GroÃhadern gibt sich das alte Bauerndorf modern. Neben dem Klinikum haben sich in den letzten Jahren das Genzentrum, die UniversitÃ¤t u. Weitere Firmen angesiedelt.<br><br>Die vielen Familien finden eine intakte Infrastruktur im Viertel vor. <br>Einkaufen am Ende der Kleinhaderner am HÃ¶nigschmidplatz : EDEKA, VINZENZ MURR, ZÃTTL, ROSSMANN, Apotheke etc., Schule, Sport, alles um die Ecke. <br>Verschiedene Busverbindungen bieten Anschluss zur U-Bahn oder S-Bahn.<br><br>A95 und A96 sind in wenigen Minuten erreichbar.<br><br>âU5 Erweiterungâ und âTrambahn Westtangenteâ  VerlÃ¤ngerung FÃ¼rstenriederstr. bereits im Bau.<br><br>https://westtangente.mvg.de/ <br><br>https://www.mvv-muenchen.de/mvv-und-service/die-mvv-gmbh/projekte/u-bahn-planung/index.html<br><br>âWochenmarktâ immer Mittwochs 8-12<br>Blumenauerstr. 2 -16 â nur 1 km entfernt",
         "price": {
-          "value": "998.000Â â¬",
-          "formatted": "998.000Â â¬",
-          "additionalInformation": "10.358Â â¬/mÂ²",
-          "addition": {
-            "value": "10.358Â â¬/mÂ²",
-            "ariaLabel": "10358 Euro pro Quadratmeter"
-          },
-          "financialLink": {
-            "href": "https://www.immowelt.de/immobilienfinanzierung-anfragen/?price=998000&originvariant=expose-hardfacts&zip=80689&city=MÃ¼nchen&classifiedid=2757e866-a3ad-4fa3-89e4-7305dc32dd09&m=classified_detail_request_offer_find_financing_partners_step1",
-            "label": "Finanzierung anfragen",
-            "partnerName": "KFW"
-          },
-          "ariaLabel": "998000 â¬"
+          "value": "ab 859.000 â¬"
         }
       },
       "energy": {
         "features": [
-          {
-            "type": "yearOfConstruction",
-            "label": "Baujahr",
-            "value": "2024"
-          },
-          {
-            "type": "state",
-            "label": "Zustand der Immobilie",
-            "value": "Neubau, Erstbezug"
-          },
-          {
-            "type": "houseType",
-            "label": "Haustyp",
-            "value": "KfW 55"
-          },
           {
             "type": "heatingSystem",
             "label": "Heizungsart",
@@ -531,203 +644,52 @@
           {
             "type": "energySource",
             "label": "Wesentliche EnergietrÃ¤ger",
-            "value": "Solar, Luft-/Wasser-WÃ¤rmepumpe"
+            "value": "Elektro, Luft-/Wasser-WÃ¤rmepumpe"
           }
         ],
-        "certificates": [
-          {
-            "key": "ed5e96eb-f1f0-4018-a188-e9d2f344557d",
-            "features": [
-              {
-                "type": "basedOn",
-                "label": "Energieausweistyp",
-                "value": "Bedarfsausweis"
-              },
-              {
-                "type": "validity",
-                "label": "GÃ¼ltigkeit",
-                "value": "15.05.2024 bis 07.08.2030"
-              },
-              {
-                "type": "yearOfConstructionBuilding",
-                "label": "Baujahr (lt. Energieausweis)",
-                "value": "2024"
-              },
-              {
-                "type": "primaryEnergySource",
-                "label": "PrimÃ¤rer EnergietrÃ¤ger",
-                "value": "LuftwÃ¤rmepumpe"
-              }
-            ],
-            "name": "Energieausweis",
-            "scales": [
-              {
-                "key": "446267e3-aeaa-43f5-a369-5937c75ba711",
-                "efficiencyClass": {
-                  "rating": "A+",
-                  "index": 0
-                },
-                "values": [
-                  {
-                    "value": "10,3 kWh/(mÂ²Â·a)",
-                    "label": "Energiebedarf"
-                  }
-                ],
-                "segments": [
-                  {
-                    "label": "A+",
-                    "value": "< 30"
-                  },
-                  {
-                    "label": "A",
-                    "value": "30 - 49"
-                  },
-                  {
-                    "label": "B",
-                    "value": "50 - 74"
-                  },
-                  {
-                    "label": "C",
-                    "value": "75 - 99"
-                  },
-                  {
-                    "label": "D",
-                    "value": "100 - 129"
-                  },
-                  {
-                    "label": "E",
-                    "value": "130 - 159"
-                  },
-                  {
-                    "label": "F",
-                    "value": "160 - 199"
-                  },
-                  {
-                    "label": "G",
-                    "value": "200 - 250"
-                  },
-                  {
-                    "label": "H",
-                    "value": "> 250"
-                  }
-                ],
-                "type": "DE_RESIDENTIAL",
-                "ariaLabel": "EfficiencyClass: A+ bei einer Spanne von A+ bis H.Der Energieverbrauch liegt bei 10,3 Kilowattstunden pro Quadratmeter."
-              }
-            ]
-          }
-        ],
-        "hasScales": true
+        "hasScales": false
       },
       "key": {
         "keys": [
           {
             "label": "Online-ID",
-            "value": "27dgc5f"
+            "value": "k2ag632"
+          },
+          {
+            "label": "Anzeigen ID",
+            "value": "246V2P5Z527M"
           }
         ]
       },
       "price": {
         "base": {
-          "details": [
-            {
-              "key": "663cd471-1fa3-4051-9d2f-845f27d29a0d",
-              "label": {
-                "main": "Preis pro Stellplatz"
-              },
-              "value": {
-                "main": {
-                  "value": "28.000Â â¬",
-                  "ariaLabel": "28000 â¬"
-                }
-              }
-            }
-          ],
           "main": {
-            "key": "8199a7f8-1200-48a4-a6ba-a7bfe8975d12",
+            "key": "37afb8f7-f319-4c24-bcf4-b90258487083",
             "label": {
               "main": "Kaufpreis"
             },
             "value": {
               "main": {
-                "value": "998.000Â â¬",
-                "ariaLabel": "998000 â¬"
-              },
-              "alt": {
-                "value": "10.358Â â¬/mÂ²",
-                "ariaLabel": "10358 Euro pro Quadratmeter"
+                "value": "auf Anfrage"
               }
             }
-          },
-          "commissionFee": {
-            "label": "Provision fÃ¼r KÃ¤ufer",
-            "value": "provisionsfrei"
           },
           "type": "SALE"
         },
         "components": [
           {
-            "key": "ba6b3392-fb4a-4a5b-b716-bc92222a4fd8",
+            "key": "4b3904c6-a50e-4c9b-99fe-d154f47e442a",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "b355fcd7-9382-465e-8078-886e9952f28f",
+                "key": "eb63cd49-38dc-4806-8467-c00cc54991e9",
                 "main": {
                   "price": {
-                    "key": "c76fb706-6b24-4ae2-8bef-365183d5a051",
-                    "label": {
-                      "main": "Kaufpreis"
-                    },
+                    "key": "9d473db4-73bb-41de-93c9-04236d194124",
                     "value": {
                       "main": {
-                        "value": "998.000Â â¬",
-                        "ariaLabel": "998000 â¬"
-                      },
-                      "alt": {
-                        "value": "10.358Â â¬/mÂ²",
-                        "ariaLabel": "10358 Euro pro Quadratmeter"
+                        "value": "Preis auf Anfrage"
                       }
-                    },
-                    "highlighted": true
-                  }
-                },
-                "details": [
-                  {
-                    "key": "ae1d8e20-6991-4274-bf41-0acf1bd8e7b5",
-                    "prices": [
-                      {
-                        "key": "a046d1eb-e2f3-4915-9d18-7755b556b05a",
-                        "label": {
-                          "main": "Preis pro Stellplatz"
-                        },
-                        "value": {
-                          "main": {
-                            "value": "28.000Â â¬",
-                            "ariaLabel": "28000 â¬"
-                          }
-                        },
-                        "highlighted": true
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "key": "9faa072d-d58e-4fa5-ad54-111c244bdcbf",
-            "type": "SECONDARY",
-            "units": [
-              {
-                "key": "a694efcf-3d55-45ce-a4cb-9843e457229d",
-                "text": {
-                  "value": "provisionsfrei"
-                },
-                "main": {
-                  "price": {
-                    "key": "5b1fa211-3eca-4cac-968c-917e0a7d6fdc",
-                    "label": {
-                      "main": "Provision fÃ¼r KÃ¤ufer"
                     },
                     "highlighted": true
                   }
@@ -736,685 +698,310 @@
             ]
           }
         ],
-        "layout": "GERMAN_SALE",
-        "breakdown": {
-          "groups": [
-            {
-              "key": "e3bc1528-4561-4c7e-be86-24c3128a41e1",
-              "label": {
-                "main": "Kaufpreis"
-              },
-              "value": {
-                "main": {
-                  "value": "998.000Â â¬",
-                  "ariaLabel": "998000 â¬"
-                }
-              },
-              "colorType": "MAIN_PRICE"
-            },
-            {
-              "key": "8441eb08-31a6-49b0-85c3-7a2cd254a0b5",
-              "label": {
-                "main": "Kaufnebenkosten"
-              },
-              "value": {
-                "main": {
-                  "value": "54.890Â â¬",
-                  "ariaLabel": "54890 â¬"
-                }
-              },
-              "footnoteReference": "2",
-              "items": [
-                {
-                  "key": "b3447184-b3c7-42fc-9c09-6f4d46b34f23",
-                  "label": {
-                    "main": "Notarkosten (1,5%)"
-                  },
-                  "value": {
-                    "main": {
-                      "value": "14.970Â â¬",
-                      "ariaLabel": "14970 â¬"
-                    }
-                  },
-                  "colorType": "NOTARY_FEE"
-                },
-                {
-                  "key": "b50e0990-fe18-458c-94bc-9c94f4deb3e7",
-                  "label": {
-                    "main": "Grunderwerbsteuer (3,5%)"
-                  },
-                  "value": {
-                    "main": {
-                      "value": "34.930Â â¬",
-                      "ariaLabel": "34930 â¬"
-                    }
-                  },
-                  "colorType": "REAL_ESTATE_TRANSFER_TAX"
-                },
-                {
-                  "key": "9350b8b1-e799-4964-b484-c55657c6bcd3",
-                  "label": {
-                    "main": "Grundbucheintrag (0,5%)"
-                  },
-                  "value": {
-                    "main": {
-                      "value": "4.990Â â¬",
-                      "ariaLabel": "4990 â¬"
-                    }
-                  },
-                  "colorType": "LAND_REGISTRY_ENTRY"
-                }
-              ]
-            }
-          ],
-          "total": {
-            "label": "GeschÃ¤tzte Gesamtkosten",
-            "value": "1.052.890Â â¬",
-            "footnoteReference": "1"
-          },
-          "footnotes": [
-            {
-              "reference": "1",
-              "text": "Der angezeigte Wert ist eine automatisch berechnete SchÃ¤tzung von immowelt."
-            },
-            {
-              "reference": "2",
-              "text": "Bei den Angaben handelt es sich um ortsÃ¼bliche Werte. Individuelle Kosten kÃ¶nnen abweichen."
-            }
-          ],
-          "bar": [
-            {
-              "key": "e3bc1528-4561-4c7e-be86-24c3128a41e1",
-              "colorType": "MAIN_PRICE",
-              "percentage": 0.9479
-            },
-            {
-              "key": "b3447184-b3c7-42fc-9c09-6f4d46b34f23",
-              "colorType": "NOTARY_FEE",
-              "percentage": 0.0142
-            },
-            {
-              "key": "b50e0990-fe18-458c-94bc-9c94f4deb3e7",
-              "colorType": "REAL_ESTATE_TRANSFER_TAX",
-              "percentage": 0.0332
-            },
-            {
-              "key": "9350b8b1-e799-4964-b484-c55657c6bcd3",
-              "colorType": "LAND_REGISTRY_ENTRY",
-              "percentage": 0.0047
-            }
-          ]
-        }
+        "layout": "GERMAN_SALE"
       },
       "features": {
         "preview": [
           {
-            "icon": "availability",
-            "value": "Bezug: 2025"
+            "icon": "estateType",
+            "value": "Wohnung"
           },
           {
-            "icon": "floors",
-            "value": "Dachgeschoss, 3. Geschoss"
-          },
-          {
-            "icon": "kitchen",
-            "value": "offene KÃ¼che"
-          },
-          {
-            "icon": "elevator",
-            "value": "Personenaufzug"
-          },
-          {
-            "value": "Kelleranteil",
-            "icon": "cellar"
+            "icon": "entrance-hall",
+            "value": "10 Einheiten"
           },
           {
             "icon": "parking-lots",
-            "value": "AuÃen-Stellplatz, Tiefgarage"
+            "value": "Stellplatz"
           },
           {
-            "icon": "toilet-amenities",
-            "value": "GÃ¤ste-WC"
+            "icon": "outside",
+            "value": "Balkon, Terrasse, Garten"
           },
           {
-            "icon": "garden",
-            "value": "Gartenmitbenutzung"
+            "icon": "furnishingLevel",
+            "value": "Gehoben"
+          },
+          {
+            "icon": "floor-covering",
+            "value": "Fliesen, Parkett"
           }
         ],
         "details": {
-          "categories": [
-            {
-              "elements": [
-                {
-                  "icon": "availability",
-                  "value": "Bezug: 2025"
-                },
-                {
-                  "icon": "floors",
-                  "value": "Dachgeschoss, 3. Geschoss"
-                }
-              ],
-              "title": "Allgemeine Informationen"
-            },
-            {
-              "elements": [
-                {
-                  "icon": "elevator",
-                  "value": "Personenaufzug"
-                }
-              ],
-              "title": "Barrierefreiheit"
-            },
-            {
-              "elements": [
-                {
-                  "icon": "kitchen",
-                  "value": "offene KÃ¼che"
-                },
-                {
-                  "icon": "bathroom-amenities",
-                  "value": "Badezimmer: Badewanne, Bad mit Dusche, Bad mit Fenster"
-                },
-                {
-                  "icon": "toilet-amenities",
-                  "value": "GÃ¤ste-WC"
-                },
-                {
-                  "value": "Kelleranteil",
-                  "icon": "cellar"
-                },
-                {
-                  "icon": "floor-covering",
-                  "value": "Bodenbelag: Fliesen, Holzdielen, Parkett"
-                },
-                {
-                  "value": "kontrollierte Be- und EntlÃ¼ftungsanlage",
-                  "icon": "building-ventilation"
-                }
-              ],
-              "title": "Innenbereich"
-            },
-            {
-              "elements": [
-                {
-                  "icon": "terrace",
-                  "value": "Terrasse"
-                },
-                {
-                  "icon": "garden",
-                  "value": "Gartenmitbenutzung"
-                },
-                {
-                  "icon": "parking-lots",
-                  "value": "AuÃen-Stellplatz, Tiefgarage"
-                },
-                {
-                  "icon": "window",
-                  "value": "Fenster: Kunststoff, Aluminium"
-                }
-              ],
-              "title": "AuÃenbereich"
-            },
-            {
-              "elements": [
-                {
-                  "value": "Waschraum",
-                  "icon": "laundry-room"
-                }
-              ],
-              "title": "Austattung"
-            }
-          ],
-          "additionalText": "- Energiesparende wohngesunde Ziegelbauweise, AuÃenmauerwerk 36,5 cm stark<br>. Effizienzhaus 55 ( EH55)<br>- Energiesparende Heizung als Luft-/WasserwÃ¤rmepumpe und Solarthermieanlage auf der DachflÃ¤che<br>- FuÃbodenheizung mit Einzelraumregelung<br>- Einzel-WohnraumlÃ¼ftung mit WÃ¤rmerÃ¼ckgewinnung<br>- RolllÃ¤den mit elektrischem Antrieb<br>- Fenster, Balkon- und TerrassentÃ¼ren in KunststoffausfÃ¼hrung, Farbe WeiÃ,<br>mit 3-fach-WÃ¤rmedÃ¤mmverglasung, auÃenseitig mit Aluschale, Farbe Anthrazit<br>- BodenbelÃ¤ge in hochwertigem Parkett, Bodenfliesen- bzw. Keramikbelag in den SanitÃ¤rrÃ¤umen<br>- WÃ¤nde in den BÃ¤dern und WCâs raumhoch gefliest nach freier Wahl zum Materialpreis von 60,- â¬/mÂ²<br>- Bodenebene Duschwannen in den BÃ¤dern<br>- WM-AnschluÃ in der Wohnung<br>- InnentÃ¼ren in Holz, ca. 2,10 m DurchgangshÃ¶he<br>- Tiefgarage mit waagerecht befahrbaren Doppelparkern, auch fÃ¼r E-Fahrzeuge, Wallbox vorbereitet<br>- Video-Sprechanlage zur HaustÃ¼re<br>- Personenaufzug vom Keller- bis Terrassengeschoss"
+          "additionalText": "Energiesparendes Effizienzhaus 55 in bewÃ¤hrter RS-Wohnbau-QualitÃ¤t Um natÃ¼rliche Ressourcen zu schonen, ist das Objekt mit modernster WÃ¤rmepumpentechnologie ausgestattet. Damit wird seinen Bewohnern gleichzeitig eine hohe Energieeffizienz (Energieeffizienzklasse A+) gewÃ¤hrleistet. FÃ¼r ein gesundes Wohnklima errichteten wir das Projekt in massiver Ziegelbauweise mit innenliegender WÃ¤rmedÃ¤mmung. Ganz in unserem Sinne: Modern - Nachhaltig â Wirtschaftlich - ZuverlÃ¤ssig Objekthighlights: â¢ energiesparendes Effizienzhaus 55 mit Energieeffizienzklasse A+ â¢ hochwÃ¤rmedÃ¤mmende Massiv-Ziegelbauweise â¢ aufwÃ¤ndige Putzarbeiten an der Fassade â¢ umweltschonende und modernste WÃ¤rmepumpentechnologie â¢ FuÃbodenheizung mit Einzelraumsteuerung â¢ Treppenlauf mit ausgewÃ¤hltem Granitbelag und Edelstahlhandlauf â¢ Kunststofffenster mit erstklassiger Alu-Vorsatzschale, 3-fach WÃ¤rmeschutzverglasung (Sicherheitsfenster im EG) â¢ elektrische RolllÃ¤den an allen Fenstern â¢ hochwertige Elektroausstattung mit CAT7 Verkabelung â¢ Videosprechanlage â¢ elegante Porzellan-Serie und formschÃ¶ne Armaturen von namhaften Herstellern â¢ komfortable, bodengleiche Duschen (sofern technisch realisierbar) â¢ exklusive BodenbelÃ¤ge z.B. edles Parkett oder groÃformatige Fliesen Die vollstÃ¤ndige Baubeschreibung lassen wir Ihnen gerne auf Anfrage zukommen."
         }
       },
       "gallery": {
         "images": [
           {
-            "key": "68a21948-a573-40ba-a994-aa2a37db7970",
-            "url": "https://mms.immowelt.de/6/8/a/2/68a21948-a573-40ba-a994-aa2a37db7970.png?ci_seal=801296c144162a5e740e667ca26d461a33079488",
-            "description": "Dachterrasse &quot;Visualisierung MÃ¶bel&quot;",
-            "alt": "Penthouse zum Kauf - Neubau provisionsfrei 998.000Â â¬ 3 Zimmer 96,4 mÂ² 3. Geschoss frei ab sofort Kleinhaderner Str. 23 Hadern MÃ¼nchen 80689",
-            "title": "Dachterrasse &quot;Visualisierung MÃ¶bel&quot;",
-            "ariaLabel": "Dachterrasse &quot;Visualisierung MÃ¶bel&quot;",
+            "key": "474a2448-0ae5-4d4f-9fbd-5c21f919a002",
+            "url": "https://mms.immowelt.de/4/7/4/a/474a2448-0ae5-4d4f-9fbd-5c21f919a002.png?ci_seal=048fc4939852c9688274b27bbf7ae93584a47a4f",
+            "description": "OPEN HOUSE SEP 2025",
+            "alt": "Neubauprojekt zum Kauf Oberbrunner StraÃe 20 Thalk.Obersendl.-Forsten-FÃ¼rstenr.-Solln MÃ¼nchen 81475",
+            "title": "OPEN HOUSE SEP 2025",
+            "ariaLabel": "OPEN HOUSE SEP 2025",
+            "classification": {
+              "name": "HOUSE_FACADE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "b1cea82f-675b-4f14-8d61-ad9aa7028cb3",
+            "url": "https://mms.immowelt.de/b/1/c/e/b1cea82f-675b-4f14-8d61-ad9aa7028cb3.jpg?ci_seal=9fb3a06e586bea51a5e529a1b8b7f73ee52d7806",
+            "description": "3-ZIMMER-WHG A-04 (verfÃ¼gbar)",
+            "title": "3-ZIMMER-WHG A-04 (verfÃ¼gbar)",
+            "ariaLabel": "3-ZIMMER-WHG A-04 (verfÃ¼gbar)",
             "classification": {
               "name": "TERRACE",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "37ec28ef-8ec3-4f54-b620-a9976709cb2b",
-            "url": "https://mms.immowelt.de/3/7/e/c/37ec28ef-8ec3-4f54-b620-a9976709cb2b.jpg?ci_seal=14200c4a0ab779b62d5f842461f2bf2c46a57020",
-            "description": "Ansicht Strasse",
-            "title": "Ansicht Strasse",
-            "ariaLabel": "Ansicht Strasse"
-          },
-          {
-            "key": "b2367ba0-4976-4280-b6e0-7b73f434e8bb",
-            "url": "https://mms.immowelt.de/b/2/3/6/b2367ba0-4976-4280-b6e0-7b73f434e8bb.jpg?ci_seal=e5c387307fd900366233ecc45a07ae12ec7ef6e0",
-            "description": "Visualisierung Wohnen",
-            "title": "Visualisierung Wohnen",
-            "ariaLabel": "Visualisierung Wohnen",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
-            }
-          },
-          {
-            "key": "07dd6283-d599-4ab6-982e-709a12c99cf5",
-            "url": "https://mms.immowelt.de/0/7/d/d/07dd6283-d599-4ab6-982e-709a12c99cf5.png?ci_seal=11289e3cb5aa0759f982d3fbf045e8188705933f",
-            "description": "Dachterrasse &quot;Visualisierung MÃ¶bel&quot;",
-            "title": "Dachterrasse &quot;Visualisierung MÃ¶bel&quot;",
-            "ariaLabel": "Dachterrasse &quot;Visualisierung MÃ¶bel&quot;",
-            "classification": {
-              "name": "TERRACE",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
-            }
-          },
-          {
-            "key": "33b9f944-d9c8-485b-b053-9ff9bf118d1d",
-            "url": "https://mms.immowelt.de/3/3/b/9/33b9f944-d9c8-485b-b053-9ff9bf118d1d.jpg?ci_seal=565299c6ac88490843c7ff86f502501eaefbeab8",
-            "description": "Ausblick-DG-SW",
-            "title": "Ausblick-DG-SW",
-            "ariaLabel": "Ausblick-DG-SW"
-          },
-          {
-            "key": "e3b4388b-1a3f-48c9-b525-9e1274a11faa",
-            "url": "https://mms.immowelt.de/e/3/b/4/e3b4388b-1a3f-48c9-b525-9e1274a11faa.jpg?ci_seal=0bbbce073aeab57f6d2eac69fe4498db3619ec1b",
-            "description": "Visualisierung Kochen-Essen",
-            "title": "Visualisierung Kochen-Essen",
-            "ariaLabel": "Visualisierung Kochen-Essen",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
-            }
-          },
-          {
-            "key": "3caf36f6-25c4-40fd-b9fa-e4a6877fc08a",
-            "url": "https://mms.immowelt.de/3/c/a/f/3caf36f6-25c4-40fd-b9fa-e4a6877fc08a.jpg?ci_seal=59cefb34d07f91c73671b04693c1024eb3194305",
-            "description": "Wohnen: Parkett Eiche &quot;digital verlegt&quot;",
-            "title": "Wohnen: Parkett Eiche &quot;digital verlegt&quot;",
-            "ariaLabel": "Wohnen: Parkett Eiche &quot;digital verlegt&quot;",
+            "key": "16a8f228-dc35-4e6a-96ca-29e6e9d3a97e",
+            "url": "https://mms.immowelt.de/1/6/a/8/16a8f228-dc35-4e6a-96ca-29e6e9d3a97e.png?ci_seal=2555a39dd742ba54efab286e0635f49dfa54850f",
+            "description": "WHG A 04_Wohnen Sie schÃ¶n ! ",
+            "title": "WHG A 04_Wohnen Sie schÃ¶n ! ",
+            "ariaLabel": "WHG A 04_Wohnen Sie schÃ¶n ! ",
             "classification": {
               "name": "EMPTY_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "1a90b9e3-d6e5-4106-a8ab-705341faff94",
-            "url": "https://mms.immowelt.de/1/a/9/0/1a90b9e3-d6e5-4106-a8ab-705341faff94.jpg?ci_seal=6019d27ec6549251b1ca0152e55e628640773566",
-            "description": "Wohnen/ Kochen: Parkett Eiche &quot;digital verlegt&quot;",
-            "title": "Wohnen/ Kochen: Parkett Eiche &quot;digital verlegt&quot;",
-            "ariaLabel": "Wohnen/ Kochen: Parkett Eiche &quot;digital verlegt&quot;",
+            "key": "8d531b4f-fc41-4027-ad23-2adcb8a7152e",
+            "url": "https://mms.immowelt.de/8/d/5/3/8d531b4f-fc41-4027-ad23-2adcb8a7152e.jpg?ci_seal=a5b39f58bcb7c094efea97565acd3741689f6a56",
+            "description": "3-ZIMMER-WHG A-03 (verfÃ¼gbar)",
+            "title": "3-ZIMMER-WHG A-03 (verfÃ¼gbar)",
+            "ariaLabel": "3-ZIMMER-WHG A-03 (verfÃ¼gbar)",
+            "classification": {
+              "name": "BALCONY",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "91e999f0-6507-49a8-b3e2-ddd4c441e2d8",
+            "url": "https://mms.immowelt.de/9/1/e/9/91e999f0-6507-49a8-b3e2-ddd4c441e2d8.png?ci_seal=aed9fdcddffe77113519e143540d4d59f4fb5855",
+            "description": "3-ZIMMER-WHG A-03 (verfÃ¼gbar)",
+            "title": "3-ZIMMER-WHG A-03 (verfÃ¼gbar)",
+            "ariaLabel": "3-ZIMMER-WHG A-03 (verfÃ¼gbar)",
+            "classification": {
+              "name": "LOGO",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "b6762597-f776-41ae-a114-e6ccaf4517b9",
+            "url": "https://mms.immowelt.de/b/6/7/6/b6762597-f776-41ae-a114-e6ccaf4517b9.jpg?ci_seal=337e3e5b1643122703efa4f40a7886e351d8708b",
+            "description": "Ansicht Haus A (Nord-West)",
+            "title": "Ansicht Haus A (Nord-West)",
+            "ariaLabel": "Ansicht Haus A (Nord-West)",
+            "classification": {
+              "name": "HOUSE_FACADE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "4f8420a8-68a4-4ed0-81de-48abeabbf1c0",
+            "url": "https://mms.immowelt.de/4/f/8/4/4f8420a8-68a4-4ed0-81de-48abeabbf1c0.png?ci_seal=91a3077d455c2b9b51a854e83d83a6ec97e856e7",
+            "description": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "title": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "ariaLabel": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "classification": {
+              "name": "HOUSE_FACADE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "09ed2a8a-dde8-47fd-9d32-eca3040cf524",
+            "url": "https://mms.immowelt.de/0/9/e/d/09ed2a8a-dde8-47fd-9d32-eca3040cf524.jpg?ci_seal=ee5b18f567a26590076b202f602e4062607224ef",
+            "description": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "title": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "ariaLabel": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
             "classification": {
               "name": "EMPTY_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "b7ffd480-6b04-4578-baa7-4d756a2889be",
-            "url": "https://mms.immowelt.de/b/7/f/f/b7ffd480-6b04-4578-baa7-4d756a2889be.jpg?ci_seal=94547c263d981cea5221de7936d1877f7ab83cfe",
-            "description": "Visualisierung  Masterbad",
-            "title": "Visualisierung  Masterbad",
-            "ariaLabel": "Visualisierung  Masterbad",
+            "key": "257f5a4b-ef94-4641-ae6d-98c32b197f59",
+            "url": "https://mms.immowelt.de/2/5/7/f/257f5a4b-ef94-4641-ae6d-98c32b197f59.jpg?ci_seal=1274ebb922d61751e5d726da971649247145dfa1",
+            "description": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "title": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
+            "ariaLabel": "1 x verfÃ¼gbar (Gartenwohnung / Haus B)",
             "classification": {
-              "name": "BATHROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "name": "YARD",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "94b3c221-b8cf-4fa8-9e5b-f254c5d7b6cf",
-            "url": "https://mms.immowelt.de/9/4/b/3/94b3c221-b8cf-4fa8-9e5b-f254c5d7b6cf.jpg?ci_seal=ab72c208f1db0dc9bfeb50951dca52d7625d3a94",
-            "description": "Visualisierung  Schlafen",
-            "title": "Visualisierung  Schlafen",
-            "ariaLabel": "Visualisierung  Schlafen",
+            "key": "2b7cbe1c-d271-4a6e-ae6e-d95760ca89c5",
+            "url": "https://mms.immowelt.de/2/b/7/c/2b7cbe1c-d271-4a6e-ae6e-d95760ca89c5.jpg?ci_seal=31b52654e91e9c2a349518d9316c23f24fff0ebc",
+            "description": "Lagekarte (Oberbrunner Str. 20 - Forstenried/Maxhof)",
+            "title": "Lagekarte (Oberbrunner Str. 20 - Forstenried/Maxhof)",
+            "ariaLabel": "Lagekarte (Oberbrunner Str. 20 - Forstenried/Maxhof)",
             "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "name": "GMAP",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "cdf60b57-9d86-4af0-8925-c97e146c7e03",
-            "url": "https://mms.immowelt.de/c/d/f/6/cdf60b57-9d86-4af0-8925-c97e146c7e03.jpg?ci_seal=50c372916f7d22b3770fc779408e1869181229ff",
-            "description": "Schlafen: Parkett Eiche &quot;digital verlegt&quot;",
-            "title": "Schlafen: Parkett Eiche &quot;digital verlegt&quot;",
-            "ariaLabel": "Schlafen: Parkett Eiche &quot;digital verlegt&quot;",
+            "key": "3838eeb6-5f67-46cd-b923-5f3eadacdc80",
+            "url": "https://mms.immowelt.de/3/8/3/8/3838eeb6-5f67-46cd-b923-5f3eadacdc80.png?ci_seal=c80171ed177591c6f4c2e18e4480829c2b4a4da7",
+            "description": "Auszug Referenzen (mehr unter www.rs-wohnbau.de)",
+            "title": "Auszug Referenzen (mehr unter www.rs-wohnbau.de)",
+            "ariaLabel": "Auszug Referenzen (mehr unter www.rs-wohnbau.de)",
             "classification": {
-              "name": "EMPTY_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "name": "BUILDING_FACADE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
-          },
-          {
-            "key": "e41586e7-148a-4eaa-90b5-85d8f9a10d6b",
-            "url": "https://mms.immowelt.de/e/4/1/5/e41586e7-148a-4eaa-90b5-85d8f9a10d6b.jpg?ci_seal=b8d14a8e33aaa46a469a31b3c720fe9ec78cc900",
-            "description": "Dachterrasse SÃ¼den",
-            "title": "Dachterrasse SÃ¼den",
-            "ariaLabel": "Dachterrasse SÃ¼den"
-          },
-          {
-            "key": "b6faaaae-f5c9-42dd-80d8-5c3546871e5b",
-            "url": "https://mms.immowelt.de/b/6/f/a/b6faaaae-f5c9-42dd-80d8-5c3546871e5b.jpg?ci_seal=ba1198cae888ba0b09373dd714b134b65fdbb9cd",
-            "description": "Visualisierung  Gast",
-            "title": "Visualisierung  Gast",
-            "ariaLabel": "Visualisierung  Gast",
-            "classification": {
-              "name": "BEDROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
-            }
-          },
-          {
-            "key": "219ea3b0-2a31-4ab5-baec-ce519758b4fd",
-            "url": "https://mms.immowelt.de/2/1/9/e/219ea3b0-2a31-4ab5-baec-ce519758b4fd.jpg?ci_seal=c940c5f5df5940dd7fea6cecc03d5d3b38097280",
-            "description": "Gast: Parkett Eiche &quot;digital verlegt&quot;",
-            "title": "Gast: Parkett Eiche &quot;digital verlegt&quot;",
-            "ariaLabel": "Gast: Parkett Eiche &quot;digital verlegt&quot;",
-            "classification": {
-              "name": "EMPTY_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
-            }
-          },
-          {
-            "key": "0f112745-e88f-4b88-b4d4-e7dcf2279553",
-            "url": "https://mms.immowelt.de/0/f/1/1/0f112745-e88f-4b88-b4d4-e7dcf2279553.jpg?ci_seal=d635f9d0e10b9702e8c027c170263ab7ef30e96a",
-            "description": "Ost Dachterrasse",
-            "title": "Ost Dachterrasse",
-            "ariaLabel": "Ost Dachterrasse"
-          },
-          {
-            "key": "4bb45f57-a8e2-48d8-836d-4b12114616e1",
-            "url": "https://mms.immowelt.de/4/b/b/4/4bb45f57-a8e2-48d8-836d-4b12114616e1.jpg?ci_seal=3ff81a6a5547c8546cd45e0711ce644f56e8d04a",
-            "description": "Ansicht Westen ",
-            "title": "Ansicht Westen ",
-            "ariaLabel": "Ansicht Westen "
-          },
-          {
-            "key": "092e34e9-23c5-4a1c-a87b-33d41ea298a8",
-            "url": "https://mms.immowelt.de/0/9/2/e/092e34e9-23c5-4a1c-a87b-33d41ea298a8.jpg?ci_seal=f6e13475e3625cbf623219841e093a0afc53393f",
-            "description": "Lift-Penthouse direkt in die Wohnung",
-            "title": "Lift-Penthouse direkt in die Wohnung",
-            "ariaLabel": "Lift-Penthouse direkt in die Wohnung"
-          },
-          {
-            "key": "11cef569-f767-4f18-8934-dab6a59a303d",
-            "url": "https://mms.immowelt.de/1/1/c/e/11cef569-f767-4f18-8934-dab6a59a303d.jpg?ci_seal=a45b96534f3e820ed88ba6865846d4e6a757f495",
-            "description": "Hauseingang",
-            "title": "Hauseingang",
-            "ariaLabel": "Hauseingang"
-          },
-          {
-            "key": "d0701df0-f81a-4bde-9622-b22c2ba43af1",
-            "url": "https://mms.immowelt.de/d/0/7/0/d0701df0-f81a-4bde-9622-b22c2ba43af1.jpg?ci_seal=fae523f8e481048b82faad0104cd9ca138ad7808",
-            "description": "Ansicht Norden",
-            "title": "Ansicht Norden",
-            "ariaLabel": "Ansicht Norden"
-          },
-          {
-            "key": "6627de8a-a210-43ff-9176-d20ea2f4d027",
-            "url": "https://mms.immowelt.de/6/6/2/7/6627de8a-a210-43ff-9176-d20ea2f4d027.jpg?ci_seal=9788dc8180dde99835e2615ea9d0e97e7469c641",
-            "description": "Spielplatz",
-            "title": "Spielplatz",
-            "ariaLabel": "Spielplatz"
-          },
-          {
-            "key": "7391d2ef-aa04-4f7d-8bf3-a4cc06da4464",
-            "url": "https://mms.immowelt.de/7/3/9/1/7391d2ef-aa04-4f7d-8bf3-a4cc06da4464.jpg?ci_seal=23e62341c099fe2cae41bf820825d12590e9017b",
-            "description": "Treppenhaus DG",
-            "title": "Treppenhaus DG",
-            "ariaLabel": "Treppenhaus DG"
-          },
-          {
-            "key": "8b713772-5c82-4810-a6e5-23c374ea43a6",
-            "url": "https://mms.immowelt.de/8/b/7/1/8b713772-5c82-4810-a6e5-23c374ea43a6.jpg?ci_seal=8d1fe865de1aba295bed46ffeb6e14c7382e49a2",
-            "description": "Cat7 Verkabelung",
-            "title": "Cat7 Verkabelung",
-            "ariaLabel": "Cat7 Verkabelung"
-          },
-          {
-            "key": "babc9354-0f66-4a52-86be-464a7d3d23cb",
-            "url": "https://mms.immowelt.de/b/a/b/c/babc9354-0f66-4a52-86be-464a7d3d23cb.jpg?ci_seal=e34a0734a6d011d7b19b8a7e2243c14240decda7",
-            "description": "Frischwassersystem",
-            "title": "Frischwassersystem",
-            "ariaLabel": "Frischwassersystem"
-          },
-          {
-            "key": "c4f855cd-d401-4c9e-a5e8-0d64e0947748",
-            "url": "https://mms.immowelt.de/c/4/f/8/c4f855cd-d401-4c9e-a5e8-0d64e0947748.jpg?ci_seal=d46aa47461bec49a5b70d26755448907c0edeb59",
-            "description": "Treppenhaus",
-            "title": "Treppenhaus",
-            "ariaLabel": "Treppenhaus"
-          },
-          {
-            "key": "5dfbc252-8a07-4010-b74d-52ffba3308bf",
-            "url": "https://mms.immowelt.de/5/d/f/b/5dfbc252-8a07-4010-b74d-52ffba3308bf.jpg?ci_seal=6d587c2d3d0ea15d462a68bdeadccddb2f3f009e",
-            "description": "GeschÃ¤fte in LaufnÃ¤he",
-            "title": "GeschÃ¤fte in LaufnÃ¤he",
-            "ariaLabel": "GeschÃ¤fte in LaufnÃ¤he"
-          },
-          {
-            "key": "e5db6671-b6dd-42b3-8c81-7422d6fddd77",
-            "url": "https://mms.immowelt.de/e/5/d/b/e5db6671-b6dd-42b3-8c81-7422d6fddd77.jpg?ci_seal=65f7165dcb47592da6cfa111a1b4197ae42ceac3",
-            "description": "Ãbersicht GrundstÃ¼ck",
-            "title": "Ãbersicht GrundstÃ¼ck",
-            "ariaLabel": "Ãbersicht GrundstÃ¼ck"
           }
         ],
         "floorplans": [
           {
-            "key": "17711608-71ae-4150-b323-0acfa6e30dfe",
-            "url": "https://mms.immowelt.de/1/7/7/1/17711608-71ae-4150-b323-0acfa6e30dfe.jpg?ci_seal=556b78904ee69d066e9737ffa73425e41067ffc8",
-            "description": "Grundriss",
-            "alt": "Penthouse zum Kauf - Neubau provisionsfrei 998.000Â â¬ 3 Zimmer 96,4 mÂ² 3. Geschoss frei ab sofort Kleinhaderner Str. 23 Hadern MÃ¼nchen 80689",
-            "title": "Grundriss",
-            "ariaLabel": "Grundriss",
+            "key": "eb376328-3e80-41f4-84bb-2192d0208160",
+            "url": "https://mms.immowelt.de/e/b/3/7/eb376328-3e80-41f4-84bb-2192d0208160.jpg?ci_seal=298af605b75983587cb4c54a330b891bd4218dc7",
+            "description": "GrundstÃ¼cksÃ¼berblick (Lage der HÃ¤user A und B)",
+            "alt": "Neubauprojekt zum Kauf Oberbrunner StraÃe 20 Thalk.Obersendl.-Forsten-FÃ¼rstenr.-Solln MÃ¼nchen 81475",
+            "title": "GrundstÃ¼cksÃ¼berblick (Lage der HÃ¤user A und B)",
+            "ariaLabel": "GrundstÃ¼cksÃ¼berblick (Lage der HÃ¤user A und B)",
             "classification": {
               "name": "FLOORPLAN",
-              "version": "scene-classification-sagemaker-endpoint-live-0-0-3"
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           }
         ]
       },
       "documents": {
-        "display": true,
-        "files": [
-          {
-            "key": "e9ff6689-ff42-4c35-8e3f-54f26218262e",
-            "url": "https://mms.immowelt.de/e/9/f/f/e9ff6689-ff42-4c35-8e3f-54f26218262e.pdf?ci_seal=02322789efdcac9dc0f60cc801381db044020808",
-            "title": "Ãbersicht Keller TG",
-            "subtitle": "PDF-Dokument"
-          },
-          {
-            "key": "47e98e68-7b15-41ed-949f-45047915ddd5",
-            "url": "https://mms.immowelt.de/4/7/e/9/47e98e68-7b15-41ed-949f-45047915ddd5.pdf?ci_seal=cc0355e4a4d8b51107fb16e0dd7d0162d154d781",
-            "title": "REFERENZEN-CREATIV-Haus-23",
-            "subtitle": "PDF-Dokument"
-          },
-          {
-            "key": "e7ed21a0-a865-4c73-8202-a33ff1b740b5",
-            "url": "https://mms.immowelt.de/e/7/e/d/e7ed21a0-a865-4c73-8202-a33ff1b740b5.pdf?ci_seal=a6f3e04a0941373f33de56342cc0a1c958c39478",
-            "title": "Energieausweis-Kl23-2023.pdf",
-            "subtitle": "PDF-Dokument"
-          },
-          {
-            "key": "46eefdfd-a0cd-4992-9e32-a171ec300fe9",
-            "url": "https://mms.immowelt.de/4/6/e/e/46eefdfd-a0cd-4992-9e32-a171ec300fe9.pdf?ci_seal=957f6acc06d7d25233dc240d651e9da455d4e581",
-            "title": "Klimaneutral.pdf",
-            "subtitle": "PDF-Dokument"
-          },
-          {
-            "key": "ddc6ee91-4d07-441f-9687-cc2a75d16703",
-            "url": "https://mms.immowelt.de/d/d/c/6/ddc6ee91-4d07-441f-9687-cc2a75d16703.pdf?ci_seal=c8a544385b73a1b6e9be15b2e6fd9a48e0f676b2",
-            "title": "Grundriss",
-            "subtitle": "PDF-Dokument"
-          }
-        ]
+        "display": false,
+        "files": []
       },
       "enrichedMedia": {
         "medias": []
       },
       "mortgage": {
         "brand": "immowelt",
-        "id": "2757e866-a3ad-4fa3-89e4-7305dc32dd09",
-        "priceComparisonLink": {
-          "text": "Hadern, MÃ¼nchen",
-          "link": "https://www.immowelt.de/immobilienpreise/muenchen-hadern"
-        },
+        "id": "4553",
         "federalStateGeoId": "AD04DE9",
-        "zip": "80689",
+        "zip": "81475",
         "city": "MÃ¼nchen",
-        "country": "DEU",
-        "subType": "NEW_BUILD_UNIT",
+        "country": "DE",
+        "subType": "NEW_BUILD_PROJECT",
         "region": "Bayern",
         "showRentLabel": false,
-        "showMonthlyRateLabel": true,
-        "price": 998000,
-        "monthlyAmount": 3341
+        "showMonthlyRateLabel": false,
+        "price": 0,
+        "prov": 0,
+        "monthlyAmount": 0
       },
       "partnerAd": {
-        "showPartnerAd": true
+        "showPartnerAd": false
       },
-      "sellerLeadLink": {
-        "funnel": "https://www.immowelt.de/immobilienbewertung/preisrechner",
-        "landing": "https://www.immowelt.de/immobilienbewertung"
-      },
-      "newBuild": {
-        "projectLink": {
-          "href": "https://www.immowelt.de/projekte/expose/k2pz532"
-        },
-        "logo": {
-          "url": "https://mms.immowelt.de/8/1/3/1/8131711e-10de-42d8-946f-4f1803cea4f8.jpg?ci_seal=788132fa217c7f4ece663eaa89d5b8ac9ed3f4a9",
-          "description": "Nicht alles fÃ¼r Jeden, sondern das Besondere fÃ¼r Sie. Seit 1990",
-          "extension": "jpg"
-        },
-        "title": "Attraktives Penthouse , Lift, 2 Dachterrassen - Bezug in 2 Monaten",
-        "description": "Ganz im SÃ¼dwesten der Stadt steht ein Dorf.\\nDort wohnen keine MÃ¼nchner, sondern Haderner.\\nDas alte Bauerndorf wurde zwar 1938 eingegliedert, doch das LebensgefÃ¼hl und der Stolz auf die Tradition blieb.\\n\\nIn ruhiger Lage ist hier auf einem 546mÂ² groÃen GrundstÃ¼ck\\nein WohngebÃ¤ude mit nur 5 Eigentumswohnungen entstanden.\\n\\n1 x Penthouse in dem zurÃ¼ck gesetzten TerrassengeschoÃ mit 3-Zimmern und 2 Dachterrassen mit wunderbarem Blick ins GrÃ¼ne und nahezu uneinsehbar steht noch zum Verkauf.\\n1 Tageslichtbad + GÃ¤ste-WC, selbstverstÃ¤ndlich mit Personenaufzug -  direkt in die Wohnung!.\\n\\nUnsere GebÃ¤ude werden ausschlieÃlich mit wohngesunden 36cm starken WÃ¤rmedÃ¤mm-Ziegeln und natÃ¼rlichem Mineralputz erstellt.\\nSie erhalten hiermit ein optimales Wohnraumklima, unterstÃ¼tzt durch eine\\ndezentrale WohnraumbelÃ¼ftung + WÃ¤rmerÃ¼ckgewinnung.\\nDas GebÃ¤ude wird mit einem Endenergiebedarf von nur 10,3 kwh (mÂ²a) erstellt - ein Effizienzhaus 55 (EH55)\\nDie Energie wird durch eine Luft-/WasserwÃ¤rmepumpe in Verbindung mit einer\\nSolarthermie (KEINE fossilen Brennstoffe) zur VerfÃ¼gung gestellt.\\n\\nDas Objekt ( die bereits verkauften Wohnungen) wurde im Juli 24 bezugsfertig gestellt, bei der Innenausstattung kÃ¶nnen noch BodenbelÃ¤ge + die BÃ¤der ( SanitÃ¤r + Fliesen) + TÃ¼ren ausgewÃ¤hlt werden.\\n\\n5% degressive Afa  fÃ¼r den Erwerb zur Vermietung auf dieses Objekt  anwendbar! GebÃ¤udeanteil 63% ( Diese Info ersetzt keine steuerliche Beratung)"
-      },
-      "priceComparison": {
-        "data": {
-          "value": 7389,
-          "accuracy": 3,
-          "high": "9.633",
-          "low": "6.146"
-        },
-        "markerPosition": 100,
-        "hasMainPrice": true,
-        "isSale": true,
-        "pricePerSqm": "10.358",
-        "legalText": "Der angegebene Quadratmeterpreis wurde von AVIV Germany automatisch anhand des angegebenen Verkaufspreises und der angegebenen Quadratmeterzahl des Objektes berechnet. Der Vergleichswert basiert auf den verfÃ¼gbaren Marktwerten zu Objekten Ã¤hnlicher Beschaffenheit und Lage. Diese Angaben kÃ¶nnen eine gutachterliche Bewertung nicht ersetzen, da diese immer auch vom Zustand und der Lage des konkreten Objektes abhÃ¤ngig ist.",
-        "priceComparisonLink": {
-          "text": "Hadern, MÃ¼nchen",
-          "link": "https://www.immowelt.de/immobilienpreise/muenchen-hadern"
-        }
-      },
+      "sellerLeadLink": {},
       "mainDescription": {
-        "headline": "Erstbezug kurzfristig -  Lichtdurchflutetes 3-Zi.- Penthouse in ruhiger Lage - 2 Dachterrassen, Lift, Tageslichtbad",
-        "description": "Sehr geehrter Interessent, <br><br>im Juni 2024 wurde dieses kl. Mehrfamilienhaus mit nur 5 Eigentumswohnungen als Effizienzhaus 55 ( EH55) fertig gestellt. Die verkauften Wohnungen sind bereits bewohnt.<br><br>Dieses charmante Penthouse verfÃ¼gt Ã¼ber 3 WohnrÃ¤ume, 1 groÃes Bad mit Wanne + Dusche, GÃ¤ste-WC mit WM-Anschluss, beide mit Tageslicht + ein Abstellraum in der Wohnung sowie ein weiterer Abstellraum begehbar von der Dachterrasse. <br><br>2 sonnige Dachterrassen mit Blick ins GrÃ¼ne und nahezu uneinsehbar laden zum Verweilen ein.<br><br>Die Diele hat eine el. zu Ã¶ffnende Lichtkuppel - Tageslicht.<br><br>Die Wohnung ist vom KellergeschoÃ mit dem Lift zu erreichen. Der Lift fÃ¼hrt direkt in die Wohnung und ist nur mit einem SchlÃ¼ssel zu bedienen.<br><br>Die Innenausstattung kÃ¶nnen Sie noch individuell wÃ¤hlen:  BodenbelÃ¤ge + die BÃ¤der ( SanitÃ¤r + Fliesen), TÃ¼ren. Sofern alle Materialien normal lieferbar sind, wÃ¤re die Wohnung in ca. 2 Monaten bezugsfertig.<br>Der abgebildete Parkettboden ist nur digital verlegt!<br><br>Die Energie wird durch eine Luft-/WasserwÃ¤rmepumpe in Verbindung mit<br>einer Solarthermie zur VerfÃ¼gung gestellt. Somit ist im Sommer der Betrieb der<br>Luft-WÃ¤rmepumpe i.d.R. nicht notwendig, Die Warmwasserbereitung<br>erfolgt Ã¼ber einen Pufferspeicher mit externen<br>WohnungsÃ¼bergabestationen mit Frischwassersystem im Durchlaufprinzip â Vorteil das keine LegionellenprÃ¼fungen notwendig sind, da kein Warmwasser in den Leitungen steht.<br><br>5% degressive Afa  fÃ¼r den Erwerb zur Vermietung auf dieses Objekt  anwendbar! <br>Der GebÃ¤udeanteil zur Abschreibung betrÃ¤gt 63% und eignet sich daher auch gut zur Investition.( Diese Info ersetzt keine steuerliche Beratung)",
+        "headline": "Ãber dieses Projekt",
+        "description": "AKTUELL kÃ¶nnen wir Ihnen NOCH VIER WOHNUNGEN anbieten!\\n\\nHochwertig und mit viel FeingefÃ¼hl haben wir zwei attraktive MehrfamilienhÃ¤user mit Aufzug in einem sehr ruhigen Wohngebiet in Forstenried-Maxhof, der Oberbrunner StraÃe 20 errichtet. Die beiden HÃ¤user wurden nach dem energiesparenden Standard Effizienzhaus 55 gebaut und gliedern sich in Haus A mit 6 Parteien und in Haus B mit 5 Parteien auf. Die Wohneinheiten sind auf alle individuellen BedÃ¼rfnisse und WÃ¼nsche abgestimmt â fÃ¼r Singles, Paare und Familien - von ca. 69 mÂ² bis zur Wohnung mit ca. 110 mÂ² WohnflÃ¤che. Sie bestechen durch ihre gut durchdachte Raumaufteilung und anspruchsvolle Ausstattung, damit ein besonderes Ambiente und WohlfÃ¼hlen geschaffen wird. Die offen gestalteten Wohn-Ess-KÃ¼chenbereiche rufen eine entsprechende GroÃzÃ¼gigkeit hervor. Der Einbau der bodentiefen FenstertÃ¼r-Elemente und groÃen DachflÃ¤chenfenster gewÃ¤hrleisten ein Maximum an Lichteinfall. Unsere Gartenwohnungen erhielten jeweils eigene Gartenanteile. Drei der EG-Wohnungen umfassen zusÃ¤tzliche Souterrainbereiche, die taghell und in WohnraumqualitÃ¤t ausgebaut sind. Die Terrassen und Balkone sind sÃ¼dwestlich ausgerichtet und laden zum schÃ¶nen Ausklang des Tages ein. Eine Tiefgarage komplettiert unser Ã¼beraus ansprechendes Neubauobjekt. Die verwendeten Materialien wurden sogfÃ¤ltig ausgewÃ¤hlt und die Haustechnik entspricht modernsten Standards. Handwerklich erstklassig ausgefÃ¼hrte Arbeiten garantieren Ihnen eine besondere WohnqualitÃ¤t und eine hohe WertbestÃ¤ndigkeit der Immobilie. Zur Erreichung dieser Ziele pflegt die RS-Wohnbau Jahrzehnte wÃ¤hrende Beziehungen mit Handwerkern und Lieferanten aus der Region.",
         "metadata": {
           "language": "de"
         }
       },
       "areaDescription": {
-        "headline": "Lage",
-        "description": "Der dÃ¶rfliche Charakter macht sich neben dem LebensgefÃ¼hl <br>auch beim Wohnen bemerkbar. Viele Ein- und ZweifamilienhÃ¤user gibt es, <br>die meisten sind mit groÃzÃ¼gigen GÃ¤rten versehen. <br><br>Und mit dem Fahrrad ist man in einer Viertelstunde im GrÃ¼nen. In GroÃhadern gibt sich das alte Bauerndorf modern. Neben dem Klinikum haben sich in den letzten Jahren das Genzentrum, die UniversitÃ¤t u. Weitere Firmen angesiedelt.<br><br>Die vielen Familien finden eine intakte Infrastruktur im Viertel vor. <br>Einkaufen am Ende der Kleinhaderner am HÃ¶nigschmidplatz : EDEKA, VINZENZ MURR, ZÃTTL, ROSSMANN, Apotheke etc., Schule, Sport, alles um die Ecke. <br>Verschiedene Busverbindungen bieten Anschluss zur U-Bahn oder S-Bahn.<br><br>A95 und A96 sind in wenigen Minuten erreichbar.<br><br>âU5 Erweiterungâ und âTrambahn Westtangenteâ  VerlÃ¤ngerung FÃ¼rstenriederstr. bereits im Bau.<br><br>https://westtangente.mvg.de/ <br><br>https://www.mvv-muenchen.de/mvv-und-service/die-mvv-gmbh/projekte/u-bahn-planung/index.html<br><br>âWochenmarktâ immer Mittwochs 8-12<br>Blumenauerstr. 2 -16 â nur 1 km entfernt",
-        "metadata": {
-          "language": "de"
-        }
+        "headline": "Lage"
       },
       "extendedInfoDescription": {
-        "headline": "Weitere Informationen",
-        "description": "Besichtigungstermine\nHaben wir Ihr Interesse geweckt? Dann zÃ¶gern Sie nicht uns zu kontaktieren, gerne vereinbaren wir einen Besichtigungstermin mit Ihnen.<br><br>Ihr Creativ Haus Team\n\nÃber Uns\nSeit 35 Jahren werden von der âCREATIV- HAUSâ <br>nur in ausgesucht guten Lagen kleinere Wohnanlagen oder FamilienhÃ¤user <br>in und um MÃ¼nchen gebaut. <br>Besonderen Wert legen wir auf eine anspruchsvolle Architektur, <br>wertige Baustoffe und modernste Heiztechnik. <br><br>Hierbei arbeiten wir ausschlieÃlich mit Handwerksfirmen aus MÃ¼nchen<br> und dem nahen Umland zusammen<br> und das in der Regel seit sehr vielen Jahren. <br>Wir vergeben alle Arbeiten direkt ohne GeneralÃ¼bernehmer, koordiniert wird dies alles von unserem technischen Leiter.<br><br>Neben einer sehr hochwertigen Bau-und AusstattungsqualitÃ¤t ist es uns wichtig, <br>auch die individuellen WÃ¼nsche unserer Kunden <br>mit in die Planung einflieÃen zu lassen. <br><br>So entsteht Wohneigentum, das seinen Besitzern nachhaltig Freude bereitet. <br><br>Gerne beraten wir Sie ausfÃ¼hrlich und individuell zu allen Fragen <br>rund um den Immobilienkauf.<br><br>CREATIV-HAUS Baugesellschaft mbH<br>Nicht alles fÃ¼r Jeden, sondern das Besondere fÃ¼r Sie. Seit 1990<br>Am Knie 16, 81241 MÃ¼nchen<br>+89.546132-13 / +49.1728872074<br>verkauf@creativ-haus.de<br>www.creativ-haus.de\n\nStichworte\nSonstiges/Wohnen: seniorengerechtes Wohnen\nVersorgung: StÃ¤dtische Stromversorgung, Eigene Stromversorgung\nSonstiges: Neubaustandard",
-        "metadata": {
-          "language": "de"
-        }
+        "headline": "Weitere Informationen"
       },
       "statistics": {
-        "published": "seit Okt. 2022",
-        "views": "181 gesehen",
-        "saves": "0 favorisiert"
+        "published": "seit Nov. 2022",
+        "views": "999+ gesehen",
+        "saves": "3 favorisiert"
       }
     },
     "contactSections": {
-      "id": "23ICA92239LA",
-      "legacyId": "2757e866-a3ad-4fa3-89e4-7305dc32dd09",
+      "id": "246V2P5Z527M",
+      "legacyId": "4553",
       "brand": "immowelt",
-      "agencyId": "8097461",
+      "agencyId": "2607276",
       "static": {
         "phoneNumbers": [
-          "+49 89 5461313",
-          "+491728872074"
+          "+49 / 89 / 2903710"
         ]
       },
       "sticky": {
         "phoneNumbers": [
-          "+49 89 5461313",
-          "+491728872074"
+          "+49 / 89 / 2903710"
         ]
       },
       "contactCard": {
-        "title": "Creativ - Haus Baubetreuung GmbH",
-        "subtitle": "Frau Dagmar TannhÃ¤user",
+        "title": "RS-Wohnbau GmbH",
+        "subtitle": "Gewerblicher Anbieter",
         "phoneNumbers": [
-          "+49 89 5461313",
-          "+491728872074"
+          "+49 / 89 / 2903710"
         ],
         "isPrivateOwner": false,
         "agencyLogo": {
-          "logoUrl": null,
+          "logoUrl": "https://mms.immowelt.de/7/9/3/0/79309636-3ccc-41a6-bc07-f03d83caadfd.jpg?ci_seal=ce06ed5f9d448c48890256d9b6bbc85680ba3582",
           "display": true
         },
         "contactLogo": {
-          "logoUrl": "//filestore.immowelt.de/ProfilBilder/150_d5754f51778f4ecca051e0dd380625b4.jpg",
-          "display": true
+          "logoUrl": "//filestore.immowelt.de/ProfilBilder/150_62e9407b4e764b7ba872d7c9c1d2d4f7.jpg",
+          "display": false
         }
       },
       "contactForm": {
         "contactCard": {
-          "title": "Creativ - Haus Baubetreuung GmbH",
-          "subtitle": "Frau Dagmar TannhÃ¤user",
+          "title": "RS-Wohnbau GmbH",
+          "subtitle": "Gewerblicher Anbieter",
           "phoneNumbers": [
-            "+49 89 5461313",
-            "+491728872074"
+            "+49 / 89 / 2903710"
           ],
           "isPrivateOwner": false,
-          "logoUrl": null
+          "logoUrl": "https://mms.immowelt.de/7/9/3/0/79309636-3ccc-41a6-bc07-f03d83caadfd.jpg?ci_seal=ce06ed5f9d448c48890256d9b6bbc85680ba3582"
         },
-        "displayOwnerFlag": true,
-        "subjectLabel": "Deine Nachricht an Frau Dagmar TannhÃ¤user",
-        "shouldSendLeadValue": true
+        "displayOwnerFlag": false,
+        "subjectLabel": "Meine Nachricht",
+        "shouldSendLeadValue": false
       },
       "mobilePhones": {
-        "title": "Frau Dagmar TannhÃ¤user",
-        "subtitle": "Creativ - Haus Baubetreuung GmbH",
+        "title": "RS-Wohnbau GmbH",
+        "subtitle": "Gewerblicher Anbieter",
         "phoneNumbers": [
-          "+49 89 5461313",
-          "+491728872074"
+          "+49 / 89 / 2903710"
         ],
-        "logoUrl": "//filestore.immowelt.de/ProfilBilder/150_d5754f51778f4ecca051e0dd380625b4.jpg",
+        "logoUrl": "https://mms.immowelt.de/7/9/3/0/79309636-3ccc-41a6-bc07-f03d83caadfd.jpg?ci_seal=ce06ed5f9d448c48890256d9b6bbc85680ba3582",
         "isPrivateOwner": false
       },
       "provider": {
         "intermediaryCard": {
-          "title": "Creativ - Haus Baubetreuung GmbH",
+          "title": "RS-Wohnbau GmbH",
           "subtitle": "Gewerblicher Anbieter",
           "display": true,
-          "logoHref": "https://www.immowelt.de/profil/d69fc3da02174c0ea4968fa679cdd647"
+          "logoUrl": "https://mms.immowelt.de/7/9/3/0/79309636-3ccc-41a6-bc07-f03d83caadfd.jpg?ci_seal=ce06ed5f9d448c48890256d9b6bbc85680ba3582",
+          "logoHref": "https://www.immowelt.de/profil/2607276"
         },
         "contactCard": {
-          "title": "Frau Dagmar TannhÃ¤user",
+          "title": null,
           "subtitle": "Dein Kontakt",
-          "display": true,
-          "logoUrl": "//filestore.immowelt.de/ProfilBilder/150_d5754f51778f4ecca051e0dd380625b4.jpg"
+          "display": false,
+          "logoUrl": "//filestore.immowelt.de/ProfilBilder/150_62e9407b4e764b7ba872d7c9c1d2d4f7.jpg"
         },
-        "website": "http://www.creativ-haus.de",
+        "website": "http://www.rs-wohnbau.de",
         "isPrivateOwner": false,
-        "profileUrl": "https://www.immowelt.de/profil/d69fc3da02174c0ea4968fa679cdd647",
-        "imprintUrl": "https://www.immowelt.de/profil/d69fc3da02174c0ea4968fa679cdd647#impressum",
+        "profileUrl": "https://www.immowelt.de/profil/2607276",
+        "imprintUrl": "https://www.immowelt.de/profil/2607276#impressum",
         "agencyLegalInformations": [],
         "publisherType": "PARTNER",
         "displayLinks": true,
-        "address": "Am Knie 16, 81241 MÃ¼nchen",
+        "badges": [
+          {
+            "title": "Premium Partner",
+            "description": "Wer seit 6 Jahren immowelt Partner ist, wird als Branchenkenner mit dem immowelt Premium Partner Award ausgezeichnet.",
+            "imageUrl": "https://s.immowelt.org/shared/images/partner-badges/premium-partner.svg",
+            "duration": "6 Jahre Partnerschaft"
+          }
+        ],
+        "address": "Steinsdorfstr. 13, 80538 MÃ¼nchen",
         "phoneNumbers": [
-          "+49 89 5461313",
-          "+491728872074"
+          "+49 / 89 / 2903710"
         ]
       },
       "confirmationPage": {

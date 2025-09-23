@@ -24,7 +24,7 @@ async def run():
         urls = [
             "https://www.domain.com.au/610-399-bourke-street-melbourne-vic-3000-2018835548",
             "https://www.domain.com.au/property-profile/308-9-degraves-street-melbourne-vic-3000",
-            "https://www.domain.com.au/101-29-31-market-street-melbourne-vic-3000-2018799963"
+            "https://www.domain.com.au/1518-474-flinders-street-melbourne-vic-3000-17773317"
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:

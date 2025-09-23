@@ -183,12 +183,11 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     properties = []
     # scrape all property pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        data = parse_property_page(response)
-        # handle expired property pages
         try:
+            data = parse_property_page(response)
             properties.append(data)
         except:
-            log.info("expired property page")
+            log.error("an issue occurred while parsing property page, is the listing expired?")
             pass
     log.info(f"scraped {len(properties)} property listings")
     return properties

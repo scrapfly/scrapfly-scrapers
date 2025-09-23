@@ -134,9 +134,9 @@ search_schema = {
 async def test_properties_scraping():
     properties_data = await domaincom.scrape_properties(
         urls = [
-            "https://www.domain.com.au/type-10c-250-spencer-street-melbourne-vic-3000-2018950519",
+            "https://www.domain.com.au/610-399-bourke-street-melbourne-vic-3000-2018835548",
             "https://www.domain.com.au/property-profile/308-9-degraves-street-melbourne-vic-3000",
-            "https://www.domain.com.au/1223-422-collins-street-melbourne-vic-3000-2019894035",
+            "https://www.domain.com.au/1518-474-flinders-street-melbourne-vic-3000-17773317"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
