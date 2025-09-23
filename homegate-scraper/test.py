@@ -273,8 +273,8 @@ async def test_properties_scraping():
     result = await homegate.scrape_properties(
         urls=[
             "https://www.homegate.ch/rent/4002086534",
-            "https://www.homegate.ch/rent/4002244507",
-            "https://www.homegate.ch/rent/4002268715"
+            "https://www.homegate.ch/rent/4002475362",
+            "https://www.homegate.ch/rent/4002086532",
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)

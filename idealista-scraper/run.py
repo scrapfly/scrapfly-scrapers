@@ -27,11 +27,11 @@ async def run():
 
     properties_data = await idealista.scrape_properties(
         urls=[
-            "https://www.idealista.com/en/inmueble/98935300/",
-            "https://www.idealista.com/en/inmueble/102479109/",
+            "https://www.idealista.com/en/inmueble/109061254/",
+            "https://www.idealista.com/en/inmueble/109300670/",
             "https://www.idealista.com/en/inmueble/102051911/",
             "https://www.idealista.com/en/inmueble/99394819/",
-            "https://www.idealista.com/en/inmueble/102695949/",
+            "https://www.idealista.com/en/inmueble/104741954/",
         ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
