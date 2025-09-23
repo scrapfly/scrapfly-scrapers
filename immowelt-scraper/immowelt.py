@@ -65,6 +65,8 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             data = parse_property_pages(response)
+            if "sections" not in data:
+                raise Exception("required schmea is not fullfilled")
             properties.append(data)
         except Exception as e:
             log.warning("expired property page: {}", e)
