@@ -20,7 +20,7 @@ BASE_CONFIG = {
     # Glassdoor.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
-    "country": "GB",
+    "country": "US",
     "render_js": True,
 }
 
@@ -148,9 +148,79 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
 
 def parse_salaries(result: ScrapeApiResponse) -> Dict:
     """Parse Glassdoor salaries page for salary data"""
-    cache = find_hidden_data(result)
-    salaries = next(v for k, v in cache.items() if k.startswith("aggregatedSalaryEstimates") and v.get("results"))
-    return salaries
+    
+    salary_data = {
+        "results": [],
+        "numPages": 1,
+        "salaryCount": 0,
+        "jobTitleCount": 0
+    }
+        
+    salary_items = result.selector.css('[data-test="salary-item"]')
+    
+    for item in salary_items:
+        job_title = item.css('.SalaryItem_jobTitle__XWGpT::text').get()
+        if not job_title:
+            continue
+            
+        salary_range = item.css('.SalaryItem_salaryRange__UL9vQ::text').get()
+        salary_count_text = item.css('.SalaryItem_salaryCount__GT665::text').get() or ""
+        
+        salary_count = 0
+        if "Salaries submitted" in salary_count_text:
+            try:
+                salary_count = int(salary_count_text.split()[0])
+            except (ValueError, IndexError):
+                pass
+        
+        salary_item = {
+            "jobTitle": {
+                "text": job_title,
+            },
+            "salaryCount": salary_count,
+            "basePayStatistics": {
+                "percentiles": []
+            }
+        }
+        
+        # Parse salary range
+        if salary_range:
+            range_clean = salary_range.replace('$', '').replace('K', '000')
+            if ' - ' in range_clean:
+                try:
+                    min_str, max_str = range_clean.split(' - ')
+                    min_salary = float(min_str.replace(',', ''))
+                    max_salary = float(max_str.replace(',', ''))
+                    salary_item["basePayStatistics"]["percentiles"] = [
+                        {"ident": "min", "value": min_salary},
+                        {"ident": "max", "value": max_salary}
+                    ]
+                except ValueError:
+                    pass
+        
+        salary_data["results"].append(salary_item)
+    
+    # Extract pagination from HTML
+    page_links = result.selector.css('.pagination_PageNumberText__F7427::text').getall()
+    if page_links:
+        try:
+            salary_data["numPages"] = max(int(page) for page in page_links if page.isdigit())
+        except ValueError:
+            pass
+    
+    # Extract job title count from HTML
+    result_count_text = result.selector.css('.SortBar_SearchCount__cYwt6::text').get() or ""
+    if "job titles" in result_count_text:
+        try:
+            count_str = result_count_text.split()[0]
+            salary_data["jobTitleCount"] = int(count_str.replace(',', ''))
+        except (ValueError, IndexError):
+            pass
+    
+    salary_data["salaryCount"] = len(salary_data["results"])
+    
+    log.info(f"Parsed {len(salary_data['results'])} salary items")
+    return salary_data
 
 
 async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
