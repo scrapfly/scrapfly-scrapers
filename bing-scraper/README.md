@@ -42,5 +42,4 @@ This Bing.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/
     # or specific scraping areas
     $ poetry run pytest test.py -k test_serp_scraping
     $ poetry run pytest test.py -k test_keyword_scraping
-    $ poetry run pytest test.py -k test_rich_snippets_scraping
     ```

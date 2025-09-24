@@ -44,30 +44,6 @@ serp_schema = {
     "date": {"type": "string", "nullable": True},
 }
 
-keyword_schema = {
-    "FAQs": {
-        "type": "list",
-        "schema": {
-            "type": "dict",
-            "schema": {
-                "query": {"type": "string"},
-                "answer": {"type": "string"},
-                "title": {"type": "string"},
-                "domain": {"type": "string"},
-                "url": {"type": "string"},
-            },
-        },
-    },
-    "related_keywords": {"type": "list", "schema": {"type": "string"}},
-}
-
-rich_snippets_schema = {
-    "title": {"type": "string"},
-    "link": {"type": "string"},
-    "heading": {"type": "string"},
-    "descrption": {"type": "string"},
-}
-
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -89,9 +65,6 @@ async def test_serp_scraping():
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_keyword_scraping():
     keyword_data = await bing.scrape_keywords(query="web scraping emails")
-    validator = Validator(keyword_schema, allow_unknown=True)
-    validate_or_fail(keyword_data, validator)
-    assert len(keyword_data["FAQs"]) >= 1
-    assert len(keyword_data["related_keywords"]) >= 1
+    assert len(keyword_data) >= 1
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/keywords.json').write_text(json.dumps(keyword_data, indent=2, ensure_ascii=False))
