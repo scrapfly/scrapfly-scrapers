@@ -1,51 +1,69 @@
 [
   {
     "position": 1,
-    "title": "Everything to Know to Start Web Scraping in Python Today",
-    "url": "https://scrapfly.io/blog/everything-to-know-about-web-scraping-python/",
-    "origin": "Scrapfly",
-    "domain": "scrapfly.io",
-    "description": "Scrapfly's Web Scraping API can manage a fleet of cloud headless browsers for you and simplify the entire browser automation process. Here's an ...‎Web Scraping Overview · ‎Basic Web Scraping Example · ‎Step 1: Scraping The Data",
-    "date": "Dec 2, 2024"
-  },
-  {
-    "position": 2,
-    "title": "Blog",
+    "title": "Scrapfly Blog - Web Scraping News and Tutorials",
     "url": "https://scrapfly.io/blog/",
     "origin": "Scrapfly",
     "domain": "scrapfly.io",
-    "description": "Tutorial on web scraping with scrapy and Python through a real world example project. Best practices, extension highlights and common challenges.",
+    "description": "Insider knowledge on web scraping, web automation, data extraction and more. Learn how to scrape websites, avoid blocks, use proxies and APIs, and much ...",
     "date": null
+  },
+  {
+    "position": 2,
+    "title": "Everything to Know to Start Web Scraping in Python Today",
+    "url": "https://scrapfly.io/blog/posts/everything-to-know-about-web-scraping-python",
+    "origin": "Scrapfly",
+    "domain": "scrapfly.io",
+    "description": "Scrapfly Cloud Browsers. Scrapfly's Web Scraping API can manage a fleet of cloud headless browsers for you and simplify the entire browser ...",
+    "date": "Jul 2, 2025"
   },
   {
     "position": 3,
-    "title": "Scrapfly review, overview and benchmarks",
-    "url": "https://scrapeway.com/web-scraping-api/scrapfly",
-    "origin": "Scrapeway",
-    "domain": "scrapeway.com",
-    "description": "Pros · Exceptional and fair scraper blocking bypass. · Below average pricing for most targets. · Javascript rendering with custom javascript ...",
-    "date": null
+    "title": "Web Scraping Services Explained",
+    "url": "https://scrapfly.io/blog/posts/web-scraping-services-explained",
+    "origin": "Scrapfly",
+    "domain": "scrapfly.io",
+    "description": "Complete guide to web scraping services covering managed APIs, self-hosted platforms, pricing models, and best practices for data ...",
+    "date": "Sep 16, 2025"
   },
   {
     "position": 4,
-    "title": "Intro to Web Scraping using ScrapFly SDK and Python",
-    "url": "https://www.youtube.com/watch?v=y7FbFJ4jOW8",
-    "origin": "YouTube · Scrapfly",
-    "domain": "youtube.com",
-    "description": null,
-    "date": null
+    "title": "Web Scraping with Python",
+    "url": "https://scrapfly.io/blog/posts/web-scraping-with-python",
+    "origin": "Scrapfly",
+    "domain": "scrapfly.io",
+    "description": "Web scraping with Python is surprisingly accessible though scaling up web scraping operations can be difficult and this is where Scrapfly can ...",
+    "date": "Aug 22, 2024"
   },
   {
     "position": 5,
-    "title": "Scrapfly",
-    "url": "https://github.com/scrapfly",
-    "origin": "GitHub",
-    "domain": "github.com",
-    "description": "For in-depth guides on web scraping techniques, bypassing blocks, HTML parsing, and best practices, visit the Scrapfly blog. Pinned ...",
-    "date": null
+    "title": "Complete Guide to Web Scraping using Typescript",
+    "url": "https://scrapfly.io/blog/posts/ultimate-intro-to-web-scraping-with-typescript",
+    "origin": "Scrapfly",
+    "domain": "scrapfly.io",
+    "description": "Scrapfly is a powerful web scraping API that integrates directly with Typescript web scrapers using Typescript SDK. ... ScrapFly provides web ...",
+    "date": "Aug 22, 2024"
   },
   {
     "position": 6,
+    "title": "How to Scrape Without Getting Blocked? In-Depth Tutorial",
+    "url": "https://medium.com/@scrapfly/how-to-scrape-without-getting-blocked-in-depth-tutorial-5cc32a3e13c5",
+    "origin": "Medium · Scrapfly",
+    "domain": "medium.com",
+    "description": "abstracting away logic that deals with web scraping blocking results in much ...",
+    "date": null
+  },
+  {
+    "position": 7,
+    "title": "Web Scraping Speed: Processes, Threads and Async",
+    "url": "https://scrapfly.io/blog/posts/web-scraping-speed",
+    "origin": "Scrapfly",
+    "domain": "scrapfly.io",
+    "description": "... web server responds: response = requests.get(\"https://scrapfly.io/blog/\") print(f\"requests finished in: {time()-_start:.2f}\"). We also ...",
+    "date": "Aug 22, 2024"
+  },
+  {
+    "position": 8,
     "title": "Introducing Scrapfly Typescript Web Scraping SDK - Medium",
     "url": "https://scrapfly.medium.com/introducing-scrapfly-typescript-web-scraping-sdk-cb55967ee516?source=rss-------1",
     "origin": "Medium · Scrapfly",
@@ -54,219 +72,201 @@
     "date": null
   },
   {
-    "position": 7,
-    "title": "Scrapfly - Web Scraping Integration Guide",
-    "url": "https://scrapeops.io/proxy-providers/scrapfly/python-scrapfly-proxy-api-guide/",
-    "origin": "ScrapeOps",
-    "domain": "scrapeops.io",
-    "description": "Scrapfly is built as a one-stop shop for all of your scraping needs. They manage proxy pools so you don't have to manage individual proxies.",
-    "date": null
-  },
-  {
-    "position": 8,
-    "title": "scrapfly/scrapfly-scrapers: Scalable Python web scraping ...",
-    "url": "https://github.com/scrapfly/scrapfly-scrapers",
-    "origin": "GitHub",
-    "domain": "github.com",
-    "description": "This repository contains educational example scrapers for popular web scraping targets using the ScrapFly web scraping API and Python.",
-    "date": null
-  },
-  {
     "position": 9,
-    "title": "Scrapfly SDK",
-    "url": "https://jsr.io/@scrapfly/scrapfly-sdk",
-    "origin": "JSR: the JavaScript Registry",
-    "domain": "jsr.io",
-    "description": "For web scraping guides see our blog and #scrapeguide tag for how to scrape specific targets. The SDK is distributed through: npmjs.com/package/scrapfly-sdk ...",
-    "date": null
-  },
-  {
-    "position": 10,
-    "title": "A Year of Writing about Web Scraping in Review",
-    "url": "https://scrapecrow.com/year-of-writing-in-review.html",
-    "origin": "Scrapecrow",
-    "domain": "scrapecrow.com",
-    "description": "Educational blog about web-scraping, crawling and related data extraction subjects.",
-    "date": "Jan 2, 2023"
-  },
-  {
-    "position": 11,
-    "title": "Web Scraping Blog",
-    "url": "https://www.zenrows.com/blog",
-    "origin": "ZenRows",
-    "domain": "zenrows.com",
-    "description": "Master your web scraping skills. Learn all the tips and insights we know about data collection at scale. Everything from guides to easy-to-follow tutorials.",
-    "date": null
-  },
-  {
-    "position": 12,
-    "title": "A Year of Writing about Web Scraping in Review",
-    "url": "https://scrapecrow.com/year-of-writing-in-review.html",
-    "origin": "Scrapecrow",
-    "domain": "scrapecrow.com",
-    "description": "Educational blog about web-scraping, crawling and related data extraction subjects.Missing: scrapgly ‎| Show results with: scrapgly",
-    "date": "Jan 2, 2023"
-  },
-  {
-    "position": 13,
-    "title": "ScrapingBee's Blog",
-    "url": "https://www.scrapingbee.com/blog/",
-    "origin": "scrapingbee.com",
-    "domain": "scrapingbee.com",
-    "description": "The ScrapingBee Blog. We help you get better at web-scraping: detailed tutorials, case studies and writings by industry experts.Missing: scrapgly ‎| Show results with: scrapgly",
-    "date": "Mar 3, 2025"
-  },
-  {
-    "position": 14,
-    "title": "scrapfly/scrapfly-scrapers: Scalable Python web scraping ...",
-    "url": "https://github.com/scrapfly/scrapfly-scrapers",
-    "origin": "GitHub",
-    "domain": "github.com",
-    "description": "This repository contains educational example scrapers for popular web scraping targets using the ScrapFly web scraping API and Python.",
-    "date": null
-  },
-  {
-    "position": 15,
-    "title": "What is web scraping?",
-    "url": "https://blog.apify.com/what-is-web-scraping/",
-    "origin": "Apify Blog",
-    "domain": "blog.apify.com",
-    "description": "Web scraping is the process of automatically extracting data from a website. You use a program called a web scraper to access a web page, ...",
-    "date": "Oct 15, 2024"
-  },
-  {
-    "position": 16,
-    "title": "Python Web Scraping: Full Tutorial With Examples (2025)",
-    "url": "https://www.scrapingbee.com/blog/web-scraping-101-with-python/",
-    "origin": "scrapingbee.com",
-    "domain": "scrapingbee.com",
-    "description": "Learn about web scraping in Python with this step-by-step tutorial. We will cover almost all of the tools Python offers to scrape the web.",
-    "date": "Jan 20, 2025"
-  },
-  {
-    "position": 17,
-    "title": "Web Scraper - The #1 web scraping extension",
-    "url": "https://webscraper.io/",
-    "origin": "Web Scraper",
-    "domain": "webscraper.io",
-    "description": "The most popular web scraping extension. Start scraping in minutes. Automate your tasks with our Cloud Scraper. No software to download, no coding needed.Missing: scrapgly ‎| Show results with: scrapgly",
-    "date": null
-  },
-  {
-    "position": 18,
-    "title": "Web Scraping Blog",
-    "url": "https://scrapingant.com/blog/",
-    "origin": "ScrapingAnt API",
-    "domain": "scrapingant.com",
-    "description": "Web scraping, a powerful tool in the digital age, automates the data collection process, making it faster and more efficient. This technique is widely used ...",
-    "date": null
-  },
-  {
-    "position": 19,
-    "title": "Scrape blog posts with Python",
-    "url": "https://www.youtube.com/watch?v=U90vK84bq4s",
-    "origin": "YouTube · John Watson Rooney",
+    "title": "Intro to Web Scraping using ScrapFly SDK and Python",
+    "url": "https://www.youtube.com/watch?v=y7FbFJ4jOW8",
+    "origin": "YouTube · Scrapfly",
     "domain": "youtube.com",
     "description": null,
     "date": null
   },
   {
-    "position": 20,
-    "title": "Octoparse: Web Scraping Tool & Free Web Crawlers",
-    "url": "https://www.octoparse.com/",
-    "origin": "Octoparse",
-    "domain": "octoparse.com",
-    "description": "Easy Web Scraping for Anyone. Octoparse is your no-coding solution for web scraping to turn pages into structured data within clicks. Start a free trialMissing: scrapgly ‎| Show results with: scrapgly",
+    "position": 10,
+    "title": "Web Scraping Use Cases and Types",
+    "url": "https://scrapfly.io/use-case/web-scraping",
+    "origin": "Scrapfly",
+    "domain": "scrapfly.io",
+    "description": "Web scraped data powers thousands of companies and hundreds of different markets. Here's a quick summary from what we've learned by being in the web scraping ...",
     "date": null
   },
   {
-    "position": 21,
+    "position": 11,
     "title": "Blog",
     "url": "https://webscraper.io/blog",
     "origin": "Web Scraper",
     "domain": "webscraper.io",
-    "description": "We're thrilled to introduce the latest and greatest version of Web Scraper. Take your experience to a new level with the newly updated Link Selector and more.",
-    "date": "Aug 8, 2024"
+    "description": "We're thrilled to introduce the latest and greatest version of Web Scraper. Take your experience to a new level with the newly updated Link Selector and more.Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Aug 8, 2025"
   },
   {
-    "position": 22,
-    "title": "Is there a tool that lets us scrape blog websites according ...",
-    "url": "https://www.quora.com/Is-there-a-tool-that-lets-us-scrape-blog-websites-according-to-a-subject-topic",
-    "origin": "Quora",
-    "domain": "quora.com",
-    "description": "Have you ever wondered if there's a web scraper capable of seamlessly extracting data from multiple websites? I've asked myself the same ...",
+    "position": 12,
+    "title": "Python Web Scraping: Full Tutorial With Examples (2025)",
+    "url": "https://www.scrapingbee.com/blog/web-scraping-101-with-python/",
+    "origin": "ScrapingBee",
+    "domain": "scrapingbee.com",
+    "description": "Learn about web scraping in Python with this step-by-step tutorial. We will cover almost all of the tools Python offers to scrape the web.Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Jul 22, 2025"
+  },
+  {
+    "position": 13,
+    "title": "What is web scraping?",
+    "url": "https://blog.apify.com/what-is-web-scraping/",
+    "origin": "Apify Blog",
+    "domain": "blog.apify.com",
+    "description": "Web scraping is the process of automatically extracting data from a website. You use a program called a web scraper to access a web page, ...Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Oct 15, 2024"
+  },
+  {
+    "position": 14,
+    "title": "A Practical Introduction to Web Scraping in Python",
+    "url": "https://realpython.com/python-web-scraping-practical-introduction/",
+    "origin": "Real Python",
+    "domain": "realpython.com",
+    "description": "This tutorial guides you through extracting data from websites using string methods, regular expressions, and HTML parsers.Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Dec 21, 2024"
+  },
+  {
+    "position": 15,
+    "title": "My first blog post on using automated web scraping",
+    "url": "https://club.ministryoftesting.com/t/my-first-blog-post-on-using-automated-web-scraping/75774",
+    "origin": "Ministry of Testing - The Club",
+    "domain": "club.ministryoftesting.com",
+    "description": "Here's the first post I've made on how I learned how to create web scrapers in Python and Selenium and how I got them to just work. I have more ...Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": "Apr 11, 2024"
+  },
+  {
+    "position": 16,
+    "title": "What is Web Scraping? The Ultimate Beginner Guide",
+    "url": "https://www.nimbleway.com/blog/what-is-web-scraping",
+    "origin": "Nimble Way",
+    "domain": "nimbleway.com",
+    "description": "Web scraping is a technique that automates the process of collecting data from websites. Unlike manually copying and pasting information.",
+    "date": "Oct 15, 2023"
+  },
+  {
+    "position": 17,
+    "title": "Web Scraping in R: The Complete Guide 2025",
+    "url": "https://www.zenrows.com/blog/web-scraping-r",
+    "origin": "ZenRows",
+    "domain": "zenrows.com",
+    "description": "In this step-by-step tutorial, you'll learn how to scrape websites in R using libraries like rvest and RSelenium.",
+    "date": "Feb 18, 2025"
+  },
+  {
+    "position": 18,
+    "title": "How to scrape data from a website (JavaScript vs low-code)",
+    "url": "https://blog.n8n.io/how-to-scrape-data-from-a-website/",
+    "origin": "n8n Blog",
+    "domain": "blog.n8n.io",
+    "description": "What is web scraping? Web scraping (also called web harvesting) is the process of automatically extracting and collecting data from a website.",
+    "date": "May 31, 2023"
+  },
+  {
+    "position": 19,
+    "title": "Scrape Blogs Posts Fast with a Web Scraper",
+    "url": "https://www.octoparse.com/blog/build-your-blog-fast-with-web-scraping",
+    "origin": "Octoparse",
+    "domain": "octoparse.com",
+    "description": "You can build a web scraper to scrape blog posts fast and easy. With the content database, you can sort through a large amount of content ...",
+    "date": "Jan 22, 2021"
+  },
+  {
+    "position": 20,
+    "title": "Scrapingdog: Best Web Scraping API",
+    "url": "https://www.scrapingdog.com/",
+    "origin": "Scrapingdog",
+    "domain": "scrapingdog.com",
+    "description": "Scrapingdog is your all-in-one Web Scraping API, effortlessly managing proxies and headless browsers, allowing you to extract the data you need with ease.",
     "date": null
   },
   {
+    "position": 21,
+    "title": "The Web Scraping Problem: Part 1",
+    "url": "https://www.akamai.com/blog/security/the-web-scraping-problem-part-1",
+    "origin": "Akamai",
+    "domain": "akamai.com",
+    "description": "In this three-part blog series, we'll quantify the bot traffic on the internet, then discuss the different aspects of web scraping and how they affect various ...",
+    "date": "Jan 30, 2024"
+  },
+  {
+    "position": 22,
+    "title": "Web Scraping with Javascript and Nodejs (2025 Guide)",
+    "url": "https://serpapi.com/blog/web-scraping-in-javascript-complete-tutorial-for-beginner/",
+    "origin": "SerpApi",
+    "domain": "serpapi.com",
+    "description": "How to scrape data from a website with Javascript? A complete step-by-step tutorial for beginners. Using Cheerios, Axios, and Puppeteer.",
+    "date": "Oct 25, 2023"
+  },
+  {
     "position": 23,
-    "title": "What Is Web Scraping? [A Complete Step-by-Step Guide]",
-    "url": "https://careerfoundry.com/blog/data-analytics/web-scraping-guide/",
-    "origin": "CareerFoundry",
-    "domain": "careerfoundry.com",
-    "description": "What is web scraping and what is it used for? How can you scrape the web for data? Discover everything you need to know in this guide.",
-    "date": "Aug 13, 2021"
+    "title": "Web Scraping & Custom Extraction",
+    "url": "https://www.screamingfrog.co.uk/seo-spider/tutorials/web-scraping/",
+    "origin": "Screaming Frog",
+    "domain": "screamingfrog.co.uk",
+    "description": "This tutorial walks you through how you can use the Screaming Frog SEO Spider's custom extraction feature, to scrape data from websites.",
+    "date": null
   },
   {
     "position": 24,
-    "title": "Python Web Scraping Tutorial: Step-By-Step [2024 Guide]",
-    "url": "https://oxylabs.io/blog/python-web-scraping",
-    "origin": "Oxylabs",
-    "domain": "oxylabs.io",
-    "description": "In this web scraping tutorial, we'll outline how to run a Python script with a simple application. You'll learn:",
-    "date": "Mar 5, 2024"
+    "title": "What Is Web Scraping? Definitive Guide 2025",
+    "url": "https://brightdata.com/blog/how-tos/what-is-web-scraping",
+    "origin": "Bright Data",
+    "domain": "brightdata.com",
+    "description": "Web scraping refers to the process of extracting data from websites. Once collected, this information is generally exported to more useful formats, such as CSV ...Missing: scrapgly ‎| Show results with: scrapgly",
+    "date": null
   },
   {
     "position": 25,
-    "title": "Web Scraping in C#: Complete Guide 2025",
-    "url": "https://www.zenrows.com/blog/web-scraping-c-sharp",
-    "origin": "ZenRows",
-    "domain": "zenrows.com",
-    "description": "In this step-by-step tutorial, you'll see how to do web scraping in C# using libraries like Selenium and Html Agility Pack. Let's get started!",
-    "date": "Feb 14, 2025"
+    "title": "Comprehensive Guide to Web Scraping in Python for 2025",
+    "url": "https://crawlbase.com/blog/web-scraping-the-comprehensive-guide/",
+    "origin": "Crawlbase",
+    "domain": "crawlbase.com",
+    "description": "The purpose of this guide is to help introduce web scraping for beginners and explore how to find all URLs on a website. What is Web Scraping?",
+    "date": "Mar 23, 2025"
   },
   {
     "position": 26,
-    "title": "What is Web Scraping and What is it Used For?",
-    "url": "https://www.parsehub.com/blog/what-is-web-scraping/",
-    "origin": "ParseHub",
-    "domain": "parsehub.com",
-    "description": "Web scraping refers to the extraction of data from a website. This information is collected and then exported into a format that is more useful for the user.",
-    "date": "Apr 14, 2023"
+    "title": "The Best Scraping Blogs and Websites",
+    "url": "https://feedly.com/i/top/scraping-blogs",
+    "origin": "Feedly",
+    "domain": "feedly.com",
+    "description": "Fully managed enterprise-grade web scraping service provider based in the USA. We take care of web crawling, data extraction, automated quality checks and ...",
+    "date": null
   },
   {
     "position": 27,
-    "title": "Different ways / designs to scrape blog sites",
-    "url": "https://stackoverflow.com/questions/38826707/different-ways-designs-to-scrape-blog-sites",
-    "origin": "Stack Overflow",
-    "domain": "stackoverflow.com",
-    "description": "I want to crawl all blog sites for specific fields. For eg. title, description, tags, date, author etc. I am using scrapy library build in python.2 answers  ·  Top answer: There are quie few packages that do this, most of them are just clever algorithms around ...",
+    "title": "15 Best Web Scraping Tools In 2025 (Pros, Cons, Pricing)",
+    "url": "https://www.scraperapi.com/web-scraping/tools/",
+    "origin": "ScraperAPI",
+    "domain": "scraperapi.com",
+    "description": "Discover the top 15 web scraping tools for 2025. Compare features, pricing, and pros/cons to find the perfect tool for your needs.",
     "date": null
   },
   {
     "position": 28,
-    "title": "Web Scraping Blog",
-    "url": "https://webscraping.blog/",
-    "origin": "webscraping.blog",
-    "domain": "webscraping.blog",
-    "description": "A powerful web scraping library that excels in handling asynchronous loading, infinite scrolling, and other dynamic elements with ease.",
-    "date": null
+    "title": "What Is Web Scraping? How To Legally Extract Web Content",
+    "url": "https://kinsta.com/knowledgebase/what-is-web-scraping/",
+    "origin": "Kinsta",
+    "domain": "kinsta.com",
+    "description": "Web scraping refers to the process of extracting content and data from websites using software. For example, most price comparison services use ...",
+    "date": "Apr 22, 2024"
   },
   {
     "position": 29,
-    "title": "Web Scraping With Python – 2025 Full Guide",
-    "url": "https://brightdata.com/blog/how-tos/web-scraping-with-python",
-    "origin": "Bright Data",
-    "domain": "brightdata.com",
-    "description": "Web scraping with python guide - Easily begin scraping websites on your own. Learn to build a web scraper in Python for beginners and experts.",
+    "title": "Scrape Any Website in 5 Minutes! Web Scraping Tutorial",
+    "url": "https://www.youtube.com/watch?v=5U4OVXDw1Zo",
+    "origin": "YouTube · Kunal Kushwaha",
+    "domain": "youtube.com",
+    "description": null,
     "date": null
   },
   {
     "position": 30,
-    "title": "Web Scraper - Free Web Scraping - Chrome Web Store",
-    "url": "https://chromewebstore.google.com/detail/web-scraper-free-web-scra/jnhgnonknehpejjnehehllkliplmbmhn?hl=en",
-    "origin": "Chrome Web Store",
-    "domain": "chromewebstore.google.com",
-    "description": "Web Scraper is a simple web scraping tool that allows you to use many advanced features to get the exact information you are looking for.",
+    "title": "ScrapingBee's Blog",
+    "url": "https://www.scrapingbee.com/blog/",
+    "origin": "ScrapingBee",
+    "domain": "scrapingbee.com",
+    "description": "The ScrapingBee Blog. We help you get better at web-scraping: detailed tutorials, case studies and writings by industry experts.Missing: scrapgly ‎| Show results with: scrapgly",
     "date": null
   }
 ]
