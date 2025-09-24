@@ -21,6 +21,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the poxy location to US
     "country": "US",
+    "render_js": True,
 }
 
 
@@ -53,7 +54,7 @@ def parse_place(response: ScrapeApiResponse) -> Dict:
         "phone": aria_no_label("Phone: "),
         "review_count": aria_with_label(" reviews").get(),
         # to extract star numbers from text we can use regex pattern for numbers: "\d+"
-        "stars": aria_with_label(" stars").re("\d+.*\d+")[0],
+        "stars": aria_with_label(" stars").re(r"\d+.*\d+")[0],
         "5_stars": aria_with_label("5 stars").re(r"(\d+) review")[0],
         "4_stars": aria_with_label("4 stars").re(r"(\d+) review")[0],
         "3_stars": aria_with_label("3 stars").re(r"(\d+) review")[0],
@@ -70,7 +71,6 @@ async def scrape_google_map_places(urls: List[str]) -> List[Dict]:
         ScrapeConfig(
             url=url,
             **BASE_CONFIG,
-            render_js=True,
             wait_for_selector="//button[contains(@jsaction, 'reviewlegaldisclosure')]",
         )
         for url in urls
@@ -152,11 +152,15 @@ def parse_keywords(response: ScrapeApiResponse) -> List[str]:
     """parse keywords from google search pages"""
     selector = response.selector
     related_search = []
-    for suggestion in selector.xpath(
-        "//div[div/div/span[contains(text(), 'search for')]]/following-sibling::div//a"
-    ):
-        related_search.append("".join(suggestion.xpath(".//text()").getall()))
-    people_ask_for = selector.css(".related-question-pair span::text").getall()
+
+    for suggestion in selector.xpath("//div[.//span[contains(text(), 'search for')]]/following-sibling::div//a[contains(@href, '/search')]"):
+            text = "".join(suggestion.xpath(".//text()").getall())
+            text = "".join(suggestion.xpath(".//text()").getall()).strip()
+            if len(text.split()) > 2:
+                related_search.append(text)
+
+
+    people_ask_for = [question.strip() for question in selector.css(".related-question-pair .CSkcDe::text").getall() if question.strip()]
     return {"related_search": related_search, "people_ask_for": people_ask_for}
 
 
@@ -164,7 +168,7 @@ async def scrape_keywords(query: str) -> List[str]:
     """request google search page for keyword data"""
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            f"https://www.google.com/search?hl=en&q={quote(query)}", **BASE_CONFIG, render_js=True
+            f"https://www.google.com/search?hl=en&q={quote(query)}", **BASE_CONFIG
         )
     )
     data = parse_keywords(response)
