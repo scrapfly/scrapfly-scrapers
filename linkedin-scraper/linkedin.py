@@ -232,6 +232,9 @@ async def scrape_jobs(urls: List[str]) -> List[Dict]:
     # scrape the URLs concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
+            job_data = parse_job_page(response)
+            if job_data is None:
+                raise Exception("Job page is expired, no hidden json data found")
             data.append(parse_job_page(response))
         except:
             log.debug(f"Job page with {response.context['url']} URL is expired")
