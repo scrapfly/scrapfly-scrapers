@@ -34,7 +34,7 @@ async def run():
         json.dump(comparing_data, file, indent=2, ensure_ascii=False)    
 
     sitemap_data = await similarweb.scrape_sitemaps(
-        url="https://www.similarweb.com/sitemaps/top-websites-trending/part-00000.gz"
+        url="https://www.similarweb.com/sitemaps/top-websites/top-websites-001.xml.gz"
     )
     with open(output.joinpath("sitemap_urls.json"), "w", encoding="utf-8") as file:
         json.dump(sitemap_data, file, indent=2, ensure_ascii=False)
