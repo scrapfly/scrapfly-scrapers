@@ -1,330 +1,2642 @@
 [
   {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Europe"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;60763;g60763",
+    "sponsored": false,
+    "locationId": 60763,
+    "details": {
+      "localizedName": "New York City",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "New York, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28953,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28953,
+          "naturalParent": {
+            "names": {
+              "name": "New York"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "New York, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g60763-Reviews-New_York_City_New_York-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g60763-New_York_City_New_York-Vacations.html",
+      "HOTELS_URL": "/Hotels-g60763-New_York_City_New_York-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g60763-Activities-New_York_City_New_York.html",
+      "RESTAURANTS_URL": "/Restaurants-g60763-New_York_City_New_York.html",
+      "placeType": "CITY",
+      "latitude": 40.713238,
+      "longitude": -74.00584,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2520,
+          "maxHeight": 2068,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c5/7c/68/caption.jpg?w={width}&h={height}&s=1&cx=950&cy=1766&chk=v1_9ee2771da71f55a7ac6a"
+        }
+      }
     },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
+    "highlightingInfo": [
+      {
+        "length": 13,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;150768;g150768",
+    "sponsored": false,
+    "locationId": 150768,
+    "details": {
+      "localizedName": "Mexico",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 19,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 19,
+          "naturalParent": {
+            "names": {
+              "name": "North America"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North America"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g150768-Reviews-Mexico-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g150768-Mexico-Vacations.html",
+      "HOTELS_URL": "/Hotels-g150768-Mexico-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g150768-Activities-Mexico.html",
+      "RESTAURANTS_URL": "/Restaurants-g150768-Mexico.html",
       "placeType": "COUNTRY",
-      "hierarchy": {
-        "parentId": 4,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": ""
-          }
-        },
-        "naturalParentId": 4,
-        "naturalParent": {
-          "names": {
-            "name": "Europe"
-          },
-          "placeType": "CONTINENT"
+      "latitude": 19.43196,
+      "longitude": -99.13316,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2737,
+          "maxHeight": 534,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f5/65/mexico.jpg?w={width}&h={height}&s=1"
         }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Europe"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g190311-Malta-Vacations.html",
-    "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
-    "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
-    "placeType": "COUNTRY",
-    "latitude": 35.892,
-    "longitude": 14.42979,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 5218,
-        "maxHeight": 3576,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "nestedResults": []
   },
   {
-    "localizedName": "Malta: Comino, Gozo, Blue Lagoon, Crystal Lagoon and Caves Tour",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
-      "placeType": "ACTIVITY",
-      "hierarchy": {
-        "parentId": 190320,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Malta, Europe"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
           }
         },
-        "naturalParentId": 190320,
-        "naturalParent": {
-          "names": {
-            "name": "Island of Malta"
-          },
-          "placeType": "ISLAND"
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
         }
       },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/AttractionProductReview-g190320-d14038097-Malta_Comino_Gozo_Blue_Lagoon_Crystal_Lagoon_and_Caves_Tour-Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=14038097",
-    "ATTRACTIONS_URL": "/Attractions?geo=14038097",
-    "RESTAURANTS_URL": "/Restaurants?geo=14038097",
-    "placeType": "ACTIVITY",
-    "latitude": null,
-    "longitude": null,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 720,
-        "maxHeight": 480,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/01/4a/bb/caption.jpg?w={width}&h={height}&s=1"
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
       }
-    }
+    },
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
   },
   {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Montana, United States, North America"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293951;g293951",
+    "sponsored": false,
+    "locationId": 293951,
+    "details": {
+      "localizedName": "Malaysia",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293951-Reviews-Malaysia-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293951-Malaysia-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293951-Malaysia-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293951-Activities-Malaysia.html",
+      "RESTAURANTS_URL": "/Restaurants-g293951-Malaysia.html",
+      "placeType": "COUNTRY",
+      "latitude": 3.480287,
+      "longitude": 102.47243,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2128,
+          "maxHeight": 1416,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a4/4a/26/langkawi-from-above.jpg?w={width}&h={height}&s=1"
+        }
+      }
     },
-    "streetAddress": {
-      "street1": null
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293730;g293730",
+    "sponsored": false,
+    "locationId": 293730,
+    "details": {
+      "localizedName": "Morocco",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Africa"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 6,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 6,
+          "naturalParent": {
+            "names": {
+              "name": "Africa"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Africa"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293730-Reviews-Morocco-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293730-Morocco-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293730-Morocco-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293730-Activities-Morocco.html",
+      "RESTAURANTS_URL": "/Restaurants-g293730-Morocco.html",
+      "placeType": "COUNTRY",
+      "latitude": 32.50859,
+      "longitude": -7.031084,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5760,
+          "maxHeight": 3840,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/fb/25/a5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
     },
-    "locationV2": {
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;34438;g34438",
+    "sponsored": false,
+    "locationId": 34438,
+    "details": {
+      "localizedName": "Miami",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Florida, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28930,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28930,
+          "naturalParent": {
+            "names": {
+              "name": "Florida"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Florida, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g34438-Reviews-Miami_Florida-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g34438-Miami_Florida-Vacations.html",
+      "HOTELS_URL": "/Hotels-g34438-Miami_Florida-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g34438-Activities-Miami_Florida.html",
+      "RESTAURANTS_URL": "/Restaurants-g34438-Miami_Florida.html",
       "placeType": "CITY",
-      "hierarchy": {
-        "parentId": 28947,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "United States, North America"
-          }
-        },
-        "naturalParentId": 28947,
-        "naturalParent": {
-          "names": {
-            "name": "Montana"
-          },
-          "placeType": "STATE"
+      "latitude": 25.781275,
+      "longitude": -80.190445,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1769,
+          "maxHeight": 1179,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cd/04/e4/caption.jpg?w={width}&h={height}&s=1"
         }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Montana, United States"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g45261-Reviews-Malta_Montana-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g45261-Malta_Montana-Vacations.html",
-    "HOTELS_URL": "/Hotels-g45261-Malta_Montana-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g45261-Activities-Malta_Montana.html",
-    "RESTAURANTS_URL": "/Restaurants-g45261-Malta_Montana.html",
-    "placeType": "CITY",
-    "latitude": 48.36098,
-    "longitude": -107.87406,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 2022,
-        "maxHeight": 1598,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5b/1d/1d/stilt-on-her-nest.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "nestedResults": []
   },
   {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Saratoga County, New York, United States, North America"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;635648;g635648",
+    "sponsored": false,
+    "locationId": 635648,
+    "details": {
+      "localizedName": "Montenegro",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g635648-Reviews-Montenegro-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g635648-Montenegro-Vacations.html",
+      "HOTELS_URL": "/Hotels-g635648-Montenegro-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g635648-Activities-Montenegro.html",
+      "RESTAURANTS_URL": "/Restaurants-g635648-Montenegro.html",
+      "placeType": "COUNTRY",
+      "latitude": 42.664013,
+      "longitude": 19.23064,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 3312,
+          "maxHeight": 905,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/34/01/17/montenegro.jpg?w={width}&h={height}&s=1"
+        }
+      }
     },
-    "streetAddress": {
-      "street1": null
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293953;g293953",
+    "sponsored": false,
+    "locationId": 293953,
+    "details": {
+      "localizedName": "Maldives",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": null,
+      "locationV2": {
+        "placeType": "ISLAND_GROUP",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293953-Reviews-Maldives-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293953-Maldives-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293953-Maldives-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293953-Activities-Maldives.html",
+      "RESTAURANTS_URL": "/Restaurants-g293953-Maldives.html",
+      "placeType": "ISLAND_GROUP",
+      "latitude": 4.164185,
+      "longitude": 73.494995,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4076,
+          "maxHeight": 3070,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/dc/98/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
     },
-    "locationV2": {
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187514;g187514",
+    "sponsored": false,
+    "locationId": 187514,
+    "details": {
+      "localizedName": "Madrid",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Community of Madrid, Spain, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 562642,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Spain, Europe"
+            }
+          },
+          "naturalParentId": 187427,
+          "naturalParent": {
+            "names": {
+              "name": "Spain"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Community of Madrid, Spain"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187514-Reviews-Madrid-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187514-Madrid-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187514-Madrid-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187514-Activities-Madrid.html",
+      "RESTAURANTS_URL": "/Restaurants-g187514-Madrid.html",
       "placeType": "CITY",
-      "hierarchy": {
-        "parentId": 28001575,
-        "parent": {
+      "latitude": 40.41471,
+      "longitude": -3.700708,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1500,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/72/3a/e5/filename-madrid-108-jpg.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187849;g187849",
+    "sponsored": false,
+    "locationId": 187849,
+    "details": {
+      "localizedName": "Milan",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Lombardy, Italy, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 187829,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Italy, Europe"
+            }
+          },
+          "naturalParentId": 187768,
+          "naturalParent": {
+            "names": {
+              "name": "Italy"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Lombardy, Italy"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187849-Reviews-Milan_Lombardy-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187849-Milan_Lombardy-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187849-Milan_Lombardy-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187849-Activities-Milan_Lombardy.html",
+      "RESTAURANTS_URL": "/Restaurants-g187849-Milan_Lombardy.html",
+      "placeType": "CITY",
+      "latitude": 45.464787,
+      "longitude": 9.189092,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 6000,
+          "maxHeight": 3376,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/ef/6d/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 1,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "M",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293951;g293951",
+    "sponsored": false,
+    "locationId": 293951,
+    "details": {
+      "localizedName": "Malaysia",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293951-Reviews-Malaysia-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293951-Malaysia-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293951-Malaysia-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293951-Activities-Malaysia.html",
+      "RESTAURANTS_URL": "/Restaurants-g293951-Malaysia.html",
+      "placeType": "COUNTRY",
+      "latitude": 3.480287,
+      "longitude": 102.47243,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2128,
+          "maxHeight": 1416,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a4/4a/26/langkawi-from-above.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293953;g293953",
+    "sponsored": false,
+    "locationId": 293953,
+    "details": {
+      "localizedName": "Maldives",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": null,
+      "locationV2": {
+        "placeType": "ISLAND_GROUP",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293953-Reviews-Maldives-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293953-Maldives-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293953-Maldives-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293953-Activities-Maldives.html",
+      "RESTAURANTS_URL": "/Restaurants-g293953-Maldives.html",
+      "placeType": "ISLAND_GROUP",
+      "latitude": 4.164185,
+      "longitude": 73.494995,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4076,
+          "maxHeight": 3070,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/dc/98/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187462;g187462",
+    "sponsored": false,
+    "locationId": 187462,
+    "details": {
+      "localizedName": "Majorca",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Balearic Islands, Spain, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "ISLAND",
+        "hierarchy": {
+          "parentId": 187459,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Spain, Europe"
+            }
+          },
+          "naturalParentId": 187427,
+          "naturalParent": {
+            "names": {
+              "name": "Spain"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Balearic Islands, Spain"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187462-Reviews-Majorca_Balearic_Islands-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187462-Majorca_Balearic_Islands-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187462-Majorca_Balearic_Islands-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187462-Activities-Majorca_Balearic_Islands.html",
+      "RESTAURANTS_URL": "/Restaurants-g187462-Majorca_Balearic_Islands.html",
+      "placeType": "ISLAND",
+      "latitude": 39.60357,
+      "longitude": 2.995148,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2880,
+          "maxHeight": 1920,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/66/c5/e8/caption.jpg?w={width}&h={height}&s=1&cx=1440&cy=959&chk=v1_5f9b437a0db479c398a7"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 7,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187438;g187438",
+    "sponsored": false,
+    "locationId": 187438,
+    "details": {
+      "localizedName": "Malaga",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Costa del Sol, Province of Malaga, Andalucia, Spain, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 187435,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Andalucia, Spain"
+            }
+          },
+          "naturalParentId": 187427,
+          "naturalParent": {
+            "names": {
+              "name": "Spain"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Andalucia, Spain"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187438-Reviews-Malaga_Costa_del_Sol_Province_of_Malaga_Andalucia-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187438-Malaga_Costa_del_Sol_Province_of_Malaga_Andalucia-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187438-Malaga_Costa_del_Sol_Province_of_Malaga_Andalucia-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187438-Activities-Malaga_Costa_del_Sol_Province_of_Malaga_Andalucia.html",
+      "RESTAURANTS_URL": "/Restaurants-g187438-Malaga_Costa_del_Sol_Province_of_Malaga_Andalucia.html",
+      "placeType": "CITY",
+      "latitude": 36.718468,
+      "longitude": -4.422782,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 3456,
+          "maxHeight": 2592,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/32/e0/9a/walking-up.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-293953;g293953;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "maldives hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g293953-Maldives-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 293953
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Asia"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 293953
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-187462;g187462;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "mallorca hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g187462-Majorca_Balearic_Islands-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 187462
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Balearic Islands, Spain"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 187462
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;10741;gnear;p10022",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malaysian cuisine near me",
+    "title": null,
+    "route": {
+      "url": "/MobileNearbyRestaurants-a_latitude.28__2E__84980010986328-a_longitude.__2D__81__2E__67410278320312-zft10741",
+      "page": "NearbyRestaurants",
+      "params": {
+        "anyTag": 10741,
+        "latitude": 28.84980010986328,
+        "longitude": -81.67410278320312
+      }
+    },
+    "buCategory": "RESTAURANTS",
+    "parentGeoDetails": null,
+    "highlightingInfo": [
+      {
+        "length": 17,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": null
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;189839;g189839",
+    "sponsored": false,
+    "locationId": 189839,
+    "details": {
+      "localizedName": "Malm",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Skane County, Sweden, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 189834,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Sweden, Europe"
+            }
+          },
+          "naturalParentId": 189806,
+          "naturalParent": {
+            "names": {
+              "name": "Sweden"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Skane County, Sweden"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g189839-Reviews-Malmo_Skane_County-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g189839-Malmo_Skane_County-Vacations.html",
+      "HOTELS_URL": "/Hotels-g189839-Malmo_Skane_County-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g189839-Activities-Malmo_Skane_County.html",
+      "RESTAURANTS_URL": "/Restaurants-g189839-Malmo_Skane_County.html",
+      "placeType": "CITY",
+      "latitude": 55.597195,
+      "longitude": 12.998863,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5000,
+          "maxHeight": 976,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/4d/44/30/malmo.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-187438;g187438;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malaga hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g187438-Malaga_Costa_del_Sol_Province_of_Malaga_Andalucia-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 187438
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Andalucia, Spain"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 3,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 187438
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Mal",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;60763;g60763",
+    "sponsored": false,
+    "locationId": 60763,
+    "details": {
+      "localizedName": "New York City",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "New York, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28953,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28953,
+          "naturalParent": {
+            "names": {
+              "name": "New York"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "New York, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g60763-Reviews-New_York_City_New_York-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g60763-New_York_City_New_York-Vacations.html",
+      "HOTELS_URL": "/Hotels-g60763-New_York_City_New_York-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g60763-Activities-New_York_City_New_York.html",
+      "RESTAURANTS_URL": "/Restaurants-g60763-New_York_City_New_York.html",
+      "placeType": "CITY",
+      "latitude": 40.713238,
+      "longitude": -74.00584,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2520,
+          "maxHeight": 2068,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c5/7c/68/caption.jpg?w={width}&h={height}&s=1&cx=950&cy=1766&chk=v1_9ee2771da71f55a7ac6a"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 13,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": [
+      {
+        "documentId": "geo-pt;10023-60763;g60763;p10023",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "manhattan hotels",
+        "title": "Hotels",
+        "route": {
+          "url": "/Hotels-g60763-New_York_City_New_York-Hotels.html",
+          "page": "HotelsFusion",
+          "params": {
+            "contentType": "hotel",
+            "webVariant": "HotelsFusion",
+            "geoId": 60763
+          }
+        },
+        "buCategory": "HOTELS",
+        "parentGeoDetails": {
           "names": {
             "longOnlyHierarchyTypeaheadV2": "New York, United States"
           }
         },
-        "naturalParentId": 28953,
-        "naturalParent": {
-          "names": {
-            "name": "New York"
+        "highlightingInfo": [
+          {
+            "length": 2,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 60763
+      }
+    ]
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
           },
-          "placeType": "STATE"
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
         }
       },
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293951;g293951",
+    "sponsored": false,
+    "locationId": 293951,
+    "details": {
+      "localizedName": "Malaysia",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293951-Reviews-Malaysia-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293951-Malaysia-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293951-Malaysia-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293951-Activities-Malaysia.html",
+      "RESTAURANTS_URL": "/Restaurants-g293951-Malaysia.html",
+      "placeType": "COUNTRY",
+      "latitude": 3.480287,
+      "longitude": 102.47243,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2128,
+          "maxHeight": 1416,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a4/4a/26/langkawi-from-above.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293953;g293953",
+    "sponsored": false,
+    "locationId": 293953,
+    "details": {
+      "localizedName": "Maldives",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": null,
+      "locationV2": {
+        "placeType": "ISLAND_GROUP",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293953-Reviews-Maldives-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293953-Maldives-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293953-Maldives-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293953-Activities-Maldives.html",
+      "RESTAURANTS_URL": "/Restaurants-g293953-Maldives.html",
+      "placeType": "ISLAND_GROUP",
+      "latitude": 4.164185,
+      "longitude": 73.494995,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4076,
+          "maxHeight": 3070,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/dc/98/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187514;g187514",
+    "sponsored": false,
+    "locationId": 187514,
+    "details": {
+      "localizedName": "Madrid",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Community of Madrid, Spain, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 562642,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Spain, Europe"
+            }
+          },
+          "naturalParentId": 187427,
+          "naturalParent": {
+            "names": {
+              "name": "Spain"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Community of Madrid, Spain"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187514-Reviews-Madrid-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187514-Madrid-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187514-Madrid-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187514-Activities-Madrid.html",
+      "RESTAURANTS_URL": "/Restaurants-g187514-Madrid.html",
+      "placeType": "CITY",
+      "latitude": 40.41471,
+      "longitude": -3.700708,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1500,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/72/3a/e5/filename-madrid-108-jpg.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;29220;g29220",
+    "sponsored": false,
+    "locationId": 29220,
+    "details": {
+      "localizedName": "Maui",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Hawaii, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "ISLAND",
+        "hierarchy": {
+          "parentId": 28932,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28932,
+          "naturalParent": {
+            "names": {
+              "name": "Hawaii"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Hawaii, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g29220-Reviews-Maui_Hawaii-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g29220-Maui_Hawaii-Vacations.html",
+      "HOTELS_URL": "/Hotels-g29220-Maui_Hawaii-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g29220-Activities-Maui_Hawaii.html",
+      "RESTAURANTS_URL": "/Restaurants-g29220-Maui_Hawaii.html",
+      "placeType": "ISLAND",
+      "latitude": 20.799286,
+      "longitude": -156.36734,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1920,
+          "maxHeight": 1280,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cc/d8/b8/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187462;g187462",
+    "sponsored": false,
+    "locationId": 187462,
+    "details": {
+      "localizedName": "Majorca",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Balearic Islands, Spain, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "ISLAND",
+        "hierarchy": {
+          "parentId": 187459,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Spain, Europe"
+            }
+          },
+          "naturalParentId": 187427,
+          "naturalParent": {
+            "names": {
+              "name": "Spain"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Balearic Islands, Spain"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187462-Reviews-Majorca_Balearic_Islands-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187462-Majorca_Balearic_Islands-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187462-Majorca_Balearic_Islands-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187462-Activities-Majorca_Balearic_Islands.html",
+      "RESTAURANTS_URL": "/Restaurants-g187462-Majorca_Balearic_Islands.html",
+      "placeType": "ISLAND",
+      "latitude": 39.60357,
+      "longitude": 2.995148,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2880,
+          "maxHeight": 1920,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/66/c5/e8/caption.jpg?w={width}&h={height}&s=1&cx=1440&cy=959&chk=v1_5f9b437a0db479c398a7"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293734;g293734",
+    "sponsored": false,
+    "locationId": 293734,
+    "details": {
+      "localizedName": "Marrakech",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Marrakech-Safi, Morocco, Africa"
+      },
+      "streetAddress": {
+        "street1": ""
+      },
+      "locationV2": {
+        "placeType": "MUNICIPALITY",
+        "hierarchy": {
+          "parentId": 2626640,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Morocco, Africa"
+            }
+          },
+          "naturalParentId": 293730,
+          "naturalParent": {
+            "names": {
+              "name": "Morocco"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Marrakech-Safi, Morocco"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293734-Reviews-Marrakech_Marrakech_Safi-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293734-Marrakech_Marrakech_Safi-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293734-Marrakech_Marrakech_Safi-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293734-Activities-Marrakech_Marrakech_Safi.html",
+      "RESTAURANTS_URL": "/Restaurants-g293734-Marrakech_Marrakech_Safi.html",
+      "placeType": "MUNICIPALITY",
+      "latitude": 31.632172,
+      "longitude": -8.002955,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4805,
+          "maxHeight": 3198,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/dd/8f/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;143395",
+    "sponsored": false,
+    "locationId": 143395,
+    "details": {
+      "localizedName": "Magic Kingdom Park",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Bay Lake, Florida, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "1180 Seven Seas Dr"
+      },
+      "locationV2": {
+        "placeType": "ATTRACTION",
+        "hierarchy": {
+          "parentId": 24176024,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Florida, United States"
+            }
+          },
+          "naturalParentId": 24176024,
+          "naturalParent": {
+            "names": {
+              "name": "Bay Lake"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Bay Lake, Florida"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Attraction_Review-g24176024-d143395-Reviews-Magic_Kingdom_Park-Bay_Lake_Florida.html",
+      "HOTELS_URL": "/Hotels?geo=143395",
+      "ATTRACTIONS_URL": "/Attractions?geo=143395",
+      "RESTAURANTS_URL": "/Restaurants?geo=143395",
+      "placeType": "ATTRACTION",
+      "latitude": 28.418764,
+      "longitude": -81.58122,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4729,
+          "maxHeight": 2660,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/dc/6d/64/cinderella-s-castle-at.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 2,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Ma",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": [
+      {
+        "documentId": "geo-pt;10023-190311;g190311;p10023",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta hotels",
+        "title": "Hotels",
+        "route": {
+          "url": "/Hotels-g190311-Malta-Hotels.html",
+          "page": "HotelsFusion",
+          "params": {
+            "contentType": "hotel",
+            "webVariant": "HotelsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "HOTELS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 4,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      },
+      {
+        "documentId": "geo-pt;10021-190311;g190311;p10021",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta things to do",
+        "title": "Things to Do",
+        "route": {
+          "url": "/Attractions-g190311-Activities-Malta.html",
+          "page": "AttractionsFusion",
+          "params": {
+            "contentType": "attraction",
+            "webVariant": "AttractionsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "ATTRACTIONS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 4,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      }
+    ]
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;45261;g45261",
+    "sponsored": false,
+    "locationId": 45261,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Montana, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28947,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28947,
+          "naturalParent": {
+            "names": {
+              "name": "Montana"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Montana, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g45261-Reviews-Malta_Montana-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g45261-Malta_Montana-Vacations.html",
+      "HOTELS_URL": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g45261-Activities-Malta_Montana.html",
+      "RESTAURANTS_URL": "/Restaurants-g45261-Malta_Montana.html",
+      "placeType": "CITY",
+      "latitude": 48.36098,
+      "longitude": -107.87406,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2022,
+          "maxHeight": 1598,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5b/1d/1d/stilt-on-her-nest.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;48103;g48103",
+    "sponsored": false,
+    "locationId": 48103,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Saratoga County, New York, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28001575,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "New York, United States"
+            }
+          },
+          "naturalParentId": 28953,
+          "naturalParent": {
+            "names": {
+              "name": "New York"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "New York, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g48103-Reviews-Malta_Saratoga_County_New_York-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g48103-Malta_Saratoga_County_New_York-Vacations.html",
+      "HOTELS_URL": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g48103-Activities-Malta_Saratoga_County_New_York.html",
+      "RESTAURANTS_URL": "/Restaurants-g48103-Malta_Saratoga_County_New_York.html",
+      "placeType": "CITY",
+      "latitude": 42.96258,
+      "longitude": -73.79144,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2048,
+          "maxHeight": 2048,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ea/15/73/destination-de-la-rentree.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-45261;g45261;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 45261
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Montana, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 45261
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;9629;g190311;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta boutique",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g190311-zft9629-Malta-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "filters": [
+          {
+            "value": [
+              "9629"
+            ],
+            "id": "anyTag"
+          }
+        ],
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 190311
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Europe"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      },
+      {
+        "length": 8,
+        "offset": 6
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 190311
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;776616;g776616",
+    "sponsored": false,
+    "locationId": 776616,
+    "details": {
+      "localizedName": "Malton",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Yorkshire, England, United Kingdom, Europe"
+      },
+      "streetAddress": {
+        "street1": ""
+      },
+      "locationV2": {
+        "placeType": "MUNICIPALITY",
+        "hierarchy": {
+          "parentId": 186343,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "England, United Kingdom"
+            }
+          },
+          "naturalParentId": 186217,
+          "naturalParent": {
+            "names": {
+              "name": "England"
+            },
+            "placeType": "NATION"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "England, United Kingdom"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g776616-Reviews-Malton_North_Yorkshire_England-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g776616-Malton_North_Yorkshire_England-Vacations.html",
+      "HOTELS_URL": "/Hotels-g776616-Malton_North_Yorkshire_England-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g776616-Activities-Malton_North_Yorkshire_England.html",
+      "RESTAURANTS_URL": "/Restaurants-g776616-Malton_North_Yorkshire_England.html",
+      "placeType": "MUNICIPALITY",
+      "latitude": 54.136868,
+      "longitude": -0.799448,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1280,
+          "maxHeight": 720,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/df/63/cf/dsc-2379-largejpg.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;260587",
+    "sponsored": false,
+    "locationId": 260587,
+    "details": {
+      "localizedName": "The Mall at Millenia",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Orlando, Florida, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "4200 Conroy Rd"
+      },
+      "locationV2": {
+        "placeType": "ATTRACTION",
+        "hierarchy": {
+          "parentId": 34515,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Florida, United States"
+            }
+          },
+          "naturalParentId": 34515,
+          "naturalParent": {
+            "names": {
+              "name": "Orlando"
+            },
+            "placeType": "MUNICIPALITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Orlando, Florida"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Attraction_Review-g34515-d260587-Reviews-The_Mall_at_Millenia-Orlando_Florida.html",
+      "HOTELS_URL": "/Hotels?geo=260587",
+      "ATTRACTIONS_URL": "/Attractions?geo=260587",
+      "RESTAURANTS_URL": "/Restaurants?geo=260587",
+      "placeType": "ATTRACTION",
+      "latitude": 28.485878,
+      "longitude": -81.43115,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 750,
+          "maxHeight": 746,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dd/22/f6/photo0jpg.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 8,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293812;g293812",
+    "sponsored": false,
+    "locationId": 293812,
+    "details": {
+      "localizedName": "Mali",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Africa"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 6,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 6,
+          "naturalParent": {
+            "names": {
+              "name": "Africa"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Africa"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293812-Reviews-Mali-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293812-Mali-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293812-Mali-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293812-Activities-Mali.html",
+      "RESTAURANTS_URL": "/Restaurants-g293812-Mali.html",
+      "placeType": "COUNTRY",
+      "latitude": 12.65032,
+      "longitude": -8.00004,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1500,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/f5/a5/39/fort-de-medine.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 4,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Malt",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": [
+      {
+        "documentId": "geo-pt;10023-190311;g190311;p10023",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta hotels",
+        "title": "Hotels",
+        "route": {
+          "url": "/Hotels-g190311-Malta-Hotels.html",
+          "page": "HotelsFusion",
+          "params": {
+            "contentType": "hotel",
+            "webVariant": "HotelsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "HOTELS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 5,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      },
+      {
+        "documentId": "geo-pt;10021-190311;g190311;p10021",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta things to do",
+        "title": "Things to Do",
+        "route": {
+          "url": "/Attractions-g190311-Activities-Malta.html",
+          "page": "AttractionsFusion",
+          "params": {
+            "contentType": "attraction",
+            "webVariant": "AttractionsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "ATTRACTIONS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 5,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      },
+      {
+        "documentId": "geo-pt;10022-190311;g190311;p10022",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta restaurants",
+        "title": "Restaurants",
+        "route": {
+          "url": "/Restaurants-g190311-Malta.html",
+          "page": "Restaurants",
+          "params": {
+            "geoId": 190311
+          }
+        },
+        "buCategory": "RESTAURANTS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 5,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      }
+    ]
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;45261;g45261",
+    "sponsored": false,
+    "locationId": 45261,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Montana, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28947,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28947,
+          "naturalParent": {
+            "names": {
+              "name": "Montana"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Montana, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g45261-Reviews-Malta_Montana-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g45261-Malta_Montana-Vacations.html",
+      "HOTELS_URL": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g45261-Activities-Malta_Montana.html",
+      "RESTAURANTS_URL": "/Restaurants-g45261-Malta_Montana.html",
+      "placeType": "CITY",
+      "latitude": 48.36098,
+      "longitude": -107.87406,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2022,
+          "maxHeight": 1598,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5b/1d/1d/stilt-on-her-nest.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;48103;g48103",
+    "sponsored": false,
+    "locationId": 48103,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Saratoga County, New York, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28001575,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "New York, United States"
+            }
+          },
+          "naturalParentId": 28953,
+          "naturalParent": {
+            "names": {
+              "name": "New York"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "New York, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g48103-Reviews-Malta_Saratoga_County_New_York-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g48103-Malta_Saratoga_County_New_York-Vacations.html",
+      "HOTELS_URL": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g48103-Activities-Malta_Saratoga_County_New_York.html",
+      "RESTAURANTS_URL": "/Restaurants-g48103-Malta_Saratoga_County_New_York.html",
+      "placeType": "CITY",
+      "latitude": 42.96258,
+      "longitude": -73.79144,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2048,
+          "maxHeight": 2048,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ea/15/73/destination-de-la-rentree.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-45261;g45261;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 45261
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Montana, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 45261
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;9629;g190311;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta boutique",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g190311-zft9629-Malta-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "filters": [
+          {
+            "id": "anyTag",
+            "value": [
+              "9629"
+            ]
+          }
+        ],
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 190311
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Europe"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 14,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 190311
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-48103;g48103;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 48103
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
       "names": {
         "longOnlyHierarchyTypeaheadV2": "New York, United States"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g48103-Reviews-Malta_Saratoga_County_New_York-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g48103-Malta_Saratoga_County_New_York-Vacations.html",
-    "HOTELS_URL": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g48103-Activities-Malta_Saratoga_County_New_York.html",
-    "RESTAURANTS_URL": "/Restaurants-g48103-Malta_Saratoga_County_New_York.html",
-    "placeType": "CITY",
-    "latitude": 42.96258,
-    "longitude": -73.79144,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 1108,
-        "maxHeight": 1478,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/8f/95/34/listen-to-the-beautiful.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "parentGeoId": 48103
   },
   {
-    "localizedName": "Malta5D",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Valletta, Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": "7, Old Bakery Street"
-    },
-    "locationV2": {
-      "placeType": "ATTRACTION",
-      "hierarchy": {
-        "parentId": 190328,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-          }
-        },
-        "naturalParentId": 190328,
-        "naturalParent": {
-          "names": {
-            "name": "Valletta"
-          },
-          "placeType": "CITY"
-        }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Valletta, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/Attraction_Review-g190328-d3443225-Reviews-Malta5D-Valletta_Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=3443225",
-    "ATTRACTIONS_URL": "/Attractions?geo=3443225",
-    "RESTAURANTS_URL": "/Restaurants?geo=3443225",
-    "placeType": "ATTRACTION",
-    "latitude": 35.8978,
-    "longitude": 14.509771,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 2048,
-        "maxHeight": 1152,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/40/85/75/photo2jpg.jpg?w={width}&h={height}&s=1"
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10043-190311;g190311;p10043",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta tours",
+    "title": null,
+    "route": {
+      "url": "/Attraction_Products-g190311-Malta.html",
+      "page": "AttractionProductsFusion",
+      "params": {
+        "contentType": "attraction_product",
+        "webVariant": "AttractionProductsFusion",
+        "geoId": 190311
       }
-    }
+    },
+    "buCategory": "ATTRACTIONS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Europe"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 190311
   },
   {
-    "localizedName": "Radisson Blu Resort & Spa, Malta Golden Sands",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Mellieha, Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": "Golden Sands Bay"
-    },
-    "locationV2": {
-      "placeType": "ACCOMMODATION",
-      "hierarchy": {
-        "parentId": 230152,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-          }
-        },
-        "naturalParentId": 230152,
-        "naturalParent": {
-          "names": {
-            "name": "Mellieha"
-          },
-          "placeType": "MUNICIPALITY"
-        }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Mellieha, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/Hotel_Review-g230152-d573828-Reviews-Radisson_Blu_Resort_Spa_Malta_Golden_Sands-Mellieha_Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=573828",
-    "ATTRACTIONS_URL": "/Attractions?geo=573828",
-    "RESTAURANTS_URL": "/Restaurants?geo=573828",
-    "placeType": "ACCOMMODATION",
-    "latitude": 35.935566,
-    "longitude": 14.34323,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 1500,
-        "maxHeight": 842,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/b2/ea/49/exterior.jpg?w={width}&h={height}&s=1"
-      }
-    }
-  },
-  {
-    "localizedName": "The Westin Dragonara Resort, Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Saint Julian's, Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": "Dragonara Road"
-    },
-    "locationV2": {
-      "placeType": "ACCOMMODATION",
-      "hierarchy": {
-        "parentId": 227101,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-          }
-        },
-        "naturalParentId": 227101,
-        "naturalParent": {
-          "names": {
-            "name": "Saint Julian's"
-          },
-          "placeType": "CITY"
-        }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Saint Julian's, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/Hotel_Review-g227101-d231311-Reviews-The_Westin_Dragonara_Resort_Malta-Saint_Julian_s_Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=231311",
-    "ATTRACTIONS_URL": "/Attractions?geo=231311",
-    "RESTAURANTS_URL": "/Restaurants?geo=231311",
-    "placeType": "ACCOMMODATION",
-    "latitude": 35.92565,
-    "longitude": 14.492072,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 4000,
-        "maxHeight": 2667,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/d5/1e/2c/exterior.jpg?w={width}&h={height}&s=1"
-      }
-    }
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Malta",
+    "recent": false
   }
 ]

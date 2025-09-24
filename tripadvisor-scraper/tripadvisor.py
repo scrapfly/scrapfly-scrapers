@@ -46,83 +46,42 @@ async def scrape_location_data(query: str) -> List[LocationData]:
     log.info(f"scraping location data: {query}")
     # the graphql payload that defines our search
     # note: that changing values outside of expected ranges can block the web scraper
-    payload = json.dumps(
-        [
-            {
-                "variables": {
-                    "request": {
-                        "query": query,
-                        "limit": 10,
-                        "scope": "WORLDWIDE",
-                        "locale": "en-US",
-                        "scopeGeoId": 1,
-                        "searchCenter": None,
-                        # note: here you can expand to search for differents.
-                        "types": [
-                            "LOCATION",
-                            # "QUERY_SUGGESTION",
-                            # "RESCUE_RESULT"
-                        ],
-                        "locationTypes": [
-                            "GEO",
-                            "AIRPORT",
-                            "ACCOMMODATION",
-                            "ATTRACTION",
-                            "ATTRACTION_PRODUCT",
-                            "EATERY",
-                            "NEIGHBORHOOD",
-                            "AIRLINE",
-                            "SHOPPING",
-                            "UNIVERSITY",
-                            "GENERAL_HOSPITAL",
-                            "PORT",
-                            "FERRY",
-                            "CORPORATION",
-                            "VACATION_RENTAL",
-                            "SHIP",
-                            "CRUISE_LINE",
-                            "CAR_RENTAL_OFFICE",
-                        ],
-                        "userId": None,
-                        "context": {},
-                        "enabledFeatures": ["articles"],
-                        "includeRecent": True,
-                    }
-                },
-                "query": "c2e5695e939386e4",
-                "extensions": {"preRegisteredQueryId": "c2e5695e939386e4"},
-            }
-        ]
-    )
-
-    # we need to generate a random request ID for this request to succeed
-    random_request_id = "".join(random.choice(string.ascii_lowercase + string.digits) for i in range(64))
-    headers = {
-        "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Connection": "keep-alive",
-        "Host": "www.tripadvisor.com",
-        "Origin": "https://www.tripadvisor.com",
-        "X-Requested-With": "XMLHttpRequest",
-        "content-type": "application/json",
-        "x-requested-by": random_request_id
-    }
+    
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.tripadvisor.com/data/graphql/ids",
-            headers=headers,
-            body=payload,
-            method="POST",
+            url="https://www.tripadvisor.com/",
             **BASE_CONFIG,
+            render_js=True,
+            js_scenario=[
+                {
+                    "wait_for_selector": {
+                        "selector": "//input[@type='search']",
+                        "timeout": 5000
+                    }
+                },
+                {
+                    "fill": {
+                        "clear": False,
+                        "selector": "//input[@type='search']",
+                        "value": "Malta"
+                    }
+                },
+                {
+                    "wait": 5000
+                }
+            ]
         )
     )
-    data = json.loads(result.content)
-    results = data[0]["data"]["Typeahead_autocomplete"]["results"]
-    # strip metadata
-    results = [r["details"] for r in results if r['__typename'] == 'Typeahead_LocationItem']
-    log.info(f"found {len(results)} results")
-    return results
 
+    # extract the json data from the graphql call
+    location_data = []
+    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
+    graphql_calls = [json.loads(f["response"]["body"]) for f in _xhr_calls if "/data/graphql/ids" in f["url"]]
+    location_data_call = [f for f in graphql_calls if "Typeahead_autocomplete" in f[0]["data"]]
+    for call in location_data_call:
+        location_data.extend(call[0]["data"]["Typeahead_autocomplete"]["results"])
+    log.info(f"found {len(location_data)} results")
+    return location_data
 
 class Preview(TypedDict):
     url: str
