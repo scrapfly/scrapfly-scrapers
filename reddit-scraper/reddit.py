@@ -30,44 +30,55 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
     info = {}
     info["id"] = url.split("/r")[-1].replace("/", "")
     info["description"] = selector.xpath("//shreddit-subreddit-header/@description").get()
-    members = selector.xpath("//shreddit-subreddit-header/@subscribers").get()
+    members_text = selector.xpath("//faceplate-number[following-sibling::text()[contains(., 'members')]]/@number").get()
     rank = selector.xpath("//strong[@id='position']/text()").get()
     info["rank"] = rank.strip() if rank else None
-    info["members"] = int(members) if members else None
+    info["members"] = int(members_text) if members_text else None
     info["bookmarks"] = {}
     for item in selector.xpath("//div[faceplate-tracker[@source='community_menu']]/faceplate-tracker"):
         name = item.xpath(".//a/span/span/span/text()").get()
         link = item.xpath(".//a/@href").get()
-        info["bookmarks"][name] = link
+        if name and link:
+            info["bookmarks"][name] = link
 
     info["url"] = url
     post_data = []
     for box in selector.xpath("//article"):
         link = box.xpath(".//a/@href").get()
         author = box.xpath(".//shreddit-post/@author").get()
-        post_label = box.xpath(".//faceplate-tracker[@source='post']/a/span/div/text()").get()
+        post_label = box.xpath(".//span[contains(@class, 'bg-tone-4')]/div/text()").get()
         upvotes = box.xpath(".//shreddit-post/@score").get()
         comment_count = box.xpath(".//shreddit-post/@comment-count").get()
         attachment_type = box.xpath(".//shreddit-post/@post-type").get()
-        if attachment_type and attachment_type == "image":
-            attachment_link = box.xpath(".//div[contains(@class, 'img')]/*/@src").get()
-        elif attachment_type == "video":
-            attachment_link = box.xpath(".//shreddit-player/@preview").get()
-        else:
-            attachment_link = None
-        post_data.append({
-            "authorProfile": "https://www.reddit.com/user/" + author if author else None,
-            "authorId": box.xpath(".//shreddit-post/@author-id").get(),            
-            "title": box.xpath("./@aria-label").get(),
-            "link": "https://www.reddit.com" + link if link else None,
-            "publishingDate": box.xpath(".//shreddit-post/@created-timestamp").get(),
-            "postId": box.xpath(".//shreddit-post/@id").get(),
-            "postLabel": post_label.strip() if post_label else None,
-            "postUpvotes": int(upvotes) if upvotes else None,
-            "commentCount": int(comment_count) if comment_count else None,
-            "attachmentType": attachment_type,
-            "attachmentLink": attachment_link,
-        })
+
+        attachment_link = None
+        if attachment_type:
+            if attachment_type == "image":
+                attachment_link = box.xpath(".//img[contains(@class, 'media-lightbox-img')]/@src").get()
+                if not attachment_link:
+                    attachment_link = box.xpath(".//img[contains(@alt, 'r/wallstreetbets')]/@src").get()
+            elif attachment_type == "video":
+                attachment_link = box.xpath(".//shreddit-player/@preview").get()
+            elif attachment_type == "gallery":
+                attachment_link = box.xpath(".//img[contains(@class, 'media-lightbox-img')]/@src").get()
+            if not attachment_link:
+                attachment_link = box.xpath(".//shreddit-post/@content-href").get()
+
+        post_data.append(
+            {
+                "authorProfile": "https://www.reddit.com/user/" + author if author else None,
+                "authorId": box.xpath(".//shreddit-post/@author-id").get(),
+                "title": box.xpath("./@aria-label").get(),
+                "link": "https://www.reddit.com" + link if link else None,
+                "publishingDate": box.xpath(".//shreddit-post/@created-timestamp").get(),
+                "postId": box.xpath(".//shreddit-post/@id").get(),
+                "postLabel": post_label.strip() if post_label else None,
+                "postUpvotes": int(upvotes) if upvotes else None,
+                "commentCount": int(comment_count) if comment_count else None,
+                "attachmentType": attachment_type,
+                "attachmentLink": attachment_link,
+            }
+        )
     # id for the next posts batch
     cursor_id = selector.xpath("//shreddit-post/@more-posts-cursor").get()
     return {"post_data": post_data, "info": info, "cursor": cursor_id}
