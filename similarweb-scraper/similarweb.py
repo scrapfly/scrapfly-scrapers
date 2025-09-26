@@ -87,9 +87,8 @@ async def scrape_website_compare(first_domain: str, second_domain: str) -> Dict:
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
     content = response.scrape_result['content']
-    # decode base64 content first
-    decoded_bytes = base64.b64decode(content)
-    xml = decoded_bytes.decode('utf-8')
+    # Read bytes from BytesIO and decode to string
+    xml = content.read().decode('utf-8')
     selector = Selector(xml)
     data = []
     for url in selector.xpath("//url/loc/text()"):
