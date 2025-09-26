@@ -11,6 +11,7 @@ import gzip
 import json
 import jmespath
 import base64
+from io import BytesIO
 from parsel import Selector
 from typing import Dict, List, Optional
 from loguru import logger as log
@@ -87,8 +88,15 @@ async def scrape_website_compare(first_domain: str, second_domain: str) -> Dict:
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
     content = response.scrape_result['content']
-    # Read bytes from BytesIO and decode to string
-    xml = content.read().decode('utf-8')
+
+    # base64-encoded string
+    if isinstance(content, str):
+        decoded_bytes = base64.b64decode(content)
+        xml = decoded_bytes.decode('utf-8')
+    # bytes-io object        
+    elif isinstance(content, BytesIO):
+        xml = content.read().decode('utf-8')
+        
     selector = Selector(xml)
     data = []
     for url in selector.xpath("//url/loc/text()"):
