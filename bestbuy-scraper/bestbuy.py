@@ -22,7 +22,8 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
-    "headers": {"cookie": "intl_splash=false"},
+    "proxy_pool":"public_residential_pool",
+    # "headers": {"cookie": "intl_splash=false"},
 }
 
 
@@ -107,27 +108,48 @@ def _extract_nested(data, keys, default=None):
         data = data.get(key, {})
     return data or default
 
+def extract_rehydrate_key(json_data):
+    """Extract the dynamic rehydrate key from JSON data"""
+    if not json_data or 'rehydrate' not in json_data:
+        return None
+    
+    rehydrate_data = json_data['rehydrate']
+    # Find keys that match the pattern :R[letters/numbers]:
+    for key in rehydrate_data.keys():
+        if key.startswith(':R') and key.endswith(':'):
+            return key
+    return None
 
 def parse_product(response: ScrapeApiResponse) -> Dict:
     """parse product data from bestbuy product pages"""
     selector = response.selector
     data = {}
 
-    product_info = extract_json(selector.xpath("//script[contains(text(),'productBySkuId')]/text()").get())
-    product_features = extract_json(selector.xpath("//script[contains(text(),'Rn5en7rajttrkq')]/text()").get())
-    buying_options = extract_json(selector.xpath("//script[contains(text(), 'R1cn7rajttrkqH4')]/text()").get())
-    product_faq = extract_json(selector.xpath("//script[contains(text(), 'ProductQuestionConnection')]/text()").get())
-
-    data["product-info"] = _extract_nested(product_info, ["rehydrate", ":Rn5en7rajttrkq:", "data", "productBySkuId"])
-    data["product-features"] = _extract_nested(
-        product_features, ["rehydrate", ":Rn5en7rajttrkq:", "data", "productBySkuId", "features"]
-    )
-    data["buying-options"] = _extract_nested(
-        buying_options, ["rehydrate", ":R1cn7rajttrkqH4:", "data", "productBySkuId", "buyingOptions"]
-    )
-    data["product-faq"] = _extract_nested(
-        product_faq, ["rehydrate", ":Rnlen7rajttrkq:", "data", "productBySkuId", "questions"]
-    )
+    product_scripts = selector.xpath("//script[contains(text(),'productBySkuId')]/text()").getall()
+    for script_text in product_scripts:
+        json_data = extract_json(script_text)
+        if not json_data:
+            continue
+            
+        rehydrate_key = extract_rehydrate_key(json_data)
+        if not rehydrate_key:
+            continue
+    
+        if 'productBySkuId' in _extract_nested(json_data, ["rehydrate", rehydrate_key, "data"], default={}):
+            product_data = _extract_nested(json_data, ["rehydrate", rehydrate_key, "data", "productBySkuId"])
+            
+            # Determine data type based on available fields
+            if not data.get("product-info") and product_data:
+                data["product-info"] = product_data
+                
+            if not data.get("product-features") and product_data and "features" in product_data:
+                data["product-features"] = product_data.get("features")
+                
+            if not data.get("buying-options") and product_data and "buyingOptions" in product_data:
+                data["buying-options"] = product_data.get("buyingOptions")
+                
+            if not data.get("product-faq") and product_data and "questions" in product_data:
+                data["product-faq"] = product_data.get("questions")
 
     return data
 
@@ -154,34 +176,62 @@ def parse_search(response: ScrapeApiResponse):
     """parse search data from search pages"""
     selector = response.selector
     data = []
-    for item in selector.css("#main-results li"):
-        name = item.css(".product-title::attr(title)").get()
-        link = item.css("a.product-list-item-link::attr(href)").get()
-        price = selector.css("div.customer-price::text").re("\d+\.\d{2}")[0]
-        original_price = (selector.css("div.regular-price::text").re("\d+\.\d{2}") or [None])[0]
-        sku = item.xpath("@data-testid").get()
-        _rating_data = item.css(".c-ratings-reviews p::text")
-        rating = (_rating_data.re(r"\d+\.*\d*") or [None])[0]
-        rating_count = int((_rating_data.re("(\d+) reviews") or [0])[0])
-        images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
 
-        data.append(
-            {
+    for item in selector.css("main.product-grid-view-container li"):
+        if item.css(".a-skeleton-shimmer").get():
+            continue
+        name = item.css(".product-title::attr(title)").get()
+
+        link = item.css("a.product-list-item-link::attr(href)").get()
+
+        sku = item.xpath("@data-testid").get()
+
+        price = None
+        price_element = item.css('[data-testid="price-block-customer-price"] span::text').get()
+        if price_element:
+            price = re.sub(r'[^\d.]', '', price_element) or None
+        original_price = None
+        original_price_elements = item.css('[data-testid="price-block-regular-price"] span::text').getall()
+        for elem in original_price_elements:
+            if '$' in elem:
+                original_price = re.sub(r'[^\d.]', '', elem) or None
+                break
+
+        rating = item.css('.font-weight-bold::text').get()
+        
+        rating_count = 0
+        rating_count_element = item.css('.c-reviews::text').get()
+        if rating_count_element:
+            count_matches = re.findall(r'\(([0-9,]+)\s+reviews?\)', rating_count_element)
+            if count_matches:
+                rating_count = int(count_matches[0].replace(',', ''))
+        
+        images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
+        
+        if name and sku:
+            data.append({
                 "name": name,
-                "link": "https://www.bestbuy.com" + link if link else None,
+                "link": link if (link and link.startswith('http')) else (f"https://www.bestbuy.com{link}" if link else None),
                 "images": images,
                 "sku": sku,
                 "price": price,
                 "original_price": original_price,
                 "rating": rating,
                 "rating_count": rating_count,
-            }
-        )
+            })
+
+    total_pages = 1
     if len(data):
-        _total_count = selector.css("div.results-title span:nth-of-type(2)::text").re("\d+")[0]
-        total_pages = int(_total_count) // len(data)
-    else:
-        total_pages = 1
+        try:
+            pagination_text = selector.css(".pagination-num-found::text").get()
+            if pagination_text:
+                total_matches = re.findall(r'of (\d+)', pagination_text.replace(',', ''))
+                if total_matches:
+                    total_count = int(total_matches[0])
+                    total_pages = (total_count + len(data) - 1) // len(data) 
+        except Exception as e:
+            log.warning(f"Could not parse total pages: {e}")
+            total_pages = 1
 
     return {"data": data, "total_pages": total_pages}
 
@@ -199,7 +249,6 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         if sort:
             params["sp"] = sort
         return base_url + urlencode(params)
-
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             form_search_url(1),
