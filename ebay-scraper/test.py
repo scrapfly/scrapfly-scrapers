@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-from cerberus import Validator , TypeDefinition
+from cerberus import Validator
 import pytest
 
 import ebay
