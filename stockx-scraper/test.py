@@ -7,7 +7,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache?
-stockx.BASE_CONFIG["cache"] = True
+stockx.BASE_CONFIG["debug"] = False
 
 
 def validate_or_fail(item, validator):

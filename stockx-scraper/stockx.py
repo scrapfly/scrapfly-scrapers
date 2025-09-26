@@ -21,6 +21,7 @@ BASE_CONFIG = {
     "asp": True,
     "render_js": True,
     "proxy_pool": "public_residential_pool",
+    "auto_scroll": True,
     "country": "US"
 }
 
