@@ -73,7 +73,7 @@ subreddit_schema = {
             "id": {"type": "string"},
             "description": {"type": "string"},
             "members": {"type": "integer"},
-            "rank": {"type": "string"},
+            "rank": {"type": "string", "nullable": True},
             "bookmarks": {
                 "type": "dict",
                 "schema": {
