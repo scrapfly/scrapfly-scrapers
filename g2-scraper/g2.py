@@ -47,7 +47,7 @@ def parse_search_page(response: ScrapeApiResponse):
         relative_link = result.xpath(".//div[contains(@class, 'elv-text-lg')]/parent::a/@href").get()
         link = urljoin(response.request.url, relative_link)
 
-        image = result.xpath(".//img[@itemprop='image']/@data-deferred-image-src").get()
+        image = result.xpath(".//img[@alt='Product Avatar Image']/@src").get()
 
         raw_rate = result.xpath(".//label[contains(text(), '/5')]/text()").get()
         rate = float(raw_rate.split("/")[0]) if raw_rate else None
