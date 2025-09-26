@@ -62,10 +62,15 @@ def parse_search(result: ScrapeApiResponse):
 def parse_property_page(result: ScrapeApiResponse):
     """parse property data from the nextjs cache"""
     # select the script tag from the HTML
-    script_text = result.selector.css("body > script:nth-child(7)::text").get()
-    if '["__UFRN_LIFECYCLE_SERVERREQUEST__"]' not in script_text:
-        raise ValueError("The script tag does not contain the expected window JSON assignment")
+    script_tags = result.selector.css("body > script::text").getall()
+    target_script = None
+    for script_text in script_tags:
+        if script_text and '["__UFRN_LIFECYCLE_SERVERREQUEST__"]' in script_text:
+            target_script = script_text
+            break
 
+    if not target_script:
+        raise ValueError("Could not find script tag containing '__UFRN_LIFECYCLE_SERVERREQUEST__'")
     pattern = r'window\["__UFRN_LIFECYCLE_SERVERREQUEST__"\]=JSON\.parse\("(.+)"\);?'
 
     match = re.search(pattern, script_text, re.DOTALL)
