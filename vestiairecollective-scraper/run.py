@@ -17,7 +17,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    vestiairecollective.BASE_CONFIG["cache"] = True
+    vestiairecollective.BASE_CONFIG["cache"] = False
 
     print(
         "running Vestiairecollective scrape and saving results to ./results directory"
@@ -25,7 +25,7 @@ async def run():
 
     products_data = await vestiairecollective.scrape_products(
         urls=[
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/multicolour-pink-gold-patek-philippe-watch-52859536.shtml",
+            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
             "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-gold-perpetual-calendar-patek-philippe-watch-55732655.shtml",
             "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
         ]
@@ -33,11 +33,11 @@ async def run():
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
         json.dump(products_data, file, indent=2, ensure_ascii=False)
 
-    # products_data = await vestiairecollective.scrape_search(
-    #     url="https://www.vestiairecollective.com/search/?q=louis+vuitton", max_pages=2
-    # )
-    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-    #     json.dump(products_data, file, indent=2, ensure_ascii=False)
+    products_data = await vestiairecollective.scrape_search(
+        url="https://www.vestiairecollective.com/search/?q=louis+vuitton", max_pages=2
+    )
+    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+        json.dump(products_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":

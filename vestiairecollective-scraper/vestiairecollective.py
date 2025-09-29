@@ -65,6 +65,7 @@ async def send_api_request(headers, payload, offset) -> List[Dict]:
             body=json.dumps(payload),
             country="US",
             method="POST",
+            asp=True,
         )
     )
     return response
@@ -77,7 +78,7 @@ def parse_search_api(result: ScrapeApiResponse) -> List[Dict]:
 
 
 async def scrape_products(urls: List[str]) -> dict:
-    """scrape goat.com product pages for product data"""
+    """scrape vestiairecollective.com product pages for product data"""
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
@@ -86,7 +87,6 @@ async def scrape_products(urls: List[str]) -> dict:
         products.append(product)
     log.success(f"scraped {len(products)} product listings from product pages")
     return products
-
 
 async def retry_failure(url: str, _retries: int = 0):
     """retry failed requests with a maximum number of retries"""
