@@ -28,7 +28,7 @@ comment_schema = {
 }
 
 post_schema = {
-    "text": {"type": "string"},
+    "id": {"type": "string"},
     "desc": {"type": "string"},
     "createTime": {"type": "string"},
     "video": {

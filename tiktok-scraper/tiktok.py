@@ -174,7 +174,7 @@ def parse_profile(response: ScrapeApiResponse):
 
 async def scrape_profiles(urls: List[str]) -> List[Dict]:
     """scrape tiktok profiles data from their URLs"""
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True) for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True, wait_for_selector="#__UNIVERSAL_DATA_FOR_REHYDRATION__") for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         profile_data = parse_profile(response)
