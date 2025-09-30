@@ -20,7 +20,6 @@ BASE_CONFIG = {
     "country": "GB",
     "proxy_pool": "public_residential_pool",
     "debug":True,
-    "os":"linux",
     "auto_scroll":True,
 }
 
@@ -37,7 +36,7 @@ def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
         url = result.xpath(".//h2/a/@href").get()
         description = result.xpath("normalize-space(.//div/p)").extract_first()
         date = result.xpath(".//span[@class='news_dt']/text()").get()
-        if data is not None and len(date) > 12:
+        if data is not None and date is not None and len(date) > 12:
             date_pattern = re.compile(r"\b\d{2}-\d{2}-\d{4}\b")
             date_pattern.findall(description)
             dates = date_pattern.findall(date)
