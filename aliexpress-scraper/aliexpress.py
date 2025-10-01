@@ -23,11 +23,7 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
     "country": "US",
-    # aliexpress returns differnt results based on localization settings
-    # apply localization settings from the browser and then copy the aep_usuc_f cookie from devtools
-    "headers": {
-        "cookie": "aep_usuc_f=site=glo&province=&city=&c_tp=USD&region=EG&b_locale=en_US&ae_u_p_s=2"
-    }
+    "proxy_pool": "public_residential_pool"
 }
 
 
@@ -126,7 +122,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "media": selector.xpath("//div[contains(@class,'slider--img')]/img/@src").getall(),
         "rate": len(rate) if rate else None,
         "reviews": int(reviews.replace(" Reviews", "")) if reviews else None,
-        "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else None,
+        "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else 0,
         "availableCount": int(available_count.replace(" available", "")) if available_count else None
     }
     price = selector.xpath("//span[contains(@class,'price-default--current')]/text()").get()
@@ -140,10 +136,14 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "discount": discount if discount else "No discount",
     }
     shipping_cost = selector.xpath("//strong[contains(text(),'Shipping')]/text()").get()
+    delivery = selector.xpath("//strong[contains(text(),'Delivery')]/span/text()").get()
+    if not delivery:
+        # Fallback selector - looks for the second dynamic-shipping-line
+        delivery = selector.xpath("//div[contains(@class,'dynamic-shipping-contentLayout')]//span[@style]/text()").get()
     shipping = {
         "cost": float(shipping_cost.split("$")[-1]) if shipping_cost else None,
         "currency": "$",
-        "delivery": selector.xpath("(//div[contains(@class,'dynamic-shipping-line')])[2]/span[2]/span/strong/text()").get()
+        "delivery": delivery
     }
     specifications = []
     for i in selector.xpath("//div[contains(@class,'specification--prop')]"):
@@ -155,7 +155,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
     for i in selector.xpath("//div[@class='ask-list']/ul/li"):
         faqs.append({
             "question": i.xpath(".//p[@class='ask-content']/span/text()").get(),
-            "answer": i.xpath(".//ul[@class='answer-box']/li/p/text()").get()
+            "answer": i.xpath(".//ul[@class='answer-box']/li/p/span/text()").get()
         })
     seller_link = selector.xpath("//a[@data-pl='store-name']/@href").get()
     seller_followers = selector.xpath("//div[contains(@class,'store-info')]/strong[2]/text()").get()
@@ -184,8 +184,7 @@ async def scrape_product(url: str) -> List[Product]:
     log.info("retrieving a session ID")
     log.info("scraping product: {}", url)
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, auto_scroll=True,
-        rendering_wait=15000, retry=False, timeout=150000, js_scenario=[
+        url, **BASE_CONFIG, render_js=True, auto_scroll=True, js_scenario=[
             {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
             {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
         ]
