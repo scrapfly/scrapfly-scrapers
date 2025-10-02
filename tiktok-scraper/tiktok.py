@@ -271,21 +271,10 @@ async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -
     return search_data
 
 
-def parse_channel(response: ScrapeApiResponse):
-    """parse channel video data from XHR calls"""
-    # extract the xhr calls and extract the ones for videos
-    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
-    post_calls = [c for c in _xhr_calls if "/api/post/item_list/" in c["url"]]
-    channel_data = []
-    for post_call in post_calls:
-        try:
-            data = json.loads(post_call["response"]["body"])["itemList"]
-        except Exception:
-            raise Exception("Post data couldn't load")
-        channel_data.extend(data)
-    # parse all the data using jmespath
+def parse_channel(videos: List[Dict]) -> List[Dict]:
+    """parse video data from API response"""
     parsed_data = []
-    for post in channel_data:
+    for post in videos:
         result = jmespath.search(
             """{
             createTime: createTime,
@@ -299,25 +288,125 @@ def parse_channel(response: ScrapeApiResponse):
         parsed_data.append(result)
     return parsed_data
 
-
-async def scrape_channel(url: str) -> List[Dict]:
-    """scrape video data from a channel (profile with videos)"""
-    # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 5000)); scrollToEnd();"""
-    log.info(f"scraping channel page with the URL {url} for post data")
-    response = await SCRAPFLY.async_scrape(
+async def scrape_channel(url: str, max_videos: int = 100, max_videos_per_request: int = 18) -> List[Dict]:
+    """scrape video data from a channel by calling the item_list API directly
+        Args:
+            url (str): The channel URL to scrape.
+            max_videos (int, optional): Maximum total number of videos to fetch. Defaults to 500.
+            max_videos_per_request (int, optional): Number of videos to request per API call. 
+                recommend to be within (10, 20). Some channels may fail if this value is set higher.
+    """
+    
+    # First, get the user's secUid from their profile page
+    log.info(f"fetching profile to extract secUid from {url}")
+    profile_response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
-            asp=True,
-            country="AU",
-            wait_for_selector="//div[@data-e2e='user-post-item-list']",
+            **BASE_CONFIG,
             render_js=True,
-            auto_scroll=True,
-            rendering_wait=10000,
-            js=js,
-            debug=True,
+            rendering_wait=3000,
         )
     )
-    data = parse_channel(response)
-    log.success(f"scraped {len(data)} posts data")
+    
+    _xhr_calls = profile_response.scrape_result["browser_data"]["xhr_call"]
+    log.info(f"found {len(_xhr_calls)} XHR calls")
+    
+    sec_uid = None
+    aid = None
+    
+    for xhr in _xhr_calls:
+        if "/api/post/item_list/" in xhr.get("url", ""):
+            log.info(f"found item_list XHR call: {xhr.get('url')[:100]}...")
+            # Parse the URL to extract query parameters
+            parsed_url = urlparse(xhr["url"])
+            query_params = parse_qs(parsed_url.query)
+            
+            # Extract just the aid and sec_uid
+            aid = query_params.get("aid", [None])[0]
+            sec_uid = query_params.get("secUid", [None])[0]  # Fixed: was missing [0]
+
+            log.info(f"extracted API parameters: aid={aid}, secUid={sec_uid[:20] if sec_uid else None}...")
+            break
+    
+    # Failback 
+    if not aid or not sec_uid:
+        log.warning("Could not extract aid or secUid from XHR calls, using fallback method")
+        # Extract secUid from the profile page data
+        selector = profile_response.selector
+        script_data = selector.xpath("//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()").get()
+        if script_data:
+            user_data = json.loads(script_data)["__DEFAULT_SCOPE__"]["webapp.user-detail"]["userInfo"]
+            sec_uid = user_data["user"]["secUid"]
+            log.info(f"extracted secUid from page data: {sec_uid[:20]}...")
+        else:
+            raise Exception("Could not extract secUid from page data")
+            
+        # Use default params for aid if we can't extract them
+        if not aid:
+            aid = "1988"
+            log.warning(f"using default aid: {aid}")
+    
+    def build_api_url(cursor: int = 0) -> str:
+        """Build the item_list API URL with proper parameters"""
+        # These parameters are based on what TikTok's web app uses
+        params = {
+            "aid": aid,
+            "count": max_videos_per_request,
+            "cursor": cursor,
+            "secUid": sec_uid,
+            "root_referer": url,
+        }
+        return f"https://www.tiktok.com/api/post/item_list/?{urlencode(params)}"
+    
+    # Fetch videos using pagination
+    all_videos = []
+    cursor = 0
+    has_more = True
+    
+    # Create a session to maintain cookies
+    session_id = "tiktok_channel_session"
+    log.info(f"starting video fetch loop, max_videos={max_videos}")
+
+    while has_more and len(all_videos) < max_videos:
+        log.info(f"fetching videos batch, cursor: {cursor}, current total: {len(all_videos)}")
+        
+        api_response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(
+                build_api_url(cursor),
+                **BASE_CONFIG,
+                headers={"content-type": "application/json"},
+                session=session_id,
+            )
+        )
+        
+        try:
+            data = json.loads(api_response.scrape_result["content"])
+        except Exception as e:
+            log.error(f"failed to parse API response: {e}")
+            break
+        
+        if data.get("itemList"):
+            videos = data["itemList"]
+            all_videos.extend(videos)
+            log.info(f"fetched {len(videos)} videos, total: {len(all_videos)}")
+            
+            # Update cursor for next page
+            has_more = data.get("hasMore", False)
+            cursor = data.get("cursor", 0)
+            log.debug(f"hasMore={has_more}, next cursor={cursor}")
+        else:
+            log.warning("no videos found in response, stopping pagination")
+            break
+        
+        # Stop if we've reached the desired count
+        if len(all_videos) >= max_videos:
+            all_videos = all_videos[:max_videos]
+            log.info(f"reached max_videos limit, truncating to {max_videos}")
+            break
+    
+    log.info(f"parsing {len(all_videos)} videos")
+    # Parse the video data
+    data = parse_channel(all_videos)
+
+    log.success(f"scraped {len(data)} videos from channel")
     return data
