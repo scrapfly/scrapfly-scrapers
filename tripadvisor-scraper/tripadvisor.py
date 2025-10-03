@@ -178,8 +178,8 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
         text = "".join(review.xpath(".//div[@class='_c']//div[contains(@class, 'fIrGe')]//span[contains(@class, 'JguWG')]//span/text()").extract())
         rate = review.xpath(".//*[contains(text(),'of 5 bubbles')]/text()").get()
         rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
-        trip_data = review.xpath(".//div[contains(@class, 'MZTIt')]//div[contains(@class, 'CPHmk')][1]//span[contains(@class, 'xENVe')]/text()").get()
-        trip_type = review.xpath(".//div[contains(@class, 'MZTIt')]//div[contains(@class, 'CPHmk')][2]//span[contains(@class, 'xENVe')]/text()").get()
+        trip_data = review.xpath(".//span[contains(text(), 'Date of stay:')]/parent::div/following-sibling::span/text()").get()
+        trip_type = review.xpath(".//span[contains(text(), 'Trip type:')]/parent::div/following-sibling::span/text()").get()
 
         reviews.append({
             "title": title,
