@@ -149,6 +149,7 @@ user_comment_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_subreddit_scraping():
     subreddit_data = await reddit.scrape_subreddit(
         subreddit_id="wallstreetbets",
@@ -165,6 +166,7 @@ async def test_subreddit_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_post_scraping():
     post_data = await reddit.scrape_post(
         url="https://www.reddit.com/r/wallstreetbets/comments/1c4vwlp/what_are_your_moves_tomorrow_april_16_2024/",
@@ -181,6 +183,7 @@ async def test_post_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_user_post_scraping():
     user_post_data = await reddit.scrape_user_posts(
         username="Scrapfly",
@@ -198,6 +201,7 @@ async def test_user_post_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_user_comment_scraping():
     user_comment_data = await reddit.scrape_user_comments(
         username="Scrapfly",
