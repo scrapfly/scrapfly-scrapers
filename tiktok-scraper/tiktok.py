@@ -185,8 +185,13 @@ async def scrape_profiles(urls: List[str]) -> List[Dict]:
 
 def parse_search(response: ScrapeApiResponse) -> List[Dict]:
     """parse search data from the API response"""
-    data = json.loads(response.scrape_result["content"])
-    search_data = data["data"]
+    try:
+        data = json.loads(response.scrape_result["content"])
+        search_data = data["data"]
+    except Exception as e:
+        log.error(f"Failed to parse JSON from search API response: {e}")
+        return None
+
     parsed_search = []
     for item in search_data:
         if item["type"] == 1:  # get the item if it was item only
@@ -212,7 +217,7 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
 
 async def obtain_session(url: str) -> str:
     """create a session to save the cookies and authorize the search API"""
-    session_id = "tiktok_search_session"
+    session_id = str(uuid.uuid4().hex)
     await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
     return session_id
 
@@ -265,7 +270,8 @@ async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -
     ]
     async for response in SCRAPFLY.concurrent_scrape(_other_pages):
         data = parse_search(response)
-        search_data.extend(data)
+        if data is not None:
+            search_data.extend(data)
 
     log.success(f"scraped {len(search_data)} from the search API from the keyword {keyword}")
     return search_data
@@ -288,11 +294,11 @@ def parse_channel(videos: List[Dict]) -> List[Dict]:
         parsed_data.append(result)
     return parsed_data
 
-async def scrape_channel(url: str, max_videos: int = 100, max_videos_per_request: int = 18) -> List[Dict]:
+async def scrape_channel(url: str, max_pages: int = 5, max_videos_per_request: int = 18) -> List[Dict]:
     """scrape video data from a channel by calling the item_list API directly
         Args:
             url (str): The channel URL to scrape.
-            max_videos (int, optional): Maximum total number of videos to fetch. Defaults to 500.
+            max_pages (int, optional): Maximum number of pages to fetch. Defaults to 5.
             max_videos_per_request (int, optional): Number of videos to request per API call. 
                 recommend to be within (10, 20). Some channels may fail if this value is set higher.
     """
@@ -362,13 +368,14 @@ async def scrape_channel(url: str, max_videos: int = 100, max_videos_per_request
     all_videos = []
     cursor = 0
     has_more = True
+    current_page = 0
     
     # Create a session to maintain cookies
     session_id = "tiktok_channel_session"
-    log.info(f"starting video fetch loop, max_videos={max_videos}")
+    log.info(f"starting video fetch loop, max_pages={max_pages}")
 
-    while has_more and len(all_videos) < max_videos:
-        log.info(f"fetching videos batch, cursor: {cursor}, current total: {len(all_videos)}")
+    while has_more and current_page < max_pages:
+        log.info(f"fetching videos batch, page: {current_page + 1}/{max_pages}, cursor: {cursor}, current total: {len(all_videos)}")
         
         api_response = await SCRAPFLY.async_scrape(
             ScrapeConfig(
@@ -393,15 +400,10 @@ async def scrape_channel(url: str, max_videos: int = 100, max_videos_per_request
             # Update cursor for next page
             has_more = data.get("hasMore", False)
             cursor = data.get("cursor", 0)
-            log.debug(f"hasMore={has_more}, next cursor={cursor}")
+            current_page += 1
+            log.debug(f"hasMore={has_more}, next cursor={cursor}, current_page={current_page}")
         else:
             log.warning("no videos found in response, stopping pagination")
-            break
-        
-        # Stop if we've reached the desired count
-        if len(all_videos) >= max_videos:
-            all_videos = all_videos[:max_videos]
-            log.info(f"reached max_videos limit, truncating to {max_videos}")
             break
     
     log.info(f"parsing {len(all_videos)} videos")
