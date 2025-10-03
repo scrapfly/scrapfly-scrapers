@@ -4,7 +4,7 @@
     "link": "https://www.g2.com/products/oracle-oracle-cloud-infrastructure/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/2753ea8c7953188158425365667be750/oracle-oracle-cloud-infrastructure.png",
     "rate": 4.2,
-    "reviewsNumber": 377,
+    "reviewsNumber": 382,
     "description": null,
     "categories": [
       "Product Suites"
@@ -46,7 +46,7 @@
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-compute/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-compute.png",
     "rate": 4.1,
-    "reviewsNumber": 68,
+    "reviewsNumber": 67,
     "description": "Compute options range from VMs to GPUs to bare metal servers, and includes options for dense I/O workloads, high performance computing (HPC), and AMD EPYC processors.",
     "categories": [
       "Container Engine"
@@ -120,23 +120,11 @@
     ]
   },
   {
-    "name": "Oracle Cloud Infrastructure Networking",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-networking/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-networking.png",
-    "rate": 4.2,
-    "reviewsNumber": 23,
-    "description": "Extend your IT infrastructure with highly customizable Virtual Cloud Networks (VCN) and connectivity services offering predictable and consistent performance, isolation, and availability.",
-    "categories": [
-      "Virtual Private Cloud (VPC)",
-      "Business VPN"
-    ]
-  },
-  {
     "name": "Google Cloud AI Infrastructure",
     "link": "https://www.g2.com/products/google-cloud-ai-infrastructure/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-ai-infrastructure.jpg",
     "rate": 4.6,
-    "reviewsNumber": 18,
+    "reviewsNumber": 15,
     "description": "AI Infrastructure\nScalable, high performance, and cost effective infrastructure for every AI workload.\n\nAI Accelerators for every use case from high performance training to low-cost inference\n\nScale faster with GPUs and TPUs on Google Kubernetes Engine or Google Compute Engine\n\nDeployable solutions for Vertex AI, Google Kubernetes Engine, and the Cloud HPC Toolkit\n\nGet the most out of our AI Infrastructure by deploying the AI Hypercomputer architecture",
     "categories": [
       "Generative AI Infrastructure"
@@ -154,14 +142,15 @@
     ]
   },
   {
-    "name": "Google Cloud Infrastructure Manager",
-    "link": "https://www.g2.com/products/google-cloud-infrastructure-manager/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-infrastructure-manager.jpg",
+    "name": "Oracle Cloud Infrastructure Networking",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-networking/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-networking.png",
     "rate": 4.2,
-    "reviewsNumber": 14,
-    "description": "Google Cloud Infrastructure Manager\n\nProduct Description:\n\nGoogle Cloud Infrastructure Manager is a managed service that automates the deployment and management of Google Cloud infrastructure resources using Terraform. By integrating Terraform's infrastructure-as-code capabilities directly into the Google Cloud ecosystem, Infra Manager enables users to define, deploy, and manage cloud resources in a consistent, repeatable, and efficient manner. This service eliminates the need for maintaining se",
+    "reviewsNumber": 17,
+    "description": "Extend your IT infrastructure with highly customizable Virtual Cloud Networks (VCN) and connectivity services offering predictable and consistent performance, isolation, and availability.",
     "categories": [
-      "Cloud Infrastructure Automation"
+      "Virtual Private Cloud (VPC)",
+      "Business VPN"
     ]
   },
   {
@@ -178,6 +167,17 @@
     ]
   },
   {
+    "name": "Google Cloud Infrastructure Manager",
+    "link": "https://www.g2.com/products/google-cloud-infrastructure-manager/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-infrastructure-manager.jpg",
+    "rate": 4.2,
+    "reviewsNumber": 12,
+    "description": "Google Cloud Infrastructure Manager\n\nProduct Description:\n\nGoogle Cloud Infrastructure Manager is a managed service that automates the deployment and management of Google Cloud infrastructure resources using Terraform. By integrating Terraform's infrastructure-as-code capabilities directly into the Google Cloud ecosystem, Infra Manager enables users to define, deploy, and manage cloud resources in a consistent, repeatable, and efficient manner. This service eliminates the need for maintaining se",
+    "categories": [
+      "Cloud Infrastructure Automation"
+    ]
+  },
+  {
     "name": "Cisco Application Centric Infrastructure (ACI)",
     "link": "https://www.g2.com/products/cisco-application-centric-infrastructure-aci/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/47bf20a76fe88056707e198b1947bb33/cisco-application-centric-infrastructure-aci.jpg",
@@ -190,17 +190,6 @@
       "Data Center Networking",
       "Data Center Infrastructure Management (DCIM)",
       "Network Management Tools"
-    ]
-  },
-  {
-    "name": "Oracle Cloud Infrastructure Tagging",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-tagging/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-tagging.png",
-    "rate": 4.2,
-    "reviewsNumber": 11,
-    "description": "Script bulk actions on exactly the Oracle Cloud Infrastructure resources you want, identified by tags",
-    "categories": [
-      "Cloud Management Platforms"
     ]
   },
   {
@@ -230,21 +219,32 @@
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-email-delivery/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/c530bc70f0bda21b5716a731ba2b0b4e/oracle-cloud-infrastructure-email-delivery.jpg",
     "rate": 3.9,
-    "reviewsNumber": 19,
+    "reviewsNumber": 18,
     "description": "For your enterprise transactional email and SMTP relay needs.",
     "categories": [
       "Transactional Email"
     ]
   },
   {
-    "name": "Oracle Cloud Infrastructure File Storage",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-file-storage/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-file-storage.png",
-    "rate": 4.3,
-    "reviewsNumber": 17,
-    "description": "Oracle Cloud Infrastructure File Storage is a persistent shared filesystem in the cloud with massive scalability, availability, durability, and performance. Oracle File Storage supports NFSv3, snapshots, and encryption",
+    "name": "Oracle Cloud Infrastructure Tagging",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-tagging/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-tagging.png",
+    "rate": 4.2,
+    "reviewsNumber": 10,
+    "description": "Script bulk actions on exactly the Oracle Cloud Infrastructure resources you want, identified by tags",
     "categories": [
-      "Cloud File Storage"
+      "Cloud Management Platforms"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Streaming",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-streaming/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/d5da7ea5c8a9ac38a30700df9f063a73/oracle-cloud-infrastructure-streaming.jpg",
+    "rate": 4.3,
+    "reviewsNumber": 12,
+    "description": "Ingest and store continuous, high-volume data streams and process them in real-time with Oracle Cloud Infrastructure Streaming service.",
+    "categories": [
+      "Event Stream Processing"
     ]
   }
 ]
