@@ -64,7 +64,7 @@ company_schema = {
 search_schema = {
     "__typename": {"type": "string"},
     "id": {"type": "string"},
-    "companySize": {"type": "string"},
+    "companySize": {"type": "string", "nullable": True},
     "highConcept": {"type": "string", "nullable": True},
     "logoUrl": {"type": "string"},
     "name": {"type": "string"},
