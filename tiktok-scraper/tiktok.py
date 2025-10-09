@@ -371,7 +371,7 @@ async def scrape_channel(url: str, max_pages: int = 5, max_videos_per_request: i
     current_page = 0
     
     # Create a session to maintain cookies
-    session_id = "tiktok_channel_session"
+    session_id = session_id = str(uuid.uuid4().hex)
     log.info(f"starting video fetch loop, max_pages={max_pages}")
 
     while has_more and current_page < max_pages:
