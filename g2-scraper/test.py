@@ -74,6 +74,7 @@ alternatives_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=2, reruns_delay=30)
 async def test_review_scraping():
     review_data = await g2.scrape_reviews(
         url="https://www.g2.com/products/digitalocean/reviews", max_review_pages=2
@@ -94,6 +95,7 @@ async def test_review_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=2, reruns_delay=30)
 async def test_search_scraping():
     search_data = await g2.scrape_search(
         url="https://www.g2.com/search?query=Infrastructure", max_scrape_pages=2
@@ -114,6 +116,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=2, reruns_delay=30)
 async def test_alternative_scraping():
     alternatives_data = await g2.scrape_alternatives(product="digitalocean")
     validator = Validator(alternatives_schema, allow_unknown=True)

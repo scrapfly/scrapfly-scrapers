@@ -20,6 +20,8 @@ BASE_CONFIG = {
     "asp": True,
     # set the poxy location to US
     "country": "US",
+    "render_js"  : True,
+    "proxy_pool" : "public_residential_pool"
 }
 
 
@@ -104,28 +106,6 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
             log.error(f"Error encountered: {e}")
             continue
 
-    # try again with the blocked requests if any using headless browsers and residential proxies
-    if len(remaining_urls) != 0:
-        log.debug(
-            f"{len(remaining_urls)} requests are blocked, trying again with render_js enabled and residential proxies"
-        )
-        try:
-            failed_requests = [
-                ScrapeConfig(
-                    url,
-                    **BASE_CONFIG,
-                    render_js=True,
-                    proxy_pool="public_residential_pool",
-                )
-                for url in remaining_urls
-            ]
-            async for response in SCRAPFLY.concurrent_scrape(failed_requests):
-                data = parse_search_page(response)
-                search_data.extend(data["search_data"])
-        except Exception as e:  # catching any exception
-            log.error(f"Error encountered: {e}")
-            pass
-    log.success(f"scraped {len(search_data)} company listings from G2 search pages with the URL {url}")
     return search_data
 
 
@@ -209,7 +189,6 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
         **BASE_CONFIG,
         "debug": True,
         "auto_scroll": True,
-        "render_js": True,
         "wait_for_selector": "//section[@id='reviews']//article",
     }
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **enhanced_config))
@@ -234,26 +213,6 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
             log.error(f"Error encountered: {e}")
             continue
 
-    if len(remaining_urls) != 0:
-        log.debug(
-            f"{len(remaining_urls)} requests are blocked, trying again with render_js enabled and residential proxies"
-        )
-        try:
-            failed_requests = [
-                ScrapeConfig(
-                    url,
-                    **BASE_CONFIG,
-                    render_js=True,
-                    proxy_pool="public_residential_pool",
-                )
-                for url in remaining_urls
-            ]
-            async for response in SCRAPFLY.concurrent_scrape(failed_requests):
-                data = parse_search_page(response)
-                reviews_data.extend(data["reviews_data"])
-        except Exception as e:  # catch any exception
-            log.error(f"Error encountered: {e}")
-            pass
     log.success(f"scraped {len(reviews_data)} company reviews from G2 review pages with the URL {url}")
     return reviews_data
 
@@ -330,25 +289,10 @@ async def scrape_alternatives(
     """scrape product alternatives from G2 alternative pages"""
     # the default alternative is top 10, which takes to argument
     url = f"https://www.g2.com/products/{product}/competitors/alternatives/{alternatives}"
-    log.info(f"Scraping alternative page {url} (attempt 1: no JS)")
-
     data = []
     try:
-        # 1. First, try the cheap and fast request without JavaScript
         response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
         data = parse_alternatives(response)
-
-        # 2. Check if the first attempt failed to get descriptions
-        # This checks if we got data, but the description field in all items is empty
-        descriptions_missing = data and not any(item.get("description") for item in data)
-
-        if descriptions_missing:
-            log.warning("Descriptions missing. Retrying with JavaScript rendering (attempt 2).")
-            # 3. If descriptions are missing, retry with render_js=True
-            js_config = ScrapeConfig(url, **BASE_CONFIG, render_js=True)
-            response = await SCRAPFLY.async_scrape(js_config)
-            data = parse_alternatives(response)
-
     except Exception as e:
         log.error(f"An exception occurred during scraping: {e}")
 
