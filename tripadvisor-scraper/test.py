@@ -69,7 +69,10 @@ async def test_location_data_scraping():
 
 @pytest.mark.asyncio
 async def test_search_scraping():
-    result_search = await tripadvisor.scrape_search(query="Malta", max_pages=2)
+    result_search = await tripadvisor.scrape_search(
+        search_url="https://www.tripadvisor.com/Hotels-g60763-oa30-New_York_City_New_York-Hotels.html",
+        max_pages=2
+    )
     schema = {
         "url": {"type": "string", "regex": r"https://www.tripadvisor.com/Hotel_Review-g.+?\.html"},
         "name": {"type": "string", "minlength": 5},

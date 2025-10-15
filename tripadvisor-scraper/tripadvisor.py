@@ -116,24 +116,16 @@ def parse_search_page(result: ScrapeApiResponse) -> List[Preview]:
     return parsed
 
 
-async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Preview]:
+async def scrape_search(search_url: str, max_pages: Optional[int] = None) -> List[Preview]:
     """scrape search results of a search query"""
     # first scrape location data and the first page of results
-    log.info(f"{query}: scraping first search results page")
-    try:
-        location_data = (await scrape_location_data(query))[0]  # take first result
-    except IndexError:
-        log.error(f"could not find location data for query {query}")
-        return
-    hotel_search_url = "https://www.tripadvisor.com" + location_data["details"]["HOTELS_URL"]
-
-    log.info(f"found hotel search url: {hotel_search_url}")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(hotel_search_url, **BASE_CONFIG))
+    log.info(f"{search_url}: scraping first search results page")
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
 
     # parse first page
     results = parse_search_page(first_page)
     if not results:
-        log.error("query {} found no results", query)
+        log.error("query {} found no results", search_url)
         return []
 
     # extract pagination metadata to scrape all pages concurrently
@@ -141,14 +133,14 @@ async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Pre
     total_results = first_page.selector.xpath("//div[@data-test-target='hotels-main-list']//span").re(r"(\d[\d,]*)")[0]
     total_results = int(total_results.replace(",", ""))
     next_page_url = first_page.selector.css('a[aria-label="Next page"]::attr(href)').get()
-    next_page_url = urljoin(hotel_search_url, next_page_url)  # turn url absolute
+    next_page_url = urljoin(search_url, next_page_url)  # turn url absolute
     total_pages = int(math.ceil(total_results / page_size))
     if max_pages and total_pages > max_pages:
-        log.debug(f"{query}: only scraping {max_pages} max pages from {total_pages} total")
+        log.debug(f"{search_url}: only scraping {max_pages} max pages from {total_pages} total")
         total_pages = max_pages
 
     # scrape remaining pages
-    log.info(f"{query}: found {total_results=}, {page_size=}. Scraping {total_pages} pagination pages")
+    log.info(f"{search_url}: found {total_results=}, {page_size=}. Scraping {total_pages} pagination pages")
     other_page_urls = [
         # note: "oa" stands for "offset anchors"
         next_page_url.replace(f"oa{page_size}", f"oa{page_size * i}")
@@ -178,8 +170,8 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
         text = "".join(review.xpath(".//div[@class='_c']//div[contains(@class, 'fIrGe')]//span[contains(@class, 'JguWG')]//span/text()").extract())
         rate = review.xpath(".//*[contains(text(),'of 5 bubbles')]/text()").get()
         rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
-        trip_data = review.xpath(".//div[contains(@class, 'MZTIt')]//div[contains(@class, 'CPHmk')][1]//span[contains(@class, 'xENVe')]/text()").get()
-        trip_type = review.xpath(".//div[contains(@class, 'MZTIt')]//div[contains(@class, 'CPHmk')][2]//span[contains(@class, 'xENVe')]/text()").get()
+        trip_data = review.xpath(".//span[contains(text(), 'Date of stay:')]/parent::div/following-sibling::span/text()").get()
+        trip_type = review.xpath(".//span[contains(text(), 'Trip type:')]/parent::div/following-sibling::span/text()").get()
 
         reviews.append({
             "title": title,
