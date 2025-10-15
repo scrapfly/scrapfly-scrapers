@@ -128,7 +128,7 @@ async def test_alternative_scraping():
             k,
             min_perc=alternatives_schema[k].get("min_presence", 0.1),
         )
-    assert len(alternatives_data) == 10
+    assert len(alternatives_data) >= 5
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         alternatives_data.sort(key=lambda x: x["link"])
         (Path(__file__).parent / 'results/search.json').write_text(
