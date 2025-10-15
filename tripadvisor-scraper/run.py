@@ -23,7 +23,9 @@ async def run():
     result_location = await tripadvisor.scrape_location_data(query="Malta")
     output.joinpath("location.json").write_text(json.dumps(result_location, indent=2, ensure_ascii=False))
 
-    result_search = await tripadvisor.scrape_search(query="Malta", max_pages=2)
+    result_search = await tripadvisor.scrape_search(
+        search_url="https://www.tripadvisor.com/Hotels-g60763-oa30-New_York_City_New_York-Hotels.htmll", max_pages=2
+    )
     output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
 
     result_hotel = await tripadvisor.scrape_hotel(
