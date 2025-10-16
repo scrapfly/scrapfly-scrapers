@@ -24,7 +24,7 @@ async def run():
     thread = await threads.scrape_thread(url)
     output.joinpath("thread.json").write_text(json.dumps(thread, indent=2, ensure_ascii=False), encoding="utf-8")
     
-    url = "https://www.threads.net/@natgeo"
+    url = "https://www.threads.com/@foodobservations"
     profile = await threads.scrape_profile(url)
     output.joinpath("profile.json").write_text(json.dumps(profile, indent=2, ensure_ascii=False), encoding="utf-8")
 
