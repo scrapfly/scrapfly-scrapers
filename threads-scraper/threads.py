@@ -21,6 +21,8 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
     "country": "US",  # set country here NOTE: Threads is not available in Europe yet
+    "render_js": True,
+    "proxy_pool": "public_residential_pool",
 }
 
 
@@ -94,6 +96,7 @@ async def scrape_thread(url: str) -> Dict:
         return {}
 
     hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
+
     for hidden_dataset in hidden_datasets:
         # skip loading datasets that clearly don't contain threads data
         if '"ScheduledServerJS"' not in hidden_dataset:

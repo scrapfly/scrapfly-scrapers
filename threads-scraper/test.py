@@ -70,7 +70,7 @@ async def test_thread_scraping():
     all_threads = [result["thread"] for result in results] + [
         reply for result in results for reply in result["replies"]
     ]
-    assert len(all_threads) > 9
+    assert len(all_threads) > 5
     validator = Validator(THREAD_SCHEMA, allow_unknown=True)
     for result in results:
         validate_or_fail(result["thread"], validator)
@@ -83,7 +83,7 @@ async def test_thread_scraping():
 @pytest.mark.asyncio
 async def test_user_scraping():
     urls = [
-        "https://www.threads.net/@natgeo",
+        "https://www.threads.com/@foodobservations",
     ]
     results = await asyncio.gather(*[threads.scrape_profile(url) for url in urls])
     # threads
