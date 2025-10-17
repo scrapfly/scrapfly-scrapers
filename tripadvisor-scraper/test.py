@@ -68,6 +68,7 @@ async def test_location_data_scraping():
     assert len(result_location) > 10
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     result_search = await tripadvisor.scrape_search(
         search_url="https://www.tripadvisor.com/Hotels-g60763-oa30-New_York_City_New_York-Hotels.html",
