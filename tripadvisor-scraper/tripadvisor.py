@@ -95,7 +95,8 @@ def parse_search_page(result: ScrapeApiResponse) -> List[Preview]:
     # Search results are contain in boxes which can be in two locations.
     # this is location #1:
     for box in result.selector.xpath("//div[@data-test-target='hotels-main-list']//ol/li"):
-        title = box.xpath(".//div[@data-automation='hotel-card-title']/a/h3/text()").getall()[1]
+        title_list = box.xpath(".//div[@data-automation='hotel-card-title']/a/h3/text()").getall()
+        title = title_list[1] if len(title_list) > 1 else (title_list[0] if title_list else None)
         url = box.css("div[data-automation=hotel-card-title] a::attr(href)").get()
         parsed.append(
             {

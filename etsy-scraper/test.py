@@ -8,8 +8,8 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-# enable cache
-etsy.BASE_CONFIG["cache"] = True
+# Disabled cache
+etsy.BASE_CONFIG["cache"] = False
 
 
 class Validator(_Validator):
