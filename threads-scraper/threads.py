@@ -94,23 +94,20 @@ async def scrape_thread(url: str) -> Dict:
         return {}
 
     hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
-    for hidden_dataset in hidden_datasets:
-        # skip loading datasets that clearly don't contain threads data
-        if '"ScheduledServerJS"' not in hidden_dataset:
-            continue
-        if 'thread_items' not in hidden_dataset:
-            continue
-        data = json.loads(hidden_dataset)        
-        thread_items = nested_lookup('thread_items', data)
-        if not thread_items:
-            continue
-        threads = [
-            parse_thread(t) for thread in thread_items for t in thread
-        ]
-        return {
-            "thread": threads[0],
-            "replies": threads[1:],
-        }
+    # skip loading datasets that clearly don't contain threads data
+    thread_hidden_data = [hidden_dataset for hidden_dataset in hidden_datasets if '"ScheduledServerJS"' in hidden_dataset and 'thread_items' in hidden_dataset]
+
+    # the thread data is the last one in the list        
+    data = json.loads(thread_hidden_data[-1])
+    thread_items = nested_lookup('thread_items', data)
+
+    threads = [
+        parse_thread(t) for thread in thread_items for t in thread
+    ]
+    return {
+        "thread": threads[0],
+        "replies": threads[1:],
+    }
     raise ValueError('could not find thread data in page')
 
 
