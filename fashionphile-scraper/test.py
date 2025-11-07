@@ -53,28 +53,11 @@ product_schema = {
 }
 
 search_schema = {
-    "authentication_status": {"type": "string"},
-    "brands": {
-        "type": "list",
-        "schema": {
-            "type": "dict",
-            "schema": {
-                "parent_id": {"type": "integer", "nullable": True},
-                "name": {"type": "string"},
-                "id": {"type": "integer"},
-                "slug": {"type": "string"},
-            },
-        },
-    },
-    "categories": {
-        "type": "list",
-        "schema": { "type": "string" },
-    },
+    "brands": {"type": "string"},
+    "product_name": {"type": "string"},
     "condition": {"type": "string"},
     "discounted_price": {"type": "integer"},
-    "discounted_tier": {"type": "integer"},
     "price": {"type": "integer"},
-    "priced_at": {"type": "integer"},
     "id": {"type": "integer"},
 }
 
