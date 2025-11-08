@@ -46,7 +46,7 @@ review_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
-    url = "https://www.aliexpress.com/item/4000927436411.html"
+    url = "https://www.aliexpress.com/item/2255800741121659.html"
     result = await aliexpress.scrape_product(url)
     schema = {
         "info": {

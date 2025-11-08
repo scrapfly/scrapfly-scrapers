@@ -25,7 +25,7 @@ async def run():
     search_results = await aliexpress.scrape_search(url, max_pages=2)
     output.joinpath("search.json", ).write_text(json.dumps(search_results, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    url = "https://www.aliexpress.com/item/4000927436411.html"
+    url = "https://www.aliexpress.com/item/2255800741121659.html"
     product_results = await aliexpress.scrape_product(url)
     output.joinpath("product.json").write_text(json.dumps(product_results, indent=2, ensure_ascii=False), encoding="utf-8")
 

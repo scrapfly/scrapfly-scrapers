@@ -117,7 +117,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
     selector = result.selector
     reviews = selector.xpath("//a[contains(@class,'reviewer--reviews')]/text()").get()
     rate = selector.xpath("//div[contains(@class,'rating--wrap')]/div").getall()
-    sold_count = selector.xpath("//span[contains(@class,'reviewer--sold')]/text()").get()
+    sold_count = selector.xpath("//a[contains(@class, 'reviewer--sliderItem')]//span[contains(text(), 'sold')]/text()").get()
     available_count = selector.xpath("//div[contains(@class,'quantity--info')]/div/span/text()").get()
     info = {
         "name": selector.xpath("//h1[@data-pl]/text()").get(),
@@ -126,7 +126,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "media": selector.xpath("//div[contains(@class,'slider--img')]/img/@src").getall(),
         "rate": len(rate) if rate else None,
         "reviews": int(reviews.replace(" Reviews", "")) if reviews else None,
-        "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else None,
+        "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else 0,
         "availableCount": int(available_count.replace(" available", "")) if available_count else None
     }
     price = selector.xpath("//span[contains(@class,'price-default--current')]/text()").get()
@@ -140,10 +140,14 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "discount": discount if discount else "No discount",
     }
     shipping_cost = selector.xpath("//strong[contains(text(),'Shipping')]/text()").get()
+    delivery = selector.xpath("//strong[contains(text(),'Delivery')]/span/text()").get()
+    if not delivery:
+        # Fallback selector 
+        delivery = selector.xpath("//div[contains(@class,'dynamic-shipping-contentLayout')]//span[@style]/text()").get()
     shipping = {
         "cost": float(shipping_cost.split("$")[-1]) if shipping_cost else None,
         "currency": "$",
-        "delivery": selector.xpath("(//div[contains(@class,'dynamic-shipping-line')])[2]/span[2]/span/strong/text()").get()
+        "delivery": delivery
     }
     specifications = []
     for i in selector.xpath("//div[contains(@class,'specification--prop')]"):
