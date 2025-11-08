@@ -70,7 +70,11 @@ async def test_thread_scraping():
     all_threads = [result["thread"] for result in results] + [
         reply for result in results for reply in result["replies"]
     ]
+    all_replies = [reply for result in results for reply in result["replies"]]
+
     assert len(all_threads) > 9
+    assert len(all_replies) > 20
+
     validator = Validator(THREAD_SCHEMA, allow_unknown=True)
     for result in results:
         validate_or_fail(result["thread"], validator)

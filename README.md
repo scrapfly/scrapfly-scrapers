@@ -24,7 +24,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="/aliexpress-scraper/">Aliexpress.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-aliexpress/">How to Scrape Aliexpress.com (2024 Update)</a></td>    
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-aliexpress/">How to Scrape Aliexpress.com (2025 Update)</a></td>    
     <td>
     <ul>
         <li><a href="./aliexpress-scraper/results/product.json">Product pages</a></li>
@@ -77,7 +77,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="/booking-scraper/">Booking.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-bookingcom/">How to Scrape Booking.com (2023 Update)</a></td>    
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-bookingcom/">How to Scrape Booking.com (2025 Update)</a></td>    
     <td>
     <ul>
         <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
@@ -89,7 +89,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/crunchbase-scraper/">Crunchbase.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-crunchbase/">How to Scrape Crunchbase in 2024</a></td>    
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-crunchbase/">How to Scrape Crunchbase in 2025</a></td>    
     <td>
     <ul>
         <li><a href="./crunchbase-scraper/results/company.json">Company pages</a></li>
@@ -113,7 +113,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/ebay-scraper/">Ebay.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-ebay/">How to Scrape Ebay Using Python (2024 Update)</a></td>    
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-ebay/">How to Scrape Ebay Using Python (2025 Update)</a></td>    
     <td>
     <ul>
         <li><a href="./ebay-scraper/results/product.json">Product pages</a></li>
@@ -151,8 +151,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/glassdoor-scraper/">Glassdoor.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-glassdoor/">How to Scrape Glassdoor (2024 update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-glassdoor/">How to Scrape Glassdoor (2025 update)</a></td>
     <td>
     <ul>
         <li><a href="./glassdoor-scraper/results/jobs.json">Job pages</a></li>
@@ -252,8 +251,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/indeed-scraper/">Indeed.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-indeedcom/">How to Scrape Indeed.com (2024 Update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-indeedcom/">How to Scrape Indeed.com (2025 Update)</a></td>
     <td>
     <ul>
         <li><a href="./indeed-scraper/results/jobs.json">Job pages</a></li>
@@ -265,8 +263,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-instagram/">How to Scrape Instagram in 2024
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-instagram/">How to Scrape Instagram in 2025</a></td>
     <td>
     <ul>
         <li><a href="./instagram-scraper/results/user.json">User data</a></li>
@@ -408,8 +405,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="./threads-scraper/">Threads.net</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-threads/">How to scrape Threads by Meta using Python (2024 Update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-threads/">How to scrape Threads by Meta using Python (2025 Update)</a></td>
     <td>
     <ul>
         <li><a href="./threads-scraper/results/profile.json">Profile pages</a></li>
@@ -421,7 +417,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="./tiktok-scraper/">TikTok.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">How To Scrape TikTok in 2024</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">How To Scrape TikTok in 2025</a></td>
     <td>
     <ul>
         <li><a href="./tiktok-scraper/results/comments.json">Comment data</a></li>
@@ -436,8 +432,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="./tripadvisor-scraper/">Tripadvisor.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-tripadvisor/">How to Scrape TripAdvisor.com (2024 Updated)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-tripadvisor/">How to Scrape TripAdvisor.com (2025 Updated)</a></td>
     <td>
     <ul>
         <li><a href="./tripadvisor-scraper/results/hotels.json">Hotel pages</a></li>
@@ -463,8 +458,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="./twitter-scraper/">Twitter(X).com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-twitter/">How to Scrape X.com (Twitter) using Python (2024 Update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-twitter/">How to Scrape X.com (Twitter) using Python (2025 Update)</a></td>
     <td>
     <ul>
         <li><a href="./twitter-scraper/results/profile.json">Profile pages</a></li>
@@ -501,7 +495,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/walmart-scraper/">Walmart.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-walmartcom/">How to Scrape Walmart.com Product Data (2024 Update)</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-walmartcom/">How to Scrape Walmart.com Product Data (2025 Update)</a></td>
     <td>
     <ul>
         <li><a href="./walmart-scraper/results/products.json">Product pages</a></li>
@@ -525,8 +519,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/linkedin-scraper/">Linkedin.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-linkedin-person-profile-company-job-data/">How to Scrape LinkedIn in 2024
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-linkedin-person-profile-company-job-data/">How to Scrape LinkedIn in 2025</a></td>
     <td>
     <ul>
         <li><a href="./linkedin-scraper/results/profile.json">Profile pages</a></li>
@@ -541,8 +534,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/yellowpages-scraper/">Yellowpages.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-yellowpages/">How to Scrape YellowPages.com Business Data and Reviews (2024 Update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-yellowpages/">How to Scrape YellowPages.com in 2025</a></td>
     <td>
     <ul>
         <li><a href="./yellowpages-scraper/results/business_pages.json">Business pages</a></li>
@@ -554,8 +546,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/yelp-scraper/">Yelp.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-yelpcom/">How to Web Scrape Yelp.com (2024 update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-yelpcom/">How to Web Scrape Yelp.com (2025 update)</a></td>
     <td>
     <ul>
         <li><a href="./yelp-scraper/results/business_pages.json">Business pages</a></li>
@@ -567,8 +558,8 @@ Below is the list of available web scrapers for the supported domains along with
 </tr>
 
 <tr>
-    <td><a href="/youtube-scraper/">YouTube.com</a></td>
-</a></td>
+    <td><a href="/youtube-scraper/">YouTube.com</a></td></a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-youtube-in-2025">How to Scrape YouTube in 2025</a></td>
     <td>
     <ul>
         <li><a href="./youtube-scraper/results/channel_videos.json">Channel videos</a></li>
@@ -597,8 +588,7 @@ Below is the list of available web scrapers for the supported domains along with
 
 <tr>
     <td><a href="/zoominfo-scraper/">Zoominfo.com</a></td>
-    <td><a href="https://scrapfly.io/blog/how-to-scrape-zoominfo/">How to Scrape Zoominfo Company Data (2024 Update)
-</a></td>
+    <td><a href="https://scrapfly.io/blog/how-to-scrape-zoominfo/">How to Scrape Zoominfo Company Data (2025 Update)</a></td>
     <td>
     <ul>
         <li><a href="./zoominfo-scraper/results/companies.json">Company pages</a></li>

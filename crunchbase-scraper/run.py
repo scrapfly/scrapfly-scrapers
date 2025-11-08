@@ -24,7 +24,7 @@ async def run():
     company = await crunchbase.scrape_company(url)
     output.joinpath("company.json").write_text(json.dumps(company, indent=2, ensure_ascii=False))
 
-    url = "https://www.crunchbase.com/person/danny-hayes-8e1b"
+    url = "https://www.crunchbase.com/person/elon-musk"
     person = await crunchbase.scrape_person(url)
     output.joinpath("person.json").write_text(json.dumps(person, indent=2, ensure_ascii=False))
 

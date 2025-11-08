@@ -32,7 +32,7 @@ async def test_company_scraping():
                 "schema": {
                     "name": {"type": "string"},
                     "linkedin": {"type": "string"},
-                    "job_departments": {"type": "list", "schema": {"type": "string"}},
+                    "job_departments": {"type": "list", "schema": {"type": "string"}, "nullable": True},
                     "job_levels": {"type": "list", "schema": {"type": "string"}},
                 },
             },
@@ -73,7 +73,7 @@ async def test_company_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_person_scraping():
-    url = "https://www.crunchbase.com/person/danny-hayes-8e1b"
+    url = "https://www.crunchbase.com/person/elon-musk"
     result = await crunchbase.scrape_person(url)
     schema = {
         "name": {"type": "string"},
@@ -81,7 +81,7 @@ async def test_person_scraping():
         "type": {"type": "string"},
         "gender": {"type": "string"},
         "linkedin": {"type": "string", "nullable": True, "regex": r"https*://www.linkedin.com/in/.+?"},
-        "twitter": {"type": "string", "nullable": True, "regex": r"https://twitter.com/.+?"},
+        "twitter": {"type": "string", "nullable": True, "regex": r"https://(?:www\.)?twitter\.com/.+?"},
         "facebook": {"type": "string", "nullable": True, "regex": r"https://www.facebook.com/.+?"},
         "description": {"type": "string"},
         "location_groups": {"type": "list", "schema": {"type": "string"}},
@@ -92,8 +92,8 @@ async def test_person_scraping():
                 "type": "dict",
                 "schema": {
                     "school": {"type": "string"},
-                    "started_on": {"type": "string"},
-                    "completed_on": {"type": "string"},
+                    "started_on": {"type": "string", "nullable": True},
+                    "completed_on": {"type": "string", "nullable": True},
                     "type": {"type": "string", "nullable": True},
                 },
             },

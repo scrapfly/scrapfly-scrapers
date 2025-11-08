@@ -1,5138 +1,547 @@
 {
-  "__typename": "AggregatedSalaryEstimates",
-  "numPages": 219,
-  "jobTitleCount": 2186,
-  "salaryCount": 12605,
-  "mostRecent": "2025-08-15T07:33:21.240",
-  "queryLocation": {
-    "__typename": "Country",
-    "id": 1,
-    "name": "United States",
-    "shortName": "US",
-    "longName": "United States of America",
-    "type": "COUNTRY"
-  },
-  "estimateSourceName": "V3",
   "results": [
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 3027911,
         "text": "Software Engineer 3"
       },
       "salaryCount": 916,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 143425.57
+            "ident": "min",
+            "value": 154000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 153725.32
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 166049.78
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 179362.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 192242.78
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 8090.78
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 10462.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 13949.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 19529.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 25527.79
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 17770.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 22979.64
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 30639.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 42895.32
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 56070.31
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 25861.69
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 33441.84
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 44589.12
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 62424.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 81598.09
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 169287.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 187167.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 210638.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 241787.1
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 273840.87
+            "ident": "max",
+            "value": 181000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 4279,
         "text": "Software Engineer"
       },
-      "salaryCount": 781,
+      "salaryCount": 782,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 112697.49
+            "ident": "min",
+            "value": 128000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 128072.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 147646.22
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 170210.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 193432.93
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 7439.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 9619.47
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 12825.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 17956.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 23471.49
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 17207.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 22250.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 29667.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 41534.43
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 54291.44
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 24646.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 31870.05
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 42493.4
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 59490.76
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 77762.92
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 137343.66
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 159942.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 190139.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 229701.71
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 271195.85
+            "ident": "max",
+            "value": 171000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 17959,
         "text": "Senior Software Engineer"
       },
       "salaryCount": 489,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 157857.16
+            "ident": "min",
+            "value": 172000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 172776.6
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 191029.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 211209.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 231171.52
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 12583.66
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 16271.97
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 21695.96
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 30374.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 39703.61
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 33717.36
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 43600.03
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 58133.37
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 81386.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 106384.07
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 46301.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 59872
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 79829.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 111761.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 146087.67
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 204158.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 232648.6
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 270858.34
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 322970.68
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 377259.19
+            "ident": "max",
+            "value": 213000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 52126,
         "text": "MTS-1"
       },
       "salaryCount": 414,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 147971.86
+            "ident": "min",
+            "value": 166000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 166942.67
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 190908.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 218313.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 246303
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 11837.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 15307.39
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 20409.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 28573.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 37350.03
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 20161.42
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 26070.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 34761.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 48665.49
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 63612.74
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 31999.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 41378.18
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 55170.91
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 77239.27
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 100962.77
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 179970.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 208320.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 246079.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 295553.22
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 347265.77
+            "ident": "max",
+            "value": 222000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 920906,
         "text": "Software Engineer 2"
       },
       "salaryCount": 396,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 130411.42
+            "ident": "min",
+            "value": 138000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 137317.2
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 145426.89
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 154015.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 162171.21
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 7049.82
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 9116.14
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 12154.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 17016.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 22243.38
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 13229.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 17106.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 22808.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 31932.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 41739.96
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 20278.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 26222.68
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 34963.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 48949
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 63983.33
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 150690.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 163539.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 180390.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 202964.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 226154.54
+            "ident": "max",
+            "value": 155000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 4514,
         "text": "Software Engineer III"
       },
       "salaryCount": 387,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 142331.91
+            "ident": "min",
+            "value": 155000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 154569.27
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 169416.96
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 185690.91
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 201656.16
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 9171.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 11859.75
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 15813
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 22138.2
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 28937.79
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 19459.81
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 25163.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 33551.39
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 46971.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 61399.05
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 28631.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 37023.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 49364.39
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 69110.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 90336.83
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 170963.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 191592.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 218781.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 254801.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 291992.99
+            "ident": "max",
+            "value": 186000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 4513,
         "text": "Software Engineer II"
       },
-      "salaryCount": 344,
+      "salaryCount": 345,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 125219.29
+            "ident": "min",
+            "value": 135000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 134203.76
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 144953.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 156564.78
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 167798.28
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 6896.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 8918.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 11890.71
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 16647
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 21760
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 15485.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 20023.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 26698.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 37377.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 48858.19
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 22381.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 28941.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 38589.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 54024.84
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 70618.18
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 147601.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 163145.64
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 183542.89
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 210589.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 238416.46
+            "ident": "max",
+            "value": 157000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 633616,
         "text": "MTS-2 Software Engineer"
       },
       "salaryCount": 319,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 149525.62
+            "ident": "min",
+            "value": 171000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 170413.52
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 197085.31
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 227931.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 259772.33
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 12165.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 15731.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 20975.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 29365.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 38385.08
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 31926.48
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 41284.23
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 55045.64
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 77063.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 100733.53
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 44092.23
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 57015.82
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 76021.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 106429.53
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 139118.59
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 193617.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 227429.34
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 273106.4
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 334361.1
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 398890.92
+            "ident": "max",
+            "value": 229000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 61585,
         "text": "Product Manager"
       },
       "salaryCount": 256,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 111678.24
+            "ident": "min",
+            "value": 129000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 128141.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 149315.24
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 173987.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 199636.39
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 10731.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 13876.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 18502.07
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 25902.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 33858.79
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 20123.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 26022.22
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 34696.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 48574.81
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 63494.22
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 30855.05
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 39898.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 53198.36
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 74477.7
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 97353
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 142533.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 168040.65
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 202513.6
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 248464.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 296989.39
+            "ident": "max",
+            "value": 175000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 34553,
         "text": "Senior Product Manager"
       },
-      "salaryCount": 234,
+      "salaryCount": 235,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 153013.24
+            "ident": "min",
+            "value": 172000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 170541.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 192401.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 217063.97
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 241929.91
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 17333.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 22413.78
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 29885.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 41839.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 54689.63
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 32615.03
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 42174.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 56232.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 78725.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 102906.03
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 49948.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 64588.38
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 86117.84
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 120564.98
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 157595.65
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 202961.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 235130.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 278519.71
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 337628.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 399525.56
+            "ident": "max",
+            "value": 218000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 592263,
         "text": "Senior Product Manager I - Technical"
       },
       "salaryCount": 77,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 127155.44
+            "ident": "min",
+            "value": 145000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 146713.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 172015.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 201680.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 232702.17
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 14732.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 19050.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 25400.44
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 35560.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 46482.81
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 26825.1
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 34687.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 46250.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 64750.24
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 84637.82
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 41557.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 53737.96
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 71650.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 100310.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 131120.62
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 168712.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 200451.73
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 243666.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 301991.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 363822.79
+            "ident": "max",
+            "value": 200000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 63697,
         "text": "Manager"
       },
       "salaryCount": 76,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 107699.35
+            "ident": "min",
+            "value": 132000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 131330.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 163745.82
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 204161.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 248958.72
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 15349.52
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 19848.52
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 26464.68
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 37050.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 48430.37
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 25778.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 33334.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 44445.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 62223.86
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 81335.47
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 41127.97
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 53182.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 70910.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 99274.41
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 129765.83
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 148827.32
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 184513.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 234656.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 303436.2
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 378724.55
+            "ident": "max",
+            "value": 204000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 481791,
         "text": "Software Engineer III, Quality"
       },
       "salaryCount": 71,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 106366.3
+            "ident": "min",
+            "value": 120000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 121491.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 140849.25
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 163291.68
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 186511.26
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 7807.14
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 10095.43
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 13460.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 18844.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 24632.85
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 15883.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 20539.39
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 27385.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 38340.19
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 50116.11
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 23690.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 30634.81
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 40846.42
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 57184.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 74748.95
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 130057.22
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 152126.07
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 181695.67
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 220476.67
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 261260.21
+            "ident": "max",
+            "value": 163000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 62731,
         "text": "Business Analyst"
       },
       "salaryCount": 65,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 70007.59
+            "ident": "min",
+            "value": 84000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 83287.08
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 101032.38
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 122558.53
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 145806.23
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 4335.58
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 5606.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 7475.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 10465.19
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 13679.49
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 4335.58
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 5606.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 7475.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 10465.18
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 13679.49
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 74343.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 88893.43
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 108507.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 133023.71
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 159485.72
+            "ident": "max",
+            "value": 123000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 61502,
         "text": "Program Manager"
       },
       "salaryCount": 58,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 105494.34
+            "ident": "min",
+            "value": 119000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 120302.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 139222.07
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 161117.52
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 183732.93
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 9621.2
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 12441.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 16588.27
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 23223.58
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 30356.54
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 13788.36
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 17829.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 23773.02
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 33282.23
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 43504.63
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 23409.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 30270.97
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 40361.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 56505.81
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 73861.16
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 128903.89
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 150573.12
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 179583.36
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 217623.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 257594.09
+            "ident": "max",
+            "value": 159000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 18003,
         "text": "Senior Software QA Engineer"
       },
       "salaryCount": 56,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 120098.06
+            "ident": "min",
+            "value": 134000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 137928.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 160881.93
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 187655.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 215515.53
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 8655.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 11192.18
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 14922.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 20892.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 27308.91
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 17233.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 22284.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 29712.83
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 41597.97
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 54374.48
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 25888.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 33476.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 44635.73
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 62490.02
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 81683.39
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 145986.78
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 171405.37
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 205517.66
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 250145.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 297198.92
+            "ident": "max",
+            "value": 185000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 30608,
         "text": "Software QA Engineer"
       },
       "salaryCount": 56,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 76751.54
+            "ident": "min",
+            "value": 90000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 93289.12
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 115896.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 143981.25
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 175004.76
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 5617.93
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 7264.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 9686.08
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 13560.52
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 17725.53
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 11700.8
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 15130.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 20173.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 28243.31
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 36918.04
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 17318.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 22394.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 29859.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 41803.82
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 54643.56
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 94070.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 115684.02
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 145755.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 185785.07
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 229648.32
+            "ident": "max",
+            "value": 141000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 37856,
         "text": "Project Manager"
       },
       "salaryCount": 54,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 85260.16
+            "ident": "min",
+            "value": 103000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 104161.24
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 130139.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 162595.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 198641.43
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 7014.58
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 9070.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 12094.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 16931.73
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 22132.19
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 7014.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 9070.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 12094.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 16931.73
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 22132.18
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 92274.73
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 113231.81
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 142233.25
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 179527.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 220773.61
+            "ident": "max",
+            "value": 162000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 25294,
         "text": "Lead Product Manager"
       },
       "salaryCount": 52,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 151428.4
+            "ident": "min",
+            "value": 171000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 170011.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 193367.37
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 219931.28
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 246921.57
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 15516.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 20064.58
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 26752.77
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 37453.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 48957.57
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 32276.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 41736.38
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 55648.5
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 77907.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 101836.76
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 47792.74
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 61800.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 82401.27
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 115361.78
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 150794.32
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 199221.14
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 231812.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 275768.64
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 335293.06
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 397715.89
+            "ident": "max",
+            "value": 221000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 42413,
         "text": "Principal Software Engineer"
       },
       "salaryCount": 51,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 176731.65
+            "ident": "min",
+            "value": 202000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 200697.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 231182.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 266297.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 302408.68
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 21801.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 28192.14
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 37589.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 52625.32
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 68788.81
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 69432.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 89784.03
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 119712.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 167596.86
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 219073.04
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 91234.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 117976.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 157301.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 220222.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 287861.84
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 267966.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 318673.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 388483.7
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 486520.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 590270.52
+            "ident": "max",
+            "value": 269000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 227795,
+        "text": "Customer Service Representative"
+      },
+      "salaryCount": 206,
+      "basePayStatistics": {
+        "percentiles": [
+          {
+            "ident": "min",
+            "value": 36000.0
+          },
+          {
+            "ident": "max",
+            "value": 47000.0
+          }
+        ]
+      }
+    },
+    {
+      "jobTitle": {
         "text": "Software Engineer -2"
       },
       "salaryCount": 203,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 128453.65
+            "ident": "min",
+            "value": 138000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 137765.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 148915.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 160967.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 172636.88
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 7943.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 10271.85
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 13695.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 19174.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 25063.3
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 15365.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 19868.68
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 26491.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 37088.19
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 48479.56
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 23308.66
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 30140.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 40187.35
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 56262.29
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 73542.85
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 151762.31
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 167906.1
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 189102.89
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 217230.19
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 246179.73
+            "ident": "max",
+            "value": 162000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 60210,
-        "text": "Customer Service Representative"
-      },
-      "salaryCount": 203,
-      "basePayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 32260.34
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 36356.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 41525.44
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 47429.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 53451.46
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 0
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 0
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 0
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 0
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 0
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 32260.34
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 36356.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 41525.44
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 47429.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 53451.46
-          }
-        ]
-      }
-    },
-    {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
-      "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 212149,
         "text": "Member of Technical Staff I Software Engineer"
       },
       "salaryCount": 192,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 166632.52
+            "ident": "min",
+            "value": 186000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 186269.84
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 210836.34
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 238642.83
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 266766.43
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 16370.28
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 21168.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 28224.61
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 39514.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 51651.04
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 40000.48
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 51724.75
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 68966.33
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 96552.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 126208.39
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 56370.75
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 72893.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 97190.94
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 136067.32
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 177859.42
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 223003.27
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 259163.05
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 308027.28
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 374710.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 444625.85
+            "ident": "max",
+            "value": 240000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 30994,
         "text": "Staff Software Engineer"
       },
       "salaryCount": 158,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 170764.17
+            "ident": "min",
+            "value": 194000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 192608.49
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 220196.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 251736.34
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 283938.69
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 17357.02
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 22444.41
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 29925.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 41896.24
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 54764.37
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 48375.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 62554.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 83405.38
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 116767.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 152631.85
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 65732.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 84998.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 113331.26
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 158663.76
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 207396.21
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 236496.3
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 277606.94
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 333527.89
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 410400.1
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 491334.9
+            "ident": "max",
+            "value": 256000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 133838,
         "text": "Member Technical Staff -1"
       },
       "salaryCount": 142,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 122891.14
+            "ident": "min",
+            "value": 141000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 143965.7
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 171671.41
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 204708.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 239814.46
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 11998.86
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 15515.76
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 20687.68
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 28962.76
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 37858.46
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 25542.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 33028.66
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 44038.21
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 61653.5
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 80589.93
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 37541.02
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 48544.42
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 64725.89
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 90616.25
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 118448.38
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 160432.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 192510.12
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 236397.3
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 295325.24
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 358262.84
+            "ident": "max",
+            "value": 204000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 119899,
         "text": "Data Scientist"
       },
       "salaryCount": 135,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 123210.44
+            "ident": "min",
+            "value": 140000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 140028.69
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 161440.24
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 186125.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 211531.99
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 10700.74
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 13837.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 18449.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 25829.37
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 33762.68
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 21136.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 27331.74
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 36442.32
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 51019.25
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 66689.45
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 31837.28
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 41168.9
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 54891.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 76848.62
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 100452.12
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 155047.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 181197.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 216332.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 262974.41
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 311984.11
+            "ident": "max",
+            "value": 187000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 17167,
         "text": "Senior Manager"
       },
-      "salaryCount": 119,
+      "salaryCount": 120,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 153190.72
+            "ident": "min",
+            "value": 172000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 172878.7
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 197757.48
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 226216.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 255289.76
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 22944.46
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 29669.56
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 39559.4
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 55383.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 72393.71
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 41314.98
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 53424.54
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 71232.72
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 99725.81
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 130355.88
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 64259.43
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 83094.09
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 110792.12
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 155108.97
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 202749.58
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 217450.15
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 255972.79
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 308549.6
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 381325.51
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 458039.34
+            "ident": "max",
+            "value": 225000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 40730,
         "text": "Director"
       },
       "salaryCount": 113,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 188571.74
+            "ident": "min",
+            "value": 215000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 215026.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 248826.53
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 287938.92
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 328334.67
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 39012.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 50446.6
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 67262.13
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 94166.99
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 123089.7
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 87331.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 112928.59
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 150571.45
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 210800.03
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 275545.76
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 126343.48
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 163375.18
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 217833.58
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 304967.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 398635.45
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 314915.22
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 378402.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 466660.11
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 592905.93
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 726970.12
+            "ident": "max",
+            "value": 290000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 518087,
         "text": "MTS1 Software Engineer"
       },
-      "salaryCount": 93,
+      "salaryCount": 95,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 145434.32
+            "ident": "min",
+            "value": 163000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 163426.01
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 186058.75
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 211825.87
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 238030.86
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 11666.41
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 15085.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 20114.5
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 28160.3
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 36809.54
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 29193.23
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 37749.86
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 50333.14
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 70466.4
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 92109.65
-          }
-        ]
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 40859.63
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 52835.73
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 70447.64
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 98626.7
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 128919.18
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 186293.95
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 216261.74
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 256506.39
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 310452.57
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 366950.04
+            "ident": "max",
+            "value": 214000.0
           }
         ]
       }
     },
     {
-      "__typename": "AggregatedSalaryEstimatesResult",
-      "currency": {
-        "__typename": "Currency",
-        "code": "USD"
-      },
       "jobTitle": {
-        "__typename": "JobTitle",
-        "id": 43960,
         "text": "Financial Analyst"
       },
       "salaryCount": 92,
       "basePayStatistics": {
-        "__typename": "StatisticsResult",
         "percentiles": [
           {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 81505.92
+            "ident": "min",
+            "value": 95000.0
           },
           {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 93784.88
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 109623.52
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 128137.03
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 147441.01
-          }
-        ]
-      },
-      "cashBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 5638.5
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 7291.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 9721.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 13610.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 17790.44
-          }
-        ]
-      },
-      "profitSharingStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "salesCommissionStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "stockBonusStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "tipsStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": []
-      },
-      "totalAdditionalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 5638.5
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 7291.16
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 9721.55
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 13610.17
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 17790.44
-          }
-        ]
-      },
-      "totalPayStatistics": {
-        "__typename": "StatisticsResult",
-        "percentiles": [
-          {
-            "__typename": "Percentile",
-            "ident": "P10",
-            "value": 87144.42
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P25",
-            "value": 101076.04
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P50",
-            "value": 119345.07
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P75",
-            "value": 141747.2
-          },
-          {
-            "__typename": "Percentile",
-            "ident": "P90",
-            "value": 165231.45
+            "ident": "max",
+            "value": 129000.0
           }
         ]
       }
     }
-  ]
+  ],
+  "numPages": 220,
+  "salaryCount": 10,
+  "jobTitleCount": 2191
 }

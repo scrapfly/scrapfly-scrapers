@@ -46,83 +46,42 @@ async def scrape_location_data(query: str) -> List[LocationData]:
     log.info(f"scraping location data: {query}")
     # the graphql payload that defines our search
     # note: that changing values outside of expected ranges can block the web scraper
-    payload = json.dumps(
-        [
-            {
-                "variables": {
-                    "request": {
-                        "query": query,
-                        "limit": 10,
-                        "scope": "WORLDWIDE",
-                        "locale": "en-US",
-                        "scopeGeoId": 1,
-                        "searchCenter": None,
-                        # note: here you can expand to search for differents.
-                        "types": [
-                            "LOCATION",
-                            # "QUERY_SUGGESTION",
-                            # "RESCUE_RESULT"
-                        ],
-                        "locationTypes": [
-                            "GEO",
-                            "AIRPORT",
-                            "ACCOMMODATION",
-                            "ATTRACTION",
-                            "ATTRACTION_PRODUCT",
-                            "EATERY",
-                            "NEIGHBORHOOD",
-                            "AIRLINE",
-                            "SHOPPING",
-                            "UNIVERSITY",
-                            "GENERAL_HOSPITAL",
-                            "PORT",
-                            "FERRY",
-                            "CORPORATION",
-                            "VACATION_RENTAL",
-                            "SHIP",
-                            "CRUISE_LINE",
-                            "CAR_RENTAL_OFFICE",
-                        ],
-                        "userId": None,
-                        "context": {},
-                        "enabledFeatures": ["articles"],
-                        "includeRecent": True,
-                    }
-                },
-                "query": "84b17ed122fbdbd4",
-                "extensions": {"preRegisteredQueryId": "84b17ed122fbdbd4"},
-            }
-        ]
-    )
-
-    # we need to generate a random request ID for this request to succeed
-    random_request_id = "".join(random.choice(string.ascii_lowercase + string.digits) for i in range(64))
-    headers = {
-        "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Connection": "keep-alive",
-        "Host": "www.tripadvisor.com",
-        "Origin": "https://www.tripadvisor.com",
-        "X-Requested-With": "XMLHttpRequest",
-        "content-type": "application/json",
-        "x-requested-by": random_request_id
-    }
+    
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.tripadvisor.com/data/graphql/ids",
-            headers=headers,
-            body=payload,
-            method="POST",
+            url="https://www.tripadvisor.com/",
             **BASE_CONFIG,
+            render_js=True,
+            js_scenario=[
+                {
+                    "wait_for_selector": {
+                        "selector": "//input[@type='search']",
+                        "timeout": 5000
+                    }
+                },
+                {
+                    "fill": {
+                        "clear": False,
+                        "selector": "//input[@type='search']",
+                        "value": "Malta"
+                    }
+                },
+                {
+                    "wait": 5000
+                }
+            ]
         )
     )
-    data = json.loads(result.content)
-    results = data[0]["data"]["Typeahead_autocomplete"]["results"]
-    # strip metadata
-    results = [r["details"] for r in results if r['__typename'] == 'Typeahead_LocationItem']
-    log.info(f"found {len(results)} results")
-    return results
 
+    # extract the json data from the graphql call
+    location_data = []
+    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
+    graphql_calls = [json.loads(f["response"]["body"]) for f in _xhr_calls if "/data/graphql/ids" in f["url"]]
+    location_data_call = [f for f in graphql_calls if "Typeahead_autocomplete" in f[0]["data"]]
+    for call in location_data_call:
+        location_data.extend(call[0]["data"]["Typeahead_autocomplete"]["results"])
+    log.info(f"found {len(location_data)} results")
+    return location_data
 
 class Preview(TypedDict):
     url: str
@@ -157,24 +116,16 @@ def parse_search_page(result: ScrapeApiResponse) -> List[Preview]:
     return parsed
 
 
-async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Preview]:
+async def scrape_search(search_url: str, max_pages: Optional[int] = None) -> List[Preview]:
     """scrape search results of a search query"""
     # first scrape location data and the first page of results
-    log.info(f"{query}: scraping first search results page")
-    try:
-        location_data = (await scrape_location_data(query))[0]  # take first result
-    except IndexError:
-        log.error(f"could not find location data for query {query}")
-        return
-    hotel_search_url = "https://www.tripadvisor.com" + location_data["HOTELS_URL"]
-
-    log.info(f"found hotel search url: {hotel_search_url}")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(hotel_search_url, **BASE_CONFIG))
+    log.info(f"{search_url}: scraping first search results page")
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
 
     # parse first page
     results = parse_search_page(first_page)
     if not results:
-        log.error("query {} found no results", query)
+        log.error("query {} found no results", search_url)
         return []
 
     # extract pagination metadata to scrape all pages concurrently
@@ -182,14 +133,14 @@ async def scrape_search(query: str, max_pages: Optional[int] = None) -> List[Pre
     total_results = first_page.selector.xpath("//div[@data-test-target='hotels-main-list']//span").re(r"(\d[\d,]*)")[0]
     total_results = int(total_results.replace(",", ""))
     next_page_url = first_page.selector.css('a[aria-label="Next page"]::attr(href)').get()
-    next_page_url = urljoin(hotel_search_url, next_page_url)  # turn url absolute
+    next_page_url = urljoin(search_url, next_page_url)  # turn url absolute
     total_pages = int(math.ceil(total_results / page_size))
     if max_pages and total_pages > max_pages:
-        log.debug(f"{query}: only scraping {max_pages} max pages from {total_pages} total")
+        log.debug(f"{search_url}: only scraping {max_pages} max pages from {total_pages} total")
         total_pages = max_pages
 
     # scrape remaining pages
-    log.info(f"{query}: found {total_results=}, {page_size=}. Scraping {total_pages} pagination pages")
+    log.info(f"{search_url}: found {total_results=}, {page_size=}. Scraping {total_pages} pagination pages")
     other_page_urls = [
         # note: "oa" stands for "offset anchors"
         next_page_url.replace(f"oa{page_size}", f"oa{page_size * i}")
@@ -214,13 +165,13 @@ def parse_hotel_page(result: ScrapeApiResponse) -> Dict:
         amenities.append(feature.get())
 
     reviews = []
-    for review in selector.xpath("//div[contains(text(), 'wrote a review')]/ancestor::div[6]"):
-        title = review.xpath(".//div[@data-test-target='review-title']/div/a/text()").get()
-        text = "".join(review.xpath(".//span[contains(@data-automation, 'reviewText')]/text()").extract())
+    for review in selector.xpath("//div[@data-test-target='HR_CC_CARD']"):
+        title = review.xpath(".//div[@data-test-target='review-title']//span//text()").get()
+        text = "".join(review.xpath(".//div[@class='_c']//div[contains(@class, 'fIrGe')]//span[contains(@class, 'JguWG')]//span/text()").extract())
         rate = review.xpath(".//*[contains(text(),'of 5 bubbles')]/text()").get()
         rate = (float(rate.replace(" of 5 bubbles", ""))) if rate else None
-        trip_data = review.xpath(".//div[1]/div[2]/div[1]/div[2]/text()").get()
-        trip_type = review.xpath(".//div[1]/div[2]/div/div[4]/text()").get()
+        trip_data = review.xpath(".//span[contains(text(), 'Date of stay:')]/parent::div/following-sibling::span/text()").get()
+        trip_type = review.xpath(".//span[contains(text(), 'Trip type:')]/parent::div/following-sibling::span/text()").get()
 
         reviews.append({
             "title": title,

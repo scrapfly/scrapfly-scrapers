@@ -10,6 +10,8 @@ import os
 import gzip
 import json
 import jmespath
+import base64
+from io import BytesIO
 from parsel import Selector
 from typing import Dict, List, Optional
 from loguru import logger as log
@@ -85,9 +87,16 @@ async def scrape_website_compare(first_domain: str, second_domain: str) -> Dict:
 
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
-    bytes_data = response.scrape_result['content'].getvalue()
-    # decode the .gz file
-    xml = bytes_data.decode('utf-8')
+    content = response.scrape_result['content']
+
+    # base64-encoded string
+    if isinstance(content, str):
+        decoded_bytes = base64.b64decode(content)
+        xml = decoded_bytes.decode('utf-8')
+    # bytes-io object        
+    elif isinstance(content, BytesIO):
+        xml = content.read().decode('utf-8')
+        
     selector = Selector(xml)
     data = []
     for url in selector.xpath("//url/loc/text()"):
@@ -99,11 +108,11 @@ async def scrape_sitemaps(url: str) -> List[str]:
     """scrape link data from bestbuy sitemap"""
     promo_urls = None
     try:
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, proxy_pool="public_residential_pool", country="us" ))
         promo_urls = parse_sitemaps(response)
         log.success(f"scraped {len(promo_urls)} urls from sitemaps")
-    except:
-        log.info("couldnt' scrape sitemaps, request was blocked")
+    except Exception as e:
+        log.info(f"couldnt' scrape sitemaps, request was blocked: {e}")
         pass
     return promo_urls
 

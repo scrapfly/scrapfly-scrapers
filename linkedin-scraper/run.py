@@ -50,9 +50,9 @@ async def run():
 
     job_data = await linkedin.scrape_jobs(
         urls=[
-            "https://www.linkedin.com/jobs/view/data-center-engineering-operations-engineer-hyd-infinity-dceo-at-amazon-web-services-aws-4017265505",
-            "https://www.linkedin.com/jobs/view/content-strategist-google-cloud-content-strategy-and-experience-at-google-4015776107",
-            "https://www.linkedin.com/jobs/view/sr-content-marketing-manager-brand-protection-brand-protection-at-amazon-4007942181"
+            "https://www.linkedin.com/jobs/view/python-developer-at-tactibit-technologies-4121519145",
+            "https://www.linkedin.com/jobs/view/python-developer-remote-position-at-hrc-global-services-4300086838",
+            "https://www.linkedin.com/jobs/view/python-developer-at-unisys-4283791286"
         ]
     )
     with open(output.joinpath("jobs.json"), "w", encoding="utf-8") as file:

@@ -82,6 +82,9 @@ def parse_product_page(response: ScrapeApiResponse) -> Dict:
     """parse hidden product data from product pages"""
     selector = response.selector
     script = selector.xpath("//script[contains(text(),'offers')]/text()").get()
+    if not script:
+        log.warning(f"Could not find product data script on {response.context['url']}")
+        return {}
     data = json.loads(script)
     return data
 
@@ -90,9 +93,15 @@ def parse_shop_page(response: ScrapeApiResponse) -> Dict:
     """parse hidden shop data from shop pages"""
     selector = response.selector
     script = selector.xpath("//script[contains(text(),'itemListElement')]/text()").get()
-    data = json.loads(script)
-    return data
-
+    if not script:
+        log.warning(f"Could not find shop data script on {response.context['url']}")
+        return {}
+    try:
+        data = json.loads(script)
+        return data
+    except json.JSONDecodeError as e:
+        log.error(f"Failed to parse JSON from shop page {response.context['url']}: {e}")
+        return {}
 
 async def scrape_search(url: str, max_pages: int = None) -> List[Dict]:
     """scrape product listing data from Etsy search pages"""
@@ -159,7 +168,7 @@ async def scrape_shop(urls: List[str]) -> List[Dict]:
     # scrape all the shop pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_shop_page(response)
-        data['url'] = response.context['url']
+        data["url"] = response.context["url"]
         shops.append(data)
     log.success(f"scraped {len(shops)} shops from shop pages")
     return shops

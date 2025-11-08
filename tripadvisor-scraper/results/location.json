@@ -1,332 +1,2636 @@
 [
   {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Europe"
-    },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
-      "placeType": "COUNTRY",
-      "hierarchy": {
-        "parentId": 4,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": ""
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49365;g49365",
+    "sponsored": false,
+    "locationId": 49365,
+    "details": {
+      "localizedName": "Mooresville",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
           }
         },
-        "naturalParentId": 4,
-        "naturalParent": {
-          "names": {
-            "name": "Europe"
-          },
-          "placeType": "CONTINENT"
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49365-Reviews-Mooresville_North_Carolina-Vacation_Rentals.html"
         }
       },
+      "url": "/Tourism-g49365-Mooresville_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49365-Mooresville_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49365-Activities-Mooresville_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49365-Mooresville_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.58252,
+      "longitude": -80.81469,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1333,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/7f/97/90/sunset-on-beautiful-lake.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 11,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;20040;g49022;p10022",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "mac and cheese restaurants near me (charlotte)",
+    "title": null,
+    "route": {
+      "url": "/Restaurants-g49022-zfd20040-Charlotte_North_Carolina-Mac_and_cheese.html",
+      "page": "Restaurants",
+      "params": {
+        "geoId": 49022,
+        "dishId": 20040
+      }
+    },
+    "buCategory": "RESTAURANTS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 46,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49330;g49330",
+    "sponsored": false,
+    "locationId": 49330,
+    "details": {
+      "localizedName": "Matthews",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49330-Reviews-Matthews_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49330-Matthews_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49330-Matthews_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49330-Activities-Matthews_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49330-Matthews_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.11815,
+      "longitude": -80.72033,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1500,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/47/84/e9/along-the-path.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 8,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49361;g49361",
+    "sponsored": false,
+    "locationId": 49361,
+    "details": {
+      "localizedName": "Monroe",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49361-Reviews-Monroe_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49361-Monroe_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49361-Monroe_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49361-Activities-Monroe_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49361-Monroe_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 34.98263,
+      "longitude": -80.54891,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1500,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/05/94/49/papa-s-dream-house.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 6,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49359;g49359",
+    "sponsored": false,
+    "locationId": 49359,
+    "details": {
+      "localizedName": "Mocksville",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49359-Reviews-Mocksville_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49359-Mocksville_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49359-Mocksville_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49359-Activities-Mocksville_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49359-Mocksville_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.8954,
+      "longitude": -80.5627,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1228,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/54/14/fd/rich-park.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 10,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49357;g49357",
+    "sponsored": false,
+    "locationId": 49357,
+    "details": {
+      "localizedName": "Mint Hill",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49357-Reviews-Mint_Hill_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49357-Mint_Hill_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49357-Mint_Hill_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49357-Activities-Mint_Hill_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49357-Mint_Hill_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.17419,
+      "longitude": -80.65605,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 925,
+          "maxHeight": 693,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/dd/72/58/carl-j-mcewen-historic.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 9,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49373;g49373",
+    "sponsored": false,
+    "locationId": 49373,
+    "details": {
+      "localizedName": "Mount Holly",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49373-Reviews-Mount_Holly_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49373-Mount_Holly_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49373-Mount_Holly_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49373-Activities-Mount_Holly_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49373-Mount_Holly_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.29662,
+      "longitude": -81.01624,
+      "isGeo": true,
+      "thumbnail": null
+    },
+    "highlightingInfo": [
+      {
+        "length": 11,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;11026;g49022;p10021",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "museums in charlotte",
+    "title": null,
+    "route": {
+      "url": "/Attractions-g49022-Activities-c49-Charlotte_North_Carolina.html",
+      "page": "AttractionsFusion",
+      "params": {
+        "filters": [
+          {
+            "value": [
+              "49"
+            ],
+            "id": "category"
+          }
+        ],
+        "contentType": "attraction",
+        "webVariant": "AttractionsFusion",
+        "geoId": 49022
+      }
+    },
+    "buCategory": "ATTRACTIONS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 20,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;9181;g49022;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "meeting rooms hotels in charlotte",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g49022-zft9181-Charlotte_North_Carolina-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "filters": [
+          {
+            "value": [
+              "9181"
+            ],
+            "id": "anyTag"
+          }
+        ],
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 49022
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 33,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49315;g49315",
+    "sponsored": false,
+    "locationId": 49315,
+    "details": {
+      "localizedName": "Maiden",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49315-Reviews-Maiden_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49315-Maiden_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49315-Maiden_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49315-Activities-Maiden_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49315-Maiden_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.5748,
+      "longitude": -81.21172,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1311,
+          "maxHeight": 983,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e9/33/3e/me-and-a-baby.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 6,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "M",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;20040;g49022;p10022",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "mac and cheese restaurants near me (charlotte)",
+    "title": null,
+    "route": {
+      "url": "/Restaurants-g49022-zfd20040-Charlotte_North_Carolina-Mac_and_cheese.html",
+      "page": "Restaurants",
+      "params": {
+        "geoId": 49022,
+        "dishId": 20040
+      }
+    },
+    "buCategory": "RESTAURANTS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 46,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49330;g49330",
+    "sponsored": false,
+    "locationId": 49330,
+    "details": {
+      "localizedName": "Matthews",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49330-Reviews-Matthews_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49330-Matthews_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49330-Matthews_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49330-Activities-Matthews_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49330-Matthews_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.11815,
+      "longitude": -80.72033,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2000,
+          "maxHeight": 1500,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/47/84/e9/along-the-path.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 8,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;9231;g49022;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "marriott hotels in charlotte",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g49022-zft9231-Charlotte_North_Carolina-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "filters": [
+          {
+            "value": [
+              "9231"
+            ],
+            "id": "anyTag"
+          }
+        ],
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 49022
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 28,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49315;g49315",
+    "sponsored": false,
+    "locationId": 49315,
+    "details": {
+      "localizedName": "Maiden",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49315-Reviews-Maiden_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49315-Maiden_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49315-Maiden_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49315-Activities-Maiden_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49315-Maiden_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 35.5748,
+      "longitude": -81.21172,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1311,
+          "maxHeight": 983,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e9/33/3e/me-and-a-baby.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 6,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;19022;g49022;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "massage hotels in charlotte",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g49022-zft19022-Charlotte_North_Carolina-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "filters": [
+          {
+            "value": [
+              "19022"
+            ],
+            "id": "anyTag"
+          }
+        ],
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 49022
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 27,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;28942;g28942",
+    "sponsored": false,
+    "locationId": 28942,
+    "details": {
+      "localizedName": "Massachusetts",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "STATE",
+        "hierarchy": {
+          "parentId": 191,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North America"
+            }
+          },
+          "naturalParentId": 191,
+          "naturalParent": {
+            "names": {
+              "name": "United States"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "United States, North America"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g28942-Reviews-Massachusetts-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g28942-Massachusetts-Vacations.html",
+      "HOTELS_URL": "/Hotels-g28942-Massachusetts-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g28942-Activities-Massachusetts.html",
+      "RESTAURANTS_URL": "/Restaurants-g28942-Massachusetts.html",
+      "placeType": "STATE",
+      "latitude": 42.352795,
+      "longitude": -71.98128,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 3264,
+          "maxHeight": 1836,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/d1/68/46/boston-tea-party-harborwalk.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 13,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;49328;g49328",
+    "sponsored": false,
+    "locationId": 49328,
+    "details": {
+      "localizedName": "Marshville",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28954,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28954,
+          "naturalParent": {
+            "names": {
+              "name": "North Carolina"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g49328-Reviews-Marshville_North_Carolina-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g49328-Marshville_North_Carolina-Vacations.html",
+      "HOTELS_URL": "/Hotels-g49328-Marshville_North_Carolina-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g49328-Activities-Marshville_North_Carolina.html",
+      "RESTAURANTS_URL": "/Restaurants-g49328-Marshville_North_Carolina.html",
+      "placeType": "CITY",
+      "latitude": 34.98766,
+      "longitude": -80.36843,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 584,
+          "maxHeight": 640,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/43/b6/17/marshville.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 10,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;398589;p10022",
+    "sponsored": false,
+    "locationId": 398589,
+    "details": {
+      "localizedName": "Mama Ricotta's",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "601 S Kings Dr"
+      },
+      "locationV2": {
+        "placeType": "EATERY",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Restaurant_Review-g49022-d398589-Reviews-Mama_Ricotta_s-Charlotte_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=398589",
+      "ATTRACTIONS_URL": "/Attractions?geo=398589",
+      "RESTAURANTS_URL": "/Restaurants?geo=398589",
+      "placeType": "EATERY",
+      "latitude": 35.20993,
+      "longitude": -80.83565,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1234,
+          "maxHeight": 822,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/a0/e4/51/classic-italian-american.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 14,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;94163;p10023",
+    "sponsored": false,
+    "locationId": 94163,
+    "details": {
+      "localizedName": "Charlotte Marriott City Center",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "100 West Trade Street"
+      },
+      "locationV2": {
+        "placeType": "ACCOMMODATION",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Hotel_Review-g49022-d94163-Reviews-Charlotte_Marriott_City_Center-Charlotte_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=94163",
+      "ATTRACTIONS_URL": "/Attractions?geo=94163",
+      "RESTAURANTS_URL": "/Restaurants?geo=94163",
+      "placeType": "ACCOMMODATION",
+      "latitude": 35.228016,
+      "longitude": -80.84405,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4000,
+          "maxHeight": 2667,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/62/23/a9/hotel-exterior.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 30,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;23294847;p10023",
+    "sponsored": false,
+    "locationId": 23294847,
+    "details": {
+      "localizedName": "JW Marriott Charlotte",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "600 South College Street"
+      },
+      "locationV2": {
+        "placeType": "ACCOMMODATION",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Hotel_Review-g49022-d23294847-Reviews-JW_Marriott_Charlotte-Charlotte_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=23294847",
+      "ATTRACTIONS_URL": "/Attractions?geo=23294847",
+      "RESTAURANTS_URL": "/Restaurants?geo=23294847",
+      "placeType": "ACCOMMODATION",
+      "latitude": 35.222473,
+      "longitude": -80.84796,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 6720,
+          "maxHeight": 4480,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/51/11/77/jw-marriott-charlotte.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 21,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Ma",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;10741;g49022;p10022",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malaysian cuisine restaurants in charlotte",
+    "title": null,
+    "route": {
+      "url": "/Restaurants-g49022-c10741-Charlotte_North_Carolina.html",
+      "page": "Restaurants",
+      "params": {
+        "cuisineId": 10741,
+        "geoId": 49022
+      }
+    },
+    "buCategory": "RESTAURANTS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 42,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;20040;g49022;p10022",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "mac and cheese restaurants near me (charlotte)",
+    "title": null,
+    "route": {
+      "url": "/Restaurants-g49022-zfd20040-Charlotte_North_Carolina-Mac_and_cheese.html",
+      "page": "Restaurants",
+      "params": {
+        "geoId": 49022,
+        "dishId": 20040
+      }
+    },
+    "buCategory": "RESTAURANTS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 46,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 49022
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;10741;g186338;p10022",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malaysian cuisine restaurants london",
+    "title": null,
+    "route": {
+      "url": "/Restaurants-g186338-c10741-London_England.html",
+      "page": "Restaurants",
+      "params": {
+        "cuisineId": 10741,
+        "geoId": 186338
+      }
+    },
+    "buCategory": "RESTAURANTS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "England, United Kingdom"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 36,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 186338
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;6878418;p10021",
+    "sponsored": false,
+    "locationId": 6878418,
+    "details": {
+      "localizedName": "The Sleepy Poet Antiques Mall",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "4450 South Blvd"
+      },
+      "locationV2": {
+        "placeType": "ATTRACTION",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Attraction_Review-g49022-d6878418-Reviews-The_Sleepy_Poet_Antiques_Mall-Charlotte_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=6878418",
+      "ATTRACTIONS_URL": "/Attractions?geo=6878418",
+      "RESTAURANTS_URL": "/Restaurants?geo=6878418",
+      "placeType": "ATTRACTION",
+      "latitude": 35.1813,
+      "longitude": -80.87673,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 726,
+          "maxHeight": 545,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/65/af/c3/the-sleepy-poet-antiques.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 29,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;3255100;p10022",
+    "sponsored": false,
+    "locationId": 3255100,
+    "details": {
+      "localizedName": "Malaya Kitchen",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "8200 Providence Rd"
+      },
+      "locationV2": {
+        "placeType": "EATERY",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Restaurant_Review-g49022-d3255100-Reviews-Malaya_Kitchen-Charlotte_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=3255100",
+      "ATTRACTIONS_URL": "/Attractions?geo=3255100",
+      "RESTAURANTS_URL": "/Restaurants?geo=3255100",
+      "placeType": "EATERY",
+      "latitude": 35.095276,
+      "longitude": -80.77914,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2048,
+          "maxHeight": 2048,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b9/c5/c3/good-mesls.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 14,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;20196751;p10022",
+    "sponsored": false,
+    "locationId": 20196751,
+    "details": {
+      "localizedName": "Mal Pan",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "4625 Piedmont Row Dr"
+      },
+      "locationV2": {
+        "placeType": "EATERY",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Restaurant_Review-g49022-d20196751-Reviews-Mal_Pan-Charlotte_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=20196751",
+      "ATTRACTIONS_URL": "/Attractions?geo=20196751",
+      "RESTAURANTS_URL": "/Restaurants?geo=20196751",
+      "placeType": "EATERY",
+      "latitude": 35.15208,
+      "longitude": -80.839424,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1534,
+          "maxHeight": 2048,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/29/32/99/photo0jpg.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 7,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;16853538;p10022",
+    "sponsored": false,
+    "locationId": 16853538,
+    "details": {
+      "localizedName": "Grace O'Malley's",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Matthews, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "157 N Trade St"
+      },
+      "locationV2": {
+        "placeType": "EATERY",
+        "hierarchy": {
+          "parentId": 49330,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49330,
+          "naturalParent": {
+            "names": {
+              "name": "Matthews"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Matthews, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Restaurant_Review-g49330-d16853538-Reviews-Grace_O_Malley_s-Matthews_North_Carolina.html",
+      "HOTELS_URL": "/Hotels?geo=16853538",
+      "ATTRACTIONS_URL": "/Attractions?geo=16853538",
+      "RESTAURANTS_URL": "/Restaurants?geo=16853538",
+      "placeType": "EATERY",
+      "latitude": 35.116577,
+      "longitude": -80.72225,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1008,
+          "maxHeight": 756,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/30/08/77/ta-img-20190704-122859.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 16,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;16853845;p10021",
+    "sponsored": false,
+    "locationId": 16853845,
+    "details": {
+      "localizedName": "Muscle Men Male Strippers Revue Show Bachelorette Party Haven",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Charlotte, North Carolina, United States, North America"
+      },
+      "streetAddress": {
+        "street1": "3217 The Plaza"
+      },
+      "locationV2": {
+        "placeType": "ATTRACTION",
+        "hierarchy": {
+          "parentId": 49022,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "North Carolina, United States"
+            }
+          },
+          "naturalParentId": 49022,
+          "naturalParent": {
+            "names": {
+              "name": "Charlotte"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Charlotte, North Carolina"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Attraction_Review-g49022-d16853845-Reviews-Muscle_Men_Male_Strippers_Revue_Show_Bachelorette_Party_Haven-Charlotte_North_Car.html",
+      "HOTELS_URL": "/Hotels?geo=16853845",
+      "ATTRACTIONS_URL": "/Attractions?geo=16853845",
+      "RESTAURANTS_URL": "/Restaurants?geo=16853845",
+      "placeType": "ATTRACTION",
+      "latitude": 35.24077,
+      "longitude": -80.79732,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2160,
+          "maxHeight": 1080,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/dd/48/02/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 61,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;293953;g293953",
+    "sponsored": false,
+    "locationId": 293953,
+    "details": {
+      "localizedName": "Maldives",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Asia"
+      },
+      "streetAddress": null,
+      "locationV2": {
+        "placeType": "ISLAND_GROUP",
+        "hierarchy": {
+          "parentId": 2,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 2,
+          "naturalParent": {
+            "names": {
+              "name": "Asia"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Asia"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g293953-Reviews-Maldives-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g293953-Maldives-Vacations.html",
+      "HOTELS_URL": "/Hotels-g293953-Maldives-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g293953-Activities-Maldives.html",
+      "RESTAURANTS_URL": "/Restaurants-g293953-Maldives.html",
+      "placeType": "ISLAND_GROUP",
+      "latitude": 4.164185,
+      "longitude": 73.494995,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4076,
+          "maxHeight": 3070,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/dc/98/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 8,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;187462;g187462",
+    "sponsored": false,
+    "locationId": 187462,
+    "details": {
+      "localizedName": "Majorca",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Balearic Islands, Spain, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "ISLAND",
+        "hierarchy": {
+          "parentId": 187459,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Spain, Europe"
+            }
+          },
+          "naturalParentId": 187427,
+          "naturalParent": {
+            "names": {
+              "name": "Spain"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Balearic Islands, Spain"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g187462-Reviews-Majorca_Balearic_Islands-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g187462-Majorca_Balearic_Islands-Vacations.html",
+      "HOTELS_URL": "/Hotels-g187462-Majorca_Balearic_Islands-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g187462-Activities-Majorca_Balearic_Islands.html",
+      "RESTAURANTS_URL": "/Restaurants-g187462-Majorca_Balearic_Islands.html",
+      "placeType": "ISLAND",
+      "latitude": 39.60357,
+      "longitude": 2.995148,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2880,
+          "maxHeight": 1920,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/66/c5/e8/caption.jpg?w={width}&h={height}&s=1&cx=1440&cy=959&chk=v1_5f9b437a0db479c398a7"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 7,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Mal",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": [
+      {
+        "documentId": "geo-pt;10023-190311;g190311;p10023",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta hotels",
+        "title": "Hotels",
+        "route": {
+          "url": "/Hotels-g190311-Malta-Hotels.html",
+          "page": "HotelsFusion",
+          "params": {
+            "contentType": "hotel",
+            "webVariant": "HotelsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "HOTELS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 12,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      },
+      {
+        "documentId": "geo-pt;10021-190311;g190311;p10021",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta things to do",
+        "title": "Things to Do",
+        "route": {
+          "url": "/Attractions-g190311-Activities-Malta.html",
+          "page": "AttractionsFusion",
+          "params": {
+            "contentType": "attraction",
+            "webVariant": "AttractionsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "ATTRACTIONS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 18,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      }
+    ]
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10052-190311;g190311;p10052",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta forums",
+    "title": null,
+    "route": {
+      "url": "/ShowForum-g190311-Malta.html",
+      "page": "ShowForum",
+      "params": {
+        "geoId": 190311
+      }
+    },
+    "buCategory": "FORUM",
+    "parentGeoDetails": {
       "names": {
         "longOnlyHierarchyTypeaheadV2": "Europe"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g190311-Malta-Vacations.html",
-    "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
-    "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
-    "placeType": "COUNTRY",
-    "latitude": 35.892,
-    "longitude": 14.42979,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 5218,
-        "maxHeight": 3576,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 12,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "parentGeoId": 190311
   },
   {
-    "localizedName": "Malta National Aquarium Entrance Ticket",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Qawra, Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;14038097;p10043",
+    "sponsored": false,
+    "locationId": 14038097,
+    "details": {
+      "localizedName": "Malta: Comino, Gozo, Blue Lagoon, Crystal Lagoon and Caves Tour",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Island of Malta, Malta, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "ACTIVITY",
+        "hierarchy": {
+          "parentId": 190320,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Malta, Europe"
+            }
+          },
+          "naturalParentId": 190320,
+          "naturalParent": {
+            "names": {
+              "name": "Island of Malta"
+            },
+            "placeType": "ISLAND"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/AttractionProductReview-g190320-d14038097-Malta_Comino_Gozo_Blue_Lagoon_Crystal_Lagoon_and_Caves_Tour-Island_of_Malta.html",
+      "HOTELS_URL": "/Hotels?geo=14038097",
+      "ATTRACTIONS_URL": "/Attractions?geo=14038097",
+      "RESTAURANTS_URL": "/Restaurants?geo=14038097",
       "placeType": "ACTIVITY",
-      "hierarchy": {
-        "parentId": 608947,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-          }
-        },
-        "naturalParentId": 608947,
-        "naturalParent": {
-          "names": {
-            "name": "Qawra"
-          },
-          "placeType": "CITY"
+      "latitude": null,
+      "longitude": null,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 720,
+          "maxHeight": 480,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/01/4a/bb/caption.jpg?w={width}&h={height}&s=1"
         }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Qawra, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/AttractionProductReview-g608947-d11478721-Malta_National_Aquarium_Entrance_Ticket-Qawra_Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=11478721",
-    "ATTRACTIONS_URL": "/Attractions?geo=11478721",
-    "RESTAURANTS_URL": "/Restaurants?geo=11478721",
-    "placeType": "ACTIVITY",
-    "latitude": null,
-    "longitude": null,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 720,
-        "maxHeight": 480,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/5a/78/59/caption.jpg?w={width}&h={height}&s=1"
       }
-    }
+    },
+    "highlightingInfo": [
+      {
+        "length": 63,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
   },
   {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Saratoga County, New York, United States, North America"
-    },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
-      "placeType": "CITY",
-      "hierarchy": {
-        "parentId": 28001575,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "New York, United States"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;228694;p10023",
+    "sponsored": false,
+    "locationId": 228694,
+    "details": {
+      "localizedName": "Hôtel Malte - Astotel",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Paris, Ile-de-France, France, Europe"
+      },
+      "streetAddress": {
+        "street1": "63 Rue De Richelieu"
+      },
+      "locationV2": {
+        "placeType": "ACCOMMODATION",
+        "hierarchy": {
+          "parentId": 187147,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Ile-de-France, France"
+            }
+          },
+          "naturalParentId": 187147,
+          "naturalParent": {
+            "names": {
+              "name": "Paris"
+            },
+            "placeType": "CITY"
           }
         },
-        "naturalParentId": 28953,
-        "naturalParent": {
-          "names": {
-            "name": "New York"
-          },
-          "placeType": "STATE"
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Paris, Ile-de-France, France"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Hotel_Review-g187147-d228694-Reviews-Hotel_Malte_Astotel-Paris_Ile_de_France.html",
+      "HOTELS_URL": "/Hotels?geo=228694",
+      "ATTRACTIONS_URL": "/Attractions?geo=228694",
+      "RESTAURANTS_URL": "/Restaurants?geo=228694",
+      "placeType": "ACCOMMODATION",
+      "latitude": 48.867207,
+      "longitude": 2.337543,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2600,
+          "maxHeight": 1733,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/77/31/6a/breakfast-room--v16535915.jpg?w={width}&h={height}&s=1"
         }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "New York, United States"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g48103-Reviews-Malta_Saratoga_County_New_York-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g48103-Malta_Saratoga_County_New_York-Vacations.html",
-    "HOTELS_URL": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g48103-Activities-Malta_Saratoga_County_New_York.html",
-    "RESTAURANTS_URL": "/Restaurants-g48103-Malta_Saratoga_County_New_York.html",
-    "placeType": "CITY",
-    "latitude": 42.96258,
-    "longitude": -73.79144,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 1108,
-        "maxHeight": 1478,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/8f/95/34/listen-to-the-beautiful.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 21,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "nestedResults": []
   },
   {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Montana, United States, North America"
-    },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
-      "placeType": "CITY",
-      "hierarchy": {
-        "parentId": 28947,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "United States, North America"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;45261;g45261",
+    "sponsored": false,
+    "locationId": 45261,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Montana, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28947,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28947,
+          "naturalParent": {
+            "names": {
+              "name": "Montana"
+            },
+            "placeType": "STATE"
           }
         },
-        "naturalParentId": 28947,
-        "naturalParent": {
-          "names": {
-            "name": "Montana"
-          },
-          "placeType": "STATE"
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Montana, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g45261-Reviews-Malta_Montana-Vacation_Rentals.html"
         }
       },
+      "url": "/Tourism-g45261-Malta_Montana-Vacations.html",
+      "HOTELS_URL": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g45261-Activities-Malta_Montana.html",
+      "RESTAURANTS_URL": "/Restaurants-g45261-Malta_Montana.html",
+      "placeType": "CITY",
+      "latitude": 48.36098,
+      "longitude": -107.87406,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2022,
+          "maxHeight": 1598,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5b/1d/1d/stilt-on-her-nest.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;48103;g48103",
+    "sponsored": false,
+    "locationId": 48103,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Saratoga County, New York, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28001575,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "New York, United States"
+            }
+          },
+          "naturalParentId": 28953,
+          "naturalParent": {
+            "names": {
+              "name": "New York"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "New York, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g48103-Reviews-Malta_Saratoga_County_New_York-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g48103-Malta_Saratoga_County_New_York-Vacations.html",
+      "HOTELS_URL": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g48103-Activities-Malta_Saratoga_County_New_York.html",
+      "RESTAURANTS_URL": "/Restaurants-g48103-Malta_Saratoga_County_New_York.html",
+      "placeType": "CITY",
+      "latitude": 42.96258,
+      "longitude": -73.79144,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1200,
+          "maxHeight": 1600,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/37/93/8b/free.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;573828;p10023",
+    "sponsored": false,
+    "locationId": 573828,
+    "details": {
+      "localizedName": "Radisson Blu Resort & Spa, Malta Golden Sands",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Mellieha, Island of Malta, Malta, Europe"
+      },
+      "streetAddress": {
+        "street1": "Golden Sands Bay"
+      },
+      "locationV2": {
+        "placeType": "ACCOMMODATION",
+        "hierarchy": {
+          "parentId": 230152,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
+            }
+          },
+          "naturalParentId": 230152,
+          "naturalParent": {
+            "names": {
+              "name": "Mellieha"
+            },
+            "placeType": "MUNICIPALITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Mellieha, Malta"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Hotel_Review-g230152-d573828-Reviews-Radisson_Blu_Resort_Spa_Malta_Golden_Sands-Mellieha_Island_of_Malta.html",
+      "HOTELS_URL": "/Hotels?geo=573828",
+      "ATTRACTIONS_URL": "/Attractions?geo=573828",
+      "RESTAURANTS_URL": "/Restaurants?geo=573828",
+      "placeType": "ACCOMMODATION",
+      "latitude": 35.935566,
+      "longitude": 14.34323,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1500,
+          "maxHeight": 842,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/b2/ea/49/exterior.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 45,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;231311;p10023",
+    "sponsored": false,
+    "locationId": 231311,
+    "details": {
+      "localizedName": "The Westin Dragonara Resort, Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Saint Julian's, Island of Malta, Malta, Europe"
+      },
+      "streetAddress": {
+        "street1": "Dragonara Road"
+      },
+      "locationV2": {
+        "placeType": "ACCOMMODATION",
+        "hierarchy": {
+          "parentId": 227101,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
+            }
+          },
+          "naturalParentId": 227101,
+          "naturalParent": {
+            "names": {
+              "name": "Saint Julian's"
+            },
+            "placeType": "CITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Saint Julian's, Malta"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Hotel_Review-g227101-d231311-Reviews-The_Westin_Dragonara_Resort_Malta-Saint_Julian_s_Island_of_Malta.html",
+      "HOTELS_URL": "/Hotels?geo=231311",
+      "ATTRACTIONS_URL": "/Attractions?geo=231311",
+      "RESTAURANTS_URL": "/Restaurants?geo=231311",
+      "placeType": "ACCOMMODATION",
+      "latitude": 35.92565,
+      "longitude": 14.492072,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 4000,
+          "maxHeight": 2667,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/54/9b/7c/westin-dragonara-resort.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 34,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Malt",
+    "recent": false
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;190311;g190311",
+    "sponsored": false,
+    "locationId": 190311,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "COUNTRY",
+        "hierarchy": {
+          "parentId": 4,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": ""
+            }
+          },
+          "naturalParentId": 4,
+          "naturalParent": {
+            "names": {
+              "name": "Europe"
+            },
+            "placeType": "CONTINENT"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Europe"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g190311-Reviews-Malta-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g190311-Malta-Vacations.html",
+      "HOTELS_URL": "/Hotels-g190311-Malta-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g190311-Activities-Malta.html",
+      "RESTAURANTS_URL": "/Restaurants-g190311-Malta.html",
+      "placeType": "COUNTRY",
+      "latitude": 35.892,
+      "longitude": 14.42979,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 5218,
+          "maxHeight": 3576,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/e9/e5/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": [
+      {
+        "documentId": "geo-pt;10023-190311;g190311;p10023",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta hotels",
+        "title": "Hotels",
+        "route": {
+          "url": "/Hotels-g190311-Malta-Hotels.html",
+          "page": "HotelsFusion",
+          "params": {
+            "contentType": "hotel",
+            "webVariant": "HotelsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "HOTELS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 12,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      },
+      {
+        "documentId": "geo-pt;10021-190311;g190311;p10021",
+        "sponsored": false,
+        "suggestionType": "query",
+        "text": "malta things to do",
+        "title": "Things to Do",
+        "route": {
+          "url": "/Attractions-g190311-Activities-Malta.html",
+          "page": "AttractionsFusion",
+          "params": {
+            "contentType": "attraction",
+            "webVariant": "AttractionsFusion",
+            "geoId": 190311
+          }
+        },
+        "buCategory": "ATTRACTIONS",
+        "parentGeoDetails": {
+          "names": {
+            "longOnlyHierarchyTypeaheadV2": "Europe"
+          }
+        },
+        "highlightingInfo": [
+          {
+            "length": 18,
+            "offset": 0
+          }
+        ],
+        "recent": false,
+        "parentGeoId": 190311
+      }
+    ]
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;45261;g45261",
+    "sponsored": false,
+    "locationId": 45261,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Montana, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28947,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "United States, North America"
+            }
+          },
+          "naturalParentId": 28947,
+          "naturalParent": {
+            "names": {
+              "name": "Montana"
+            },
+            "placeType": "STATE"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Montana, United States"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g45261-Reviews-Malta_Montana-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g45261-Malta_Montana-Vacations.html",
+      "HOTELS_URL": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g45261-Activities-Malta_Montana.html",
+      "RESTAURANTS_URL": "/Restaurants-g45261-Malta_Montana.html",
+      "placeType": "CITY",
+      "latitude": 48.36098,
+      "longitude": -107.87406,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2022,
+          "maxHeight": 1598,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5b/1d/1d/stilt-on-her-nest.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "geo-pt;10023-45261;g45261;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g45261-Malta_Montana-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 45261
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
       "names": {
         "longOnlyHierarchyTypeaheadV2": "Montana, United States"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g45261-Reviews-Malta_Montana-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g45261-Malta_Montana-Vacations.html",
-    "HOTELS_URL": "/Hotels-g45261-Malta_Montana-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g45261-Activities-Malta_Montana.html",
-    "RESTAURANTS_URL": "/Restaurants-g45261-Malta_Montana.html",
-    "placeType": "CITY",
-    "latitude": 48.36098,
-    "longitude": -107.87406,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 2022,
-        "maxHeight": 1598,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5b/1d/1d/stilt-on-her-nest.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 12,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "parentGeoId": 45261
   },
   {
-    "localizedName": "Private Boat, Blue lagoon, Crystal lagoon Comino, Gozo Malta Ultimate Highlights",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": null
-    },
-    "locationV2": {
-      "placeType": "ACTIVITY",
-      "hierarchy": {
-        "parentId": 190320,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Malta, Europe"
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;48103;g48103",
+    "sponsored": false,
+    "locationId": 48103,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Saratoga County, New York, United States, North America"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 28001575,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "New York, United States"
+            }
+          },
+          "naturalParentId": 28953,
+          "naturalParent": {
+            "names": {
+              "name": "New York"
+            },
+            "placeType": "STATE"
           }
         },
-        "naturalParentId": 190320,
-        "naturalParent": {
-          "names": {
-            "name": "Island of Malta"
-          },
-          "placeType": "ISLAND"
-        }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/AttractionProductReview-g190320-d20274434-Private_Boat_Blue_lagoon_Crystal_lagoon_Comino_Gozo_Malta_Ultimate_Highlights-Isla.html",
-    "HOTELS_URL": "/Hotels?geo=20274434",
-    "ATTRACTIONS_URL": "/Attractions?geo=20274434",
-    "RESTAURANTS_URL": "/Restaurants?geo=20274434",
-    "placeType": "ACTIVITY",
-    "latitude": null,
-    "longitude": null,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 720,
-        "maxHeight": 480,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/02/dd/a7/caption.jpg?w={width}&h={height}&s=1"
-      }
-    }
-  },
-  {
-    "localizedName": "Malta5D",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Valletta, Island of Malta, Malta, Europe"
-    },
-    "streetAddress": {
-      "street1": "7, Old Bakery Street"
-    },
-    "locationV2": {
-      "placeType": "ATTRACTION",
-      "hierarchy": {
-        "parentId": 190328,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
-          }
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "New York, United States"
         },
-        "naturalParentId": 190328,
-        "naturalParent": {
-          "names": {
-            "name": "Valletta"
-          },
-          "placeType": "CITY"
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g48103-Reviews-Malta_Saratoga_County_New_York-Vacation_Rentals.html"
         }
       },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Valletta, Malta"
-      },
-      "vacationRentalsRoute": null
-    },
-    "url": "/Attraction_Review-g190328-d3443225-Reviews-Malta5D-Valletta_Island_of_Malta.html",
-    "HOTELS_URL": "/Hotels?geo=3443225",
-    "ATTRACTIONS_URL": "/Attractions?geo=3443225",
-    "RESTAURANTS_URL": "/Restaurants?geo=3443225",
-    "placeType": "ATTRACTION",
-    "latitude": 35.8978,
-    "longitude": 14.509771,
-    "isGeo": false,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 2048,
-        "maxHeight": 1152,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/40/85/75/photo2jpg.jpg?w={width}&h={height}&s=1"
-      }
-    }
-  },
-  {
-    "localizedName": "Malta",
-    "localizedAdditionalNames": {
-      "longOnlyHierarchy": "Carinthia, Austrian Alps, Austria, Europe"
-    },
-    "streetAddress": {
-      "street1": ""
-    },
-    "locationV2": {
+      "url": "/Tourism-g48103-Malta_Saratoga_County_New_York-Vacations.html",
+      "HOTELS_URL": "/Hotels-g48103-Malta_Saratoga_County_New_York-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g48103-Activities-Malta_Saratoga_County_New_York.html",
+      "RESTAURANTS_URL": "/Restaurants-g48103-Malta_Saratoga_County_New_York.html",
       "placeType": "CITY",
-      "hierarchy": {
-        "parentId": 190435,
-        "parent": {
-          "names": {
-            "longOnlyHierarchyTypeaheadV2": "Austrian Alps, Austria"
-          }
-        },
-        "naturalParentId": 190410,
-        "naturalParent": {
-          "names": {
-            "name": "Austria"
-          },
-          "placeType": "COUNTRY"
+      "latitude": 42.96258,
+      "longitude": -73.79144,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1200,
+          "maxHeight": 1600,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/37/93/8b/free.jpg?w={width}&h={height}&s=1"
         }
-      },
-      "names": {
-        "longOnlyHierarchyTypeaheadV2": "Austrian Alps, Austria"
-      },
-      "vacationRentalsRoute": {
-        "url": "/VacationRentals-g1195813-Reviews-Malta_Carinthia_Austrian_Alps-Vacation_Rentals.html"
       }
     },
-    "url": "/Tourism-g1195813-Malta_Carinthia_Austrian_Alps-Vacations.html",
-    "HOTELS_URL": "/Hotels-g1195813-Malta_Carinthia_Austrian_Alps-Hotels.html",
-    "ATTRACTIONS_URL": "/Attractions-g1195813-Activities-Malta_Carinthia_Austrian_Alps.html",
-    "RESTAURANTS_URL": "/Restaurants-g1195813-Malta_Carinthia_Austrian_Alps.html",
-    "placeType": "CITY",
-    "latitude": 46.95444,
-    "longitude": 13.50679,
-    "isGeo": true,
-    "thumbnail": {
-      "photoSizeDynamic": {
-        "maxWidth": 2048,
-        "maxHeight": 2048,
-        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/e4/20/4a/photo0jpg.jpg?w={width}&h={height}&s=1"
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
       }
-    }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_QuerySuggestionItem",
+    "documentId": "tag;9629;g190311;p10023",
+    "sponsored": false,
+    "suggestionType": "query",
+    "text": "malta boutique hotels",
+    "title": null,
+    "route": {
+      "url": "/Hotels-g190311-zft9629-Malta-Hotels.html",
+      "page": "HotelsFusion",
+      "params": {
+        "filters": [
+          {
+            "id": "anyTag",
+            "value": [
+              "9629"
+            ]
+          }
+        ],
+        "contentType": "hotel",
+        "webVariant": "HotelsFusion",
+        "geoId": 190311
+      }
+    },
+    "buCategory": "HOTELS",
+    "parentGeoDetails": {
+      "names": {
+        "longOnlyHierarchyTypeaheadV2": "Europe"
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 21,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "parentGeoId": 190311
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;1195813;g1195813",
+    "sponsored": false,
+    "locationId": 1195813,
+    "details": {
+      "localizedName": "Malta",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Carinthia, Austrian Alps, Austria, Europe"
+      },
+      "streetAddress": {
+        "street1": ""
+      },
+      "locationV2": {
+        "placeType": "CITY",
+        "hierarchy": {
+          "parentId": 190435,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Austrian Alps, Austria"
+            }
+          },
+          "naturalParentId": 190410,
+          "naturalParent": {
+            "names": {
+              "name": "Austria"
+            },
+            "placeType": "COUNTRY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Austrian Alps, Austria"
+        },
+        "vacationRentalsRoute": {
+          "url": "/VacationRentals-g1195813-Reviews-Malta_Carinthia_Austrian_Alps-Vacation_Rentals.html"
+        }
+      },
+      "url": "/Tourism-g1195813-Malta_Carinthia_Austrian_Alps-Vacations.html",
+      "HOTELS_URL": "/Hotels-g1195813-Malta_Carinthia_Austrian_Alps-Hotels.html",
+      "ATTRACTIONS_URL": "/Attractions-g1195813-Activities-Malta_Carinthia_Austrian_Alps.html",
+      "RESTAURANTS_URL": "/Restaurants-g1195813-Malta_Carinthia_Austrian_Alps.html",
+      "placeType": "CITY",
+      "latitude": 46.95444,
+      "longitude": 13.50679,
+      "isGeo": true,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 2048,
+          "maxHeight": 2048,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/e4/20/4a/photo0jpg.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 5,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;14038097;p10043",
+    "sponsored": false,
+    "locationId": 14038097,
+    "details": {
+      "localizedName": "Malta: Comino, Gozo, Blue Lagoon, Crystal Lagoon and Caves Tour",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Island of Malta, Malta, Europe"
+      },
+      "streetAddress": {
+        "street1": null
+      },
+      "locationV2": {
+        "placeType": "ACTIVITY",
+        "hierarchy": {
+          "parentId": 190320,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Malta, Europe"
+            }
+          },
+          "naturalParentId": 190320,
+          "naturalParent": {
+            "names": {
+              "name": "Island of Malta"
+            },
+            "placeType": "ISLAND"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/AttractionProductReview-g190320-d14038097-Malta_Comino_Gozo_Blue_Lagoon_Crystal_Lagoon_and_Caves_Tour-Island_of_Malta.html",
+      "HOTELS_URL": "/Hotels?geo=14038097",
+      "ATTRACTIONS_URL": "/Attractions?geo=14038097",
+      "RESTAURANTS_URL": "/Restaurants?geo=14038097",
+      "placeType": "ACTIVITY",
+      "latitude": null,
+      "longitude": null,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 720,
+          "maxHeight": 480,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/01/4a/bb/caption.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 63,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_LocationItem",
+    "documentId": "loc;573828;p10023",
+    "sponsored": false,
+    "locationId": 573828,
+    "details": {
+      "localizedName": "Radisson Blu Resort & Spa, Malta Golden Sands",
+      "localizedAdditionalNames": {
+        "longOnlyHierarchy": "Mellieha, Island of Malta, Malta, Europe"
+      },
+      "streetAddress": {
+        "street1": "Golden Sands Bay"
+      },
+      "locationV2": {
+        "placeType": "ACCOMMODATION",
+        "hierarchy": {
+          "parentId": 230152,
+          "parent": {
+            "names": {
+              "longOnlyHierarchyTypeaheadV2": "Island of Malta, Malta"
+            }
+          },
+          "naturalParentId": 230152,
+          "naturalParent": {
+            "names": {
+              "name": "Mellieha"
+            },
+            "placeType": "MUNICIPALITY"
+          }
+        },
+        "names": {
+          "longOnlyHierarchyTypeaheadV2": "Mellieha, Malta"
+        },
+        "vacationRentalsRoute": null
+      },
+      "url": "/Hotel_Review-g230152-d573828-Reviews-Radisson_Blu_Resort_Spa_Malta_Golden_Sands-Mellieha_Island_of_Malta.html",
+      "HOTELS_URL": "/Hotels?geo=573828",
+      "ATTRACTIONS_URL": "/Attractions?geo=573828",
+      "RESTAURANTS_URL": "/Restaurants?geo=573828",
+      "placeType": "ACCOMMODATION",
+      "latitude": 35.935566,
+      "longitude": 14.34323,
+      "isGeo": false,
+      "thumbnail": {
+        "photoSizeDynamic": {
+          "maxWidth": 1500,
+          "maxHeight": 842,
+          "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/b2/ea/49/exterior.jpg?w={width}&h={height}&s=1"
+        }
+      }
+    },
+    "highlightingInfo": [
+      {
+        "length": 45,
+        "offset": 0
+      }
+    ],
+    "recent": false,
+    "nestedResults": []
+  },
+  {
+    "__typename": "Typeahead_RescueResultItem",
+    "documentId": "RESCUE",
+    "sponsored": false,
+    "text": "Malta",
+    "recent": false
   }
 ]

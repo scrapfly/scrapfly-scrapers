@@ -6,7 +6,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-vestiairecollective.BASE_CONFIG["cache"] = True
+vestiairecollective.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -96,12 +96,13 @@ search_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
-    products_data = await vestiairecollective.scrape_products(
-        urls=[
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/multicolour-pink-gold-patek-philippe-watch-52859536.shtml",
+    product_urls = [
+            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
             "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-gold-perpetual-calendar-patek-philippe-watch-55732655.shtml",
             "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
         ]
+    products_data = await vestiairecollective.scrape_products(
+        urls=product_urls
     )
     validator = Validator(product_schema, allow_unknown=True)
     for item in products_data:

@@ -92,6 +92,8 @@ jobs:
             test: test_website_compare_scraping
           - project_dir: similarweb-scraper
             test: test_trend_scraping
+          - project_dir: similarweb-scraper
+            test: test_sitemap_scraping
           - project_dir: zillow-scraper
             test: test_search_scraping
           - project_dir: zillow-scraper

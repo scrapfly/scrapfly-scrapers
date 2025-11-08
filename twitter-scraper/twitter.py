@@ -117,7 +117,7 @@ async def scrape_profile(url: str) -> Dict:
     https://x.com/scrapfly_dev
     returns user data and latest tweets
     """
-    result = await _scrape_twitter_app(url, wait_for_selector="[data-testid='primaryColumn']")
+    result = await _scrape_twitter_app(url, wait_for_selector="xhr:TweetResultByRestId")
     # capture background requests and extract ones that contain user data
     # and their latest tweets
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]

@@ -21,6 +21,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
+    "render_js": True,
 }
 
 

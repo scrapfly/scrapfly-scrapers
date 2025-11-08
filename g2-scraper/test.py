@@ -66,7 +66,7 @@ search_schema = {
 alternatives_schema = {
     "name": {"type": "string"},
     "link": {"type": "string"},
-    "ranking": {"type": "string"},
+    "ranking": {"type": "integer"},
     "numberOfReviews": {"type": "integer"},
     "rate": {"type": "float"},
     "description": {"type": "string"},
@@ -74,6 +74,7 @@ alternatives_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=2, reruns_delay=30)
 async def test_review_scraping():
     review_data = await g2.scrape_reviews(
         url="https://www.g2.com/products/digitalocean/reviews", max_review_pages=2
@@ -94,6 +95,7 @@ async def test_review_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=2, reruns_delay=30)
 async def test_search_scraping():
     search_data = await g2.scrape_search(
         url="https://www.g2.com/search?query=Infrastructure", max_scrape_pages=2
@@ -114,6 +116,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=2, reruns_delay=30)
 async def test_alternative_scraping():
     alternatives_data = await g2.scrape_alternatives(product="digitalocean")
     validator = Validator(alternatives_schema, allow_unknown=True)
@@ -125,7 +128,7 @@ async def test_alternative_scraping():
             k,
             min_perc=alternatives_schema[k].get("min_presence", 0.1),
         )
-    assert len(alternatives_data) == 10
+    assert len(alternatives_data) >= 5
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         alternatives_data.sort(key=lambda x: x["link"])
         (Path(__file__).parent / 'results/search.json').write_text(

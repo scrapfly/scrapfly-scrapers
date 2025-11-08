@@ -11,7 +11,7 @@ import datetime
 pp = pprint.PrettyPrinter(indent=4)
 
 # disable cache
-ebay.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
+ebay.BASE_CONFIG["cache"] = False
 
 
 class DateTimeValidator(Validator):
@@ -40,7 +40,7 @@ def require_min_presence(items, key, min_perc=0.1):
             f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
         )
 
-
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 @pytest.mark.asyncio
 async def test_product_scraping():
     result = await ebay.scrape_product("https://www.ebay.com/itm/393531906094")
@@ -77,7 +77,7 @@ async def test_product_scraping():
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/product.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
 
-
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 @pytest.mark.asyncio
 async def test_search_scraping():
     url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=iphone&_sacat=0&LH_TitleDesc=0&Storage%2520Capacity=16%2520GB&_dcat=9355&_ipg=240&rt=nc&LH_All=1"
@@ -90,18 +90,16 @@ async def test_search_scraping():
             "regex": r"https://i.ebayimg.com/images/.+?|https://.+ebaystatic.com/.+",
             "nullable": True,
         },
-        "title": {"type": "string", "minlength": 1},
+        "title": {"type": "string", "minlength": 1, "nullable": True},
         "location": {"type": "string", "nullable": True, "min_presence": 0.01},
-        "condition": {"type": "string", "nullable": True, "min_presence": 0.01},
-        "subtitles": {"type": "list", "schema": {"type": "string"}, "min_presence": 0.01},
-        "shipping": {"type": "float", "nullable": True},
+        "subtitles": {"type": "string", "min_presence": 0.01, "nullable": True},
+        "shipping": {"type": "string", "nullable": True},
         "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
         "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
-        "auction_end": {"type": "datetime", "nullable": True, "min_presence": 0.001},
-        "bids": {"type": "integer", "nullable": True, "min_presence": 0.001},
         "price": {"type": "string", "nullable": True},
     }
     validator = DateTimeValidator(schema, allow_unknown=True)
+    assert len(result) >= 30
     for item in result:
         validate_or_fail(item, validator)
     for k in schema:

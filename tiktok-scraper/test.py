@@ -28,7 +28,7 @@ comment_schema = {
 }
 
 post_schema = {
-    "text": {"type": "string"},
+    "id": {"type": "string"},
     "desc": {"type": "string"},
     "createTime": {"type": "string"},
     "video": {
@@ -188,4 +188,4 @@ async def test_channel_scraping():
     for item in channel_data:
         assert validator.validate(item), {"item": item, "errors": validator.errors}
 
-    assert len(channel_data) >= 5
+    assert len(channel_data) >= 50

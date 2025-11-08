@@ -35,7 +35,7 @@ USER_SCHEMA = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_tweet_scraping():
-    url = "https://x.com/robinhanson/status/1621310291030974465"
+    url = "https://x.com/robinhanson/status/1872047986873885082"
     result = await twitter.scrape_tweet(url)
     validator = Validator(TWEET_SCHEMA, allow_unknown=True)
     validate_or_fail(result, validator)

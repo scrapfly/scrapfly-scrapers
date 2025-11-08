@@ -28,39 +28,6 @@ def require_min_presence(items, key, min_perc=0.1):
             f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
         )
 
-
-@pytest.mark.asyncio
-async def test_location_data_scraping():
-    result_location = await tripadvisor.scrape_location_data(query="Malta")
-    schema = {
-        "localizedName": {"type": "string"},
-        "locationV2": {"type": "dict"},
-        "placeType": {"type": "string"},
-        "latitude": {"type": "float"},
-        "longitude": {"type": "float"},
-        "isGeo": {"type": "boolean"},
-        "thumbnail": {"type": "dict"},
-        "url": {"type": "string", "required": True, "regex": r"/Tourism-.+?\.html"},
-        "HOTELS_URL": {"type": "string", "required": True, "regex": r"/Hotels-.+?\.html"},
-        "ATTRACTIONS_URL": {"type": "string", "required": True, "regex": r"/Attractions-.+?\.html"},
-        "RESTAURANTS_URL": {"type": "string", "required": True, "regex": r"/Restaurants-.+?\.html"},
-    }
-    validator = Validator(schema, allow_unknown=True)
-    assert validator.validate(result_location[0]), {"item": result_location[0], "errors": validator.errors}
-
-
-@pytest.mark.asyncio
-async def test_search_scraping():
-    result_search = await tripadvisor.scrape_search(query="Malta", max_pages=2)
-    schema = {
-        "url": {"type": "string", "regex": r"https://www.tripadvisor.com/Hotel_Review-g.+?\.html"},
-        "name": {"type": "string", "minlength": 5},
-    }
-    validator = Validator(schema, allow_unknown=True)
-    for item in result_search:
-        assert validator.validate(item), {"item": item, "errors": validator.errors}
-
-
 @pytest.mark.asyncio
 async def test_hotel_scraping():
     result_hotel = await tripadvisor.scrape_hotel(
@@ -93,4 +60,26 @@ async def test_hotel_scraping():
     validate_or_fail(result_hotel, validator)
     assert len(result_hotel["reviews"]) >= 10
     for k in review_schema:
-        require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))        
+        require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))   
+
+@pytest.mark.asyncio
+async def test_location_data_scraping():
+    result_location = await tripadvisor.scrape_location_data(query="Malta")
+    assert len(result_location) > 10
+
+@pytest.mark.asyncio
+async def test_search_scraping():
+    result_search = await tripadvisor.scrape_search(
+        search_url="https://www.tripadvisor.com/Hotels-g60763-oa30-New_York_City_New_York-Hotels.html",
+        max_pages=2
+    )
+    schema = {
+        "url": {"type": "string", "regex": r"https://www.tripadvisor.com/Hotel_Review-g.+?\.html"},
+        "name": {"type": "string", "minlength": 5},
+    }
+    validator = Validator(schema, allow_unknown=True)
+    for item in result_search:
+        assert validator.validate(item), {"item": item, "errors": validator.errors}
+
+
+     

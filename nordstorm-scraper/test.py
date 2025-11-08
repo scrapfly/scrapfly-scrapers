@@ -106,8 +106,8 @@ async def test_product_scraping():
     products_data = await nordstorm.scrape_products(
         urls=[
             "https://www.nordstrom.com/s/nike-air-max-90-sneaker-men/6549520",
-            "https://www.nordstrom.com/s/nike-sportswear-club-hoodie/6049642",
-            "https://www.nordstrom.com/s/nike-phoenix-fleece-crewneck-sweatshirt/6665302",
+            "https://www.nordstrom.com/s/hank-kent-performance-twill-dress-shirt-regular-big/7783670",
+            "https://www.nordstrom.com/s/relaxed-cotton-blend-zip-hoodie/8347714",
         ]
     )
     validator = Validator(product_schema, allow_unknown=True)

@@ -17,8 +17,10 @@ BASE_CONFIG = {
     # bypass Bing web scraping blocking
     "asp": True,
     # set the poxy location to US to get the result in English
-    "country": "US",
+    "country": "GB",
     "proxy_pool": "public_residential_pool",
+    "debug":True,
+    "auto_scroll":True,
 }
 
 
@@ -55,54 +57,14 @@ def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
         )
     return data
 
-
 def parse_keywords(response: ScrapeApiResponse) -> Dict:
     """parse FAQs and popular keywords on bing search pages"""
     selector = response.selector
-    faqs = []
-    for faq in selector.xpath("//*[*[div[contains(@data-tag, 'RelatedQnA.Item')]]]"):
-        url = faq.xpath(".//a/@href").get()
-        faqs.append(
-            {
-                "query": faq.xpath(".//div[contains(@data-tag, 'RelatedQnA.Item')]/@data-query").get(),
-                "answer": faq.xpath(".//span[contains(@data-tag, 'QnA')]/text()").get(),
-                "title": "".join(faq.xpath(".//div[@class='b_algo']/h2/*//text()").extract()),
-                "domain": url.split("https://")[-1].split("/")[0].replace("www.", "")if url else None,
-                "url": url,
-            }
-        )
     related_keywords = []
     for keyword in selector.xpath(".//li[@class='b_ans']/div/ul/li"):
         related_keywords.append("".join(keyword.xpath(".//a/div//text()").extract()))
 
-    return {"FAQs": faqs, "related_keywords": related_keywords}
-
-
-def parse_rich_snippet(response: ScrapeApiResponse) -> Dict:
-    """parse rich snippets from Bing search"""
-    selector = response.selector
-    data = {}
-    data["title"] = " ".join(selector.xpath("//div[@class='l_ecrd_hero_ttl']//h2//text()").getall())
-    data["link"] = selector.xpath("//div[@class='l_ecrd_hero_ttl']/div/a/@href").get()
-    data["heading"] = " ".join(selector.xpath("//a[@title]/h2/span/text()").getall())
-    data["links"] = {}
-    for item in selector.xpath("//div[contains(@class, 'webicons')]/div"):
-        name = item.xpath(".//a/@title").get()
-        link = item.xpath(".//a/@href").get()
-        data["links"][name] = link
-
-    data["info"] = {}
-    for row in selector.xpath("//div[contains(@class, 'expansion')]/div[contains(@class, 'row')]"):
-        key = row.xpath(".//div/div/a[1]/text()").get().strip()
-        value = row.xpath("string(.//div[not(contains(@class, 'title'))])").get().strip().replace(key, "")
-        data["info"][key] = value
-
-    all_text = ""
-    for div_element in selector.xpath("//div[@class='lite-entcard-blk l_ecrd_bkg_hlt']"):
-        div_text = div_element.xpath("string(.)").get().strip()
-        all_text += div_text + "\n"
-    data["descrption"] = all_text
-    return data
+    return related_keywords
 
 
 async def scrape_search(query: str, max_pages: int = None):
@@ -126,7 +88,6 @@ async def scrape_search(query: str, max_pages: int = None):
     log.success(f"scraped {len(serp_data)} search results from Bing search")
     return serp_data
 
-
 async def scrape_keywords(query: str):
     """scrape bing search pages for keyword data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
@@ -134,16 +95,6 @@ async def scrape_keywords(query: str):
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
     keyword_data = parse_keywords(response)
     log.success(
-        f"scraped {len(keyword_data['related_keywords'])} keywords and {len(keyword_data['FAQs'])} FAQs from Bing search"
+        f"scraped {len(keyword_data)} keywords from Bing search"
     )
     return keyword_data
-
-
-async def scrape_rich_snippets(query: str):
-    """scrape bing search pages for rich snippets data"""
-    url = f"https://www.bing.com/search?{urlencode({'q': query})}"
-    log.info("scraping Bing search for keyword data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True, country="GB", render_js=True))
-    rich_snippet_data = parse_rich_snippet(response)
-    log.success(f"scraped {len(rich_snippet_data)} rich snippets fields from Bing search")
-    return rich_snippet_data

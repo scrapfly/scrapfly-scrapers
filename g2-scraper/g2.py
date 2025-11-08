@@ -20,6 +20,8 @@ BASE_CONFIG = {
     "asp": True,
     # set the poxy location to US
     "country": "US",
+    "render_js"  : True,
+    "proxy_pool" : "public_residential_pool"
 }
 
 
@@ -47,7 +49,7 @@ def parse_search_page(response: ScrapeApiResponse):
         relative_link = result.xpath(".//div[contains(@class, 'elv-text-lg')]/parent::a/@href").get()
         link = urljoin(response.request.url, relative_link)
 
-        image = result.xpath(".//img[@itemprop='image']/@data-deferred-image-src").get()
+        image = result.xpath(".//img[@alt='Product Avatar Image']/@src").get()
 
         raw_rate = result.xpath(".//label[contains(text(), '/5')]/text()").get()
         rate = float(raw_rate.split("/")[0]) if raw_rate else None
@@ -104,28 +106,6 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
             log.error(f"Error encountered: {e}")
             continue
 
-    # try again with the blocked requests if any using headless browsers and residential proxies
-    if len(remaining_urls) != 0:
-        log.debug(
-            f"{len(remaining_urls)} requests are blocked, trying again with render_js enabled and residential proxies"
-        )
-        try:
-            failed_requests = [
-                ScrapeConfig(
-                    url,
-                    **BASE_CONFIG,
-                    render_js=True,
-                    proxy_pool="public_residential_pool",
-                )
-                for url in remaining_urls
-            ]
-            async for response in SCRAPFLY.concurrent_scrape(failed_requests):
-                data = parse_search_page(response)
-                search_data.extend(data["search_data"])
-        except Exception as e:  # catching any exception
-            log.error(f"Error encountered: {e}")
-            pass
-    log.success(f"scraped {len(search_data)} company listings from G2 search pages with the URL {url}")
     return search_data
 
 
@@ -133,10 +113,9 @@ def parse_review_page(response: ScrapeApiResponse):
     """parse reviews data from G2 company pages"""
     selector = response.selector
 
-    # selector for total reviews
-    total_reviews_text = selector.xpath("//h3[contains(text(), 'DigitalOcean Reviews')]/text()").get()
+    total_reviews_text = selector.xpath("//a[contains(@href, '/reviews#reviews') and contains(text(), 'reviews')]/text()").get()
     if total_reviews_text:
-        total_reviews = int(total_reviews_text.split()[0])
+        total_reviews = int(total_reviews_text.split()[2])
         # Updated: The page now shows 10 reviews, not 25
         _review_page_size = 10
         total_pages = math.ceil(total_reviews / _review_page_size)
@@ -205,7 +184,14 @@ def parse_review_page(response: ScrapeApiResponse):
 async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
     """scrape company reviews from G2 review pages"""
     log.info(f"scraping first review page from company URL {url}")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    # Enhanced config
+    enhanced_config = {
+        **BASE_CONFIG,
+        "debug": True,
+        "auto_scroll": True,
+        "wait_for_selector": "//section[@id='reviews']//article",
+    }
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **enhanced_config))
     data = parse_review_page(first_page)
     reviews_data = data["reviews_data"]
     total_pages = data["total_pages"]
@@ -217,7 +203,7 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
     # scrape the remaining review pages
     log.info(f"scraping reviews pagination, remaining ({total_pages - 1}) more pages")
     remaining_urls = [url + f"?page={page_number}" for page_number in range(2, total_pages + 1)]
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in remaining_urls]
+    to_scrape = [ScrapeConfig(url, **enhanced_config) for url in remaining_urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             data = parse_review_page(response)
@@ -227,26 +213,6 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
             log.error(f"Error encountered: {e}")
             continue
 
-    if len(remaining_urls) != 0:
-        log.debug(
-            f"{len(remaining_urls)} requests are blocked, trying again with render_js enabled and residential proxies"
-        )
-        try:
-            failed_requests = [
-                ScrapeConfig(
-                    url,
-                    **BASE_CONFIG,
-                    render_js=True,
-                    proxy_pool="public_residential_pool",
-                )
-                for url in remaining_urls
-            ]
-            async for response in SCRAPFLY.concurrent_scrape(failed_requests):
-                data = parse_search_page(response)
-                reviews_data.extend(data["reviews_data"])
-        except Exception as e:  # catch any exception
-            log.error(f"Error encountered: {e}")
-            pass
     log.success(f"scraped {len(reviews_data)} company reviews from G2 review pages with the URL {url}")
     return reviews_data
 
@@ -256,30 +222,65 @@ def parse_alternatives(response: ScrapeApiResponse):
     try:
         selector = response.selector
     except:
-        pass
+        return []
+    
     data = []
-    for alt in selector.xpath("//div[contains(@class, 'product-listing--competitor')]"):
-        sponsored = alt.xpath(".//strong[text()='Sponsored']").get()
-        if sponsored:  # ignore sponsored cards
+    
+    # The correct selector for individual product cards
+    for alt in selector.xpath("//div[@data-ordered-events-item='products']"):
+        # Check for sponsored content - skip it
+        sponsored = alt.xpath(".//span[text()='Sponsored']").get()
+        if sponsored:
             continue
-        name = alt.xpath(".//div[@itemprop='name']/text()").get()
-        link = alt.xpath(".//h3/a[contains(@class, 'link')]/@href").get()
-        ranking = alt.xpath(".//div[@class='product-listing__number']/text()").get()
-        number_of_reviews = alt.xpath(".//div[div[contains(@class,'stars')]]/span/text()").get()  # clean this
-        rate = alt.xpath(".//div[div[contains(@class,'stars')]]/span/span/text()").get()
-        description = alt.xpath(".//div[@data-max-height-expand-type]/p/text()").get()
-        data.append(
-            {
-                "name": name,
+            
+        # Extract product name
+        name = alt.xpath(".//div[contains(@class, 'elv-text-lg') and contains(@class, 'elv-font-bold')]/text()").get()
+        
+        # Extract product link
+        link = alt.xpath(".//a[contains(@href, '/products/')]/@href").get()
+        if link and not link.startswith('http'):
+            link = f"https://www.g2.com{link}"
+            
+        # Extract ranking from the position meta tag
+        ranking = alt.xpath(".//meta[@itemprop='position']/@content").get()
+        
+        # Extract rating and number of reviews
+        rating_text = alt.xpath(".//label[contains(@class, 'elv-font-semibold')]/text()").get()
+        reviews_text = alt.xpath(".//label[contains(@class, 'elv-font-light')]/text()").get()
+        
+        # Clean up the reviews count
+        number_of_reviews = None
+        if reviews_text:
+            # Remove parentheses and commas, then convert to int
+            clean_reviews = reviews_text.strip('()').replace(',', '')
+            try:
+                number_of_reviews = int(clean_reviews)
+            except ValueError:
+                pass
+                
+        # Clean up rating
+        rate = None
+        if rating_text:
+            try:
+                rate = float(rating_text.split('/')[0])
+            except (ValueError, IndexError):
+                pass
+        
+        # Extract description
+        description = alt.xpath(".//p[contains(@class, 'elv-text-default')]/text()").get()
+        
+        # Only add if we have at least a name
+        if name:
+            data.append({
+                "name": name.strip(),
                 "link": link,
-                "ranking": ranking,
-                "numberOfReviews": (int(number_of_reviews[1:-1].replace(",", "")) if number_of_reviews else None),
-                "rate": float(rate.strip()) if rate else None,
-                "description": description,
-            }
-        )
+                "ranking": int(ranking) if ranking else None,
+                "numberOfReviews": number_of_reviews,
+                "rate": rate,
+                "description": description.strip() if description else None,
+            })
+    
     return data
-
 
 async def scrape_alternatives(
     product: str,
@@ -288,25 +289,10 @@ async def scrape_alternatives(
     """scrape product alternatives from G2 alternative pages"""
     # the default alternative is top 10, which takes to argument
     url = f"https://www.g2.com/products/{product}/competitors/alternatives/{alternatives}"
-    log.info(f"Scraping alternative page {url} (attempt 1: no JS)")
-
     data = []
     try:
-        # 1. First, try the cheap and fast request without JavaScript
         response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
         data = parse_alternatives(response)
-
-        # 2. Check if the first attempt failed to get descriptions
-        # This checks if we got data, but the description field in all items is empty
-        descriptions_missing = data and not any(item.get("description") for item in data)
-
-        if descriptions_missing:
-            log.warning("Descriptions missing. Retrying with JavaScript rendering (attempt 2).")
-            # 3. If descriptions are missing, retry with render_js=True
-            js_config = ScrapeConfig(url, **BASE_CONFIG, render_js=True)
-            response = await SCRAPFLY.async_scrape(js_config)
-            data = parse_alternatives(response)
-
     except Exception as e:
         log.error(f"An exception occurred during scraping: {e}")
 

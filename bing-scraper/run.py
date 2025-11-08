@@ -27,10 +27,6 @@ async def run():
     with open(output.joinpath("keywords.json"), "w", encoding="utf-8") as file:
         json.dump(keyword_data, file, indent=2, ensure_ascii=False)
 
-    rich_snippet_data = await bing.scrape_rich_snippets(query="Google Chrome")
-    with open(output.joinpath("rich_snippets.json"), "w", encoding="utf-8") as file:
-        json.dump(rich_snippet_data, file, indent=2, ensure_ascii=False)
-
 
 if __name__ == "__main__":
     asyncio.run(run())
