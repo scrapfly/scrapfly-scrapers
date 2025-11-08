@@ -38,7 +38,7 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
     total_listings = script["numberOfItems"]
     total_pages = math.ceil(total_listings / 48)
     for product in selector.xpath("//div[@data-search-results-lg]/ul/li[div[@data-appears-component-name]]"):
-        link = product.xpath(".//a[contains(@class, 'listing-link')]/@href").get()
+        link = product.xpath(".//a[contains(@class, 'v2-listing-card')]/@href").get()
         rate = product.xpath(".//span[contains(@class, 'review_stars')]/span/text()").get()
         number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
         if number_of_reviews:
@@ -112,6 +112,7 @@ async def scrape_search(url: str, max_pages: int = None) -> List[Dict]:
             url,
             wait_for_selector="//div[@data-search-pagination]",
             render_js=True,
+            auto_scroll=True,
             proxy_pool="public_residential_pool",
             **BASE_CONFIG,
         )

@@ -19,6 +19,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
+    "proxy_pool": "public_residential_pool",
 }
 
 
@@ -29,7 +30,7 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
         "//script[@type='application/ld+json'][2]/text()"
     ).get()
     data = json.loads(script_data)
-    total_pages = int(selector.css(".pagination>span::text").re("of (\d+)")[0])
+    total_pages = int(selector.css(".pagination>span::text").re(r"of (\d+)")[0])
     return {"data": data, "total_pages": total_pages}
 
 
