@@ -147,7 +147,7 @@ async def test_property_scraping():
         urls=[
             "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/saint-jean-belcier-carle-vernet-albert-1er/239900703.htm?m=classified_detail_similars_bottom_classified_detail",
             "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/capucins-saint-michel-nansouty-saint-genes/227226187.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/saint-jean-belcier-carle-vernet-albert-1er/251248753.htm#m=classified_detail_similars_bottom_classified_detail",
         ]
     )
     validator = Validator(property_schema, allow_unknown=True, require_all=True)

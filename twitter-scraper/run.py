@@ -23,7 +23,7 @@ async def run():
     tweet = await twitter.scrape_tweet(url)
     output.joinpath("tweet.json").write_text(json.dumps(tweet, indent=2, ensure_ascii=False))
     
-    url = "https://twitter.com/scrapfly_dev"
+    url = "https://x.com/robinhanson/"
     profile = await twitter.scrape_profile(url)
     output.joinpath("profile.json").write_text(json.dumps(profile, indent=2, ensure_ascii=False))
 

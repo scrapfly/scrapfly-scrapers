@@ -158,7 +158,7 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         css_float = lambda css: float(box.css(css).re_first(r"(\d+\.*\d*)", default="0.0")) if box.css(css) else None
         location = box.xpath(".//*[contains(text(),'Located')]/text()").get()
         price = css(".s-card__price::text") or css(".s-item__price::text")
-        url = css("a.su-link::attr(href)")
+        url = css("a.s-card__link::attr(href)") or css("a.su-link::attr(href)")
 
         if price is None:
             continue  # skip boxes inside the best selling container
@@ -171,8 +171,8 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
             "location": location.split("Located in ")[1] if location else None,
             "subtitles": css(".s-card__subtitle span::text"),
             "photo": css("img::attr(data-src)") or css("img::attr(src)"),
-            "rating": css_float(".s-item__reviews .clipped::text"),
-            "rating_count": int(box.css(".s-item__reviews-count span::text").re_first(r"(\d+)", default="0")),
+            "rating": css_float(".x-star-rating .clipped::text") or css_float(".s-item__reviews .clipped::text"),
+            "rating_count": int(box.css(".s-card__reviews-count span::text").re_first(r"(\d+)", default="0") or box.css(".s-item__reviews-count span::text").re_first(r"(\d+)", default="0")),
         }
         previews.append(item)
     return previews

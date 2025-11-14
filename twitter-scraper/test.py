@@ -44,7 +44,7 @@ async def test_tweet_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_user_scraping():
-    url = "https://x.com/scrapfly_dev"
+    url = "https://x.com/robinhanson"
     result = await twitter.scrape_profile(url)
     user_validator = Validator(USER_SCHEMA, allow_unknown=True)
     validate_or_fail(result, user_validator)
