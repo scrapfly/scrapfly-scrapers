@@ -32,7 +32,7 @@ async def run():
         urls=[
             "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/193612259.htm",
             "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/le-lac-bacalan/245875571.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/saint-jean-belcier-carle-vernet-albert-1er/251248753.htm#m=classified_detail_similars_bottom_classified_detail"
         ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
