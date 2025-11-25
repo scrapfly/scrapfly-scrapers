@@ -151,7 +151,7 @@ def parse_search_data(response: ScrapeApiResponse) -> List[Dict]:
             "listing_company": box.xpath(".//picture[@class='logo-branding']/a/@title").get(),
             "listing_company_url": "https://www.idealista.com" + company_url if company_url else None
         })
-        print(search_data[-1]["details"])
+
     return {"max_pages": max_pages, "search_data": search_data}
 
 
