@@ -145,12 +145,13 @@ def parse_search_data(response: ScrapeApiResponse) -> List[Dict]:
             "price": int(price.replace(",", '')) if price else None,
             "currency": box.xpath(".//span[contains(@class, 'item-price')]/span/text()").get(),
             "parking_included": True if parking else False,
-            "details": box.xpath(".//div[@class='item-detail-char']/span/text()").getall(),
+            "details": box.xpath(".//div[contains(@class, 'item-detail-char')]/span/text()").getall(),
             "description": box.xpath(".//div[contains(@class, 'item-description')]/p/text()").get().replace('\n', ''),
             "tags": box.xpath(".//div[@class='listing-tags-container']/span/text()").getall(),
             "listing_company": box.xpath(".//picture[@class='logo-branding']/a/@title").get(),
             "listing_company_url": "https://www.idealista.com" + company_url if company_url else None
         })
+
     return {"max_pages": max_pages, "search_data": search_data}
 
 

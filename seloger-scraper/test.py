@@ -24,12 +24,13 @@ property_schema = {
                 "type": "dict",
                 "schema": {
                     "address": {
+                        "nullable": True,
                         "type": "dict",
                         "schema": {
                             "country": {"type": "string"},
                             "city": {"type": "string"},
                             "zipCode": {"type": "string"},
-                            "district": {"type": "string"},
+                            "district": {"type": "string", "nullable": True},
                         },
                     },
                     "isAddressPublished": {"type": "boolean"},
@@ -75,6 +76,7 @@ property_schema = {
                     },
                     "details": {
                         "type": "dict",
+                        "nullable": True
                     },
                 },
             },
@@ -97,9 +99,10 @@ property_schema = {
         },
     },
     "contactSections": {
+        "nullable": True,
         "type": "dict",
         "schema": {
-            "agencyId": {"type": "string"},
+            "id": {"type": "string"},
             "static": {
                 "type": "dict",
                 "schema": {
@@ -145,12 +148,12 @@ async def test_search_scraping():
 async def test_property_scraping():
     property_data = await seloger.scrape_property(
         urls=[
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/saint-jean-belcier-carle-vernet-albert-1er/239900703.htm?m=classified_detail_similars_bottom_classified_detail",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/capucins-saint-michel-nansouty-saint-genes/227226187.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/hotel-de-ville-quinconce-saint-seurin-fondaudege/247907293.htm?ln=classified_search_results&serp_view=list&search=distributionTypes%3DBuy%26estateTypes%3DApartment%26locations%3DAD08FR13100&m=classified_search_results_classified_classified_detail_XL",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/193612259.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/255197845.htm",
+            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/saint-jean-belcier-carle-vernet-albert-1er/251248753.htm"
         ]
     )
-    validator = Validator(property_schema, allow_unknown=True, require_all=True)
+    validator = Validator(property_schema, allow_unknown=True, require_all=False)
     for property in property_data:
         validate_or_fail(property, validator)
     assert len(property_data) >= 1

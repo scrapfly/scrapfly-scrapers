@@ -11,7 +11,7 @@ import os
 import random
 import string
 from typing import List, Optional, TypedDict, Dict
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, urlunparse
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
@@ -98,9 +98,11 @@ def parse_search_page(result: ScrapeApiResponse) -> List[Preview]:
         title_list = box.xpath(".//div[@data-automation='hotel-card-title']/a/h3/text()").getall()
         title = title_list[1] if len(title_list) > 1 else (title_list[0] if title_list else None)
         url = box.css("div[data-automation=hotel-card-title] a::attr(href)").get()
+        parsed_url = urlparse(urljoin(result.context["url"], url))
+        clean_url = urlunparse(parsed_url._replace(query="", fragment=""))
         parsed.append(
             {
-                "url": urljoin(result.context["url"], url),  # turn url absolute
+                "url": clean_url,
                 "name": title,
             }
         )
