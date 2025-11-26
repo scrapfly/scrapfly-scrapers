@@ -26,7 +26,7 @@ async def run():
     products_data = await vestiairecollective.scrape_products(
         urls=[
             "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-gold-perpetual-calendar-patek-philippe-watch-55732655.shtml",
+            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/blue-yellow-gold-ellipse-patek-philippe-watch-61234257.shtml",
             "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
         ]
     )

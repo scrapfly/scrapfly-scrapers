@@ -96,11 +96,10 @@ search_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
-    product_urls = [
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-gold-perpetual-calendar-patek-philippe-watch-55732655.shtml",
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
-        ]
+    search_data = await vestiairecollective.scrape_search(
+        url="https://www.vestiairecollective.com/search/?q=louis+vuitton", max_pages=3
+    )
+    product_urls = ["https://www.vestiairecollective.com" + item["link"] for item in search_data][:3]
     products_data = await vestiairecollective.scrape_products(
         urls=product_urls
     )

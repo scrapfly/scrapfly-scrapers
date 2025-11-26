@@ -82,8 +82,12 @@ async def scrape_products(urls: List[str]) -> dict:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        data = find_hidden_data(response)
-        product = data["props"]["pageProps"]["product"]
+        try:
+            data = find_hidden_data(response)
+            product = data["props"]["pageProps"]["product"]
+        except Exception as e:
+            log.error(f"An error occurred while parsing the product page. Is the listing expired?: {e}")
+            pass
         products.append(product)
     log.success(f"scraped {len(products)} product listings from product pages")
     return products
