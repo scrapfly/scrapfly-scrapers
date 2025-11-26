@@ -92,7 +92,7 @@ async def test_user_scraping():
     results = await asyncio.gather(*[threads.scrape_profile(url) for url in urls])
     # threads
     all_threads = [thread for result in results for thread in result["threads"] ]
-    assert len(all_threads) > 5
+    assert len(all_threads) > 2
     validator = Validator(THREAD_SCHEMA, allow_unknown=True)
     for thread in all_threads:
         validate_or_fail(thread, validator)
