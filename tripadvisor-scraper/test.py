@@ -29,6 +29,7 @@ def require_min_presence(items, key, min_perc=0.1):
         )
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_hotel_scraping():
     result_hotel = await tripadvisor.scrape_hotel(
         "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
@@ -63,6 +64,7 @@ async def test_hotel_scraping():
         require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))   
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_location_data_scraping():
     result_location = await tripadvisor.scrape_location_data(query="Malta")
     assert len(result_location) > 10
