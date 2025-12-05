@@ -18,8 +18,6 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # bypass G2 web scraping blocking
     "asp": True,
-    # set the poxy location to US
-    "country": "US",
     "render_js"  : True,
     "proxy_pool" : "public_residential_pool"
 }

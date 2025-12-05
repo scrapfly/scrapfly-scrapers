@@ -1,21 +1,10 @@
 [
   {
-    "name": "Oracle Cloud Infrastructure",
-    "link": "https://www.g2.com/products/oracle-oracle-cloud-infrastructure/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/2753ea8c7953188158425365667be750/oracle-oracle-cloud-infrastructure.png",
-    "rate": 4.2,
-    "reviewsNumber": 382,
-    "description": null,
-    "categories": [
-      "Product Suites"
-    ]
-  },
-  {
     "name": "Nutanix Cloud Infrastructure (NCI)",
     "link": "https://www.g2.com/products/nutanix-cloud-infrastructure-nci/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/bf6f866e079ffbbe9533da161d5f60bb/nutanix-cloud-infrastructure-nci.png",
     "rate": 4.6,
-    "reviewsNumber": 271,
+    "reviewsNumber": 287,
     "description": "Nutanix Cloud Infrastructure (NCI) combines feature-rich software-defined storage with built-in virtualization in a turnkey hyperconverged infrastructure solution that can run any application at any scale.",
     "categories": [
       "Hyperconverged Infrastructure (HCI) Solutions",
@@ -27,7 +16,7 @@
     "link": "https://www.g2.com/products/splunk-infrastructure-monitoring/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/06b2fadd2dfbac7ff19390722a4d199e/splunk-infrastructure-monitoring.jpg",
     "rate": 4.3,
-    "reviewsNumber": 51,
+    "reviewsNumber": 48,
     "description": "Splunk Infrastructure Monitoring proactively finds and fixes problems before it impacts business performance through high resolution, full fidelity metrics monitoring that automatically detects and accurately alerts on critical patterns in seconds using real-time, AI-driven streaming analytics. Splunk Infrastructure Monitoring significantly shortens MTTD and MTTR by providing unmatched instant visibility across the infrastructure and application stack that builds on the value of an extensible Sp",
     "categories": [
       "Server Monitoring",
@@ -87,11 +76,22 @@
     ]
   },
   {
+    "name": "Google Cloud AI Infrastructure",
+    "link": "https://www.g2.com/products/google-cloud-ai-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-ai-infrastructure.jpg",
+    "rate": 4.5,
+    "reviewsNumber": 39,
+    "description": "AI Infrastructure\nScalable, high performance, and cost effective infrastructure for every AI workload.\n\nAI Accelerators for every use case from high performance training to low-cost inference\n\nScale faster with GPUs and TPUs on Google Kubernetes Engine or Google Compute Engine\n\nDeployable solutions for Vertex AI, Google Kubernetes Engine, and the Cloud HPC Toolkit\n\nGet the most out of our AI Infrastructure by deploying the AI Hypercomputer architecture",
+    "categories": [
+      "Generative AI Infrastructure"
+    ]
+  },
+  {
     "name": "Oracle Cloud Infrastructure Vault",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-vault/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/ebc397a24911cc79962c8898752c5359/oracle-cloud-infrastructure-vault.png",
     "rate": 4.3,
-    "reviewsNumber": 37,
+    "reviewsNumber": 36,
     "description": "Oracle Cloud Infrastructure Key Management is a managed service that enables you to encrypt your data using keys that you control.",
     "categories": [
       "Encryption Key Management"
@@ -120,14 +120,15 @@
     ]
   },
   {
-    "name": "Google Cloud AI Infrastructure",
-    "link": "https://www.g2.com/products/google-cloud-ai-infrastructure/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-ai-infrastructure.jpg",
-    "rate": 4.6,
-    "reviewsNumber": 15,
-    "description": "AI Infrastructure\nScalable, high performance, and cost effective infrastructure for every AI workload.\n\nAI Accelerators for every use case from high performance training to low-cost inference\n\nScale faster with GPUs and TPUs on Google Kubernetes Engine or Google Compute Engine\n\nDeployable solutions for Vertex AI, Google Kubernetes Engine, and the Cloud HPC Toolkit\n\nGet the most out of our AI Infrastructure by deploying the AI Hypercomputer architecture",
+    "name": "Oracle Cloud Infrastructure Networking",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-networking/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-networking.png",
+    "rate": 4.2,
+    "reviewsNumber": 17,
+    "description": "Extend your IT infrastructure with highly customizable Virtual Cloud Networks (VCN) and connectivity services offering predictable and consistent performance, isolation, and availability.",
     "categories": [
-      "Generative AI Infrastructure"
+      "Virtual Private Cloud (VPC)",
+      "Business VPN"
     ]
   },
   {
@@ -139,18 +140,6 @@
     "description": "A highly available private container registry service for storing and sharing container images within the same regions as the deployments",
     "categories": [
       "Container Registry"
-    ]
-  },
-  {
-    "name": "Oracle Cloud Infrastructure Networking",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-networking/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-networking.png",
-    "rate": 4.2,
-    "reviewsNumber": 17,
-    "description": "Extend your IT infrastructure with highly customizable Virtual Cloud Networks (VCN) and connectivity services offering predictable and consistent performance, isolation, and availability.",
-    "categories": [
-      "Virtual Private Cloud (VPC)",
-      "Business VPN"
     ]
   },
   {
@@ -171,7 +160,7 @@
     "link": "https://www.g2.com/products/google-cloud-infrastructure-manager/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-infrastructure-manager.jpg",
     "rate": 4.2,
-    "reviewsNumber": 12,
+    "reviewsNumber": 11,
     "description": "Google Cloud Infrastructure Manager\n\nProduct Description:\n\nGoogle Cloud Infrastructure Manager is a managed service that automates the deployment and management of Google Cloud infrastructure resources using Terraform. By integrating Terraform's infrastructure-as-code capabilities directly into the Google Cloud ecosystem, Infra Manager enables users to define, deploy, and manage cloud resources in a consistent, repeatable, and efficient manner. This service eliminates the need for maintaining se",
     "categories": [
       "Cloud Infrastructure Automation"
@@ -229,11 +218,22 @@
     "name": "Oracle Cloud Infrastructure Tagging",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-tagging/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-tagging.png",
-    "rate": 4.2,
+    "rate": 4.3,
     "reviewsNumber": 10,
     "description": "Script bulk actions on exactly the Oracle Cloud Infrastructure resources you want, identified by tags",
     "categories": [
       "Cloud Management Platforms"
+    ]
+  },
+  {
+    "name": "Akamai DNS Infrastructure",
+    "link": "https://www.g2.com/products/akamai-dns-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/97a721a2679f766ab7282f8554455674/akamai-dns-infrastructure.jpg",
+    "rate": 4.8,
+    "reviewsNumber": 4,
+    "description": "Akamai DNSi CacheServe has formed the foundation for the world's fastest and most reliable Internet networks by enabling self-defending DNS infrastructure that shields networks and subscribers from cyberthreats",
+    "categories": [
+      "Other IT Infrastructure"
     ]
   },
   {

@@ -1,9 +1,9 @@
 [
   {
-    "name": "Akamai Cloud",
-    "link": "https://www.g2.com/products/akamai-cloud/reviews",
+    "name": "Akamai Cloud Computing",
+    "link": "https://www.g2.com/products/akamai-cloud-computing/reviews",
     "ranking": 1,
-    "numberOfReviews": 346,
+    "numberOfReviews": 350,
     "rate": 4.5,
     "description": "The Developer Cloud Simplified"
   },
@@ -11,7 +11,7 @@
     "name": "Vultr",
     "link": "https://www.g2.com/products/vultr/reviews",
     "ranking": 2,
-    "numberOfReviews": 280,
+    "numberOfReviews": 281,
     "rate": 4.3,
     "description": "Vultr offers a standardized highly reliable high performance cloud compute environment with 14 datacenters around the globe."
   },
@@ -24,59 +24,51 @@
     "description": "Hostwinds offers website hosting for individuals and businesses of all sizes, with 24/7/365 support and nightly backups."
   },
   {
-    "name": "Amazon Lightsail",
-    "link": "https://www.g2.com/products/amazon-lightsail/reviews",
-    "ranking": 4,
-    "numberOfReviews": 58,
-    "rate": 4.4,
-    "description": "Amazon Lightsail offers simple virtual private servers on AWS."
-  },
-  {
-    "name": "Amazon EC2",
-    "link": "https://www.g2.com/products/amazon-ec2/reviews",
-    "ranking": 5,
-    "numberOfReviews": 1245,
-    "rate": 4.6,
-    "description": "AWS Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud, making web-scale computing easier for developers."
-  },
-  {
     "name": "AWS Lambda",
     "link": "https://www.g2.com/products/aws-lambda/reviews",
-    "ranking": 6,
-    "numberOfReviews": 1020,
+    "ranking": 5,
+    "numberOfReviews": 960,
     "rate": 4.6,
     "description": "Run code without thinking about servers. Pay for only the compute time you consume."
+  },
+  {
+    "name": "Google Compute Engine",
+    "link": "https://www.g2.com/products/google-compute-engine/reviews",
+    "ranking": 6,
+    "numberOfReviews": 932,
+    "rate": 4.5,
+    "description": "Compute Engine enables you to create and run large-scale workloads on virtual machines hosted on Google Cloud. Get running quickly with pre-built and ready-to-go configurations or create machines of your own with the optimal amount of vCPU and memory required for your workload."
   },
   {
     "name": "Amazon Relational Database Service (RDS)",
     "link": "https://www.g2.com/products/amazon-relational-database-service-rds/reviews",
     "ranking": 7,
-    "numberOfReviews": 966,
+    "numberOfReviews": 896,
     "rate": 4.5,
     "description": "Amazon Relational Database Service (RDS) is a web service that makes it easy to set up, operate, and scale a relational DB in the cloud: Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle, and Microsoft SQL Server."
   },
   {
-    "name": "Google Compute Engine",
-    "link": "https://www.g2.com/products/google-compute-engine/reviews",
-    "ranking": 8,
-    "numberOfReviews": 946,
-    "rate": 4.5,
-    "description": "Compute Engine enables you to create and run large-scale workloads on virtual machines hosted on Google Cloud. Get running quickly with pre-built and ready-to-go configurations or create machines of your own with the optimal amount of vCPU and memory required for your workload."
-  },
-  {
     "name": "Hostinger",
     "link": "https://www.g2.com/products/hostinger/reviews",
-    "ranking": 9,
-    "numberOfReviews": 755,
+    "ranking": 8,
+    "numberOfReviews": 765,
     "rate": 4.4,
     "description": "Hostinger provides every customer with all the necessary tools to have a fully-functional website up and running as quickly as possible. Hostinger  provides an incredibly convenient drag & drop website builder and application installer."
   },
   {
     "name": "Azure Virtual Machines",
     "link": "https://www.g2.com/products/azure-virtual-machines/reviews",
-    "ranking": 10,
-    "numberOfReviews": 420,
+    "ranking": 9,
+    "numberOfReviews": 383,
     "rate": 4.4,
     "description": "Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions: development and testing, running applications, and extending your datacenter with support for Linux, Windows Server, SQL Server, Oracle, IBM, and SAP."
+  },
+  {
+    "name": "MongoDB Atlas",
+    "link": "https://www.g2.com/products/mongodb-atlas/reviews",
+    "ranking": 10,
+    "numberOfReviews": 364,
+    "rate": 4.5,
+    "description": "MongoDB Atlas empowers innovators to create, transform, and disrupt industries by unleashing the power of software and data."
   }
 ]
