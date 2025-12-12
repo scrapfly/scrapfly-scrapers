@@ -1,6 +1,6 @@
 """
 This example run script shows how to run the Indeed.com scraper defined in ./indeed.py
-It scrapes hotel data and saves it to ./results/
+It scrapes job data and saves it to ./results/
 
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
