@@ -18,8 +18,6 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # bypass G2 web scraping blocking
     "asp": True,
-    # set the poxy location to US
-    "country": "US",
     "render_js"  : True,
     "proxy_pool" : "public_residential_pool"
 }
@@ -187,7 +185,6 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
     # Enhanced config
     enhanced_config = {
         **BASE_CONFIG,
-        "debug": True,
         "auto_scroll": True,
         "wait_for_selector": "//section[@id='reviews']//article",
     }
@@ -208,7 +205,6 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
         try:
             data = parse_review_page(response)
             reviews_data.extend(data["reviews_data"])
-            remaining_urls.remove(response.context["url"])
         except Exception as e:  # catch any exception
             log.error(f"Error encountered: {e}")
             continue
