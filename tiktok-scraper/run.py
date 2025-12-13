@@ -48,14 +48,10 @@ async def run():
     with open(output.joinpath("profiles.json"), "w", encoding="utf-8") as file:
         json.dump(profiles_data, file, indent=2, ensure_ascii=False)
 
-    search_data = await tiktok.scrape_search(
-        keyword="whales",
-        max_search=18
-    )
-    # the current API URL scrapes video and profile data from search pages using the general search API.
-    # to get the specific data API URLs, you can filter the results by profiles or videos and inspect the network:
-    # profiles -> https://www.tiktok.com/api/search/user/full/?cursor=0&keyword=whales
-    # videos - > https://www.tiktok.com/api/search/item/full/?cursor=0&keyword=whales
+    search_data = await tiktok.scrape_search(keyword="whales")
+    # the search scraper scrolls the search page to load results dynamically
+    # it will scroll up to 15 times (configurable in the js scroll code)
+    # the results are extracted from XHR calls captured during scrolling
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
 

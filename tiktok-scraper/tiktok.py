@@ -201,14 +201,20 @@ async def scrape_profiles(urls: List[str]) -> List[Dict]:
 
 
 def parse_search(response: ScrapeApiResponse) -> List[Dict]:
-    """parse search data from the API response"""
-    try:
-        data = json.loads(response.scrape_result["content"])
-        search_data = data["data"]
-    except Exception as e:
-        log.error(f"Failed to parse JSON from search API response: {e}")
-        return None
-
+    """parse search data from XHR calls"""
+    # extract the xhr calls and extract the ones for search results
+    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
+    search_calls = [c for c in _xhr_calls if "/api/search/general/full/" in c["url"]]
+    search_data = []
+    for search_call in search_calls:
+        try:
+            data = json.loads(search_call["response"]["body"])["data"]
+        except Exception as e:
+            log.error(f"Failed to parse search data from XHR call: {e}")
+            continue
+        search_data.extend(data)
+    
+    # parse all the data using jmespath
     parsed_search = []
     for item in search_data:
         if item["type"] == 1:  # get the item if it was item only
@@ -226,72 +232,31 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
             )
             result["type"] = item["type"]
             parsed_search.append(result)
-
-    # wheter there is more search results: 0 or 1. There is no max searches available
-    has_more = data["has_more"]
     return parsed_search
 
 
-async def obtain_session(url: str) -> str:
-    """create a session to save the cookies and authorize the search API"""
-    session_id = str(uuid.uuid4().hex)
-    await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, session=session_id))
-    return session_id
-
-
-async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -> List[Dict]:
-    """scrape tiktok search data from the search API"""
-
-    def generate_search_id():
-        # get the current datetime and format it as YYYYMMDDHHMMSS
-        timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        # calculate the length of the random hex required for the total length (32)
-        random_hex_length = (32 - len(timestamp)) // 2  # calculate bytes needed
-        random_hex = secrets.token_hex(random_hex_length).upper()
-        random_id = timestamp + random_hex
-        return random_id
-
-    def form_api_url(cursor: int):
-        """form the reviews API URL and its pagination values"""
-        base_url = "https://www.tiktok.com/api/search/general/full/?"
-        params = {
-            "keyword": quote(keyword),
-            "offset": cursor,  # the index to start from
-            "search_id": generate_search_id(),
-        }
-        return base_url + urlencode(params)
-
-    log.info("obtaining a session for the search API")
-    session_id = await obtain_session(url="https://www.tiktok.com/search?q=" + quote(keyword))
-
-    log.info("scraping the first search batch")
-    first_page = await SCRAPFLY.async_scrape(
+async def scrape_search(keyword: str) -> List[Dict]:
+    """scrape tiktok search data by scrolling the search page"""
+    # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
+    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 10000)); setTimeout(() => scrollToEnd(), 5000);"""
+    url = f"https://www.tiktok.com/search?q={quote(keyword)}"
+    log.info(f"scraping search page with the URL {url} for search data")
+    response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            form_api_url(cursor=0),
-            **BASE_CONFIG,
-            headers={
-                "content-type": "application/json",
-            },
-            session=session_id,
+            url,
+            asp=True,
+            country="AU",
+            wait_for_selector="//div[@data-e2e='search_top-item']",
+            render_js=True,
+            auto_scroll=True,
+            rendering_wait=10000,
+            js=js,
+            debug=True,
         )
     )
-    search_data = parse_search(first_page)
-
-    # scrape the remaining comments concurrently
-    log.info(f"scraping search pagination, remaining {max_search // search_count} more pages")
-    _other_pages = [
-        ScrapeConfig(
-            form_api_url(cursor=cursor), **BASE_CONFIG, headers={"content-type": "application/json"}, session=session_id
-        )
-        for cursor in range(search_count, max_search + search_count, search_count)
-    ]
-    async for response in SCRAPFLY.concurrent_scrape(_other_pages):
-        data = parse_search(response)
-        if data is not None:
-            search_data.extend(data)
-
-    log.success(f"scraped {len(search_data)} from the search API from the keyword {keyword}")
-    return search_data
+    data = parse_search(response)
+    log.success(f"scraped {len(data)} search results for keyword: {keyword}")
+    return data
 
 
 def parse_channel(response: ScrapeApiResponse):
@@ -326,7 +291,7 @@ def parse_channel(response: ScrapeApiResponse):
 async def scrape_channel(url: str) -> List[Dict]:
     """scrape video data from a channel (profile with videos)"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 5000)); scrollToEnd();"""
+    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 10000)); setTimeout(() => scrollToEnd(), 5000);"""
     log.info(f"scraping channel page with the URL {url} for post data")
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(

@@ -167,10 +167,7 @@ async def test_profile_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    search_data = await tiktok.scrape_search(
-        keyword="whales",
-        max_search=20
-    )
+    search_data = await tiktok.scrape_search(keyword="whales")
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         assert validator.validate(item), {"item": item, "errors": validator.errors}
