@@ -133,6 +133,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await seloger.scrape_search(
         url="https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08FR13100",
@@ -145,6 +146,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_property_scraping():
     property_data = await seloger.scrape_property(
         urls=[
