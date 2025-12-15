@@ -72,11 +72,10 @@ def parse_company_life(response: ScrapeApiResponse) -> Dict:
     """parse company life page"""
     selector = response.selector
     leaders = []
-    for element in selector.xpath("//section[@data-test-id='leaders-at']/div/ul/li"):
+    for element in selector.xpath("//section[@data-test-id='leaders-at']//li"):
         leaders.append({
-            "name": element.xpath(".//a/div/h3/text()").get().strip(),
-            "title": element.xpath(".//a/div/h4/text()").get().strip(),
-            "linkedinProfileLink": element.xpath(".//a/@href").get()
+            "name": strip_text(element.xpath(".//h3[contains(@class, 'base-main-card__title')]//text()").get()),
+            "linkedinProfileLink": strip_text(element.xpath(".//a/@href").get())
         })
     affiliated_pages = []
     for element in selector.xpath("//section[@data-test-id='affiliated-pages']/div/div/ul/li"):
