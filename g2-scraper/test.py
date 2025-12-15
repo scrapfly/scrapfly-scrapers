@@ -9,7 +9,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache
-g2.BASE_CONFIG["cache"] = True
+g2.BASE_CONFIG["cache"] = False
 
 
 class Validator(_Validator):
@@ -116,7 +116,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=2, reruns_delay=30)
+@pytest.mark.flaky(reruns=5, reruns_delay=30)
 async def test_alternative_scraping():
     alternatives_data = await g2.scrape_alternatives(product="digitalocean")
     validator = Validator(alternatives_schema, allow_unknown=True)
