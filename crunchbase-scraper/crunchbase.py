@@ -267,27 +267,31 @@ def _reduce_person_dataset(dataset: dict) -> Dict:
         
         education: cards.education_image_list[].{
             school: school_identifier.value,
-            completed_on: completed_on.value,
-            started_on: started_on.value,
             type: type_name
         },
 
-        timeline: cards.timeline.entities[].{
-            title: properties.activity_properties.title,
-            author: properties.activity_properties.author,
-            publisher: properties.activity_properties.publisher,
-            url: properties.activity_properties.url.value,
-            thumb: properties.activity_properties.thumbnail_url,
-            date: properties.activity_date,
-            type: properties.entity_def_id
-        },
+        timeline: cards.timeline.entities[].properties.identifier.value
+        ,
 
         investments: cards.investments_list[].{
-            raised_usd: funding_round_money_raised.value_usd,
-            name: funding_round_identifier.value,
-            organization: organization_identifier.value,
-            announced_on: announced_on,
-            is_lead_investor: is_lead_investor
+            identifier: {
+                uuid: identifier.uuid,
+                value: identifier.value,
+                permalink: identifier.permalink,
+                entity_def_id: identifier.entity_def_id
+            },
+            organization_identifier: {
+                uuid: organization_identifier.uuid,
+                value: organization_identifier.value,
+                permalink: organization_identifier.permalink,
+                entity_def_id: organization_identifier.entity_def_id
+            },
+            funding_round_identifier: {
+                uuid: funding_round_identifier.uuid,
+                value: funding_round_identifier.value,
+                permalink: funding_round_identifier.permalink,
+                entity_def_id: funding_round_identifier.entity_def_id
+            }
         },
         
         exits: cards.exits_image_list[].{

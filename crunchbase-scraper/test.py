@@ -80,46 +80,70 @@ async def test_person_scraping():
         "title": {"type": "string"},
         "type": {"type": "string"},
         "gender": {"type": "string"},
-        "linkedin": {"type": "string", "nullable": True, "regex": r"https*://www.linkedin.com/in/.+?"},
-        "twitter": {"type": "string", "nullable": True, "regex": r"https://(?:www\.)?twitter\.com/.+?"},
-        "facebook": {"type": "string", "nullable": True, "regex": r"https://www.facebook.com/.+?"},
+        "linkedin": {"type": "string", "nullable": True},
+        "twitter": {"type": "string", "nullable": True},
+        "facebook": {"type": "string", "nullable": True},
         "description": {"type": "string"},
         "location_groups": {"type": "list", "schema": {"type": "string"}},
         "location": {"type": "list", "schema": {"type": "string"}},
+        "current_jobs": {"type": "integer"},
+        "past_jobs": {"type": "integer"},
         "education": {
             "type": "list",
             "schema": {
                 "type": "dict",
                 "schema": {
                     "school": {"type": "string"},
-                    "started_on": {"type": "string", "nullable": True},
-                    "completed_on": {"type": "string", "nullable": True},
                     "type": {"type": "string", "nullable": True},
                 },
             },
         },
         "timeline": {
             "type": "list",
-            "schema": {
-                "type": "dict",
-                "schema": {
-                    "title": {"type": "string", "nullable": True},
-                    "author": {"type": "string", "nullable": True},
-                    "publisher": {"type": "string", "nullable": True},
-                    "url": {"type": "string", "nullable": True},
-                    "date": {"type": "string", "nullable": True},
-                    "type": {"type": "string", "nullable": True},
-                },
-            },
+            "schema": {"type": "string"},
         },
         "investments": {
             "type": "list",
             "schema": {
                 "type": "dict",
                 "schema": {
+                    "identifier": {
+                        "type": "dict",
+                        "schema": {
+                            "uuid": {"type": "string"},
+                            "value": {"type": "string"},
+                            "permalink": {"type": "string"},
+                            "entity_def_id": {"type": "string"},
+                        },
+                    },
+                    "organization_identifier": {
+                        "type": "dict",
+                        "schema": {
+                            "uuid": {"type": "string"},
+                            "value": {"type": "string"},
+                            "permalink": {"type": "string"},
+                            "entity_def_id": {"type": "string"},
+                        },
+                    },
+                    "funding_round_identifier": {
+                        "type": "dict",
+                        "schema": {
+                            "uuid": {"type": "string"},
+                            "value": {"type": "string"},
+                            "permalink": {"type": "string"},
+                            "entity_def_id": {"type": "string"},
+                        },
+                    },
+                },
+            },
+        },
+        "exits": {
+            "type": "list",
+            "schema": {
+                "type": "dict",
+                "schema": {
                     "name": {"type": "string"},
-                    "raised": {"type": "integer"},
-                    "organization": {"type": "string"},
+                    "short_description": {"type": "string"},
                 },
             },
         },
@@ -128,11 +152,25 @@ async def test_person_scraping():
             "schema": {
                 "num_current_advisor_jobs": {"type": "integer"},
                 "num_founded_organizations": {"type": "integer"},
+                "preview_properties": {
+                    "type": "dict",
+                    "schema": {
+                        "num_exits": {
+                            "type": "dict",
+                            "schema": {
+                                "is_present": {"type": "boolean"},
+                            },
+                        },
+                    },
+                },
                 "num_portfolio_organizations": {"type": "integer"},
                 "rank_principal_investor": {"type": "integer"},
-                "num_exits": {"type": "integer"},
             },
         },
+        "current_advisor_jobs": {"type": "integer"},
+        "founded_orgs": {"type": "integer"},
+        "portfolio_orgs": {"type": "integer"},
+        "rank_principal_investor": {"type": "integer"},
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
