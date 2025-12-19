@@ -25,12 +25,15 @@ async def run():
     search_results = await aliexpress.scrape_search(url, max_pages=2)
     output.joinpath("search.json", ).write_text(json.dumps(search_results, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    url = "https://www.aliexpress.com/item/2255800741121659.html"
+    url = "https://www.aliexpress.com/item/3256809479214233.html"
     product_results = await aliexpress.scrape_product(url)
     output.joinpath("product.json").write_text(json.dumps(product_results, indent=2, ensure_ascii=False), encoding="utf-8")
 
     review_results = await aliexpress.scrape_product_reviews("1005006717259012", max_scrape_pages=3)
     output.joinpath("reviews.json").write_text(json.dumps(review_results, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    category_products = await aliexpress.find_aliexpress_products("https://www.aliexpress.com/category/5090301/cellphones.html", max_pages=3)
+    output.joinpath("category_products.json").write_text(json.dumps(category_products, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":
