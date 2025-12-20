@@ -1,28 +1,21 @@
-"""
-This is an example web scraper for bing.com.
-
-To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
-$ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
-"""
 import re
 import os
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+import json
+import asyncio
+
 from typing import Dict, List
 from urllib.parse import urlencode
-from loguru import logger as log
-
-SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 BASE_CONFIG = {
-    # bypass Bing web scraping blocking
     "asp": True,
-    # set the poxy location to US to get the result in English
     "country": "GB",
     "proxy_pool": "public_residential_pool",
     "debug":True,
     "auto_scroll":True,
 }
 
+SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
     """parse SERPs from bing search pages"""
@@ -57,24 +50,15 @@ def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
         )
     return data
 
-def parse_keywords(response: ScrapeApiResponse) -> Dict:
-    """parse FAQs and popular keywords on bing search pages"""
-    selector = response.selector
-    related_keywords = []
-    for keyword in selector.xpath(".//li[@class='b_ans']/div/ul/li"):
-        related_keywords.append("".join(keyword.xpath(".//a/div//text()").extract()))
-
-    return related_keywords
-
 
 async def scrape_search(query: str, max_pages: int = None):
     """scrape bing search pages"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
-    log.info("scraping the first search page")
+    print("scraping the first search page")
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     serp_data = parse_serps(response)
 
-    log.info(f"scraping search pagination ({max_pages - 1} more pages)")
+    print(f"scraping search pagination ({max_pages - 1} more pages)")
     total_results = (max_pages - 1) * 10  # each page contains 10 results
     other_pages = [
         ScrapeConfig(url + f"&first={start}", **BASE_CONFIG)
@@ -85,17 +69,15 @@ async def scrape_search(query: str, max_pages: int = None):
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         data = parse_serps(response)
         serp_data.extend(data)
-    log.success(f"scraped {len(serp_data)} search results from Bing search")
+    print(f"scraped {len(serp_data)} search results from Bing search")
     return serp_data
 
 
-async def scrape_keywords(query: str):
-    """scrape bing search pages for keyword data"""
-    url = f"https://www.bing.com/search?{urlencode({'q': query})}"
-    log.info("scraping Bing search for keyword data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
-    keyword_data = parse_keywords(response)
-    log.success(
-        f"scraped {len(keyword_data)} keywords from Bing search"
-    )
-    return keyword_data
+async def main():
+    serp_data = await scrape_search(query="web scraping emails", max_pages=3)
+    with open("search_serps.json", "w", encoding="utf-8") as file:
+        json.dump(serp_data, file, indent=2, ensure_ascii=False)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
