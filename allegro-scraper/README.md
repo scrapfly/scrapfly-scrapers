@@ -8,6 +8,7 @@ The scraping code is located in the `allegro.py` file. It's fully documented and
 
 This scraper scrapes:
 - Allegro product pages for product listing data
+- Allegro product search
 
 For output examples see the `./results` directory.
 
@@ -40,4 +41,5 @@ This Allegro.pl scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.or
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_product_scraping
+    $ poetry run pytest test.py -k test_search_scraping
     ```

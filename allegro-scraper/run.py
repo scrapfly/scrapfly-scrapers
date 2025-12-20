@@ -9,6 +9,7 @@ import asyncio
 import json
 from pathlib import Path
 import allegro
+from loguru import logger as log
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
@@ -17,14 +18,18 @@ output.mkdir(exist_ok=True)
 async def run():
     # enable scrapfly cache for basic use
     allegro.BASE_CONFIG["cache"] = True
-    allegro.BASE_CONFIG["country"] = "PL"
 
-    print("running Allegro scrape and saving results to ./results directory")
+    log.info("running Allegro scrape and saving results to ./results directory")
+    log.info("scraping search page")
+    search_data = await allegro.scrape_search("Cooler CPU")
+    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+        json.dump(search_data, file, indent=2, ensure_ascii=False)
 
+    log.info("scraping product data")
     product_data = await allegro.scrape_product(
         urls=[
             "https://allegro.pl/oferta/procesor-amd-ryzen-5-7500f-tray-17401107639",
-            "https://allegro.pl/oferta/procesor-amd-ryzen-7-9800x3d-8-x-4-7-ghz-gen-9-tray-oem-17252109693",
+            "https://allegro.pl/oferta/plyta-glowna-socket-am5-asus-b650e-max-gaming-wifi-atx-17328863669",
         ]
     )
     with open(output.joinpath("product.json"), "w", encoding="utf-8") as file:
