@@ -25,13 +25,13 @@ async def run():
     search = await amazon.scrape_search(url, max_pages=3)
     output.joinpath("search.json").write_text(json.dumps(search, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    # url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
-    # product = await amazon.scrape_product(url)
-    # output.joinpath("product.json").write_text(json.dumps(product, indent=2, ensure_ascii=False), encoding="utf-8")
+    url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
+    product = await amazon.scrape_product(url)
+    output.joinpath("product.json").write_text(json.dumps(product, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    # url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
-    # reviews = await amazon.scrape_reviews(url)
-    # output.joinpath("reviews.json").write_text(json.dumps(reviews, indent=2, ensure_ascii=False), encoding="utf-8")
+    url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
+    reviews = await amazon.scrape_reviews(url)
+    output.joinpath("reviews.json").write_text(json.dumps(reviews, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":
