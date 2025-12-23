@@ -81,11 +81,6 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
         mpn = product_json_ld.get("mpn", "")
         brand = product_json_ld.get("brand", "")
         description = product_json_ld.get("description", "")
-    else:
-        sku = ""
-        mpn = ""
-        brand = ""
-        description = ""
     
     # Extract offer information
     offers = product_json_ld.get("offers", {}) if product_json_ld else {}
@@ -129,10 +124,7 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
                 specifications[label] = value
 
     # Extract datasheet URL from documents section
-    datasheet_url = None
-    datasheet_link = sel.xpath('//a[contains(@href, "datasheet")]/@href').get()
-    if datasheet_link:
-        datasheet_url = datasheet_link
+    datasheet_url = sel.xpath('//a[contains(@href, "datasheet")]/@href').get()
 
     parsed_data = {
         "product_id": sku,

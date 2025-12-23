@@ -256,6 +256,10 @@ jobs:
             test: test_search_scraping
           - project_dir: amazon-scraper
             test: test_product_scraping
+          - project_dir: mouser-scraper
+            test: test_search_scraping
+          - project_dir: mouser-scraper
+            test: test_product_scraping
 
     steps:
     - uses: actions/checkout@v4
