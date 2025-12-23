@@ -8,7 +8,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-zoro.BASE_CONFIG["cache"] = False
+zoro.BASE_CONFIG["cache"] = True
 
 # Custom Validator to support min_presence
 class Validator(_Validator):

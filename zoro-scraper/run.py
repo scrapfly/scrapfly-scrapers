@@ -20,7 +20,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    zoro.BASE_CONFIG["cache"] = False
+    zoro.BASE_CONFIG["cache"] = True
 
     log.info("running Zoro scrape and saving results to ./results directory")
 

@@ -76,10 +76,11 @@ def _timestamp_to_iso(timestamp_ms: int) -> str:
         return ""
     return datetime.fromtimestamp(timestamp_ms / 1000).isoformat()
 
+
 def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
     reviews = []
     seen_review_ids = set()  # Track review IDs to avoid duplicates
-    
+
     for xhr in xhr_calls:
         url = xhr.get("url", "")
         if url.startswith("https://display.powerreviews.com"):
@@ -95,7 +96,7 @@ def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
                 if not results:
                     log.debug(f"No results in data for URL: {url}")
                     continue
-                
+
                 review_list = results[0].get("reviews", [])
                 if review_list:
                     log.info(f"Found {len(review_list)}")
@@ -106,13 +107,13 @@ def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
                             continue
                         if review_id:
                             seen_review_ids.add(review_id)
-                        
+
                         # Extract only useful information
                         details = review.get("details", {})
                         metrics = review.get("metrics", {})
                         badges = review.get("badges", {})
                         media = review.get("media", [])
-                        
+
                         parsed_review = {
                             "review_id": review_id,
                             "rating": metrics.get("rating"),
@@ -120,7 +121,9 @@ def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
                             "comments": details.get("comments", ""),
                             "nickname": details.get("nickname", ""),
                             "location": details.get("location", ""),
-                            "created_date": _timestamp_to_iso(details.get("created_date")),
+                            "created_date": _timestamp_to_iso(
+                                details.get("created_date")
+                            ),
                             "is_verified_buyer": badges.get("is_verified_buyer", False),
                             "helpful_votes": metrics.get("helpful_votes", 0),
                             "media_count": len(media),
@@ -133,6 +136,7 @@ def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
 
     log.info(f"Total reviews parsed: {len(reviews)}")
     return reviews
+
 
 def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     sel = response.selector
@@ -150,7 +154,7 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     name = data.get("name", "")
     brand = data.get("brand", {}).get("name", "") if data.get("brand") else ""
     description_html = data.get("description", "")
-    description = re.sub(r'<[^>]+>', '', description_html).strip()
+    description = re.sub(r"<[^>]+>", "", description_html).strip()
 
     # Extract pricing and availability from JSON-LD data
     offers = data.get("offers", {})
@@ -167,7 +171,6 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
         else:
             images.append(img)
 
-
     # Extract rating and review count from JSON-LD data
     rating_data = data.get("aggregateRating", {})
     rating = rating_data.get("ratingValue") if rating_data else None
@@ -177,21 +180,21 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     specifications = {}
     # Find all tables within product-attributes div
     tables = sel.xpath('//div[contains(@class, "product-attributes")]//table')
-    for table in tables:        
+    for table in tables:
         # Extract rows from the table
-        rows = table.xpath('.//tbody//tr')
+        rows = table.xpath(".//tbody//tr")
         for row in rows:
             # First td contains the label, second td contains the value
-            tds = row.xpath('./td')
+            tds = row.xpath("./td")
             if len(tds) >= 2:
                 # Extract text from first td (label) and second td (value)
-                label_parts = tds[0].xpath('.//text()').getall()
-                value_parts = tds[1].xpath('.//text()').getall()
-                label = ' '.join(part.strip() for part in label_parts if part.strip())
-                value = ' '.join(part.strip() for part in value_parts if part.strip())
-                
+                label_parts = tds[0].xpath(".//text()").getall()
+                value_parts = tds[1].xpath(".//text()").getall()
+                label = " ".join(part.strip() for part in label_parts if part.strip())
+                value = " ".join(part.strip() for part in value_parts if part.strip())
+
                 if label and value:
-                    label_clean = label.strip().rstrip(':')
+                    label_clean = label.strip().rstrip(":")
                     value_clean = value.strip()
                     specifications[label_clean] = value_clean
 
@@ -220,8 +223,6 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     }
 
 
-
-
 async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
     """
     Scrape Zoro product pages for product data
@@ -237,7 +238,7 @@ async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
     JS = [
         {
             "execute": {
-                "script": "async function clickUntilDisabled() { const maxClicks = 50; let clicks = 0; while (clicks < maxClicks) { const btn = document.querySelector('button.pr-rd-show-more:not([disabled])'); if (!btn || btn.disabled || btn.style.display === 'none' || !btn.offsetParent) { break; } btn.click(); clicks++; await new Promise(r => setTimeout(r, 1500)); } return clicks; } return await clickUntilDisabled();",
+                "script": "async function clickUntilDisabled(){const maxClicks=50;const waitBetweenClicks=1500;let clicks=0;while(clicks<maxClicks){const btn=document.querySelector('button.pr-rd-show-more:not([disabled])');if(!btn||!btn.offsetParent){break;}try{btn.click();clicks++;await new Promise(r=>setTimeout(r,waitBetweenClicks));}catch(e){break;}}return clicks;}return await clickUntilDisabled();",
                 "timeout": 5000,  # you can increase this if needed to get more reviews
             }
         }
@@ -258,20 +259,23 @@ def parse_search_listing(response: ScrapeApiResponse) -> ZoroSearchListing:
     sel = response.selector
     # Extract total pages from pagination info from html
     total_pages = 0
-    page_text = sel.css('span[data-za="pagination-label"]::text').get() or sel.css('#pagination-label-info::text').get()
+    page_text = (
+        sel.css('span[data-za="pagination-label"]::text').get()
+        or sel.css("#pagination-label-info::text").get()
+    )
     if page_text:
-        pages_match = re.search(r'of\s+(\d+)\s+pages', page_text.strip())
+        pages_match = re.search(r"of\s+(\d+)\s+pages", page_text.strip())
         if pages_match:
             total_pages = int(pages_match.group(1))
-    
+
     total_results = 0
-    results_text = sel.css('span.result-count::text').get()
+    results_text = sel.css("span.result-count::text").get()
     if results_text:
-        results_match = re.search(r'\(([\d,]+)\+?\s+items?\)', results_text)
+        results_match = re.search(r"\(([\d,]+)\+?\s+items?\)", results_text)
         if results_match:
             # Remove commas and convert to int
-            total_results = int(results_match.group(1).replace(',', ''))
-    
+            total_results = int(results_match.group(1).replace(",", ""))
+
     # Extract product listings from xhr calls
     products = []
     if "browser_data" in response.scrape_result:
@@ -311,7 +315,9 @@ async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages
     encoded_query = urllib.parse.quote(query)
     base_url = f"https://www.zoro.com/search?q={encoded_query}"
     log.info(f"Scraping first page of search listing: {base_url}")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, auto_scroll=True, **BASE_CONFIG))
+    first_page = await SCRAPFLY.async_scrape(
+        ScrapeConfig(base_url, auto_scroll=True, **BASE_CONFIG)
+    )
 
     # first page data
     first_page_data = parse_search_listing(first_page)
@@ -321,10 +327,12 @@ async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages
 
     if scrape_all_pages:
         pages_to_scrape = total_pages
-    else: 
+    else:
         pages_to_scrape = min(max_pages, total_pages)
-    
-    log.info(f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
+
+    log.info(
+        f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})"
+    )
     scraped_pages = 1
     if pages_to_scrape > 1:
         other_pages = [
