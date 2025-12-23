@@ -1,3 +1,4 @@
+# https://gist.github.com/scrapfly-dev/e4333226d9c5d6ec3c32fc81ac968887
 import json
 import math
 import os
@@ -92,7 +93,6 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
 
 async def scrape_product(url: str) -> List[Dict]:
     """scrape aliexpress products by id"""
-    print("retrieving a session ID")
     print(f"scraping product: {url}")
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
         url, **BASE_CONFIG, render_js=True, auto_scroll=True,
@@ -102,8 +102,6 @@ async def scrape_product(url: str) -> List[Dict]:
         ], proxy_pool="public_residential_pool", session="some-randomg-session"
     ))
     data = parse_product(result)
-    reviews = await scrape_product_reviews(data["info"]["productId"], max_scrape_pages=3)
-    data["reviewData"] = reviews
     print(f"successfully scraped product: {url}")    
     return data
 

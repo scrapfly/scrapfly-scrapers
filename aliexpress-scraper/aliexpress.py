@@ -165,18 +165,18 @@ def parse_product(result: ScrapeApiResponse) -> Product:
 
 async def scrape_product(url: str) -> List[Product]:
     """scrape aliexpress products by id"""
-    log.info("retrieving a session ID")
     log.info("scraping product: {}", url)
+    # result = await SCRAPFLY.async_scrape(ScrapeConfig(
+    #     url, **BASE_CONFIG, render_js=True, auto_scroll=True,
+    #     rendering_wait=5000,js_scenario=[
+    #         {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
+    #         {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
+    #     ], proxy_pool="public_residential_pool"
+    # ))
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, auto_scroll=True,
-        rendering_wait=15000, retry=False, timeout=150000, js_scenario=[
-            {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
-            {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
-        ], proxy_pool="public_residential_pool"
-    ))
+        url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool"
+    ))    
     data = parse_product(result)
-    reviews = await scrape_product_reviews(data["info"]["productId"], max_scrape_pages=3)
-    data["reviewData"] = reviews
     log.success("successfully scraped product: {}", url)    
     return data
 

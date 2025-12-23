@@ -1,3 +1,4 @@
+# https://gist.github.com/scrapfly-dev/dc8e6fc4201d7d04c5bd88dd86c6c1b4
 import json
 import math
 import os
@@ -22,8 +23,6 @@ def parse_category_page(response: ScrapeApiResponse):
     """Parse category page response for product preview results"""
     selector = response.selector
     script_data = selector.xpath('//script[contains(.,"_init_data_=")]')
-    with open('script_data.html', 'w', encoding='utf-8') as f:
-        f.write(script_data.get())
     json_data = json.loads(script_data.re(r"_init_data_\s*=\s*{\s*data:\s*({.+}) }")[0])
     json_data = json_data['data']['root']['fields']
     product_data = json_data['mods']['itemList']['content']
