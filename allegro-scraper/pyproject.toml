@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "scrapfly-allegro"
+version = "0.1.0"
+description = "demo web scraper for Allegro.pl using Scrapfly"
+authors = ["Abdelrahman Arafa <abdelrahman@scrapfly.io>"]
+license = "NPOS-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scrapfly-sdk = {extras = ["all"], version = "^0.8.5"}
+jmespath = "^1.0.1"
+loguru = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+pytest = "^7.3.1"
+cerberus = "^1.3.4"
+asyncio = "^3.4.3"
+pytest-asyncio = "^0.21.0"
+pytest-rerunfailures = "^14.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+python_files = "test.py"
+
+[tool.black]
+line-length = 120
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
