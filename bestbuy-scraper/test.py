@@ -174,6 +174,7 @@ async def test_search_scraping():
         search_query="macbook",
         max_pages=3        
     )
+    assert len(search_data) >= 10
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)

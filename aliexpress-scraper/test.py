@@ -151,3 +151,23 @@ async def test_review_scraping():
     validate_or_fail(result, validator)
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/reviews.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_category_scraping():
+    result = await aliexpress.find_aliexpress_products("https://www.aliexpress.com/category/5090301/cellphones.html", max_pages=2)
+    assert len(result) > 100
+    schema = {
+        "redirectedId": {"type": "string"},
+        "itemType": {"type": "string"},
+        "productType": {"type": "string"},
+        "title": {
+            "type": "dict",
+            "schema": {
+                "displayTitle": {"type": "string"},
+            }
+        }
+    }
+    validator = Validator(schema, allow_unknown=True)
+    assert len(result) > 100

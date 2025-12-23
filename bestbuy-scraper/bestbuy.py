@@ -167,7 +167,8 @@ async def scrape_products(urls: List[str], max_review_pages: int = 1) -> List[Di
             data.append(product_data)
         except:
             pass
-            log.debug("expired product page")
+            log.error("expired selectors or product page")
+
     log.success(f"scraped {len(data)} products from product pages")
     return data
 
@@ -177,7 +178,7 @@ def parse_search(response: ScrapeApiResponse):
     selector = response.selector
     data = []
 
-    for item in selector.css("main.product-grid-view-container li"):
+    for item in selector.css(".product-grid-view-container li"):
         if item.css(".a-skeleton-shimmer").get():
             continue
         name = item.css(".product-title::attr(title)").get()
@@ -253,9 +254,8 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         ScrapeConfig(
             form_search_url(1),
             render_js=True,
-            rendering_wait=5000,
+            rendering_wait=10000,
             auto_scroll=True,
-            wait_for_selector="#main-results li",
             **BASE_CONFIG,
         )
     )
@@ -269,7 +269,7 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
 
     log.info(f"scraping search pagination, {total_pages - 1} more pages")
     # add the remaining pages to a scraping list to scrape them concurrently
-    to_scrape = [ScrapeConfig(form_search_url(page_number), **BASE_CONFIG) for page_number in range(2, total_pages + 1)]
+    to_scrape = [ScrapeConfig(form_search_url(page_number), **BASE_CONFIG, render_js=True, rendering_wait=10000, auto_scroll=True) for page_number in range(2, total_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_search(response)["data"]
         search_data.extend(data)
@@ -288,6 +288,7 @@ def parse_reviews(response: ScrapeApiResponse) -> List[Dict]:
 
 async def scrape_reviews(skuid: int, max_pages: int = None) -> List[Dict]:
     """scrape review data from the reviews API"""
+    log.info(f"scraping first review page for skuid: {skuid}")
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             f"https://www.bestbuy.com/ugc/v2/reviews?page=1&pageSize=20&sku={skuid}&sort=MOST_RECENT", **BASE_CONFIG

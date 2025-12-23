@@ -10,14 +10,14 @@ import json
 import math
 import os
 import re
+
+from loguru import logger as log
 from typing import Dict, List, TypedDict
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
-
-import jmespath
-from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
+
 BASE_CONFIG = {
     # Aliexpress.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
@@ -26,7 +26,7 @@ BASE_CONFIG = {
     # aliexpress returns differnt results based on localization settings
     # apply localization settings from the browser and then copy the aep_usuc_f cookie from devtools
     "headers": {
-        "cookie": "aep_usuc_f=site=glo&province=&city=&c_tp=USD&region=EG&b_locale=en_US&ae_u_p_s=2"
+        "cookie": "aep_usuc_f=site=glo&province=&city=&c_tp=USD&region=US&b_locale=en_US&ae_u_p_s=2"
     }
 }
 
@@ -52,27 +52,7 @@ def extract_search(result: ScrapeApiResponse) -> Dict:
 def parse_search(result: ScrapeApiResponse):
     """Parse search page response for product preview results"""
     data = extract_search(result)
-    parsed = []
-    for result in data["mods"]["itemList"]["content"]:
-        item = jmespath.search("""{
-            id: productId,
-            type: productType,
-            thumbnail: image.imgUrl,
-            title: title.displayTitle,
-            price: prices.salePrice.minPrice,
-            currency: prices.salePrice.currencyCode,
-            selling_points: sellingPoints[].tagContent.tagText,
-            rating: evaluation.starRating,
-            trade: trade.tradeDesc,
-            store_url: store.storeUrl,
-            store_name: store.storeName,
-            store_id: store.storeId,
-            store_ali_id: store.aliMemberId
-        }""", result)
-        item['url'] = f"https://www.aliexpress.com/item/{item['id']}.html"
-        item['thumbnail'] = f"https:{item['thumbnail']}"
-        parsed.append(item)
-    return parsed
+    return data["mods"]["itemList"]["content"]
 
 
 async def scrape_search(url, max_pages: int = 60):
@@ -185,18 +165,18 @@ def parse_product(result: ScrapeApiResponse) -> Product:
 
 async def scrape_product(url: str) -> List[Product]:
     """scrape aliexpress products by id"""
-    log.info("retrieving a session ID")
     log.info("scraping product: {}", url)
+    # result = await SCRAPFLY.async_scrape(ScrapeConfig(
+    #     url, **BASE_CONFIG, render_js=True, auto_scroll=True,
+    #     rendering_wait=5000,js_scenario=[
+    #         {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
+    #         {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
+    #     ], proxy_pool="public_residential_pool"
+    # ))
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, auto_scroll=True,
-        rendering_wait=15000, retry=False, timeout=150000, js_scenario=[
-            {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
-            {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
-        ]
-    ))
+        url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool"
+    ))    
     data = parse_product(result)
-    reviews = await scrape_product_reviews(data["info"]["productId"], max_scrape_pages=3)
-    data["reviewData"] = reviews
     log.success("successfully scraped product: {}", url)    
     return data
 
@@ -236,3 +216,45 @@ async def scrape_product_reviews(product_id: str, max_scrape_pages: int = None):
     data.pop("max_pages")
     return data
 
+
+def parse_category_page(response: ScrapeApiResponse):
+    """Parse category page response for product preview results"""
+    selector = response.selector
+    script_data = selector.xpath('//script[contains(.,"_init_data_=")]')
+    with open('script_data.html', 'w', encoding='utf-8') as f:
+        f.write(script_data.get())
+    json_data = json.loads(script_data.re(r"_init_data_\s*=\s*{\s*data:\s*({.+}) }")[0])
+    json_data = json_data['data']['root']['fields']
+    product_data = json_data['mods']['itemList']['content']
+    total_results = json_data['pageInfo']['totalResults']
+    page_size = json_data['pageInfo']['pageSize']
+    total_pages = int(math.ceil(total_results / page_size))
+    return {
+        'product_data': product_data,
+        'total_pages': total_pages
+    }
+
+
+async def find_aliexpress_products(url: str, max_pages: int) -> List[Dict]:
+    """Find Aliexpress products from category pages"""
+    log.info(f"finding products from category page: {url}")
+    first_page_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    first_page_data = parse_category_page(first_page_result)
+    all_product_data = first_page_data['product_data']
+    total_pages = first_page_data['total_pages'] - 1 # exclude the first page from the count
+
+    if max_pages is None:
+        max_pages = total_pages
+    log.info('found {} pages, but only scraping {} pages'.format(total_pages, max_pages))
+
+    remaining_pages = [
+        ScrapeConfig(url + f"?page={page}", **BASE_CONFIG)
+        for page in range(2, max_pages + 1)
+    ]
+
+    async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
+        product_data = parse_category_page(result)['product_data']
+        all_product_data.extend(product_data)
+    
+    log.success(f"discovered {len(all_product_data)} products from {url}")
+    return all_product_data

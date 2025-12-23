@@ -67,8 +67,8 @@ async def test_product_scraping():
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     url = "https://www.amazon.com/s?k=kindle"
-    result = await amazon.scrape_search(url, max_pages=2)
-    assert len(result) >= 16  # the number can vary as search parser skips ads 
+    result = await amazon.scrape_search(url, max_pages=3)
+    assert len(result) > 30  # the number can vary as search parser skips ads 
     schema = {
         "url": {"type": "string"},
         "title": {"type": "string"},
@@ -90,9 +90,9 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
-    url = "https://www.amazon.com/PlayStation%C2%AE5-console-slim-PlayStation-5/dp/B0CL61F39H"
-    result = await amazon.scrape_reviews(url, max_pages=3)
-    assert len(result) >= 8
+    url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
+    result = await amazon.scrape_reviews(url)
+    assert len(result) != 0
     schema = {
         "text": {"type": "string"},
         "title": {"type": "string"},

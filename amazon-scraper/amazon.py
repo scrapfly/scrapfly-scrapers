@@ -16,6 +16,7 @@ from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
+
 BASE_CONFIG = {
     # Amazon.com requires Anti Scraping Protection bypass feature.
     # for more: https://SCRAPFLY.io/docs/scrape-api/anti-scraping-protection
@@ -78,15 +79,15 @@ async def scrape_search(url: str, max_pages: Optional[int] = None) -> List[Produ
     # first, scrape the first page and find total pages:
     first_result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     results = parse_search(first_result)
-    _paging_meta = first_result.selector.css("[cel_widget_id=UPPER-RESULT_INFO_BAR-0] span::text").get()
-    _total_results = int(re.findall(r"(\d+) results", _paging_meta)[0])
+    _paging_meta = first_result.selector.xpath("//*[@cel_widget_id='UPPER-RESULT_INFO_BAR-0']//span/text()").get()
+    _total_results = int(re.findall(r"(?:over\s+)?([\d,]+)\s+results", _paging_meta)[0].replace(',', ''))
     _results_per_page = int(re.findall(r"\d+-(\d+)", _paging_meta)[0])
     total_pages = math.ceil(_total_results / _results_per_page)
     if max_pages and total_pages > max_pages:
         total_pages = max_pages
 
     # now we can scrape remaining pages concurrently
-    log.info(f"{url}: found {total_pages}, scraping them concurrently")
+    log.info(f"{url}: found total results: {_total_results}, scraping {total_pages} pages concurrently")
     other_pages = [
         ScrapeConfig(
             _add_or_replace_url_parameters(first_result.context["url"], page=page), 
@@ -99,7 +100,6 @@ async def scrape_search(url: str, max_pages: Optional[int] = None) -> List[Produ
 
     log.info(f"{url}: found total of {len(results)} product previews")
     return results
-
 
 class Review(TypedDict):
     title: str
@@ -127,15 +127,14 @@ def parse_reviews(result: ScrapeApiResponse) -> List[Review]:
     return parsed
 
 
-async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Review]:
+async def scrape_reviews(url: str) -> List[Review]:
     """scrape product reviews of a given URL of an amazon product"""
-    if max_pages > 10:
-        raise ValueError("max_pages cannot be greater than 10 as Amazon paging stops at 10 pages. Try splitting search through multiple filters and sorting to get more results")
+    # pagination is not publically available, so we can't scrape more than one page
     log.info(f"scraping review page: {url}")
     api_response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     reviews = parse_reviews(api_response)
+    log.info(f"scraped {len(reviews)} reviews")
     return reviews
-
 
 
 class Product(TypedDict):
@@ -211,4 +210,3 @@ async def scrape_product(url: str) -> List[Product]:
         async for result in SCRAPFLY.concurrent_scrape(_to_scrape):
             variants.append(parse_product(result))
     return variants
-
