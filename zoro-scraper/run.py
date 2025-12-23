@@ -20,7 +20,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    zoro.BASE_CONFIG["cache"] = True
+    zoro.BASE_CONFIG["cache"] = False
 
     log.info("running Zoro scrape and saving results to ./results directory")
 
@@ -35,10 +35,10 @@ async def run():
     with open(output.joinpath("product.json"), "w", encoding="utf-8") as file:
         json.dump(product, file, indent=2, ensure_ascii=False)
 
-    # log.info("scraping search listing")
-    # search_listing = await zoro.scrape_search_listing("https://www.zoro.com/zoro-search-listing-1")
-    # with open(output.joinpath("search_listing.json"), "w", encoding="utf-8") as file:
-    #     json.dump(search_listing, file, indent=2, ensure_ascii=False)
+    log.info("scraping search listing")
+    search_listing = await zoro.scrape_search_listing("Gloves")
+    with open(output.joinpath("search_listing.json"), "w", encoding="utf-8") as file:
+        json.dump(search_listing, file, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     asyncio.run(run())

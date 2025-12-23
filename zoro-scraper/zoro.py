@@ -13,7 +13,7 @@ from datetime import datetime
 import urllib.parse
 from pathlib import Path
 from loguru import logger as log
-from typing import List, Dict, TypedDict, Optional
+from typing import List, Dict, TypedDict, Optional, Any
 from scrapfly import (
     ScrapeConfig,
     ScrapflyClient,
@@ -26,6 +26,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # requires Anti Scraping Protection bypass feature.
     "asp": True,
+    "render_js": True,
 }
 
 
@@ -64,7 +65,9 @@ class ZoroProduct(TypedDict):
 
 
 class ZoroSearchListing(TypedDict):
-    pass
+    total_pages: int
+    total_results: int
+    products: List[Dict[str, Any]]
 
 
 def _timestamp_to_iso(timestamp_ms: int) -> str:
@@ -95,7 +98,7 @@ def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
                 
                 review_list = results[0].get("reviews", [])
                 if review_list:
-                    log.info(f"Found {len(review_list)} reviews from {url}")
+                    log.info(f"Found {len(review_list)}")
                     for review in review_list:
                         review_id = review.get("review_id") or review.get("ugc_id")
                         # Skip duplicates
@@ -239,7 +242,7 @@ async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
             }
         }
     ]
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True, js_scenario=JS) for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, js_scenario=JS) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
@@ -251,12 +254,96 @@ async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
     return products
 
 
-
-
-
 def parse_search_listing(response: ScrapeApiResponse) -> ZoroSearchListing:
-    pass
+    sel = response.selector
+    # Extract total pages from pagination info from html
+    total_pages = 0
+    page_text = sel.css('span[data-za="pagination-label"]::text').get() or sel.css('#pagination-label-info::text').get()
+    if page_text:
+        pages_match = re.search(r'of\s+(\d+)\s+pages', page_text.strip())
+        if pages_match:
+            total_pages = int(pages_match.group(1))
+    
+    total_results = 0
+    results_text = sel.css('span.result-count::text').get()
+    if results_text:
+        results_match = re.search(r'\(([\d,]+)\+?\s+items?\)', results_text)
+        if results_match:
+            # Remove commas and convert to int
+            total_results = int(results_match.group(1).replace(',', ''))
+    
+    # Extract product listings from xhr calls
+    products = []
+    if "browser_data" in response.scrape_result:
+        browser_data = response.scrape_result["browser_data"]
+        xhr_calls = browser_data.get("xhr_call", [])
+        for xhr in xhr_calls:
+            url = xhr.get("url", "")
+            if url.startswith("https://api.prod.zoro.com/catalog/v1/catalog/product"):
+                try:
+                    response_data = xhr.get("response", {})
+                    body = response_data.get("body", "")
+                    if body:
+                        data = json.loads(body)
+                        products.extend(data.get("products", []))
+                except Exception as e:
+                    log.error(f"Error parsing XHR data from {url}: {e}")
+    log.info(f"Scraped {len(products)} products from search listing")
+    return {
+        "total_pages": total_pages,
+        "total_results": total_results,
+        "products": products,
+    }
 
 
-def scrape_search_listing(url: str) -> ZoroSearchListing:
-    pass
+async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages: bool = False) -> ZoroSearchListing:
+    """
+    Scrape Zoro search pages for product listings
+
+    Args:
+        query: Search query string
+        max_pages: Maximum number of pages to scrape (default: 3)
+        scrape_all_pages: Whether to scrape all pages (default: False)
+    Returns:
+        ZoroSearchListing dictionary with products and metadata
+    """
+    log.info(f"Scraping Zoro search page for query: {query}")
+    encoded_query = urllib.parse.quote(query)
+    base_url = f"https://www.zoro.com/search?q={encoded_query}"
+    log.info(f"Scraping first page of search listing: {base_url}")
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, auto_scroll=True, **BASE_CONFIG))
+
+    # first page data
+    first_page_data = parse_search_listing(first_page)
+    total_pages = first_page_data["total_pages"]
+    total_results = first_page_data["total_results"]
+    products = first_page_data["products"]
+
+    if scrape_all_pages:
+        pages_to_scrape = total_pages
+    else: 
+        pages_to_scrape = min(max_pages, total_pages)
+    
+    log.info(f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
+    scraped_pages = 1
+    if pages_to_scrape > 1:
+        other_pages = [
+            ScrapeConfig(f"{base_url}&page={page}", auto_scroll=True, **BASE_CONFIG)
+            for page in range(2, pages_to_scrape + 1)
+        ]
+        async for response in SCRAPFLY.concurrent_scrape(other_pages):
+            scraped_pages += 1
+            if isinstance(response, ScrapflyScrapeError):
+                log.error(f"Error scraping page {scraped_pages}: {response.error}")
+                continue
+            log.info(f"Scraped page {scraped_pages} of {pages_to_scrape}")
+            page_data = parse_search_listing(response)
+            products.extend(page_data["products"])
+    log.info(f"Scraped {len(products)} products from {pages_to_scrape} pages")
+
+    data = {
+        "total_pages": total_pages,
+        "total_results": total_results,
+        "products": products,
+    }
+    return data
