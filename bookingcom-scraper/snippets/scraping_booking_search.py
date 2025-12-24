@@ -1,77 +1,20 @@
-"""
-This is an example web scraper for booking.com used in scrapfly blog article:
-https://scrapfly.io/blog/how-to-scrape-bookingcom/
-
-To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
-$ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
-
-For example use instructions see ./run.py
-"""
-import json
 import os
 import re
-import math
-from collections import defaultdict
-from typing import Dict, List, Optional, TypedDict
-from urllib.parse import urlencode
-from uuid import uuid4
+import json
+import asyncio
 
-from loguru import logger as log
+from urllib.parse import urlencode
+from collections import defaultdict
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional, TypedDict
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
-SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    # Booking.com requires Anti Scraping Protection bypass feature:
     "asp": True,
     "country": "US",
 }
 
-
-class Location(TypedDict):
-    b_max_los_data: dict
-    b_show_entire_homes_checkbox: bool
-    cc1: str
-    cjk: bool
-    dest_id: str
-    dest_type: str
-    label: str
-    label1: str
-    label2: str
-    labels: list
-    latitude: float
-    lc: str
-    longitude: float
-    nr_homes: int
-    nr_hotels: int
-    nr_hotels_25: int
-    photo_uri: str
-    roundtrip: str
-    rtl: bool
-    value: str
-
-
-class LocationSuggestions(TypedDict):
-    results: List[Location]
-
-
-
-async def search_location_suggestions(query: str) -> LocationSuggestions:
-    """scrape booking.com location suggestions to find location details for search scraping"""
-    result = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            url="https://accommodations.booking.com/autocomplete.json",
-            method="POST",
-            headers={
-                "Origin": "https://www.booking.com",
-                "Referer": "https://www.booking.com/",
-                "Content-Type": "text/plain;charset=UTF-8",
-            },
-            body=f'{{"query":"{query}","pageview_id":"","aid":800210,"language":"en-us","size":5}}',
-        )
-    )
-    data = json.loads(result.content)
-    return data
-
+SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 def retrieve_graphql_body(result: ScrapeApiResponse) -> List[Dict]:
     """parse the graphql search query from the HTML and return the full graphql body"""
@@ -113,6 +56,24 @@ def generate_graphql_request(url_params: str, body: Dict, offset: int):
     )
 
 
+async def search_location_suggestions(query: str) -> Dict:
+    """scrape booking.com location suggestions to find location details for search scraping"""
+    result = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            url="https://accommodations.booking.com/autocomplete.json",
+            method="POST",
+            headers={
+                "Origin": "https://www.booking.com",
+                "Referer": "https://www.booking.com/",
+                "Content-Type": "text/plain;charset=UTF-8",
+            },
+            body=f'{{"query":"{query}","pageview_id":"","aid":800210,"language":"en-us","size":5}}',
+        )
+    )
+    data = json.loads(result.content)
+    return data
+
+
 def parse_graphql_response(response: ScrapeApiResponse) -> List[Dict]:
     """parse the search results from the graphql response"""
     data = json.loads(response.content)
@@ -128,7 +89,7 @@ async def scrape_search(
     max_pages: Optional[int] = None,
 ) -> List[Dict]:
     """Scrape booking.com search"""
-    log.info(f"scraping search for {query} {checkin}-{checkout}")
+    print(f"scraping search for {query} {checkin}-{checkout}")
     # first we must find destination details from provided query
     # for that scrape suggestions from booking.com autocomplete and take the first one
     location_suggestions = await search_location_suggestions(query)
@@ -167,203 +128,31 @@ async def scrape_search(
         generate_graphql_request(url_params, body, offset)
         for offset in range(0, _total_results, 25)
     ]
-    log.info(f"scraping search results from the graphql api: {len(to_scrape)} pages to request")
+    print(f"scraping search results from the graphql api: {len(to_scrape)} pages to request")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             data.extend(parse_graphql_response(response))
         except Exception as e:
-            log.error("Failed to parse search results: {}", e)
-    log.success(f"scraped {len(data)} results from search pages")
-    return data
-       
-
-class PriceData(TypedDict):
-    checkin: str
-    min_length_of_stay: int
-    avg_price_pretty: str
-    available: int
-    avg_price_raw: float
-    length_of_stay: int
-    price_pretty: str
-    price: float
-
-
-class Hotel(TypedDict):
-    url: str
-    id: str
-    description: str
-    address: str
-    images: List[str]
-    lat: str
-    lng: str
-    features: Dict[str, List[str]]
-    price: List[PriceData]
-
-
-def parse_hotel(result: ScrapeApiResponse) -> Hotel:
-    log.debug("parsing hotel page: {}", result.context["url"])
-    sel = result.selector
-
-    features = defaultdict(list)
-    for box in sel.xpath('//div[@data-testid="property-section--content"]/div[2]/div'):
-        type_ = box.xpath('.//span[contains(@data-testid, "facility-group-icon")]/../text()').get()
-        if not type_:
-            continue
-        feats = [f.strip() for f in box.css("li ::text").getall() if f.strip()]
-        features[type_] = feats
-
-    css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
-    xpath = lambda selector, sep="": sep.join(sel.xpath(selector).getall()).strip()
-    lat, lng = sel.css(".show_map_hp_link::attr(data-atlas-latlng)").get("0,0").split(",")
-    id = re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)
-    data = {
-        "url": result.context["url"],
-        "id": id[0] if id else None,
-        "title": sel.css("h2::text").get(),
-        "description": css('[data-capla-component-boundary="b-property-web-property-page/PropertyDescriptionDesktop"] ::text', "\n"),
-        "address": xpath("//*[@id='map_trigger_header_pin']/following-sibling::span[1]//text()"),
-        "images": sel.css("#photo_wrapper img::attr(src)").getall(),
-        "lat": lat,
-        "lng": lng,
-        "features": dict(features),
-    }
+            print(f"Failed to parse search results: {e}")
+    print(f"scraped {len(data)} results from search pages")
     return data
 
 
-async def scrape_hotel(url: str, checkin: str, price_n_days=61) -> Hotel:
-    """
-    Scrape Booking.com hotel data and pricing information.
-    """
-    # first scrape hotel info details
-    # note: we are using scrapfly session here as both info and pricing requests
-    #       have to be from the same IP address/session
-    if BASE_CONFIG.get("cache"):
-        raise Exception("scrapfly cache cannot be used with sessions when scraping hotel data")
-    log.info(f"scraping hotel {url} {checkin} with {price_n_days} days of pricing data")
-    session = str(uuid4()).replace("-", "")
-    result = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            url,
-            session=session,
-            **BASE_CONFIG,
-        )
-    )
-    hotel = parse_hotel(result)
-
-    # To scrape price we'll be calling Booking.com's graphql service
-    # in particular we'll be calling AvailabilityCalendar query
-    # first, extract hotel variables:
-    _hotel_country = re.findall(r'hotelCountry:\s*"(.+?)"', result.content)[0]
-    _hotel_name = re.findall(r'hotelName:\s*"(.+?)"', result.content)[0]
-    _csrf_token = re.findall(r"b_csrf_token:\s*'(.+?)'", result.content)[0]
-    # then create graphql query
-    gql_body = json.dumps(
-        {
-            "operationName": "AvailabilityCalendar",
-            # hotel varialbes go here
-            # you can adjust number of adults, room number etc.
-            "variables": {
-                "input": {
-                    "travelPurpose": 2,
-                    "pagenameDetails": {
-                        "countryCode": _hotel_country,
-                        "pagename": _hotel_name,
-                    },
-                    "searchConfig": {
-                        "searchConfigDate": {
-                            "startDate": checkin,
-                            "amountOfDays": price_n_days,
-                        },
-                        "nbAdults": 2,
-                        "nbRooms": 1,
-                    },
-                }
-            },
-            "extensions": {},
-            # this is the query itself, don't alter it
-            "query": "query AvailabilityCalendar($input: AvailabilityCalendarQueryInput!) {\n  availabilityCalendar(input: $input) {\n    ... on AvailabilityCalendarQueryResult {\n      hotelId\n      days {\n        available\n        avgPriceFormatted\n        checkin\n        minLengthOfStay\n        __typename\n      }\n      __typename\n    }\n    ... on AvailabilityCalendarQueryError {\n      message\n      __typename\n    }\n    __typename\n  }\n}\n",
-        },
-        # note: this removes unnecessary whitespace in JSON output
-        separators=(",", ":"),
-    )
-    # scrape booking graphql
-    result_price = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            "https://www.booking.com/dml/graphql?lang=en-gb",
-            method="POST",
-            body=gql_body,
-            session=session,
-            # note that we need to set headers to avoid being blocked
-            headers={
-                "content-type": "application/json",
-                "x-booking-csrf-token": _csrf_token,
-                "referer": result.context["url"],
-                "origin": "https://www.booking.com",
-            },
-            **BASE_CONFIG,
-        )
-    )
-    price_data = json.loads(result_price.content)
-    hotel["price"] = price_data["data"]["availabilityCalendar"]["days"]
-    return hotel
-
-
-def retrieve_reviews_api_xhr_call(result: ScrapeApiResponse) -> Dict:
-    """retrieve the reviews xhr call from the captured browser data"""
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    for xhr in _xhr_calls:
-        if "reviewCard" in xhr["response"]["body"]:
-            return xhr
-
-
-async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict]:
-    """scrape hotel review data"""
-    reviews_data = []
-    reviews_page_url = url + "?force_referer=#tab-reviews"
-    session_id = str(uuid4()).replace("-", "")
-    log.info(f"scraping the main reviews page for the url {url} before scraping the graphql api")
-    main_reviews_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, rendering_wait=5000, session=session_id)
-    )
-    reviews_xhr_call = retrieve_reviews_api_xhr_call(main_reviews_page)
-    gql_body = json.loads(reviews_xhr_call["body"])
-    total_review_count = int(json.loads(reviews_xhr_call["response"]["body"])["data"]["reviewListFrontend"]["reviewsCount"])
-    total_review_pages = math.ceil(total_review_count / 10)
-    _csrf_token = re.findall(r"b_csrf_token:\s*'(.+?)'", main_reviews_page.content)[0]
-
-    if max_pages is None:
-        max_pages = total_review_pages
+async def run():
+    TODAY = datetime.now().strftime('%Y-%m-%d')
+    WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')
     
-    if max_pages is not None and max_pages > total_review_pages:
-        max_pages = total_review_pages
+    result_search = await scrape_search(
+        query="Malta",
+        checkin=TODAY,
+        checkout=WEEK_FROM_NOW,
+        max_pages=2
+    )
 
-    log.info(f"scraping {max_pages} review pages concurrently using the graphql api")
+    # save the results to a json file
+    with open("search.json", "w", encoding="utf-8") as file:
+        json.dump(result_search, file, indent=2, ensure_ascii=False)
 
 
-    def update_gql_body(gql_body: Dict, offset: int) -> Dict:
-        gql_body['variables']['input']['skip'] = offset
-        return gql_body
-
-    remaining_pages = [
-        ScrapeConfig(
-            "https://www.booking.com/dml/graphql?lang=en-gb",
-            method="POST",
-            body=json.dumps(update_gql_body(gql_body, offset)),
-            session=session_id,
-            # note that we need to set headers to avoid being blocked
-            headers={
-                "content-type": "application/json",
-                "x-booking-csrf-token": _csrf_token,
-                "referer": main_reviews_page.context["url"],
-                "origin": "https://www.booking.com",
-            },
-            **BASE_CONFIG,
-        )
-        for offset in range(0, max_pages * 10, 10)
-    ]
-
-    async for response in SCRAPFLY.concurrent_scrape(remaining_pages):
-        reviews_data.extend(json.loads(response.content)["data"]["reviewListFrontend"]["reviewCard"])
-
-    log.success(f"scraped {len(reviews_data)} reviews from the hotel reviews api for the url {url}")
-    return reviews_data
+if __name__ == "__main__":
+    asyncio.run(run())

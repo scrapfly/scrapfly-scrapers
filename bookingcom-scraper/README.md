@@ -13,6 +13,7 @@ This scraper scrapes:
 - Booking.com hotel listing details:  
     - hotel info: description, rating, features etc.
     - prices
+- Booking.com hotel review data
 
 For output examples see the `./results` directory.
 
@@ -46,5 +47,6 @@ This Booking scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/p
     # or specific scraping areas
     $ poetry run pytest test.py -k test_hotel_scraping
     $ poetry run pytest test.py -k test_search_scraping
+    $ poetry run pytest test.py -k test_hotel_reviews_scraping
     ```
 

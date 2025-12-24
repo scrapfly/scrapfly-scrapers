@@ -54,6 +54,8 @@ jobs:
             test: test_search_scraping
           - project_dir: bookingcom-scraper
             test: test_hotel_scraping
+          - project_dir: bookingcom-scraper
+            test: test_hotel_reviews_scraping
           - project_dir: indeed-scraper
             test: test_search_scraping
           - project_dir: indeed-scraper

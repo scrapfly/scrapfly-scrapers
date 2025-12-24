@@ -76,3 +76,26 @@ async def test_hotel_scraping():
 
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/hotel.json').write_text(json.dumps(results, indent=2, ensure_ascii=False))
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_hotel_reviews_scraping():
+    reviews_data = await bookingcom.scrape_hotel_reviews(
+        "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
+        max_pages=3
+    )
+    assert len(reviews_data) > 20
+    validation_schema = {
+        "textDetails": {
+            "type": "dict",
+            "schema": {
+                "positiveText": {"type": "string", "nullable": True},
+                "negativeText": {"type": "string", "nullable": True},
+            }
+        }
+    }
+    validator = Validator(validation_schema, allow_unknown=True)
+    for review in reviews_data:
+        if not validator.validate(review):
+            raise Exception({"review": review, "errors": validator.errors})
