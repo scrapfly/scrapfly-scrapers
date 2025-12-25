@@ -40,14 +40,31 @@ property_schema = {
     "image_count": {"type": "integer", "required": True, "min_presence": 1.0},
 }
 
+search_property_schema = {
+    "id": {"type": "string", "nullable": True, "min_presence": 0.9},
+    "url": {"type": "string"},
+    "currency": {"type": "string", "nullable": True, "min_presence": 0.7},
+    "price_min": {"type": "string", "nullable": True, "min_presence": 0.8},
+    "price_max": {"type": "string", "nullable": True, "min_presence": 0.8},
+    "postal_code": {"type": "string", "nullable": True, "min_presence": 0.9},
+    "city": {"type": "string", "nullable": True, "min_presence": 0.9},
+    "bedrooms": {"type": "string", "nullable": True, "min_presence": 0.7},
+    "area": {"type": "string", "nullable": True, "min_presence": 0.8},
+    "description": {"type": "string", "nullable": True, "min_presence": 0.7},
+    "flags": {"type": "list", "schema": {"type": "string"}, "nullable": True},
+    "agency_logo": {"type": "string", "nullable": True, "min_presence": 0.6},
+    "agency_name": {"type": "string", "nullable": True, "min_presence": 0.6},
+    "images": {"type": "list", "schema": {"type": "string"}, "nullable": True, "min_presence": 0.8},
+}
+
 @pytest.mark.asyncio
 async def test_property_scraping():
     """Test property scraping"""
     property_data = await imovelweb.scrape_properties(
         urls=[
-            "https://www.immoweb.be/en/classified/apartment/for-rent/wemmel/1780/21247396",
-            "https://www.immoweb.be/en/classified/apartment/for-rent/strombeek-bever/1853/21246666",
-            "https://www.immoweb.be/en/classified/apartment/for-rent/merchtem/1785/21225730"
+            "https://www.immoweb.com/en/classified/apartment/for-rent/wemmel/1780/21247396",
+            "https://www.immoweb.com/en/classified/apartment/for-rent/strombeek-bever/1853/21246666",
+            "https://www.immoweb.com/en/classified/apartment/for-rent/merchtem/1785/21225730"
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
@@ -57,3 +74,19 @@ async def test_property_scraping():
         require_min_presence(property_data, k, min_perc=property_schema[k].get("min_presence", 0.1))
 
     assert len(property_data) >= 1
+    
+@pytest.mark.asyncio
+async def test_search_scraping():
+    """Test search scraping"""
+    search_data = await imovelweb.scrape_search(
+        query="Malen",
+    )
+    properties_data = search_data["search_properties"]
+    validator = Validator(search_property_schema, allow_unknown=True)
+    for item in properties_data:
+        validate_or_fail(item, validator)
+
+    for k in search_property_schema:
+        require_min_presence(properties_data, k, min_perc=search_property_schema[k].get("min_presence", 0.1))
+
+    assert len(properties_data) >= 10
