@@ -131,7 +131,7 @@ async def test_search_scraping():
         "id": {"type": "string"},
         "type": {"type": "string"},
         "thumbnail": {"type": "string"},
-        "title": {"type": "string"},
+        "title": {"type": "dict", "schema": {"displayTitle": {"type": "string"}}},
         "currency": {"type": "string"},
         "price": {"type": "float"},
     }

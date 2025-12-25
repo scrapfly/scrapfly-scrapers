@@ -21,7 +21,7 @@ async def run():
 
     print("running Aliexpress scrape and saving results to ./results directory")
     # note: aliexpress search has a bug where wholsepages show no results without `SearchText` parameter for some reason
-    # url = "https://www.aliexpress.com/w/wholesale-drills.html?catId=0&SearchText=drills"
+    url = "https://www.aliexpress.com/w/wholesale-drills.html?catId=0&SearchText=drills"
     search_results = await aliexpress.scrape_search(url, max_pages=2)
     output.joinpath("search.json", ).write_text(json.dumps(search_results, indent=2, ensure_ascii=False), encoding="utf-8")
 
