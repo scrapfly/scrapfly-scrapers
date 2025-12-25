@@ -11,7 +11,7 @@ import json
 import urllib.parse
 from pathlib import Path
 from loguru import logger as log
-from typing import List, Dict, TypedDict, Optional
+from typing import List, Dict, TypedDict, Optional, Any
 from scrapfly import (
     ScrapeConfig,
     ScrapflyClient,
@@ -45,7 +45,7 @@ class MouserProduct(TypedDict):
     availability: str
     stock_quantity: Optional[int]
     images: List[str]
-    specifications: Dict[str, any]
+    specifications: Dict[str, Any]
     datasheet_url: Optional[str]
     url: str
 
@@ -75,8 +75,9 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
         except json.JSONDecodeError:
             continue
 
+    sku = mpn = brand = description = ""
     # Extract basic product info from JSON-LD Product
-    if json_ld_scripts:
+    if product_json_ld:
         sku = product_json_ld.get("sku", "")
         mpn = product_json_ld.get("mpn", "")
         brand = product_json_ld.get("brand", "")
@@ -84,15 +85,13 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
     
     # Extract offer information
     offers = product_json_ld.get("offers", {}) if product_json_ld else {}
-    price = str(offers.get("price", "")) if offers else ""
-    currency = offers.get("priceCurrency", "USD") if offers else "USD"
-    availability = offers.get("availability", "") if offers else ""
+    price = str(offers.get("price", ""))
+    currency = offers.get("priceCurrency", "USD")
+    availability = offers.get("availability", "")
     # Convert availability URL to readable format
     if availability.startswith("http://schema.org/"):
         availability = availability.replace("http://schema.org/", "").replace("InStock", "In Stock")
-    inventory_level = offers.get("inventoryLevel", 0) if offers else 0
-    stock_quantity = int(inventory_level) if inventory_level else None
-    
+    stock_quantity = int(offers.get("inventoryLevel", 0))
     # Extract images
     images = []
     if product_json_ld and product_json_ld.get("image"):
@@ -146,7 +145,14 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
 
 
 async def scrape_product(urls: list[str]) -> List[MouserProduct]:
-    """scrape a single Mouser product"""
+    """Scrape Mouser product pages
+
+    Args:
+        urls (list[str]): List of Mouser product URLs
+
+    Returns:
+        List[MouserProduct]: List of Mouser product data
+    """
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
@@ -236,7 +242,6 @@ def parse_search(result: ScrapeApiResponse) -> MouserSearch:
     data = {
         "products": products,
         "scraped_pages": 1,
-        "products_count": len(products),
         "total_pages": total_pages,
         "total_count": total_count,
     }
@@ -267,31 +272,12 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
         pages_to_scrape = total_pages
     else:
         pages_to_scrape = min(max_pages, total_pages)
-    
-    # Parse first page
-    first_page_data = parse_search(first_page)
-    search_results = first_page_data["products"]
-    total_pages = first_page_data["total_pages"]
-    log.info(f"Found {total_pages} total pages with {first_page_data['total_count']} total products")
-
-    if scrape_all_pages:
-        pages_to_scrape = total_pages
-    else:
-        pages_to_scrape = min(max_pages, total_pages)
 
     log.info(f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
     scraped_pages = 1
     if pages_to_scrape > 1:
         other_pages = [
             ScrapeConfig(f"{base_url}&p={page}", **BASE_CONFIG)
-            for page in range(2, pages_to_scrape + 1)
-        ]
-
-    log.info(f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
-    scraped_pages = 1
-    if pages_to_scrape > 1:
-        other_pages = [
-            ScrapeConfig(f"{base_url}&pg={page}", **BASE_CONFIG)
             for page in range(2, pages_to_scrape + 1)
         ]
 
