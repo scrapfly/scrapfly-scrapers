@@ -8,6 +8,7 @@ The scraping code is located in the `naver.py` file. It's fully documented and s
 
 This scraper scrapes:
 - Naver web search results
+- Naver image search reesults
 
 
 For output examples, see the `./results` directory.
@@ -41,6 +42,7 @@ This Naver.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_web_search_scraping
+    $ poetry run pytest test.py -k test_image_search_scraping
 
     ```
 

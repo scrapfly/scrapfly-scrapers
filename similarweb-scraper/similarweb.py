@@ -86,35 +86,17 @@ async def scrape_website_compare(first_domain: str, second_domain: str) -> Dict:
 
 
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
-    """parse links from XML sitemap (supports both .xml and .xml.gz files)"""
+    """parse links for bestbuy sitemap"""
     content = response.scrape_result['content']
-    
-    # Check response format (TEXT or BINARY)
-    result_format = response.scrape_result.get('format', 'TEXT')
-    if result_format == 'BINARY':
-        # Binary responses are always base64 encoded
-        if isinstance(content, str):
-            bytes_data = base64.b64decode(content)
-        else:
-            bytes_data = content
-    else:
-        # Step 1: Get content as bytes
-        if isinstance(content, str):
-            bytes_data = base64.b64decode(content)
-        elif isinstance(content, BytesIO):
-            bytes_data = content.read()
-        else:
-            bytes_data = content
-    
-    # Step 2: Check if content is gzipped (compressed)
-    if bytes_data[:2] == b'\x1f\x8b':
-        # Decompress the gzipped data
-        bytes_data = gzip.decompress(bytes_data)
-    
-    # Step 3: Convert bytes to string (XML text)
-    xml = bytes_data.decode('utf-8')
-    
-    # Step 4: Parse XML and extract URLs
+
+    # base64-encoded string
+    if isinstance(content, str):
+        decoded_bytes = base64.b64decode(content)
+        xml = decoded_bytes.decode('utf-8')
+    # bytes-io object        
+    elif isinstance(content, BytesIO):
+        xml = content.read().decode('utf-8')
+        
     selector = Selector(xml)
     data = []
     for url in selector.xpath("//url/loc/text()"):
