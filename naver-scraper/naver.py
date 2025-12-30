@@ -156,17 +156,92 @@ def _build_search_url(
 # Define data structures with TypedDict
 
 
-class SearchResult(TypedDict):
-    """type hint for scraped search result data"""
-
+class SearchWebResult(TypedDict):
+    """type hint for scraped web search result data"""
     title: str
     url: str
-    description: str
-    # ... other fields
+    snippet: str
+    source: str
+    rank: int
+
+class SearchImageResult(TypedDict):
+    """type hint for scraped image search result data"""
+    title: str
+    link: str
+    source: str
+    image_url: str
+    thumbnail_url: str
+    img_id: str
+    color: str
+    date: str
+    writer: str
+    domain: str
+    rank: int
+
+# Helper functions for parsing
+def _extract_json_from_html(content: str, start_pos: int) -> Optional[str]:
+    """
+    Extract a balanced JSON object from HTML content starting at a given position.
+    
+    Args:
+        content: HTML content string
+        start_pos: Starting position (should point to opening brace)
+    
+    Returns:
+        Extracted JSON string or None if extraction fails
+    """
+    brace_count = 0
+    in_string = False
+    escape = False
+    
+    for i in range(start_pos, len(content)):
+        char = content[i]
+        
+        if escape:
+            escape = False
+            continue
+        if char == "\\":
+            escape = True
+            continue
+        if char == '"':
+            in_string = not in_string
+            continue
+        
+        if not in_string:
+            if char == "{":
+                brace_count += 1
+            elif char == "}":
+                brace_count -= 1
+                if brace_count == 0:
+                    return content[start_pos : i + 1]
+    
+    return None
+
+
+def _js_to_json(js_str: str) -> str:
+    """
+    Convert JavaScript object notation to valid JSON.
+    Handles unquoted property names and trailing commas.
+    
+    Args:
+        js_str: JavaScript object string
+    
+    Returns:
+        Valid JSON string
+    """
+    # Replace unquoted property names with quoted ones
+    # Only match property names that appear after { or , or newline (start of property definition)
+    # Pattern: (whitespace or { or ,) followed by unquoted word followed by :
+    js_str = re.sub(r'([{,\s])([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:', r'\1"\2":', js_str)
+    
+    # Remove trailing commas before closing braces/brackets
+    js_str = re.sub(r',(\s*[}\]])', r'\1', js_str)
+    
+    return js_str
 
 
 # Parsing functions
-def parse_web_search(result: ScrapeApiResponse) -> Dict[str, Any]:
+def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     """
     Parse web search results from JSON embedded in HTML.
 
@@ -178,7 +253,7 @@ def parse_web_search(result: ScrapeApiResponse) -> Dict[str, Any]:
     """
     content = result.content
     selector = result.selector
-    results = []
+    results: List[SearchWebResult] = []
 
     # Extract JSON from entry.bootstrap
     pattern = r"entry\.bootstrap\([^,]+,\s*\{"
@@ -186,37 +261,14 @@ def parse_web_search(result: ScrapeApiResponse) -> Dict[str, Any]:
 
     if match:
         json_start = content.index("{", match.end() - 1)
-
-        # Extract balanced JSON object
-        brace_count = 0
-        in_string = False
-        escape = False
-
-        for i in range(json_start, len(content)):
-            char = content[i]
-
-            if escape:
-                escape = False
-                continue
-            if char == "\\":
-                escape = True
-                continue
-            if char == '"':
-                in_string = not in_string
-                continue
-
-            if not in_string:
-                if char == "{":
-                    brace_count += 1
-                elif char == "}":
-                    brace_count -= 1
-                    if brace_count == 0:
-                        json_str = content[json_start : i + 1]
-                        break
+        json_str = _extract_json_from_html(content, json_start)
 
         # Parse JSON and extract results
         try:
-            data = json.loads(json_str)
+            if json_str:
+                data = json.loads(json_str)
+            else:
+                return {"results": [], "max_pages": None, "num_of_displayed_results": 0}
             items = data.get("body", {}).get("props", {}).get("children", [])
 
             if items and "props" in items[0]:
@@ -254,7 +306,7 @@ def parse_web_search(result: ScrapeApiResponse) -> Dict[str, Any]:
             log.debug(f"JSON parsing error: {e}")
 
     # Extract max_pages from pagination
-    max_pages = None
+    max_pages = 1
     page_numbers = []
     for link in selector.css("div.sc_page_inner a.btn"):
         href = link.css("::attr(href)").get("")
@@ -269,9 +321,90 @@ def parse_web_search(result: ScrapeApiResponse) -> Dict[str, Any]:
     if page_numbers:
         max_pages = max(page_numbers)
     num_of_displayed_results = len(results)
+    log.info(f"Max pages: {max_pages}")
     log.info(f"Number of displayed results: {num_of_displayed_results}")
     return {"results": results, "max_pages": max_pages, "num_of_displayed_results": num_of_displayed_results}
 
+
+def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
+    """
+    Parse image search results from JSON embedded in HTML.
+    
+    Args:
+        result: ScrapFly API response
+        
+    Returns:
+        Dictionary containing image results and pagination info
+    """
+    content = result.content
+    selector = result.selector
+    results: List[SearchImageResult] = []
+    data = None
+    # Check if no results found (not_found02 element)
+    not_found = selector.css("div.not_found02")
+    if not_found:
+        log.info("No search results found (not_found02 element detected)")
+        return {
+            "results": [],
+            "num_of_displayed_results": -1,
+        }
+    # Extract JSON from imageSearchTabData variable
+    pattern = r"var\s+imageSearchTabData\s*=\s*\{"
+    match = re.search(pattern, content)
+    
+    if match:
+        json_start = content.index("{", match.end() - 1)
+        js_str = _extract_json_from_html(content, json_start)
+        
+        # Parse JSON and extract image results
+        try:
+            if js_str:
+                # Convert JavaScript object notation to valid JSON
+                json_str = _js_to_json(js_str)
+                data = json.loads(json_str)
+                items = data.get("content", {}).get("items", [])
+                
+                for idx, item in enumerate(items, 1):
+                    if item.get("type") != "image":
+                        continue
+                    
+                    # Extract main image URL from viewerThumb
+                    viewer_thumb = item.get("viewerThumb", "")
+                    
+                    # Extract thumbnail URL (often in profileImg or a thumbnail field)
+                    thumbnail = item.get("thumbnail", viewer_thumb)
+                    
+                    # Clean title by removing HTML marks
+                    title = item.get("title", "").replace("<mark>", "").replace("</mark>", "")
+                    
+                    results.append(
+                        {
+                            "title": title,
+                            "link": item.get("link", ""),
+                            "source": item.get("source", ""),
+                            "image_url": viewer_thumb,
+                            "thumbnail_url": thumbnail,
+                            "img_id": item.get("imgId", ""),
+                            "color": item.get("color", ""),
+                            "date": item.get("dateInfo", ""),
+                            "writer": item.get("writerTitle", ""),
+                            "domain": item.get("tld", ""),
+                            "rank": idx,
+                        }
+                    )
+                    
+        except (json.JSONDecodeError, KeyError, TypeError) as e:
+            log.error(f"JSON parsing error: {e}")
+            log.debug(f"Failed to parse JavaScript object. First 500 chars: {js_str[:500] if js_str else 'None'}")
+
+    
+    num_of_displayed_results = len(results)
+    log.info(f"Number of displayed image results: {num_of_displayed_results}")
+    
+    return {
+        "results": results,
+        "num_of_displayed_results": num_of_displayed_results,
+    }
 
 # Scraping functions
 
@@ -327,3 +460,74 @@ async def scrape_web_search(
         log.info(f"Scraped {scraped_pages} pages (total: {pages_to_scrape})")
 
     return {"results": results, "max_pages": total_pages}
+
+async def scrape_image_search(
+    query: str,
+    max_pages: int = 3,
+    sort: Optional[SortType] = None,
+    period: Optional[PeriodType] = None,
+    scrape_all_pages: bool = False,
+) -> dict[str, Any]:
+    """
+    Scrape Naver image search with pagination.
+    Note: Naver image search doesn't have pagination info it uses scroll to load more results but we can still scraping by using start parameter in re.
+
+    Args:
+        query: Search term
+        max_pages: Maximum number of pages to scrape (default: 3)
+        sort: Sort order (sim, date, asc, dsc)
+        period: Time period filter (all, 1d, 1w, 1m, 6m, 1y)
+        scrape_all_pages: If True, scrape all available pages
+
+    Returns:
+        Dictionary with image search results and pagination info
+    """
+    log.info(f"Scraping image search for query: {query}")
+
+    # Scrape first page
+    results: List[SearchImageResult] = []
+    first_url = _build_search_url(query, search_type="image", sort=sort, period=period)
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(first_url, **BASE_CONFIG))
+    
+    first_page_result = parse_image_search(first_page)
+    results = first_page_result["results"]
+    displayed_results = first_page_result["num_of_displayed_results"]
+
+    scraped_pages = 1
+    
+    if scrape_all_pages:
+        page = 2
+        
+        while True:
+            page_url = _build_search_url(
+                query, search_type="image", page=page, sort=sort, display=displayed_results, period=period
+            )
+            page_result = await SCRAPFLY.async_scrape(ScrapeConfig(page_url, **BASE_CONFIG))
+            page_data = parse_image_search(page_result)
+            current_displayed_results = page_data["num_of_displayed_results"]
+            
+            scraped_pages += 1
+            page += 1
+            if current_displayed_results == -1 or scraped_pages == 20: # safely check max 20 page 
+                break
+            results.extend(page_data["results"])
+    else:
+        # Scrape up to max_pages
+        if max_pages > 1:
+            other_pages = [
+                ScrapeConfig(
+                    _build_search_url(query, search_type="image", page=page, sort=sort, display=displayed_results, period=period),
+                    **BASE_CONFIG,
+                )
+                for page in range(2, max_pages + 1)
+            ]
+            async for result in SCRAPFLY.concurrent_scrape(other_pages):
+                scraped_pages += 1
+                page_data = parse_image_search(result)
+                current_displayed_results = page_data["num_of_displayed_results"]
+                if current_displayed_results == -1 or scraped_pages == 20: # safely check max 20 page 
+                    break
+                results.extend(page_data["results"])
+    
+    log.info(f"Scraped {scraped_pages} pages")
+    return {"results": results}

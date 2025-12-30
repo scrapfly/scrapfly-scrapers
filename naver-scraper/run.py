@@ -17,14 +17,19 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # Enable scrapfly cache for basic use
-    naver.BASE_CONFIG["cache"] = True
+    naver.BASE_CONFIG["cache"] = False
 
     print("running Naver scrape and saving results to ./results directory")
 
     # Scrape web search results
     search_data = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
-    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+    with open(output.joinpath("web_search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
+    
+    # Scrape image search results
+    image_data = await naver.scrape_image_search(query="파이썬", max_pages=3, period="6m")
+    with open(output.joinpath("image_search.json"), "w", encoding="utf-8") as file:
+        json.dump(image_data, file, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     asyncio.run(run())

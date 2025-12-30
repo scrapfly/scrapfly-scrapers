@@ -42,10 +42,23 @@ SEARCH_WEB_SCHEMA = {
     "rank": {"type": "integer", "required": True},
 }
 
+SEARCH_IMAGE_SCHEMA = {
+    "title": {"type": "string", "required": True},
+    "link": {"type": "string", "required": True},
+    "source": {"type": "string", "required": False, "nullable": True},
+    "image_url": {"type": "string", "required": True},
+    "thumbnail_url": {"type": "string", "required": True},
+    "img_id": {"type": "string", "required": True},
+    "color": {"type": "string", "required": True},
+    "date": {"type": "string", "required": True},
+    "writer": {"type": "string", "required": True},
+    "domain": {"type": "string", "required": True},
+    "rank": {"type": "integer", "required": True},
+}
 
 @pytest.mark.asyncio
 async def test_web_search_scraping():
-    results = await naver.scrape_web_search(query="파이썬", max_pages=3)
+    results = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
 
     # Validate each search result
     result_validator = Validator(SEARCH_WEB_SCHEMA)
@@ -56,3 +69,17 @@ async def test_web_search_scraping():
         require_min_presence(results["results"], k, min_perc=SEARCH_WEB_SCHEMA[k].get("min_presence", 0.1))
 
     assert len(results["results"]) >= 5
+
+@pytest.mark.asyncio
+async def test_image_search_scraping():
+    results = await naver.scrape_image_search(query="파이썬", max_pages=3)
+
+    # Validate each search result
+    result_validator = Validator(SEARCH_IMAGE_SCHEMA)
+    for result in results["results"]:
+        validate_or_fail(result, result_validator)
+
+    for k in SEARCH_IMAGE_SCHEMA:
+        require_min_presence(results["results"], k, min_perc=SEARCH_IMAGE_SCHEMA[k].get("min_presence", 0.1))
+
+    assert len(results["results"]) >= 20
