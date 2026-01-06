@@ -36,24 +36,13 @@ class CarListing(TypedDict, total=False):
     vehicleDetails: Optional[List[Dict[str, Any]]]
 
 
-class CarDetails(TypedDict):
-    """Detailed car information from individual car page"""
-
-    title: str
-    price: str
-    mileage: Optional[str]
-    year: Optional[str]
-    fuel_type: Optional[str]
-    transmission: Optional[str]
-    power: Optional[str]
-    color: Optional[str]
-    body_type: Optional[str]
-    doors: Optional[str]
-    seats: Optional[str]
-    co2_emission: Optional[str]
-    features: List[str]
-    seller: Dict[str, Any]
-    url: str
+class CarDetails(TypedDict, total=False):
+    """Detailed car information from car page"""
+    
+    price: Dict[str, str]
+    vehicle: Optional[Dict[str, Any]]
+    seller: Optional[Dict[str, Any]]
+    location: Optional[Dict[str, Any]]
 
 
 def parse_listings(result: ScrapeApiResponse) -> List[CarListing]:
@@ -70,8 +59,16 @@ def parse_listings(result: ScrapeApiResponse) -> List[CarListing]:
     return listings
 
 def parse_car_details(result: ScrapeApiResponse) -> CarDetails:
-    """Parse individual car detail page"""
-    pass
+    """Parse car detail page"""
+    selector = result.selector
+    script_data = selector.css("script#__NEXT_DATA__::text").get()
+    if not script_data:
+        log.warning(f"Could not find __NEXT_DATA__ on page: {result.context['url']}")
+        return None
+    data = json.loads(script_data)
+    car_data = data.get("props", {}).get("pageProps", {}).get("listingDetails", {})
+
+    return car_data
 
 
 async def scrape_listings(url: str, max_pages: int = 3) -> List[CarListing]:
@@ -101,17 +98,19 @@ async def scrape_listings(url: str, max_pages: int = 3) -> List[CarListing]:
     log.info(f"Scraped {len(all_listings)} car listings from {url}")
     return all_listings
 
-async def scrape_car_details(url: str) -> CarDetails:
+async def scrape_car_details(urls: List[str]) -> List[CarDetails]:
     """
-    Scrape detailed car information from individual car page
+    Scrape detailed car information from car page
 
     Args:
-        url: AutoScout24 car detail URL
+        urls: List of AutoScout24 car detail URLs
 
     Returns:
-        Car details dictionary
+        List of car details dictionaries
     """
-    pass
-
-
-
+    all_car_details = []
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        all_car_details.append(parse_car_details(response))
+    log.info(f"Scraped {len(all_car_details)} car details from {urls}")
+    return all_car_details

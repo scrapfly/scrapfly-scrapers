@@ -262,6 +262,10 @@ jobs:
             test: test_product_scraping
           - project_dir: amazon-scraper
             test: test_review_scraping
+          - project_dir: autoscout24-scraper
+            test: test_listings_scraping
+          - project_dir: autoscout24-scraper
+            test: test_car_details_scraping
 
     steps:
     - uses: actions/checkout@v4

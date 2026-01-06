@@ -8,16 +8,16 @@ pp = pprint.PrettyPrinter(indent=4)
 # enable scrapfly cache
 autoscout24.BASE_CONFIG["cache"] = True
 
+
 class Validator(_Validator):
     def _validate_min_presence(self, min_presence, field, value):
         pass  # required for adding non-standard keys to schema
 
+
 def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)
-        pytest.fail(
-            f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}"
-        )
+        pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
 
 
 def require_min_presence(items, key, min_perc=0.1):
@@ -61,28 +61,12 @@ listing_schema = {
     },
     "vehicleDetails": {"type": "list", "min_presence": 0.9},
 }
-
 car_details_schema = {
-    "title": {"type": "string"},
-    "price": {"type": "string"},
-    "url": {"type": "string"},
-    "mileage": {"type": "string", "nullable": True, "min_presence": 0.5},
-    "year": {"type": "string", "nullable": True, "min_presence": 0.5},
-    "fuel_type": {"type": "string", "nullable": True, "min_presence": 0.5},
-    "transmission": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "power": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "color": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "body_type": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "doors": {"type": "string", "nullable": True, "min_presence": 0.2},
-    "seats": {"type": "string", "nullable": True, "min_presence": 0.2},
-    "co2_emission": {"type": "string", "nullable": True, "min_presence": 0.1},
-    "features": {"type": "list", "schema": {"type": "string"}},
-    "seller": {"type": "dict", "schema": {
-        "name": {"type": "string"},
-        "location": {"type": "string"},
-    }},
+    "price": {"type": "dict", "schema": {"priceFormatted": {"type": "string"}}},
+    "vehicle": {"type": "dict", "min_presence": 0.95},
+    "seller": {"type": "dict", "min_presence": 0.9},
+    "location": {"type": "dict", "min_presence": 0.9},
 }
-
 
 @pytest.mark.asyncio
 async def test_listings_scraping():
@@ -96,10 +80,13 @@ async def test_listings_scraping():
         require_min_presence(results, k, min_perc=listing_schema[k].get("min_presence", 0.1))
 
 
+
 @pytest.mark.asyncio
 async def test_car_details_scraping():
     urls = [
-        "https://www.autoscout24.com/offers/peugeot-207-filou-motorschaden-gasoline-0b93e496-1f1b-475d-a972-fa4bd490031d",
+        "https://www.autoscout24.com/offers/bmw-116-116i-gasoline-black-23ff7f14-f5df-4bbc-a12f-b8d07bf9b870",
+        "https://www.autoscout24.com/offers/fiat-500-1-2-sport-pano-gasoline-red-516f93af-fbcc-4614-a69e-3369f3334ad1",
+        "https://www.autoscout24.com/offers/mercedes-benz-a-160-blueefficiency-classic-gasoline-grey-527717a0-2f01-4264-b9a5-bd7a69a27993",
     ]
     results = await autoscout24.scrape_car_details(urls)
     assert len(results) >= 1
@@ -108,4 +95,3 @@ async def test_car_details_scraping():
         validate_or_fail(result, validator)
     for k in car_details_schema:
         require_min_presence(results, k, min_perc=car_details_schema[k].get("min_presence", 0.1))
-
