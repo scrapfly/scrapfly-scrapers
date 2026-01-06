@@ -29,15 +29,37 @@ def require_min_presence(items, key, min_perc=0.1):
         )
 
 listing_schema = {
-    "title": {"type": "string"},
-    "price": {"type": "string"},
+    "price": {"type": "dict", "schema": {"priceFormatted": {"type": "string"}}},
     "url": {"type": "string"},
-    "mileage": {"type": "string", "nullable": True, "min_presence": 0.5},
-    "year": {"type": "string", "nullable": True, "min_presence": 0.5},
-    "fuel_type": {"type": "string", "nullable": True, "min_presence": 0.5},
-    "transmission": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "power": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "location": {"type": "string", "nullable": True, "min_presence": 0.5},
+    "location": {
+        "type": "dict",
+        "schema": {
+            "countryCode": {"type": "string"},
+            "zip": {"type": "string"},
+            "city": {"type": "string"},
+            "street": {"type": "string", "nullable": True},
+        },
+        "min_presence": 0.9,
+    },
+    "vehicle": {
+        "type": "dict",
+        "schema": {
+            "make": {"type": "string"},
+            "model": {"type": "string"},
+            "transmission": {"type": "string"},
+            "fuel": {"type": "string"},
+            "mileageInKm": {"type": "string"},
+        },
+        "min_presence": 0.9,
+    },
+    "tracking": {
+        "type": "dict",
+        "schema": {
+            "firstRegistration": {"type": "string"},
+        },
+        "min_presence": 0.9,
+    },
+    "vehicleDetails": {"type": "list", "min_presence": 0.9},
 }
 
 car_details_schema = {
@@ -65,8 +87,8 @@ car_details_schema = {
 @pytest.mark.asyncio
 async def test_listings_scraping():
     url = "https://www.autoscout24.com/lst/c/compact"
-    results = await autoscout24.scrape_listings(url, max_pages=2)
-    assert len(results) >= 1
+    results = await autoscout24.scrape_listings(url, max_pages=3)
+    assert len(results) >= 30
     validator = Validator(listing_schema, allow_unknown=True)
     for result in results:
         validate_or_fail(result, validator)

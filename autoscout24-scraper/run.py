@@ -22,7 +22,7 @@ async def run():
 
     # Scrape car listings from category page
     url = "https://www.autoscout24.com/lst/c/compact"
-    listings = await autoscout24.scrape_listings(url, max_pages=2)
+    listings = await autoscout24.scrape_listings(url, max_pages=3)
     output.joinpath("listings.json").write_text(json.dumps(listings, indent=2, ensure_ascii=False), encoding="utf-8")
     log.info(f"Scraped {len(listings)} car listings")
     
