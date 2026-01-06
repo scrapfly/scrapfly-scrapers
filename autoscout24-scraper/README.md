@@ -7,8 +7,8 @@ Full tutorial <https://scrapfly.io/blog/posts/how-to-scrape-autoscout24>
 The scraping code is located in the `autoscout24.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
-- AutoScout24 car listings from category/search pages
-- AutoScout24 individual car detail pages with specifications, features, and seller information
+- AutoScout24 car listings from search pages
+- AutoScout24 car detail pages with specifications, features, and seller information
 
 For output examples see the `./results` directory.
 

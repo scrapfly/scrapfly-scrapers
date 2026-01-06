@@ -94,6 +94,9 @@ async def scrape_listings(url: str, max_pages: int = 3) -> List[CarListing]:
     other_pages = [ScrapeConfig(url + f"{page_param}{page}", **BASE_CONFIG) for page in range(2, max_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         log.info(f"Scraping page {response.context['url']}")
+        if isinstance(response, ScrapflyScrapeError):
+            log.error(f"Error scraping listings from {response.context['url']}: {response.error}")
+            continue
         all_listings.extend(parse_listings(response))
     log.info(f"Scraped {len(all_listings)} car listings from {url}")
     return all_listings
@@ -111,6 +114,9 @@ async def scrape_car_details(urls: List[str]) -> List[CarDetails]:
     all_car_details = []
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyScrapeError):
+            log.error(f"Error scraping car details from {response.context['url']}: {response.error}")
+            continue
         all_car_details.append(parse_car_details(response))
     log.info(f"Scraped {len(all_car_details)} car details from {urls}")
     return all_car_details
