@@ -262,7 +262,10 @@ jobs:
             test: test_product_scraping
           - project_dir: amazon-scraper
             test: test_review_scraping
-
+          - project_dir: facebook-scraper
+            test: test_marketplace_scraping
+          - project_dir: facebook-scraper
+            test: test_events_scraping
     steps:
     - uses: actions/checkout@v4
 

@@ -1,102 +1,47 @@
 # Facebook.com Scraper
 
-This scraper can extract data from Facebook.com including:
+This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape data from Facebook.com.
 
-- **Marketplace Listings** - product listings with prices, seller info, and locations
-- **Events** - event details, dates, locations, and hosts
+Full tutorial <https://scrapfly.io/blog/posts/how-to-scrape-facebook>
 
-Based on the guide: [How to Scrape Facebook](https://scrapfly.io/blog/posts/how-to-scrape-facebook)
+The scraping code is located in the `facebook.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
-## Features
+This scraper scrapes:
+- Facebook Marketplace listings with product details, prices, seller info, and locations
+- Facebook Events with event details, dates, locations, and hosts
 
-- Location-based scraping for Marketplace and Events
-- Anti-bot bypass with Scrapfly's ASP
-- JavaScript rendering support for dynamic content
-- Structured data extraction
-- Comprehensive error handling
+For output examples see the `./results` directory.
 
-## Installation
+Note: This scraper is only scraping public Facebook data that doesn't require a login to access.
 
-```bash
-pip install scrapfly-sdk loguru
-```
+## Fair Use Disclaimer
 
-For testing:
-```bash
-pip install pytest pytest-asyncio pytest-rerunfailures cerberus
-```
+Note that this code is provided free of charge as is, and Scrapfly does __not__ provide free web scraping support or consultation. For any bugs, see the issue tracker.
 
-## Usage
+## Setup and Use
 
-Set your Scrapfly API key:
-```bash
-export SCRAPFLY_KEY="your-api-key"
-```
+This Facebook.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Facebook's data.
 
-Run the scraper:
-```bash
-python run.py
-```
-
-Run tests:
-```bash
-pytest test.py
-```
-
-## Example
-
-```python
-import asyncio
-import facebook
-
-async def main():
-    # Scrape Marketplace listings
-    marketplace_data = await facebook.scrape_marketplace_listings(
-        location="New York, NY",
-        max_items=20
-    )
-    
-    # Scrape Events
-    events_data = await facebook.scrape_facebook_events(
-        location="New York, NY",
-        max_events=20
-    )
-
-asyncio.run(main())
-```
-
-## Data Structure
-
-### Marketplace Listing
-```json
-{
-  "title": "Product Name",
-  "price": "$100",
-  "location": "New York, NY",
-  "seller": {
-    "name": "Seller Name"
-  }
-}
-```
-
-### Event
-```json
-{
-  "title": "Event Name",
-  "date": "2026-01-15",
-  "location": "New York, NY"
-}
-```
-
-## Notes
-
-- Facebook requires authentication for most features
-- Rate limiting may apply
-- This scraper uses public data only
-- Respect Facebook's Terms of Service
-
-## Learn More
-
-- [Scrapfly Documentation](https://scrapfly.io/docs)
-- [How to Scrape Facebook Guide](https://scrapfly.io/blog/posts/how-to-scrape-facebook)
-
+0. Ensure you have __Python 3.10__ and [poetry Python package manager](https://python-poetry.org/docs/#installation) on your system.
+1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
+    ```shell
+    $ export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"
+    ```
+2. Clone and install Python environment:
+    ```shell
+    $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
+    $ cd scrapfly-scrapers/facebook-scraper
+    $ poetry install
+    ```
+3. Run example scrape:
+    ```shell
+    $ poetry run python run.py
+    ```
+4. Run tests:
+    ```shell
+    $ poetry install --with dev
+    $ poetry run pytest test.py
+    # or specific scraping areas
+    $ poetry run pytest test.py -k test_marketplace_scraping
+    $ poetry run pytest test.py -k test_events_scraping
+    ```
