@@ -12,7 +12,7 @@
         "addressCountry": "US"
       },
       "description": "We’re a diverse collective of thinkers and doers, continually reimagining what’s possible to help us all do what we love in new ways. And the same innovation that goes into our products also applies to our practices — strengthening our commitment to leave the world better than we found it. This is where your work can make a difference in people’s lives. Including your own.\n\nApple is an equal opportunity employer that is committed to inclusion and diversity. Visit apple.com/careers to learn more.",
-      "numberOfEmployees": 167261,
+      "numberOfEmployees": 167781,
       "logo": {
         "contentUrl": "https://media.licdn.com/dms/image/v2/C560BAQHdAaarsO-eyA/company-logo_200_200/company-logo_200_200/0/1630637844948/apple_logo?e=2147483647&v=beta&t=pOXzU29XHyAnHt2zp2JryxZvMBdKpqxkkbDWtZ_pnEk",
         "description": "Apple",
@@ -79,16 +79,16 @@
           "linkeinUrl": "https://www.linkedin.com/company/ibm"
         },
         {
-          "name": "Deloitte",
-          "industry": "Business Consulting and Services",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/company/deloitte"
-        },
-        {
           "name": "NVIDIA",
           "industry": "Computer Hardware Manufacturing",
           "address": "Santa Clara, CA",
           "linkeinUrl": "https://www.linkedin.com/company/nvidia"
+        },
+        {
+          "name": "Deloitte",
+          "industry": "Business Consulting and Services",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/company/deloitte"
         }
       ]
     }
@@ -106,9 +106,9 @@
         "addressCountry": "US"
       },
       "description": "A problem isn't truly solved until it's solved for all. Googlers build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.\n\nCheck out our career opportunities at goo.gle/3DLEokh",
-      "numberOfEmployees": 303607,
+      "numberOfEmployees": 329990,
       "logo": {
-        "contentUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQHiNSL4Or29cg/company-logo_200_200/company-logo_200_200/0/1631311446380?e=2147483647&v=beta&t=fnMgfquTmN5LLPDz_pQ3ABlHsrgISwU9CQS35ol7QpE",
+        "contentUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQGv3cqOuUMY7g/company-logo_200_200/B4EZmhegXHGcAM-/0/1759350753990/google_logo?e=2147483647&v=beta&t=Hzaw0d0Yz1Yi-_mDuQ6JQo-Ph41AG50Z8pWjyaeTI0k",
         "description": "Google",
         "@type": "ImageObject"
       },
@@ -123,6 +123,12 @@
       "leaders": [],
       "affiliatedPages": [
         {
+          "name": "Google for Developers",
+          "industry": "Technology, Information and Internet",
+          "address": "Mountain View, CA",
+          "linkeinUrl": "https://www.linkedin.com/showcase/googledevelopers/"
+        },
+        {
           "name": "Google Cloud",
           "industry": "Software Development",
           "address": "Mountain View, California",
@@ -133,12 +139,6 @@
           "industry": "Technology, Information and Internet",
           "address": "San Bruno, CA",
           "linkeinUrl": "https://www.linkedin.com/company/youtube"
-        },
-        {
-          "name": "Google for Developers",
-          "industry": "Technology, Information and Internet",
-          "address": "Mountain View, CA",
-          "linkeinUrl": "https://www.linkedin.com/showcase/googledevelopers/"
         },
         {
           "name": "Think with Google",
@@ -153,16 +153,16 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/google-ads-/"
         },
         {
-          "name": "Google Analytics",
-          "industry": "Technology, Information and Internet",
-          "address": "Mountain View, California",
-          "linkeinUrl": "https://www.linkedin.com/showcase/google-analytics/"
-        },
-        {
           "name": "Google Workspace",
           "industry": "Software Development",
           "address": "Mountain View, California",
           "linkeinUrl": "https://www.linkedin.com/showcase/googleworkspace/"
+        },
+        {
+          "name": "Google Analytics",
+          "industry": "Technology, Information and Internet",
+          "address": "Mountain View, California",
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-analytics/"
         },
         {
           "name": "Google Developer Groups (GDG)",
@@ -177,16 +177,16 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/googlemarketingplatform/"
         },
         {
-          "name": "Google for Publishers",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/google-for-publishers/"
-        },
-        {
           "name": "Google Research",
           "industry": "Technology, Information and Internet",
           "address": null,
           "linkeinUrl": "https://www.linkedin.com/showcase/googleresearch/"
+        },
+        {
+          "name": "Google for Publishers",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-for-publishers/"
         },
         {
           "name": "Grow with Google",
@@ -213,22 +213,28 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/google-small-business/"
         },
         {
-          "name": "TensorFlow",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/tensorflowdev/"
-        },
-        {
           "name": "ChromeOS & Chrome Enterprise",
           "industry": "IT Services and IT Consulting",
           "address": "Mountain View, CA",
           "linkeinUrl": "https://www.linkedin.com/showcase/chrome-enterprise/"
         },
         {
-          "name": "Google Health",
+          "name": "Google Search Central",
           "industry": "Technology, Information and Internet",
           "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/google-health/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/googlesearchcentral/"
+        },
+        {
+          "name": "Google for Health",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-for-health/"
+        },
+        {
+          "name": "TensorFlow",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/tensorflowdev/"
         },
         {
           "name": "Flutter Dev",
@@ -237,10 +243,10 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/flutterdevofficial/"
         },
         {
-          "name": "Google Search Central",
+          "name": "Google AI for Developers",
           "industry": "Technology, Information and Internet",
           "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/googlesearchcentral/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/googleaidevs/"
         },
         {
           "name": "re:Work with Google",
@@ -255,22 +261,16 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/google-partners/"
         },
         {
-          "name": "Google Play business community",
-          "industry": "IT Services and IT Consulting",
-          "address": "Mountain View, CA",
-          "linkeinUrl": "https://www.linkedin.com/showcase/googleplaybiz/"
-        },
-        {
           "name": "Google News Initiative",
           "industry": "Online Audio and Video Media",
           "address": "Mountain View, CA",
           "linkeinUrl": "https://www.linkedin.com/showcase/google-news-initiative/"
         },
         {
-          "name": "Android",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/android_by_google/"
+          "name": "Google Play business community",
+          "industry": "IT Services and IT Consulting",
+          "address": "Mountain View, CA",
+          "linkeinUrl": "https://www.linkedin.com/showcase/googleplaybiz/"
         },
         {
           "name": "Firebase",
@@ -279,16 +279,28 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/firebase/"
         },
         {
-          "name": "Google Pay",
+          "name": "Android",
           "industry": "Technology, Information and Internet",
-          "address": "Mountain View, California",
-          "linkeinUrl": "https://www.linkedin.com/showcase/google-pay/"
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/android_by_google/"
         },
         {
           "name": "CapitalG",
           "industry": "Venture Capital and Private Equity Principals",
           "address": "San Francisco, CA",
           "linkeinUrl": "https://ca.linkedin.com/company/capitalg"
+        },
+        {
+          "name": "Google Pay Developers",
+          "industry": "Technology, Information and Internet",
+          "address": "Mountain View, California",
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-pay/"
+        },
+        {
+          "name": "Chrome for Developers",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/chrome-for-developers/"
         },
         {
           "name": "Android Enterprise",
@@ -321,46 +333,16 @@
           "linkeinUrl": "https://www.linkedin.com/company/adometry"
         },
         {
-          "name": "Google Nest Pro",
-          "industry": "Technology, Information and Internet",
-          "address": "Mountain View, California",
-          "linkeinUrl": "https://www.linkedin.com/showcase/google-nest/"
-        },
-        {
           "name": "Google Developers North America",
           "industry": "Technology, Information and Internet",
           "address": "Mountain View, CA",
           "linkeinUrl": "https://www.linkedin.com/showcase/google-developers-north-america/"
         },
         {
-          "name": "Chrome for Developers",
+          "name": "Google Nest Pro",
           "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/chrome-for-developers/"
-        },
-        {
-          "name": "Mineral.ai",
-          "industry": "Agriculture, Construction, Mining Machinery Manufacturing",
           "address": "Mountain View, California",
-          "linkeinUrl": "https://www.linkedin.com/company/mineral-ai"
-        },
-        {
-          "name": "Google Maps Platform",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/googlemapsplatform/"
-        },
-        {
-          "name": "Google Search Liaison",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/google-search-liaison/"
-        },
-        {
-          "name": "Google AI for Developers",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/googleaidevs/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-nest/"
         },
         {
           "name": "Google Public Sector",
@@ -369,10 +351,58 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/google-public-sector/"
         },
         {
+          "name": "Google Search Liaison",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-search-liaison/"
+        },
+        {
+          "name": "Google Maps Platform",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/googlemapsplatform/"
+        },
+        {
+          "name": "Mineral.ai",
+          "industry": "Agriculture, Construction, Mining Machinery Manufacturing",
+          "address": "Mountain View, California",
+          "linkeinUrl": "https://www.linkedin.com/company/mineral-ai"
+        },
+        {
+          "name": "Google Learning & Education",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-learning-edu/"
+        },
+        {
+          "name": "Google Antigravity",
+          "industry": "Software Development",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-antigravity/"
+        },
+        {
+          "name": "Google Arabia",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-arabia/"
+        },
+        {
+          "name": "Google for Business India",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-for-biz-in/"
+        },
+        {
           "name": "Flutter",
           "industry": null,
           "address": null,
           "linkeinUrl": "https://www.linkedin.com/showcase/flutterdev-hold/"
+        },
+        {
+          "name": "Google Italia",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/google-italia/"
         },
         {
           "name": "Firebase",
@@ -383,16 +413,16 @@
       ],
       "similarPages": [
         {
-          "name": "Amazon",
-          "industry": "Software Development",
-          "address": "Seattle, WA",
-          "linkeinUrl": "https://www.linkedin.com/company/amazon"
-        },
-        {
           "name": "Microsoft",
           "industry": "Software Development",
           "address": "Redmond, Washington",
           "linkeinUrl": "https://www.linkedin.com/company/microsoft"
+        },
+        {
+          "name": "Amazon",
+          "industry": "Software Development",
+          "address": "Seattle, WA",
+          "linkeinUrl": "https://www.linkedin.com/company/amazon"
         },
         {
           "name": "Apple",
@@ -437,10 +467,10 @@
           "linkeinUrl": "https://se.linkedin.com/company/spotify"
         },
         {
-          "name": "Accenture",
-          "industry": "Business Consulting and Services",
-          "address": null,
-          "linkeinUrl": "https://ie.linkedin.com/company/accenture"
+          "name": "NVIDIA",
+          "industry": "Computer Hardware Manufacturing",
+          "address": "Santa Clara, CA",
+          "linkeinUrl": "https://www.linkedin.com/company/nvidia"
         }
       ]
     }
@@ -458,9 +488,9 @@
         "addressCountry": "US"
       },
       "description": "Every company has a mission. What's ours? To empower every person and every organization to achieve more. We believe technology can and should be a force for good and that meaningful innovation contributes to a brighter world in the future and today. Our culture doesn’t just encourage curiosity; it embraces it. Each day we make progress together by showing up as our authentic selves. We show up with a learn-it-all mentality. We show up cheering on others, knowing their success doesn't diminish our own. We show up every day open to learning our own biases, changing our behavior, and inviting in differences. Because impact matters. \n\nMicrosoft operates in 190 countries and is made up of approximately 228,000 passionate employees worldwide.",
-      "numberOfEmployees": 238847,
+      "numberOfEmployees": 226519,
       "logo": {
-        "contentUrl": "https://media.licdn.com/dms/image/v2/C560BAQE88xCsONDULQ/company-logo_200_200/company-logo_200_200/0/1630652622688/microsoft_logo?e=2147483647&v=beta&t=tFMvsiq1cV6uLHTcCcyUcD0xb9yzN2izNZpjmVTVzWc",
+        "contentUrl": "https://media.licdn.com/dms/image/v2/D560BAQH32RJQCl3dDQ/company-logo_200_200/B56ZYQ0mrGGoAM-/0/1744038948046/microsoft_logo?e=2147483647&v=beta&t=ts9MGrTk7Lz3R1bmAfzCL8euuuuPWPCoXfdiLA2_IzM",
         "description": "Microsoft",
         "@type": "ImageObject"
       },
@@ -475,13 +505,7 @@
       "leaders": [
         {
           "name": "Satya Nadella",
-          "title": "Chairman and CEO at Microsoft",
           "linkedinProfileLink": "https://www.linkedin.com/in/satyanadella?trk=org-employees"
-        },
-        {
-          "name": "Kathleen Hogan",
-          "title": "EVP, Office of Strategy and Transformation",
-          "linkedinProfileLink": "https://www.linkedin.com/in/kathleenthogan?trk=org-employees"
         }
       ],
       "affiliatedPages": [
@@ -498,10 +522,10 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoftlearn/"
         },
         {
-          "name": "Microsoft Cloud",
-          "industry": "Software Development",
+          "name": "Microsoft Azure",
+          "industry": "Technology, Information and Internet",
           "address": "Redmond, Washington",
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-cloud-platform/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-azure/"
         },
         {
           "name": "Microsoft 365",
@@ -510,10 +534,10 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-365/"
         },
         {
-          "name": "Microsoft Azure",
-          "industry": "Technology, Information and Internet",
+          "name": "Microsoft Cloud",
+          "industry": "Software Development",
           "address": "Redmond, Washington",
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-azure/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-cloud-platform/"
         },
         {
           "name": "Microsoft Security",
@@ -540,16 +564,16 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/windows-developers/"
         },
         {
-          "name": "Microsoft Dynamics 365",
-          "industry": "Software Development",
-          "address": "Redmond, Washington",
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-dynamics/"
-        },
-        {
           "name": "Microsoft AI Cloud Partner Program",
           "industry": "Information Technology & Services",
           "address": "Redmond, Washington",
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-cloud-partner-program/"
+        },
+        {
+          "name": "Microsoft Dynamics 365",
+          "industry": "Software Development",
+          "address": "Redmond, Washington",
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-dynamics/"
         },
         {
           "name": "Microsoft Visual Studio",
@@ -564,6 +588,18 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-power-platform/"
         },
         {
+          "name": "Microsoft Copilot",
+          "industry": "Software Development",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoftcopilot/"
+        },
+        {
+          "name": "Visual Studio Code",
+          "industry": null,
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/vs-code/"
+        },
+        {
           "name": "Microsoft SQL Server",
           "industry": "Software Development",
           "address": "Redmond, WA",
@@ -576,28 +612,28 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoftfabric/"
         },
         {
+          "name": "Microsoft Threat Intelligence",
+          "industry": "Computer and Network Security",
+          "address": "Redmond, Washington",
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-threat-intelligence/"
+        },
+        {
           "name": "Microsoft On the Issues",
           "industry": "Technology, Information and Internet",
           "address": "Redmond, Washington",
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-on-the-issues/"
         },
         {
-          "name": "Microsoft Copilot",
-          "industry": "Software Development",
+          "name": "Microsoft Events",
+          "industry": "Technology, Information and Internet",
           "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoftcopilot/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-events/"
         },
         {
           "name": "Microsoft Surface",
           "industry": "Computer Hardware",
           "address": "Redmond, WA",
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-surface/"
-        },
-        {
-          "name": "Microsoft Threat Intelligence",
-          "industry": "Computer and Network Security",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-threat-intelligence/"
         },
         {
           "name": "Microsoft Advertising",
@@ -612,16 +648,22 @@
           "linkeinUrl": "https://www.linkedin.com/company/halostudios"
         },
         {
+          "name": "Microsoft Security Response Center",
+          "industry": "Computer and Network Security",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-security-response-center/"
+        },
+        {
           "name": "Microsoft for Healthcare",
           "industry": "Software Development",
           "address": "Redmond, WA",
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-health/"
         },
         {
-          "name": "Microsoft Events",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-events/"
+          "name": "Microsoft 365 Insider Program",
+          "industry": "Software Development",
+          "address": "Redmond, WA",
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-365-insider/"
         },
         {
           "name": "Microsoft in Government",
@@ -630,10 +672,10 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-in-government/"
         },
         {
-          "name": "Microsoft 365 Insider Program",
+          "name": "Microsoft AI",
           "industry": "Software Development",
-          "address": "Redmond, WA",
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-365-insider/"
+          "address": "Redmond, Washington",
+          "linkeinUrl": "https://mx.linkedin.com/company/microsoft-ai"
         },
         {
           "name": "M12, Microsoft's Venture Fund",
@@ -648,10 +690,10 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-reactor/"
         },
         {
-          "name": "Visual Studio Code",
-          "industry": null,
+          "name": "Xbox",
+          "industry": "Entertainment Providers",
           "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/vs-code/"
+          "linkeinUrl": "https://www.linkedin.com/showcase/xbox/"
         },
         {
           "name": "Microsoft Viva",
@@ -660,52 +702,10 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-viva/"
         },
         {
-          "name": "Microsoft Security Response Center",
-          "industry": "Computer and Network Security",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-security-response-center/"
-        },
-        {
           "name": "Microsoft Military Affairs",
           "industry": "Information Technology & Services",
           "address": null,
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-military-affairs/"
-        },
-        {
-          "name": "Flip",
-          "industry": "E-Learning Providers",
-          "address": "Minneapolis, MN",
-          "linkeinUrl": "https://www.linkedin.com/company/microsoftflip"
-        },
-        {
-          "name": "Microsoft AI",
-          "industry": "Software Development",
-          "address": "Redmond, Washington",
-          "linkeinUrl": "https://mx.linkedin.com/company/microsoft-ai"
-        },
-        {
-          "name": "Xbox",
-          "industry": "Entertainment Providers",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/xbox/"
-        },
-        {
-          "name": "Microsoft Windows",
-          "industry": "Software Development",
-          "address": "Redmond, WA",
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-windows/"
-        },
-        {
-          "name": "M",
-          "industry": "Software Development",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/covid19-business-resource-center/"
-        },
-        {
-          "name": "Microsoft for Nonprofits",
-          "industry": "Software Development",
-          "address": "Redmond, Washington",
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-for-nonprofits/"
         },
         {
           "name": "Microsoft News and Stories",
@@ -714,16 +714,34 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-news-and-stories/"
         },
         {
+          "name": "Flip",
+          "industry": "E-Learning Providers",
+          "address": "Minneapolis, MN",
+          "linkeinUrl": "https://www.linkedin.com/company/microsoftflip"
+        },
+        {
+          "name": "Microsoft Windows",
+          "industry": "Software Development",
+          "address": "Redmond, WA",
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-windows/"
+        },
+        {
+          "name": "Microsoft for Nonprofits",
+          "industry": "Software Development",
+          "address": "Redmond, Washington",
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-for-nonprofits/"
+        },
+        {
+          "name": "M",
+          "industry": "Software Development",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/covid19-business-resource-center/"
+        },
+        {
           "name": "Microsoft 365 Developer",
           "industry": "Technology, Information and Internet",
           "address": "Remond, WA",
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft365dev/"
-        },
-        {
-          "name": "Studios Quality - Xbox Game Studios",
-          "industry": "Computer Games",
-          "address": "Redmond, WA",
-          "linkeinUrl": "https://www.linkedin.com/company/studios-quality"
         },
         {
           "name": "Microsoft's Entrepreneurship for Positive Impact",
@@ -732,22 +750,34 @@
           "linkeinUrl": "https://www.linkedin.com/showcase/entrepreneurshipforpositiveimpact/"
         },
         {
+          "name": "Studios Quality - Xbox Game Studios",
+          "industry": "Computer Games",
+          "address": "Redmond, WA",
+          "linkeinUrl": "https://www.linkedin.com/company/studios-quality"
+        },
+        {
+          "name": "Microsoft in Business",
+          "industry": "Technology, Information and Media",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoftinbusiness/"
+        },
+        {
           "name": "Go China Connection",
           "industry": "IT Services and IT Consulting",
           "address": "Beijing, Beijing",
           "linkeinUrl": "https://cn.linkedin.com/showcase/go-china-connection/"
         },
         {
+          "name": "Microsoft Design",
+          "industry": "Technology, Information and Internet",
+          "address": null,
+          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-design/"
+        },
+        {
           "name": "Microsoft Developers 365",
           "industry": null,
           "address": null,
           "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-developers-365/"
-        },
-        {
-          "name": "Microsoft Most Valuable Professionals",
-          "industry": "Technology, Information and Internet",
-          "address": null,
-          "linkeinUrl": "https://www.linkedin.com/showcase/microsoft-most-valuable-professionals/"
         }
       ],
       "similarPages": [
@@ -770,16 +800,16 @@
           "linkeinUrl": "https://www.linkedin.com/company/apple"
         },
         {
-          "name": "IBM",
-          "industry": "IT Services and IT Consulting",
-          "address": "Armonk, New York, NY",
-          "linkeinUrl": "https://www.linkedin.com/company/ibm"
-        },
-        {
           "name": "Meta",
           "industry": "Software Development",
           "address": "Menlo Park, CA",
           "linkeinUrl": "https://www.linkedin.com/company/meta"
+        },
+        {
+          "name": "IBM",
+          "industry": "IT Services and IT Consulting",
+          "address": "Armonk, New York, NY",
+          "linkeinUrl": "https://www.linkedin.com/company/ibm"
         },
         {
           "name": "Deloitte",
@@ -806,10 +836,10 @@
           "linkeinUrl": "https://www.linkedin.com/company/linkedin"
         },
         {
-          "name": "Accenture",
-          "industry": "Business Consulting and Services",
-          "address": null,
-          "linkeinUrl": "https://ie.linkedin.com/company/accenture"
+          "name": "NVIDIA",
+          "industry": "Computer Hardware Manufacturing",
+          "address": "Santa Clara, CA",
+          "linkeinUrl": "https://www.linkedin.com/company/nvidia"
         }
       ]
     }

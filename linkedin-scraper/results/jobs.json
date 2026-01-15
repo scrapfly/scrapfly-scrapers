@@ -2,114 +2,6 @@
   {
     "@context": "http://schema.org",
     "@type": "JobPosting",
-    "datePosted": "2025-08-29T04:38:05.000Z",
-    "employmentType": "CONTRACTOR",
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": "Unisys",
-      "sameAs": "https://www.linkedin.com/company/unisys",
-      "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGP5PO--smhpQ/company-logo_200_200/company-logo_200_200/0/1669644012632/unisys_logo?e=2147483647&amp;v=beta&amp;t=brQZDt-hTkzkMIFArYQrx60-eKUCkkvFy7stn6YDWvM"
-    },
-    "identifier": {
-      "@type": "PropertyValue",
-      "name": "Unisys"
-    },
-    "image": "https://media.licdn.com/dms/image/v2/C4E0BAQGP5PO--smhpQ/company-logo_100_100/company-logo_100_100/0/1669644012632/unisys_logo?e=2147483647&amp;v=beta&amp;t=umb8iP0FSyszRAXDeGsJpUGK6O-4wNFoU_SMGnzdc28",
-    "industry": "IT Services and IT Consulting",
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US",
-        "addressLocality": "Reston",
-        "addressRegion": "VA",
-        "streetAddress": null
-      },
-      "latitude": 38.960186,
-      "longitude": -77.3545
-    },
-    "skills": "",
-    "title": "Python Developer",
-    "validThrough": "2025-10-11T17:27:57.000Z",
-    "educationRequirements": {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "bachelor degree"
-    },
-    "jobDescription": [
-      "Analyze highly complex business requirements; generate technical specifications to design or redesign complex software components and applications",
-      "Act as an expert technical resource for modeling, simulation and analysis efforts",
-      "Leverage industry best practices to design, test, implement and support a solution",
-      "Adapt to change quickly and adjust work accordingly in a positive manner",
-      "Bachelor's degree in a technical field such as computer science, computer engineering or related field required",
-      "Development experience in needed language or technology (e.g. - Python, AWS etc.)"
-    ]
-  },
-  {
-    "@context": "http://schema.org",
-    "@type": "JobPosting",
-    "datePosted": "2025-09-12T20:25:32.000Z",
-    "employmentType": "FULL_TIME",
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": "HRC Global Services",
-      "sameAs": "https://ca.linkedin.com/company/hrc-global-services",
-      "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQFn6Rj9eJ2uNA/company-logo_200_200/company-logo_200_200/0/1630639700204/hrc_global_services_logo?e=2147483647&amp;v=beta&amp;t=hz9sjEJJwwdt-2gL0guc4X8PEu4m9M-soht4TUf7qqA"
-    },
-    "identifier": {
-      "@type": "PropertyValue",
-      "name": "HRC Global Services",
-      "value": "440-36469"
-    },
-    "image": "https://media.licdn.com/dms/image/v2/C4E0BAQFn6Rj9eJ2uNA/company-logo_100_100/company-logo_100_100/0/1630639700204/hrc_global_services_logo?e=2147483647&amp;v=beta&amp;t=IwBQAy-THif429B014tHsO1Ni3BrE21c32yirUXZHzM",
-    "industry": "Software Development,IT Services and IT Consulting",
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US",
-        "addressLocality": "Reston",
-        "addressRegion": "VA",
-        "streetAddress": null
-      },
-      "latitude": 38.960186,
-      "longitude": -77.3545
-    },
-    "skills": "",
-    "title": "Python Developer (Remote Position)",
-    "validThrough": "2026-03-11T20:25:33.000Z",
-    "educationRequirements": {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "bachelor degree"
-    },
-    "jobDescription": [
-      "Strong proficiency in Python, with hands-on experience in older versions (Python 2.x) as well as Python 3.x.",
-      "Ability to build complex automation scripts for monitoring, deployments, and maintenance tasks",
-      "Writing robust error-handling & logging mechanisms in scripts.",
-      "Solid understanding of networking concepts (TCP/IP, DNS, HTTP, SNMP, ports, firewalls).",
-      "Old-net stuff: SMBv1/NTLM, FTP/SFTP, proxies, strict allowlists",
-      "Skilled in application and network monitoring tools.",
-      "Ability to maintain, refactor, and modernize legacy Python codebases.",
-      "Knowledge of logging frameworks and log analysis",
-      "Advanced Linux/Unix system administration skills, including shell scripting and process management.",
-      "Experience with CI/CD pipelines, version control (Git), and deployment automation.",
-      "xposure to cloud platforms (AWS, Azure, GCP) and their native monitoring solutions.",
-      "Knowledge of containerization and orchestration (Docker, Kubernetes) and monitoring in containerized environments.",
-      "Excellent problem-solving skills, with proven ability to handle incident response and system outages.",
-      "Change control: tickets/runbooks, auditable steps, low-risk deploys",
-      "Security on EOL OS: least privilege, service hardening, network isolation",
-      "Public-sector screening ready (Public Trust or similar)",
-      "Backups/rollback: cold backups, snapshots (if VM), restore drills",
-      "TLS offload/reverse proxy (nginx/HAProxy) patterns",
-      "DB drivers on fossils: ODBC/OLE DB quirks; CSV/XML staging",
-      "Compiling C-ext deps for vintage MSVC (or pure-Python swaps)",
-      "ELK/Splunk/syslog basics; simple dashboards",
-      "Py3 migrations on Windows; shim/compat tricks",
-      "VMware/Hyper-V snapshots; sandbox clones"
-    ]
-  },
-  {
-    "@context": "http://schema.org",
-    "@type": "JobPosting",
     "datePosted": "2024-12-15T23:55:13.000Z",
     "employmentType": "FULL_TIME",
     "hiringOrganization": {
@@ -139,7 +31,7 @@
     },
     "skills": "",
     "title": "Python Developer",
-    "validThrough": "2025-10-12T11:55:19.000Z",
+    "validThrough": "2026-01-30T11:55:16.000Z",
     "educationRequirements": {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "bachelor degree"

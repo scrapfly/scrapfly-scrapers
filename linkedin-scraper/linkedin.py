@@ -32,7 +32,7 @@ def refine_profile(data: Dict) -> Dict:
     """refine and clean the parsed profile data"""
     parsed_data = {}
     profile_data = [key for key in data["@graph"] if key["@type"]=="Person"][0]
-    profile_data["worksFor"] = [profile_data["worksFor"][0]]
+    profile_data["worksFor"] = [profile_data["worksFor"]]
     articles = [key for key in data["@graph"] if key["@type"]=="Article"]
     parsed_data["profile"] = profile_data
     parsed_data["posts"] = articles
