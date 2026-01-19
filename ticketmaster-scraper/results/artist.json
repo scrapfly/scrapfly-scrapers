@@ -1,0 +1,1025 @@
+[
+  {
+    "artist_name": "George Lopez",
+    "ratingValue": 4.3,
+    "bestRating": 5,
+    "ratingCount": 5639,
+    "genre": "Comedy",
+    "events_count": 9,
+    "events": [
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB96C6C9",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Jan 31, 2026, 7:00 PM | The Wilbur, Boston",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-01-31T19:00:00",
+        "endDate": "2026-01-31",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "The Wilbur",
+          "sameAs": "https://www.ticketmaster.com/the-wilbur-tickets-boston/venue/8252",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "246 Tremont St.",
+            "addressLocality": "Boston",
+            "addressRegion": "MA",
+            "postalCode": "02116",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.3504843,
+            "longitude": -71.065086
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Jan 31, 2026, 7:00 PM | The Wilbur, Boston",
+          "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB96C6C9",
+          "validFrom": "2025-11-07T10:00:00",
+          "availabilityStarts": "2025-11-07T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB97C6CE",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Jan 31, 2026, 9:45 PM | The Wilbur, Boston",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-01-31T21:45:00",
+        "endDate": "2026-01-31",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "The Wilbur",
+          "sameAs": "https://www.ticketmaster.com/the-wilbur-tickets-boston/venue/8252",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "246 Tremont St.",
+            "addressLocality": "Boston",
+            "addressRegion": "MA",
+            "postalCode": "02116",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.3504843,
+            "longitude": -71.065086
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Jan 31, 2026, 9:45 PM | The Wilbur, Boston",
+          "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB97C6CE",
+          "validFrom": "2025-11-07T10:00:00",
+          "availabilityStarts": "2025-11-07T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-houston-texas-02-06-2026/event/3A0062ACB38823D7",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Feb 6, 2026, 7:00 PM | NRG Arena, Houston",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-02-06T19:00:00",
+        "endDate": "2026-02-06",
+        "eventStatus": "https://schema.org/EventRescheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "NRG Arena",
+          "sameAs": "https://www.ticketmaster.com/nrg-arena-tickets-houston/venue/475175",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "One NRG Park",
+            "addressLocality": "Houston",
+            "addressRegion": "TX",
+            "postalCode": "77054",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 29.68516717,
+            "longitude": -95.40880499
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Feb 6, 2026, 7:00 PM | NRG Arena, Houston",
+          "url": "https://www.ticketmaster.com/george-lopez-houston-texas-02-06-2026/event/3A0062ACB38823D7",
+          "validFrom": "2025-05-16T10:00:00",
+          "availabilityStarts": "2025-05-16T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-dallas-texas-02-13-2026/event/0C006383CDD49A41",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Feb 13, 2026, 7:00 PM | Majestic Theatre Dallas, Dallas",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-02-13T19:00:00",
+        "endDate": "2026-02-13",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Majestic Theatre Dallas",
+          "sameAs": "https://www.ticketmaster.com/majestic-theatre-dallas-tickets-dallas/venue/98322",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1925 Elm Street",
+            "addressLocality": "Dallas",
+            "addressRegion": "TX",
+            "postalCode": "75201",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 32.78232551,
+            "longitude": -96.79557625
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Feb 13, 2026, 7:00 PM | Majestic Theatre Dallas, Dallas",
+          "url": "https://www.ticketmaster.com/george-lopez-dallas-texas-02-13-2026/event/0C006383CDD49A41",
+          "validFrom": "2025-12-12T10:00:00",
+          "availabilityStarts": "2025-12-12T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-waukegan-illinois-02-14-2026/event/0700634A93955DC5",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Feb 14, 2026, 8:00 PM | Genesee Theatre, Waukegan",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-02-14T20:00:00",
+        "endDate": "2026-02-14",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Genesee Theatre",
+          "sameAs": "https://www.ticketmaster.com/genesee-theatre-tickets-waukegan/venue/57692",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "203 N. Genesee St.",
+            "addressLocality": "Waukegan",
+            "addressRegion": "IL",
+            "postalCode": "60085",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.36276392,
+            "longitude": -87.83083839
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Feb 14, 2026, 8:00 PM | Genesee Theatre, Waukegan",
+          "url": "https://www.ticketmaster.com/george-lopez-waukegan-illinois-02-14-2026/event/0700634A93955DC5",
+          "validFrom": "2025-11-14T10:00:00",
+          "availabilityStarts": "2025-11-14T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-des-moines-iowa-02-20-2026/event/06006273D92152FF",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Feb 20, 2026, 8:00 PM | Hoyt Sherman Place, Des Moines",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-02-20T20:00:00",
+        "endDate": "2026-02-20",
+        "eventStatus": "https://schema.org/EventRescheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Hoyt Sherman Place",
+          "sameAs": "https://www.ticketmaster.com/hoyt-sherman-place-tickets-des-moines/venue/49410",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1501 Woodland Avenue",
+            "addressLocality": "Des Moines",
+            "addressRegion": "IA",
+            "postalCode": "50309",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.588643,
+            "longitude": -93.638339
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Feb 20, 2026, 8:00 PM | Hoyt Sherman Place, Des Moines",
+          "url": "https://www.ticketmaster.com/george-lopez-des-moines-iowa-02-20-2026/event/06006273D92152FF",
+          "validFrom": "2025-03-28T10:00:00",
+          "availabilityStarts": "2025-03-28T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-la-vista-nebraska-02-21-2026/event/20006274CADD2E5C",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Feb 21, 2026, 8:00 PM | The Astro Theater, La Vista",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-02-21T20:00:00",
+        "endDate": "2026-02-21",
+        "eventStatus": "https://schema.org/EventRescheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "The Astro Theater",
+          "sameAs": "https://www.ticketmaster.com/the-astro-theater-tickets-la-vista/venue/263250",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "8302 City Centre Dr",
+            "addressLocality": "La Vista",
+            "addressRegion": "NE",
+            "postalCode": "68128",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.18287,
+            "longitude": -96.04084
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Feb 21, 2026, 8:00 PM | The Astro Theater, La Vista",
+          "url": "https://www.ticketmaster.com/george-lopez-la-vista-nebraska-02-21-2026/event/20006274CADD2E5C",
+          "validFrom": "2025-03-28T10:00:00",
+          "availabilityStarts": "2025-03-28T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-newark-new-jersey-02-28-2026/event/00006375EB09FD24",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Feb 28, 2026, 8:00 PM | New Jersey Performing Arts Center, Newark",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-02-28T20:00:00",
+        "endDate": "2026-02-28",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "New Jersey Performing Arts Center",
+          "sameAs": "https://www.ticketmaster.com/new-jersey-performing-arts-center-tickets-newark/venue/308",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1 Center Street",
+            "addressLocality": "Newark",
+            "addressRegion": "NJ",
+            "postalCode": "07102",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.739502,
+            "longitude": -74.16809
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Feb 28, 2026, 8:00 PM | New Jersey Performing Arts Center, Newark",
+          "url": "https://www.ticketmaster.com/george-lopez-newark-new-jersey-02-28-2026/event/00006375EB09FD24",
+          "validFrom": "2025-12-12T10:00:00",
+          "availabilityStarts": "2025-12-12T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-orlando-florida-03-28-2026/event/22006381D00350FD",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Mar 28, 2026, 8:00 PM | Hard Rock Live Orlando, Orlando",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-03-28T20:00:00",
+        "endDate": "2026-03-28",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Hard Rock Live Orlando",
+          "sameAs": "https://www.ticketmaster.com/hard-rock-live-orlando-tickets-orlando/venue/278539",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6050 Universal Blvd",
+            "addressLocality": "Orlando",
+            "addressRegion": "FL",
+            "postalCode": "32819",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.473773,
+            "longitude": -81.468224
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Mar 28, 2026, 8:00 PM | Hard Rock Live Orlando, Orlando",
+          "url": "https://www.ticketmaster.com/george-lopez-orlando-florida-03-28-2026/event/22006381D00350FD",
+          "validFrom": "2025-12-12T10:00:00",
+          "availabilityStarts": "2025-12-12T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      }
+    ],
+    "reviews": [
+      {
+        "title": "excellent",
+        "description": "This is the second time we have seen him love the venue not to big or too small, and the show was excellent.",
+        "datePublished": "2025-11-19T01:34:34Z",
+        "author_name": "Liz",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Are you Joe Lopez",
+        "description": "Venue had pillars that was in the way of my view, and the seats seemed to me all one level which made it hard to see the stage. Thank goodness for the tvs on the way and surround sound; otherwise I would have missed out on the show.",
+        "datePublished": "2025-11-18T19:39:10Z",
+        "author_name": "not your average Jo",
+        "ratingValue": 3,
+        "bestRating": 5
+      },
+      {
+        "title": "Get ready for belly laughs",
+        "description": "George Lopez is very funny, entertainment is definitely something to look forward to when you go see him. His opening acts were a  Mariachi  band and another comedian. Definitely worth the $$ going to see him. Wild horse pass venue was great!",
+        "datePublished": "2025-11-18T13:49:59Z",
+        "author_name": "Funny",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Great experience",
+        "description": "4 stars. He has good material.  Would see him again",
+        "datePublished": "2025-09-27T23:20:42Z",
+        "author_name": "Vincent",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Good Times 😎👍",
+        "description": "George Lopez never disappoints Greatest comedian of all time. Great Venue. Very clean comfortable Seating",
+        "datePublished": "2025-09-24T03:25:19Z",
+        "author_name": "Eazy Money",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Hysterical",
+        "description": "What a great time! He is so funny! Love how he polished up so old jokes and fit them in so seamlessly.",
+        "datePublished": "2025-09-23T17:21:02Z",
+        "author_name": "Jo",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "George is always hilarious!!!",
+        "description": "Whether you're Latino/a or not, George is ALWAYS a fantastic standup comic! Never a disappointment!!!",
+        "datePublished": "2025-09-23T16:41:36Z",
+        "author_name": "Shari S.",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "It was easy and no issues",
+        "description": "The show was good, the opening act was very funny, but wished there was a second opening act.\nGeorge Lopez was way to short for the price.",
+        "datePublished": "2025-09-23T16:10:41Z",
+        "author_name": "MARY",
+        "ratingValue": 4,
+        "bestRating": 5
+      },
+      {
+        "title": "Pure Perfection!!!!",
+        "description": "George Lopez was Pure Perfection tonight! G O A T!!!!!!! Route 66 Casino Albuquerque NM! POW! POW!",
+        "datePublished": "2025-09-21T06:34:09Z",
+        "author_name": "Michelle",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Excellent",
+        "description": "George is George! He was hilarious! And I would go see him again and again. One of my all time favs.",
+        "datePublished": "2025-09-15T16:20:16Z",
+        "author_name": "j-low",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    ]
+  },
+  {
+    "artist_name": "Imagine Dragons",
+    "ratingValue": 4.7,
+    "bestRating": 5,
+    "ratingCount": 8851,
+    "genre": "Rock",
+    "events_count": 5,
+    "events": [
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Loom World Tour at MorumBIS",
+        "startDate": "2025-11-01",
+        "endDate": "2025-11-01",
+        "eventStatus": "http://schema.org/EventCompleted",
+        "location": {
+          "@type": "Place",
+          "name": "MorumBIS",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Paulo"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "Imagine Dragons",
+          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+        },
+        "workPerformed": [
+          {
+            "@type": "CreativeWork",
+            "name": "Me and Giuliani Down by the School Yard (A True Story)"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "LOOM video intro"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Fire in These Hills"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Thunder"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Bones"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Take Me to the Beach"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Shots"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Whatever It Takes"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Next to Me"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "It's Time"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Amsterdam"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "I Bet My Life"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Interlude"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Bad Liar"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Hear Me"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Wake Up"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Radioactive"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Demons"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Natural"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Walking the Wire"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Sharks"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Interlude"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Enemy"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Eyes Closed"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Birds"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Interlude"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Believer"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Fire in These Hills"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Send Me on My Way"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Imagine Dragons at Aria Resort & Casino",
+        "startDate": "2025-09-12",
+        "endDate": "2025-09-12",
+        "eventStatus": "http://schema.org/EventCompleted",
+        "location": {
+          "@type": "Place",
+          "name": "Aria Resort & Casino",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Las Vegas"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "Imagine Dragons",
+          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+        },
+        "workPerformed": [
+          {
+            "@type": "CreativeWork",
+            "name": "It's Time"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Next to Me"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Bones"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "I Bet My Life"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Don't Forget Me"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Pink Pony Club"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Believer"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Amsterdam"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Fallen"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "No Time for Toxic People"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "On Top of the World"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Demons"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Radioactive"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Imagine Dragons at Wynn Las Vegas",
+        "startDate": "2024-09-20",
+        "endDate": "2024-09-20",
+        "eventStatus": "http://schema.org/EventCompleted",
+        "location": {
+          "@type": "Place",
+          "name": "Wynn Las Vegas",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Las Vegas"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "Imagine Dragons",
+          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+        },
+        "workPerformed": [
+          {
+            "@type": "CreativeWork",
+            "name": "Whatever It Takes"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Believer"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "It's Time"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Bones"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Lose Yourself"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Thunder"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Take Me Home, Country Roads"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Ice Ice Baby"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Radioactive"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Imagine Dragons at Oracle Park",
+        "startDate": "2024-09-18",
+        "endDate": "2024-09-18",
+        "eventStatus": "http://schema.org/EventCompleted",
+        "location": {
+          "@type": "Place",
+          "name": "Oracle Park",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "San Francisco"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "Imagine Dragons",
+          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+        },
+        "workPerformed": [
+          {
+            "@type": "CreativeWork",
+            "name": "Believer"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Thunder"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Bones"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Whatever It Takes"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Eyes Closed"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Radioactive"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Demons"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Natural"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Sharks"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "I'm So Sorry"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Enemy"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Walking the Wire"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Imagine Dragons at ",
+        "startDate": "2024-07-03",
+        "endDate": "2024-07-03",
+        "eventStatus": "http://schema.org/EventCompleted",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paris"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "Imagine Dragons",
+          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+        },
+        "workPerformed": [
+          {
+            "@type": "CreativeWork",
+            "name": "Fire in These Hills"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Next to Me"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Don't Forget Me"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "All By Himself"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Whatever It Takes"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Eyes Closed"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Take Me to the Beach"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Believer"
+          }
+        ]
+      }
+    ],
+    "reviews": [
+      {
+        "title": "They played 'Selene' and I literally ascended to heaven",
+        "description": "As someone who's followed them since the Speak To Me EP days, hearing deep cuts like 'Selene' and '30 Lives' live was EVERYTHING. Dan's vocal control during the bridge of 'Release' was insane. The extended drum solo in 'Thunder' with that Hell and Silence EP transition?? GENIUS. Wayne did the guitar slide from the original 'Curse' demo and I lost it. True fans know. Best setlist curation I've seen in 47 shows. 🐉⚡",
+        "datePublished": "2025-09-10T06:09:14Z",
+        "author_name": "ThunderstrikeB3liever2012",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Demons broke me in the best possible way 😭✨",
+        "description": "I'm literally writing this through tears in my car because I can't drive yet. When they played Demons and Dan held that note, I completely lost it. The elderly woman next to me handed me tissues and we both just sobbed together. The way the entire arena lit up like stars during Birds... I've never felt so connected to 20,000 strangers. My mascara is RUINED and my soul is HEALED. Thank you ID for making me feel less alone. 💫",
+        "datePublished": "2025-09-09T20:17:39Z",
+        "author_name": "TequilaxStarboy69",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "MY EARS ARE STILL RINGING AND MY MIND IS SHATTERED (IN A GOO",
+        "description": "Y'ALL I HAVE NEVER BEEN TO A CONCERT BEFORE AND I AM LITERALLY QUESTIONING EVERYTHING?! The way Dan Reynolds APPEARED from BENEATH THE STAGE like some kind of music deity?! I screamed so loud I lost my voice before they even finished Thunder. The floating platforms during Whatever It Takes had me ASCENDING. I've been watching concert videos in my bedroom for years but NOTHING prepared me for this sensory overload of pure magic 🤯✨ Currently ordering tickets to 5 more shows bye",
+        "datePublished": "2025-09-09T10:11:14Z",
+        "author_name": "concertvirginnomore",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "From Classical Piano to THUNDER - My Mind is Shattered!",
+        "description": "Y'ALL. As someone who's only ever been to piano recitals (I played for 12 years), I was NOT prepared for Dan Reynolds to literally defy gravity?! The moment Bones started, my classical music brain short-circuited in the best way 🤯 The pyrotechnics made my heart stop, and I think I ascended to another dimension during Believer. Currently googling how to become a professional concert-goer because my piano teacher would be SHOOK. Sorry Mozart, I'm an ID convert now! 🎹➡️🎸",
+        "datePublished": "2025-09-09T03:14:08Z",
+        "author_name": "BassDropBetty_98",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Reluctantly Admitting Commercial Success Can Have Artistic M",
+        "description": "As someone who typically gravitates toward obscure Estonian post-rock, I entered with skepticism. But Dan Reynolds' vocal control on 'Demons' was legitimately impressive, and the polyrhythmic breakdown in 'Whatever It Takes' showed genuine musicianship. Yes, it's mainstream, but their live sound engineering is actually *chef's kiss*. The acoustic rendition of 'Bones' demonstrated they're not just Pro Tools merchants. My indie cred is shamefully compromised, but excellence must be acknowledged.",
+        "datePublished": "2025-09-09T00:28:14Z",
+        "author_name": "vinyl_elitist_but_whatever",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "From 'Meh' to MEGA Fan in One Night!",
+        "description": "Ok so I only knew Radioactive and Bones before this show (my friend dragged me along). But HOLY MOLY y'all - I've had their entire discography on repeat for 2 weeks straight now! Dan Reynolds did a backflip while hitting that high note in Whatever It Takes and I literally ascended 😱 The thunder effects during Thunder rattled my dental fillings in the best way possible. Currently teaching my cat to sing Demons. Send help, I'm obsessed! 🐉✨",
+        "datePublished": "2025-09-08T21:23:39Z",
+        "author_name": "AccidentalDragonling",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Amazing show but security confiscated my trail mix!?",
+        "description": "Dan Reynolds' energy was absolutely infectious and the production value was mind-blowing. Thunder literally gave me chills! But seriously, who classifies trail mix as an 'outside food security threat'? Had to buy $14 nachos instead. Still an incredible night though - the way they mixed Bones with Warriors was pure genius. Just pack light and leave your supposedly dangerous nuts and dried fruit at home lol",
+        "datePublished": "2025-09-08T19:13:25Z",
+        "author_name": "ConcertSnackSneaker",
+        "ratingValue": 4,
+        "bestRating": 5
+      },
+      {
+        "title": "Amazing show but why is hand sanitizer $12??",
+        "description": "The concert was absolutely incredible and Dan Reynolds' energy was through the roof! Thunder literally gave me chills. BUT can we talk about the $12 hand sanitizer at the merch booth?? Like I know inflation is real but come on 😭 Still giving 5 stars because Bones and Enemy back to back made me forget about my overpriced clean hands. Security was super nice too and let me keep my chapstick collection in my purse!",
+        "datePublished": "2025-09-08T18:45:46Z",
+        "author_name": "ChapstickHoarder_82",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "300+ Shows Later, These Dragons Still Surprised Me",
+        "description": "Been hitting concerts since The Police's Synchronicity tour in '84. Seen everyone from Zeppelin reunions to Pearl Jam marathons, but ID's production value? Next level stuff. The floating platforms during 'Whatever It Takes' put Pink Floyd's wall to shame. Dan Reynolds has the stamina of Bruce Springsteen in his prime, and that thunder-sync during 'Thunder' rattled my veteran bones in the best way. Worth every penny of my social security check 😂",
+        "datePublished": "2025-09-08T15:44:58Z",
+        "author_name": "RockShowSage_Since1984",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "From watching the door to watching in awe - Best shift ever!",
+        "description": "Working security at their show but Dan Reynolds literally pulled me onstage during 'Believer'! Never had this happen in 12 years of event security. Went from standing stoically by the barrier to dancing with the band 😂 My coworkers won't let me live it down. Even got to fist bump Wayne after the show. Guess you could say I'm a believer now lol. Still can't believe this actually happened during my shift!",
+        "datePublished": "2025-09-08T05:38:57Z",
+        "author_name": "SecurityGuard_TurnedSuperfan_92",
+        "ratingValue": 5,
+        "bestRating": 5
+      }
+    ]
+  }
+]
