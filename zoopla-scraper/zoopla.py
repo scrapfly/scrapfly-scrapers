@@ -158,7 +158,7 @@ def parse_search(response: ScrapeApiResponse):
         url = box.xpath(".//a/@href").get()
         if not url:
             continue
-        price = box.xpath(".//p[@data-testid='listing-price']/text()").get()
+        price = box.xpath(".//p[contains(@class, 'priceText')]/text()").get()
         sq_ft = box.xpath(".//span[contains(text(),'sq. ft')]/text()").get()
         sq_ft = int(sq_ft.split(" ")[0]) if sq_ft else None
         listed_on = box.xpath(".//li[contains(text(), 'Listed on')]/text()").get()
@@ -192,7 +192,7 @@ async def scrape_search(
     max_scrape_pages: int = 10,
     query_type: Literal["for-sale", "to-rent"] = "for-sale",
 ) -> List[Dict]:
-    """scrape zoopla search pages for roperty listings"""
+    """scrape zoopla search pages for property listings"""
     # scrape the first search page first
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
@@ -221,7 +221,7 @@ async def scrape_search(
     )
     # add the remaining search pages to a scraping list
     _other_pages = [
-        ScrapeConfig(f"{first_page.context['url']}&pn={page}", **BASE_CONFIG, render_js=True)
+        ScrapeConfig(f"{first_page.context['url']}?pn={page}", **BASE_CONFIG, render_js=True)
         for page in range(2, total_pages_to_scrape + 1)
     ]
     # scrape the remaining search page concurrently
