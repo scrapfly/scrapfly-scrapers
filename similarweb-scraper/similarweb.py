@@ -92,10 +92,10 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     # base64-encoded string
     if isinstance(content, str):
         decoded_bytes = base64.b64decode(content)
-        xml = decoded_bytes.decode('utf-8')
+        xml = gzip.decompress(decoded_bytes).decode('utf-8')
     # bytes-io object        
     elif isinstance(content, BytesIO):
-        xml = content.read().decode('utf-8')
+        xml = gzip.decompress(content.read()).decode('utf-8')
         
     selector = Selector(xml)
     data = []
