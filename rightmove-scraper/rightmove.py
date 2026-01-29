@@ -154,26 +154,24 @@ async def find_locations(query: str) -> List[str]:
 
 
 async def scrape_search(
-    location_id: str, scrape_all_properties: bool, max_properties: int = 1000
+    location_name: str, location_id: str, scrape_all_properties: bool, max_properties: int = 1000
 ) -> dict:
     """scrape properties data from rightmove's search api"""
     log.info("scraping search with the id {}", location_id)
     RESULTS_PER_PAGE = 24
     # create a search URL
     def make_url(offset: int) -> str:
-        url = "https://www.rightmove.co.uk/api/_search?"
+        url = "https://www.rightmove.co.uk/api/property-search/listing/search?"
         params = {
-            "areaSizeUnit": "sqft",
-            "channel": "BUY",  # BUY or RENT
-            "currencyCode": "GBP",
-            "includeSSTC": "false",
-            "index": offset,  # page offset
-            "isFetching": "false",
-            "locationIdentifier": location_id,  # e.g.: "REGION^61294",
-            "numberOfPropertiesPerPage": RESULTS_PER_PAGE,
+            "searchLocation": location_name, # e.g.: "Cornwall"
+            "useLocationIdentifier": True,
+            "locationIdentifier": location_id, # e.g.: "REGION^61294"
             "radius": "0.0",
-            "sortType": "6",
-            "viewType": "LIST",
+            "_includeSSTC": True,
+            "index": offset, # page offset
+            "sortType": "2",
+            "channel": "BUY", # BUY or RENT
+            "transactionType": "BUY" # BUY or RENT
         }
         return url + urlencode(params)
 

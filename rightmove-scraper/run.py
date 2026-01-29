@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    rightmove.BASE_CONFIG["cache"] = True
+    rightmove.BASE_CONFIG["cache"] = False
 
     print("running rightmove scrape and saving results to ./results directory")
 
@@ -32,7 +32,7 @@ async def run():
 
     cornwall_id = (await rightmove.find_locations("cornwall"))[0]
     cornwall_results = await rightmove.scrape_search(
-        cornwall_id, max_properties=50, scrape_all_properties=False
+        location_name="Cornwall", location_id=cornwall_id, max_properties=50, scrape_all_properties=False
     )
     with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
         json.dump(cornwall_results, file, indent=2, ensure_ascii=False)

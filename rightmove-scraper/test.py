@@ -206,7 +206,7 @@ properties_schema = {
 async def test_search_scraping():
     cornwall_id = (await rightmove.find_locations("cornwall"))[0]
     search_data = await rightmove.scrape_search(
-        cornwall_id, max_properties=50, scrape_all_properties=False
+        location_name="Cornwall", location_id=cornwall_id, max_properties=50, scrape_all_properties=False
     )
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
