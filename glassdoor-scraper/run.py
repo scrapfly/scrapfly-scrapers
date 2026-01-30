@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    glassdoor.BASE_CONFIG["cache"] = True
+    glassdoor.BASE_CONFIG["cache"] = False
 
     print("running Glassdoor scrape and saving results to ./results directory")
 

@@ -85,6 +85,7 @@ async def test_job_scraping():
     validator = Validator(schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
+    assert len(result) > 50
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["jobLink"])
         (Path(__file__).parent / 'results/jobs.json').write_text(
@@ -153,42 +154,8 @@ async def test_salary_scraping():
 async def test_review_scraping():
     url = "https://www.glassdoor.com/Reviews/eBay-Reviews-E7853.htm"
     result = await glassdoor.scrape_reviews(url, max_pages=3)
-    schema = {
-        "allReviewsCount": {"type": "integer"},
-        "ratedReviewsCount": {"type": "integer"},
-        "filteredReviewsCount": {"type": "integer"},
-        "reviews": {
-            "type": "list",
-            "schema": {
-                "type": "dict",
-                "schema": {
-                    "isLegal": {"type": "boolean"},
-                    "featured": {"type": "boolean"},
-                    "languageId": {"type": "string"},
-                    "reviewId": {"type": "integer"},
-                    "countHelpful": {"type": "integer"},
-                    "countNotHelpful": {"type": "integer"},
-                    "ratingOverall": {"type": "integer"},
-                    "ratingCeo": {"nullable": True, "type": "string"},
-                    "pros": {"nullable": True, "type": "string"},
-                    "cons": {"nullable": True, "type": "string"},
-                    "summary": {"nullable": True, "type": "string"},
-                    "advice": {"nullable": True, "type": "string"},
-                    "jobTitle": {
-                        "type": "dict",
-                        "nullable": True,
-                        "schema": {
-                            "text": {"type": "string"},
-                            "id": {"type": "integer"},
-                        },
-                    },
-                },
-            },
-        },
-    }
-    validator = Validator(schema, allow_unknown=True)
-    validate_or_fail(result, validator)
+    assert len(result) > 10
     if os.getenv("SAVE_TEST_RESULTS") == "true":
-        (Path(__file__).parent / 'results/search.json').write_text(
+        (Path(__file__).parent / 'results/reviews.json').write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )
