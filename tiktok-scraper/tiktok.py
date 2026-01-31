@@ -62,6 +62,7 @@ async def scrape_posts(urls: List[str]) -> List[Dict]:
 
 def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
     """parse comments data from the API response"""
+    data = None
     _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
     comment_call = [f for f in _xhr_calls if "/api/comment/list/" in f["url"]]
     for xhr in comment_call:
@@ -69,6 +70,9 @@ def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
             continue
         data = json.loads(xhr["response"]["body"])
         break
+
+    if not data:
+        raise Exception("Comment XHR data not found")
 
     comments_data = data["comments"]
     parsed_comments = []
@@ -117,7 +121,8 @@ async def scrape_comments(post_url: str) -> List[Dict]:
                     "selector": "div.TUXTabBar",
                     "timeout": 5000
                 }
-            }
+            },
+            {"wait": 7000}
         ])
     )
     
