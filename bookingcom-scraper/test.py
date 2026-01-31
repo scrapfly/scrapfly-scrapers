@@ -11,6 +11,7 @@ import bookingcom
 # enable cache?
 # bookingcom.BASE_CONFIG["cache"] = True
 NOW = datetime.now().strftime('%Y-%m-%d')
+TODAY = datetime.now().strftime('%Y-%m-%d')
 WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')
 MONTH_FROM_NOW = (datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')
 bookingcom.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
@@ -19,7 +20,12 @@ bookingcom.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    result_search = await bookingcom.scrape_search(query="Malta", checkin="2023-06-10", checkout="2023-06-20", max_pages=3)
+    result_search = await bookingcom.scrape_search(
+        query="Malta",
+        checkin=TODAY,
+        checkout=WEEK_FROM_NOW,
+        max_pages=3
+    )
     assert len(result_search) >= 50
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/search.json').write_text(json.dumps(result_search, indent=2, ensure_ascii=False))

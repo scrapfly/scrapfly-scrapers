@@ -156,7 +156,7 @@ async def scrape_search(
     search_url = "https://www.booking.com/searchresults.en-gb.html?" + url_params
     # first scrape the first page and find total amount of pages
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
-    _total_results = int(first_page.selector.xpath("//h1[contains(text(),'properties found')]").re(r"([\d,]+) properties found")[0].replace(",", ""))
+    _total_results = int(first_page.selector.xpath("//h1[contains(@aria-label,'Search results')]").re(r"([\d,]+) (?:properties|exact matches) found")[0].replace(",", ""))
     _max_scrape_results = max_pages * 25
     if _max_scrape_results and _max_scrape_results < _total_results:
         _total_results = _max_scrape_results
