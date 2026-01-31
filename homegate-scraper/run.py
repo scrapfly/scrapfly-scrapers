@@ -23,7 +23,7 @@ async def run():
     properties_data = await homegate.scrape_properties(
         urls=[
             "https://www.homegate.ch/rent/4002086534",
-            "https://www.homegate.ch/rent/4002475362",
+            "https://www.homegate.ch/rent/4002765452",
             "https://www.homegate.ch/rent/4002086532",
         ]
     )
