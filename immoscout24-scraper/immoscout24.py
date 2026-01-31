@@ -4,6 +4,7 @@ This is an example web scraper for immoscout24.ch.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+import re
 import os
 import json
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
@@ -16,8 +17,8 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # bypass web scraping blocking
     "asp": True,
-    # set the proxy country to switzerland
-    "country": "CH",
+    # set the proxy country to germany
+    "country": "DE",
 }
 
 output = Path(__file__).parent / "results"
@@ -47,6 +48,19 @@ def parse_next_data(response: ScrapeApiResponse) -> Dict:
         return None
 
 
+def parse_property_page(response: ScrapeApiResponse) -> Dict:
+    """parse property page data from the nextjs cache"""
+    selector = response.selector
+    script_content = selector.xpath("//script[contains(., 'window.__INITIAL_STATE__')]/text()").get()
+    # parse the listing json using regex
+    pattern = r'window\.__INITIAL_STATE__\s*=\s*(\{.+?\})\s*\n\s*window\.__PINIA'
+    match = re.search(pattern, script_content, re.DOTALL)
+    if match is not None:
+        data = json.loads(match.group(1))
+        listing = data["listing"]["listing"]
+        return listing
+
+
 async def scrape_properties(urls: List[str]) -> List[Dict]:
     """scrape listing data from immoscout24 proeprty pages"""
     # add the property pages in a scraping list
@@ -54,12 +68,11 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     properties = []
     # scrape all property pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        data = parse_next_data(response)
         # handle expired property pages
         try:
-            properties.append(data["listing"]["listing"])
-        except:
-            log.info("expired property page")
+            properties.append(parse_property_page(response))
+        except Exception as e:
+            log.info("expired property page", e)
             pass
     log.info(f"scraped {len(properties)} property listings")
     return properties
@@ -82,7 +95,7 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
     log.info("scraping search {} pagination ({} more pages)", url, total_pages - 1)
     # add the remaining search pages in a scraping list
     other_pages = [
-        ScrapeConfig(first_page.context["url"] + f"?pn={page}", asp=True, country="CH")
+        ScrapeConfig(first_page.context["url"] + f"?pn={page}", **BASE_CONFIG)
         for page in range(2, total_pages + 1)
     ]
     # scrape the remaining search pages concurrently
