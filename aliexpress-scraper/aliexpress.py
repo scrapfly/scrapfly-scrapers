@@ -91,6 +91,21 @@ class Product(TypedDict):
     seller: Dict
     reviewData: Dict
 
+def _parse_count(text):
+    """Parse count strings like '100K', '1M', '1,000+', 'similar items', etc."""
+    if not text:
+        return 0
+    text = text.replace(" sold", "").replace(" available", "").replace(",", "").replace("+", "").strip()
+    text = text.split()[0] if text else ""
+    
+    if not text:
+        return 0
+    multiplier = 1
+    try:
+        return int(float(text) * multiplier)
+    except (ValueError, TypeError):
+        return 0
+    
 
 def parse_product(result: ScrapeApiResponse) -> Product:
     """parse product HTML page for product data"""
@@ -99,6 +114,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
     rate = selector.xpath("//div[contains(@class,'rating--wrap')]/div").getall()
     sold_count = selector.xpath("//a[contains(@class, 'reviewer--sliderItem')]//span[contains(text(), 'sold')]/text()").get()
     available_count = selector.xpath("//div[contains(@class,'quantity--info')]/div/span/text()").get()
+    
     info = {
         "name": selector.xpath("//h1[@data-pl]/text()").get(),
         "productId": int(result.context["url"].split("item/")[-1].split(".")[0]),
@@ -106,8 +122,8 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "media": selector.xpath("//div[contains(@class,'slider--img')]/img/@src").getall(),
         "rate": len(rate) if rate else None,
         "reviews": int(reviews.replace(" Reviews", "")) if reviews else None,
-        "soldCount": int(sold_count.replace(" sold", "").replace(",", "").replace("+", "")) if sold_count else 0,
-        "availableCount": int(available_count.replace(" available", "")) if available_count else None
+        "soldCount": _parse_count(sold_count),
+        "availableCount": _parse_count(available_count)
     }
     price = selector.xpath("//span[contains(@class,'price-default--current')]/text()").get()
     original_price = selector.xpath("//span[contains(@class,'price-default--original')]//text()").get()
@@ -119,16 +135,7 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "originalPrice": float(original_price.split("$")[-1]) if original_price else "No discount",
         "discount": discount if discount else "No discount",
     }
-    shipping_cost = selector.xpath("//strong[contains(text(),'Shipping')]/text()").get()
-    delivery = selector.xpath("//strong[contains(text(),'Delivery')]/span/text()").get()
-    if not delivery:
-        # Fallback selector 
-        delivery = selector.xpath("//div[contains(@class,'dynamic-shipping-contentLayout')]//span[@style]/text()").get()
-    shipping = {
-        "cost": float(shipping_cost.split("$")[-1]) if shipping_cost else None,
-        "currency": "$",
-        "delivery": delivery
-    }
+    delivery = selector.xpath("(//div[@class='dynamic-shipping']//strong/text())[2]").get()
     specifications = []
     for i in selector.xpath("//div[contains(@class,'specification--prop')]"):
         specifications.append({
@@ -141,40 +148,21 @@ def parse_product(result: ScrapeApiResponse) -> Product:
             "question": i.xpath(".//p[@class='ask-content']/span/text()").get(),
             "answer": i.xpath(".//ul[@class='answer-box']/li/p/text()").get()
         })
-    seller_link = selector.xpath("//a[@data-pl='store-name']/@href").get()
-    seller_followers = selector.xpath("//div[contains(@class,'store-info')]/strong[2]/text()").get()
-    seller_followers = int(float(seller_followers.replace('K', '')) * 1000) if seller_followers and 'K' in seller_followers else int(seller_followers) if seller_followers else None
-    seller = {
-        "name": selector.xpath("//a[@data-pl='store-name']/text()").get(),
-        "link": seller_link.split("?")[0].replace("//", "") if seller_link else None,
-        "id": int(seller_link.split("store/")[-1].split("?")[0]) if seller_link else None,
-        "info": {
-            "positiveFeedback": selector.xpath("//div[contains(@class,'store-info')]/strong/text()").get(),
-            "followers": seller_followers
-        }
-    }
+
     return {
         "info": info,
         "pricing": pricing,
         "specifications": specifications,
-        "shipping": shipping,
-        "faqs": faqs,
-        "seller": seller,
+        "delivery": delivery,
+        "faqs": faqs
     }
 
 
 async def scrape_product(url: str) -> List[Product]:
     """scrape aliexpress products by id"""
     log.info("scraping product: {}", url)
-    # result = await SCRAPFLY.async_scrape(ScrapeConfig(
-    #     url, **BASE_CONFIG, render_js=True, auto_scroll=True,
-    #     rendering_wait=5000,js_scenario=[
-    #         {"wait_for_selector": {"selector": "//div[@id='nav-specification']//button", "timeout": 5000}},
-    #         {"click": {"selector": "//div[@id='nav-specification']//button", "ignore_if_not_visible": True}}
-    #     ], proxy_pool="public_residential_pool"
-    # ))
     result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool"
+        url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool", auto_scroll=True
     ))    
     data = parse_product(result)
     log.success("successfully scraped product: {}", url)    
@@ -221,8 +209,6 @@ def parse_category_page(response: ScrapeApiResponse):
     """Parse category page response for product preview results"""
     selector = response.selector
     script_data = selector.xpath('//script[contains(.,"_init_data_=")]')
-    with open('script_data.html', 'w', encoding='utf-8') as f:
-        f.write(script_data.get())
     json_data = json.loads(script_data.re(r"_init_data_\s*=\s*{\s*data:\s*({.+}) }")[0])
     json_data = json_data['data']['root']['fields']
     product_data = json_data['mods']['itemList']['content']
