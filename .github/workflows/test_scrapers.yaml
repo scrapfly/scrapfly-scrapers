@@ -12,6 +12,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - project_dir: allegro-scraper
+            test: test_search_scraping
+          - project_dir: allegro-scraper
+            test: test_product_scraping          
           - project_dir: tiktok-scraper
             test: test_comment_scraping
           - project_dir: tiktok-scraper
