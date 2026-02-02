@@ -12,6 +12,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - project_dir: allegro-scraper
+            test: test_search_scraping
+          - project_dir: allegro-scraper
+            test: test_product_scraping          
           - project_dir: tiktok-scraper
             test: test_comment_scraping
           - project_dir: tiktok-scraper
@@ -54,6 +58,8 @@ jobs:
             test: test_search_scraping
           - project_dir: bookingcom-scraper
             test: test_hotel_scraping
+          - project_dir: bookingcom-scraper
+            test: test_hotel_reviews_scraping
           - project_dir: indeed-scraper
             test: test_search_scraping
           - project_dir: indeed-scraper
@@ -228,6 +234,8 @@ jobs:
             test: test_product_scraping
           - project_dir: aliexpress-scraper
             test: test_review_scraping
+          - project_dir: aliexpress-scraper
+            test: test_category_scraping
           - project_dir: idealista-scraper
             test: test_idealista_scraping
           - project_dir: idealista-scraper
@@ -256,10 +264,8 @@ jobs:
             test: test_search_scraping
           - project_dir: amazon-scraper
             test: test_product_scraping
-          - project_dir: allegro-scraper
-            test: test_search_scraping
-          - project_dir: allegro-scraper
-            test: test_product_scraping
+          - project_dir: amazon-scraper
+            test: test_review_scraping
 
     steps:
     - uses: actions/checkout@v4

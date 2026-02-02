@@ -29,44 +29,7 @@ output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
 
-class ShippingInfo(TypedDict):
-    """Shipping and delivery information"""
-    shipping_price: str
-    return_policy: str
-
-
-class Review(TypedDict):
-    """Product review information"""
-    author: str
-    rating: int
-    content: str
-    pros: str
-    date: str
-
-
-class AllegroProduct(TypedDict):
-    """Complete Allegro product data structure"""
-    product_title: str
-    price: str
-    shipping_info: ShippingInfo
-    images: List[str]
-    rating: str
-    reviews_count: int
-    reviews: List[Review]
-    seller: str
-    specifications: List[Dict[str, str]]
-    allegro_smart_badge: bool
-
-
-class AllegroSearch(TypedDict):
-    """Allegro search results"""
-    products: List[Dict]
-    scraped_pages: int      # Number of pages actually scraped
-    products_count: int     # Number of products scraped
-    total_pages: int        # Total pages available on Allegro
-    total_count: int        # Total products available on Allegro
-
-def parse_search(result: ScrapeApiResponse) -> AllegroSearch:
+def parse_search(result: ScrapeApiResponse) -> List[Dict]:
     """Parse Allegro search page for product listings"""
     # Find the main JSON data with search results
     search_meta_json = result.selector.xpath(
@@ -120,7 +83,7 @@ def parse_search(result: ScrapeApiResponse) -> AllegroSearch:
     }
     return data
 
-async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool = False) -> List[AllegroSearch]:
+async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool = False) -> List[Dict]:
     """
     Scrape Allegro search pages for product listings
 
@@ -175,74 +138,42 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
     }
     return data
 
-def parse_product(result: ScrapeApiResponse) -> AllegroProduct:
+def parse_product(result: ScrapeApiResponse) -> Dict:
     """Parse Allegro product page for product data"""
     sel = result.selector
 
-    # Extract JSON data from script tags
-    # Price and basic info
-    price_json = sel.xpath(
-        '//script[@data-serialize-box-id and contains(text(), "formattedPrice")]/text()'
-    ).get()
-    price_data = json.loads(price_json) if price_json else {}
+    # pricing
+    price_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "formattedPrice")]/text()').get()
+    price_data = json.loads(price_json) if price_json else None
+    if price_data is not None:
+        price_data = {
+            "formattedPrice": price_data.get("price", {}).get("formattedPrice", None),
+            "formattedPriceParts": price_data.get("price", {}).get("formattedPriceParts", None),
+            "currency": price_data.get("price", {}).get("currency", None),
+            "coupon": price_data.get("coupon", None)
+        }
 
-    # Gallery images
-    gallery_json = sel.xpath(
-        '//script[@data-serialize-box-id and contains(text(), "gallery")]/text()'
-    ).get()
-    gallery_data = json.loads(gallery_json) if gallery_json else {}
+    # images
+    gallery_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "gallery")]/text()').get()
+    gallery_data = json.loads(gallery_json) if gallery_json else None
+    if gallery_data is not None:
+        gallery_images = gallery_data.get("gallery", None)
 
-    # Seller info
-    seller_json = sel.xpath(
-        '//script[@data-serialize-box-id and contains(text(), "sellerName")]/text()'
-    ).get()
+    # fallback to html parsing
+    if not gallery_images:
+        gallery_images = sel.xpath('//button[@aria-selected]//img/@src').getall()
+
+    # seller info
+    seller_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "sellerName")]/text()').get()
     seller_data = json.loads(seller_json) if seller_json else {}
 
-    # Rating and reviews - Parse all JSON scripts that contain rating/reviews info
-    rating_json_list = sel.xpath(
-        '//script[@data-serialize-box-id and (contains(text(), "rating") or contains(text(), "reviews"))]/text()'
-    ).getall()
-    
-    # Initialize variables
-    rating_value = ""
-    reviews_count = 0
-    processed_reviews = []
-    
-    # Parse each JSON to find rating and reviews
-    for rating_json in rating_json_list:
-        try:
-            data = json.loads(rating_json)
-            
-            # Check for rating in standard format
-            if 'rating' in data and isinstance(data['rating'], dict):
-                rating_value = rating_value or str(data['rating'].get('value', '') or data['rating'].get('ratingValue', ''))
-                reviews_count = reviews_count or data['rating'].get('reviewsCount', 0)
-                if rating_value:
-                    log.info(f"Found rating: {rating_value}, reviews count: {reviews_count}")
-            
-            # Check for aggregateRating format
-            if 'aggregateRating' in data and isinstance(data['aggregateRating'], dict):
-                rating_value = rating_value or str(data['aggregateRating'].get('value', ''))
-                reviews_count = reviews_count or data['aggregateRating'].get('count', {}).get('reviews', 0)
-                if rating_value:
-                    log.info(f"Found aggregateRating: {rating_value}, reviews count: {reviews_count}")
-            
-            # Extract reviews array if present
-            if 'reviews' in data and isinstance(data['reviews'], list):
-                for review in data['reviews']:
-                    processed_reviews.append({
-                        'author': review.get('author', ''),
-                        'rating': review.get('rating', 0),
-                        'content': review.get('content', ''),
-                        'pros': review.get('pros', ''),
-                        'date': review.get('datePublished', '')
-                    })
-                log.info(f"Found {len(data['reviews'])} reviews")
-                
-        except json.JSONDecodeError as e:
-            log.error(f"Error parsing rating JSON: {e}")
-            continue
-    # Extract specifications from HTML
+    # review data
+    review_script = sel.xpath('//script[contains(text(), "aggregateRating")]/text()').get()
+    review_data = json.loads(review_script) if review_script else None
+    rating = review_data.get("aggregateRating", None)
+    reviews = review_data.get("reviews", None)
+
+    # specifications
     specifications = []
     for spec_item in sel.xpath("//ul/li[b]"):
         key = spec_item.xpath(".//b/text()").get()
@@ -252,50 +183,43 @@ def parse_product(result: ScrapeApiResponse) -> AllegroProduct:
                 {"key": key.strip().rstrip(":"), "value": value.strip()}
             )
 
-    # Extract shipping info from HTML
-    shipping_price = ""
-    shipping_text = ""
-
-    shipping_elem = sel.xpath(
-        '//button[@data-analytics-view-label="ShippingInfo"]//span/text()'
-    ).get()
+    # shipping info
+    shipping_elem = sel.xpath('//button[@data-analytics-view-label="ShippingInfo"]//span/text()').get()
     if shipping_elem:
         shipping_text = shipping_elem.strip()
         # Extract just the price value
         price_match = re.search(r"(\d+[.,]\d+)", shipping_text)
-        if price_match:
-            shipping_price = price_match.group(1)
+        shipping_price = price_match.group(1) if price_match else None
 
+    # return policy
+    return_elem = sel.xpath('//button[@data-analytics-view-label="TrustInfo"]//div/text()').get()
+    return_policy = return_elem.strip() if return_elem else None
 
-    # Extract return policy
-    return_policy = ""
-    return_elem = sel.xpath(
-        '//button[@data-analytics-view-label="TrustInfo"]//div/text()'
-    ).get()
-    if return_elem:
-        return_policy = return_elem.strip()
-
-    # Build the product data
+    # final product data
     parsed_data = {
-        "product_title": sel.xpath('//meta[@property="og:title"]/@content').get(""),
-        "price": price_data.get("price", {}).get("formattedPrice", ""),
+        "title": sel.xpath('//meta[@property="og:title"]/@content').get(""),
+        "price": price_data,
+        "images": gallery_images,
         "shipping_info": {
-            "shipping_price": shipping_price,
+            "shipping_price": shipping_price if shipping_price else None,
             "return_policy": return_policy,
         },
-        "images": gallery_data.get("gallery", []),
-        "rating": rating_value,
-        "reviews_count": reviews_count,
-        "reviews": processed_reviews, 
-        "seller": seller_data.get("sellerName", ""),
-        "specifications": specifications,
-        "allegro_smart_badge": bool(sel.xpath('//img[contains(@src, "smart")]').get()),
+        "rating": rating,
+        "specifications": specifications, 
+        "seller":{
+            "name": seller_data.get("sellerName", None),
+            "rating": seller_data.get("sellerRating", None),
+            "isSuperSeller": seller_data.get("isSuperSeller", None),
+            "url": seller_data.get("sellerListingUrl", None)
+        },
+        "reviews": reviews,
+        "allegro_smart_badge": bool(sel.xpath('//img[contains(@src, "smart")]').get())
     }
 
     return parsed_data
 
 
-async def scrape_product(urls: list[str]) -> List[AllegroProduct]:
+async def scrape_product(urls: list[str]) -> Dict:
     """scrape a single Allegro product"""
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     data = []

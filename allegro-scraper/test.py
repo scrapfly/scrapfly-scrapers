@@ -30,32 +30,45 @@ def require_min_presence(items, key, min_perc=0.1):
 
 
 product_schema = {
-    "product_title": {"type": "string"},
-    "price": {"type": "string"},
-    "shipping_info": {
+    "title": {"type": "string"},
+    "price": {
         "type": "dict",
         "schema": {
-            "shipping_price": {"type": "string"},
-            "return_policy": {"type": "string"},
+            "formattedPrice": {"type": "string"},
+            "formattedPriceParts": {
+                "type": "dict",
+                "schema": {
+                    "main": {"type": "string"},
+                    "fraction": {"type": "string"},
+                },
+            },
+            "currency": {"type": "string"},
+            "coupon": {"type": "string", "nullable": True},
         },
     },
     "images": {"type": "list", "schema": {"type": "string"}},
-    "rating": {"type": "string"},
-    "reviews_count": {"type": "integer"},
-    "reviews": {
-        "type": "list",
+    "shipping_info": {
+        "type": "dict",
         "schema": {
-            "type": "dict",
-            "schema": {
-                "author": {"type": "string"},
-                "rating": {"type": "integer"},
-                "content": {"type": "string"},
-                "pros": {"type": "string"},
-                "date": {"type": "string"},
+            "shipping_price": {"type": "string", "nullable": True},
+            "return_policy": {"type": "string"},
+        },
+    },
+    "rating": {
+        "type": "dict",
+        "schema": {
+            "value": {"type": "float"},
+            "label": {"type": "string"},
+            "count": {
+                "type": "dict",
+                "schema": {
+                    "total": {"type": "integer"},
+                    "deleted": {"type": "integer"},
+                    "reviews": {"type": "integer"},
+                },
             },
         },
     },
-    "seller": {"type": "string"},
     "specifications": {
         "type": "list",
         "schema": {
@@ -63,6 +76,43 @@ product_schema = {
             "schema": {
                 "key": {"type": "string"},
                 "value": {"type": "string"},
+            },
+        },
+    },
+    "seller": {
+        "type": "dict",
+        "schema": {
+            "name": {"type": "string"},
+            "rating": {"type": "string"},
+            "isSuperSeller": {"type": "boolean"},
+            "url": {"type": "string"},
+        },
+    },
+    "reviews": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "id": {"type": "string"},
+                "source": {"type": "string"},
+                "author": {"type": "string"},
+                "seller": {"type": "string"},
+                "rating": {"type": "integer"},
+                "content": {"type": "string"},
+                "pros": {"type": "string", "nullable": True},
+                "cons": {"type": "string", "nullable": True},
+                "photos": {"type": "list", "schema": {"type": "string"}},
+                "datePublished": {"type": "string"},
+                "votes": {
+                    "type": "dict",
+                    "schema": {
+                        "positive": {"type": "integer"},
+                    },
+                },
+                "language": {"type": "string"},
+                "showTranslation": {"type": "boolean"},
+                "flags": {"type": "list", "schema": {"type": "string"}},
+                "productVariant": {"type": "list"},
             },
         },
     },
