@@ -143,6 +143,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
             method='POST',
             asp=True,
             country="US",
+            render_js=False,  # POST requests don't support render_js=True
             headers={
                 "content-type": "application/json",
             },
@@ -183,6 +184,9 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     first_api_page = await SCRAPFLY.async_scrape(
         generate_api_request_config(employer_metadata['employer_id'], employer_metadata['dynamic_profile_id'], 1)
     )
+    if isinstance(first_api_page, ScrapflyScrapeError):
+        log.error(f"Failed to scrape first API page, got: {first_api_page.message}")
+        return {"reviews": [], "message": "Failed to scrape reviews API"}
     first_page_data = json.loads(first_api_page.content)
     review_data.extend(first_page_data['data']['employerReviews']['reviews'])
     total_pages = first_page_data['data']['employerReviews']['numberOfPages']
@@ -197,6 +201,9 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
+        if isinstance(result, ScrapflyScrapeError):
+            log.error(f"failed to scrape reviews page, got: {result.message}")
+            continue
         page_data = json.loads(result.content)
         review_data.extend(page_data['data']['employerReviews']['reviews'])
 
