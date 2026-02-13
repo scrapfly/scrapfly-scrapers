@@ -159,7 +159,7 @@ def parse_search(response: ScrapeApiResponse):
         if not url:
             continue
         price = box.xpath(".//p[contains(@class, 'priceText')]/text()").get()
-        sq_ft = box.xpath(".//span[contains(text(),'sq. ft')]/text()").get()
+        sq_ft = box.xpath(".//span[contains(text(),'sq ft')]/text()").get()
         sq_ft = int(sq_ft.split(" ")[0]) if sq_ft else None
         listed_on = box.xpath(".//li[contains(text(), 'Listed on')]/text()").get()
         listed_on = listed_on.split("on")[-1].strip() if listed_on else None
