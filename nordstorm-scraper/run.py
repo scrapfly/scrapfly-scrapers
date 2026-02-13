@@ -24,7 +24,7 @@ async def run():
         urls=[
             "https://www.nordstrom.com/s/nike-air-max-90-sneaker-men/6549520",
             "https://www.nordstrom.com/s/hank-kent-performance-twill-dress-shirt-regular-big/7783670",
-            "https://www.nordstrom.com/s/relaxed-cotton-blend-zip-hoodie/8347714",
+            "https://www.nordstrom.com/s/bp-fleece-hoodie/7786657",
         ]
     )
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
