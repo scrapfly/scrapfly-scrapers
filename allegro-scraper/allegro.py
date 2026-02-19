@@ -172,6 +172,12 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
     review_data = json.loads(review_script) if review_script else None
     rating = review_data.get("aggregateRating", None)
     reviews = review_data.get("reviews", None)
+    if reviews:
+        for review in reviews:
+            for field in ("content", "pros", "cons"):
+                val = review.get(field)
+                if isinstance(val, dict):
+                    review[field] = val.get("text")
 
     # specifications
     specifications = []

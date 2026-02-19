@@ -120,7 +120,7 @@ def parse_reviews(result: ScrapeApiResponse) -> List[Review]:
                 "text": "".join(box.css("[data-hook=review-collapsed] ::text").getall()).strip(),
                 "title": box.css("*[data-hook=review-title]>span::text").get(),
                 "location_and_date": box.css("span[data-hook=review-date] ::text").get(),
-                "verified": bool(box.css("span[data-hook=avp-badge-linkless] ::text").get()),
+                "verified": bool(box.css("span[data-hook=avp-badge] ::text").get()),
                 "rating": float(rating) if rating else None,
             }
         )
@@ -166,7 +166,7 @@ def parse_product(result) -> Product:
     parsed = {
         "name": sel.css("#productTitle::text").get("").strip(),
         "asin": sel.css("input[name=ASIN]::attr(value)").get("").strip(),
-        "style": ''.join(sel.xpath("//span[contains(@id, 'style_name_')]//text()").getall()).strip(),
+        "style": ''.join(sel.css("[id^=inline-twister-expanded-dimension-text] ::text").getall()).strip(),
         "description": '\n'.join(sel.css("#productDescription p span ::text").getall()).strip(),
         "stars": sel.css("i[data-hook=average-star-rating] ::text").get("").strip(),
         "rating_count": sel.css("span[data-hook=total-review-count] ::text").get("").strip(),
