@@ -30,11 +30,11 @@ async def run():
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
         json.dump(products_data, file, indent=2, ensure_ascii=False)
 
-    # search_data = await nordstorm.scrape_search(
-    #     url="https://www.nordstrom.com/sr?origin=keywordsearch&keyword=indigo", max_pages=2
-    # )
-    # with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
-    #     json.dump(search_data, file, indent=2, ensure_ascii=False)
+    search_data = await nordstorm.scrape_search(
+        url="https://www.nordstrom.com/sr?origin=keywordsearch&keyword=indigo", max_pages=2
+    )
+    with open(output.joinpath("search.json"), "w", encoding="utf-8") as file:
+        json.dump(search_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
