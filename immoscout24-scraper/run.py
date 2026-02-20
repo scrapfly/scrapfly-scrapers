@@ -23,7 +23,7 @@ async def run():
     properties_data = await immoscout24.scrape_properties(
         urls=[
             'https://www.immoscout24.ch/rent/4002086534',
-            'https://www.immoscout24.ch/rent/4002838673',
+            'https://www.immoscout24.ch/rent/4002937830',
             'https://www.immoscout24.ch/rent/4002784101'
         ]    
     )

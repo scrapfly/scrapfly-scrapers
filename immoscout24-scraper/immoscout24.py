@@ -51,14 +51,24 @@ def parse_next_data(response: ScrapeApiResponse) -> Dict:
 def parse_property_page(response: ScrapeApiResponse) -> Dict:
     """parse property page data from the nextjs cache"""
     selector = response.selector
-    script_content = selector.xpath("//script[contains(., 'window.__INITIAL_STATE__')]/text()").get()
-    # parse the listing json using regex
-    pattern = r'window\.__INITIAL_STATE__\s*=\s*(\{.+?\})\s*\n\s*window\.__PINIA'
-    match = re.search(pattern, script_content, re.DOTALL)
-    if match is not None:
-        data = json.loads(match.group(1))
-        listing = data["listing"]["listing"]
-        return listing
+    script_content = selector.xpath("//script[contains(., 'window.__PINIA_INITIAL_STATE__')]/text()").get()
+    # extract the JSON using bracket matching
+    idx = script_content.find("window.__PINIA_INITIAL_STATE__")
+    start = script_content.find("{", idx)    
+    depth = 0
+    end = start
+    for i, ch in enumerate(script_content[start:], start):
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    json_str = script_content[start:end].replace("undefined", "null")
+    data = json.loads(json_str)
+    return data["listing"]["listing"]
+
 
 
 async def scrape_properties(urls: List[str]) -> List[Dict]:
