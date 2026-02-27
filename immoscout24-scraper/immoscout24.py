@@ -19,6 +19,9 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to germany
     "country": "DE",
+    "proxy_pool": "public_residential_pool",
+    "rendering_wait": 5000,
+    "render_js": True,
 }
 
 output = Path(__file__).parent / "results"
