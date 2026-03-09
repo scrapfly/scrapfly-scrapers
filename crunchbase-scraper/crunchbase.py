@@ -24,7 +24,6 @@ BASE_CONFIG = {
     "asp": True,
     "render_js": True,
     "proxy_pool": "public_residential_pool",
-    "rendering_wait": 5000,
 }
 
 

@@ -244,6 +244,8 @@ async def scrape_hotel(url: str, checkin: str, price_n_days=61) -> Hotel:
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
+            render_js=True,
+            rendering_wait=3000,
             session=session,
             **BASE_CONFIG,
         )
@@ -312,7 +314,8 @@ def retrieve_reviews_api_xhr_call(result: ScrapeApiResponse) -> Dict:
     """retrieve the reviews xhr call from the captured browser data"""
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
     for xhr in _xhr_calls:
-        if "reviewCard" in xhr["response"]["body"]:
+        body = (xhr.get("response") or {}).get("body") or ""
+        if "reviewCard" in body:
             return xhr
 
 
@@ -323,7 +326,7 @@ async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> Lis
     session_id = str(uuid4()).replace("-", "")
     log.info(f"scraping the main reviews page for the url {url} before scraping the graphql api")
     main_reviews_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, rendering_wait=5000, session=session_id)
+        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, wait_for_selector="xhr:dml/graphql", session=session_id)
     )
     reviews_xhr_call = retrieve_reviews_api_xhr_call(main_reviews_page)
     gql_body = json.loads(reviews_xhr_call["body"])
