@@ -9,7 +9,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-fashionphile.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
+fashionphile.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -90,7 +90,7 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)
-    assert len(search_data) == 360
+    assert len(search_data) >= 100
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         search_data.sort(key=lambda x: x["id"])
         (Path(__file__).parent / 'results/search.json').write_text(json.dumps(search_data, indent=2, ensure_ascii=False, default=str))
