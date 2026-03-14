@@ -53,8 +53,8 @@ async def test_hotel_scraping():
             "description": {"type": "string"},
             "address": {"type": "string"},
             "images": {"type": "list"},
-            "lat": {"type": "float", "coerce": float},
-            "lng": {"type": "float", "coerce": float},
+            "lat": {"type": "string"},
+            "lng": {"type": "string"},
             'price': {
                 'type': 'list',
                 'schema': {

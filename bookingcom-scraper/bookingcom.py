@@ -203,25 +203,23 @@ class Hotel(TypedDict):
 def parse_hotel(result: ScrapeApiResponse) -> Hotel:
     log.debug("parsing hotel page: {}", result.context["url"])
     sel = result.selector
-
     features = defaultdict(list)
-    for box in sel.xpath('//div[@data-testid="property-section--content"]/div[2]/div'):
-        type_ = box.xpath('.//span[contains(@data-testid, "facility-group-icon")]/../text()').get()
-        if not type_:
-            continue
-        feats = [f.strip() for f in box.css("li ::text").getall() if f.strip()]
-        features[type_] = feats
+    for wrapper in sel.css('[data-testid="property-most-popular-facilities-wrapper"]'):
+        header = wrapper.css("h3 ::text").get("").strip()
+        feats = [f.strip() for f in wrapper.css("li ::text").getall() if f.strip()]
+        if header and feats:
+            features[header] = feats
 
     css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
     xpath = lambda selector, sep="": sep.join(sel.xpath(selector).getall()).strip()
-    lat, lng = sel.css(".show_map_hp_link::attr(data-atlas-latlng)").get("0,0").split(",")
+    lat, lng = sel.xpath("//div[@data-testid='PropertyHeaderAddressDesktop-wrapper']//a/@data-atlas-latlng").get().split(",")
     id = re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)
     data = {
         "url": result.context["url"],
         "id": id[0] if id else None,
         "title": sel.css("h2::text").get(),
         "description": css('[data-capla-component-boundary="b-property-web-property-page/PropertyDescriptionDesktop"] ::text', "\n"),
-        "address": xpath("//*[@id='map_trigger_header_pin']/following-sibling::span[1]//text()"),
+        "address": sel.xpath("//div[@data-testid='PropertyHeaderAddressDesktop-wrapper']//button/div/text()").get(),
         "images": sel.css("#photo_wrapper img::attr(src)").getall(),
         "lat": lat,
         "lng": lng,
@@ -248,6 +246,7 @@ async def scrape_hotel(url: str, checkin: str, price_n_days=61) -> Hotel:
             rendering_wait=3000,
             session=session,
             **BASE_CONFIG,
+            auto_scroll=True
         )
     )
     hotel = parse_hotel(result)
