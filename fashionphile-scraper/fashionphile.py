@@ -112,7 +112,7 @@ def extract_product_from_card(card_selector) -> Dict:
 
 async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
     # Scrape first page
-    result_first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    result_first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, wait_for_selector='.fp-algolia-product-card'))
     selector = result_first_page.selector
     
     # Find all product cards

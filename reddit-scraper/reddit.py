@@ -31,9 +31,10 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
     info["id"] = url.split("/r")[-1].replace("/", "")
     info["description"] = selector.xpath("//shreddit-subreddit-header/@description").get()
     members_text = selector.xpath("//faceplate-number[following-sibling::text()[contains(., 'members')]]/@number").get()
+    weekly_active = selector.xpath("//shreddit-subreddit-header/@weekly-active-users").get()
     rank = selector.xpath("//strong[@id='position']/text()").get()
     info["rank"] = rank.strip() if rank else None
-    info["members"] = int(members_text) if members_text else None
+    info["members"] = int(members_text) if members_text else (int(weekly_active) if weekly_active else None)
     info["bookmarks"] = {}
     for item in selector.xpath("//div[faceplate-tracker[@source='community_menu']]/faceplate-tracker"):
         name = item.xpath(".//a/span/span/span/text()").get()
