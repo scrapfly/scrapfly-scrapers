@@ -67,11 +67,15 @@ def parse_place(response: ScrapeApiResponse) -> Dict:
 async def scrape_google_map_places(urls: List[str]) -> List[Dict]:
     """scrape google map place pages"""
     data = []
+    js = [
+        {"click": {"selector": "button[aria-label='Search']"}},
+        {"wait_for_selector": {"selector": "//button[contains(@jsaction, 'reviewlegaldisclosure')]"}}
+    ]  
     to_scrape = [
         ScrapeConfig(
             url=url,
             **BASE_CONFIG,
-            wait_for_selector="//button[contains(@jsaction, 'reviewlegaldisclosure')]",
+            js_scenario=js
         )
         for url in urls
     ]
@@ -106,6 +110,7 @@ async def find_google_map_places(query: str) -> List[Dict]:
             url=f"https://www.google.com/maps/search/{query.replace(' ', '+')}/?hl=en",
             render_js=True,
             js=script,
+            wait_for_selector="div.Nv2PK a, div.tH5CWc a, div.THOPZb a",
             country="US",
         )
     )
