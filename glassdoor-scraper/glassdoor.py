@@ -309,16 +309,16 @@ class FoundCompany(TypedDict):
 
     name: str
     id: int
+    shortName: str
     logoURL: str
-    employerId: int
-    employerName: str
+    websiteURL: str
 
 
 async def find_companies(query: str) -> List[FoundCompany]:
     """find company Glassdoor ID and name by query. e.g. "ebay" will return "eBay" with ID 7853"""
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url=f"https://www.glassdoor.com/api-web/employer/find.htm?autocomplete=true&maxEmployersForAutocomplete=50&term={query}",
+            url=f"https://www.glassdoor.com/autocomplete/employers?term={query}",
             **BASE_CONFIG,
         )
     )
@@ -329,15 +329,9 @@ async def find_companies(query: str) -> List[FoundCompany]:
             {
                 "name": result["label"],
                 "id": result["id"],
-                "logoURL": result["logoURL"],
-                "employerId": (
-                    result["parentRelationshipVO"]["employerId"] if result["parentRelationshipVO"] is not None else None
-                ),
-                "employerName": (
-                    result["parentRelationshipVO"]["employerName"]
-                    if result["parentRelationshipVO"] is not None
-                    else None
-                ),
+                "shortName": result.get("shortName", ""),
+                "logoURL": result.get("logoURL"),
+                "websiteURL": result.get("websiteURL", ""),
             }
         )
     return companies
