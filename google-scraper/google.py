@@ -88,29 +88,30 @@ async def scrape_google_map_places(urls: List[str]) -> List[Dict]:
 async def find_google_map_places(query: str) -> List[Dict]:
     script = """
         function waitCss(selector, n=1, require=false, timeout=5000) {
-        console.log(selector, n, require, timeout);
-        var start = Date.now();
-        while (Date.now() - start < timeout){
-            if (document.querySelectorAll(selector).length >= n){
-            return document.querySelectorAll(selector);
+            console.log(selector, n, require, timeout);
+            var start = Date.now();
+            while (Date.now() - start < timeout){
+                if (document.querySelectorAll(selector).length >= n){
+                    return document.querySelectorAll(selector);
+                }
+            }
+            if (require){
+                throw new Error(`selector "${selector}" timed out in ${Date.now() - start} ms`);
+            } else {
+                return document.querySelectorAll(selector);
             }
         }
-        if (require){
-            throw new Error(`selector "${selector}" timed out in ${Date.now() - start} ms`);
-        } else {
-            return document.querySelectorAll(selector);
-        }
-        }
 
-        var results = waitCss("div.Nv2PK a, div.tH5CWc a, div.THOPZb a", n=10, require=false);
-        return Array.from(results).map((el) => el.getAttribute("href"))
+        var results = waitCss("div[aria-label*='Results for'] div a", 10, false);
+        return Array.from(results).map((el) => el.getAttribute("href"));
     """
+    log.info(f"scraping google map place pages for query: {query}")
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=f"https://www.google.com/maps/search/{query.replace(' ', '+')}/?hl=en",
             render_js=True,
             js=script,
-            wait_for_selector="div.Nv2PK a, div.tH5CWc a, div.THOPZb a",
+            wait_for_selector="//div[contains(@aria-label, 'Results for')]//div/a",
             country="US",
         )
     )
@@ -197,7 +198,7 @@ def parse_serp(response: ScrapeApiResponse) -> List[Dict]:
         position = int(response.context["url"].split("start=")[-1])
 
     for box in selector.xpath(
-        "//h1[contains(text(),'Search Results')]/following-sibling::div[1]/div"
+        "//div[@id='search']/div/div/div"
     ):
         title = box.xpath(".//h3/text()").get()
         url = box.xpath(".//h3/../@href").get()
