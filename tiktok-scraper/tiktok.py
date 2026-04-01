@@ -188,7 +188,15 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
 async def scrape_search(keyword: str) -> List[Dict]:
     """scrape tiktok search data by scrolling the search page"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 10000)); setTimeout(() => scrollToEnd(), 5000);"""
+    js_scenario = [
+        {"wait_for_selector": {"selector": "main", "state": "visible", "timeout": 10000}},
+        {
+            "execute": {
+                "script": "const wait = ms => new Promise(r => setTimeout(r, ms)); const container = document.querySelector('main') || document.scrollingElement || document.body; for (let i = 0; i < 10; i++) { if (container.clientHeight + container.scrollTop >= container.scrollHeight - 10) break; container.scrollTo(0, container.scrollHeight); await wait(3000); }",
+                "timeout": 35000,
+            }
+        },
+    ]
     url = f"https://www.tiktok.com/search?q={quote(keyword)}"
     log.info(f"scraping search page with the URL {url} for search data")
     response = await SCRAPFLY.async_scrape(
@@ -199,8 +207,10 @@ async def scrape_search(keyword: str) -> List[Dict]:
             wait_for_selector="//div[@data-e2e='search_top-item']",
             render_js=True,
             auto_scroll=True,
-            rendering_wait=10000,
-            js=js,
+            retry=False,
+            timeout=120000,
+            rendering_wait=15000,
+            js_scenario=js_scenario,
             debug=True,
         )
     )
@@ -241,18 +251,27 @@ def parse_channel(response: ScrapeApiResponse):
 async def scrape_channel(url: str) -> List[Dict]:
     """scrape video data from a channel (profile with videos)"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 10000)); setTimeout(() => scrollToEnd(), 5000);"""
+    js = [
+        {"wait_for_selector": {"selector": "main", "state": "visible", "timeout": 10000}},
+        {
+            "execute": {
+                "script": "const wait = ms => new Promise(r => setTimeout(r, ms)); const container = document.querySelector('main') || document.scrollingElement || document.body; for (let i = 0; i < 10; i++) { if (container.clientHeight + container.scrollTop >= container.scrollHeight - 10) break; container.scrollTo(0, container.scrollHeight); await wait(3000); }",
+                "timeout": 35000,
+            }
+        },
+    ]
     log.info(f"scraping channel page with the URL {url} for post data")
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
             asp=True,
             country="AU",
-            wait_for_selector="//div[@data-e2e='user-post-item-list']",
+            rendering_wait=15000,
             render_js=True,
             auto_scroll=True,
-            rendering_wait=10000,
-            js=js,
+            timeout=120000,
+            retry=False,
+            js_scenario=js,
             debug=True,
         )
     )
