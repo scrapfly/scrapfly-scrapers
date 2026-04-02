@@ -25,10 +25,10 @@ async def run():
     search_results = await ebay.scrape_search(url, max_pages=2)
     output.joinpath("search.json").write_text(json.dumps(search_results, indent=2, cls=DateTimeEncoder, ensure_ascii=False), encoding="utf-8")
 
-    single_product_result = await ebay.scrape_product("https://www.ebay.com/itm/332562282948")
+    single_product_result = await ebay.scrape_product("https://www.ebay.com/itm/177439887865")
     output.joinpath("product.json").write_text(json.dumps(single_product_result, indent=2))
 
-    variant_product_result = await ebay.scrape_product("https://www.ebay.com/itm/393531906094")
+    variant_product_result = await ebay.scrape_product("https://www.ebay.com/itm/177439887865")
     output.joinpath("product-with-variants.json").write_text(json.dumps(variant_product_result, indent=2))
 
 
