@@ -104,7 +104,7 @@ def parse_search(response: ScrapeApiResponse):
         total_results = search_page_props.get("paginationInfo", {}).get("totalResults", 0)
     main_content = search_page_props.get("mainContentComponentsListProps", [])
     for item in main_content:
-        if item.get("bizId"):
+        if item.get("bizId") and item.get("searchResultBusiness") is not None:
             search_data.append(item)
     return {"search_data": search_data, "total_results": total_results}
 
