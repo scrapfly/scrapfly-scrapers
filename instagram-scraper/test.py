@@ -90,4 +90,24 @@ async def test_user_post_scraping():
         validate_or_fail(post, validator)
 
     assert len(posts_all) > 12
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_post_comments_scraping():
+    post = await instagram.scrape_post("https://www.instagram.com/p/Csthn7EO99u/")
+    result = await instagram.scrape_post_comments(post["id"], max_comments=20)
+    schema = {
+        "id": {"type": "string"},
+        "text": {"type": "string"},
+        "created_at": {"type": "integer"},
+        "owner": {"type": "string"},
+        "owner_id": {"type": "string"},
+        "owner_verified": {"type": "boolean"},
+        "replies_count": {"type": "integer"},
+    }
+    assert len(result) > 10
+    validator = Validator(schema, allow_unknown=True)
+    for comment in result:
+        validate_or_fail(comment, validator)
     

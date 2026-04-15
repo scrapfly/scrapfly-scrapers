@@ -266,6 +266,8 @@ jobs:
             test: test_product_scraping
           - project_dir: amazon-scraper
             test: test_review_scraping
+          - project_dir: instagram-scraper
+            test: test_post_comments_scraping
 
     steps:
     - uses: actions/checkout@v4
