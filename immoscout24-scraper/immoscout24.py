@@ -17,8 +17,6 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # bypass web scraping blocking
     "asp": True,
-    # set the proxy country to germany
-    "country": "DE",
     "proxy_pool": "public_residential_pool",
     "rendering_wait": 5000,
     "render_js": True,
