@@ -138,18 +138,14 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
 
 async def find_locations(query: str) -> List[str]:
     """use rightmove's typeahead api to find location IDs. Returns list of location IDs in most likely order"""
-    # rightmove uses two character long tokens so "cornwall" becomes "CO/RN/WA/LL"
-    tokenize_query = "".join(
-        c + ("/" if i % 2 == 0 else "") for i, c in enumerate(query.upper(), start=1)
+    url = f"https://los.rightmove.co.uk/typeahead?query={query}&limit=10&exclude=STREET"
+    result = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, **BASE_CONFIG, headers={"Accept": "application/json"})
     )
-    url = (
-        f"https://www.rightmove.co.uk/typeAhead/uknostreet/{tokenize_query.strip('/')}/"
-    )
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     data = json.loads(result.content)
-    # get the location id
+    # reconstruct location identifier from type and id (e.g. "REGION^61294")
     return [
-        prediction["locationIdentifier"] for prediction in data["typeAheadLocations"]
+        f"{prediction['type']}^{prediction['id']}" for prediction in data["matches"]
     ]
 
 

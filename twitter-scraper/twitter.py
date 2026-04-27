@@ -121,9 +121,17 @@ async def scrape_profile(url: str) -> Dict:
     # capture background requests and extract ones that contain user data
     # and their latest tweets
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    user_calls = [f for f in _xhr_calls if "UserBy" in f["url"]]
-    for xhr in user_calls:
+    for xhr in _xhr_calls:
+        if "UserTweets" not in xhr["url"] or not xhr.get("response"):
+            continue
         data = json.loads(xhr["response"]["body"])
-        parsed = parse_profile(data["data"]["user"]["result"])
-        return parsed
-    raise Exception("Failed to scrape user profile - no matching user data background requests")
+        instructions = data["data"]["user"]["result"]["timeline"]["timeline"]["instructions"]
+        for instruction in instructions:
+            for entry in instruction.get("entries", []):
+                item = entry.get("content", {}).get("itemContent", {})
+                if item.get("__typename") != "TimelineTweet":
+                    continue
+                user_result = item["tweet_results"]["result"]["core"]["user_results"]["result"]
+                if user_result.get("rest_id"):
+                    return parse_profile(user_result)
+        raise Exception("Failed to scrape user profile - no matching user data background requests")

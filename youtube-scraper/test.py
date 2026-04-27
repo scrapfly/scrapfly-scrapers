@@ -107,7 +107,7 @@ search_schema = {
     "description": {"type": "string", "nullable": True},
     "publishedTime": {"type": "string"},
     "videoLength": {"type": "string"},
-    "viewCount": {"type": "string"},
+    "viewCount": {"type": "string", "nullable": True},
     "videoBadges": {
         "type": "list",
         "nullable": True,

@@ -44,7 +44,7 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
 
     info["url"] = url
     post_data = []
-    for box in selector.xpath("//article"):
+    for box in selector.xpath("//article[@data-post-id]"):
         link = box.xpath(".//a/@href").get()
         author = box.xpath(".//shreddit-post/@author").get()
         post_label = box.xpath(".//span[contains(@class, 'bg-tone-4')]/div/text()").get()

@@ -136,7 +136,7 @@ def parse_search_data(response: ScrapeApiResponse) -> List[Dict]:
         if ad:
             continue
         price = box.xpath(".//span[contains(@class, 'item-price')]/text()").get()
-        parking = box.xpath(".//span[@class='item-parking']").get()
+        parking = box.xpath(".//div[contains(@class, 'item-detail-char')]/span[contains(text(), 'Parking')]").get()        
         company_url = box.xpath(".//picture[@class='logo-branding']/a/@href").get()
         search_data.append({
             "title": box.xpath(".//div/a/@title").get(),
@@ -145,7 +145,7 @@ def parse_search_data(response: ScrapeApiResponse) -> List[Dict]:
             "price": int(price.replace(",", '')) if price else None,
             "currency": box.xpath(".//span[contains(@class, 'item-price')]/span/text()").get(),
             "parking_included": True if parking else False,
-            "details": box.xpath(".//div[contains(@class, 'item-detail-char')]/span/text()").getall(),
+            "details": box.xpath(".//div[contains(@class, 'item-detail-char')]/span[not(contains(text(), 'Parking'))]/text()").getall(),
             "description": box.xpath(".//div[contains(@class, 'item-description')]/p/text()").get().replace('\n', ''),
             "tags": box.xpath(".//div[@class='listing-tags-container']/span/text()").getall(),
             "listing_company": box.xpath(".//picture[@class='logo-branding']/a/@title").get(),
