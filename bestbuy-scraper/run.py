@@ -36,7 +36,7 @@ async def run():
             "https://www.bestbuy.com/site/apple-macbook-air-13-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-256gb-ssd-midnight/6565862.p",
             "https://www.bestbuy.com/site/apple-geek-squad-certified-refurbished-macbook-pro-16-display-intel-core-i7-16gb-memory-amd-radeon-pro-5300m-512gb-ssd-space-gray/6489615.p",
             "https://www.bestbuy.com/site/apple-macbook-pro-14-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-512gb-ssd-space-black/6602741.p",
-            "https://www.bestbuy.com/product/apple-macbook-air-13-inch-laptop-apple-m2-chip-built-for-apple-intelligence-16gb-memory-256gb-ssd-midnight/JJGCQ8WQR5/sku/6602763"
+            "https://www.bestbuy.com/product/15-inch-macbook-air-apple-m5-chip-with-10-core-cpu-and-10-core-gpu-16gb-memory-512gb-ssd-midnight/JJGCQLKQL9"
         ],
         max_review_pages=1
     )
