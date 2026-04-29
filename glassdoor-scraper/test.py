@@ -48,7 +48,7 @@ async def test_find_companies():
         "id": {"type": "integer"},
         "shortName": {"type": "string"},
         "logoURL": {"type": "string", "nullable": True},
-        "websiteURL": {"type": "string"},
+        "websiteURL": {"type": "string", "nullable": True},
     }
     results = await glassdoor.find_companies("Ebay")
     validator = Validator(schema, allow_unknown=True)

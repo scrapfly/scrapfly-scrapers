@@ -108,17 +108,6 @@ def _extract_nested(data, keys, default=None):
         data = data.get(key, {})
     return data or default
 
-def extract_rehydrate_key(json_data):
-    """Extract the dynamic rehydrate key from JSON data"""
-    if not json_data or 'rehydrate' not in json_data:
-        return None
-    
-    rehydrate_data = json_data['rehydrate']
-    # Find keys that match the pattern :R[letters/numbers]:
-    for key in rehydrate_data.keys():
-        if key.startswith(':R') and key.endswith(':'):
-            return key
-    return None
 
 def parse_product(response: ScrapeApiResponse) -> Dict:
     """parse product data from bestbuy product pages"""
@@ -130,25 +119,21 @@ def parse_product(response: ScrapeApiResponse) -> Dict:
         json_data = extract_json(script_text)
         if not json_data:
             continue
-            
-        rehydrate_key = extract_rehydrate_key(json_data)
-        if not rehydrate_key:
-            continue
-    
-        if 'productBySkuId' in _extract_nested(json_data, ["rehydrate", rehydrate_key, "data"], default={}):
-            product_data = _extract_nested(json_data, ["rehydrate", rehydrate_key, "data", "productBySkuId"])
-            
-            # Determine data type based on available fields
-            if not data.get("product-info") and product_data:
+
+        for event in json_data.get("events", []):
+            if event.get("type") != "next":
+                continue
+            product_data = _extract_nested(event, ["value", "data", "productBySkuId"])
+            if not product_data:
+                continue
+
+            if not data.get("product-info") and product_data.get("brand") and product_data.get("whatItIs"):
                 data["product-info"] = product_data
-                
-            if not data.get("product-features") and product_data and "features" in product_data:
+            if not data.get("product-features") and "features" in product_data:
                 data["product-features"] = product_data.get("features")
-                
-            if not data.get("buying-options") and product_data and "buyingOptions" in product_data:
+            if not data.get("buying-options") and "buyingOptions" in product_data:
                 data["buying-options"] = product_data.get("buyingOptions")
-                
-            if not data.get("product-faq") and product_data and "questions" in product_data:
+            if not data.get("product-faq") and "questions" in product_data:
                 data["product-faq"] = product_data.get("questions")
 
     return data

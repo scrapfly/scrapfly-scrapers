@@ -99,10 +99,9 @@ def parse_search(result: ScrapeApiResponse) -> Dict:
         print(f"page {result.context['url']} is not a property listing page")
         return
     data = json.loads(data)["props"]["pageProps"]
-    if not data.get('properties'):  # a|b testing, sometimes it's in a different location
-        data['properties'] = data["searchResults"]["home_search"]["results"]
-    if not data.get('totalProperties'):
-        data['totalProperties'] = data['searchResults']['home_search']['total']
+    if "properties" not in data:
+        log.warning("no properties found in page data, keys present: {}", list(data.keys()))
+        return {"properties": [], "totalProperties": 0}
     return data
 
 
@@ -110,7 +109,7 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
     """scrape realtor.com's search and find properties for given query. Paginate to max pages if provided"""
     log.info("scraping first property search page for {}, {}", city, state)
     first_page = f"https://www.realtor.com/realestateandhomes-search/{city}_{state}/pg-1"
-    first_result = await SCRAPFLY.async_scrape(ScrapeConfig(first_page, **BASE_CONFIG))
+    first_result = await SCRAPFLY.async_scrape(ScrapeConfig(first_page, render_js=True, **BASE_CONFIG))
     first_data = parse_search(first_result)
     results = first_data["properties"]
 
@@ -123,7 +122,7 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
     for page in range(1, total_pages + 1):
         assert "pg-1" in first_result.context["url"]  # make sure we don't accidently scrape duplicate pages
         page_url = first_result.context["url"].replace("pg-1", f"pg-{page}")
-        to_scrape.append(ScrapeConfig(page_url, **BASE_CONFIG))
+        to_scrape.append(ScrapeConfig(page_url, render_js=True, **BASE_CONFIG))
 
     log.info("scraping {} property search pages for {}, {}", len(to_scrape), city, state)
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
