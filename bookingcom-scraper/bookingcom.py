@@ -325,7 +325,7 @@ async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> Lis
     session_id = str(uuid4()).replace("-", "")
     log.info(f"scraping the main reviews page for the url {url} before scraping the graphql api")
     main_reviews_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, wait_for_selector="xhr:dml/graphql", session=session_id)
+        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, rendering_wait=20000, session=session_id)
     )
     reviews_xhr_call = retrieve_reviews_api_xhr_call(main_reviews_page)
     gql_body = json.loads(reviews_xhr_call["body"])
