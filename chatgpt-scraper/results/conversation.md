@@ -1,42 +1,6 @@
 [Skip to content](https://chatgpt.com/?prompt=What%27s+the+capital+of+France%3F+with+Brief+History+of+the+city.#main)
 
-[New chat](https://chatgpt.com/)
-
-Search chats
-
-[Images](https://chatgpt.com/images)
-
 ## Chat history
-
-* [New chat  `Ctrl``Shift``O`](https://chatgpt.com/)
-* Search chats
-`Ctrl``K`
-
-[Images](https://chatgpt.com/images)
-
-[Apps](https://chatgpt.com/apps)
-
-Deep research
-
-[See plans and pricing](https://openai.com/chatgpt/pricing/)
-
-Settings
-
-Help
-
-Get responses tailored to you
-
-Log in to get answers based on saved chats, plus create images and upload files.
-
-Log in
-
-ChatGPT
-
-Log in
-
-Log in
-
-Sign up for free
 
 #### You said:
 
@@ -86,12 +50,7 @@ Paris endured both World Wars but emerged as a global center for culture, fashio
 
 In short, Paris evolved from a small river settlement into one of the most historically rich and culturally influential capitals in the world.
 
-By messaging ChatGPT, an AI chatbot, you agree to our [Terms](https://openai.com/terms) and have read our [Privacy Policy](https://openai.com/privacy). See Your privacy choices.
-
-
-Don't share sensitive info. Chats may be reviewed and used to train our models. [Learn more](https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance)
-
-ChatGPT can make mistakes. Check important info. See Cookie Preferences.
+ChatGPT can make mistakes. Check important info. See Your privacy choices.
 
 [https://chatgpt.com/backend-api/sentinel/frame.html?sv=20260423af3c](https://chatgpt.com/backend-api/sentinel/frame.html?sv=20260423af3c)
 
