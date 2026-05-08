@@ -9,6 +9,7 @@ import asyncio
 import json
 import math
 import os
+import re
 import jmespath
 
 from datetime import datetime
@@ -94,15 +95,92 @@ async def scrape_property(url: str) -> List[Dict]:
 def parse_search(result: ScrapeApiResponse) -> Dict:
     """parse realtor.com's search page for search result data"""
     log.info("parsing search page: {}", result.context["url"])
-    data = result.selector.css("script#__NEXT_DATA__::text").get()
-    if not data:
-        print(f"page {result.context['url']} is not a property listing page")
-        return
-    data = json.loads(data)["props"]["pageProps"]
-    if "properties" not in data:
-        log.warning("no properties found in page data, keys present: {}", list(data.keys()))
-        return {"properties": [], "totalProperties": 0}
-    return data
+    
+    total_text = result.selector.css("[data-testid='total-results']::text").get("0")
+    total_properties = int(total_text.replace(",", "").strip() or "0")
+    empty = {"properties": [], "totalProperties": 0}
+
+    # Primary: __NEXT_DATA__ embedded JSON
+    next_data = result.selector.css("script#__NEXT_DATA__::text").get()
+    if next_data:
+        page_props = json.loads(next_data).get("props", {}).get("pageProps", {})
+        if "properties" in page_props:
+            return {"properties": page_props["properties"], "totalProperties": total_properties}
+        log.warning("__NEXT_DATA__ present but missing 'properties' key; falling back to ld+json")
+
+    # Fallback: ld+json structured data
+    ld_text = result.selector.css("script[type='application/ld+json']::text").get()
+    if not ld_text:
+        log.warning("no data source found on search page: {}", result.context["url"])
+        return empty
+
+    try:
+        ld_data = json.loads(ld_text)
+    except json.JSONDecodeError:
+        log.warning("failed to parse ld+json on page: {}", result.context["url"])
+        return empty
+
+    if not isinstance(ld_data, list):
+        ld_data = [ld_data]
+
+    collection = next(
+        (item for item in ld_data if isinstance(item, dict) and item.get("@type") == "CollectionPage"),
+        None,
+    )
+    if not collection:
+        log.warning("no CollectionPage found in ld+json")
+        return empty
+
+    items = collection.get("mainEntity", {}).get("itemListElement", [])
+    if not items:
+        log.warning("no itemListElement found in CollectionPage mainEntity")
+        return empty
+
+    properties = []
+    for item in items:
+        url = item.get("url", "")
+        permalink_match = re.search(r"/realestateandhomes-detail/([^?#]+)", url)
+        permalink = permalink_match.group(1) if permalink_match else ""
+
+        pid_match = re.search(r"_M(\d+)-(\d+)$", permalink)
+        property_id = (pid_match.group(1) + pid_match.group(2)) if pid_match else ""
+
+        price_str = item.get("offers", {}).get("price", "")
+        try:
+            list_price = int(price_str) if price_str else None
+        except (ValueError, TypeError):
+            list_price = None
+
+        prop_detail = item.get("mainEntity", {})
+        address = prop_detail.get("address", {})
+        floor_size = prop_detail.get("floorSize", {})
+        image = item.get("image", "")
+
+        properties.append({
+            "property_id": property_id,
+            "permalink": permalink,
+            "list_price": list_price,
+            "photos": [{"href": image}] if image else [],
+            "description": {
+                "beds": prop_detail.get("numberOfBedrooms"),
+                "baths": prop_detail.get("numberOfBathroomsTotal") or None,
+                "sqft": floor_size.get("value") if floor_size else None,
+                "type": prop_detail.get("@type"),
+                "text": prop_detail.get("description", ""),
+                "year_built": prop_detail.get("yearBuilt"),
+            },
+            "location": {
+                "address": {
+                    "city": address.get("addressLocality"),
+                    "state": address.get("addressRegion"),
+                    "postal_code": address.get("postalCode"),
+                    "line": address.get("streetAddress"),
+                }
+            },
+        })
+
+    return {"properties": properties, "totalProperties": total_properties}
+
 
 
 async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) -> List[Dict]:
@@ -112,6 +190,10 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
     first_result = await SCRAPFLY.async_scrape(ScrapeConfig(first_page, render_js=True, **BASE_CONFIG))
     first_data = parse_search(first_result)
     results = first_data["properties"]
+    # to avoid division by zero issue
+    if len(results) == 0:
+        log.warning("no properties found for {}, {}", city, state)
+        return results
 
     total_pages = math.ceil(first_data["totalProperties"] / len(results))
     if max_pages and total_pages > max_pages:

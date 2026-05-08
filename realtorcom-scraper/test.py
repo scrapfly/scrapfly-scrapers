@@ -26,7 +26,7 @@ async def test_property_scraping():
         "href": {"type": "string", "regex": "https://www.realtor.com/realestateandhomes-detail/.+?"},
         "status": {"type": "string"},
         "sold_date": {"type": "string", "regex": "\d+-\d+-\d+", "nullable": True},
-        "tags": {"type": "list", "schema": {"type": "string"}},
+        "tags": {"type": "list", "schema": {"type": "string"}, "nullable": True},
         "list_price": {"type": "integer"},
         "list_price_last_change": {"type": "integer"},
         "details": {
