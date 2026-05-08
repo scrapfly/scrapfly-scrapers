@@ -223,7 +223,7 @@ def parse_alternatives(response: ScrapeApiResponse):
     data = []
     
     # The correct selector for individual product cards
-    for alt in selector.xpath("//div[@data-ordered-events-item='products']"):
+    for ranking, alt in enumerate(selector.xpath("//div[@data-ordered-events-item='products']"), start=1):
         # Check for sponsored content - skip it
         sponsored = alt.xpath(".//span[text()='Sponsored']").get()
         if sponsored:
@@ -237,9 +237,6 @@ def parse_alternatives(response: ScrapeApiResponse):
         if link and not link.startswith('http'):
             link = f"https://www.g2.com{link}"
             
-        # Extract ranking from the position meta tag
-        ranking = alt.xpath(".//meta[@itemprop='position']/@content").get()
-        
         # Extract rating and number of reviews
         rating_text = alt.xpath(".//label[contains(@class, 'elv-font-semibold')]/text()").get()
         reviews_text = alt.xpath(".//label[contains(@class, 'elv-font-light')]/text()").get()
@@ -270,7 +267,7 @@ def parse_alternatives(response: ScrapeApiResponse):
             data.append({
                 "name": name.strip(),
                 "link": link,
-                "ranking": int(ranking) if ranking else None,
+                "ranking": ranking,
                 "numberOfReviews": number_of_reviews,
                 "rate": rate,
                 "description": description.strip() if description else None,
