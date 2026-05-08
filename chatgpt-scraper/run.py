@@ -34,11 +34,6 @@ async def run():
     with open(output / "conversation.md", "w", encoding="utf-8") as f:
         f.write(conversation)
 
-    queries = await chatgpt.scrape_search_queries("make search queries for the best web scraping service in 2026 and highly reviewed in Capterra")
-    print("ChatGPT searched for:", queries)
-    with open(output / "search_queries.json", "w", encoding="utf-8") as f:
-        json.dump(queries, f, indent=2, ensure_ascii=False)
-
 
 if __name__ == "__main__":
     asyncio.run(run())

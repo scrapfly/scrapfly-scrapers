@@ -38,7 +38,6 @@ async def test_scrape_conversation():
     assert len(result.strip()) > 0
 
 
-
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_scrape_conversations():
@@ -51,17 +50,3 @@ async def test_scrape_conversations():
     for item in result:
         validate_or_fail(item, validator)
     assert len(result) >= 1
-
-
-
-@pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
-async def test_scrape_search_queries():
-    result = await chatgpt.scrape_search_queries(
-        "what is the best web scraping service in 2026? keywords for searching How to scrape IG. most reviewed Capterra"
-    )
-    assert result is not None
-    assert len(result) >= 1
-    for query in result:
-        assert isinstance(query, str)
-        assert len(query.strip()) > 0

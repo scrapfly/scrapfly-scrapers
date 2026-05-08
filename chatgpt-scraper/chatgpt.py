@@ -103,60 +103,8 @@ async def scrape_conversation(prompt: str) -> str:
             **BASE_CONFIG,
         )
     )
-    log.debug("scrapfly log: {}", response.scrape_result["log_url"])
+    log.success("finished scraping ChatGPT for the prompt: {}", prompt)
     return response.content
-
-
-def parse_search_queries_from_sse(sse_data: str) -> List[str]:
-    queries = []
-    for line in sse_data.splitlines():
-        line = line.strip()
-        if not line.startswith("data:") or line == "data: [DONE]":
-            continue
-        try:
-            data = json.loads(line[len("data:") :].strip())
-            smq = (
-                data.get("v", {})
-                .get("message", {})
-                .get("metadata", {})
-                .get("search_model_queries", {})
-            )
-            if smq:
-                queries.extend(smq.get("queries", []))
-        except (json.JSONDecodeError, AttributeError):
-            pass
-    return queries
-
-
-async def scrape_search_queries(prompt: str) -> List[str]:
-    queries: List[str] = []
-    url = f"https://chatgpt.com/?prompt={quote_plus(prompt)}"
-    log.info("scraping search queries for prompt: {}", prompt)
-    response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            url=url,
-            render_js=True,
-            js_scenario=js_scenario,
-            rendering_wait=5000,
-            **BASE_CONFIG,
-        )
-    )
-    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
-    conversation_calls = [
-        x
-        for x in _xhr_calls
-        if "backend-anon/f/conversation" in x["url"]
-        and x.get("response", {})
-        .get("content_type", "")
-        .startswith("text/event-stream")
-    ]
-    log.debug("scrapfly log: {}", response.scrape_result["log_url"])
-    for xhr in conversation_calls:
-        if not xhr.get("response"):
-            continue
-        queries.extend(parse_search_queries_from_sse(xhr["response"]["body"]))
-
-    return queries
 
 
 def parse_chatgpt_stream(raw_sse: str) -> Dict:
@@ -289,7 +237,7 @@ async def scrape_conversations(prompt: List[str]) -> List[ChatgptConversation]:
             **BASE_CONFIG,
         )
     )
-    log.debug("scrapfly log: {}", response.scrape_result["log_url"])
+
     _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
     conversation_calls = [
         x
@@ -338,7 +286,6 @@ async def scrape_conversations(prompt: List[str]) -> List[ChatgptConversation]:
                     **BASE_CONFIG,
                 )
             )
-            log.debug("scrapfly log: {}", post_response.scrape_result["log_url"])
 
             # Parse POST SSE response and update state for next iteration
             post_parsed = parse_chatgpt_stream(post_response.content)
