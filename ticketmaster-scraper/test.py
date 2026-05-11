@@ -3,6 +3,7 @@ import pytest
 
 import ticketmaster
 import pprint
+from datetime import datetime, timedelta
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -88,7 +89,9 @@ async def test_artist_scraping():
 
 @pytest.mark.asyncio
 async def test_discovery_scraping():
-    filters = {"classificationId": "KnvZfZ7vAvv", "startDate": "2026-01-03", "endDate": "2026-01-10"}
+    start = datetime.now()
+    end = start + timedelta(days=7)
+    filters = {"classificationId": "KnvZfZ7vAvv", "startDate": start.strftime("%Y-%m-%d"), "endDate": end.strftime("%Y-%m-%d")}
     result = await ticketmaster.scrape_discovery("https://www.ticketmaster.com/discover/concerts", **filters)
     validator = Validator(discovery_schema, allow_unknown=True)
     validate_or_fail(result, validator)

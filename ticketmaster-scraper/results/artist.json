@@ -3,438 +3,497 @@
     "artist_name": "George Lopez",
     "ratingValue": 4.3,
     "bestRating": 5,
-    "ratingCount": 5639,
+    "ratingCount": 5677,
     "genre": "Comedy",
-    "events_count": 9,
+    "events_count": 10,
     "events": [
       {
         "@context": "http://schema.org",
         "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB96C6C9",
+        "url": "https://www.ticketmaster.com/george-lopez-hollywood-florida-06-11-2026/event/0D00645890466A19",
         "name": "George Lopez",
-        "description": "George Lopez | Saturday, Jan 31, 2026, 7:00 PM | The Wilbur, Boston",
+        "description": "George Lopez | Thursday, Jun 11, 2026, 8:00 PM | Hard Rock Live, Hollywood",
         "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-01-31T19:00:00",
-        "endDate": "2026-01-31",
+        "startDate": "2026-06-11T20:00:00",
+        "endDate": "2026-06-11",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {
           "@type": "Place",
-          "name": "The Wilbur",
-          "sameAs": "https://www.ticketmaster.com/the-wilbur-tickets-boston/venue/8252",
+          "name": "Hard Rock Live",
+          "sameAs": "https://www.ticketmaster.com/hard-rock-live-tickets-hollywood/venue/107337",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "246 Tremont St.",
-            "addressLocality": "Boston",
-            "addressRegion": "MA",
-            "postalCode": "02116",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 42.3504843,
-            "longitude": -71.065086
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Saturday, Jan 31, 2026, 7:00 PM | The Wilbur, Boston",
-          "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB96C6C9",
-          "validFrom": "2025-11-07T10:00:00",
-          "availabilityStarts": "2025-11-07T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB97C6CE",
-        "name": "George Lopez",
-        "description": "George Lopez | Saturday, Jan 31, 2026, 9:45 PM | The Wilbur, Boston",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-01-31T21:45:00",
-        "endDate": "2026-01-31",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "The Wilbur",
-          "sameAs": "https://www.ticketmaster.com/the-wilbur-tickets-boston/venue/8252",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "246 Tremont St.",
-            "addressLocality": "Boston",
-            "addressRegion": "MA",
-            "postalCode": "02116",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 42.3504843,
-            "longitude": -71.065086
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Saturday, Jan 31, 2026, 9:45 PM | The Wilbur, Boston",
-          "url": "https://www.ticketmaster.com/george-lopez-boston-massachusetts-01-31-2026/event/0100635EBB97C6CE",
-          "validFrom": "2025-11-07T10:00:00",
-          "availabilityStarts": "2025-11-07T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-houston-texas-02-06-2026/event/3A0062ACB38823D7",
-        "name": "George Lopez",
-        "description": "George Lopez | Friday, Feb 6, 2026, 7:00 PM | NRG Arena, Houston",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-02-06T19:00:00",
-        "endDate": "2026-02-06",
-        "eventStatus": "https://schema.org/EventRescheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "NRG Arena",
-          "sameAs": "https://www.ticketmaster.com/nrg-arena-tickets-houston/venue/475175",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "One NRG Park",
-            "addressLocality": "Houston",
-            "addressRegion": "TX",
-            "postalCode": "77054",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 29.68516717,
-            "longitude": -95.40880499
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Friday, Feb 6, 2026, 7:00 PM | NRG Arena, Houston",
-          "url": "https://www.ticketmaster.com/george-lopez-houston-texas-02-06-2026/event/3A0062ACB38823D7",
-          "validFrom": "2025-05-16T10:00:00",
-          "availabilityStarts": "2025-05-16T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-dallas-texas-02-13-2026/event/0C006383CDD49A41",
-        "name": "George Lopez",
-        "description": "George Lopez | Friday, Feb 13, 2026, 7:00 PM | Majestic Theatre Dallas, Dallas",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-02-13T19:00:00",
-        "endDate": "2026-02-13",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "Majestic Theatre Dallas",
-          "sameAs": "https://www.ticketmaster.com/majestic-theatre-dallas-tickets-dallas/venue/98322",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1925 Elm Street",
-            "addressLocality": "Dallas",
-            "addressRegion": "TX",
-            "postalCode": "75201",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 32.78232551,
-            "longitude": -96.79557625
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Friday, Feb 13, 2026, 7:00 PM | Majestic Theatre Dallas, Dallas",
-          "url": "https://www.ticketmaster.com/george-lopez-dallas-texas-02-13-2026/event/0C006383CDD49A41",
-          "validFrom": "2025-12-12T10:00:00",
-          "availabilityStarts": "2025-12-12T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-waukegan-illinois-02-14-2026/event/0700634A93955DC5",
-        "name": "George Lopez",
-        "description": "George Lopez | Saturday, Feb 14, 2026, 8:00 PM | Genesee Theatre, Waukegan",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-02-14T20:00:00",
-        "endDate": "2026-02-14",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "Genesee Theatre",
-          "sameAs": "https://www.ticketmaster.com/genesee-theatre-tickets-waukegan/venue/57692",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "203 N. Genesee St.",
-            "addressLocality": "Waukegan",
-            "addressRegion": "IL",
-            "postalCode": "60085",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 42.36276392,
-            "longitude": -87.83083839
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Saturday, Feb 14, 2026, 8:00 PM | Genesee Theatre, Waukegan",
-          "url": "https://www.ticketmaster.com/george-lopez-waukegan-illinois-02-14-2026/event/0700634A93955DC5",
-          "validFrom": "2025-11-14T10:00:00",
-          "availabilityStarts": "2025-11-14T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-des-moines-iowa-02-20-2026/event/06006273D92152FF",
-        "name": "George Lopez",
-        "description": "George Lopez | Friday, Feb 20, 2026, 8:00 PM | Hoyt Sherman Place, Des Moines",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-02-20T20:00:00",
-        "endDate": "2026-02-20",
-        "eventStatus": "https://schema.org/EventRescheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "Hoyt Sherman Place",
-          "sameAs": "https://www.ticketmaster.com/hoyt-sherman-place-tickets-des-moines/venue/49410",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1501 Woodland Avenue",
-            "addressLocality": "Des Moines",
-            "addressRegion": "IA",
-            "postalCode": "50309",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 41.588643,
-            "longitude": -93.638339
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Friday, Feb 20, 2026, 8:00 PM | Hoyt Sherman Place, Des Moines",
-          "url": "https://www.ticketmaster.com/george-lopez-des-moines-iowa-02-20-2026/event/06006273D92152FF",
-          "validFrom": "2025-03-28T10:00:00",
-          "availabilityStarts": "2025-03-28T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-la-vista-nebraska-02-21-2026/event/20006274CADD2E5C",
-        "name": "George Lopez",
-        "description": "George Lopez | Saturday, Feb 21, 2026, 8:00 PM | The Astro Theater, La Vista",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-02-21T20:00:00",
-        "endDate": "2026-02-21",
-        "eventStatus": "https://schema.org/EventRescheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "The Astro Theater",
-          "sameAs": "https://www.ticketmaster.com/the-astro-theater-tickets-la-vista/venue/263250",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "8302 City Centre Dr",
-            "addressLocality": "La Vista",
-            "addressRegion": "NE",
-            "postalCode": "68128",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 41.18287,
-            "longitude": -96.04084
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Saturday, Feb 21, 2026, 8:00 PM | The Astro Theater, La Vista",
-          "url": "https://www.ticketmaster.com/george-lopez-la-vista-nebraska-02-21-2026/event/20006274CADD2E5C",
-          "validFrom": "2025-03-28T10:00:00",
-          "availabilityStarts": "2025-03-28T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-newark-new-jersey-02-28-2026/event/00006375EB09FD24",
-        "name": "George Lopez",
-        "description": "George Lopez | Saturday, Feb 28, 2026, 8:00 PM | New Jersey Performing Arts Center, Newark",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-02-28T20:00:00",
-        "endDate": "2026-02-28",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "New Jersey Performing Arts Center",
-          "sameAs": "https://www.ticketmaster.com/new-jersey-performing-arts-center-tickets-newark/venue/308",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "1 Center Street",
-            "addressLocality": "Newark",
-            "addressRegion": "NJ",
-            "postalCode": "07102",
-            "addressCountry": "US"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 40.739502,
-            "longitude": -74.16809
-          }
-        },
-        "offers": {
-          "@type": "Offer",
-          "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Saturday, Feb 28, 2026, 8:00 PM | New Jersey Performing Arts Center, Newark",
-          "url": "https://www.ticketmaster.com/george-lopez-newark-new-jersey-02-28-2026/event/00006375EB09FD24",
-          "validFrom": "2025-12-12T10:00:00",
-          "availabilityStarts": "2025-12-12T10:00:00"
-        },
-        "workPerformed": {
-          "@type": "CreativeWork",
-          "name": "George Lopez"
-        },
-        "performer": [
-          {
-            "@type": "TheaterGroup",
-            "name": "George Lopez",
-            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
-          }
-        ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "TheaterEvent",
-        "url": "https://www.ticketmaster.com/george-lopez-orlando-florida-03-28-2026/event/22006381D00350FD",
-        "name": "George Lopez",
-        "description": "George Lopez | Saturday, Mar 28, 2026, 8:00 PM | Hard Rock Live Orlando, Orlando",
-        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
-        "startDate": "2026-03-28T20:00:00",
-        "endDate": "2026-03-28",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "Hard Rock Live Orlando",
-          "sameAs": "https://www.ticketmaster.com/hard-rock-live-orlando-tickets-orlando/venue/278539",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "6050 Universal Blvd",
-            "addressLocality": "Orlando",
+            "streetAddress": "1 Seminole Way",
+            "addressLocality": "Hollywood",
             "addressRegion": "FL",
-            "postalCode": "32819",
+            "postalCode": "33314",
             "addressCountry": "US"
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 28.473773,
-            "longitude": -81.468224
+            "latitude": 26.0503384,
+            "longitude": -80.2109577
           }
         },
         "offers": {
           "@type": "Offer",
           "availability": "http://schema.org/InStock",
-          "description": "George Lopez | Saturday, Mar 28, 2026, 8:00 PM | Hard Rock Live Orlando, Orlando",
-          "url": "https://www.ticketmaster.com/george-lopez-orlando-florida-03-28-2026/event/22006381D00350FD",
-          "validFrom": "2025-12-12T10:00:00",
-          "availabilityStarts": "2025-12-12T10:00:00"
+          "description": "George Lopez | Thursday, Jun 11, 2026, 8:00 PM | Hard Rock Live, Hollywood",
+          "url": "https://www.ticketmaster.com/george-lopez-hollywood-florida-06-11-2026/event/0D00645890466A19",
+          "validFrom": "2026-03-06T10:00:00",
+          "availabilityStarts": "2026-03-06T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-raleigh-north-carolina-06-19-2026/event/2D006477DEEB3C36",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Jun 19, 2026, 7:30 PM | Martin Marietta Center for the Performing Arts, Raleigh",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-06-19T19:30:00",
+        "endDate": "2026-06-19",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Martin Marietta Center for the Performing Arts",
+          "sameAs": "https://www.ticketmaster.com/martin-marietta-center-for-the-performing-tickets-raleigh/venue/369155",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2 E. South St.",
+            "addressLocality": "Raleigh",
+            "addressRegion": "NC",
+            "postalCode": "27601",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.77146029,
+            "longitude": -78.63959707
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Jun 19, 2026, 7:30 PM | Martin Marietta Center for the Performing Arts, Raleigh",
+          "url": "https://www.ticketmaster.com/george-lopez-raleigh-north-carolina-06-19-2026/event/2D006477DEEB3C36",
+          "validFrom": "2026-04-10T10:00:00",
+          "availabilityStarts": "2026-04-10T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-charlotte-north-carolina-06-20-2026/event/2D006474CB947BC9",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Jun 20, 2026, 7:30 PM | Ovens Auditorium, Charlotte",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-06-20T19:30:00",
+        "endDate": "2026-06-20",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Ovens Auditorium",
+          "sameAs": "https://www.ticketmaster.com/ovens-auditorium-tickets-charlotte/venue/368656",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2900 E Independence Boulevard",
+            "addressLocality": "Charlotte",
+            "addressRegion": "NC",
+            "postalCode": "28205",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.2050931,
+            "longitude": -80.7953024
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Jun 20, 2026, 7:30 PM | Ovens Auditorium, Charlotte",
+          "url": "https://www.ticketmaster.com/george-lopez-charlotte-north-carolina-06-20-2026/event/2D006474CB947BC9",
+          "validFrom": "2026-04-10T10:00:00",
+          "availabilityStarts": "2026-04-10T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-aces-of-comedy-las-vegas-nevada-06-26-2026/event/2E00642E96B17064",
+        "name": "George Lopez Aces of Comedy",
+        "description": "George Lopez Aces of Comedy | Friday, Jun 26, 2026, 9:00 PM | MGM Grand Theater, Las Vegas",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-06-26T21:00:00",
+        "endDate": "2026-06-26",
+        "eventStatus": "https://schema.org/EventRescheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "MGM Grand Theater",
+          "sameAs": "https://www.ticketmaster.com/mgm-grand-theater-tickets-las-vegas/venue/376869",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3799 Las Vegas Blvd South Las Vegas",
+            "addressLocality": "Las Vegas",
+            "addressRegion": "NV",
+            "postalCode": "89109",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 36.10149378,
+            "longitude": -115.1698204
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez Aces of Comedy | Friday, Jun 26, 2026, 9:00 PM | MGM Grand Theater, Las Vegas",
+          "url": "https://www.ticketmaster.com/george-lopez-aces-of-comedy-las-vegas-nevada-06-26-2026/event/2E00642E96B17064",
+          "validFrom": "2026-01-23T10:00:00",
+          "availabilityStarts": "2026-01-23T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          },
+          {
+            "@type": "TheaterGroup",
+            "name": "Aces of Comedy",
+            "sameAs": "https://www.ticketmaster.com/aces-of-comedy-tickets/artist/3359794"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-aces-of-comedy-las-vegas-nevada-06-27-2026/event/2E00642E96B6706B",
+        "name": "George Lopez Aces of Comedy",
+        "description": "George Lopez Aces of Comedy | Saturday, Jun 27, 2026, 9:00 PM | MGM Grand Theater, Las Vegas",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-06-27T21:00:00",
+        "endDate": "2026-06-27",
+        "eventStatus": "https://schema.org/EventRescheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "MGM Grand Theater",
+          "sameAs": "https://www.ticketmaster.com/mgm-grand-theater-tickets-las-vegas/venue/376869",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3799 Las Vegas Blvd South Las Vegas",
+            "addressLocality": "Las Vegas",
+            "addressRegion": "NV",
+            "postalCode": "89109",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 36.10149378,
+            "longitude": -115.1698204
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez Aces of Comedy | Saturday, Jun 27, 2026, 9:00 PM | MGM Grand Theater, Las Vegas",
+          "url": "https://www.ticketmaster.com/george-lopez-aces-of-comedy-las-vegas-nevada-06-27-2026/event/2E00642E96B6706B",
+          "validFrom": "2026-01-23T10:00:00",
+          "availabilityStarts": "2026-01-23T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          },
+          {
+            "@type": "TheaterGroup",
+            "name": "Aces of Comedy",
+            "sameAs": "https://www.ticketmaster.com/aces-of-comedy-tickets/artist/3359794"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketweb.com/event/george-lopez-18-ventura-theater-tickets/14775743",
+        "name": "George Lopez - 18+",
+        "description": "George Lopez - 18+ | Friday, Jul 17, 2026, 8:00 PM | Ventura Theater, Ventura",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-07-17",
+        "endDate": "2026-07-17",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Ventura Theater",
+          "sameAs": "https://www.ticketweb.com/venue/ventura-theater-ventura-ca/19394",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "26 S. Chestnut Street",
+            "addressLocality": "Ventura",
+            "addressRegion": "CA",
+            "postalCode": "93001",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.28043,
+            "longitude": -119.29141
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez - 18+ | Friday, Jul 17, 2026, 8:00 PM | Ventura Theater, Ventura",
+          "url": "https://www.ticketweb.com/event/george-lopez-18-ventura-theater-tickets/14775743",
+          "validFrom": "2026-03-17T10:00:00",
+          "availabilityStarts": "2026-03-17T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-corpus-christi-texas-07-25-2026/event/3A00645AC9D9F8A4",
+        "name": "George Lopez",
+        "description": "George Lopez | Saturday, Jul 25, 2026, 7:30 PM | Selena Auditorium, Corpus Christi",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-07-25T19:30:00",
+        "endDate": "2026-07-25",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Selena Auditorium",
+          "sameAs": "https://www.ticketmaster.com/selena-auditorium-tickets-corpus-christi/venue/475248",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1901 N. Shoreline",
+            "addressLocality": "Corpus Christi",
+            "addressRegion": "TX",
+            "postalCode": "78401",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 27.8088984,
+            "longitude": -97.3935427
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Saturday, Jul 25, 2026, 7:30 PM | Selena Auditorium, Corpus Christi",
+          "url": "https://www.ticketmaster.com/george-lopez-corpus-christi-texas-07-25-2026/event/3A00645AC9D9F8A4",
+          "validFrom": "2026-03-20T10:00:00",
+          "availabilityStarts": "2026-03-20T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-san-jose-california-08-14-2026/event/1C006479BBD7CC74",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Aug 14, 2026, 8:00 PM | San Jose Civic, San Jose",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-08-14T20:00:00",
+        "endDate": "2026-08-14",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "San Jose Civic",
+          "sameAs": "https://www.ticketmaster.com/san-jose-civic-tickets-san-jose/venue/229461",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "135 San Carlos St.",
+            "addressLocality": "San Jose",
+            "addressRegion": "CA",
+            "postalCode": "95113",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.33046417,
+            "longitude": -121.88966811
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Aug 14, 2026, 8:00 PM | San Jose Civic, San Jose",
+          "url": "https://www.ticketmaster.com/george-lopez-san-jose-california-08-14-2026/event/1C006479BBD7CC74",
+          "validFrom": "2026-04-03T10:00:00",
+          "availabilityStarts": "2026-04-03T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-denver-colorado-09-18-2026/event/1E0064977B1F5333",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Sep 18, 2026, 7:00 PM | Paramount Theatre, Denver",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-09-18T19:00:00",
+        "endDate": "2026-09-18",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Paramount Theatre",
+          "sameAs": "https://www.ticketmaster.com/paramount-theatre-tickets-denver/venue/245776",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1621 Glenarm",
+            "addressLocality": "Denver",
+            "addressRegion": "CO",
+            "postalCode": "80202",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.744362,
+            "longitude": -104.990271
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Sep 18, 2026, 7:00 PM | Paramount Theatre, Denver",
+          "url": "https://www.ticketmaster.com/george-lopez-denver-colorado-09-18-2026/event/1E0064977B1F5333",
+          "validFrom": "2026-05-01T10:00:00",
+          "availabilityStarts": "2026-05-01T10:00:00"
+        },
+        "workPerformed": {
+          "@type": "CreativeWork",
+          "name": "George Lopez"
+        },
+        "performer": [
+          {
+            "@type": "TheaterGroup",
+            "name": "George Lopez",
+            "sameAs": "https://www.ticketmaster.com/george-lopez-tickets/artist/770234"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "TheaterEvent",
+        "url": "https://www.ticketmaster.com/george-lopez-staten-island-new-york-10-09-2026/event/0000648ACCB2E5E0",
+        "name": "George Lopez",
+        "description": "George Lopez | Friday, Oct 9, 2026, 8:00 PM | St. George Theatre, Staten Island",
+        "image": "https://s1.ticketm.net/dam/a/63f/adc31591-f93c-47a2-b05f-874cc97f963f_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-10-09T20:00:00",
+        "endDate": "2026-10-09",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "St. George Theatre",
+          "sameAs": "https://www.ticketmaster.com/st-george-theatre-tickets-staten-island/venue/1027",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "35 Hyatt Street",
+            "addressLocality": "Staten Island",
+            "addressRegion": "NY",
+            "postalCode": "10301",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.6422839,
+            "longitude": -74.077484
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "George Lopez | Friday, Oct 9, 2026, 8:00 PM | St. George Theatre, Staten Island",
+          "url": "https://www.ticketmaster.com/george-lopez-staten-island-new-york-10-09-2026/event/0000648ACCB2E5E0",
+          "validFrom": "2026-04-24T12:00:00",
+          "availabilityStarts": "2026-04-24T12:00:00"
         },
         "workPerformed": {
           "@type": "CreativeWork",
@@ -451,82 +510,82 @@
     ],
     "reviews": [
       {
-        "title": "excellent",
-        "description": "This is the second time we have seen him love the venue not to big or too small, and the show was excellent.",
-        "datePublished": "2025-11-19T01:34:34Z",
-        "author_name": "Liz",
+        "title": "GLopz",
+        "description": "Great Concert I’m not usually a GL fan but he did good",
+        "datePublished": "2026-05-08T16:28:57Z",
+        "author_name": "Carol",
         "ratingValue": 5,
         "bestRating": 5
       },
       {
-        "title": "Are you Joe Lopez",
-        "description": "Venue had pillars that was in the way of my view, and the seats seemed to me all one level which made it hard to see the stage. Thank goodness for the tvs on the way and surround sound; otherwise I would have missed out on the show.",
-        "datePublished": "2025-11-18T19:39:10Z",
-        "author_name": "not your average Jo",
+        "title": "Could not stop laughing 😊",
+        "description": "Great show from beginning to end.  Great show, I’d go again!",
+        "datePublished": "2026-04-21T19:25:57Z",
+        "author_name": "Mare",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Amazing and funny!!",
+        "description": "George Lopez still got it! I laughed the entire show. A true professional in the comedy world!",
+        "datePublished": "2026-04-01T00:25:42Z",
+        "author_name": "Dnice",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      {
+        "title": "Not what it used to be",
+        "description": "I used to love George Lopez. His stand-up was witty, cultural, and funny as hell. Unfortunately, he has lost a couple of steps in his later years. Mr. Lopez no longer has the charisma that he once exhibited and his material was a bit boring and at times, his speech was difficult to understand. He wore a bucket hat throughout the show which looked super goofy and not cool in any sense. At the end of the show, he took the hat off to show his long gray ponytail that he apparently is very proud of. In addition, the Hard Rock venue located at Universal Studios was extremely inconvenient to get to. The parks were packed with people, masses of whom were exiting at the time that we were coming in. We were literally fighting swarms of sweaty theme park goers, most of whom had been there all day…ughh. Leaving three stars is being optimistic. I was hoping for a five star show, however, as Neil Diamond once sung, “used-to-be’s don’t count anymore, they just lay on the floor til we sweep them away.”",
+        "datePublished": "2026-03-31T15:42:47Z",
+        "author_name": "CeeJay",
         "ratingValue": 3,
         "bestRating": 5
       },
       {
-        "title": "Get ready for belly laughs",
-        "description": "George Lopez is very funny, entertainment is definitely something to look forward to when you go see him. His opening acts were a  Mariachi  band and another comedian. Definitely worth the $$ going to see him. Wild horse pass venue was great!",
-        "datePublished": "2025-11-18T13:49:59Z",
-        "author_name": "Funny",
+        "title": "Hilarious Experience!",
+        "description": "George Lopez was really funny!\nI have attended his other stand up comedy shows and he never disappoints!",
+        "datePublished": "2026-03-31T14:12:39Z",
+        "author_name": "Will",
         "ratingValue": 5,
         "bestRating": 5
       },
       {
-        "title": "Great experience",
-        "description": "4 stars. He has good material.  Would see him again",
-        "datePublished": "2025-09-27T23:20:42Z",
-        "author_name": "Vincent",
+        "title": "A great evening with a guy who is still hysterically funny",
+        "description": "Had a great time seeing George last Saturday night. Were lucky enough to sit front row center and he didn't disappoint. The opener was great and George just blew the arena away. The entire place was belly laughing all night long!",
+        "datePublished": "2026-03-31T13:46:34Z",
+        "author_name": "A True Laugh Out Loud Show",
         "ratingValue": 5,
         "bestRating": 5
       },
       {
-        "title": "Good Times 😎👍",
-        "description": "George Lopez never disappoints Greatest comedian of all time. Great Venue. Very clean comfortable Seating",
-        "datePublished": "2025-09-24T03:25:19Z",
-        "author_name": "Eazy Money",
+        "title": "Must see",
+        "description": "We had a great time. Never laughed so much. Perfect datenight outing.  \nHope we can catch another show soon.",
+        "datePublished": "2026-03-09T22:41:46Z",
+        "author_name": "TitiEne",
         "ratingValue": 5,
         "bestRating": 5
       },
       {
-        "title": "Hysterical",
-        "description": "What a great time! He is so funny! Love how he polished up so old jokes and fit them in so seamlessly.",
-        "datePublished": "2025-09-23T17:21:02Z",
-        "author_name": "Jo",
+        "title": "Funny",
+        "description": "Great venue, good show, will come to this venue again",
+        "datePublished": "2026-03-06T19:47:36Z",
+        "author_name": "Rob",
         "ratingValue": 5,
         "bestRating": 5
       },
       {
-        "title": "George is always hilarious!!!",
-        "description": "Whether you're Latino/a or not, George is ALWAYS a fantastic standup comic! Never a disappointment!!!",
-        "datePublished": "2025-09-23T16:41:36Z",
-        "author_name": "Shari S.",
+        "title": "Great show",
+        "description": "Loved the show ❤️ lots of laughter excellent.  experience was very nice.Love it",
+        "datePublished": "2026-03-04T14:36:57Z",
+        "author_name": "Jaydontplay",
         "ratingValue": 5,
         "bestRating": 5
       },
       {
-        "title": "It was easy and no issues",
-        "description": "The show was good, the opening act was very funny, but wished there was a second opening act.\nGeorge Lopez was way to short for the price.",
-        "datePublished": "2025-09-23T16:10:41Z",
-        "author_name": "MARY",
-        "ratingValue": 4,
-        "bestRating": 5
-      },
-      {
-        "title": "Pure Perfection!!!!",
-        "description": "George Lopez was Pure Perfection tonight! G O A T!!!!!!! Route 66 Casino Albuquerque NM! POW! POW!",
-        "datePublished": "2025-09-21T06:34:09Z",
-        "author_name": "Michelle",
-        "ratingValue": 5,
-        "bestRating": 5
-      },
-      {
-        "title": "Excellent",
-        "description": "George is George! He was hilarious! And I would go see him again and again. One of my all time favs.",
-        "datePublished": "2025-09-15T16:20:16Z",
-        "author_name": "j-low",
+        "title": "George Lopez Comedy Show",
+        "description": "Wonderful show. Just wished his performance was a little longer. \nBoth opening acts were fabulous!\nCan't wait to see him AGAIN!!\n**We love you George Lopez**",
+        "datePublished": "2026-03-04T10:00:31Z",
+        "author_name": "Vivi",
         "ratingValue": 5,
         "bestRating": 5
       }
@@ -536,23 +595,113 @@
     "artist_name": "Imagine Dragons",
     "ratingValue": 4.7,
     "bestRating": 5,
-    "ratingCount": 8851,
+    "ratingCount": 8852,
     "genre": "Rock",
-    "events_count": 5,
+    "events_count": 7,
     "events": [
       {
         "@context": "http://schema.org",
         "@type": "MusicEvent",
-        "name": "Loom World Tour at MorumBIS",
-        "startDate": "2025-11-01",
-        "endDate": "2025-11-01",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xZ4k",
+        "name": "Imagine Dragons (21 and Over)",
+        "description": "Imagine Dragons (21 and Over) | Thursday, Jul 23, 2026, 8:00 PM | Yaamava Theater, Highland",
+        "image": "https://s1.ticketm.net/dam/a/e8c/5265b9d2-a06c-4dc8-a432-a8dd9d042e8c_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-07-23T20:00:00",
+        "endDate": "2026-07-23",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Yaamava Theater",
+          "sameAs": "https://www.ticketmaster.com/",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "777 San Manuel Blvd S",
+            "addressLocality": "Highland",
+            "addressRegion": "CA",
+            "postalCode": "92346",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.1353,
+            "longitude": -117.153198
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "Imagine Dragons (21 and Over) | Thursday, Jul 23, 2026, 8:00 PM | Yaamava Theater, Highland",
+          "url": "https://www.ticketmaster.com/event/Z7r9jZ1A7xZ4k",
+          "validFrom": "1899-12-31T22:00:00",
+          "availabilityStarts": "1899-12-31T22:00:00"
+        },
+        "performer": [
+          {
+            "@type": "MusicGroup",
+            "name": "Imagine Dragons",
+            "sameAs": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "url": "https://www.ticketmaster.ca/rbc-amphitheatre-opening-night-imagine-dragons-toronto-ontario-05-21-2026/event/100064894D201C70",
+        "name": "RBC Amphitheatre Opening Night: Imagine Dragons",
+        "description": "RBC Amphitheatre Opening Night: Imagine Dragons | Thursday, May 21, 2026, 7:30 PM | RBC Amphitheatre, Toronto",
+        "image": "https://s1.ticketm.net/dam/a/e8c/5265b9d2-a06c-4dc8-a432-a8dd9d042e8c_RETINA_PORTRAIT_3_2.jpg",
+        "startDate": "2026-05-21T19:30:00",
+        "endDate": "2026-05-21",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "RBC Amphitheatre",
+          "sameAs": "https://www.ticketmaster.ca/rbc-amphitheatre-tickets-toronto/venue/131073",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "909 Lakeshore Blvd. W.",
+            "addressLocality": "Toronto",
+            "addressRegion": "ON",
+            "postalCode": "M6K3L3",
+            "addressCountry": "CA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.6294544,
+            "longitude": -79.4149193
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "description": "RBC Amphitheatre Opening Night: Imagine Dragons | Thursday, May 21, 2026, 7:30 PM | RBC Amphitheatre, Toronto",
+          "url": "https://www.ticketmaster.ca/rbc-amphitheatre-opening-night-imagine-dragons-toronto-ontario-05-21-2026/event/100064894D201C70",
+          "validFrom": "2026-04-17T10:00:00",
+          "availabilityStarts": "2026-04-17T10:00:00"
+        },
+        "performer": [
+          {
+            "@type": "MusicGroup",
+            "name": "Imagine Dragons",
+            "sameAs": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Loom World Tour at Dong'an Lake Sports Park Stadium",
+        "startDate": "2026-03-29",
+        "endDate": "2026-03-29",
         "eventStatus": "http://schema.org/EventCompleted",
         "location": {
           "@type": "Place",
-          "name": "MorumBIS",
+          "name": "Dong'an Lake Sports Park Stadium",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "São Paulo"
+            "addressLocality": "Chengdu"
           }
         },
         "performer": {
@@ -561,14 +710,6 @@
           "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
         },
         "workPerformed": [
-          {
-            "@type": "CreativeWork",
-            "name": "Me and Giuliani Down by the School Yard (A True Story)"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "LOOM video intro"
-          },
           {
             "@type": "CreativeWork",
             "name": "Fire in These Hills"
@@ -599,11 +740,7 @@
           },
           {
             "@type": "CreativeWork",
-            "name": "It's Time"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Amsterdam"
+            "name": "Follow You"
           },
           {
             "@type": "CreativeWork",
@@ -611,15 +748,11 @@
           },
           {
             "@type": "CreativeWork",
-            "name": "Interlude"
-          },
-          {
-            "@type": "CreativeWork",
             "name": "Bad Liar"
           },
           {
             "@type": "CreativeWork",
-            "name": "Hear Me"
+            "name": "Birds"
           },
           {
             "@type": "CreativeWork",
@@ -647,10 +780,6 @@
           },
           {
             "@type": "CreativeWork",
-            "name": "Interlude"
-          },
-          {
-            "@type": "CreativeWork",
             "name": "Enemy"
           },
           {
@@ -659,23 +788,66 @@
           },
           {
             "@type": "CreativeWork",
-            "name": "Birds"
+            "name": "In Your Corner"
           },
           {
             "@type": "CreativeWork",
-            "name": "Interlude"
-          },
+            "name": "Believer"
+          }
+        ]
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Imagine Dragons at Dorado Beach",
+        "startDate": "2026-01-25",
+        "endDate": "2026-01-25",
+        "eventStatus": "http://schema.org/EventCompleted",
+        "location": {
+          "@type": "Place",
+          "name": "Dorado Beach",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dorado"
+          }
+        },
+        "performer": {
+          "@type": "MusicGroup",
+          "name": "Imagine Dragons",
+          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
+        },
+        "workPerformed": [
           {
             "@type": "CreativeWork",
             "name": "Believer"
           },
           {
             "@type": "CreativeWork",
-            "name": "Fire in These Hills"
+            "name": "Thunder"
           },
           {
             "@type": "CreativeWork",
-            "name": "Send Me on My Way"
+            "name": "Bones"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Whatever It Takes"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Bad Liar"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Demons"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Enemy"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Radioactive"
           }
         ]
       },
@@ -883,63 +1055,17 @@
             "name": "Walking the Wire"
           }
         ]
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "MusicEvent",
-        "name": "Imagine Dragons at ",
-        "startDate": "2024-07-03",
-        "endDate": "2024-07-03",
-        "eventStatus": "http://schema.org/EventCompleted",
-        "location": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Paris"
-          }
-        },
-        "performer": {
-          "@type": "MusicGroup",
-          "name": "Imagine Dragons",
-          "url": "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919"
-        },
-        "workPerformed": [
-          {
-            "@type": "CreativeWork",
-            "name": "Fire in These Hills"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Next to Me"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Don't Forget Me"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "All By Himself"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Whatever It Takes"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Eyes Closed"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Take Me to the Beach"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Believer"
-          }
-        ]
       }
     ],
     "reviews": [
+      {
+        "title": "Best concert we've ever seen",
+        "description": "We are a concert goer family! Averaging 4-5 concerts a year. This still tops our charts as the best concert ever. The energy was unreal. Amazing music. Great opener. My 4 year old and 14 year old went and both had a BLAST! Cant wait to see them again",
+        "datePublished": "2026-03-21T19:02:01Z",
+        "author_name": "Alicia",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
       {
         "title": "They played 'Selene' and I literally ascended to heaven",
         "description": "As someone who's followed them since the Speak To Me EP days, hearing deep cuts like 'Selene' and '30 Lives' live was EVERYTHING. Dan's vocal control during the bridge of 'Release' was insane. The extended drum solo in 'Thunder' with that Hell and Silence EP transition?? GENIUS. Wayne did the guitar slide from the original 'Curse' demo and I lost it. True fans know. Best setlist curation I've seen in 47 shows. 🐉⚡",
@@ -1009,14 +1135,6 @@
         "description": "Been hitting concerts since The Police's Synchronicity tour in '84. Seen everyone from Zeppelin reunions to Pearl Jam marathons, but ID's production value? Next level stuff. The floating platforms during 'Whatever It Takes' put Pink Floyd's wall to shame. Dan Reynolds has the stamina of Bruce Springsteen in his prime, and that thunder-sync during 'Thunder' rattled my veteran bones in the best way. Worth every penny of my social security check 😂",
         "datePublished": "2025-09-08T15:44:58Z",
         "author_name": "RockShowSage_Since1984",
-        "ratingValue": 5,
-        "bestRating": 5
-      },
-      {
-        "title": "From watching the door to watching in awe - Best shift ever!",
-        "description": "Working security at their show but Dan Reynolds literally pulled me onstage during 'Believer'! Never had this happen in 12 years of event security. Went from standing stoically by the barrier to dancing with the band 😂 My coworkers won't let me live it down. Even got to fist bump Wayne after the show. Guess you could say I'm a believer now lol. Still can't believe this actually happened during my shift!",
-        "datePublished": "2025-09-08T05:38:57Z",
-        "author_name": "SecurityGuard_TurnedSuperfan_92",
         "ratingValue": 5,
         "bestRating": 5
       }

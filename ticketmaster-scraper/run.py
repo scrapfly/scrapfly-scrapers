@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import ticketmaster
 from loguru import logger as log
+from datetime import datetime, timedelta
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
@@ -31,10 +32,12 @@ async def run():
         json.dump(artist_data, file, indent=2, ensure_ascii=False)
 
     log.info("scraping discovery page")
+    start = datetime.now()
+    end = start + timedelta(days=7)
     filters = {
         "classificationId": "KnvZfZ7vAvv",
-        "startDate": "2026-01-03",
-        "endDate": "2026-01-10"
+        "startDate": start.strftime("%Y-%m-%d"),
+        "endDate": end.strftime("%Y-%m-%d")
     }
     discovery_data = await ticketmaster.scrape_discovery("https://www.ticketmaster.com/discover/concerts", **filters)
     with open(output.joinpath("discovery.json"), "w", encoding="utf-8") as file:
