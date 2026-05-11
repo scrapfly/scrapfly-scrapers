@@ -28,6 +28,7 @@ BASE_CONFIG = {
     "country": "US",
     "render_js": True,
     "js_scenario": JS,
+    "proxy_pool": "public_residential_pool",
 }
 
 
