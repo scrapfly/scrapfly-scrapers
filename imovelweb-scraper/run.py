@@ -24,9 +24,9 @@ async def run():
     log.info("scraping property page")
     property_data = await imovelweb.scrape_properties(
         urls=[
-            "https://www.immoweb.com/en/classified/apartment/for-rent/wemmel/1780/21247396",
-            "https://www.immoweb.com/en/classified/apartment/for-rent/strombeek-bever/1853/21246666",
-            "https://www.immoweb.com/en/classified/apartment/for-rent/merchtem/1785/21225730",
+            "https://www.immoweb.be/en/classified/mansion/for-rent/etterbeek/1040/21550378",
+            "https://www.immoweb.be/en/classified/exceptional-property/for-rent/auderghem/1160/21536260",
+            "https://www.immoweb.be/en/classified/exceptional-property/for-rent/woluwe-saint-pierre/1150/21535100",
         ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:

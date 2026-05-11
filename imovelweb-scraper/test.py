@@ -61,10 +61,10 @@ search_property_schema = {
 async def test_property_scraping():
     """Test property scraping"""
     property_data = await imovelweb.scrape_properties(
-        urls=[
-            "https://www.immoweb.com/en/classified/apartment/for-rent/wemmel/1780/21247396",
-            "https://www.immoweb.com/en/classified/apartment/for-rent/strombeek-bever/1853/21246666",
-            "https://www.immoweb.com/en/classified/apartment/for-rent/merchtem/1785/21225730"
+       urls=[
+            "https://www.immoweb.be/en/classified/mansion/for-rent/etterbeek/1040/21550378",
+            "https://www.immoweb.be/en/classified/exceptional-property/for-rent/auderghem/1160/21536260",
+            "https://www.immoweb.be/en/classified/exceptional-property/for-rent/woluwe-saint-pierre/1150/21535100",
         ]
     )
     validator = Validator(property_schema, allow_unknown=True)
