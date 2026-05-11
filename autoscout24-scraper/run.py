@@ -13,7 +13,7 @@ from loguru import logger as log
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
-autoscout24.BASE_CONFIG["cache"] = True
+autoscout24.BASE_CONFIG["cache"] = False
 
 
 async def run():
@@ -29,9 +29,9 @@ async def run():
     # Scrape  car details
     log.info("Scraping car details")
     urls = [
-        "https://www.autoscout24.com/offers/bmw-116-116i-gasoline-black-23ff7f14-f5df-4bbc-a12f-b8d07bf9b870",
-        "https://www.autoscout24.com/offers/fiat-500-1-2-sport-pano-gasoline-red-516f93af-fbcc-4614-a69e-3369f3334ad1",
-        "https://www.autoscout24.com/offers/mercedes-benz-a-160-blueefficiency-classic-gasoline-grey-527717a0-2f01-4264-b9a5-bd7a69a27993",
+        "https://www.autoscout24.com/offers/bmw-116-116d-euro-6-diesel-white-7bc1efe2-6741-46d9-9af1-9c1e525bdd86",
+        "https://www.autoscout24.com/offers/fiat-500-1-0-hybrid-dolcevita-electric-gasoline-white-2fc80bb0-03e3-4d12-bee0-08b5c4dc4bbc",
+        "https://www.autoscout24.com/offers/fiat-500-lim-dolcevita-1-0-pdch-dab-klima-uvm-electric-gasoline-white-117b7cf9-f7e8-449c-bfdd-cfd449484f99"
     ]
     
     car_details = await autoscout24.scrape_car_details(urls)
