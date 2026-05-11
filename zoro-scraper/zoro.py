@@ -176,27 +176,17 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     rating = rating_data.get("ratingValue") if rating_data else None
     review_count = rating_data.get("reviewCount", 0) if rating_data else 0
 
-    # Extract specifications from product attributes tables
+    # Extract specifications from product-specifications div (attribute-group elements)
     specifications = {}
-    # Find all tables within product-attributes div
-    tables = sel.xpath('//div[contains(@class, "product-attributes")]//table')
-    for table in tables:
-        # Extract rows from the table
-        rows = table.xpath(".//tbody//tr")
-        for row in rows:
-            # First td contains the label, second td contains the value
-            tds = row.xpath("./td")
-            if len(tds) >= 2:
-                # Extract text from first td (label) and second td (value)
-                label_parts = tds[0].xpath(".//text()").getall()
-                value_parts = tds[1].xpath(".//text()").getall()
-                label = " ".join(part.strip() for part in label_parts if part.strip())
-                value = " ".join(part.strip() for part in value_parts if part.strip())
-
-                if label and value:
-                    label_clean = label.strip().rstrip(":")
-                    value_clean = value.strip()
-                    specifications[label_clean] = value_clean
+    for group in sel.css("div.product-specifications div.attribute-group"):
+        label_nodes = group.xpath('./div[contains(@class, "attribute-name")]')
+        value_nodes = group.xpath('./div[not(contains(@class, "attribute-name"))]')
+        if not label_nodes or not value_nodes:
+            continue
+        label = " ".join(label_nodes[0].xpath(".//text()").getall()).strip()
+        value = " ".join(t.strip() for t in value_nodes[0].xpath(".//text()").getall() if t.strip())
+        if label and value and value != "-":
+            specifications[label] = value
 
     # Extract reviews from XHR calls
     reviews = []
