@@ -4,6 +4,7 @@ This is an example web scraper for homegate.ch.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+import re
 import os
 import json
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
@@ -18,6 +19,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to switzerland
     "country": "CH",
+    "render_js": True
 }
 
 output = Path(__file__).parent / "results"
@@ -35,20 +37,37 @@ def parse_next_data(response: ScrapeApiResponse) -> Dict:
     return next_data_json
 
 
+def parse_property_page(response: ScrapeApiResponse) -> Dict:
+    """parse property page data from the pinia state"""
+    selector = response.selector
+    script_content = selector.xpath("//script[contains(., 'window.__PINIA_INITIAL_STATE__')]/text()").get()
+    if not script_content:
+        return None
+    # parse the listing json from pinia state
+    pattern = r'window\.__PINIA_INITIAL_STATE__\s*=\s*(\{.+\})\s*$'
+    match = re.search(pattern, script_content, re.DOTALL)
+    if match is not None:
+        data = json.loads(match.group(1))
+        listing = data["listing"]["listing"]
+        return listing
+
+
 async def scrape_properties(urls: List[str]) -> List[Dict]:
     """scrape listing data from homegate proeprty pages"""
     # add the property pages in a scraping list
-    to_scrape = [ScrapeConfig(url, asp=True, country="CH") for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     properties = []
     # scrape all property pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        data = parse_next_data(response)
         # handle expired property pages
         try:
-            properties.append(data["listing"]["listing"])
-        except:
-            print("expired propery page")
-            pass
+            data = parse_property_page(response)
+            if data:
+                properties.append(data)
+            else:
+                log.warning(f"expired or empty property page: {response.context['url']}")
+        except Exception:
+            log.warning(f"failed to parse property page: {response.context['url']}")
     log.info(f"scraped {len(properties)} property listings")
     return properties
 

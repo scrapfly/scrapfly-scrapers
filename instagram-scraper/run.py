@@ -38,6 +38,10 @@ async def run():
     log.success("scraped {} posts", len(posts_all))
     output.joinpath("all-user-posts.json").write_text(json.dumps(posts_all, indent=2, ensure_ascii=False), encoding='utf-8')
 
+    # scrape post comments
+    comments = await instagram.scrape_post_comments(post_video["id"], max_comments=100)
+    output.joinpath("post-comments.json").write_text(json.dumps(comments, indent=2, ensure_ascii=False), encoding='utf-8')
+
 
 if __name__ == "__main__":
     asyncio.run(run())

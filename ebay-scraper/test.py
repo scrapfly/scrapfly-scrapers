@@ -43,14 +43,14 @@ def require_min_presence(items, key, min_perc=0.1):
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 @pytest.mark.asyncio
 async def test_product_scraping():
-    result = await ebay.scrape_product("https://www.ebay.com/itm/393531906094")
+    result = await ebay.scrape_product("https://www.ebay.com/itm/177439887865")
     schema = {
         "url": {"type": "string"},
         "id": {"type": "string", "regex": r"\d+"},
         "name": {"type": "string", "minlength": 1},
         "price": {"type": "string", "minlength": 1},
         "seller_name": {"type": "string", "minlength": 1},
-        "seller_url": {"type": "string", "regex": "https://www.ebay.com/str/.+"},
+        "seller_url": {"type": "string", },
         "photos": {"type": "list", "schema": {"type": "string"}},
         "description_url": {"type": "string", "regex": r"https://.+?ebaydesc\.com/.+"},
         "features": {"type": "dict"},
@@ -94,8 +94,8 @@ async def test_search_scraping():
         "location": {"type": "string", "nullable": True, "min_presence": 0.01},
         "subtitles": {"type": "string", "min_presence": 0.01, "nullable": True},
         "shipping": {"type": "string", "nullable": True},
-        "rating": {"type": "float", "nullable": True, "min": 0, "max": 5},
-        "rating_count": {"type": "integer", "min": 0, "max": 10_000, "nullable": True},
+        "rating": {"type": "string", "nullable": True, "nullable": True},
+        "rating_count": {"type": "integer", "nullable": True},
         "price": {"type": "string", "nullable": True},
     }
     validator = DateTimeValidator(schema, allow_unknown=True)

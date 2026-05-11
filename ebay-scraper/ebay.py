@@ -87,21 +87,20 @@ def parse_variants(result: ScrapeApiResponse) -> dict:
         for selection in selections:
             if int(id_) in selection["variants"]:
                 result[selection["label"]] = selection["name"]
-        result["price_original"] = variant["binModel"]["price"]["value"]["convertedFromValue"]
-        result["price_original_currency"] = variant["binModel"]["price"]["value"]["convertedFromCurrency"]
-        result["price_converted"] = variant["binModel"]["price"]["value"]["value"]
-        result["price_converted_currency"] = variant["binModel"]["price"]["value"]["currency"]
+        price_val = variant["binModel"]["price"]["value"]
+        result["price_original"] = price_val.get("convertedFromValue", price_val.get("value"))
+        result["price_original_currency"] = price_val.get("convertedFromCurrency", price_val.get("currency"))
+        result["price_converted"] = price_val.get("value")
+        result["price_converted_currency"] = price_val.get("currency")
         result["out_of_stock"] = variant["quantity"]["outOfStock"]
         results.append(dict(result))
     # example variant entry:
     # {
-    #     'id': '662315637173',
-    #     'Model': 'Apple iPhone 11 Pro Max',
-    #     'Storage Capacity': '64 GB',
-    #     'Color': 'Gold',
-    #     'price_original': 469,
-    #     'price_original_currency': 'CAD',
-    #     'price_converted': 341.55,
+    #     'id': '477101697616',
+    #     'Color': 'Deep Blue',
+    #     'price_original': 2199,
+    #     'price_original_currency': 'USD',
+    #     'price_converted': 2199,
     #     'price_converted_currency': 'USD',
     #     'out_of_stock': False
     # }
@@ -159,10 +158,21 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         location = box.xpath(".//*[contains(text(),'Located')]/text()").get()
         price = css(".s-card__price::text") or css(".s-item__price::text")
         url = css("a.s-card__link::attr(href)") or css("a.su-link::attr(href)")
+        rating = box.xpath(".//span[contains(text(), 'positive')]/text()").get()
 
         if price is None:
             continue  # skip boxes inside the best selling container
 
+        rating_count = None
+        if rating:
+            count_match = re.search(r'\(([\d.]+)K?\)', rating)
+            if count_match:
+                count_str = count_match.group(1)
+                if 'K)' in count_match.group(0):
+                    rating_count = int(float(count_str) * 1000)
+                else:
+                    rating_count = int(count_str)
+        
         item = {
             "url": url.split("?")[0] if url else None,
             "title": css(".s-card__title span::text"),
@@ -171,8 +181,8 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
             "location": location.split("Located in ")[1] if location else None,
             "subtitles": css(".s-card__subtitle span::text"),
             "photo": css("img::attr(data-src)") or css("img::attr(src)"),
-            "rating": css_float(".x-star-rating .clipped::text") or css_float(".s-item__reviews .clipped::text"),
-            "rating_count": int(box.css(".s-card__reviews-count span::text").re_first(r"(\d+)", default="0") or box.css(".s-item__reviews-count span::text").re_first(r"(\d+)", default="0")),
+            "rating": re.search(r'[\d.]+%', rating).group() if rating and re.search(r'[\d.]+%', rating) else None,
+            "rating_count": rating_count,
         }
         previews.append(item)
     return previews

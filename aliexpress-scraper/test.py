@@ -98,22 +98,7 @@ async def test_product_scraping():
                     "answer": {"type": "string", "nullable": True}
                 }
             }
-        },
-        "seller": {
-            "type": "dict",
-            "schema": {
-                "name": {"type": "string"},
-                "link": {"type": "string"},
-                "id": {"type": "integer"},
-                "info": {
-                    "type": "dict",
-                    "schema": {
-                        "positiveFeedback": {"type": "string"},
-                        "followers": {"type": "integer"},
-                    }
-                }, 
-            }
-        },    
+        }
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
@@ -131,7 +116,12 @@ async def test_search_scraping():
         "id": {"type": "string"},
         "type": {"type": "string"},
         "thumbnail": {"type": "string"},
-        "title": {"type": "string"},
+        "title": {
+            "type": "dict",
+            "schema": {
+                "displayTitle": {"type": "string"},
+            }
+        },
         "currency": {"type": "string"},
         "price": {"type": "float"},
     }

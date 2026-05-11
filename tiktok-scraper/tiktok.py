@@ -51,7 +51,7 @@ def parse_post(response: ScrapeApiResponse) -> Dict:
 
 async def scrape_posts(urls: List[str]) -> List[Dict]:
     """scrape tiktok posts data from their URLs"""
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         post_data = parse_post(response)
@@ -62,9 +62,19 @@ async def scrape_posts(urls: List[str]) -> List[Dict]:
 
 def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
     """parse comments data from the API response"""
-    data = json.loads(response.scrape_result["content"])
+    data = None
+    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
+    comment_call = [f for f in _xhr_calls if "/api/comment/list/" in f["url"]]
+    for xhr in comment_call:
+        if not xhr["response"]:
+            continue
+        data = json.loads(xhr["response"]["body"])
+        break
+
+    if not data:
+        raise Exception("Comment XHR data not found")
+
     comments_data = data["comments"]
-    total_comments = data["total"]
     parsed_comments = []
     # refine the comments with JMESPath
     for comment in comments_data:
@@ -84,101 +94,41 @@ def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
             comment,
         )
         parsed_comments.append(result)
-    return {"comments": parsed_comments, "total_comments": total_comments}
+    return parsed_comments
 
 
-async def retrieve_comment_params(post_url: str, session: str) -> Dict:
-    """retrieve query parameters for the comments API"""
-    comments_button_selector = "//button[contains(@aria-label, 'Read or add comments')]"
-    response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            post_url,
-            **BASE_CONFIG,
-            render_js=True,
-            rendering_wait=5000,
-            session=session,
-            wait_for_selector="//a[@data-e2e='video-author-avatar']",
-                # click the comments button to load the comments and trigger the API
-                js_scenario=[
-                    {
-                        "wait_for_selector":{
-                            "selector":comments_button_selector,"timeout":5000
-                        }
-                    },
-                    {
-                        "click":{
-                            "selector":comments_button_selector
-                        }
-                    },
-                    {
-                        "wait":5000
-                    }
-                ],
-        )
+async def scrape_comments(post_url: str) -> List[Dict]:
+    """scrape comments from tiktok posts from xhr call parsing"""
+    log.info("scraping the post page for the comment data")
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(
+        post_url, **BASE_CONFIG, render_js=True, rendering_wait=5000,
+        # click the comment icon to load the comments and trigger the API call
+        js_scenario=[
+            {
+                "wait_for_selector": {
+                    "selector": "//span[@data-e2e='comment-icon']",
+                    "timeout": 5000
+                }
+            },
+            {
+                "click": {
+                    "ignore_if_not_visible": False,
+                    "selector": "//span[@data-e2e='comment-icon']"
+                }
+            },
+            {
+                "wait_for_selector": {
+                    "selector": "div.TUXTabBar",
+                    "timeout": 5000
+                }
+            },
+            {"wait": 7000}
+        ])
     )
-
-    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
-    for i in _xhr_calls:
-        if "api/comment/list" not in i["url"]:
-            continue
-        url = urlparse(i["url"])
-        qs = parse_qs(url.query)
-        # remove the params we'll override
-        for key in ["count", "cursor"]:
-            _ = qs.pop(key, None)
-        api_params = {key: value[0] for key, value in qs.items()}
-        return api_params
-
-
-async def scrape_comments(post_url: str, comments_count: int = 20, max_comments: int = None) -> List[Dict]:
-    """scrape comments from tiktok posts using hidden APIs"""
-    post_id = post_url.split("/video/")[1].split("?")[0]
-    session_id = uuid.uuid4().hex  # generate a random session ID for the comments API
-    api_params = await retrieve_comment_params(post_url, session_id)
-
-    def form_api_url(cursor: int):
-        """form the reviews API URL and its pagination values"""
-        base_url = "https://www.tiktok.com/api/comment/list/?"
-        params = {"count": comments_count, "cursor": cursor, **api_params}  # the index to start from
-        return base_url + urlencode(params)
     
-    log.info("scraping the first comments batch")
-    first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            form_api_url(cursor=0), **BASE_CONFIG,
-            headers={"content-type": "application/json"},
-            render_js=True, session=session_id
-        )
-    )
-    data = parse_comments(first_page)
-    comments_data = data["comments"]
-    total_comments = data["total_comments"]
-
-    # get the maximum number of comments to scrape
-    if max_comments and max_comments < total_comments:
-        total_comments = max_comments
-
-    # scrape the remaining comments concurrently
-    _other_pages = [
-        ScrapeConfig(
-            form_api_url(cursor=cursor), **BASE_CONFIG,
-            headers={"content-type": "application/json"},
-            session=session_id, render_js=True
-        )
-        for cursor in range(comments_count, total_comments + comments_count, comments_count)
-    ]
-    
-    for scrape_config in _other_pages:
-        response = await SCRAPFLY.async_scrape(scrape_config)
-        try:
-            data = parse_comments(response)["comments"]
-        except Exception as e:
-            log.error(f"error scraping comments: {e}")
-            continue
-        comments_data.extend(data)
-
-    log.success(f"scraped {len(comments_data)} from the comments API from the post with the ID {post_id}")
-    return comments_data
+    data = parse_comments(response)
+    log.success(f"scraped {len(data)} comments from the post with the URL {post_url}")
+    return data
 
 
 def parse_profile(response: ScrapeApiResponse):
@@ -238,7 +188,15 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
 async def scrape_search(keyword: str) -> List[Dict]:
     """scrape tiktok search data by scrolling the search page"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 10000)); setTimeout(() => scrollToEnd(), 5000);"""
+    js_scenario = [
+        {"wait_for_selector": {"selector": "main", "state": "visible", "timeout": 10000}},
+        {
+            "execute": {
+                "script": "const wait = ms => new Promise(r => setTimeout(r, ms)); const container = document.querySelector('main') || document.scrollingElement || document.body; for (let i = 0; i < 10; i++) { if (container.clientHeight + container.scrollTop >= container.scrollHeight - 10) break; container.scrollTo(0, container.scrollHeight); await wait(3000); }",
+                "timeout": 35000,
+            }
+        },
+    ]
     url = f"https://www.tiktok.com/search?q={quote(keyword)}"
     log.info(f"scraping search page with the URL {url} for search data")
     response = await SCRAPFLY.async_scrape(
@@ -249,8 +207,10 @@ async def scrape_search(keyword: str) -> List[Dict]:
             wait_for_selector="//div[@data-e2e='search_top-item']",
             render_js=True,
             auto_scroll=True,
-            rendering_wait=10000,
-            js=js,
+            retry=False,
+            timeout=120000,
+            rendering_wait=15000,
+            js_scenario=js_scenario,
             debug=True,
         )
     )
@@ -291,18 +251,27 @@ def parse_channel(response: ScrapeApiResponse):
 async def scrape_channel(url: str) -> List[Dict]:
     """scrape video data from a channel (profile with videos)"""
     # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
-    js = """const scrollToEnd = (i = 0) => (window.innerHeight + window.scrollY >= document.body.scrollHeight || i >= 15) ? (console.log("Reached the bottom or maximum iterations. Stopping further iterations."), setTimeout(() => console.log("Waited 10 seconds after all iterations."), 10000)) : (window.scrollTo(0, document.body.scrollHeight), setTimeout(() => scrollToEnd(i + 1), 10000)); setTimeout(() => scrollToEnd(), 5000);"""
+    js = [
+        {"wait_for_selector": {"selector": "main", "state": "visible", "timeout": 10000}},
+        {
+            "execute": {
+                "script": "const wait = ms => new Promise(r => setTimeout(r, ms)); const container = document.querySelector('main') || document.scrollingElement || document.body; for (let i = 0; i < 10; i++) { if (container.clientHeight + container.scrollTop >= container.scrollHeight - 10) break; container.scrollTo(0, container.scrollHeight); await wait(3000); }",
+                "timeout": 35000,
+            }
+        },
+    ]
     log.info(f"scraping channel page with the URL {url} for post data")
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
             asp=True,
             country="AU",
-            wait_for_selector="//div[@data-e2e='user-post-item-list']",
+            rendering_wait=15000,
             render_js=True,
             auto_scroll=True,
-            rendering_wait=10000,
-            js=js,
+            timeout=120000,
+            retry=False,
+            js_scenario=js,
             debug=True,
         )
     )

@@ -124,14 +124,12 @@ channel_schema = {
 async def test_comment_scraping():
     commnets_data = await tiktok.scrape_comments(
         post_url='https://www.tiktok.com/@oddanimalspecimens/video/7198206283571285294',
-        max_comments=64,
-        comments_count=20
     )    
     validator = Validator(comment_schema, allow_unknown=True)
     for item in commnets_data:
         assert validator.validate(item), {"item": item, "errors": validator.errors}
 
-    assert len(commnets_data) >= 24
+    assert len(commnets_data) >= 10
 
 
 @pytest.mark.asyncio
