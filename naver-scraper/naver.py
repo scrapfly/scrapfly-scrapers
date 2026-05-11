@@ -180,64 +180,53 @@ class SearchImageResult(TypedDict):
 
 # Helper functions for parsing
 def _extract_json_from_html(content: str, start_pos: int) -> Optional[str]:
-    """
-    Extract a balanced JSON object from HTML content starting at a given position.
-    
-    Args:
-        content: HTML content string
-        start_pos: Starting position (should point to opening brace)
-    
-    Returns:
-        Extracted JSON string or None if extraction fails
-    """
     brace_count = 0
     in_string = False
+    string_char = None
     escape = False
-    
+
     for i in range(start_pos, len(content)):
         char = content[i]
-        
         if escape:
             escape = False
             continue
         if char == "\\":
             escape = True
             continue
-        if char == '"':
-            in_string = not in_string
-            continue
-        
-        if not in_string:
-            if char == "{":
+        if in_string:
+            if char == string_char:
+                in_string = False
+        else:
+            if char in ('"', "'"):
+                in_string = True
+                string_char = char
+            elif char == "{":
                 brace_count += 1
             elif char == "}":
                 brace_count -= 1
                 if brace_count == 0:
                     return content[start_pos : i + 1]
-    
     return None
 
 
 def _js_to_json(js_str: str) -> str:
-    """
-    Convert JavaScript object notation to valid JSON.
-    Handles unquoted property names and trailing commas.
-    
-    Args:
-        js_str: JavaScript object string
-    
-    Returns:
-        Valid JSON string
-    """
-    # Replace unquoted property names with quoted ones
-    # Only match property names that appear after { or , or newline (start of property definition)
-    # Pattern: (whitespace or { or ,) followed by unquoted word followed by :
-    js_str = re.sub(r'([{,\s])([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:', r'\1"\2":', js_str)
-    
-    # Remove trailing commas before closing braces/brackets
-    js_str = re.sub(r',(\s*[}\]])', r'\1', js_str)
-    
-    return js_str
+    # Mask all string literals so the property-name regex never matches inside them
+    strings: list = []
+
+    def _mask(m: re.Match) -> str:
+        strings.append(m.group(0))
+        return f'"__P{len(strings) - 1}__"'
+
+    masked = re.sub(r'"(?:[^"\\]|\\.)*"|\'(?:[^\'\\]|\\.)*\'', _mask, js_str)
+    masked = re.sub(r'([{,\s])([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:', r'\1"\2":', masked)
+    masked = re.sub(r',(\s*[}\]])', r'\1', masked)
+
+    for idx, original in enumerate(strings):
+        if original.startswith("'"):
+            original = '"' + original[1:-1].replace('"', '\\"').replace("\\'", "'") + '"'
+        masked = masked.replace(f'"__P{idx}__"', original)
+
+    return masked
 
 
 # Parsing functions
