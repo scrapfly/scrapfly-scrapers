@@ -29,7 +29,7 @@ async def run():
         urls=[
             "https://www.mouser.com/ProductDetail/BusBoard-Prototype-Systems/BOX3-1455N-BK?qs=I13xAFqYpRSd61TQKf31Yw%3D%3D",
             "https://www.mouser.com/ProductDetail/Olimex-Ltd/BOX-ESP32-GATEWAY-F?qs=%252BXxaIXUDbq2PKdoOW6%252BSdA%3D%3D",
-            "https://www.mouser.com/ProductDetail/Olimex-Ltd/BOX-ESP32-GATEWAY-EA?qs=Rp5uXu7WBW8AcjUyETTTSg%3D%3D"
+            "https://www.mouser.com/ProductDetail/Olimex-Ltd/BOX-A64-BLACK?qs=Rp5uXu7WBW%252B%2Fvc2B86BAAw%3D%3D"
         ]
     )
     with open(output.joinpath("product.json"), "w", encoding="utf-8") as file:
