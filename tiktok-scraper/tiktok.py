@@ -266,6 +266,7 @@ async def scrape_channel(url: str) -> List[Dict]:
             url,
             asp=True,
             country="AU",
+            proxy_pool="public_residential_pool",
             rendering_wait=15000,
             render_js=True,
             auto_scroll=True,

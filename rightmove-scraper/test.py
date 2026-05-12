@@ -218,9 +218,10 @@ async def test_search_scraping():
 async def test_properties_scraping():
     properties_data = await rightmove.scrape_properties(
         urls=[
-            "https://www.rightmove.co.uk/properties/149360984#/",
-            "https://www.rightmove.co.uk/properties/136408088#/",
             "https://www.rightmove.co.uk/properties/148922639#/",
+            "https://www.rightmove.co.uk/properties/174047273#/",
+            "https://www.rightmove.co.uk/properties/173412953#/"
+
         ]
     )
     validator = Validator(properties_schema, allow_unknown=True)

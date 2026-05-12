@@ -156,7 +156,7 @@ async def scrape_search(
     search_url = "https://www.booking.com/searchresults.en-gb.html?" + url_params
     # first scrape the first page and find total amount of pages
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
-    _total_results = int(first_page.selector.xpath("//h1[contains(@aria-label,'Search results')]").re(r"([\d,]+) (?:properties|exact matches) found")[0].replace(",", ""))
+    _total_results = int(first_page.selector.xpath("//h1[contains(@aria-label,'Search results')]").re(r"(?:We found )?([\d,]+) (?:places to stay|properties|exact matches)")[0].replace(",", ""))
     _max_scrape_results = max_pages * 25
     if _max_scrape_results and _max_scrape_results < _total_results:
         _total_results = _max_scrape_results
@@ -325,7 +325,7 @@ async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> Lis
     session_id = str(uuid4()).replace("-", "")
     log.info(f"scraping the main reviews page for the url {url} before scraping the graphql api")
     main_reviews_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, rendering_wait=20000, session=session_id)
+        ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, rendering_wait=25000, session=session_id)
     )
     reviews_xhr_call = retrieve_reviews_api_xhr_call(main_reviews_page)
     gql_body = json.loads(reviews_xhr_call["body"])

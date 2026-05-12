@@ -122,6 +122,17 @@ def extract_property(result: ScrapeApiResponse) -> dict:
     """extract property data from rightmove PAGE_MODEL javascript variable"""
     data = result.selector.xpath("//script[contains(.,'PAGE_MODEL = ')]/text()").get()
     json_data = list(find_json_objects(data))[0]
+    if json_data.get("encoding") == "on":
+        # JSON array where dicts/lists hold integer indices instead of actual values.
+        nodes = json.loads(json_data["data"])
+        def decode(idx):
+            node = nodes[idx]
+            if isinstance(node, dict):
+                return {k: decode(v) for k, v in node.items()}
+            if isinstance(node, list):
+                return [decode(i) for i in node]
+            return node
+        return decode(nodes[0]["propertyData"])
     return json_data["propertyData"]
 
 
