@@ -216,14 +216,17 @@ async def test_search_scraping():
 
 @pytest.mark.asyncio
 async def test_properties_scraping():
-    properties_data = await rightmove.scrape_properties(
-        urls=[
-            "https://www.rightmove.co.uk/properties/148922639#/",
-            "https://www.rightmove.co.uk/properties/174047273#/",
-            "https://www.rightmove.co.uk/properties/173412953#/"
-
-        ]
+    cornwall_id = (await rightmove.find_locations("cornwall"))[0]
+    search_data = await rightmove.scrape_search(
+        location_name="Cornwall", location_id=cornwall_id, max_properties=48, scrape_all_properties=False
     )
+    urls = [
+        "https://www.rightmove.co.uk" + item["propertyUrl"]
+        for item in search_data
+        if item.get("propertyUrl")
+    ][:5]
+
+    properties_data = await rightmove.scrape_properties(urls=urls)
     validator = Validator(properties_schema, allow_unknown=True)
     for item in properties_data:
         validate_or_fail(item, validator)
