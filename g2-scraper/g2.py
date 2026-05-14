@@ -34,7 +34,7 @@ def parse_search_page(response: ScrapeApiResponse):
     data = []
 
     # Extract total results count
-    total_results_text = selector.xpath("//div[contains(text(), 'Products')]/following-sibling::div/text()").get()
+    total_results_text = selector.xpath("//span[normalize-space(text())='Products']/following-sibling::span[1]/text()").get()
     total_results = int(re.search(r"\((\d+)\)", total_results_text).group(1)) if total_results_text else 0
 
     _search_page_size = 20
@@ -58,7 +58,7 @@ def parse_search_page(response: ScrapeApiResponse):
         description_parts = result.xpath(".//div[div[contains(text(), 'Product Description')]]/p//text()").getall()
         description = "".join(description_parts).strip() if description_parts else None
 
-        categories = result.xpath(".//aside//div[contains(@class, 'elv-whitespace-nowrap')]/text()").getall()
+        categories = result.css("a[data-controller=elv--chip-controller] div::text").getall()
 
         if not name:
             continue

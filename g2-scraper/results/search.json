@@ -2,9 +2,9 @@
   {
     "name": "Nutanix Cloud Infrastructure (NCI)",
     "link": "https://www.g2.com/products/nutanix-cloud-infrastructure-nci/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/bf6f866e079ffbbe9533da161d5f60bb/nutanix-cloud-infrastructure-nci.png",
-    "rate": 4.6,
-    "reviewsNumber": 287,
+    "image": "https://images.g2crowd.com/uploads/product/image/546b8765f5b21b7fe0c28b00145d0eff/nutanix-cloud-infrastructure-nci.png",
+    "rate": 4.5,
+    "reviewsNumber": 321,
     "description": "Nutanix Cloud Infrastructure (NCI) combines feature-rich software-defined storage with built-in virtualization in a turnkey hyperconverged infrastructure solution that can run any application at any scale.",
     "categories": [
       "Hyperconverged Infrastructure (HCI) Solutions",
@@ -17,7 +17,7 @@
     "image": "https://images.g2crowd.com/uploads/product/image/06b2fadd2dfbac7ff19390722a4d199e/splunk-infrastructure-monitoring.jpg",
     "rate": 4.3,
     "reviewsNumber": 48,
-    "description": "Splunk Infrastructure Monitoring proactively finds and fixes problems before it impacts business performance through high resolution, full fidelity metrics monitoring that automatically detects and accurately alerts on critical patterns in seconds using real-time, AI-driven streaming analytics. Splunk Infrastructure Monitoring significantly shortens MTTD and MTTR by providing unmatched instant visibility across the infrastructure and application stack that builds on the value of an extensible Sp",
+    "description": "Splunk Infrastructure Monitoring proactively finds and fixes problems before it impacts business performance through high resolution, full fidelity metrics monitoring that automatically detects and accurately alerts on critical patterns in seconds using real-time, AI-driven streaming analytics. Splunk Infrastructure Monitoring significantly shortens MTTD and MTTR by providing unmatched instant visibility across the infrastructure and application stack that builds on the value of an extensible S...\nShow More\nplunk platform that massively scales for enterprise performance to support even the largest of cloud-native environments. These benefits are built on Open-Source frameworks that allow users to retain control of their data without the rework and empower distributed teams to automatically monitor their self-serve deployments with a programmable approach for continuous feedback and improvement.",
     "categories": [
       "Server Monitoring",
       "Log Monitoring",
@@ -27,7 +27,8 @@
       "Log Analysis",
       "Network Monitoring",
       "Enterprise Monitoring",
-      "Observability Software"
+      "Observability Software",
+      "AIOps Platforms"
     ]
   },
   {
@@ -42,11 +43,22 @@
     ]
   },
   {
+    "name": "Google Cloud AI Infrastructure",
+    "link": "https://www.g2.com/products/google-cloud-ai-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-ai-infrastructure.jpg",
+    "rate": 4.5,
+    "reviewsNumber": 45,
+    "description": "Google Cloud AI Infrastructure offers a scalable, high-performance, and cost-effective platform tailored for diverse AI workloads, encompassing both training and inference tasks. By integrating advanced hardware accelerators such as GPUs and TPUs with managed services like Vertex AI and Google Kubernetes Engine (GKE), it enables efficient development, deployment, and scaling of AI models.\n\nKey Features and Functionality:\n\n- Flexible and Scalable Hardware: Provides a wide range of AI-optimized co",
+    "categories": [
+      "Generative AI Infrastructure"
+    ]
+  },
+  {
     "name": "Oracle Cloud Infrastructure Logging",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-logging/reviews",
-    "image": "https://images.g2crowd.com/uploads/vendor/image/378/3f7254e5663d9141aae265f49b468543.jpeg",
+    "image": "https://images.g2crowd.com/uploads/product/image/3a65ea54e875f0cf94ac6c8230968ac2/oracle-cloud-infrastructure-logging.jpeg",
     "rate": 4.7,
-    "reviewsNumber": 49,
+    "reviewsNumber": 50,
     "description": "Oracle Cloud Infrastructure Logging is a fully managed, scalable service that centralizes the collection, management, and analysis of log data from various sources, including infrastructure, applications, databases, and audit logs. Designed to enhance DevOps efficiency and ensure security compliance, OCI Logging provides a unified platform for monitoring and troubleshooting across an organization's entire IT environment.\n\nKey Features and Functionality:\n\n- Centralized Log Management: Enables one",
     "categories": [
       "Log Analysis"
@@ -76,17 +88,6 @@
     ]
   },
   {
-    "name": "Google Cloud AI Infrastructure",
-    "link": "https://www.g2.com/products/google-cloud-ai-infrastructure/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-ai-infrastructure.jpg",
-    "rate": 4.5,
-    "reviewsNumber": 39,
-    "description": "AI Infrastructure\nScalable, high performance, and cost effective infrastructure for every AI workload.\n\nAI Accelerators for every use case from high performance training to low-cost inference\n\nScale faster with GPUs and TPUs on Google Kubernetes Engine or Google Compute Engine\n\nDeployable solutions for Vertex AI, Google Kubernetes Engine, and the Cloud HPC Toolkit\n\nGet the most out of our AI Infrastructure by deploying the AI Hypercomputer architecture",
-    "categories": [
-      "Generative AI Infrastructure"
-    ]
-  },
-  {
     "name": "Oracle Cloud Infrastructure Vault",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-vault/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/ebc397a24911cc79962c8898752c5359/oracle-cloud-infrastructure-vault.png",
@@ -102,7 +103,7 @@
     "link": "https://www.g2.com/products/google-cloud-infrastructure/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/e6d9cd7838e449b6079531d9feae9788/google-cloud-infrastructure.png",
     "rate": 4.3,
-    "reviewsNumber": 16,
+    "reviewsNumber": 15,
     "description": "Our planet-scale infrastructure delivers the highest level of performance and availability in a secure, sustainable way.",
     "categories": [
       "Infrastructure as a Service (IaaS)"
@@ -120,6 +121,17 @@
     ]
   },
   {
+    "name": "Oracle Cloud Infrastructure Registry",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-registry/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-registry.png",
+    "rate": 4.4,
+    "reviewsNumber": 16,
+    "description": "A highly available private container registry service for storing and sharing container images within the same regions as the deployments",
+    "categories": [
+      "Container Registry"
+    ]
+  },
+  {
     "name": "Oracle Cloud Infrastructure Networking",
     "link": "https://www.g2.com/products/oracle-cloud-infrastructure-networking/reviews",
     "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-networking.png",
@@ -129,17 +141,6 @@
     "categories": [
       "Virtual Private Cloud (VPC)",
       "Business VPN"
-    ]
-  },
-  {
-    "name": "Oracle Cloud Infrastructure Registry",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-registry/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-registry.png",
-    "rate": 4.4,
-    "reviewsNumber": 16,
-    "description": "A highly available private container registry service for storing and sharing container images within the same regions as the deployments",
-    "categories": [
-      "Container Registry"
     ]
   },
   {
@@ -161,24 +162,20 @@
     "image": "https://images.g2crowd.com/uploads/product/image/9bffa359ebdf62613b74920d787d784b/google-cloud-infrastructure-manager.jpg",
     "rate": 4.2,
     "reviewsNumber": 11,
-    "description": "Google Cloud Infrastructure Manager\n\nProduct Description:\n\nGoogle Cloud Infrastructure Manager is a managed service that automates the deployment and management of Google Cloud infrastructure resources using Terraform. By integrating Terraform's infrastructure-as-code capabilities directly into the Google Cloud ecosystem, Infra Manager enables users to define, deploy, and manage cloud resources in a consistent, repeatable, and efficient manner. This service eliminates the need for maintaining se",
+    "description": "Google Cloud Infrastructure Manager is a fully managed service that automates the deployment and management of Google Cloud resources using Terraform configurations. By integrating Terraform's infrastructure as code (IaC) capabilities directly into the Google Cloud ecosystem, Infrastructure Manager enables users to define, provision, and manage cloud infrastructure in a declarative and consistent manner.\n\nKey Features and Functionality:\n\n- Managed Terraform Service: Infrastructure Manager handle",
     "categories": [
       "Cloud Infrastructure Automation"
     ]
   },
   {
-    "name": "Cisco Application Centric Infrastructure (ACI)",
-    "link": "https://www.g2.com/products/cisco-application-centric-infrastructure-aci/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/47bf20a76fe88056707e198b1947bb33/cisco-application-centric-infrastructure-aci.jpg",
-    "rate": 4.3,
-    "reviewsNumber": 22,
-    "description": "Application Centric Infrastructure (ACI) simplifies, optimizes, and accelerates the application deployment lifecycle in next-generation data centers and clouds.",
+    "name": "Oracle Cloud Infrastructure Archive Storage Classic",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-archive-storage-classic/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-archive-storage-classic.jpg",
+    "rate": 4.4,
+    "reviewsNumber": 35,
+    "description": "The most cost-effective storage in the industry, designed for infrequently accessed data with enterprise-grade security, resilience, and elastic scalability.",
     "categories": [
-      "Data Center Security Solutions",
-      "Network Automation Tools",
-      "Data Center Networking",
-      "Data Center Infrastructure Management (DCIM)",
-      "Network Management Tools"
+      "Archive Storage Solutions"
     ]
   },
   {
@@ -190,17 +187,6 @@
     "description": "Notifications is a fully managed publish-subscribe service that allows for messages to be pushed with massive scale and reliability.",
     "categories": [
       "IT Alerting"
-    ]
-  },
-  {
-    "name": "Oracle Cloud Infrastructure Archive Storage Classic",
-    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-archive-storage-classic/reviews",
-    "image": "https://images.g2crowd.com/uploads/product/image/d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-archive-storage-classic.jpg",
-    "rate": 4.4,
-    "reviewsNumber": 34,
-    "description": "The most cost-effective storage in the industry, designed for infrequently accessed data with enterprise-grade security, resilience, and elastic scalability.",
-    "categories": [
-      "Archive Storage Solutions"
     ]
   },
   {
@@ -245,6 +231,481 @@
     "description": "Ingest and store continuous, high-volume data streams and process them in real-time with Oracle Cloud Infrastructure Streaming service.",
     "categories": [
       "Event Stream Processing"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure VPN for Dedicated Compute Classic",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-vpn-for-dedicated-compute-classic/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-vpn-for-dedicated-compute-classic.jpg",
+    "rate": 4.3,
+    "reviewsNumber": 43,
+    "description": "Networking Classic Site to Site VPN is a secure, reliable, and cost-effective solution for expanding your private network. Enterprises can securely connect to Dedicated Compute Classic zone over IPSec tunnels as part of their virtual private network. Networking Classic Site to Site VPN eliminates the need to invest in leased lines for more security and peace of mind. Available as a Service (VPNaaS) on Oracle Cloud Infrastructure Dedicated Compute Classic in Regional Cloud.",
+    "categories": [
+      "Virtual Private Cloud (VPC)"
+    ]
+  },
+  {
+    "name": "Cold Email Infrastructure",
+    "link": "https://www.g2.com/products/cold-email-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/358c5dc772074c2ec0bc343e34b2aeba/cold-email-infrastructure.png",
+    "rate": 4.5,
+    "reviewsNumber": 1,
+    "description": "Puzzle Inbox is a cold email infrastructure provider that supplies ready-to-use email inboxes for outbound sales and cold outreach campaigns. The core offerings include:\n\nGoogle Workspace & Outlook 365 inboxes — pre-configured mailboxes optimized for cold email deliverability\n\nDone-for-you setup packages — fully managed inbox provisioning so clients don't have to handle domain purchasing, DNS configuration, or warmup themselves\n\nAI-powered outreach tools automation features to support cold ...\nShow More\nemail campaigns at scale",
+    "categories": [
+      "Email Deliverability"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Archive Storage",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-archive-storage/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-archive-storage.png",
+    "rate": 4.5,
+    "reviewsNumber": 7,
+    "description": "Use and manage Archive Storage with the same identity mechanisms and common console, SDK, and APIs as Oracle Cloud Infrastructure Object Storage.",
+    "categories": [
+      "Archive Storage Solutions"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Identity and Access Management",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-identity-and-access-management/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-identity-and-access-management.png",
+    "rate": 4.0,
+    "reviewsNumber": 13,
+    "description": "Define privileges for specific groups of users with simple, SQL-like policies",
+    "categories": [
+      "Privileged Access Management (PAM)",
+      "Identity and Access Management (IAM)"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Container Engine for Kubernetes",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-container-engine-for-kubernetes/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-container-engine-for-kubernetes.png",
+    "rate": 3.8,
+    "reviewsNumber": 10,
+    "description": "A developer friendly, container-native, and enterprise-ready managed Kubernetes service for running highly available clusters with the control, security, and predictable performance of Oracles Cloud Infrastructure",
+    "categories": [
+      "Container Orchestration",
+      "Container Management"
+    ]
+  },
+  {
+    "name": "Verizon Network Infrastructure Services",
+    "link": "https://www.g2.com/products/verizon-network-infrastructure-services/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/ed751f34ad82a65adf133ee845c518fc/verizon-network-infrastructure-services.jpg",
+    "rate": 4.8,
+    "reviewsNumber": 2,
+    "description": "Verizons Network Infrastructure Services give you the building blocks to design, plan, and manage your network solution. Delivered together as-a-service or standalone, well help execute your strategy with a prioritized roadmap to a future-ready network design.",
+    "categories": [
+      "IT Infrastructure Utility Services"
+    ]
+  },
+  {
+    "name": "Dell PowerEdge Modular Infrastructure",
+    "link": "https://www.g2.com/products/dell-poweredge-modular-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/fb87eb0046f7560724d3e79e998367c4/dell-poweredge-modular-infrastructure.jpeg",
+    "rate": 4.6,
+    "reviewsNumber": 4,
+    "description": "PowerEdge M630 is a blade server. A member of the 13th generation of PowerEdge servers, designed for the PowerEdge M1000e blade server chassis and the PowerEdge VRTX modular infrastructure, the M630 offers exceptional scalability in environments ranging from IT as a service (XaaS) providers and private clouds to remote and branch offices.",
+    "categories": [
+      "Servers"
+    ]
+  },
+  {
+    "name": "ThinkOn Hybrid Infrastructure",
+    "link": "https://www.g2.com/products/thinkon-hybrid-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/f53792ab080a52162468286f66d93c7b/thinkon-hybrid-infrastructure.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "ThinkOn delivers critical data management and information asset protection solutions that help companies optimize their IT infrastructure.",
+    "categories": [
+      "Infrastructure as a Service (IaaS)"
+    ]
+  },
+  {
+    "name": "Truecore Infrastructure as a a service",
+    "link": "https://www.g2.com/products/truecore-infrastructure-as-a-a-service/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/07f2e7a536f877659ca5186a10a3e3b9/truecore-infrastructure-as-a-a-service.JPG",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Our IaaS solution offers you a complete virtual data center (vDC) consisting of storage, server and network resources and includes all the features of your on-premise infrastructure for building highly available IT services. High investments in IT infrastructure are avoided in the future - Truecore offers you agility and scalability and the virtual data center adapts dynamically to your business needs.",
+    "categories": [
+      "Infrastructure as a Service (IaaS)"
+    ]
+  },
+  {
+    "name": "Siteage Infrastructure Servers",
+    "link": "https://www.g2.com/products/siteage-infrastructure-servers/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/e15ae0cc083707dac41dc0e739d13ccd/siteage-infrastructure-servers.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Siteage, LLC developed Red Hat Enterprise Linux Server 8.1 cloud hardened images (CHI) with the standard of National Checklist Program (NCP) U.S. government. Siteage Hardened images provides low level design (LLD) on setting the security configuration of operating systems and applications in the AWS Cloud, our aim to provide highly secure elastic cloud computing environment with built-in security stands of National Checklist Program (NCP) U.S.",
+    "categories": [
+      "Infrastructure as a Service (IaaS)"
+    ]
+  },
+  {
+    "name": "redu.cloud - Cloud Infrastructure",
+    "link": "https://www.g2.com/products/redu-cloud-cloud-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/f7023a0221e889babbb3fb399fdf94ff/redu-cloud-cloud-infrastructure.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "redu.cloud is a European cloud software platform currently in beta, designed to provide secure and flexible cloud infrastructure for modern workloads. The platform focuses on private networking, scalable compute and storage, and a developer-friendly experience built around transparency and control.\n\nredu.cloud is being developed with a strong emphasis on innovation, reliability, and real-world usability, aiming to simplify how teams build and operate cloud environments while maintaining performa",
+    "categories": [
+      "Infrastructure as a Service (IaaS)"
+    ]
+  },
+  {
+    "name": "Citadel Infrastructure Tools",
+    "link": "https://www.g2.com/products/citadel-infrastructure-tools/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/4690c7649999f5cba8f95dc4f6552e63/citadel-infrastructure-tools.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "CITADEL is the world's first SRAM PUF-based key provisioning system designed to keep pace with the growing demand for the generation, distribution, and protection of cryptographic keys for IoT applications.",
+    "categories": [
+      "IoT Security Solutions"
+    ]
+  },
+  {
+    "name": "Infrastructure Ticket Classification",
+    "link": "https://www.g2.com/products/infrastructure-ticket-classification/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/96abba1817e7b5998ae8c76f2dc932b2/infrastructure-ticket-classification.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Infrastructure Ticket Classification is a solution designed to automate the categorization and routing of IT service requests using machine learning. By leveraging natural language processing (NLP, it analyzes the content of support tickets to accurately assign them to the appropriate categories and teams, thereby streamlining the resolution process.\n\nKey Features and Functionality:\n\n- Automated Ticket Categorization: Utilizes NLP to interpret ticket content and assign accurate categories.\n- Int",
+    "categories": [
+      "AWS Marketplace"
+    ]
+  },
+  {
+    "name": "Akasia Infrastructure Modeler",
+    "link": "https://www.g2.com/products/akasia-infrastructure-modeler/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/a9ab2e39eff4657fadebb988f19ef602/akasia-infrastructure-modeler.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Akasia Infrastructure Modeler (AIM is a Software-as-a-Service (SaaS solution designed to facilitate the migration of on-premises infrastructure to cloud environments. By automatically discovering existing virtual machines (VMs and their configurations, AIM provides detailed cost analyses and right-sizing recommendations, enabling organizations to make informed decisions about transitioning to cloud platforms. The tool supports comparisons across major cloud providers, including AWS, Azure, Googl",
+    "categories": [
+      "Cloud Cost Management",
+      "Cloud Migration Assessment Tools"
+    ]
+  },
+  {
+    "name": "Flexential Managed Infrastructure",
+    "link": "https://www.g2.com/products/flexential-managed-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/a27df721f331714196db75fd11e932fe/flexential-managed-infrastructure.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Keep pace with today’s rapidly changing IT landscape with a strategic infrastructure partner that will dig deep to understand your business goals and then help you optimize your hybrid IT infrastructure plan. Spend your time focusing on strategic business initiatives by relying on a team of highly certified experts to support you with everything—from infrastructure solution design through implementation and ongoing maintenance and support.\nWith this easy-to-add modular service, a team of experts",
+    "categories": [
+      "Managed IT Services"
+    ]
+  },
+  {
+    "name": "Satellite-based infrastructure monitoring",
+    "link": "https://www.g2.com/products/satellite-based-infrastructure-monitoring/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/db293ab2257c659e291ae5303dcda174/satellite-based-infrastructure-monitoring.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Using satellite data and AI LiveEO automatically identifies grid segments exposed to vegetation, 3rd-party interaction or ground deformation to realize Opex savings and safety and reliability improvements. These insights are seamlessly integrated into SAP S/4HANA for you to take actions efficiently.",
+    "categories": [
+      "SAP Store"
+    ]
+  },
+  {
+    "name": "Cloudmon IT Infrastructure Monitoring",
+    "link": "https://www.g2.com/products/cloudmon-it-infrastructure-monitoring/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/5780647fc58f151f77412db166f4d2af/cloudmon-it-infrastructure-monitoring.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Veryx Cloudmon ITIM enables IT and DevOps teams to proactively monitor IT infrastructure, on-premise or in public cloud, by providing live and unified visualisation of IT infrastructure - covering physical servers, virtual workloads, network devices and network links, doing the work of many IT monitoring tools.\nCloudmon ITIM provides key performance indicator (KPI) metrics and intelligent alerts. It also correlates the metrics and provides valuable inferences based on the correlation.",
+    "categories": [
+      "AWS Marketplace",
+      "Server Monitoring",
+      "Network Monitoring"
+    ]
+  },
+  {
+    "name": "Incident Forecast for IT Infrastructure",
+    "link": "https://www.g2.com/products/incident-forecast-for-it-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/9e248991bd2a57914998cf50e18e23cd/incident-forecast-for-it-infrastructure.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "A Deep Learning based incident forecasting solution for efficient incident management of IT Infrastructure.",
+    "categories": [
+      "AWS Marketplace"
+    ]
+  },
+  {
+    "name": "Kinetix Emote Infrastructure",
+    "link": "https://www.g2.com/products/kinetix-emote-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/4dde612ad2de558bc6504abc7752d53b/kinetix-emote-infrastructure.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Kinetix is a no-code 3D creation tool powered by Artificial Intelligence. Our free web-based platform leverages AI motion capture to convert videos into 3D animations.\n \n\n We make 3D animation accessible to every creator so they can create engaging stories and web3 experiences. By facilitating 3D content creation, we want to empower creators by creating new revenue opportunities for them.\n \n\n Kinetix is on a mission to humanize the metaverse. We are at the intersection of gaming, artificial inte",
+    "categories": [
+      "Gaming Tools"
+    ]
+  },
+  {
+    "name": "Uptime Infrastructure Monitor",
+    "link": "https://www.g2.com/products/uptime-infrastructure-monitor-2021-01-24/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/14d7b1c8da5021b68f92b70b49dafed2/uptime-infrastructure-monitor-2021-01-24.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Uptime Infrastructure Monitor is a highly scalable and easy-to-deploy solution that provides a unified view for complete visibility and control over performance, availability, and capacity in IT environments. Its holistic dashboards deliver integrated and comprehensive monitoring, alerting, and reporting for all physical servers, virtual machines, network devices, applications, and services all in one solution.",
+    "categories": [
+      "Cloud Infrastructure Monitoring"
+    ]
+  },
+  {
+    "name": "Infrastructure monitoring support",
+    "link": "https://www.g2.com/products/infrastructure-monitoring-support/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/299bdd8ed9018c6822770015a41ee03c/infrastructure-monitoring-support.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Ionidea is a preferred Dynatrace Solution Partner, offering our highly skilled and experienced team of Dynatrace certified experts to seamlessly implement Dynatrace in your environment\n \n\n Dynatrace delivers end-to-end observability with AIOps and application security in one unified platform. It helps leverage purpose-built data and AI across applications, infrastructure monitoring, digital experience, and application security.",
+    "categories": [
+      "Managed IT Services"
+    ]
+  },
+  {
+    "name": "NetApp Data Infrastructure Insights",
+    "link": "https://www.g2.com/products/netapp-data-infrastructure-insights/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/5527633040d2267966345beea4bcc3b5/netapp-data-infrastructure-insights.PNG",
+    "rate": 4.4,
+    "reviewsNumber": 14,
+    "description": "NetApp Cloud Insights is an infrastructure monitoring tool that gives you visibility into your complete infrastructure. With Cloud Insights, you can monitor, troubleshoot and optimize all your resources including your public clouds and your private data centers.",
+    "categories": [
+      "Database Monitoring",
+      "Server Monitoring",
+      "Hardware Monitoring",
+      "Cloud Infrastructure Monitoring",
+      "Enterprise Monitoring",
+      "Observability Software",
+      "Network Monitoring"
+    ]
+  },
+  {
+    "name": "BlueCat Infrastructure Assurance (BCIA)",
+    "link": "https://www.g2.com/products/bluecat-infrastructure-assurance-bcia/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/c9464966a1e0ed13bc6fd2529ee60e85/bluecat-infrastructure-assurance-bcia.png",
+    "rate": 4.4,
+    "reviewsNumber": 14,
+    "description": "BlueCat LiveAssurance is a proactive observability and automation solution that helps organizations avoid network disruption by continuously monitoring, diagnosing, and remediating issues before they impact performance. It delivers deep visibility into network and security infrastructure, combining automated triage, anomaly detection, and machine learning to identify root causes quickly. LiveAssurance continuously measures configuration, security, and performance metrics across network devices,",
+    "categories": [
+      "Network Security Policy Management (NSPM)",
+      "IT Alerting",
+      "Configuration Management",
+      "Network Monitoring",
+      "Network Automation Tools"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Storage Gateway",
+    "link": "https://www.g2.com/products/oracle-oracle-cloud-infrastructure-storage-gateway/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/1fdb202cf6dec0f94a008403c07bcba4/oracle-oracle-cloud-infrastructure-storage-gateway.jpg",
+    "rate": 4.5,
+    "reviewsNumber": 12,
+    "description": "A simple NAS gateway for end users and applications which provides a secure, POSIX compliant, local NFS interface for cloud storage.",
+    "categories": [
+      "Cloud File Storage",
+      "Hybrid Cloud Storage Solutions",
+      "On-Premise Data Integration"
+    ]
+  },
+  {
+    "name": "Oracle Infrastructure Monitoring Cloud Service",
+    "link": "https://www.g2.com/products/oracle-infrastructure-monitoring-cloud-service/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-infrastructure-monitoring-cloud-service.png",
+    "rate": 4.0,
+    "reviewsNumber": 13,
+    "description": "Oracle Infrastructure Monitoring Cloud Service delivers the insight needed to understand the health of your resources, optimize the performance of your applications, and respond to anomalies in real time.",
+    "categories": [
+      "Cloud Infrastructure Monitoring",
+      "Observability Software"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Load Balancing",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-load-balancing/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-load-balancing.png",
+    "rate": 4.6,
+    "reviewsNumber": 14,
+    "description": "Increase application availability and performance with highly-available and provisioned bandwidth load balancing.",
+    "categories": [
+      "Load Balancing"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Container Registry",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-container-registry/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/acd5747866dc21c24ddc026677a00097/oracle-cloud-infrastructure-container-registry.jpg",
+    "rate": 4.4,
+    "reviewsNumber": 10,
+    "description": "Oracle Cloud Infrastructure Container Registry is a fully managed, open standards-based Docker registry service designed for securely storing and sharing container images. It enables developers to push and pull Docker images using familiar Docker Command Line Interface commands and APIs. Integrated seamlessly with OCI services such as Container Engine for Kubernetes, Identity and Access Management , and Visual Builder Studio, it also supports third-party developer and DevOps tools, facilitating",
+    "categories": [
+      "Container Registry"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure File Storage",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-file-storage/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-file-storage.png",
+    "rate": 4.1,
+    "reviewsNumber": 9,
+    "description": "Oracle Cloud Infrastructure File Storage is a persistent shared filesystem in the cloud with massive scalability, availability, durability, and performance. Oracle File Storage supports NFSv3, snapshots, and encryption",
+    "categories": [
+      "Cloud File Storage"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Object Storage",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-object-storage/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/aca40b5464fcf97310dbc332c2296b5c/oracle-cloud-infrastructure-object-storage.png",
+    "rate": 4.3,
+    "reviewsNumber": 12,
+    "description": "Automatically replicates objects across multiple fault domains for high durability. Actively monitored for data integrity and availability",
+    "categories": [
+      "Object Storage Solutions"
+    ]
+  },
+  {
+    "name": "F5 Distributed Cloud App Infrastructure Protection (AIP)",
+    "link": "https://www.g2.com/products/f5-distributed-cloud-app-infrastructure-protection-aip/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/8fdb737e87e3830c8e85459728885045/f5-distributed-cloud-app-infrastructure-protection-aip.png",
+    "rate": 4.4,
+    "reviewsNumber": 44,
+    "description": "F5 Distributed Cloud App Infrastructure Protection (AIP) provides continuous security monitoring for public, private, and hybrid cloud infrastructures protecting servers, and the data they access, from intrusion and data loss.",
+    "categories": [
+      "Cloud Security Monitoring and Analytics",
+      "Cloud Compliance",
+      "Container Security",
+      "Cloud Workload Protection Platforms",
+      "Cloud Security Posture Management (CSPM)"
+    ]
+  },
+  {
+    "name": "CA Unified Infrastructure Management",
+    "link": "https://www.g2.com/products/broadcom-ca-unified-infrastructure-management/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/59dddda64a056efaca287f0d6c23b635/broadcom-ca-unified-infrastructure-management.png",
+    "rate": 3.4,
+    "reviewsNumber": 5,
+    "description": "Saas solution to core IT Service Management processes. Rapid setup and configuration for quick time to value.",
+    "categories": [
+      "Server Monitoring",
+      "Enterprise Monitoring"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure VPN for Compute Classic",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-vpn-for-compute-classic/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-vpn-for-compute-classic.jpg",
+    "rate": 4.5,
+    "reviewsNumber": 15,
+    "description": "Oracle's Corente Cloud Services Exchange (Corente CSX) is a cloud-based software- defined networking (SDN) service that enables distributed enterprises to deliver trusted connectivity services to and from any location with less complexity, in significantly less time, and at a greatly reduced cost, when compared to more traditional approaches. The Corente Services Gateway (CSG) is a distributed virtual appliance located at the network edge that provides secure endpoints for virtual private networ",
+    "categories": [
+      "Virtual Private Cloud (VPC)"
+    ]
+  },
+  {
+    "name": "YOTTA Infrastructure",
+    "link": "https://www.g2.com/products/yotta-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/e5322182b6ccce27ab43cb5243a9ac9f/yotta-infrastructure.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "We secure, manage, analyze and provide access to memories, decisions, ideas, entertainment, finances, communication and much more!With our comprehensive suite of Datacenter Colocation and Tech Services such as Cloud services, Network & Connectivity, IT Security and IT Management services.",
+    "categories": [
+      "Managed IT Services",
+      "Cloud Consulting"
+    ]
+  },
+  {
+    "name": "Stack Infrastructure",
+    "link": "https://www.g2.com/products/stack-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/4f5c7ebc0b1efd0d14fc7688a87f9053/stack-infrastructure.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "STACK Infrastructure is a global leader in data center development and operations, providing scalable and sustainable digital infrastructure solutions for hyperscale and enterprise companies. With a client-first approach, STACK offers a comprehensive suite of services, including campus developments, build-to-suit facilities, colocation, and powered shell solutions across the Americas, EMEA, and APAC regions. Their extensive portfolio and flexible expansion capacity enable rapid growth and innova",
+    "categories": [
+      "Data Center Infrastructure"
+    ]
+  },
+  {
+    "name": "Infrastructure Observability",
+    "link": "https://www.g2.com/products/infrastructure-observability/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/54a15e35b9e953e5b08fe513154bdae6/infrastructure-observability.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Selector's Infrastructure Observability solution offers a unified platform for monitoring and analyzing on-premises and cloud infrastructures, including physical and virtual machines, applications, and containers. By collecting and visualizing telemetry data from diverse systems, it provides comprehensive insights into service performance, enabling IT teams to proactively detect issues, accelerate troubleshooting, and reduce mean time to resolution (MTTR).",
+    "categories": [
+      "Network Monitoring"
+    ]
+  },
+  {
+    "name": "X-INFRA (Infrastructure)",
+    "link": "https://www.g2.com/products/x-infra-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/d0bfabb558bbc87744d62db29427c625/x-infra-infrastructure.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "X-INFRA is a robust infrastructure solution designed to deploy AI at scale with enterprise-grade security and efficiency. It ensures reliable performance for mission-critical applications by efficiently managing data-intensive tasks.",
+    "categories": [
+      "Digital Twin"
+    ]
+  },
+  {
+    "name": "Milk Infrastructure",
+    "link": "https://www.g2.com/products/milk-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/258f9bc3377e5edf040f54de257ab91d/milk-infrastructure.jpg",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "Milk Infrastructure is a comprehensive platform designed to streamline and enhance the development and deployment of decentralized applications (dApps). It offers a suite of tools and services that simplify the complexities associated with blockchain technology, enabling developers to focus on creating innovative solutions without the overhead of managing underlying infrastructure.\n\nKey Features and Functionality:\n\n- Scalable Infrastructure: Provides a robust and scalable environment for deployi",
+    "categories": [
+      "Generative AI Infrastructure"
+    ]
+  },
+  {
+    "name": "SEO infrastructure",
+    "link": "https://www.g2.com/products/seo-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/5903b69b9f3ceb615caf967c304e0c31/seo-infrastructure.png",
+    "rate": 0.0,
+    "reviewsNumber": 0,
+    "description": "See how your brand appears in AI search engines. Track visibility in ChatGPT, Perplexity, Google. Discover gaps vs competitors and generate content to close them.",
+    "categories": [
+      "SEO Tools"
+    ]
+  },
+  {
+    "name": "Oracle Cloud Infrastructure Object Storage Classic",
+    "link": "https://www.g2.com/products/oracle-cloud-infrastructure-object-storage-classic/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/d5bfe1591b8ea3a1a883779b66578382/oracle-cloud-infrastructure-object-storage-classic.jpg",
+    "rate": 4.4,
+    "reviewsNumber": 13,
+    "description": "Secure, resilient and elastic object storage in the cloud, which provides enterprise-class data protection and sharing with easy access from anywhere on the internet.",
+    "categories": [
+      "Object Storage Solutions"
+    ]
+  },
+  {
+    "name": "Cloud Voice Infrastructure",
+    "link": "https://www.g2.com/products/cloud-voice-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/c1fcdebe23ddbc831f43d042f422ae2f/cloud-voice-infrastructure.png",
+    "rate": 5.0,
+    "reviewsNumber": 1,
+    "description": "A cloud-based, hosted infrastructure solution which provides a fully managed, end-to-end service that enables customers to take advantage of a hosted telephony solution with a full suite of Unified Communications features and capabilities.",
+    "categories": [
+      "Call Center Infrastructure (CCI)"
+    ]
+  },
+  {
+    "name": "Aampe Agentic Infrastructure",
+    "link": "https://www.g2.com/products/aampe-agentic-infrastructure/reviews",
+    "image": "https://images.g2crowd.com/uploads/product/image/625616622e1f02a1e09075c8928fa802/aampe-agentic-infrastructure.jpg",
+    "rate": 5.0,
+    "reviewsNumber": 1,
+    "description": "Aampe provides Marketing, Product, and Data teams reinforcement-learning agents that drive better engagement with less manual work and higher precision. Every customer gets their own AI agent, one that learns what they care about, when they’re most receptive, and how they prefer to interact. These agents run thousands of micro-experiments and they continuously refine message content, timing, frequency, channel, and even UI elements, resulting in higher conversions, more relevant experiences, and",
+    "categories": [
+      "Customer Data Platform (CDP)"
     ]
   }
 ]
