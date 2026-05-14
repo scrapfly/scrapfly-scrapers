@@ -27,6 +27,7 @@ BASE_CONFIG = {
     # requires Anti Scraping Protection bypass feature.
     "asp": True,
     "render_js": True,
+    "proxy_pool": "public_residential_pool"
 }
 
 
@@ -99,7 +100,6 @@ def parse_reviews(xhr_calls: List[Dict]) -> List[ZoroReview]:
 
                 review_list = results[0].get("reviews", [])
                 if review_list:
-                    log.info(f"Found {len(review_list)}")
                     for review in review_list:
                         review_id = review.get("review_id") or review.get("ugc_id")
                         # Skip duplicates
@@ -273,7 +273,7 @@ def parse_search_listing(response: ScrapeApiResponse) -> ZoroSearchListing:
         xhr_calls = browser_data.get("xhr_call", [])
         for xhr in xhr_calls:
             url = xhr.get("url", "")
-            if url.startswith("https://api.prod.zoro.com/catalog/v1/catalog/product"):
+            if "/catalog-cloudrun/v1/catalog/product" in url:
                 try:
                     response_data = xhr.get("response", {})
                     body = response_data.get("body", "")

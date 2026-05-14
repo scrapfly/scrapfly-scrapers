@@ -11,11 +11,8 @@ from pathlib import Path
 import zoro
 from loguru import logger as log
 
-
-
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
-
 
 
 async def run():

@@ -18,7 +18,7 @@ Note that this code is provided free of charge as is, and Scrapfly does __not__ 
 
 ## Setup and Use
 
-This Allegro.pl scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Allegro's data.
+This zoro.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/project/scrapfly-sdk/) package which is used to scrape and parse Zoro's data.
 
 0. Ensure you have __Python 3.10__ and [poetry Python package manager](https://python-poetry.org/docs/#installation) on your system.
 1. Retrieve your Scrapfly API key from <https://scrapfly.io/dashboard> and set `SCRAPFLY_KEY` environment variable:
@@ -28,7 +28,7 @@ This Allegro.pl scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.or
 2. Clone and install Python environment:
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
-    $ cd scrapfly-scrapers/allegro-scraper
+    $ cd scrapfly-scrapers/zoro-scraper
     $ poetry install
     ```
 3. Run example scrape:
