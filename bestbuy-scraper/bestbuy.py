@@ -182,15 +182,15 @@ def parse_search(response: ScrapeApiResponse):
             if '$' in elem:
                 original_price = re.sub(r'[^\d.]', '', elem) or None
                 break
-
-        rating = item.css('.font-weight-bold::text').get()
         
+        rating = None
         rating_count = 0
-        rating_count_element = item.css('.c-reviews::text').get()
-        if rating_count_element:
-            count_matches = re.findall(r'\(([0-9,]+)\s+reviews?\)', rating_count_element)
-            if count_matches:
-                rating_count = int(count_matches[0].replace(',', ''))
+        rating_text = item.css('div.c-ratings-reviews p.visually-hidden::text').get()
+        if rating_text:
+            m = re.search(r'Rating\s+([\d.]+)\s+out of\s+\d+\s+stars\s+with\s+([\d,]+)\s+reviews?', rating_text)
+            if m:
+                rating = m.group(1)
+                rating_count = int(m.group(2).replace(',', ''))
         
         images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
         
