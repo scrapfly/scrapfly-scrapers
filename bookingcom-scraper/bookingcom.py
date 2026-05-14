@@ -93,6 +93,15 @@ def retrieve_graphql_body(result: ScrapeApiResponse) -> List[Dict]:
     }
 
 
+def retrieve_total_results(result: ScrapeApiResponse) -> int:
+    """parse total search-result count from the apollo data store embedded in the page"""
+    script_data = result.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get()
+    apollo = json.loads(script_data)
+    keys_list = list(apollo["ROOT_QUERY"]["searchQueries"].keys())
+    # the second key holds the actual search query result (same convention as retrieve_graphql_body)
+    return int(apollo["ROOT_QUERY"]["searchQueries"][keys_list[1]]["pagination"]["nbResultsTotal"])
+
+
 def generate_graphql_request(url_params: str, body: Dict, offset: int):
     """create a scrape config for the search graphql request"""
     body["variables"]["input"]["pagination"]["offset"] = offset
@@ -156,7 +165,7 @@ async def scrape_search(
     search_url = "https://www.booking.com/searchresults.en-gb.html?" + url_params
     # first scrape the first page and find total amount of pages
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
-    _total_results = int(first_page.selector.xpath("//h1[contains(@aria-label,'Search results')]").re(r"(?:We found )?([\d,]+) (?:places to stay|properties|exact matches)")[0].replace(",", ""))
+    _total_results = retrieve_total_results(first_page)
     _max_scrape_results = max_pages * 25
     if _max_scrape_results and _max_scrape_results < _total_results:
         _total_results = _max_scrape_results
@@ -309,13 +318,97 @@ async def scrape_hotel(url: str, checkin: str, price_n_days=61) -> Hotel:
     return hotel
 
 
-def retrieve_reviews_api_xhr_call(result: ScrapeApiResponse) -> Dict:
-    """retrieve the reviews xhr call from the captured browser data"""
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    for xhr in _xhr_calls:
-        body = (xhr.get("response") or {}).get("body") or ""
-        if "reviewCard" in body:
-            return xhr
+# static graphql query for the hotel review list
+_REVIEW_LIST_QUERY = (
+    "query ReviewList($input: ReviewListFrontendInput!, "
+    "$shouldShowReviewListPhotoAltText: Boolean = false) {\n"
+    "  reviewListFrontend(input: $input) {\n"
+    "    ... on ReviewListFrontendResult {\n"
+    "      ratingScores { name translation value "
+    "ufiScoresAverage { ufiScoreLowerBound ufiScoreHigherBound __typename } __typename }\n"
+    "      topicFilters { id name isSelected translation { id name __typename } __typename }\n"
+    "      reviewScoreFilter { name value count __typename }\n"
+    "      languageFilter { name value count countryFlag __typename }\n"
+    "      timeOfYearFilter { name value count __typename }\n"
+    "      customerTypeFilter { count name value __typename }\n"
+    "      roomTypeFilter { name roomTypeId count roomIds __typename }\n"
+    "      reviewCard {\n"
+    "        reviewUrl\n"
+    "        guestDetails { username avatarUrl countryCode countryName avatarColor "
+    "showCountryFlag anonymous guestTypeTranslation __typename }\n"
+    "        bookingDetails { customerType roomId roomType { id name __typename } "
+    "checkoutDate checkinDate numNights stayStatus __typename }\n"
+    "        reviewedDate isTranslatable helpfulVotesCount reviewScore\n"
+    "        textDetails { title positiveText negativeText textTrivialFlag lang __typename }\n"
+    "        isApproved\n"
+    "        partnerReply { reply __typename }\n"
+    "        positiveHighlights { start end __typename }\n"
+    "        negativeHighlights { start end __typename }\n"
+    "        editUrl\n"
+    "        photos { id urls { size url __typename } kind "
+    "mlTagHighestProbability @include(if: $shouldShowReviewListPhotoAltText) __typename }\n"
+    "        __typename\n"
+    "      }\n"
+    "      reviewsCount\n"
+    "      sorters { name value __typename }\n"
+    "      __typename\n"
+    "    }\n"
+    "    ... on ReviewsFrontendError { statusCode message __typename }\n"
+    "    __typename\n"
+    "  }\n"
+    "}\n"
+)
+
+
+def _extract_hotel_meta(html: str) -> Dict:
+    """pull hotel_id, ufi, country code and review score from the rendered hotel page"""
+    def _find(pattern: str, default=None, cast=str):
+        m = re.search(pattern, html)
+        return cast(m.group(1)) if m else default
+
+    hotel_id = _find(r"b_hotel_id\s*:\s*['\"]?(\d+)", cast=int)
+    ufi = _find(r"b_ufi\s*:\s*['\"]?(-?\d+)", cast=int)
+    country_code = _find(r"['\"]?b_countrycode['\"]?\s*:\s*['\"]([a-z]{2})['\"]") \
+        or _find(r"b_hotel_country_code\s*:\s*['\"]([a-z]{2})['\"]") \
+        or _find(r"b_country\s*:\s*['\"]([a-z]{2})['\"]")
+    hotel_score = _find(
+        r"data-review-score=['\"]([\d.]+)['\"]", default=0.0, cast=float
+    ) or _find(r"reviewScore['\"]?\s*:\s*([\d.]+)", default=0.0, cast=float)
+
+    if hotel_id is None or ufi is None:
+        raise ValueError(
+            f"could not extract hotel meta from page (hotel_id={hotel_id}, ufi={ufi})"
+        )
+    return {
+        "hotel_id": hotel_id,
+        "ufi": ufi,
+        "country_code": country_code or "",
+        "hotel_score": float(hotel_score or 0.0),
+    }
+
+
+def _build_review_list_body(meta: Dict, skip: int = 0, limit: int = 10) -> Dict:
+    """build a /dml/graphql ReviewList request body for the given hotel"""
+    return {
+        "operationName": "ReviewList",
+        "variables": {
+            "shouldShowReviewListPhotoAltText": True,
+            "input": {
+                "hotelId": meta["hotel_id"],
+                "ufi": meta["ufi"],
+                "hotelCountryCode": meta["country_code"],
+                "sorter": "MOST_RELEVANT",
+                "filters": {"text": ""},
+                "skip": skip,
+                "limit": limit,
+                "hotelScore": meta["hotel_score"],
+                "upsortReviewUrl": "",
+                "searchFeatures": {"destId": meta["ufi"], "destType": "CITY"},
+            },
+        },
+        "extensions": {},
+        "query": _REVIEW_LIST_QUERY,
+    }
 
 
 async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict]:
@@ -327,38 +420,45 @@ async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> Lis
     main_reviews_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(reviews_page_url, **BASE_CONFIG, render_js=True, rendering_wait=25000, session=session_id)
     )
-    reviews_xhr_call = retrieve_reviews_api_xhr_call(main_reviews_page)
-    gql_body = json.loads(reviews_xhr_call["body"])
-    total_review_count = int(json.loads(reviews_xhr_call["response"]["body"])["data"]["reviewListFrontend"]["reviewsCount"])
-    total_review_pages = math.ceil(total_review_count / 10)
+
+    meta = _extract_hotel_meta(main_reviews_page.content)
     _csrf_token = re.findall(r"b_csrf_token:\s*'(.+?)'", main_reviews_page.content)[0]
 
-    if max_pages is None:
-        max_pages = total_review_pages
-    
-    if max_pages is not None and max_pages > total_review_pages:
+    gql_headers = {
+        "content-type": "application/json",
+        "x-booking-csrf-token": _csrf_token,
+        "referer": main_reviews_page.context["url"],
+        "origin": "https://www.booking.com",
+    }
+
+    # explicit GraphQL POST to fetch the total review count before paginating
+    count_response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            "https://www.booking.com/dml/graphql?lang=en-gb",
+            method="POST",
+            body=json.dumps(_build_review_list_body(meta, skip=0)),
+            session=session_id,
+            headers=gql_headers,
+            **BASE_CONFIG,
+        )
+    )
+    total_review_count = int(
+        json.loads(count_response.content)["data"]["reviewListFrontend"]["reviewsCount"]
+    )
+    total_review_pages = math.ceil(total_review_count / 10)
+
+    if max_pages is None or max_pages > total_review_pages:
         max_pages = total_review_pages
 
     log.info(f"scraping {max_pages} review pages concurrently using the graphql api")
-
-
-    def update_gql_body(gql_body: Dict, offset: int) -> Dict:
-        gql_body['variables']['input']['skip'] = offset
-        return gql_body
 
     remaining_pages = [
         ScrapeConfig(
             "https://www.booking.com/dml/graphql?lang=en-gb",
             method="POST",
-            body=json.dumps(update_gql_body(gql_body, offset)),
+            body=json.dumps(_build_review_list_body(meta, skip=offset)),
             session=session_id,
-            # note that we need to set headers to avoid being blocked
-            headers={
-                "content-type": "application/json",
-                "x-booking-csrf-token": _csrf_token,
-                "referer": main_reviews_page.context["url"],
-                "origin": "https://www.booking.com",
-            },
+            headers=gql_headers,
             **BASE_CONFIG,
         )
         for offset in range(0, max_pages * 10, 10)
