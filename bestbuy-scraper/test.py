@@ -126,13 +126,14 @@ search_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
+    search_data = await bestbuy.scrape_search(
+        search_query="macbook",
+        max_pages=2
+    )
+    urls = [i["link"] for i in search_data][:5]
+
     product_data = await bestbuy.scrape_products(
-        urls=[
-            "https://www.bestbuy.com/site/apple-macbook-air-13-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-256gb-ssd-midnight/6565862.p",
-            "https://www.bestbuy.com/site/apple-geek-squad-certified-refurbished-macbook-pro-16-display-intel-core-i7-16gb-memory-amd-radeon-pro-5300m-512gb-ssd-space-gray/6489615.p",
-            "https://www.bestbuy.com/site/apple-macbook-pro-14-inch-apple-m4-chip-built-for-apple-intelligence-16gb-memory-512gb-ssd-space-black/6602741.p",
-            "https://www.bestbuy.com/product/apple-macbook-air-13-inch-laptop-apple-m2-chip-built-for-apple-intelligence-16gb-memory-256gb-ssd-midnight/JJGCQ8WQR5/sku/6602763",
-        ]
+        urls=urls
     )
     validator = Validator(product_schema, allow_unknown=True)
     for item in product_data:

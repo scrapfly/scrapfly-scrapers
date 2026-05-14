@@ -4,15 +4,30 @@
   "url": "https://www.realtor.com/realestateandhomes-detail/12355-Attlee-Dr_Houston_TX_77077_M70330-35605",
   "status": "sold",
   "tags": [
-    "central_air",
-    "central_heat",
-    "community_security_features",
-    "fireplace",
-    "two_or_more_stories",
-    "garage_1_or_more",
-    "garage_2_or_more",
-    "updated_kitchen",
-    "groundscare"
+    {
+      "id": "community_security_features",
+      "label": "Community security features"
+    },
+    {
+      "id": "fireplace",
+      "label": "Fireplace"
+    },
+    {
+      "id": "two_or_more_stories",
+      "label": "Two or more stories"
+    },
+    {
+      "id": "groundscare",
+      "label": "Grounds care"
+    },
+    {
+      "id": "central_heat",
+      "label": "Central heat"
+    },
+    {
+      "id": "central_air",
+      "label": "Central air"
+    }
   ],
   "sold_date": "2023-04-21",
   "sold_price": null,
@@ -20,14 +35,11 @@
   "list_price": 345000,
   "list_price_last_change": -5000,
   "details": {
-    "baths": 3,
     "baths_3qtr": null,
     "baths_full": 2,
-    "baths_full_calc": 2,
     "baths_half": 1,
     "baths_max": null,
     "baths_min": null,
-    "baths_partial_calc": 1,
     "baths_total": null,
     "baths_consolidated": "2.5",
     "beds": 4,
@@ -61,74 +73,33 @@
     "units": null,
     "year_built": 1970,
     "year_renovated": null,
-    "zoning": null,
-    "__typename": "HomeDescription"
+    "zoning": null
   },
   "flags": {
     "is_coming_soon": null,
     "is_contingent": null,
-    "is_deal_available": null,
-    "is_for_rent": null,
     "is_foreclosure": null,
-    "is_garage_present": true,
     "is_new_construction": null,
     "is_pending": null,
-    "is_price_excludes_land": null,
-    "is_senior_community": null,
-    "is_short_sale": null,
     "is_subdivision": null,
     "is_price_reduced": false,
     "is_new_listing": false,
-    "__typename": "HomeFlags"
+    "is_short_sale": null,
+    "is_price_excludes_land": null,
+    "is_usda_eligible": false,
+    "is_auction": null,
+    "is_fractionally_owned": null,
+    "is_non_deeded": null
   },
-  "local": {
-    "flood": {
-      "flood_factor_severity": "minimal",
-      "flood_trend": "This property\u2019s flood risk is not changing.",
-      "__typename": "Flood"
-    },
-    "wildfire": {
-      "fire_factor_severity": "Minimal",
-      "fire_trend": "This property\u2019s wildfire risk is not changing.",
-      "__typename": "Wildfire"
-    },
-    "noise": {
-      "score": 77,
-      "noise_categories": [
-        {
-          "text": "Low",
-          "type": "airport",
-          "__typename": "NoiseCategory"
-        },
-        {
-          "text": "Medium",
-          "type": "traffic",
-          "__typename": "NoiseCategory"
-        },
-        {
-          "text": "Medium",
-          "type": "local",
-          "__typename": "NoiseCategory"
-        },
-        {
-          "text": "Medium",
-          "type": "score",
-          "__typename": "NoiseCategory"
-        }
-      ],
-      "__typename": "Noise"
-    },
-    "__typename": "Local"
-  },
+  "local": null,
   "location": {
-    "street_view_url": "https://maps.googleapis.com/maps/api/streetview?channel=rdc-streetview&client=gme-movesalesinc&location=12355%20Attlee%20Dr%2C%20Houston%2C%20TX%2077077&size=932x420&source=outdoor&signature=qebQT20_nbOYEJYIUSScx562jwo=",
-    "street_view_metadata_url": "https://maps.googleapis.com/maps/api/streetview/metadata?channel=rdc-streetview&client=gme-movesalesinc&location=12355%20Attlee%20Dr%2C%20Houston%2C%20TX%2077077&size=640x480&source=outdoor&signature=ds06a2vHf8Bk5lByL_i9JMP9Ook=",
+    "street_view_url": "https://maps.googleapis.com/maps/api/streetview?channel=rdc-streetview&key=AIzaSyAP_xs30yS0J4xp8O1ZKUrUttIXKklrwaM&location=12355%20Attlee%20Dr%2C%20Houston%2C%20TX%2077077&size=950x428&source=outdoor&signature=q6SBV1-ifvJ9Bei570q8N0qaIrw=",
+    "street_view_metadata_url": "https://maps.googleapis.com/maps/api/streetview/metadata?channel=rdc-streetview&key=AIzaSyAP_xs30yS0J4xp8O1ZKUrUttIXKklrwaM&location=12355%20Attlee%20Dr%2C%20Houston%2C%20TX%2077077&size=640x480&source=outdoor&signature=qCD06391WXahxiqv2Txu7e-WoCw=",
     "address": {
       "city": "Houston",
       "coordinate": {
         "lat": 29.749552,
-        "lon": -95.600417,
-        "__typename": "HomeCoordinate"
+        "lon": -95.600417
       },
       "country": "USA",
       "line": "12355 Attlee Dr",
@@ -141,716 +112,226 @@
       "street_post_direction": null,
       "street_suffix": "Dr",
       "unit": null,
-      "validation_code": "121",
-      "__typename": "HomeAddress"
+      "validation_code": "121"
     },
     "county": {
       "fips_code": "48201",
       "name": "Harris",
-      "state_code": "TX",
-      "__typename": "HomeCounty"
+      "state_code": "TX"
     },
-    "neighborhoods": [
-      {
-        "city": "Houston",
-        "id": "f743d5ec-7f8c-5c21-8fd7-f75616a8f677",
-        "level": "macro_neighborhood",
-        "name": "Westside",
-        "geo_type": "neighborhood",
-        "state_code": "TX",
-        "slug_id": "Westside_Houston_TX",
-        "geo_statistics": {
-          "housing_market": {
-            "median_listing_price": 399000,
-            "__typename": "HousingMarket"
-          },
-          "__typename": "GeoStatistics"
-        },
-        "__typename": "Neighborhood"
-      },
-      {
-        "city": "Houston",
-        "id": "be8fbc2c-5f84-5d27-8bf8-fba4d8304112",
-        "level": "neighborhood",
-        "name": "Briar Forest",
-        "geo_type": "neighborhood",
-        "state_code": "TX",
-        "slug_id": "Briar-Forest_Houston_TX",
-        "geo_statistics": {
-          "housing_market": {
-            "median_listing_price": 425000,
-            "__typename": "HousingMarket"
-          },
-          "__typename": "GeoStatistics"
-        },
-        "__typename": "Neighborhood"
-      },
-      {
-        "city": "Houston",
-        "id": "8ab67b16-a273-5922-9aab-28ea4f3d51bc",
-        "level": "residential_neighborhood",
-        "name": "Ashford South",
-        "geo_type": "neighborhood",
-        "state_code": "TX",
-        "slug_id": "Ashford-South_Houston_TX",
-        "geo_statistics": {
-          "housing_market": {
-            "median_listing_price": null,
-            "__typename": "HousingMarket"
-          },
-          "__typename": "GeoStatistics"
-        },
-        "__typename": "Neighborhood"
-      }
-    ],
     "search_areas": [
       {
         "city": "houston",
-        "state_code": "tx",
-        "__typename": "SearchArea"
+        "state_code": "tx"
       }
     ],
     "city": {
       "county_needed_for_uniq": false,
-      "slug_id": "Houston_TX",
-      "__typename": "City"
+      "slug_id": "Houston_TX"
     },
+    "neighborhoods": [
+      {
+        "name": "Westside"
+      },
+      {
+        "name": "Briar Forest"
+      },
+      {
+        "name": "Ashford South"
+      }
+    ],
     "postal_code": {
       "geo_statistics": {
         "housing_market": {
-          "hot_market_badge": "Other",
-          "__typename": "HousingMarket"
-        },
-        "__typename": "GeoStatistics"
-      },
-      "__typename": "PostalCode"
-    },
-    "__typename": "HomeLocation"
+          "hot_market_badge": "Other"
+        }
+      }
+    }
   },
   "agent": [
     {
       "agent_id": "rachid",
       "agent_name": "Feras Rachid",
+      "agent_email": null,
+      "agent_phone": "8553279361",
       "id": "HOTX",
       "office_id": "OPBR01",
       "office_name": null,
       "office_phone": null,
-      "type": "seller",
-      "__typename": "MlsAgent"
+      "type": "seller"
     },
     {
       "agent_id": "ARBONAV",
       "agent_name": "Val Arbona",
+      "agent_email": null,
+      "agent_phone": null,
       "id": "HOTX",
       "office_id": "RMVP01",
       "office_name": null,
       "office_phone": null,
-      "type": "buyer",
-      "__typename": "MlsAgent"
+      "type": "buyer"
     }
   ],
   "advertisers": [
     {
-      "team_name": null,
       "team": null,
       "state_license": "",
-      "address": {
-        "city": "DALLAS",
-        "country": "USA",
-        "line": "No Address Line1 Specified",
-        "postal_code": "75206",
-        "state": null,
-        "state_code": "TX",
-        "__typename": "AdvertiserAddress"
-      },
+      "address": null,
       "builder": null,
-      "broker": {
-        "accent_color": "",
-        "designations": [],
-        "fulfillment_id": "4594131",
-        "name": "Opendoor Brokerage, LLC",
-        "logo": "",
-        "__typename": "HomeAdvertiserBroker"
-      },
-      "email": "",
-      "fulfillment_id": "4557602",
+      "broker": null,
+      "email": null,
+      "fulfillment_id": null,
       "href": null,
-      "mls_set": "A-HOTX-RACHID",
-      "name": "Feras Rachid",
+      "mls_set": null,
+      "name": null,
       "nrds_id": null,
       "office": {
         "address": {
           "city": "DALLAS",
           "coordinate": {
             "lat": null,
-            "lon": null,
-            "__typename": "SimpleCoordinate"
+            "lon": null
           },
           "country": "US",
           "line": "5307 E MOCKINGBIRD LN STE 220",
           "postal_code": "75206",
           "state": null,
-          "state_code": "TX",
-          "__typename": "AdvertiserAddress"
+          "state_code": "TX"
         },
         "application_url": null,
-        "email": "",
+        "email": "homes@opendoor.com",
         "lead_email": null,
         "fulfillment_id": "4464789",
         "hours": null,
-        "href": null,
+        "href": "http://opendoor.com",
         "mls_set": "O-HOTX-OPBR01",
         "out_of_community": null,
         "name": "Opendoor Brokerage, LLC",
         "phones": [
           {
             "ext": "",
-            "number": "8553279361",
+            "number": "18883527075",
             "primary": true,
             "trackable": null,
-            "type": "Office",
-            "__typename": "AdvertiserPhone"
+            "type": "Toll Free"
+          },
+          {
+            "ext": "",
+            "number": "4804625392",
+            "primary": true,
+            "trackable": null,
+            "type": "Office"
           }
         ],
-        "photo": null,
-        "slogan": null,
-        "__typename": "HomeAdvertiserOffice"
+        "photo": {
+          "href": "https://ap.rdcpix.com/bcb9341019f9ca0ed61c70a9adc664e6o-c3731063822l.jpg"
+        },
+        "slogan": null
       },
-      "phones": [
-        {
-          "ext": "",
-          "number": "2816231165",
-          "primary": true,
-          "trackable": null,
-          "type": "BUSINESS_PHONE",
-          "__typename": "AdvertiserPhone"
-        }
-      ],
+      "phones": null,
       "photo": null,
       "slogan": null,
-      "type": "seller",
-      "__typename": "HomeAdvertiser"
+      "type": "seller"
     }
   ],
-  "tax_history": [
-    {
-      "assessment": {
-        "building": 180789,
-        "land": 78600,
-        "total": 259389,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 180789,
-        "land": 78600,
-        "total": 259389,
-        "__typename": "Assessment"
-      },
-      "tax": 6045,
-      "year": 2021,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": 164429,
-        "land": 78600,
-        "total": 243029,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 164429,
-        "land": 78600,
-        "total": 243029,
-        "__typename": "Assessment"
-      },
-      "tax": 5831,
-      "year": 2020,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": 162260,
-        "land": 78600,
-        "total": 240860,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 162260,
-        "land": 78600,
-        "total": 240860,
-        "__typename": "Assessment"
-      },
-      "tax": 5832,
-      "year": 2019,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": 152955,
-        "land": 78600,
-        "total": 231555,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 152955,
-        "land": 78600,
-        "total": 231555,
-        "__typename": "Assessment"
-      },
-      "tax": 5859,
-      "year": 2018,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 215458,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 150750,
-        "land": 78600,
-        "total": 229350,
-        "__typename": "Assessment"
-      },
-      "tax": 5443,
-      "year": 2017,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 195871,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 150750,
-        "land": 78600,
-        "total": 229350,
-        "__typename": "Assessment"
-      },
-      "tax": 4952,
-      "year": 2016,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 178065,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 146492,
-        "land": 78600,
-        "total": 225092,
-        "__typename": "Assessment"
-      },
-      "tax": 4514,
-      "year": 2015,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 161878,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 110100,
-        "land": 78600,
-        "total": 188700,
-        "__typename": "Assessment"
-      },
-      "tax": 4161,
-      "year": 2014,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": 92142,
-        "land": 55020,
-        "total": 147162,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 92142,
-        "land": 55020,
-        "total": 147162,
-        "__typename": "Assessment"
-      },
-      "tax": 3765,
-      "year": 2013,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 147162,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 92142,
-        "land": 55020,
-        "total": 147162,
-        "__typename": "Assessment"
-      },
-      "tax": 4069,
-      "year": 2012,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 104155,
-        "land": 55020,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "tax": 4025,
-      "year": 2011,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 104155,
-        "land": 55020,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "tax": 4402,
-      "year": 2010,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 104155,
-        "land": 55020,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "tax": 4395,
-      "year": 2009,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 104155,
-        "land": 55020,
-        "total": 159175,
-        "__typename": "Assessment"
-      },
-      "tax": 4400,
-      "year": 2008,
-      "__typename": "TaxHistory"
-    },
-    {
-      "assessment": {
-        "building": null,
-        "land": null,
-        "total": 157325,
-        "__typename": "Assessment"
-      },
-      "market": {
-        "building": 118025,
-        "land": 39300,
-        "total": 157325,
-        "__typename": "Assessment"
-      },
-      "tax": 1000,
-      "year": 2007,
-      "__typename": "TaxHistory"
-    }
-  ],
-  "history": [
-    {
-      "date": "2023-04-21",
-      "event": "Sold",
-      "price": 0,
-      "price_sqft": 0
-    },
-    {
-      "date": "2023-03-05",
-      "event": "Relisted",
-      "price": 345000,
-      "price_sqft": 162.58246936852026
-    },
-    {
-      "date": "2023-02-24",
-      "event": "Listing removed",
-      "price": 345000,
-      "price_sqft": 162.58246936852026
-    },
-    {
-      "date": "2023-01-05",
-      "event": "Price Changed",
-      "price": 345000,
-      "price_sqft": 162.58246936852026
-    },
-    {
-      "date": "2022-12-26",
-      "event": "Relisted",
-      "price": 350000,
-      "price_sqft": 164.9387370405278
-    },
-    {
-      "date": "2022-12-08",
-      "event": "Listing removed",
-      "price": 350000,
-      "price_sqft": 164.9387370405278
-    },
-    {
-      "date": "2022-11-17",
-      "event": "Price Changed",
-      "price": 350000,
-      "price_sqft": 164.9387370405278
-    },
-    {
-      "date": "2022-11-03",
-      "event": "Price Changed",
-      "price": 355000,
-      "price_sqft": 167.29500471253533
-    },
-    {
-      "date": "2022-10-20",
-      "event": "Price Changed",
-      "price": 360000,
-      "price_sqft": 169.6512723845429
-    },
-    {
-      "date": "2022-09-29",
-      "event": "Price Changed",
-      "price": 365000,
-      "price_sqft": 172.00754005655043
-    },
-    {
-      "date": "2022-09-15",
-      "event": "Price Changed",
-      "price": 375000,
-      "price_sqft": 176.7200754005655
-    },
-    {
-      "date": "2022-08-25",
-      "event": "Price Changed",
-      "price": 380000,
-      "price_sqft": 179.07634307257305
-    },
-    {
-      "date": "2022-08-04",
-      "event": "Price Changed",
-      "price": 385000,
-      "price_sqft": 181.4326107445806
-    },
-    {
-      "date": "2022-07-22",
-      "event": "Price Changed",
-      "price": 400000,
-      "price_sqft": 188.5014137606032
-    },
-    {
-      "date": "2022-07-01",
-      "event": "Price Changed",
-      "price": 415000,
-      "price_sqft": 195.5702167766258
-    },
-    {
-      "date": "2022-06-10",
-      "event": "Listed",
-      "price": 421000,
-      "price_sqft": 198.3977379830349
-    },
-    {
-      "date": "1993-12-01",
-      "event": "Sold",
-      "price": 0,
-      "price_sqft": 0
-    }
-  ],
+  "tax_history": null,
+  "history": null,
   "photos": [
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1594155027s.jpg",
-      "tags": [
-        "garage",
-        "house_view",
-        "road",
-        "yard",
-        "complete",
-        "far",
-        "front"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1594155027s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m905340585s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m905340585s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1793590669s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1793590669s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1320565157s.jpg",
-      "tags": [
-        "bathroom"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1320565157s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2366184425s.jpg",
-      "tags": [
-        "corridor"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2366184425s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3477719575s.jpg",
-      "tags": [
-        "kitchen"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3477719575s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2704413828s.jpg",
-      "tags": [
-        "kitchen"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2704413828s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2105253865s.jpg",
-      "tags": [
-        "kitchen"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2105253865s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3641318585s.jpg",
-      "tags": [
-        "kitchen"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3641318585s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1272382115s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1272382115s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m842207905s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m842207905s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1351407913s.jpg",
-      "tags": [
-        "house_view",
-        "yard",
-        "back_side",
-        "complete",
-        "far"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1351407913s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3031746566s.jpg",
-      "tags": [
-        "house_view",
-        "yard",
-        "back_side",
-        "far",
-        "incomplete"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3031746566s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m318561354s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m318561354s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1629933250s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1629933250s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m960969417s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m960969417s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3013186773s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3013186773s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3547481808s.jpg",
-      "tags": [
-        "bathroom"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3547481808s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2108393014s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2108393014s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3372309277s.jpg",
-      "tags": [
-        "bathroom"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m3372309277s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1102622999s.jpg",
-      "tags": [
-        "bathroom"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1102622999s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2853036951s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m2853036951s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1221079774s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1221079774s.jpg",
+      "tags": null
     },
     {
-      "url": "http://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1410557868s.jpg",
-      "tags": [
-        "other_interiors"
-      ]
+      "url": "https://ap.rdcpix.com/132d56bb4259d8a3f157f650dbbc314dl-m1410557868s.jpg",
+      "tags": null
     }
   ],
   "phones": [
