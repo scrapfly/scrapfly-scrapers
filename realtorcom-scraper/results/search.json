@@ -10,11 +10,10 @@
     ],
     "description": {
       "beds": 1,
-      "baths": null,
+      "baths": 1,
       "sqft": 714,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "lot_size": 52,
+      "type": "Apartment"
     },
     "location": {
       "address": {
@@ -22,188 +21,6 @@
         "state": "CA",
         "postal_code": "94114",
         "line": "2238 Market St Unit 306"
-      }
-    }
-  },
-  {
-    "property_id": "9405395105",
-    "permalink": "1288-Howard-St-Apt-108_San-Francisco_CA_94103_M94053-95105",
-    "list_price": 345578,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/49dff3e60a310ad7aef9973530cd61f4l-m2398327376s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 483,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94103",
-        "line": "1288 Howard St Apt 108"
-      }
-    }
-  },
-  {
-    "property_id": "2858795656",
-    "permalink": "1416-47th-Ave_San-Francisco_CA_94122_M28587-95656",
-    "list_price": 498000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/dcb1256cd86c6bfb349809aff371a46dl-m1359500042s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 503,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94122",
-        "line": "1416 47th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1994144013",
-    "permalink": "88-Glen-Ct_San-Francisco_CA_94112_M19941-44013",
-    "list_price": 728371,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/766d5842f23c6ef129b97fb9887f56e7l-m880759308s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1705,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "88 Glen Ct"
-      }
-    }
-  },
-  {
-    "property_id": "9100843004",
-    "permalink": "285-Main-St-Unit-510_San-Francisco_CA_94105_M91008-43004",
-    "list_price": 291719,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/9ee41c6e7ccafdb63746acb33ee2af2bl-m2662839841s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 591,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "line": "285 Main St Unit 510"
-      }
-    }
-  },
-  {
-    "property_id": "2274233859",
-    "permalink": "1180-Florida-St_San-Francisco_CA_94110_M22742-33859",
-    "list_price": 599000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/024899f71e573b47b35671f87279a061l-m4107878888s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 622,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "1180 Florida St"
-      }
-    }
-  },
-  {
-    "property_id": "2437398675",
-    "permalink": "745-Vienna-St_San-Francisco_CA_94112_M24373-98675",
-    "list_price": 796000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/885d420c39b4feb3788f44d64f9da764l-m2744144853s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": null,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "745 Vienna St"
-      }
-    }
-  },
-  {
-    "property_id": "2544776377",
-    "permalink": "759-Lakeview-Ave_San-Francisco_CA_94112_M25447-76377",
-    "list_price": 1298000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/dc5ea81d658d7ec2795b0c591b184d66l-m443419720s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 5,
-      "baths": null,
-      "sqft": 2037,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "759 Lakeview Ave"
       }
     }
   },
@@ -218,11 +35,10 @@
     ],
     "description": {
       "beds": 2,
-      "baths": null,
+      "baths": 2,
       "sqft": 1610,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "lot_size": 3454,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
@@ -234,54 +50,77 @@
     }
   },
   {
-    "property_id": "1721748559",
-    "permalink": "260-King-St-Unit-537_San-Francisco_CA_94107_M17217-48559",
-    "list_price": 331621,
+    "property_id": "9100843004",
+    "permalink": "285-Main-St-Unit-510_San-Francisco_CA_94105_M91008-43004",
+    "list_price": 291719,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/6746c42defc9fd62dc7242f4dc43f343l-m76566433s.jpg"
+        "href": "https://ap.rdcpix.com/9ee41c6e7ccafdb63746acb33ee2af2bl-m2662839841s.jpg"
       }
     ],
     "description": {
       "beds": 1,
-      "baths": null,
-      "sqft": 820,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "baths": 1,
+      "sqft": 591,
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94107",
-        "line": "260 King St Unit 537"
+        "postal_code": "94105",
+        "line": "285 Main St Unit 510"
       }
     }
   },
   {
-    "property_id": "1014564172",
-    "permalink": "1948-Pacific-Ave_San-Francisco_CA_94109_M10145-64172",
-    "list_price": 18880000,
+    "property_id": "2858795656",
+    "permalink": "1416-47th-Ave_San-Francisco_CA_94122_M28587-95656",
+    "list_price": 498000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/36c3f191adc589794f7c943bad261bfdl-m3515256639s.jpg"
+        "href": "https://ap.rdcpix.com/dcb1256cd86c6bfb349809aff371a46dl-m1359500042s.jpg"
       }
     ],
     "description": {
-      "beds": 6,
-      "baths": null,
-      "sqft": 8485,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "beds": 2,
+      "baths": 1,
+      "sqft": 503,
+      "lot_size": 2997,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94109",
-        "line": "1948 Pacific Ave"
+        "postal_code": "94122",
+        "line": "1416 47th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2437398675",
+    "permalink": "745-Vienna-St_San-Francisco_CA_94112_M24373-98675",
+    "list_price": 796000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/885d420c39b4feb3788f44d64f9da764l-m2744144853s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 2,
+      "sqft": null,
+      "lot_size": 2496,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "745 Vienna St"
       }
     }
   },
@@ -296,11 +135,10 @@
     ],
     "description": {
       "beds": 4,
-      "baths": null,
+      "baths": 2,
       "sqft": 1767,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "lot_size": 2648,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
@@ -312,54 +150,52 @@
     }
   },
   {
-    "property_id": "9404844163",
-    "permalink": "3006-26th-St_San-Francisco_CA_94110_M94048-44163",
-    "list_price": 699000,
+    "property_id": "2274233859",
+    "permalink": "1180-Florida-St_San-Francisco_CA_94110_M22742-33859",
+    "list_price": 599000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/04164ced32565ab82fb833aac9b2c0c6l-m272588623s.jpg"
+        "href": "https://ap.rdcpix.com/024899f71e573b47b35671f87279a061l-m4107878888s.jpg"
       }
     ],
     "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1195,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "beds": 1,
+      "baths": 1,
+      "sqft": 622,
+      "lot_size": 1062,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
         "postal_code": "94110",
-        "line": "3006 26th St"
+        "line": "1180 Florida St"
       }
     }
   },
   {
-    "property_id": "2380069136",
-    "permalink": "2937-Harrison-St_San-Francisco_CA_94110_M23800-69136",
-    "list_price": 699000,
+    "property_id": "9754438571",
+    "permalink": "52-Kirkwood-Ave-Apt-403_San-Francisco_CA_94124_M97544-38571",
+    "list_price": 406000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/2b20c9ce0feaac8dc325125fb9ad42fdl-m582366385s.jpg"
+        "href": "https://nh.rdcpix.com/e9638fa83e10bbd233d1c921a8e0fd43l-f2803934116s.jpg"
       }
     ],
     "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1367,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "beds": 1,
+      "baths": 1,
+      "sqft": 552,
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94110",
-        "line": "2937 Harrison St"
+        "postal_code": "94124",
+        "line": "52 Kirkwood Ave Apt 403"
       }
     }
   },
@@ -374,11 +210,10 @@
     ],
     "description": {
       "beds": 1,
-      "baths": null,
+      "baths": 1,
       "sqft": 552,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
@@ -390,9 +225,34 @@
     }
   },
   {
+    "property_id": "9998173713",
+    "permalink": "2060-Fell-St-2058_San-Francisco_CA_94117_M99981-73713",
+    "list_price": 2589000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/0ba5081c3fb2dee69e71bf50418d843al-m1614943166s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 9,
+      "baths": 55,
+      "sqft": 5557,
+      "lot_size": 3650,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94117",
+        "line": "2058-2060 Fell St"
+      }
+    }
+  },
+  {
     "property_id": "2023832619",
     "permalink": "134-Albatross-Ct_San-Francisco_CA_94124_M20238-32619",
-    "list_price": 475000,
+    "list_price": 699000,
     "photos": [
       {
         "href": "https://ap.rdcpix.com/f176637c5f5346a013902cb53dffc817l-m66448943s.jpg"
@@ -400,11 +260,10 @@
     ],
     "description": {
       "beds": 4,
-      "baths": null,
+      "baths": 25,
       "sqft": 1512,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "lot_size": 601,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
@@ -416,28 +275,127 @@
     }
   },
   {
-    "property_id": "9214639114",
-    "permalink": "285-Main-St-Unit-202_San-Francisco_CA_94105_M92146-39114",
-    "list_price": 330641,
+    "property_id": "1994144013",
+    "permalink": "88-Glen-Ct_San-Francisco_CA_94112_M19941-44013",
+    "list_price": 728371,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/8f0e1fb1931033e23caf9fb9b185f860l-m2662839841s.jpg"
+        "href": "https://ap.rdcpix.com/766d5842f23c6ef129b97fb9887f56e7l-m880759308s.jpg"
       }
     ],
     "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 805,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "beds": 4,
+      "baths": 2,
+      "sqft": 1705,
+      "lot_size": 1333,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94105",
-        "line": "285 Main St Unit 202"
+        "postal_code": "94112",
+        "line": "88 Glen Ct"
+      }
+    }
+  },
+  {
+    "property_id": "1014564172",
+    "permalink": "1948-Pacific-Ave_San-Francisco_CA_94109_M10145-64172",
+    "list_price": 18880000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/36c3f191adc589794f7c943bad261bfdl-m3515256639s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 6,
+      "baths": 65,
+      "sqft": 8485,
+      "lot_size": 4739,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "1948 Pacific Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2544776377",
+    "permalink": "759-Lakeview-Ave_San-Francisco_CA_94112_M25447-76377",
+    "list_price": 1298000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/dc5ea81d658d7ec2795b0c591b184d66l-m443419720s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": 3,
+      "sqft": 2037,
+      "lot_size": 4299,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "759 Lakeview Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2571693760",
+    "permalink": "234-27th-St_San-Francisco_CA_94131_M25716-93760",
+    "list_price": 699000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/9af0023cda6d928da2c3014f947fa672l-m4281745820s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 600,
+      "lot_size": 2849,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "234 27th St"
+      }
+    }
+  },
+  {
+    "property_id": "2634078874",
+    "permalink": "631-Ofarrell-St-Apt-1206_San-Francisco_CA_94109_M26340-78874",
+    "list_price": 349000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/a3cf66c6a57497e660c747004483cef6l-m1952559781s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": 1,
+      "sqft": 520,
+      "lot_size": 42,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "631 Ofarrell St Apt 1206"
       }
     }
   },
@@ -454,9 +412,8 @@
       "beds": 3,
       "baths": null,
       "sqft": 1330,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
@@ -468,54 +425,177 @@
     }
   },
   {
-    "property_id": "9754438571",
-    "permalink": "52-Kirkwood-Ave-Apt-403_San-Francisco_CA_94124_M97544-38571",
-    "list_price": 406000,
+    "property_id": "9956197038",
+    "permalink": "1545-Pine-St-Apt-706_San-Francisco_CA_94109_M99561-97038",
+    "list_price": 383968,
     "photos": [
       {
-        "href": "https://nh.rdcpix.com/e9638fa83e10bbd233d1c921a8e0fd43l-f2803934116s.jpg"
+        "href": "https://ap.rdcpix.com/db86e872e4bee23db6ac51f58b6635e1l-m1473399621s.jpg"
       }
     ],
     "description": {
       "beds": 1,
       "baths": null,
-      "sqft": 552,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "sqft": 626,
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94124",
-        "line": "52 Kirkwood Ave Apt 403"
+        "postal_code": "94109",
+        "line": "1545 Pine St Apt 706"
       }
     }
   },
   {
-    "property_id": "1679039895",
-    "permalink": "95-Ora-Way-Unit-F303_San-Francisco_CA_94131_M16790-39895",
-    "list_price": 250000,
+    "property_id": "9929863413",
+    "permalink": "395-6th-St-413_San-Francisco_CA_94103_M99298-63413",
+    "list_price": 469094,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/af9cdc2c7ab0c8d0c4d318c44b7fc18el-m1623009168s.jpg"
+        "href": "https://ap.rdcpix.com/d8b3db665f4ed568b1be4a44504558ael-m3352889137s.jpg"
       }
     ],
     "description": {
-      "beds": 0,
+      "beds": 2,
       "baths": null,
-      "sqft": 409,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "sqft": 805,
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94131",
-        "line": "95 Ora Way Unit 303F"
+        "postal_code": "94103",
+        "line": "395 6th St Unit 413"
+      }
+    }
+  },
+  {
+    "property_id": "2380069136",
+    "permalink": "2937-Harrison-St_San-Francisco_CA_94110_M23800-69136",
+    "list_price": 699000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/2b20c9ce0feaac8dc325125fb9ad42fdl-m582366385s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1367,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "2937 Harrison St"
+      }
+    }
+  },
+  {
+    "property_id": "1721748559",
+    "permalink": "260-King-St-Unit-537_San-Francisco_CA_94107_M17217-48559",
+    "list_price": 331621,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/6746c42defc9fd62dc7242f4dc43f343l-m76566433s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 820,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "260 King St Unit 537"
+      }
+    }
+  },
+  {
+    "property_id": "9214639114",
+    "permalink": "285-Main-St-Unit-202_San-Francisco_CA_94105_M92146-39114",
+    "list_price": 330641,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/8f0e1fb1931033e23caf9fb9b185f860l-m2662839841s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 805,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "line": "285 Main St Unit 202"
+      }
+    }
+  },
+  {
+    "property_id": "9764185386",
+    "permalink": "864-33rd-Ave-862_San-Francisco_CA_94121_M97641-85386",
+    "list_price": 1695000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/aa0e3f4e05a128c13783ca56acf80833l-m4060564751s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": 3714,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "862-864 33rd Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1831645855",
+    "permalink": "6121-California-St_San-Francisco_CA_94121_M18316-45855",
+    "list_price": 1495000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/5bd8cf9316f9cf2d2b948b2ff6ad5157l-m2779531698s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1900,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "6121 California St"
       }
     }
   },
@@ -532,9 +612,8 @@
       "beds": 3,
       "baths": null,
       "sqft": null,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
@@ -546,262 +625,127 @@
     }
   },
   {
-    "property_id": "1372297624",
-    "permalink": "43-Rockwood-Ct_San-Francisco_CA_94127_M13722-97624",
-    "list_price": 2295000,
+    "property_id": "9404844163",
+    "permalink": "3006-26th-St_San-Francisco_CA_94110_M94048-44163",
+    "list_price": 699000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/fc7c09ee1cbbc9909448b0b265487a9el-m2398714993s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2292,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "43 Rockwood Ct"
-      }
-    }
-  },
-  {
-    "property_id": "1286503201",
-    "permalink": "566-Athens-St_San-Francisco_CA_94112_M12865-03201",
-    "list_price": 499997,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/7a52e8632693903e9d7f2a4694f3d0f4l-m1049081096s.jpg"
+        "href": "https://ap.rdcpix.com/04164ced32565ab82fb833aac9b2c0c6l-m272588623s.jpg"
       }
     ],
     "description": {
       "beds": 2,
       "baths": null,
-      "sqft": 600,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "566 Athens St"
-      }
-    }
-  },
-  {
-    "property_id": "2805826535",
-    "permalink": "74-New-Montgomery-St-Unit-303_San-Francisco_CA_94105_M28058-26535",
-    "list_price": 345950,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/1d18f6c47abe4577a6514252d82d27c4l-m1442283726s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 672,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "line": "74 New Montgomery St Unit 303"
-      }
-    }
-  },
-  {
-    "property_id": "9928848874",
-    "permalink": "986-S-Van-Ness-Ave-503_San-Francisco_CA_94110_M99288-48874",
-    "list_price": 895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/bfeb457988cbaeeed20558db4616f7c3l-m50202289s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 725,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "sqft": 1195,
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
         "postal_code": "94110",
-        "line": "986 S Van Ness Ave Unit 503"
+        "line": "3006 26th St"
       }
     }
   },
   {
-    "property_id": "2811227866",
-    "permalink": "45-Ora-Way-Unit-A204_San-Francisco_CA_94131_M28112-27866",
-    "list_price": 289900,
+    "property_id": "2681346610",
+    "permalink": "546-18th-Ave_San-Francisco_CA_94121_M26813-46610",
+    "list_price": 2385000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/40593f7894375224f62a548dec915903l-m1136060479s.jpg"
+        "href": "https://ap.rdcpix.com/3e1e61820224bce9338d1bd11fdb65edl-m3214813280s.jpg"
       }
     ],
     "description": {
-      "beds": 1,
+      "beds": 4,
       "baths": null,
-      "sqft": 676,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "sqft": 2150,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94131",
-        "line": "45 Ora Way Unit 204A"
+        "postal_code": "94121",
+        "line": "546 18th Ave"
       }
     }
   },
   {
-    "property_id": "2794395032",
-    "permalink": "311-Valley-St_San-Francisco_CA_94131_M27943-95032",
-    "list_price": 2895000,
+    "property_id": "1295191241",
+    "permalink": "691-28th-Ave_San-Francisco_CA_94121_M12951-91241",
+    "list_price": 1295000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/a0f4bfae9a55138b42bfc3c69a50c689l-m3451615652s.jpg"
+        "href": "https://ap.rdcpix.com/4ab533fdafb1fd3ac8d9ae58a593a8c1l-m652499527s.jpg"
       }
     ],
     "description": {
-      "beds": 3,
+      "beds": 4,
       "baths": null,
-      "sqft": 1955,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "sqft": 2640,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94131",
-        "line": "311 Valley St"
+        "postal_code": "94121",
+        "line": "691-693 28th Ave"
       }
     }
   },
   {
-    "property_id": "1390242139",
-    "permalink": "2065-Broadway-St_San-Francisco_CA_94115_M13902-42139",
-    "list_price": 4995000,
+    "property_id": "2635136841",
+    "permalink": "2745-Anza-St_San-Francisco_CA_94121_M26351-36841",
+    "list_price": 1700000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/d1c0569ea4ea3277e046842149318218l-m2984728101s.jpg"
+        "href": "https://ap.rdcpix.com/f601a06fdf083d34034fe0fd8655eafal-m3872576311s.jpg"
       }
     ],
     "description": {
-      "beds": 6,
+      "beds": 19,
       "baths": null,
-      "sqft": 3965,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "sqft": 3640,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94115",
-        "line": "2063-2065 Broadway St"
+        "postal_code": "94121",
+        "line": "2745 Anza St"
       }
     }
   },
   {
-    "property_id": "2277892004",
-    "permalink": "260-King-St-Unit-1317_San-Francisco_CA_94107_M22778-92004",
-    "list_price": 146947,
+    "property_id": "2906074764",
+    "permalink": "2470-43rd-Ave_San-Francisco_CA_94116_M29060-74764",
+    "list_price": 1750000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/77f759144cd89944c40c75daee4fa4cdl-m2567731039s.jpg"
+        "href": "https://ap.rdcpix.com/93c0a88a24755e81181d0e682cffa6b6l-m991177197s.jpg"
       }
     ],
     "description": {
-      "beds": 0,
+      "beds": 4,
       "baths": null,
-      "sqft": 671,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "sqft": 1821,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
-        "postal_code": "94107",
-        "line": "260 King St Unit 1317"
-      }
-    }
-  },
-  {
-    "property_id": "1926992955",
-    "permalink": "265-Moncada-Way_San-Francisco_CA_94127_M19269-92955",
-    "list_price": 3895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/eb88f57b8d1ed60847579f1b92d1836fl-m3276051812s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 6,
-      "baths": null,
-      "sqft": 4840,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "265 Moncada Way"
-      }
-    }
-  },
-  {
-    "property_id": "2846916044",
-    "permalink": "888-Francisco-St_San-Francisco_CA_94109_M28469-16044",
-    "list_price": 17250000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/3fd4000fdb4e77a827403e3a64d34482l-m2701653529s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 6272,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94109",
-        "line": "888 Francisco St"
+        "postal_code": "94116",
+        "line": "2470 43rd Ave"
       }
     }
   },
@@ -818,9 +762,8 @@
       "beds": 4,
       "baths": null,
       "sqft": 2064,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
@@ -828,292 +771,6 @@
         "state": "CA",
         "postal_code": "94110",
         "line": "806 Potrero Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1305227152",
-    "permalink": "1338-Masonic-Ave_San-Francisco_CA_94117_M13052-27152",
-    "list_price": 4290000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/aaccbefb545865a58b57ef75e8e76e0dl-m1597524433s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 5,
-      "baths": null,
-      "sqft": 2811,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94117",
-        "line": "1338 Masonic Ave"
-      }
-    }
-  },
-  {
-    "property_id": "2583778928",
-    "permalink": "263-Friedell-St_San-Francisco_CA_94124_M25837-78928",
-    "list_price": 428441,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/20da4b428668fba1610f82a1c57291d5l-m3857939133s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1204,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "263 Friedell St"
-      }
-    }
-  },
-  {
-    "property_id": "1819343020",
-    "permalink": "446-Nevada-St_San-Francisco_CA_94110_M18193-43020",
-    "list_price": 1198000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/3c87c04ade902e5bc8a2222ed21035bel-m1079962425s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1415,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "446 Nevada St"
-      }
-    }
-  },
-  {
-    "property_id": "1395253962",
-    "permalink": "1400-Mission-St-Apt-701_San-Francisco_CA_94103_M13952-53962",
-    "list_price": 497730,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/6e70eab52ae962c880c9d4924817ee42l-m1134781439s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1415,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94103",
-        "line": "1400 Mission St Apt 701"
-      }
-    }
-  },
-  {
-    "property_id": "1903217284",
-    "permalink": "266-S-Hill-Blvd_San-Francisco_CA_94112_M19032-17284",
-    "list_price": 1299999,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/f90e9929e2850875b44bf514f45e5ec3l-m945616909s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2086,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "266 S Hill Blvd"
-      }
-    }
-  },
-  {
-    "property_id": "2492153717",
-    "permalink": "1213-Egbert-Ave_San-Francisco_CA_94124_M24921-53717",
-    "list_price": 599000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/81df7f499d0a4b4fa0ee51e0b248aecdl-m2815888928s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 570,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "1213 Egbert Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1461800024",
-    "permalink": "1082-Church-St_San-Francisco_CA_94114_M14618-00024",
-    "list_price": 995000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/f1b1e1c99497645b71439b62d142f9afl-m1267829268s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 939,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94114",
-        "line": "1082 Church St"
-      }
-    }
-  },
-  {
-    "property_id": "1759361299",
-    "permalink": "2148-Pine-St_San-Francisco_CA_94115_M17593-61299",
-    "list_price": 4695000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/36ba6dc05f000a33704649e39a9c0e10l-m1396569954s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 3539,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94115",
-        "line": "2148 Pine St"
-      }
-    }
-  },
-  {
-    "property_id": "1451264157",
-    "permalink": "75-Chaves-Ave_San-Francisco_CA_94127_M14512-64157",
-    "list_price": 1595000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/3db9e791243543b5c7bc5be6f4df19d0l-m1646939330s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1625,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "75 Chaves Ave"
-      }
-    }
-  },
-  {
-    "property_id": "2172658272",
-    "permalink": "401-Marietta-Dr_San-Francisco_CA_94127_M21726-58272",
-    "list_price": 1598000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/d35a79233d5d1e8a4a9c33ab644ba5cfl-m566822783s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2910,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "401 Marietta Dr"
-      }
-    }
-  },
-  {
-    "property_id": "2898914781",
-    "permalink": "400-Beale-St-Apt-701_San-Francisco_CA_94105_M28989-14781",
-    "list_price": 429351,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/8c010868729db9a2f7b11dc00ed64ae1l-m3212863783s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1223,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "line": "400 Beale St Apt 701"
       }
     }
   },
@@ -1130,9 +787,8 @@
       "beds": 2,
       "baths": null,
       "sqft": 892,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
+      "lot_size": null,
+      "type": "Apartment"
     },
     "location": {
       "address": {
@@ -1140,2086 +796,6 @@
         "state": "CA",
         "postal_code": "94134",
         "line": "301 Crescent Ct Apt 3307"
-      }
-    }
-  },
-  {
-    "property_id": "2787748700",
-    "permalink": "55-Page-St-Apt-724_San-Francisco_CA_94102_M27877-48700",
-    "list_price": 948000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/d74f9c2d18545f8ea2e564561295f2d8l-m2646045224s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 847,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94102",
-        "line": "55 Page St Apt 724"
-      }
-    }
-  },
-  {
-    "property_id": "1691853082",
-    "permalink": "596-Bella-Vista-Way_San-Francisco_CA_94127_M16918-53082",
-    "list_price": 1990000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/e677de57ed1653fa8045b21acd2dcf50l-m3245608694s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 2053,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "596 Bella Vista Way"
-      }
-    }
-  },
-  {
-    "property_id": "2644233032",
-    "permalink": "380-10th-St-Unit-10_San-Francisco_CA_94103_M26442-33032",
-    "list_price": 948000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/00dc4ed2ce1f02fc54fd233d9f4f82dfl-m3773364111s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 1513,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94103",
-        "line": "380 10th St Unit 10"
-      }
-    }
-  },
-  {
-    "property_id": "1607191158",
-    "permalink": "871-27th-St_San-Francisco_CA_94131_M16071-91158",
-    "list_price": 4875000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/d4c10607f245b9a34ddd7e4f58cbae05l-m322989536s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2223,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "871 27th St"
-      }
-    }
-  },
-  {
-    "property_id": "1272719877",
-    "permalink": "558-22nd-Ave_San-Francisco_CA_94121_M12727-19877",
-    "list_price": 2950000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/6f7cc58efe1b6bc5bd27c4fc09fc26f7l-m1519102620s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2440,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94121",
-        "line": "558 22nd Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1451416369",
-    "permalink": "149-Anderson-St_San-Francisco_CA_94110_M14514-16369",
-    "list_price": 1095000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/b03f1037a3cb26ef3b79b3bc8b4dfa78l-m3489380131s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1351,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "149 Anderson St"
-      }
-    }
-  },
-  {
-    "property_id": "2128655417",
-    "permalink": "479-27th-Ave_San-Francisco_CA_94121_M21286-55417",
-    "list_price": 2988000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/947ebd58569b2a0969f513a9b64953d0l-m2279604570s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2412,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94121",
-        "line": "479 27th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1260631191",
-    "permalink": "2830-Buchanan-St_San-Francisco_CA_94123_M12606-31191",
-    "list_price": 6000000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/95223fad3af546d9ed316d4167c12dc6l-m3655716771s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 5,
-      "baths": null,
-      "sqft": 4100,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94123",
-        "line": "2830 Buchanan St"
-      }
-    }
-  },
-  {
-    "property_id": "2665801637",
-    "permalink": "232-Gambier-St_San-Francisco_CA_94134_M26658-01637",
-    "list_price": 1098000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/14df712bcc4ec49b3d9a7a85130e7d3el-m1072711631s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1109,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94134",
-        "line": "232 Gambier St"
-      }
-    }
-  },
-  {
-    "property_id": "2887914878",
-    "permalink": "132-Corbett-Ave_San-Francisco_CA_94114_M28879-14878",
-    "list_price": 2495000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/9aa93a89f0a1a31487626da91a674a06l-m1509313252s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2107,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94114",
-        "line": "132 Corbett Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1668805059",
-    "permalink": "1818-California-St_San-Francisco_CA_94109_M16688-05059",
-    "list_price": 8500000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/251d455b17dbc476cc64d7de8335e02fl-m2484453231s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 6,
-      "baths": null,
-      "sqft": 8215,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94109",
-        "line": "1818 California St"
-      }
-    }
-  },
-  {
-    "property_id": "1863373694",
-    "permalink": "1525-Lawton-St_San-Francisco_CA_94122_M18633-73694",
-    "list_price": 1195000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/a9132c753816471e6460fd17b42dea65l-m1240428734s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1290,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94122",
-        "line": "1525 Lawton St"
-      }
-    }
-  },
-  {
-    "property_id": "2770389468",
-    "permalink": "2107-39th-Ave_San-Francisco_CA_94116_M27703-89468",
-    "list_price": 1599888,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/e30aab2954076c53e3cfe11be0f725d0l-m1676107151s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1985,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94116",
-        "line": "2107 39th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1280936724",
-    "permalink": "2833-Sacramento-St_San-Francisco_CA_94115_M12809-36724",
-    "list_price": 1499000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/2b778c3cb23d524d1199bf8401d4a14el-m3208453595s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1875,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94115",
-        "line": "2833 Sacramento St"
-      }
-    }
-  },
-  {
-    "property_id": "1331361950",
-    "permalink": "2230-Steiner-St_San-Francisco_CA_94115_M13313-61950",
-    "list_price": 5900000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/a86dc11ffd2c265cebce8ed03e3cddd1l-m408793615s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 11,
-      "baths": null,
-      "sqft": 9174,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94115",
-        "line": "2230 Steiner St"
-      }
-    }
-  },
-  {
-    "property_id": "1413572603",
-    "permalink": "616-Page-St_San-Francisco_CA_94117_M14135-72603",
-    "list_price": 1349000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/40675563e0afb26df6bea20cdfb4da3fl-m266258891s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1667,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94117",
-        "line": "616 Page St"
-      }
-    }
-  },
-  {
-    "property_id": "1355083908",
-    "permalink": "412-University-St_San-Francisco_CA_94134_M13550-83908",
-    "list_price": 1095000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/860a2dc6a96f3e8862369971880a6aebl-m1495876733s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1628,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94134",
-        "line": "412 University St"
-      }
-    }
-  },
-  {
-    "property_id": "2658494364",
-    "permalink": "190-Marietta-Dr_San-Francisco_CA_94127_M26584-94364",
-    "list_price": 1495000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/a3f73432bacf450cc7bc5d2685e9dda4l-m2204749078s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1350,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "190 Marietta Dr"
-      }
-    }
-  },
-  {
-    "property_id": "2589612381",
-    "permalink": "2294-33rd-Ave_San-Francisco_CA_94116_M25896-12381",
-    "list_price": 1750000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/cf8f7baf85304b2ad91e7f96bb16f977l-m1064476903s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2565,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94116",
-        "line": "2294 33rd Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1038837384",
-    "permalink": "3472-16th-St_San-Francisco_CA_94114_M10388-37384",
-    "list_price": 1388000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/a400028892fe92c4ef86c810d565bdael-m3606016781s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1620,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94114",
-        "line": "3472 16th St"
-      }
-    }
-  },
-  {
-    "property_id": "2248251273",
-    "permalink": "233-Beverly-St_San-Francisco_CA_94132_M22482-51273",
-    "list_price": 899000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/ac452437f8f6abad6a270c77d0db43b9l-m81966106s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1180,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94132",
-        "line": "233 Beverly St"
-      }
-    }
-  },
-  {
-    "property_id": "2464893572",
-    "permalink": "2468-Broadway-St_San-Francisco_CA_94115_M24648-93572",
-    "list_price": 3995000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/fff204c5b5795f114f43b9f4f0118160l-m1436589712s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 3964,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94115",
-        "line": "2468 Broadway St"
-      }
-    }
-  },
-  {
-    "property_id": "1646380408",
-    "permalink": "834-Congo-St_San-Francisco_CA_94131_M16463-80408",
-    "list_price": 1095000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/efa0397820c4adc29a84d1c935173e46l-m403748184s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1261,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "834 Congo St"
-      }
-    }
-  },
-  {
-    "property_id": "1185873784",
-    "permalink": "306-Baden-St_San-Francisco_CA_94131_M11858-73784",
-    "list_price": 1095000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/b2b8be2c2959f1d559d0599203bb12c5l-m2055937147s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1162,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "306 Baden St"
-      }
-    }
-  },
-  {
-    "property_id": "2580866256",
-    "permalink": "1586-29th-Ave_San-Francisco_CA_94122_M25808-66256",
-    "list_price": 1095000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/c1ba3ed4e4c41d8dda33fef6876ed2d4l-m25771573s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1541,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94122",
-        "line": "1586 29th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1265857869",
-    "permalink": "1525-Church-St_San-Francisco_CA_94131_M12658-57869",
-    "list_price": 1175000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/3988d70e47cae8aa7de66df89d203f44l-m768139561s.jpg"
-      }
-    ],
-    "description": {
-      "beds": null,
-      "baths": null,
-      "sqft": 3100,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "1525 Church St"
-      }
-    }
-  },
-  {
-    "property_id": "2001003117",
-    "permalink": "42-Wilder-St_San-Francisco_CA_94131_M20010-03117",
-    "list_price": 1995000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/2a0844e5e4da78ac6bba20d785e1ef25l-m3504646417s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 2386,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "42 Wilder St"
-      }
-    }
-  },
-  {
-    "property_id": "1259671723",
-    "permalink": "264-Duncan-St_San-Francisco_CA_94131_M12596-71723",
-    "list_price": 1159000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/91f1568abc36d83c082bb1437c11d938l-m1248354310s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1056,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "264 Duncan St"
-      }
-    }
-  },
-  {
-    "property_id": "2018821312",
-    "permalink": "1459-45th-Ave_San-Francisco_CA_94122_M20188-21312",
-    "list_price": 1195000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/7bf1b74dd28e3a10c3e64aad5ada5e3bl-m1208529088s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1100,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94122",
-        "line": "1459 45th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1373334773",
-    "permalink": "28-Prescott-Ct_San-Francisco_CA_94133_M13733-34773",
-    "list_price": 2895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/85322c5ec9e469fe6d3eaa6019ac8e49l-m2881922203s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1811,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94133",
-        "line": "28 Prescott Ct"
-      }
-    }
-  },
-  {
-    "property_id": "1081901804",
-    "permalink": "655-Duncan-St_San-Francisco_CA_94131_M10819-01804",
-    "list_price": 1995000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/084effbe98529352e49818db770d508el-m3752475389s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1955,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "655 Duncan St"
-      }
-    }
-  },
-  {
-    "property_id": "1854191751",
-    "permalink": "1524-Waller-St_San-Francisco_CA_94117_M18541-91751",
-    "list_price": 2200000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/2f3ee776f49201e47a0a529210443ca2l-m497175326s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1960,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94117",
-        "line": "1524 Waller St"
-      }
-    }
-  },
-  {
-    "property_id": "9812580630",
-    "permalink": "108-Albion-St_San-Francisco_CA_94110_M98125-80630",
-    "list_price": 599000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/23eff9474b90c6e75a71570c7b36347bl-m2987853430s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 609,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "108 Albion St"
-      }
-    }
-  },
-  {
-    "property_id": "2959121871",
-    "permalink": "1306-Guerrero-St_San-Francisco_CA_94110_M29591-21871",
-    "list_price": 1750000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/98134c951c8de0ecf3fd58df17b65e19l-m425847818s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 3520,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "1306-1308 Guerrero St"
-      }
-    }
-  },
-  {
-    "property_id": "2610231819",
-    "permalink": "1339-46th-Ave_San-Francisco_CA_94122_M26102-31819",
-    "list_price": 1895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/1e51e1a3539d9e241e41370402b1d73bl-m2333541407s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2117,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94122",
-        "line": "1339 46th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1874444795",
-    "permalink": "380-Dolores-St-Apt-9_San-Francisco_CA_94110_M18744-44795",
-    "list_price": 246000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/560ccdc4c9afe4ee2208099d7603235fl-m4173296392s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 648,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "380 Dolores St Apt 9"
-      }
-    }
-  },
-  {
-    "property_id": "1526541361",
-    "permalink": "1990-8th-Ave_San-Francisco_CA_94116_M15265-41361",
-    "list_price": 3195000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/88a16ad9e106d1484aac5184bfc4ba1al-m4148597206s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 3255,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94116",
-        "line": "1990 8th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1282549863",
-    "permalink": "19-Congo-St_San-Francisco_CA_94131_M12825-49863",
-    "list_price": 1234000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/d1018cd53175218fccf3f9c5ff529e30l-m3609820740s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": null,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "19 Congo St"
-      }
-    }
-  },
-  {
-    "property_id": "2571693760",
-    "permalink": "234-27th-St_San-Francisco_CA_94131_M25716-93760",
-    "list_price": 699000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/9af0023cda6d928da2c3014f947fa672l-m4281745820s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": null,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "234 27th St"
-      }
-    }
-  },
-  {
-    "property_id": "1091151982",
-    "permalink": "339-Melrose-Ave_San-Francisco_CA_94127_M10911-51982",
-    "list_price": 2388000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/6d860a8880ac8910f9c273de718c5d56l-m3145702041s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 5,
-      "baths": null,
-      "sqft": 3960,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "339 Melrose Ave"
-      }
-    }
-  },
-  {
-    "property_id": "9375099153",
-    "permalink": "2238-Market-St-Unit-306_San-Francisco_CA_94114_M93750-99153",
-    "list_price": 899000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/f61022cd52c269bdfb7922ed210d5562l-m3995330879s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 714,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94114",
-        "line": "2238 Market St Unit 306"
-      }
-    }
-  },
-  {
-    "property_id": "9405395105",
-    "permalink": "1288-Howard-St-Apt-108_San-Francisco_CA_94103_M94053-95105",
-    "list_price": 345578,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/49dff3e60a310ad7aef9973530cd61f4l-m2398327376s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 483,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94103",
-        "line": "1288 Howard St Apt 108"
-      }
-    }
-  },
-  {
-    "property_id": "2858795656",
-    "permalink": "1416-47th-Ave_San-Francisco_CA_94122_M28587-95656",
-    "list_price": 498000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/dcb1256cd86c6bfb349809aff371a46dl-m1359500042s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 503,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94122",
-        "line": "1416 47th Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1994144013",
-    "permalink": "88-Glen-Ct_San-Francisco_CA_94112_M19941-44013",
-    "list_price": 728371,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/766d5842f23c6ef129b97fb9887f56e7l-m880759308s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1705,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "88 Glen Ct"
-      }
-    }
-  },
-  {
-    "property_id": "9100843004",
-    "permalink": "285-Main-St-Unit-510_San-Francisco_CA_94105_M91008-43004",
-    "list_price": 291719,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/9ee41c6e7ccafdb63746acb33ee2af2bl-m2662839841s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 591,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "line": "285 Main St Unit 510"
-      }
-    }
-  },
-  {
-    "property_id": "2274233859",
-    "permalink": "1180-Florida-St_San-Francisco_CA_94110_M22742-33859",
-    "list_price": 599000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/024899f71e573b47b35671f87279a061l-m4107878888s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 622,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "1180 Florida St"
-      }
-    }
-  },
-  {
-    "property_id": "2437398675",
-    "permalink": "745-Vienna-St_San-Francisco_CA_94112_M24373-98675",
-    "list_price": 796000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/885d420c39b4feb3788f44d64f9da764l-m2744144853s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": null,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "745 Vienna St"
-      }
-    }
-  },
-  {
-    "property_id": "2544776377",
-    "permalink": "759-Lakeview-Ave_San-Francisco_CA_94112_M25447-76377",
-    "list_price": 1298000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/dc5ea81d658d7ec2795b0c591b184d66l-m443419720s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 5,
-      "baths": null,
-      "sqft": 2037,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "759 Lakeview Ave"
-      }
-    }
-  },
-  {
-    "property_id": "2815126269",
-    "permalink": "962-Prague-St_San-Francisco_CA_94112_M28151-26269",
-    "list_price": 599000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/925db903ef80e7577a773886191ee92dl-m2986655607s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1610,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "962 Prague St"
-      }
-    }
-  },
-  {
-    "property_id": "1721748559",
-    "permalink": "260-King-St-Unit-537_San-Francisco_CA_94107_M17217-48559",
-    "list_price": 331621,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/6746c42defc9fd62dc7242f4dc43f343l-m76566433s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 820,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94107",
-        "line": "260 King St Unit 537"
-      }
-    }
-  },
-  {
-    "property_id": "1014564172",
-    "permalink": "1948-Pacific-Ave_San-Francisco_CA_94109_M10145-64172",
-    "list_price": 18880000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/36c3f191adc589794f7c943bad261bfdl-m3515256639s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 6,
-      "baths": null,
-      "sqft": 8485,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94109",
-        "line": "1948 Pacific Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1323396484",
-    "permalink": "58-Karen-Ct_San-Francisco_CA_94134_M13233-96484",
-    "list_price": 850000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/fee7f355cbed0ea0a694389feb659eb5l-m4046937172s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1767,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94134",
-        "line": "58 Karen Ct"
-      }
-    }
-  },
-  {
-    "property_id": "9404844163",
-    "permalink": "3006-26th-St_San-Francisco_CA_94110_M94048-44163",
-    "list_price": 699000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/04164ced32565ab82fb833aac9b2c0c6l-m272588623s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 1195,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "3006 26th St"
-      }
-    }
-  },
-  {
-    "property_id": "2380069136",
-    "permalink": "2937-Harrison-St_San-Francisco_CA_94110_M23800-69136",
-    "list_price": 699000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/2b20c9ce0feaac8dc325125fb9ad42fdl-m582366385s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1367,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "2937 Harrison St"
-      }
-    }
-  },
-  {
-    "property_id": "",
-    "permalink": "Madison-403_The-San-Francisco-Shipyard-Madison_52-Kirkwood-Ave-225_San-Francisco_CA_94124_P417000824059",
-    "list_price": 406000,
-    "photos": [
-      {
-        "href": "https://nh.rdcpix.com/ba129e52601fad6ab4aa3c04470e2f19e-f2803934116s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 552,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "52 Kirkwood Ave. #225"
-      }
-    }
-  },
-  {
-    "property_id": "2023832619",
-    "permalink": "134-Albatross-Ct_San-Francisco_CA_94124_M20238-32619",
-    "list_price": 475000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/f176637c5f5346a013902cb53dffc817l-m66448943s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 1512,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "134 Albatross Ct"
-      }
-    }
-  },
-  {
-    "property_id": "9214639114",
-    "permalink": "285-Main-St-Unit-202_San-Francisco_CA_94105_M92146-39114",
-    "list_price": 330641,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/8f0e1fb1931033e23caf9fb9b185f860l-m2662839841s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 805,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "line": "285 Main St Unit 202"
-      }
-    }
-  },
-  {
-    "property_id": "2852505935",
-    "permalink": "2011-Powell-St_San-Francisco_CA_94133_M28525-05935",
-    "list_price": 899000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/719a3784ecef60a0c234dbfba970535cl-m1032244991s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1330,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94133",
-        "line": "2011 Powell St"
-      }
-    }
-  },
-  {
-    "property_id": "9754438571",
-    "permalink": "52-Kirkwood-Ave-Apt-403_San-Francisco_CA_94124_M97544-38571",
-    "list_price": 406000,
-    "photos": [
-      {
-        "href": "https://nh.rdcpix.com/e9638fa83e10bbd233d1c921a8e0fd43l-f2803934116s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 552,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "52 Kirkwood Ave Apt 403"
-      }
-    }
-  },
-  {
-    "property_id": "1679039895",
-    "permalink": "95-Ora-Way-Unit-F303_San-Francisco_CA_94131_M16790-39895",
-    "list_price": 250000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/af9cdc2c7ab0c8d0c4d318c44b7fc18el-m1623009168s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 0,
-      "baths": null,
-      "sqft": 409,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "95 Ora Way Unit 303F"
-      }
-    }
-  },
-  {
-    "property_id": "1386384668",
-    "permalink": "2370-N-Point-St_San-Francisco_CA_94123_M13863-84668",
-    "list_price": 3098000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/5ea002fb2f44cf8e797909dcf7f28c27l-m582904046s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": null,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94123",
-        "line": "2370 N Point St"
-      }
-    }
-  },
-  {
-    "property_id": "1372297624",
-    "permalink": "43-Rockwood-Ct_San-Francisco_CA_94127_M13722-97624",
-    "list_price": 2295000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/fc7c09ee1cbbc9909448b0b265487a9el-m2398714993s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2292,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "43 Rockwood Ct"
-      }
-    }
-  },
-  {
-    "property_id": "1286503201",
-    "permalink": "566-Athens-St_San-Francisco_CA_94112_M12865-03201",
-    "list_price": 499997,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/7a52e8632693903e9d7f2a4694f3d0f4l-m1049081096s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 600,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "566 Athens St"
-      }
-    }
-  },
-  {
-    "property_id": "2805826535",
-    "permalink": "74-New-Montgomery-St-Unit-303_San-Francisco_CA_94105_M28058-26535",
-    "list_price": 345950,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/1d18f6c47abe4577a6514252d82d27c4l-m1442283726s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 672,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "line": "74 New Montgomery St Unit 303"
-      }
-    }
-  },
-  {
-    "property_id": "9928848874",
-    "permalink": "986-S-Van-Ness-Ave-503_San-Francisco_CA_94110_M99288-48874",
-    "list_price": 895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/bfeb457988cbaeeed20558db4616f7c3l-m50202289s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 725,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "986 S Van Ness Ave Unit 503"
-      }
-    }
-  },
-  {
-    "property_id": "2811227866",
-    "permalink": "45-Ora-Way-Unit-A204_San-Francisco_CA_94131_M28112-27866",
-    "list_price": 289900,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/40593f7894375224f62a548dec915903l-m1136060479s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 1,
-      "baths": null,
-      "sqft": 676,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "45 Ora Way Unit 204A"
-      }
-    }
-  },
-  {
-    "property_id": "2794395032",
-    "permalink": "311-Valley-St_San-Francisco_CA_94131_M27943-95032",
-    "list_price": 2895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/a0f4bfae9a55138b42bfc3c69a50c689l-m3451615652s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1955,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94131",
-        "line": "311 Valley St"
-      }
-    }
-  },
-  {
-    "property_id": "1390242139",
-    "permalink": "2065-Broadway-St_San-Francisco_CA_94115_M13902-42139",
-    "list_price": 4995000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/d1c0569ea4ea3277e046842149318218l-m2984728101s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 6,
-      "baths": null,
-      "sqft": 3965,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94115",
-        "line": "2063-2065 Broadway St"
-      }
-    }
-  },
-  {
-    "property_id": "2277892004",
-    "permalink": "260-King-St-Unit-1317_San-Francisco_CA_94107_M22778-92004",
-    "list_price": 146947,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/77f759144cd89944c40c75daee4fa4cdl-m2567731039s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 0,
-      "baths": null,
-      "sqft": 671,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94107",
-        "line": "260 King St Unit 1317"
-      }
-    }
-  },
-  {
-    "property_id": "1926992955",
-    "permalink": "265-Moncada-Way_San-Francisco_CA_94127_M19269-92955",
-    "list_price": 3895000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/eb88f57b8d1ed60847579f1b92d1836fl-m3276051812s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 6,
-      "baths": null,
-      "sqft": 4840,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94127",
-        "line": "265 Moncada Way"
-      }
-    }
-  },
-  {
-    "property_id": "2846916044",
-    "permalink": "888-Francisco-St_San-Francisco_CA_94109_M28469-16044",
-    "list_price": 17250000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/3fd4000fdb4e77a827403e3a64d34482l-m2701653529s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 6272,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94109",
-        "line": "888 Francisco St"
-      }
-    }
-  },
-  {
-    "property_id": "1563300101",
-    "permalink": "806-Potrero-Ave_San-Francisco_CA_94110_M15633-00101",
-    "list_price": 1780000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/36ea4b59df2e2784daaab66b7e6b3d43l-m372014875s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2064,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "806 Potrero Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1305227152",
-    "permalink": "1338-Masonic-Ave_San-Francisco_CA_94117_M13052-27152",
-    "list_price": 4290000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/aaccbefb545865a58b57ef75e8e76e0dl-m1597524433s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 5,
-      "baths": null,
-      "sqft": 2811,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94117",
-        "line": "1338 Masonic Ave"
-      }
-    }
-  },
-  {
-    "property_id": "2583778928",
-    "permalink": "263-Friedell-St_San-Francisco_CA_94124_M25837-78928",
-    "list_price": 428441,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/20da4b428668fba1610f82a1c57291d5l-m3857939133s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1204,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "263 Friedell St"
-      }
-    }
-  },
-  {
-    "property_id": "1819343020",
-    "permalink": "446-Nevada-St_San-Francisco_CA_94110_M18193-43020",
-    "list_price": 1198000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/3c87c04ade902e5bc8a2222ed21035bel-m1079962425s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1415,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94110",
-        "line": "446 Nevada St"
-      }
-    }
-  },
-  {
-    "property_id": "1395253962",
-    "permalink": "1400-Mission-St-Apt-701_San-Francisco_CA_94103_M13952-53962",
-    "list_price": 497730,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/6e70eab52ae962c880c9d4924817ee42l-m1134781439s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 1415,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94103",
-        "line": "1400 Mission St Apt 701"
-      }
-    }
-  },
-  {
-    "property_id": "1903217284",
-    "permalink": "266-S-Hill-Blvd_San-Francisco_CA_94112_M19032-17284",
-    "list_price": 1299999,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/f90e9929e2850875b44bf514f45e5ec3l-m945616909s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 2086,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94112",
-        "line": "266 S Hill Blvd"
-      }
-    }
-  },
-  {
-    "property_id": "2492153717",
-    "permalink": "1213-Egbert-Ave_San-Francisco_CA_94124_M24921-53717",
-    "list_price": 599000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/81df7f499d0a4b4fa0ee51e0b248aecdl-m2815888928s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 3,
-      "baths": null,
-      "sqft": 570,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94124",
-        "line": "1213 Egbert Ave"
-      }
-    }
-  },
-  {
-    "property_id": "1461800024",
-    "permalink": "1082-Church-St_San-Francisco_CA_94114_M14618-00024",
-    "list_price": 995000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/f1b1e1c99497645b71439b62d142f9afl-m1267829268s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 2,
-      "baths": null,
-      "sqft": 939,
-      "type": "Apartment",
-      "text": "",
-      "year_built": ""
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94114",
-        "line": "1082 Church St"
-      }
-    }
-  },
-  {
-    "property_id": "1759361299",
-    "permalink": "2148-Pine-St_San-Francisco_CA_94115_M17593-61299",
-    "list_price": 4695000,
-    "photos": [
-      {
-        "href": "https://ap.rdcpix.com/36ba6dc05f000a33704649e39a9c0e10l-m1396569954s.jpg"
-      }
-    ],
-    "description": {
-      "beds": 4,
-      "baths": null,
-      "sqft": 3539,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
-    },
-    "location": {
-      "address": {
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94115",
-        "line": "2148 Pine St"
       }
     }
   },
@@ -3236,9 +812,8 @@
       "beds": 3,
       "baths": null,
       "sqft": 1625,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
@@ -3250,28 +825,2327 @@
     }
   },
   {
-    "property_id": "2172658272",
-    "permalink": "401-Marietta-Dr_San-Francisco_CA_94127_M21726-58272",
-    "list_price": 1598000,
+    "property_id": "1209066499",
+    "permalink": "26-Hodges-Aly_San-Francisco_CA_94133_M12090-66499",
+    "list_price": 3750000,
     "photos": [
       {
-        "href": "https://ap.rdcpix.com/d35a79233d5d1e8a4a9c33ab644ba5cfl-m566822783s.jpg"
+        "href": "https://ap.rdcpix.com/7160529220a5bb188c76bdc9bc43bacbl-m2402794491s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 2000,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "26 Hodges Aly"
+      }
+    }
+  },
+  {
+    "property_id": "1679039895",
+    "permalink": "95-Ora-Way-Unit-F303_San-Francisco_CA_94131_M16790-39895",
+    "list_price": 250000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/af9cdc2c7ab0c8d0c4d318c44b7fc18el-m1623009168s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": null,
+      "sqft": 409,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "95 Ora Way Unit 303F"
+      }
+    }
+  },
+  {
+    "property_id": "2811227866",
+    "permalink": "45-Ora-Way-Unit-A204_San-Francisco_CA_94131_M28112-27866",
+    "list_price": 289900,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/40593f7894375224f62a548dec915903l-m1136060479s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 676,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "45 Ora Way Unit 204A"
+      }
+    }
+  },
+  {
+    "property_id": "2568304485",
+    "permalink": "1655-Beach-St_San-Francisco_CA_94123_M25683-04485",
+    "list_price": 7000000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/8e29ae11f0fc4d0c69bf2832217a19a3l-m1725836192s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": 4835,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94123",
+        "line": "1655 Beach St"
+      }
+    }
+  },
+  {
+    "property_id": "1780973620",
+    "permalink": "115-Monticello-St_San-Francisco_CA_94132_M17809-73620",
+    "list_price": 1088000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/506a5d82535d6fa46e6a75e193483fb2l-m3520784197s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1649,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94132",
+        "line": "115 Monticello St"
+      }
+    }
+  },
+  {
+    "property_id": "9474294970",
+    "permalink": "750-Pacific-Ave_San-Francisco_CA_94133_M94742-94970",
+    "list_price": 2250000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/6a7d1ebe993756cf8a096477b920c0c2l-m3121573113s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": null,
+      "sqft": 12222,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "750-754 Pacific Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1006512803",
+    "permalink": "54-Richland-Ave_San-Francisco_CA_94110_M10065-12803",
+    "list_price": 1498000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/5e6df86ba0b726cdb881129bb86a235fl-m78690683s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1896,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "54 Richland Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2186741649",
+    "permalink": "822-37th-Ave_San-Francisco_CA_94121_M21867-41649",
+    "list_price": 1595000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/9fd870bf19bffb4cf5b0c2a44562e564l-m1345681647s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1692,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "822 37th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2939430932",
+    "permalink": "1415-Hawes-St_San-Francisco_CA_94124_M29394-30932",
+    "list_price": 799000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/c7af4802fcb4ba4dba8b7292ea3438f8l-m2380070180s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": null,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "1415 Hawes St"
+      }
+    }
+  },
+  {
+    "property_id": "9432964901",
+    "permalink": "117-Sutro-Heights-Ave_San-Francisco_CA_94121_M94329-64901",
+    "list_price": 1088000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/be3d715882ff7f768d1408b2a49d9a6cl-m1268678869s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1370,
+      "lot_size": 3001,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "117 Sutro Heights Ave Unit 117"
+      }
+    }
+  },
+  {
+    "property_id": "1621062312",
+    "permalink": "512-Mississippi-St_San-Francisco_CA_94107_M16210-62312",
+    "list_price": 1695000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/b31f8a0aa6c1bb1d13069d65414e2154l-m14226311s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 2,
+      "sqft": 1765,
+      "lot_size": 2500,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "512 Mississippi St"
+      }
+    }
+  },
+  {
+    "property_id": "2199314793",
+    "permalink": "2312-35th-Ave_San-Francisco_CA_94116_M21993-14793",
+    "list_price": 1195000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/0977f3e13d797cbac9456b17c2d5902bl-m2211289542s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 15,
+      "sqft": 1600,
+      "lot_size": 2347,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94116",
+        "line": "2312 35th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "9977433825",
+    "permalink": "1-Bristol-Ct-Apt-302_San-Francisco_CA_94130_M99774-33825",
+    "list_price": 698888,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/80754373c255a4c5b1f0ac39bba45f31l-m950867188s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": 1,
+      "sqft": 728,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94130",
+        "line": "1 Bristol Ct Apt 302"
+      }
+    }
+  },
+  {
+    "property_id": "1395253962",
+    "permalink": "1400-Mission-St-Apt-701_San-Francisco_CA_94103_M13952-53962",
+    "list_price": 497730,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/6e70eab52ae962c880c9d4924817ee42l-m1134781439s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1415,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94103",
+        "line": "1400 Mission St Apt 701"
+      }
+    }
+  },
+  {
+    "property_id": "1435620684",
+    "permalink": "22-25th-Ave_San-Francisco_CA_94121_M14356-20684",
+    "list_price": 5948000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/75b88060a554b0efd84761c4a3604adal-m136509356s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": 45,
+      "sqft": 3542,
+      "lot_size": 3302,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "22 25th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1988220899",
+    "permalink": "90-Monterey-Blvd_San-Francisco_CA_94131_M19882-20899",
+    "list_price": 1596850,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/ebe34fcd1fd298e10ab49ae16bfc749bl-m678153506s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 6,
+      "baths": 2,
+      "sqft": 1794,
+      "lot_size": 2500,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "90 Monterey Blvd"
+      }
+    }
+  },
+  {
+    "property_id": "9812580630",
+    "permalink": "108-Albion-St_San-Francisco_CA_94110_M98125-80630",
+    "list_price": 599000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/23eff9474b90c6e75a71570c7b36347bl-m2987853430s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 1,
+      "sqft": 609,
+      "lot_size": 2749,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "108 Albion St"
+      }
+    }
+  },
+  {
+    "property_id": "2554063820",
+    "permalink": "1204-Wisconsin-St_San-Francisco_CA_94107_M25540-63820",
+    "list_price": 998000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/7a94914ead256ad66204f19f18aaa91al-m569002556s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1331,
+      "lot_size": 1893,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "1204 Wisconsin St"
+      }
+    }
+  },
+  {
+    "property_id": "2721694253",
+    "permalink": "1443-30th-Ave_San-Francisco_CA_94122_M27216-94253",
+    "list_price": 1295000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/714029de00da88ac18f866b910c07ca2l-m1125360472s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1520,
+      "lot_size": 3001,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94122",
+        "line": "1443 30th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1239684488",
+    "permalink": "1161-Pacific-Ave_San-Francisco_CA_94133_M12396-84488",
+    "list_price": 4995000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f1491fb536c713d58ad002d473b7a631l-m3862866483s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 3,
+      "sqft": 3100,
+      "lot_size": 2026,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "1161 Pacific Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1414965692",
+    "permalink": "1-S-Park-St-Apt-411_San-Francisco_CA_94107_M14149-65692",
+    "list_price": 2300000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/0581316534b24abbf6fa825c6dff13c0l-m3542800563s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1585,
+      "lot_size": 38,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "1 S Park St Apt 411"
+      }
+    }
+  },
+  {
+    "property_id": "1670488324",
+    "permalink": "3944-18th-St_San-Francisco_CA_94114_M16704-88324",
+    "list_price": 778000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/ac16efe3d1d007a4eeaebb54d4a96c08l-m2035230417s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 1,
+      "sqft": 885,
+      "lot_size": 2849,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94114",
+        "line": "3944 18th St"
+      }
+    }
+  },
+  {
+    "property_id": "1267452445",
+    "permalink": "735-Geary-St-Apt-101_San-Francisco_CA_94109_M12674-52445",
+    "list_price": 549000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/812ef78bdc6bba13fa3c80d8e3048dc1l-m1206108170s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": null,
+      "lot_size": 6704,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "735 Geary St Apt 101"
+      }
+    }
+  },
+  {
+    "property_id": "1286503201",
+    "permalink": "566-Athens-St_San-Francisco_CA_94112_M12865-03201",
+    "list_price": 499997,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/7a52e8632693903e9d7f2a4694f3d0f4l-m1049081096s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 1,
+      "sqft": 600,
+      "lot_size": 2500,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "566 Athens St"
+      }
+    }
+  },
+  {
+    "property_id": "9667702510",
+    "permalink": "988-Harrison-St-HJ7_San-Francisco_CA_94107_M96677-02510",
+    "list_price": 829000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/4c36d2698817e2bca8497f5249503c40l-m2553109043s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 2,
+      "sqft": null,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "988 Harrison St Unit HJ7"
+      }
+    }
+  },
+  {
+    "property_id": "1903217284",
+    "permalink": "266-S-Hill-Blvd_San-Francisco_CA_94112_M19032-17284",
+    "list_price": 1299999,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f90e9929e2850875b44bf514f45e5ec3l-m945616909s.jpg"
       }
     ],
     "description": {
       "beds": 4,
       "baths": null,
-      "sqft": 2910,
-      "type": "SingleFamilyResidence",
-      "text": "",
-      "year_built": null
+      "sqft": 2086,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "266 S Hill Blvd"
+      }
+    }
+  },
+  {
+    "property_id": "2514275166",
+    "permalink": "1-El-Sereno-Ct_San-Francisco_CA_94127_M25142-75166",
+    "list_price": 1995000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f06f7291dabbdab3769c5c84922ed28cl-m833489036s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 2480,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
     },
     "location": {
       "address": {
         "city": "San Francisco",
         "state": "CA",
         "postal_code": "94127",
-        "line": "401 Marietta Dr"
+        "line": "1 El Sereno Ct"
+      }
+    }
+  },
+  {
+    "property_id": "2535829402",
+    "permalink": "306-Crescent-Ave_San-Francisco_CA_94110_M25358-29402",
+    "list_price": 998000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/a7c11303a47b3cf6a4bf43f8af199c5fl-m3200722765s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 1147,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "306 Crescent Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2638396648",
+    "permalink": "1400-York-St_San-Francisco_CA_94110_M26383-96648",
+    "list_price": 998000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/8786c4cc5292dfbf451e93b99163e237l-m4063485548s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 1495,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "1400 York St"
+      }
+    }
+  },
+  {
+    "property_id": "2190442350",
+    "permalink": "38-7th-Ave_San-Francisco_CA_94118_M21904-42350",
+    "list_price": 3495000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/031d430095cd83e752040ef76d52605bl-m625486479s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 7,
+      "baths": null,
+      "sqft": 4000,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94118",
+        "line": "38-40 7th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1413572603",
+    "permalink": "616-Page-St_San-Francisco_CA_94117_M14135-72603",
+    "list_price": 1349000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/40675563e0afb26df6bea20cdfb4da3fl-m266258891s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1667,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94117",
+        "line": "616 Page St"
+      }
+    }
+  },
+  {
+    "property_id": "1375244783",
+    "permalink": "1636-Bacon-St_San-Francisco_CA_94134_M13752-44783",
+    "list_price": 1388000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/0b9fc32b836502cd4371c8abac055534l-m1690205496s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 1701,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94134",
+        "line": "1636 Bacon St"
+      }
+    }
+  },
+  {
+    "property_id": "1185873784",
+    "permalink": "306-Baden-St_San-Francisco_CA_94131_M11858-73784",
+    "list_price": 1095000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/b2b8be2c2959f1d559d0599203bb12c5l-m2055937147s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 1162,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "306 Baden St"
+      }
+    }
+  },
+  {
+    "property_id": "1139207378",
+    "permalink": "635-Spruce-St_San-Francisco_CA_94118_M11392-07378",
+    "list_price": 1795000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/96844de83f7d0806dde38bc50b6d1f28l-m2975177321s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 6,
+      "baths": null,
+      "sqft": 1952,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94118",
+        "line": "635-637 Spruce St"
+      }
+    }
+  },
+  {
+    "property_id": "9465949875",
+    "permalink": "1101-Clement-St_San-Francisco_CA_94118_M94659-49875",
+    "list_price": 1798000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/de731680ccb00f04a08ad19119d38a32l-m2788266647s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 4220,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94118",
+        "line": "1101 Clement St"
+      }
+    }
+  },
+  {
+    "property_id": "1614727102",
+    "permalink": "11-Topeka-Ave_San-Francisco_CA_94124_M16147-27102",
+    "list_price": 989000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/4736814c861a8b21cecad439d3ddf8fel-m3458288801s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 1430,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "11 Topeka Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2805826535",
+    "permalink": "74-New-Montgomery-St-Unit-303_San-Francisco_CA_94105_M28058-26535",
+    "list_price": 345950,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/1d18f6c47abe4577a6514252d82d27c4l-m1442283726s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 672,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "line": "74 New Montgomery St Unit 303"
+      }
+    }
+  },
+  {
+    "property_id": "2580866256",
+    "permalink": "1586-29th-Ave_San-Francisco_CA_94122_M25808-66256",
+    "list_price": 1095000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/c1ba3ed4e4c41d8dda33fef6876ed2d4l-m25771573s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1541,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94122",
+        "line": "1586 29th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "9634480733",
+    "permalink": "1742-Larkin-St_San-Francisco_CA_94109_M96344-80733",
+    "list_price": 1398000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/88245f5ec599c910db2740c8cc7616f9l-m3131743342s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 1767,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "1742 Larkin St"
+      }
+    }
+  },
+  {
+    "property_id": "1305227152",
+    "permalink": "1338-Masonic-Ave_San-Francisco_CA_94117_M13052-27152",
+    "list_price": 4290000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/aaccbefb545865a58b57ef75e8e76e0dl-m1597524433s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": 2811,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94117",
+        "line": "1338 Masonic Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2817708991",
+    "permalink": "1913-Oakdale-Ave_San-Francisco_CA_94124_M28177-08991",
+    "list_price": 1200000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/d6b1efcf6668be4483270b15a6b3ead9l-m2339478674s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 8,
+      "baths": null,
+      "sqft": 3000,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "1913 Oakdale Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2427221924",
+    "permalink": "150-San-Felipe-Ave_San-Francisco_CA_94127_M24272-21924",
+    "list_price": 2395000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/9fae0ba98f759d1544f172c68e4225e2l-m483730643s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 2162,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94127",
+        "line": "150 San Felipe Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1158663927",
+    "permalink": "1212-Jackson-St_San-Francisco_CA_94109_M11586-63927",
+    "list_price": 1235000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/704348ed50b40ffa2e0ce12116b07059l-m272330423s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": null,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "1212 Jackson St"
+      }
+    }
+  },
+  {
+    "property_id": "2930248955",
+    "permalink": "4545-18th-St_San-Francisco_CA_94114_M29302-48955",
+    "list_price": 1295000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/63e9ee15951786eec5811bbfd3bce278l-m1743421405s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 1359,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94114",
+        "line": "4545 18th St"
+      }
+    }
+  },
+  {
+    "property_id": "1690824156",
+    "permalink": "2109-22nd-St_San-Francisco_CA_94107_M16908-24156",
+    "list_price": 850000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/3d866a80b6745e123f788917a9a73094l-m2991281207s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": null,
+      "sqft": 752,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "2109 22nd St"
+      }
+    }
+  },
+  {
+    "property_id": "1668805059",
+    "permalink": "1818-California-St_San-Francisco_CA_94109_M16688-05059",
+    "list_price": 8500000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/251d455b17dbc476cc64d7de8335e02fl-m2484453231s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 6,
+      "baths": null,
+      "sqft": 8215,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "1818 California St"
+      }
+    }
+  },
+  {
+    "property_id": "2920393352",
+    "permalink": "198-Dolores-St-Apt-6_San-Francisco_CA_94103_M29203-93352",
+    "list_price": 750000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/e9695e388e7be40cc5ee061ded963dcfl-m1575215129s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 650,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94103",
+        "line": "198 Dolores St Apt 6"
+      }
+    }
+  },
+  {
+    "property_id": "1564226122",
+    "permalink": "268-Mallorca-Way_San-Francisco_CA_94123_M15642-26122",
+    "list_price": 6800000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/c9dc8e91eed02248ed68455ae2caef9cl-m4025103945s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 6,
+      "baths": null,
+      "sqft": 5005,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94123",
+        "line": "268-270 Mallorca Way"
+      }
+    }
+  },
+  {
+    "property_id": "9893040380",
+    "permalink": "49-Auburn-St_San-Francisco_CA_94133_M98930-40380",
+    "list_price": 488000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/7c7e398390543247296dcf71031de4c2l-m3380570712s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 800,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "49 Auburn St Unit 49"
+      }
+    }
+  },
+  {
+    "property_id": "9692096620",
+    "permalink": "235-Wilde-Ave_San-Francisco_CA_94134_M96920-96620",
+    "list_price": 1988000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/04335db02bc73d407899c680947da773l-m3920273665s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 2586,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94134",
+        "line": "235 Wilde Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1461800024",
+    "permalink": "1082-Church-St_San-Francisco_CA_94114_M14618-00024",
+    "list_price": 995000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f1b1e1c99497645b71439b62d142f9afl-m1274234449s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 939,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94114",
+        "line": "1082 Church St"
+      }
+    }
+  },
+  {
+    "property_id": "9375099153",
+    "permalink": "2238-Market-St-Unit-306_San-Francisco_CA_94114_M93750-99153",
+    "list_price": 899000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f61022cd52c269bdfb7922ed210d5562l-m3995330879s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 714,
+      "lot_size": 52,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94114",
+        "line": "2238 Market St Unit 306"
+      }
+    }
+  },
+  {
+    "property_id": "2815126269",
+    "permalink": "962-Prague-St_San-Francisco_CA_94112_M28151-26269",
+    "list_price": 599000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/925db903ef80e7577a773886191ee92dl-m2986655607s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1610,
+      "lot_size": 3454,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "962 Prague St"
+      }
+    }
+  },
+  {
+    "property_id": "9100843004",
+    "permalink": "285-Main-St-Unit-510_San-Francisco_CA_94105_M91008-43004",
+    "list_price": 291719,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/9ee41c6e7ccafdb63746acb33ee2af2bl-m2662839841s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 591,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "line": "285 Main St Unit 510"
+      }
+    }
+  },
+  {
+    "property_id": "2858795656",
+    "permalink": "1416-47th-Ave_San-Francisco_CA_94122_M28587-95656",
+    "list_price": 498000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/dcb1256cd86c6bfb349809aff371a46dl-m1359500042s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": 1,
+      "sqft": 503,
+      "lot_size": 2997,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94122",
+        "line": "1416 47th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2437398675",
+    "permalink": "745-Vienna-St_San-Francisco_CA_94112_M24373-98675",
+    "list_price": 796000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/885d420c39b4feb3788f44d64f9da764l-m2744144853s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 2,
+      "sqft": null,
+      "lot_size": 2496,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "745 Vienna St"
+      }
+    }
+  },
+  {
+    "property_id": "1323396484",
+    "permalink": "58-Karen-Ct_San-Francisco_CA_94134_M13233-96484",
+    "list_price": 850000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/fee7f355cbed0ea0a694389feb659eb5l-m4046937172s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 2,
+      "sqft": 1767,
+      "lot_size": 2648,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94134",
+        "line": "58 Karen Ct"
+      }
+    }
+  },
+  {
+    "property_id": "2274233859",
+    "permalink": "1180-Florida-St_San-Francisco_CA_94110_M22742-33859",
+    "list_price": 599000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/024899f71e573b47b35671f87279a061l-m4107878888s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 622,
+      "lot_size": 1062,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "1180 Florida St"
+      }
+    }
+  },
+  {
+    "property_id": "9754438571",
+    "permalink": "52-Kirkwood-Ave-Apt-403_San-Francisco_CA_94124_M97544-38571",
+    "list_price": 406000,
+    "photos": [
+      {
+        "href": "https://nh.rdcpix.com/e9638fa83e10bbd233d1c921a8e0fd43l-f2803934116s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 552,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "52 Kirkwood Ave Apt 403"
+      }
+    }
+  },
+  {
+    "property_id": "",
+    "permalink": "Madison-403_The-San-Francisco-Shipyard-Madison_52-Kirkwood-Ave-225_San-Francisco_CA_94124_P417000824059",
+    "list_price": 406000,
+    "photos": [
+      {
+        "href": "https://nh.rdcpix.com/ba129e52601fad6ab4aa3c04470e2f19e-f2803934116s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 552,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "52 Kirkwood Ave. #225"
+      }
+    }
+  },
+  {
+    "property_id": "9998173713",
+    "permalink": "2060-Fell-St-2058_San-Francisco_CA_94117_M99981-73713",
+    "list_price": 2589000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/0ba5081c3fb2dee69e71bf50418d843al-m1614943166s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 9,
+      "baths": 55,
+      "sqft": 5557,
+      "lot_size": 3650,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94117",
+        "line": "2058-2060 Fell St"
+      }
+    }
+  },
+  {
+    "property_id": "2023832619",
+    "permalink": "134-Albatross-Ct_San-Francisco_CA_94124_M20238-32619",
+    "list_price": 699000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f176637c5f5346a013902cb53dffc817l-m66448943s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 25,
+      "sqft": 1512,
+      "lot_size": 601,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "134 Albatross Ct"
+      }
+    }
+  },
+  {
+    "property_id": "1994144013",
+    "permalink": "88-Glen-Ct_San-Francisco_CA_94112_M19941-44013",
+    "list_price": 728371,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/766d5842f23c6ef129b97fb9887f56e7l-m880759308s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": 2,
+      "sqft": 1705,
+      "lot_size": 1333,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "88 Glen Ct"
+      }
+    }
+  },
+  {
+    "property_id": "1014564172",
+    "permalink": "1948-Pacific-Ave_San-Francisco_CA_94109_M10145-64172",
+    "list_price": 18880000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/36c3f191adc589794f7c943bad261bfdl-m3515256639s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 6,
+      "baths": 65,
+      "sqft": 8485,
+      "lot_size": 4739,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "1948 Pacific Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2544776377",
+    "permalink": "759-Lakeview-Ave_San-Francisco_CA_94112_M25447-76377",
+    "list_price": 1298000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/dc5ea81d658d7ec2795b0c591b184d66l-m443419720s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": 3,
+      "sqft": 2037,
+      "lot_size": 4299,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94112",
+        "line": "759 Lakeview Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2571693760",
+    "permalink": "234-27th-St_San-Francisco_CA_94131_M25716-93760",
+    "list_price": 699000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/9af0023cda6d928da2c3014f947fa672l-m4281745820s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": 1,
+      "sqft": 600,
+      "lot_size": 2849,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "234 27th St"
+      }
+    }
+  },
+  {
+    "property_id": "2634078874",
+    "permalink": "631-Ofarrell-St-Apt-1206_San-Francisco_CA_94109_M26340-78874",
+    "list_price": 349000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/a3cf66c6a57497e660c747004483cef6l-m1952559781s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": 1,
+      "sqft": 520,
+      "lot_size": 42,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "631 Ofarrell St Apt 1206"
+      }
+    }
+  },
+  {
+    "property_id": "2852505935",
+    "permalink": "2011-Powell-St_San-Francisco_CA_94133_M28525-05935",
+    "list_price": 899000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/719a3784ecef60a0c234dbfba970535cl-m1032244991s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1330,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "2011 Powell St"
+      }
+    }
+  },
+  {
+    "property_id": "9956197038",
+    "permalink": "1545-Pine-St-Apt-706_San-Francisco_CA_94109_M99561-97038",
+    "list_price": 383968,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/db86e872e4bee23db6ac51f58b6635e1l-m1473399621s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 626,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94109",
+        "line": "1545 Pine St Apt 706"
+      }
+    }
+  },
+  {
+    "property_id": "9929863413",
+    "permalink": "395-6th-St-413_San-Francisco_CA_94103_M99298-63413",
+    "list_price": 469094,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/d8b3db665f4ed568b1be4a44504558ael-m3352889137s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 805,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94103",
+        "line": "395 6th St Unit 413"
+      }
+    }
+  },
+  {
+    "property_id": "2380069136",
+    "permalink": "2937-Harrison-St_San-Francisco_CA_94110_M23800-69136",
+    "list_price": 699000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/2b20c9ce0feaac8dc325125fb9ad42fdl-m582366385s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1367,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "2937 Harrison St"
+      }
+    }
+  },
+  {
+    "property_id": "1721748559",
+    "permalink": "260-King-St-Unit-537_San-Francisco_CA_94107_M17217-48559",
+    "list_price": 331621,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/6746c42defc9fd62dc7242f4dc43f343l-m76566433s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 820,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94107",
+        "line": "260 King St Unit 537"
+      }
+    }
+  },
+  {
+    "property_id": "9214639114",
+    "permalink": "285-Main-St-Unit-202_San-Francisco_CA_94105_M92146-39114",
+    "list_price": 330641,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/8f0e1fb1931033e23caf9fb9b185f860l-m2662839841s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 805,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "line": "285 Main St Unit 202"
+      }
+    }
+  },
+  {
+    "property_id": "9764185386",
+    "permalink": "864-33rd-Ave-862_San-Francisco_CA_94121_M97641-85386",
+    "list_price": 1695000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/aa0e3f4e05a128c13783ca56acf80833l-m4060564751s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": 3714,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "862-864 33rd Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1831645855",
+    "permalink": "6121-California-St_San-Francisco_CA_94121_M18316-45855",
+    "list_price": 1495000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/5bd8cf9316f9cf2d2b948b2ff6ad5157l-m2779531698s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1900,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "6121 California St"
+      }
+    }
+  },
+  {
+    "property_id": "1386384668",
+    "permalink": "2370-N-Point-St_San-Francisco_CA_94123_M13863-84668",
+    "list_price": 3098000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/5ea002fb2f44cf8e797909dcf7f28c27l-m582904046s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": null,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94123",
+        "line": "2370 N Point St"
+      }
+    }
+  },
+  {
+    "property_id": "9404844163",
+    "permalink": "3006-26th-St_San-Francisco_CA_94110_M94048-44163",
+    "list_price": 699000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/04164ced32565ab82fb833aac9b2c0c6l-m272588623s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 1195,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "3006 26th St"
+      }
+    }
+  },
+  {
+    "property_id": "2681346610",
+    "permalink": "546-18th-Ave_San-Francisco_CA_94121_M26813-46610",
+    "list_price": 2385000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/3e1e61820224bce9338d1bd11fdb65edl-m3214813280s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 2150,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "546 18th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1295191241",
+    "permalink": "691-28th-Ave_San-Francisco_CA_94121_M12951-91241",
+    "list_price": 1295000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/4ab533fdafb1fd3ac8d9ae58a593a8c1l-m652499527s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 2640,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "691-693 28th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2635136841",
+    "permalink": "2745-Anza-St_San-Francisco_CA_94121_M26351-36841",
+    "list_price": 1700000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/f601a06fdf083d34034fe0fd8655eafal-m3872576311s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 19,
+      "baths": null,
+      "sqft": 3640,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "2745 Anza St"
+      }
+    }
+  },
+  {
+    "property_id": "2906074764",
+    "permalink": "2470-43rd-Ave_San-Francisco_CA_94116_M29060-74764",
+    "list_price": 1750000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/93c0a88a24755e81181d0e682cffa6b6l-m991177197s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 1821,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94116",
+        "line": "2470 43rd Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1563300101",
+    "permalink": "806-Potrero-Ave_San-Francisco_CA_94110_M15633-00101",
+    "list_price": 1780000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/36ea4b59df2e2784daaab66b7e6b3d43l-m372014875s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 4,
+      "baths": null,
+      "sqft": 2064,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "806 Potrero Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1317774003",
+    "permalink": "301-Crescent-Ct-Apt-3307_San-Francisco_CA_94134_M13177-74003",
+    "list_price": 599000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/b01c181a7bdb9cad4b8046b87c615c76l-m1913888718s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 2,
+      "baths": null,
+      "sqft": 892,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94134",
+        "line": "301 Crescent Ct Apt 3307"
+      }
+    }
+  },
+  {
+    "property_id": "1451264157",
+    "permalink": "75-Chaves-Ave_San-Francisco_CA_94127_M14512-64157",
+    "list_price": 1595000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/3db9e791243543b5c7bc5be6f4df19d0l-m1646939330s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1625,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94127",
+        "line": "75 Chaves Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1209066499",
+    "permalink": "26-Hodges-Aly_San-Francisco_CA_94133_M12090-66499",
+    "list_price": 3750000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/7160529220a5bb188c76bdc9bc43bacbl-m2402794491s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 2000,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "26 Hodges Aly"
+      }
+    }
+  },
+  {
+    "property_id": "1679039895",
+    "permalink": "95-Ora-Way-Unit-F303_San-Francisco_CA_94131_M16790-39895",
+    "list_price": 250000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/af9cdc2c7ab0c8d0c4d318c44b7fc18el-m1623009168s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": null,
+      "sqft": 409,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "95 Ora Way Unit 303F"
+      }
+    }
+  },
+  {
+    "property_id": "2811227866",
+    "permalink": "45-Ora-Way-Unit-A204_San-Francisco_CA_94131_M28112-27866",
+    "list_price": 289900,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/40593f7894375224f62a548dec915903l-m1136060479s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 1,
+      "baths": null,
+      "sqft": 676,
+      "lot_size": null,
+      "type": "Apartment"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94131",
+        "line": "45 Ora Way Unit 204A"
+      }
+    }
+  },
+  {
+    "property_id": "2568304485",
+    "permalink": "1655-Beach-St_San-Francisco_CA_94123_M25683-04485",
+    "list_price": 7000000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/8e29ae11f0fc4d0c69bf2832217a19a3l-m1725836192s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": 4835,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94123",
+        "line": "1655 Beach St"
+      }
+    }
+  },
+  {
+    "property_id": "1780973620",
+    "permalink": "115-Monticello-St_San-Francisco_CA_94132_M17809-73620",
+    "list_price": 1088000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/506a5d82535d6fa46e6a75e193483fb2l-m3520784197s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1649,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94132",
+        "line": "115 Monticello St"
+      }
+    }
+  },
+  {
+    "property_id": "9474294970",
+    "permalink": "750-Pacific-Ave_San-Francisco_CA_94133_M94742-94970",
+    "list_price": 2250000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/6a7d1ebe993756cf8a096477b920c0c2l-m3121573113s.jpg"
+      }
+    ],
+    "description": {
+      "beds": null,
+      "baths": null,
+      "sqft": 12222,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94133",
+        "line": "750-754 Pacific Ave"
+      }
+    }
+  },
+  {
+    "property_id": "1006512803",
+    "permalink": "54-Richland-Ave_San-Francisco_CA_94110_M10065-12803",
+    "list_price": 1498000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/5e6df86ba0b726cdb881129bb86a235fl-m78690683s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1896,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94110",
+        "line": "54 Richland Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2186741649",
+    "permalink": "822-37th-Ave_San-Francisco_CA_94121_M21867-41649",
+    "list_price": 1595000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/9fd870bf19bffb4cf5b0c2a44562e564l-m1345681647s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 3,
+      "baths": null,
+      "sqft": 1692,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94121",
+        "line": "822 37th Ave"
+      }
+    }
+  },
+  {
+    "property_id": "2939430932",
+    "permalink": "1415-Hawes-St_San-Francisco_CA_94124_M29394-30932",
+    "list_price": 799000,
+    "photos": [
+      {
+        "href": "https://ap.rdcpix.com/c7af4802fcb4ba4dba8b7292ea3438f8l-m2380070180s.jpg"
+      }
+    ],
+    "description": {
+      "beds": 5,
+      "baths": null,
+      "sqft": null,
+      "lot_size": null,
+      "type": "SingleFamilyResidence"
+    },
+    "location": {
+      "address": {
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94124",
+        "line": "1415 Hawes St"
       }
     }
   }

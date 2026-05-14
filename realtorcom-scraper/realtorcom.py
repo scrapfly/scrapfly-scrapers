@@ -46,7 +46,7 @@ def parse_property(result: ScrapeApiResponse) -> Dict:
         slug: slug,
         url: propertyDetails.href,
         status: propertyDetails.status,
-        tags: propertyDetails.tags,
+        tags: propertyDetails.tags_for_display[].label,
         sold_date: propertyDetails.last_sold_date,
         sold_price: propertyDetails.last_sold_price,
         list_date: propertyDetails.list_date,
@@ -92,10 +92,34 @@ async def scrape_property(url: str) -> List[Dict]:
     return property
 
 
+def _parse_search_card_meta(result: ScrapeApiResponse) -> Dict[str, Dict]:
+    """extract metadata from rendered property cards"""
+    def _to_int(v):
+        if v is None:
+            return None
+        v = re.sub(r"[^\d]", "", v)
+        return int(v) if v else None
+
+    meta_by_permalink: Dict[str, Dict] = {}
+    for card in result.selector.xpath("//article[.//a[contains(@href,'/realestateandhomes-detail/')]]"):
+        href = card.xpath(".//a[contains(@href,'/realestateandhomes-detail/')]/@href").get() or ""
+        m = re.search(r"/realestateandhomes-detail/([^?#]+)", href)
+        if not m:
+            continue
+        permalink = m.group(1)
+        meta_by_permalink[permalink] = {
+            "beds": _to_int(card.css('[data-testid="property-meta-beds"] [data-testid="meta-value"]::text').get()),
+            "baths": _to_int(card.css('[data-testid="property-meta-baths"] [data-testid="meta-value"]::text').get()),
+            "sqft": _to_int(card.css('[data-testid="property-meta-sqft"] [data-testid="meta-value"]::text').get()),
+            "lot_size": _to_int(card.css('[data-testid="property-meta-lot-size"] [data-testid="meta-value"]::text').get()),
+        }
+    return meta_by_permalink
+
+
 def parse_search(result: ScrapeApiResponse) -> Dict:
     """parse realtor.com's search page for search result data"""
     log.info("parsing search page: {}", result.context["url"])
-    
+
     total_text = result.selector.css("[data-testid='total-results']::text").get("0")
     total_properties = int(total_text.replace(",", "").strip() or "0")
     empty = {"properties": [], "totalProperties": 0}
@@ -136,6 +160,8 @@ def parse_search(result: ScrapeApiResponse) -> Dict:
         log.warning("no itemListElement found in CollectionPage mainEntity")
         return empty
 
+    card_meta = _parse_search_card_meta(result)
+
     properties = []
     for item in items:
         url = item.get("url", "")
@@ -156,18 +182,21 @@ def parse_search(result: ScrapeApiResponse) -> Dict:
         floor_size = prop_detail.get("floorSize", {})
         image = item.get("image", "")
 
+        dom_meta = card_meta.get(permalink, {})
+        ld_baths = prop_detail.get("numberOfBathroomsTotal") or None
+        ld_sqft = floor_size.get("value") if floor_size else None
+
         properties.append({
             "property_id": property_id,
             "permalink": permalink,
             "list_price": list_price,
             "photos": [{"href": image}] if image else [],
             "description": {
-                "beds": prop_detail.get("numberOfBedrooms"),
-                "baths": prop_detail.get("numberOfBathroomsTotal") or None,
-                "sqft": floor_size.get("value") if floor_size else None,
+                "beds": prop_detail.get("numberOfBedrooms") or dom_meta.get("beds"),
+                "baths": ld_baths or dom_meta.get("baths"),
+                "sqft": ld_sqft or dom_meta.get("sqft"),
+                "lot_size": dom_meta.get("lot_size"),
                 "type": prop_detail.get("@type"),
-                "text": prop_detail.get("description", ""),
-                "year_built": prop_detail.get("yearBuilt"),
             },
             "location": {
                 "address": {
