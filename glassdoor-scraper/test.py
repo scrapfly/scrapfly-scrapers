@@ -143,6 +143,13 @@ async def test_salary_scraping():
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
+    items = result["results"]
+    assert items, "no salary results returned"
+    with_percentiles = [i for i in items if i.get("basePayStatistics", {}).get("percentiles")]
+    assert len(with_percentiles) / len(items) >= 0.5, (
+        f"expected at least 50% of salary results to have basePayStatistics.percentiles populated, "
+        f"got {len(with_percentiles)}/{len(items)}"
+    )
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/salaries.json').write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)

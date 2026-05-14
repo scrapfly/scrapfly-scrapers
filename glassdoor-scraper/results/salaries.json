@@ -4,7 +4,7 @@
       "jobTitle": {
         "text": "Software Engineer 3"
       },
-      "salaryCount": 919,
+      "salaryCount": 921,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -22,7 +22,7 @@
       "jobTitle": {
         "text": "Software Engineer"
       },
-      "salaryCount": 790,
+      "salaryCount": 798,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -76,7 +76,7 @@
       "jobTitle": {
         "text": "Software Engineer 2"
       },
-      "salaryCount": 396,
+      "salaryCount": 397,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -94,7 +94,7 @@
       "jobTitle": {
         "text": "Software Engineer III"
       },
-      "salaryCount": 387,
+      "salaryCount": 388,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -130,7 +130,7 @@
       "jobTitle": {
         "text": "MTS-2 Software Engineer"
       },
-      "salaryCount": 319,
+      "salaryCount": 320,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -148,7 +148,7 @@
       "jobTitle": {
         "text": "Product Manager"
       },
-      "salaryCount": 260,
+      "salaryCount": 262,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -166,7 +166,7 @@
       "jobTitle": {
         "text": "Senior Product Manager"
       },
-      "salaryCount": 235,
+      "salaryCount": 237,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -256,7 +256,7 @@
       "jobTitle": {
         "text": "Program Manager"
       },
-      "salaryCount": 60,
+      "salaryCount": 62,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -266,6 +266,24 @@
           {
             "ident": "max",
             "value": 214000.0
+          }
+        ]
+      }
+    },
+    {
+      "jobTitle": {
+        "text": "Software QA Engineer"
+      },
+      "salaryCount": 57,
+      "basePayStatistics": {
+        "percentiles": [
+          {
+            "ident": "min",
+            "value": 107000.0
+          },
+          {
+            "ident": "max",
+            "value": 176000.0
           }
         ]
       }
@@ -284,24 +302,6 @@
           {
             "ident": "max",
             "value": 237000.0
-          }
-        ]
-      }
-    },
-    {
-      "jobTitle": {
-        "text": "Software QA Engineer"
-      },
-      "salaryCount": 56,
-      "basePayStatistics": {
-        "percentiles": [
-          {
-            "ident": "min",
-            "value": 107000.0
-          },
-          {
-            "ident": "max",
-            "value": 176000.0
           }
         ]
       }
@@ -344,18 +344,18 @@
     },
     {
       "jobTitle": {
-        "text": "Principal Software Engineer"
+        "text": "Member Of Technical Staff"
       },
-      "salaryCount": 51,
+      "salaryCount": 52,
       "basePayStatistics": {
         "percentiles": [
           {
             "ident": "min",
-            "value": 325000.0
+            "value": 242000.0
           },
           {
             "ident": "max",
-            "value": 499000.0
+            "value": 362000.0
           }
         ]
       }
@@ -364,7 +364,7 @@
       "jobTitle": {
         "text": "Customer Service Representative"
       },
-      "salaryCount": 211,
+      "salaryCount": 215,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -382,7 +382,7 @@
       "jobTitle": {
         "text": "Software Engineer -2"
       },
-      "salaryCount": 203,
+      "salaryCount": 204,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -418,7 +418,7 @@
       "jobTitle": {
         "text": "Staff Software Engineer"
       },
-      "salaryCount": 158,
+      "salaryCount": 160,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -454,7 +454,7 @@
       "jobTitle": {
         "text": "Data Scientist"
       },
-      "salaryCount": 138,
+      "salaryCount": 139,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -472,7 +472,7 @@
       "jobTitle": {
         "text": "Senior Manager"
       },
-      "salaryCount": 121,
+      "salaryCount": 122,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -490,7 +490,7 @@
       "jobTitle": {
         "text": "Director"
       },
-      "salaryCount": 113,
+      "salaryCount": 114,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -508,7 +508,7 @@
       "jobTitle": {
         "text": "MTS1 Software Engineer"
       },
-      "salaryCount": 95,
+      "salaryCount": 97,
       "basePayStatistics": {
         "percentiles": [
           {
@@ -543,5 +543,5 @@
   ],
   "numPages": 23,
   "salaryCount": 10,
-  "jobTitleCount": 2213
+  "jobTitleCount": 2229
 }
