@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape flight data from Google Flights.
 
-Full tutorial <https://scrapfly.io/blog/how-to-scrape-google-flights/>
+Full tutorial <https://scrapfly.io/blog/posts/how-to-scrape-google-flights/>
 
 The scraping code is located in the `google_flights.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
@@ -40,6 +40,6 @@ This Google Flights scraper uses __Python 3.10__ with [scrapfly-sdk](https://pyp
     $ poetry install --with dev
     $ poetry run pytest test.py
     # or specific scraping areas
-    $ poetry run pytest test.py -k test_roundtrip_scraping
-    $ poetry run pytest test.py -k test_oneway_scraping
+    $ poetry run pytest test.py -k test_scrape_flights
+    $ poetry run pytest test.py -k test_scrape_booking
     ```

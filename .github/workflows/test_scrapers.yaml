@@ -271,7 +271,11 @@ jobs:
           - project_dir: chatgpt-scraper
             test: test_scrape_conversation
           - project_dir: chatgpt-scraper
-            test: test_scrape_conversations            
+            test: test_scrape_conversations    
+          - project_dir: google-flights-scraper
+            test: test_scrape_flights
+          - project_dir: google-flights-scraper
+            test: test_scrape_booking
 
     steps:
     - uses: actions/checkout@v4
