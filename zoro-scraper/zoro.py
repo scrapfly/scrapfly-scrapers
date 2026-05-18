@@ -266,22 +266,86 @@ def parse_search_listing(response: ScrapeApiResponse) -> ZoroSearchListing:
             # Remove commas and convert to int
             total_results = int(results_match.group(1).replace(",", ""))
 
-    # Extract product listings from xhr calls
     products = []
-    if "browser_data" in response.scrape_result:
-        browser_data = response.scrape_result["browser_data"]
-        xhr_calls = browser_data.get("xhr_call", [])
-        for xhr in xhr_calls:
-            url = xhr.get("url", "")
-            if "/catalog-cloudrun/v1/catalog/product" in url:
-                try:
-                    response_data = xhr.get("response", {})
-                    body = response_data.get("body", "")
-                    if body:
-                        data = json.loads(body)
-                        products.extend(data.get("products", []))
-                except Exception as e:
-                    log.error(f"Error parsing XHR data from {url}: {e}")
+    for card in sel.css('[data-za="search-product-card"]'):
+        href = card.css('a[data-za="product-title"]::attr(href)').get() or ""
+        slug_match = re.search(r"^/([^/]+)/i/(G\d+)/?$", href)
+        slug = slug_match.group(1) if slug_match else ""
+        zoro_no = slug_match.group(2) if slug_match else ""
+        if not zoro_no:
+            zoro_no = (card.css("span.zoro-no::text").get() or "").strip()
+
+        title = (
+            card.css('a[data-za="product-title"] h2::text').get()
+            or card.css('a[data-za="product-title"]::attr(title)').get()
+            or ""
+        ).strip()
+
+        brand = " ".join(
+            t.strip()
+            for t in card.css('[data-za="product-brand"] ::text').getall()
+            if t.strip()
+        )
+
+        price = None
+        price_text = " ".join(
+            t.strip()
+            for t in card.css('[data-za="product-price"] ::text').getall()
+            if t.strip()
+        )
+        price_match = re.search(r"\$([\d,]+(?:\.\d{1,2})?)", price_text)
+        if price_match:
+            try:
+                price = float(price_match.group(1).replace(",", ""))
+            except ValueError:
+                price = None
+
+        mfr_no = (card.css("span.mfr-no::text").get() or "").strip() or None
+
+        rating = None
+        rating_text = card.css(
+            '[data-za="product-review-snippet"] .sr-only span::text'
+        ).get() or ""
+        rating_match = re.search(r"Rated\s+([\d.]+)\s+stars", rating_text)
+        if rating_match:
+            try:
+                rating = float(rating_match.group(1))
+            except ValueError:
+                rating = None
+
+        review_count = 0
+        rc_text = (card.css('[data-za="review-count"] ::text').get() or "").strip()
+        rc_match = re.search(r"([\d,]+)", rc_text)
+        if rc_match:
+            try:
+                review_count = int(rc_match.group(1).replace(",", ""))
+            except ValueError:
+                review_count = 0
+
+        img_src = card.css('img[data-za="product-image"]::attr(src)').get() or ""
+        img_alt = card.css('img[data-za="product-image"]::attr(alt)').get() or ""
+
+        sales_status = (
+            card.css('[data-za="stock-status-badge"]::text').get() or ""
+        ).strip() or None
+
+        url = f"https://www.zoro.com{href}" if href.startswith("/") else href
+
+        products.append({
+            "title": title,
+            "brand": brand or None,
+            "price": price,
+            "zoroNo": zoro_no,
+            "mfrNo": mfr_no,
+            "slug": slug,
+            "url": url,
+            "image": img_src,
+            "imageAlt": img_alt,
+            "rating": rating,
+            "review_count": review_count,
+            "salesStatus": sales_status,
+        })
+
     log.info(f"Scraped {len(products)} products from search listing")
     return {
         "total_pages": total_pages,
@@ -306,7 +370,7 @@ async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages
     base_url = f"https://www.zoro.com/search?q={encoded_query}"
     log.info(f"Scraping first page of search listing: {base_url}")
     first_page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(base_url, auto_scroll=True, **BASE_CONFIG)
+        ScrapeConfig(base_url, auto_scroll=True, **BASE_CONFIG, rendering_wait=5000)
     )
 
     # first page data
@@ -326,7 +390,7 @@ async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages
     scraped_pages = 1
     if pages_to_scrape > 1:
         other_pages = [
-            ScrapeConfig(f"{base_url}&page={page}", auto_scroll=True, **BASE_CONFIG)
+            ScrapeConfig(f"{base_url}&page={page}", auto_scroll=True, **BASE_CONFIG, rendering_wait=5000)
             for page in range(2, pages_to_scrape + 1)
         ]
         async for response in SCRAPFLY.concurrent_scrape(other_pages):
