@@ -25,7 +25,6 @@ async def run():
     property_data = await imovelweb.scrape_properties(
         urls=[
             "https://www.immoweb.be/en/classified/mansion/for-rent/etterbeek/1040/21550378",
-            "https://www.immoweb.be/en/classified/exceptional-property/for-rent/auderghem/1160/21536260",
             "https://www.immoweb.be/en/classified/exceptional-property/for-rent/woluwe-saint-pierre/1150/21535100",
         ]
     )
@@ -34,7 +33,7 @@ async def run():
 
     log.info("scraping search page")
     query = "Malen"
-    filter= {
+    filter = {
         "propertySubtypes": ["EXCEPTIONAL_PROPERTY", "MIXED_USE_BUILDING", "MANSION", "OTHER_PROPERTY", "FARMHOUSE"],
         "orderBy": "relevance",
         "minPrice": 1000,

@@ -67,30 +67,22 @@ class PropertyFeatures(TypedDict, total=False):
 
 
 class PropertyResult(TypedDict, total=False):
-    """property result item"""
-
-    # IDs
     id: int
     external_reference: str
     link: str
     type: str
     subtype: str
-    # Nested structures
     location: Location
     price: PriceInfo
     features: PropertyFeatures
     agency: Agency
-    # Media
     images: List[str]
     image_count: int
-    # Dates
     creation_date: str
     last_modified: str
 
 
 class SearchResult(TypedDict):
-    """search result item"""
-
     total_pages: int
     total_properties: int
     search_properties: List[Dict]
@@ -101,15 +93,13 @@ def parse_property(result: ScrapeApiResponse) -> Dict:
     classified_data = None
     script_content = result.selector.xpath("//script[contains(text(), 'window.classified')]/text()").get()
     if script_content:
-        # Extract JSON from: window.classified = {...};
         match = re.search(r"window\.classified\s*=\s*({.*?});", script_content, re.DOTALL)
         if match:
             classified_data = json.loads(match.group(1))
 
     if not classified_data:
-        return {}  # Fallback method HTML parsing
+        return {}
 
-    # you can return classified_data directly if you want to see the raw data (more context)
     prop = classified_data.get("property", {})
     loc = prop.get("location", {})
     trans = classified_data.get("transaction", {})
@@ -123,17 +113,13 @@ def parse_property(result: ScrapeApiResponse) -> Dict:
     customer = customers[0] if customers else {}
 
     return {
-        # IDs
         "id": classified_data.get("id"),
         "external_reference": classified_data.get("externalReference"),
-        # Basic property info
         "type": prop.get("type"),
         "subtype": prop.get("subtype"),
         "link": classified_data.get("id") and f"https://www.immoweb.be/en/classified/{classified_data['id']}",
-        # Price
         "price": price_info.get("mainValue"),
         "price_display": price_info.get("mainDisplayPrice"),
-        # Location
         "street": loc.get("street"),
         "number": loc.get("number"),
         "postal_code": loc.get("postalCode"),
@@ -144,33 +130,25 @@ def parse_property(result: ScrapeApiResponse) -> Dict:
         "country": loc.get("country"),
         "latitude": loc.get("latitude"),
         "longitude": loc.get("longitude"),
-        # Rental info
         "monthly_rental_price": rental.get("monthlyRentalPrice"),
         "monthly_rental_costs": rental.get("monthlyRentalCosts"),
         "is_furnished": rental.get("isFurnished"),
-        # Rooms & Surface
         "bedrooms": prop.get("bedroomCount", 0),
         "bathrooms": prop.get("bathroomCount"),
         "room_count": prop.get("roomCount"),
         "net_habitable_surface": prop.get("netHabitableSurface"),
-        # Features
         "has_lift": prop.get("hasLift"),
         "has_terrace": prop.get("hasTerrace"),
         "has_garden": prop.get("hasGarden"),
         "has_parking": prop.get("parkingCountIndoor") or prop.get("parkingCountOutdoor"),
-        # Media
         "images": [pic.get("largeUrl") for pic in media.get("pictures", [])],
         "image_count": len(media.get("pictures", [])),
-        # Statistics
         "view_count": stats.get("viewCount"),
         "bookmark_count": stats.get("bookmarkCount"),
-        # Publication
         "creation_date": pub.get("creationDate"),
         "last_modified": pub.get("lastModificationDate"),
-        # Energy & Certificates
         "epc_score": certs.get("epcScore"),
         "energy_class": certs.get("primaryEnergyConsumptionLevel"),
-        # Agency/Customer
         "agency_name": customer.get("name"),
         "agency_email": customer.get("email"),
         "agency_phone": customer.get("phoneNumber"),
@@ -186,7 +164,6 @@ def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
     max_pages = 1
     properties = []
 
-    # Check if no results were found
     no_results = sel.css("h1.empty-state__title::text").get()
     if no_results and "no matching results" in no_results.lower():
         log.warning("No matching results found for this search")
@@ -201,11 +178,9 @@ def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
         match = re.search(r"(\d+(?:,\d+)*)\s+propert", title)
         total_properties = int(match.group(1).replace(",", ""))
 
-    # Get all page links from pagination
     max_pages = 1
     page_links = sel.css("ul.pagination li.pagination__item a.pagination__link::attr(href)").getall()
     for link in page_links:
-        # Extract page number from URL parameter
         match = re.search(r"[?&]page=(\d+)", link)
         if match:
             page_num = int(match.group(1))
@@ -217,41 +192,37 @@ def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
 
     for card in property_cards:
         try:
-            # Extract property data from card
             property_id = card.css("::attr(id)").get() or ""
             if property_id:
                 property_id = property_id.replace("classified_", "")
-            # Extract link
             link = card.css("a::attr(href)").get() or card.xpath(".//a/@href").get()
             if link and not link.startswith("http"):
                 root_domain = result.context["uri"][
                     "root_domain"
-                ]  # Use actual domain after redirects (e.g., .com -> .br)
+                ]
                 link = f"https://{root_domain}{link}" if link.startswith("/") else f"https://{root_domain}/{link}"
 
-            # Extract price
-            currency = ""
-            price_min = ""
-            price_max = ""
+            currency = None
+            price_min = None
+            price_max = None
+
             price_text = card.css("[class*='price'], [data-testid*='price']::text").get()
             if price_text:
                 currency_match = re.search(r"([€$£¥]|R\$)", price_text)
-                currency = currency_match.group(1) if currency_match else ""
+                currency = currency_match.group(1) if currency_match else currency
 
-                # Extract numbers
                 numbers = re.findall(r"[\d.,]+", price_text)
                 clean_numbers = [num.replace(",", "").replace(".", "") for num in numbers]
 
-                price_min = clean_numbers[0] if clean_numbers else ""
-                price_max = clean_numbers[1] if len(clean_numbers) > 1 else ""
+                price_min = clean_numbers[0] if clean_numbers else price_min
+                price_max = clean_numbers[1] if len(clean_numbers) > 1 else price_max
 
-            # Extract location
             location_text = card.css(
                 "p.card__information--locality::text, p.card--results__information--locality::text"
             ).get()
 
-            postal_code = ""
-            city = ""
+            postal_code = None
+            city = None
             if location_text:
                 location_text = location_text.strip()
                 match = re.match(r"(\d+)\s+(.+)", location_text)
@@ -261,8 +232,7 @@ def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
                 else:
                     city = location_text
 
-            # Extract bedrooms
-            bedrooms = ""
+            bedrooms = None
             bedrooms_span = card.css(
                 "p.card__information--property span.abbreviation span[aria-hidden='true']::text"
             ).get()
@@ -271,24 +241,20 @@ def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
                 if bed_match:
                     bedrooms = bed_match.group(1)
 
-            # Extract area
-            area = ""
+            area = None
             area_text = card.css("p.card__information--property::text").getall()
             for text in area_text:
                 if text.strip() and text.strip().isdigit():
                     area = f"{text.strip()} m²"
                     break
 
-            # Extract description
             description = card.css("div.card__description::text").get() or ""
             description = description.strip()
 
-            # Extract flags/badges
             flags = []
             flag_items = card.css("div.flag-list__item span.flag-list__text::text").getall()
             flags = [f.strip() for f in flag_items if f.strip()]
 
-            # Extract agency logo
             agency_logo = (
                 card.css("img.card--result__agency-logo::attr(src), img.card__logo--large::attr(src)").get() or ""
             )
@@ -296,7 +262,6 @@ def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
                 card.css("img.card--result__agency-logo::attr(alt), img.card__logo--large::attr(alt)").get() or ""
             )
 
-            # Extract images
             images = []
             image_urls = card.css("img.card__media-picture::attr(src)").getall()
             images = [img for img in image_urls if img]
@@ -338,7 +303,11 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
 
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
-            properties.append(parse_property(result))
+            parsed = parse_property(result)
+            if not parsed:
+                log.warning(f"No property data parsed from {result.context.get('url')}")
+                continue
+            properties.append(parsed)
         except Exception as e:
             log.error(f"Error parsing property page {result.context.get('url')}: {e}")
             continue
@@ -365,7 +334,6 @@ async def scrape_search(
     search_properties = []
     base_url = "https://www.immoweb.be/en/search/house-and-apartment"  # using .be as .com redirects and blocks filters
 
-    # Handle for-sale or for-rent
     listing_type = "for-sale" if for_sale else "for-rent"
 
     query_slug = ""
@@ -373,26 +341,21 @@ async def scrape_search(
     if query:
         query_slug = query.lower().replace(" ", "-")
 
-    # Build the URL
     url = f"{base_url}/{listing_type}/{query_slug}".rstrip("/")
 
     if filters:
         processed_filters = {}
         for key, value in filters.items():
             if isinstance(value, list):
-                # Join list items with commas (unencoded)
                 processed_filters[key] = ",".join(str(v) for v in value)
             else:
                 processed_filters[key] = value
 
-        # Build query string manually to avoid encoding commas
         query_parts = []
         for key, value in processed_filters.items():
             if "," in str(value):
-                # Don't encode values with commas
                 query_parts.append(f"{key}={value}")
             else:
-                # Encode other values normally
                 query_parts.append(f"{key}={urlencode({key: value})[len(key)+1:]}")
 
         url += "?" + "&".join(query_parts)
@@ -419,9 +382,6 @@ async def scrape_search(
             ScrapeConfig(url + f"{separator}page={page}", **BASE_CONFIG) for page in range(2, pages_to_scrape + 1)
         ]
         async for result in SCRAPFLY.concurrent_scrape(other_pages):
-            if isinstance(result, ScrapflyScrapeError):
-                log.error(f"ASP protection failed - skipping page {result.context.get('url')}")
-                continue
             try:
                 page_data = parse_search_page(result)
                 search_properties.extend(page_data["properties"])
@@ -430,6 +390,7 @@ async def scrape_search(
                 log.error(f"Error parsing search page {result.context.get('url')}: {e}")
                 continue
         log.success(f"scraped properties {len(search_properties)}")
+
     data = {
         "total_pages": total_pages,
         "total_properties": total_properties,
