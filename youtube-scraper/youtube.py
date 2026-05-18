@@ -402,13 +402,13 @@ async def scrape_channel_videos(
         )
     )
     initial_script_data = parse_yt_initial_data(response)
-    continuation_tokens = jp_all("$..chipCloudChipRenderer", initial_script_data)
+    chips = jp_all("$..chipViewModel", initial_script_data)
 
     # there are different continuation tokens based on the sorting order
     continuation_token = [
-        i["navigationEndpoint"]["continuationCommand"]["token"]
-        for i in continuation_tokens
-        if i["text"]["simpleText"] == sort_by
+        i["tapCommand"]["innertubeCommand"]["continuationCommand"]["token"]
+        for i in chips
+        if i.get("text") == sort_by
     ][0]
 
     # 2. call the API to get the video data

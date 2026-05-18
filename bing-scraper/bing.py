@@ -88,6 +88,7 @@ async def scrape_search(query: str, max_pages: int = None):
     log.success(f"scraped {len(serp_data)} search results from Bing search")
     return serp_data
 
+
 async def scrape_keywords(query: str):
     """scrape bing search pages for keyword data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"

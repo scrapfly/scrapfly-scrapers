@@ -1,3 +1,4 @@
+
 """
 This example run script shows how to run the fashionphile.com scraper defined in ./fashionphile.py
 It scrapes product data and saves it to ./results/

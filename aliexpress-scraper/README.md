@@ -44,5 +44,6 @@ This Aliexpress.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pyp
     $ poetry run pytest test.py -k test_product_scraping
     $ poetry run pytest test.py -k test_search_scraping
     $ poetry run pytest test.py -k test_review_scraping
+    $ poetry run pytest test.py -k test_category_scraping
     ```
 

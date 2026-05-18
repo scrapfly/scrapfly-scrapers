@@ -38,5 +38,12 @@ async def run():
     output.joinpath("hotel.json").write_text(json.dumps(result_hotel, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+    hotel_review_data = await bookingcom.scrape_hotel_reviews(
+        "https://www.booking.com/hotel/gb/gardencourthotel.en-gb.html",
+        max_pages=3
+    )
+    output.joinpath("hotel_review.json").write_text(json.dumps(hotel_review_data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
 if __name__ == "__main__":
     asyncio.run(run())
