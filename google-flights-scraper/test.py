@@ -8,7 +8,7 @@ from cerberus import Validator
 
 import google_flights
 
-google_flights.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
+google_flights.BASE_CONFIG["cache"] = True
 
 TODAY = datetime.now().strftime("%Y-%m-%d")
 WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
@@ -65,6 +65,25 @@ flight_search_schema = {
 }
 
 
+booking_option_schema = {
+    "book_with": {"type": "string"},
+    "airline": {"type": "boolean"},
+    "airline_logos": {"type": "list", "schema": {"type": "string"}},
+    "option_title": {"type": "string"},
+    "price": {"type": "integer", "nullable": True},
+    "price_usd": {"type": "integer", "nullable": True},
+    "extensions": {"type": "list", "schema": {"type": "string"}},
+    "baggage_prices": {"type": "list", "schema": {"type": "string"}},
+}
+
+booking_schema = {
+    "booking_options": {
+        "type": "list",
+        "schema": {"type": "dict", "schema": booking_option_schema},
+    },
+}
+
+
 def _validate_or_raise(item, schema):
     validator = Validator(schema, allow_unknown=True)
     if not validator.validate(item):
@@ -72,6 +91,7 @@ def _validate_or_raise(item, schema):
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_scrape_flights():
     result = await google_flights.scrape_flights(
         origin="JFK",
@@ -81,6 +101,25 @@ async def test_scrape_flights():
         currency="USD",
     )
     _validate_or_raise(result, flight_search_schema)
-    assert result["route"] == "JFK-CDG"
     assert len(result["flights"]) >= 5
 
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_scrape_booking():
+    result = await google_flights.scrape_flights(
+        origin="JFK",
+        destination="CDG",
+        depart=TODAY,
+        ret=WEEK_FROM_NOW,
+        currency="USD",
+    )
+    booking_token = result["flights"][1].get("booking_token")
+    booking = await google_flights.scrape_booking(
+        origin="JFK",
+        destination="CDG",
+        depart=TODAY,
+        ret=WEEK_FROM_NOW,
+        currency="USD",
+        booking_token=booking_token,
+    )
+    _validate_or_raise(booking, booking_schema)

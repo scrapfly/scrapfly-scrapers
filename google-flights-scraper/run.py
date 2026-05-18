@@ -33,6 +33,7 @@ async def run():
         ret=WEEK_FROM_NOW,
         currency="USD", 
     )
+    booking_token = roundtrip["flights"][0]["booking_token"]
     with open(output / "roundtrip.json", "w", encoding="utf-8") as f:
         json.dump(roundtrip, f, indent=2, ensure_ascii=False)
 
@@ -51,7 +52,7 @@ async def run():
         depart=TODAY,
         ret=WEEK_FROM_NOW,
         currency="USD",
-        booking_token="JFK-CDG-AA-42-20260516",
+        booking_token=booking_token,
     )
     with open(output / "booking.json", "w", encoding="utf-8") as f:
         json.dump(booking, f, indent=2, ensure_ascii=False)
