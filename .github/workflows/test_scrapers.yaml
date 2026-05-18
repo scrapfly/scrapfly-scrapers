@@ -278,6 +278,10 @@ jobs:
             test: test_search_scraping
           - project_dir: zoro-scraper
             test: test_product_scraping
+          - project_dir: mouser-scraper
+            test: test_search_scraping
+          - project_dir: mouser-scraper
+            test: test_product_scraping
           - project_dir: imovelweb-scraper
             test: test_search_scraping
           - project_dir: imovelweb-scraper
