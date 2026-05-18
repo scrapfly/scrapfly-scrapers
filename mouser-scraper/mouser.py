@@ -53,9 +53,9 @@ class MouserProduct(TypedDict):
 class MouserSearch(TypedDict):
     """Mouser search results"""
     products: List[Dict]
-    scraped_pages: int      # Number of pages actually scraped
-    total_pages: int        # Total pages available on Mouser
-    total_count: int        # Total products available on Mouser
+    scraped_pages: int
+    total_pages: int
+    total_count: int
 
 
 def parse_product(result: ScrapeApiResponse) -> MouserProduct:
@@ -76,23 +76,22 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
             continue
 
     sku = mpn = brand = description = ""
-    # Extract basic product info from JSON-LD Product
+
     if product_json_ld:
         sku = product_json_ld.get("sku", "")
         mpn = product_json_ld.get("mpn", "")
         brand = product_json_ld.get("brand", "")
         description = product_json_ld.get("description", "")
     
-    # Extract offer information
     offers = product_json_ld.get("offers", {}) if product_json_ld else {}
     price = str(offers.get("price", ""))
     currency = offers.get("priceCurrency", "USD")
     availability = offers.get("availability", "")
-    # Convert availability URL to readable format
+
     if availability.startswith("http://schema.org/"):
         availability = availability.replace("http://schema.org/", "").replace("InStock", "In Stock")
     stock_quantity = int(offers.get("inventoryLevel", 0))
-    # Extract images
+
     images = []
     if product_json_ld and product_json_ld.get("image"):
         image_data = product_json_ld["image"]
@@ -101,19 +100,16 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
         elif isinstance(image_data, list):
             images.extend([img if isinstance(img, str) else img.get("contentUrl", "") for img in image_data])
     
-    # Extract specifications from the table
+
     specifications = {}
     spec_rows = sel.xpath('//tr[contains(@id, "pdp_specs_SpecList")]')
     for row in spec_rows:
-        # Get label from attr-col
         label = row.xpath('.//td[@class="attr-col"]//label/text()').get()
         if not label:
             label = row.xpath('.//td[@class="attr-col"]/text()').get()
 
-        # Get value from attr-value-col
         value = row.xpath('.//td[@class="attr-value-col"]/text()').get()
         if not value:
-            # Try to get from nested elements
             value = row.xpath('normalize-space(.//td[@class="attr-value-col"])').get()
 
         if label and value:
@@ -122,7 +118,6 @@ def parse_product(result: ScrapeApiResponse) -> MouserProduct:
             if label and value:
                 specifications[label] = value
 
-    # Extract datasheet URL from documents section
     datasheet_url = sel.xpath('//a[contains(@href, "datasheet")]/@href').get()
 
     parsed_data = {
@@ -171,11 +166,9 @@ def parse_search(result: ScrapeApiResponse) -> MouserSearch:
     """Parse Mouser search page for product listings"""
     sel = result.selector
 
-    # Extract total count
     total_count_text = sel.xpath('//span[@class="searchResultsCount total-results-value"]/text()').get()
     total_count = 0
     if total_count_text:
-        # Remove parentheses and dots/commas (European number format uses . as thousand separator)
         total_count_clean = total_count_text.strip("()").replace(".", "").replace(",", "")
         try:
             total_count = int(total_count_clean)
@@ -186,32 +179,21 @@ def parse_search(result: ScrapeApiResponse) -> MouserSearch:
     results_per_page = 25
     total_pages = (total_count + results_per_page - 1) // results_per_page if total_count > 0 else 1
 
-    # Extract products
     products = []
     product_rows = sel.xpath('//table[@id="SearchResultsGrid_grid"]//tbody/tr[@data-index]')
     for row in product_rows:
-        # Extract data from row attributes
         mouser_part_number = row.xpath('@data-partnumber').get() or ""
         manufacturer = row.xpath('@data-actualmfrname').get() or ""
         mfr_part_number = row.xpath('@data-mfrpartnumber').get() or ""
-
-        # Extract description from desc-column
         description = row.xpath('.//td[contains(@class, "desc-column")]//span/text()').get() or ""
-
-        # Extract price - try first price break
         price = row.xpath('.//span[starts-with(@id, "lblPrice_")]/text()').get() or ""
-
-        # Extract availability/stock
         stock_amount = row.xpath('.//span[@class="available-amount"]/text()').get() or ""
         stock_status = row.xpath('.//span[@class="avail-status"]/text()').get() or ""
         availability = f"{stock_amount} {stock_status}".strip()
-
-        # Extract product URL from manufacturer part number link
         product_url = row.xpath('.//a[starts-with(@id, "lnkMfrPartNumber_")]/@href').get() or ""
+
         if product_url and not product_url.startswith("http"):
-            # Make absolute URL
             base_url = result.context.get("url", "https://eu.mouser.com")
-            # Extract base domain from URL
             if "mouser.com" in base_url:
                 if base_url.startswith("http"):
                     domain = "/".join(base_url.split("/")[:3])
@@ -221,10 +203,8 @@ def parse_search(result: ScrapeApiResponse) -> MouserSearch:
                 domain = "https://eu.mouser.com"
             product_url = domain + product_url if product_url.startswith("/") else product_url
 
-        # Extract datasheet URL
         datasheet_url = row.xpath('.//a[starts-with(@id, "lnkDataSheet_")]/@href').get() or ""
 
-        # Only add products that have at least a part number
         if mouser_part_number or mfr_part_number:
             products.append({
                 "product_id": mouser_part_number,
@@ -262,7 +242,6 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
     
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
 
-    # Parse first page
     first_page_data = parse_search(first_page)
     search_results = first_page_data["products"]
     total_pages = first_page_data["total_pages"]
