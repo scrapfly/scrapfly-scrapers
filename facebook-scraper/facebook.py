@@ -4,7 +4,7 @@ This is an example web scraper for Facebook.com.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
-
+import re
 import os
 import json
 from typing import Dict, List
@@ -34,7 +34,6 @@ BASE_CONFIG = {
 
 def parse_marketplace_listing(response: ScrapeApiResponse) -> List[Dict]:
     """parse marketplace listing data from HTML by extracting JSON from script tags"""
-    import re
 
     def find_listings(obj, depth=0):
         """Recursively find all marketplace listing objects"""
@@ -88,7 +87,6 @@ def parse_marketplace_listing(response: ScrapeApiResponse) -> List[Dict]:
 
 def parse_event(response: ScrapeApiResponse) -> List[Dict]:
     """parse event data from HTML by extracting JSON from script tags"""
-    import re
 
     def find_events(obj):
         """Recursively find all Event objects"""
@@ -150,7 +148,7 @@ def parse_event(response: ScrapeApiResponse) -> List[Dict]:
 async def scrape_facebook_events(event_name: str = "New York, NY") -> List[Dict]:
     log.info(f"scraping Facebook Events for event: {event_name}")
 
-    # Build events URL with location
+    # build events URL with location
     url = f"https://www.facebook.com/events/search?q={quote(event_name)}"
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
@@ -167,28 +165,17 @@ async def scrape_facebook_events(event_name: str = "New York, NY") -> List[Dict]
 
 
 async def scrape_marketplace_listings(query: str = "electronics") -> List[Dict]:
-    """
-    Scrape Facebook Marketplace listings for a specific query
-
-    Args:
-        query: Query to search for marketplace items (e.g., "electronics")
-
-    Returns:
-        List of marketplace listing dictionaries
-    """
+    """Scrape Facebook Marketplace listings for a specific query"""
     log.info(f"scraping Facebook Marketplace listings for query: {query}")
 
-    # Build marketplace URL with location
+    # build marketplace URL with location
     url = f"https://www.facebook.com/marketplace/search/?query={quote(query)}"
-    print(url)
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=url,
             **BASE_CONFIG,
         )
     )
-
-    # Parse marketplace listings from the response
     listings = parse_marketplace_listing(result)
 
     log.success(f"scraped {len(listings)} marketplace listings from {query}")

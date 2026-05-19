@@ -21,14 +21,12 @@ async def run():
 
     print("running Facebook scrape and saving results to ./results directory")
 
-    # Scrape Marketplace
     marketplace_data = await facebook.scrape_marketplace_listings(
         query="electronics",
     )
     with open(output.joinpath("marketplace.json"), "w", encoding="utf-8") as file:
         json.dump(marketplace_data, file, indent=2, ensure_ascii=False)
 
-    # Scrape Events
     events_data = await facebook.scrape_facebook_events(event_name="New York, NY")
     with open(output.joinpath("events.json"), "w", encoding="utf-8") as file:
         json.dump(events_data, file, indent=2, ensure_ascii=False)

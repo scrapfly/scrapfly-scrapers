@@ -68,6 +68,7 @@ event_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_marketplace_scraping():
     """Test scraping Facebook Marketplace listings"""
     marketplace_data = await facebook.scrape_marketplace_listings(query="electronics")
@@ -79,6 +80,7 @@ async def test_marketplace_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_events_scraping():
     """Test scraping Facebook Events"""
     events_data = await facebook.scrape_facebook_events(event_name="New York, NY")
