@@ -41,5 +41,4 @@ This Google Flights scraper uses __Python 3.10__ with [scrapfly-sdk](https://pyp
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_scrape_flights
-    $ poetry run pytest test.py -k test_scrape_booking
     ```

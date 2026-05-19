@@ -274,8 +274,6 @@ jobs:
             test: test_scrape_conversations    
           - project_dir: google-flights-scraper
             test: test_scrape_flights
-          - project_dir: google-flights-scraper
-            test: test_scrape_booking
 
     steps:
     - uses: actions/checkout@v4

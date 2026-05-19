@@ -33,7 +33,6 @@ async def run():
         ret=WEEK_FROM_NOW,
         currency="USD", 
     )
-    booking_token = roundtrip["flights"][0]["booking_token"]
     with open(output / "roundtrip.json", "w", encoding="utf-8") as f:
         json.dump(roundtrip, f, indent=2, ensure_ascii=False)
 
@@ -45,17 +44,6 @@ async def run():
     )
     with open(output / "oneway.json", "w", encoding="utf-8") as f:
         json.dump(oneway, f, indent=2, ensure_ascii=False)
-
-    booking = await google_flights.scrape_booking(
-        origin="JFK",
-        destination="CDG",
-        depart=TODAY,
-        ret=WEEK_FROM_NOW,
-        currency="USD",
-        booking_token=booking_token,
-    )
-    with open(output / "booking.json", "w", encoding="utf-8") as f:
-        json.dump(booking, f, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
