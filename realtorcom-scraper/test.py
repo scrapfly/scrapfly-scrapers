@@ -1,4 +1,4 @@
-from cerberus import Validator
+from cerberus import Validator as _Validator
 import pytest
 
 import realtorcom
@@ -10,10 +10,25 @@ pp = pprint.PrettyPrinter(indent=4)
 realtorcom.BASE_CONFIG["cache"] = True
 
 
+class Validator(_Validator):
+    def _validate_min_presence(self, min_presence, field, value):
+        pass
+
+
 def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)
         pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
+
+
+def require_min_presence(items, getter, key, min_perc):
+    """fail when fewer than min_perc of items have a non-null value at `key`"""
+    count = sum(1 for item in items if getter(item, key) is not None)
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field: only {count}/{len(items)} items have it '
+            f'(expected at least {min_perc * 100:.1f}%)'
+        )
 
 
 @pytest.mark.asyncio
@@ -26,7 +41,7 @@ async def test_property_scraping():
         "href": {"type": "string", "regex": "https://www.realtor.com/realestateandhomes-detail/.+?"},
         "status": {"type": "string"},
         "sold_date": {"type": "string", "regex": "\d+-\d+-\d+", "nullable": True},
-        "tags": {"type": "list", "schema": {"type": "string"}},
+        "tags": {"type": "list", "schema": {"type": "string"}, "nullable": True},
         "list_price": {"type": "integer"},
         "list_price_last_change": {"type": "integer"},
         "details": {
@@ -76,10 +91,31 @@ async def test_search_scraping():
                 }
             }
         },
+        "description": {
+            "type": "dict",
+            "required": True,
+            "schema": {
+                "beds": {"type": "integer", "required": True, "nullable": True, "min_presence": 0.05},
+                "baths": {"type": "integer", "required": True, "nullable": True, "min_presence": 0.05},
+                "sqft": {"type": "integer", "required": True, "nullable": True, "min_presence": 0.05},
+                "lot_size": {"type": "integer", "required": True, "nullable": True, "min_presence": 0.05},
+                "type": {"type": "string", "required": True, "min_presence": 0.5},
+            },
+        },
     }
     validator = Validator(schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
+
+    desc_schema = schema["description"]["schema"]
+    for field, rules in desc_schema.items():
+        if "min_presence" in rules:
+            require_min_presence(
+                result,
+                lambda item, k: item.get("description", {}).get(k),
+                field,
+                rules["min_presence"],
+            )
 
 
 @pytest.mark.asyncio

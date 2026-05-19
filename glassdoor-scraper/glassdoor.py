@@ -215,14 +215,16 @@ def parse_salaries(result: ScrapeApiResponse) -> Dict:
     }
         
     salary_items = result.selector.css('[data-test="salary-item"]')
-    
+
     for item in salary_items:
-        job_title = item.css('.SalaryItem_jobTitle__XWGpT::text').get()
+        job_title = item.css('[class*="SalaryItem_jobTitle"]::text').get()
         if not job_title:
             continue
-            
-        salary_range = item.css('.SalaryItem_salaryRange__UL9vQ::text').get()
-        salary_count_text = item.css('.SalaryItem_salaryCount__GT665::text').get() or ""
+
+        salary_range = "".join(
+            item.css('[class*="SalaryItem_salaryRange"] [class*="BlurredContent_blurred"]::text').getall()
+        ).strip() or None
+        salary_count_text = item.css('[class*="SalaryItem_salaryCount"]::text').get() or ""
         
         salary_count = 0
         if "Salaries submitted" in salary_count_text:
@@ -259,7 +261,7 @@ def parse_salaries(result: ScrapeApiResponse) -> Dict:
         salary_data["results"].append(salary_item)
     
     # Extract pagination from HTML
-    page_links = result.selector.css('.pagination_PageNumberText__F7427::text').getall()
+    page_links = result.selector.css('[class*="pagination_PageNumberText"]::text').getall()
     if page_links:
         try:
             salary_data["numPages"] = max(int(page) for page in page_links if page.isdigit())
@@ -267,7 +269,7 @@ def parse_salaries(result: ScrapeApiResponse) -> Dict:
             pass
     
     # Extract job title count from HTML
-    result_count_text = result.selector.css('.SortBar_SearchCount__cYwt6::text').get() or ""
+    result_count_text = result.selector.css('[class*="SortBar_SearchCount"]::text').get() or ""
     if "job titles" in result_count_text:
         try:
             count_str = result_count_text.split()[0]

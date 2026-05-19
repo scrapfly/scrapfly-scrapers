@@ -34,7 +34,7 @@ def parse_search_page(response: ScrapeApiResponse):
     data = []
 
     # Extract total results count
-    total_results_text = selector.xpath("//div[contains(text(), 'Products')]/following-sibling::div/text()").get()
+    total_results_text = selector.xpath("//span[normalize-space(text())='Products']/following-sibling::span[1]/text()").get()
     total_results = int(re.search(r"\((\d+)\)", total_results_text).group(1)) if total_results_text else 0
 
     _search_page_size = 20
@@ -58,7 +58,7 @@ def parse_search_page(response: ScrapeApiResponse):
         description_parts = result.xpath(".//div[div[contains(text(), 'Product Description')]]/p//text()").getall()
         description = "".join(description_parts).strip() if description_parts else None
 
-        categories = result.xpath(".//aside//div[contains(@class, 'elv-whitespace-nowrap')]/text()").getall()
+        categories = result.css("a[data-controller=elv--chip-controller] div::text").getall()
 
         if not name:
             continue
@@ -223,7 +223,7 @@ def parse_alternatives(response: ScrapeApiResponse):
     data = []
     
     # The correct selector for individual product cards
-    for alt in selector.xpath("//div[@data-ordered-events-item='products']"):
+    for ranking, alt in enumerate(selector.xpath("//div[@data-ordered-events-item='products']"), start=1):
         # Check for sponsored content - skip it
         sponsored = alt.xpath(".//span[text()='Sponsored']").get()
         if sponsored:
@@ -237,9 +237,6 @@ def parse_alternatives(response: ScrapeApiResponse):
         if link and not link.startswith('http'):
             link = f"https://www.g2.com{link}"
             
-        # Extract ranking from the position meta tag
-        ranking = alt.xpath(".//meta[@itemprop='position']/@content").get()
-        
         # Extract rating and number of reviews
         rating_text = alt.xpath(".//label[contains(@class, 'elv-font-semibold')]/text()").get()
         reviews_text = alt.xpath(".//label[contains(@class, 'elv-font-light')]/text()").get()
@@ -270,7 +267,7 @@ def parse_alternatives(response: ScrapeApiResponse):
             data.append({
                 "name": name.strip(),
                 "link": link,
-                "ranking": int(ranking) if ranking else None,
+                "ranking": ranking,
                 "numberOfReviews": number_of_reviews,
                 "rate": rate,
                 "description": description.strip() if description else None,

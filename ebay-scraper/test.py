@@ -58,6 +58,14 @@ async def test_product_scraping():
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
     assert result["features"]
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / 'results/product.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.asyncio
+async def test_product_variants_scraping():
+    variants = await ebay.scrape_product_variants("https://www.ebay.com/itm/177439887865")
     variant_schema = {
         "id": {"type": "string", "regex": r"\d+", "minlength": 1},
         "price_original": {"type": "number"},
@@ -65,17 +73,19 @@ async def test_product_scraping():
         "price_converted": {"type": "number"},
         "price_converted_currency": {"type": "string", "minlength": 1},
         "out_of_stock": {"type": "boolean"},
+        "quantity_available": {"type": "integer", "nullable": True},
+        "images": {"type": "list", "schema": {"type": "string"}, "nullable": True},
         # this item specific
         "Model": {"type": "string", "minlength": 1},
         "Color": {"type": "string", "minlength": 1},
         "Storage Capacity": {"type": "string", "minlength": 1},
     }
     validator = Validator(variant_schema, allow_unknown=True)
-    for variant in result["variants"]:
+    for variant in variants:
         validate_or_fail(variant, validator)
-    assert len(result["variants"]) > 1
+    assert len(variants) > 1
     if os.getenv("SAVE_TEST_RESULTS") == "true":
-        (Path(__file__).parent / 'results/product.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))
+        (Path(__file__).parent / 'results/product-with-variants.json').write_text(json.dumps(variants, indent=2, ensure_ascii=False))
 
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 @pytest.mark.asyncio

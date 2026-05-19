@@ -22,6 +22,7 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to australia
     "country": "AU",
+    "proxy_pool": "public_residential_pool"    
 }
 
 

@@ -43,5 +43,6 @@ This Ebay.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/
     # or specific scraping areas
     $ poetry run pytest test.py -k test_search_scraping
     $ poetry run pytest test.py -k test_product_scraping
+    $ poetry run pytest test.py -k test_product_variants_scraping
     ```
 
