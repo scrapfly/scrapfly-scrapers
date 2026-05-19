@@ -21,8 +21,8 @@ WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')
 
 
 async def run():
-    google_flights.BASE_CONFIG["cache"] = True
-    google_flights.BASE_CONFIG["debug"] = True
+    google_flights.BASE_CONFIG["cache"] = False
+    google_flights.BASE_CONFIG["debug"] = False
 
     print("running Google Flights scrape and saving results to ./results directory")
 

@@ -70,7 +70,7 @@ class AirportInfo(TypedDict):
 class FlightLeg(TypedDict):
     departure_airport: Optional[AirportInfo]
     arrival_airport: Optional[AirportInfo]
-    duration: Optional[int]
+    duration: Optional[str]
     airplane: Optional[str]
     airline: Optional[str]
     airline_logo: Optional[str]
@@ -82,7 +82,7 @@ class FlightLeg(TypedDict):
 
 class Layover(TypedDict):
     airport: str
-    duration_minutes: int
+    duration: Optional[str]
 
 
 class FlightResult(TypedDict):
@@ -92,15 +92,13 @@ class FlightResult(TypedDict):
     departure_airport: Optional[str]
     arrival_time: Optional[str]
     arrival_airport: Optional[str]
-    duration_minutes: Optional[int]
+    duration: Optional[str]
     stops: int
     layovers: List[Layover]
     price: Optional[int]
     currency: str
     cabin_class: Optional[str]
     plane_model: Optional[str]
-    co2_kg: Optional[int]
-    co2_vs_typical: Optional[str]
     extensions: List[str]
     legroom: Optional[str]
 
@@ -141,28 +139,6 @@ def parse_stops(text: Optional[str]) -> int:
     match = re.search(r"(\d+)", text)
     return int(match.group(1)) if match else 0
 
-def parse_duration_minutes(text: Optional[str]) -> Optional[int]:
-    """'8 hr 40 min' -> 520"""
-    hrs = re.search(r"(\d+)\s*hr", text or "")
-    mins = re.search(r"(\d+)\s*min", text or "")
-    if not (hrs or mins):
-        return None
-    return (int(hrs.group(1)) if hrs else 0) * 60 + (int(mins.group(1)) if mins else 0)
-
-
-def _to_24h(time_str: Optional[str]) -> Optional[str]:
-    """'7:21 PM' or '2026-09-15 19:21' -> '19:21'."""
-    if not time_str:
-        return None
-    if re.match(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}", time_str):
-        return time_str.split(" ")[1]
-    for fmt in ("%I:%M %p", "%I:%M%p"):
-        try:
-            return datetime.strptime(time_str.strip(), fmt).strftime("%H:%M")
-        except ValueError:
-            continue
-    return None
-
 
 def _arrival_with_suffix(
     dep_full: Optional[str], arr_full: Optional[str]
@@ -176,8 +152,7 @@ def _arrival_with_suffix(
             return arr_dt.strftime("%H:%M") + (f"+{diff}" if diff > 0 else "")
         except ValueError:
             pass
-    return _to_24h(arr_full)
-
+    return arr_full
 
 
 def _parse_layovers(panel) -> List[Layover]:
@@ -186,9 +161,8 @@ def _parse_layovers(panel) -> List[Layover]:
     for el in panel.css("div.tvtJdb"):
         text = " ".join(el.css("::text").getall())
         code = re.search(r"\(([A-Z]{3})\)", text)
-        dur = parse_duration_minutes(text)
-        if code and dur is not None:
-            layovers.append(Layover(airport=code.group(1), duration_minutes=dur))
+        if code:
+            layovers.append(Layover(airport=code.group(1), duration=text))
     return layovers
 
 
@@ -250,7 +224,7 @@ def parse_flight_legs(panel, year: int) -> List[FlightLeg]:
                 arrival_airport=AirportInfo(
                     name=arr_name or None, id=arr_code or None, time=leg.css("div.FY5t7d::text").get()
                 ),
-                duration=parse_duration_minutes(leg.css("div.P102Lb::text").get()),
+                duration=leg.css("div.P102Lb::text").get(),
                 airplane=airplane,
                 airline=airline,
                 airline_logo=logo.group(1) if logo else None,
@@ -273,17 +247,6 @@ def _flight_number_from_card(card) -> Optional[str]:
     )
     m = re.search(r"[A-Z]+-[A-Z]+-([A-Z]\w+)-(\d+)-\d{8}", url)
     return f"{m.group(1)} {m.group(2)}" if m else None
-
-
-def _co2_from_card(card) -> tuple[Optional[int], Optional[str]]:
-    """Return (co2_kg, vs_typical) parsed from data attributes."""
-    el = card.css("[data-co2currentflight]")
-    if not el:
-        return None, None
-    kg = int(el.attrib.get("data-co2currentflight", 0)) // 1000
-    diff = int(el.attrib.get("data-percentagediff", 0))
-    vs = "avg" if diff == 0 else f"{'+' if diff > 0 else ''}{diff}%"
-    return kg, vs
 
 
 def _card_extensions(card, panel) -> List[str]:
@@ -320,14 +283,13 @@ def parse_flights(
             (first_leg["departure_airport"] or {}).get("time") if first_leg else None
         )
         arr_full = (last_leg["arrival_airport"] or {}).get("time") if last_leg else None
-        dep_time = _to_24h(dep_full) or _to_24h(
-            card.css("span[aria-label^='Departure time']::text").get()
-        )
-        arr_time = _arrival_with_suffix(dep_full, arr_full) or _to_24h(
-            card.css("span[aria-label^='Arrival time']::text").get()
-        )
+        dep_time = dep_full or card.css(
+            "span[aria-label^='Departure time']::text"
+        ).get()
+        arr_time = _arrival_with_suffix(dep_full, arr_full) or card.css(
+            "span[aria-label^='Arrival time']::text"
+        ).get()
 
-        co2_kg, co2_vs = _co2_from_card(card)
         price = _find(r"From (\d[\d,]*) \w+ dollars", label) or 0
         duration_label = (
             card.css("div[aria-label^='Total duration']::attr(aria-label)").get() or ""
@@ -341,15 +303,13 @@ def parse_flights(
                 departure_airport=(first_leg["departure_airport"] or {}).get("id") if first_leg else None,
                 arrival_time=arr_time,
                 arrival_airport=(last_leg["arrival_airport"] or {}).get("id") if last_leg else None,
-                duration_minutes=parse_duration_minutes(duration_label),
+                duration=duration_label,
                 stops=parse_stops(_find(r"(Nonstop|\d+ stops?)", label)),
                 layovers=_parse_layovers(panel),
                 price=price,
                 currency=currency,
                 cabin_class=(first_leg.get("travel_class") or "").lower() if first_leg else None,
                 plane_model=first_leg.get("airplane") if first_leg else None,
-                co2_kg=co2_kg,
-                co2_vs_typical=co2_vs,
                 extensions=_card_extensions(card, panel),
                 legroom=first_leg.get("legroom") if first_leg else None,
             )

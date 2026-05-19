@@ -14,7 +14,7 @@ WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
 
 layover_schema = {
     "airport": {"type": "string"},
-    "duration_minutes": {"type": "integer"},
+    "duration": {"type": "string", "nullable": True},
 }
 
 flight_result_schema = {
@@ -24,7 +24,7 @@ flight_result_schema = {
     "departure_airport": {"type": "string", "nullable": True},
     "arrival_time": {"type": "string", "nullable": True},
     "arrival_airport": {"type": "string", "nullable": True},
-    "duration_minutes": {"type": "integer", "nullable": True},
+    "duration": {"type": "string", "nullable": True},
     "stops": {"type": "integer"},
     "layovers": {
         "type": "list",
