@@ -24,6 +24,7 @@ BASE_CONFIG = {
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
 INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
 INSTAGRAM_ACCOUNT_DOCUMENT_ID = "9310670392322965"
+INSTAGRAM_COMMENTS_DOC_ID = "26248690958161038"
 
 def parse_user(data: Dict) -> Dict:
     """Reduce the user data to the relevant fields"""
@@ -275,9 +276,6 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
 
         data = json.loads(result.content)
         
-        with open("ts2.json", "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        
         posts = data["data"]["xdt_api__v1__feed__user_timeline_graphql_connection"]
         for post in posts["edges"]:
             yield parse_user_posts(post["node"])
@@ -297,3 +295,81 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
 
         if max_pages and _page_number > max_pages:
             break
+
+def parse_post_comment(data: Dict) -> Dict:
+    """Reduce post comment dataset to the most important fields"""
+    log.debug("parsing comment data {}", data["pk"])
+    return jmespath.search(
+        """{
+        id: pk,
+        text: text,
+        created_at: created_at,
+        owner: user.username,
+        owner_id: user.id,
+        owner_verified: user.is_verified,
+        owner_profile_pic: user.profile_pic_url,
+        likes: comment_like_count,
+        replies_count: child_comment_count,
+        parent_comment_id: parent_comment_id
+    }""",
+        data,
+    )
+
+
+async def scrape_post_comments(shortcode: str, max_comments: int = 1000):
+    """Scrape all comments from an Instagram post given the post ID"""
+    log.info("scraping instagram post comments: {}", shortcode)
+    comments = []
+    cursor = None
+
+    while len(comments) < max_comments:
+        variables = {
+            "after": cursor,
+            "before": None,
+            "first": 10,
+            "last": None,
+            "media_id": shortcode,
+            "sort_order": "popular",
+            "__relay_internal__pv__PolarisIsLoggedInrelayprovider": False,
+        }
+
+        body = f"variables={json.dumps(variables, separators=(',', ':'))}&doc_id={INSTAGRAM_COMMENTS_DOC_ID}"
+
+        result = await SCRAPFLY.async_scrape(
+            ScrapeConfig(
+                url="https://www.instagram.com/graphql/query",
+                method="POST",
+                body=body,
+                headers={
+                    "content-type": "application/x-www-form-urlencoded",
+                },
+                **BASE_CONFIG,
+            )
+        )
+
+        if not result.content:
+            log.warning("empty response from comments API, stopping pagination")
+            break
+        try:
+            content = result.content
+            if content.startswith("for (;;);"):
+                content = content[len("for (;;);"):]
+            data = json.loads(content)
+        except json.JSONDecodeError:
+            log.warning("non-JSON response from comments API: {}", result.content[:200])
+            break
+
+        comment_data = data["data"]["xdt_api__v1__media__media_id__comments__connection"]
+        for edge in comment_data["edges"]:
+            comments.append(parse_post_comment(edge["node"]))
+
+        page_info = comment_data["page_info"]
+        if not page_info["has_next_page"] or not page_info.get("end_cursor"):
+            break
+
+        cursor = page_info["end_cursor"]
+        log.info(f"scraped {len(comments)} comments")
+        if max_comments and len(comments) >= max_comments:
+            break
+
+    return comments

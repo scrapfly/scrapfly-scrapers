@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    glassdoor.BASE_CONFIG["cache"] = True
+    glassdoor.BASE_CONFIG["cache"] = False
 
     print("running Glassdoor scrape and saving results to ./results directory")
 
@@ -33,6 +33,10 @@ async def run():
     url = "https://www.glassdoor.com/Reviews/eBay-Reviews-E7853.htm"
     result_reviews = await glassdoor.scrape_reviews(url, max_pages=3)
     output.joinpath("reviews.json").write_text(json.dumps(result_reviews, indent=2, ensure_ascii=False))
+    
+    # find companies
+    companies = await glassdoor.find_companies("eBay")
+    output.joinpath("companies.json").write_text(json.dumps(companies, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

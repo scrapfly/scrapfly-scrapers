@@ -1,0 +1,140 @@
+"""Tests for Zoro.com scraper"""
+import os
+from cerberus import Validator as _Validator
+import zoro
+import pytest
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
+
+# enable scrapfly cache
+zoro.BASE_CONFIG["cache"] = False
+
+# Custom Validator to support min_presence
+class Validator(_Validator):
+    def _validate_min_presence(self, min_presence, field, value):
+        pass  # required for adding non-standard keys to schema
+
+def validate_or_fail(item, validator):
+    if not validator.validate(item):
+        pp.pformat(item)
+        pytest.fail(
+            f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}"
+        )
+
+
+def require_min_presence(items, key, min_perc=0.1):
+    """check whether dataset contains items with some amount of non-null values for a given key"""
+    count = sum(1 for item in items if item.get(key))
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
+        )
+
+
+# Schema for product data validation
+product_schema = {
+    "sku": {"type": "string"},
+    "mpn": {"type": "string"},
+    "name": {"type": "string"},
+    "brand": {"type": "string", "min_presence": 0},
+    "description": {"type": "string", "min_presence": 0},
+    "price": {"type": "string"},
+    "currency": {"type": "string"},
+    "availability": {"type": "string"},
+    "url": {"type": "string", "regex": r"https://www\.zoro\.com.*"},
+    "specifications": {
+        "type": "dict",
+        "min_presence": 0,
+        "valueschema": {"type": "string"},
+    },
+    "images": {
+        "type": "list",
+        "schema": {"type": "string", "regex": r"https://.*zoro\.com.*"},
+    },
+    "rating": {"type": "float", "nullable": True, "min_presence": 0},
+    "review_count": {"type": "integer"},
+    "reviews": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "review_id": {"type": "integer", "required": True},
+                "rating": {"type": "integer"},
+                "headline": {"type": "string"},
+                "comments": {"type": "string"},
+                "nickname": {"type": "string"},
+                "location": {"type": "string"},
+                "created_date": {"type": "string"},
+                "is_verified_buyer": {"type": "boolean"},
+                "helpful_votes": {"type": "integer"},
+                "media_count": {"type": "integer"},
+            },
+        },
+    },
+}
+
+# Schema for search listing product (from API)
+search_product_schema = {
+    "title": {"type": "string", "required": True},
+    "brand": {"type": "string", "nullable": True, "min_presence": 0.1},
+    "price": {"type": "float", "nullable": True, "min_presence": 0.1},
+    "zoroNo": {"type": "string", "required": True},
+    "mfrNo": {"type": "string", "nullable": True, "min_presence": 0.1},
+    "slug": {"type": "string", "required": True},
+    "salesStatus": {"type": "string", "nullable": True},
+}
+
+# Schema for search listing data validation
+search_listing_schema = {
+    "total_pages": {"type": "integer", "required": True},
+    "total_results": {"type": "integer", "required": True},
+    "products": {
+        "type": "list",
+        "schema": {"type": "dict", "schema": search_product_schema},
+    },
+}
+
+@pytest.mark.asyncio
+# @pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_product_scraping():
+    search_data = await zoro.scrape_search_listing(query="Gloves", max_pages=1)
+    urls = [
+        f"https://www.zoro.com/{p['slug']}/i/{p['zoroNo']}/"
+        for p in search_data["products"]
+        if p.get("slug") and p.get("zoroNo")
+    ][:5]
+    assert urls, "search returned no products to drive the product test"
+    products_data = await zoro.scrape_product(urls=urls)
+
+    # Validate the product structure
+    validator = Validator(product_schema, allow_unknown=True)
+    for item in products_data:
+        validate_or_fail(item, validator)
+
+    # Check field presence
+    for k in product_schema:
+        require_min_presence(products_data, k, min_perc=product_schema[k].get("min_presence", 0.1))
+
+    assert len(products_data) >= 1
+
+@pytest.mark.asyncio
+# @pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_search_scraping():
+    search_listing_data = await zoro.scrape_search_listing("Gloves", max_pages=3)
+    
+    # Validate the search listing structure
+    validator = Validator(search_listing_schema, allow_unknown=True)
+    validate_or_fail(search_listing_data, validator)
+    
+    # Validate products separately
+    products = search_listing_data.get("products", [])
+    product_validator = Validator(search_product_schema, allow_unknown=True)
+    for product in products:
+        validate_or_fail(product, product_validator)
+    
+    # Check field presence for products
+    for k in search_product_schema:
+        require_min_presence(products, k, min_perc=search_product_schema[k].get("min_presence", 0.1))
+    
+    assert len(products) >= 20

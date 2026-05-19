@@ -1,0 +1,3569 @@
+{
+  "search_date": "2026-05-19",
+  "route": "JFK-CDG",
+  "departure_date": "2026-05-19",
+  "return_date": "2026-05-26",
+  "flights": [
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 17",
+      "departure_time": "16:15",
+      "departure_airport": "JFK",
+      "arrival_time": "08:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 640,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 75
+        }
+      ],
+      "price": "1135",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 375,
+      "co2_vs_typical": "-12%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 70 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage not included in price",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic and Air France",
+      "flight_number": "VS 46",
+      "departure_time": "19:00",
+      "departure_airport": "JFK",
+      "arrival_time": "11:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 615,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 100
+        }
+      ],
+      "price": "1157",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 413,
+      "co2_vs_typical": "-3%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 355 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 57 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 266",
+      "departure_time": "20:10",
+      "departure_airport": "JFK",
+      "arrival_time": "10:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 470,
+      "stops": 0,
+      "layovers": [],
+      "price": "1273",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 767",
+      "co2_kg": 317,
+      "co2_vs_typical": "-26%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 317 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air France",
+      "flight_number": "AF 7",
+      "departure_time": "21:30",
+      "departure_airport": "JFK",
+      "arrival_time": "11:10",
+      "arrival_airport": "CDG",
+      "duration_minutes": 460,
+      "stops": 0,
+      "layovers": [],
+      "price": "1273",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 433,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 433 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "Delta and Air France",
+      "flight_number": "DL 5699",
+      "departure_time": "15:36",
+      "departure_airport": "JFK",
+      "arrival_time": "11:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 819,
+      "stops": 1,
+      "layovers": [],
+      "price": "1137",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 465,
+      "co2_vs_typical": "+9%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 76 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 389 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Air France",
+      "flight_number": "DL 5792",
+      "departure_time": "17:11",
+      "departure_airport": "JFK",
+      "arrival_time": "11:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 724,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IAD",
+          "duration_minutes": 172
+        }
+      ],
+      "price": "1137",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 461,
+      "co2_vs_typical": "+8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 71 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 389 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic and Air France",
+      "flight_number": "VS 4",
+      "departure_time": "18:00",
+      "departure_airport": "JFK",
+      "arrival_time": "11:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 675,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 155
+        }
+      ],
+      "price": "1157",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 411,
+      "co2_vs_typical": "-4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 353 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 57 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic and Air France",
+      "flight_number": "VS 10",
+      "departure_time": "18:30",
+      "departure_airport": "JFK",
+      "arrival_time": "11:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 645,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 130
+        }
+      ],
+      "price": "1157",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 394,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 337 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 57 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "KLM",
+      "flight_number": "KL 644",
+      "departure_time": "21:15",
+      "departure_airport": "JFK",
+      "arrival_time": "17:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 870,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 360
+        }
+      ],
+      "price": "1164",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 314,
+      "co2_vs_typical": "-26%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 272 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Free Wi-Fi",
+        "Emissions estimate: 42 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Air France",
+      "flight_number": "DL 48",
+      "departure_time": "22:30",
+      "departure_airport": "JFK",
+      "arrival_time": "15:35",
+      "arrival_airport": "CDG",
+      "duration_minutes": 665,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 120
+        }
+      ],
+      "price": "1169",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 396,
+      "co2_vs_typical": "-7%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 336 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Emissions estimate: 60 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Air France",
+      "flight_number": "DL 48",
+      "departure_time": "22:30",
+      "departure_airport": "JFK",
+      "arrival_time": "16:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 690,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 150
+        }
+      ],
+      "price": "1169",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 394,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 336 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Emissions estimate: 58 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and KLM",
+      "flight_number": "DL 48",
+      "departure_time": "22:30",
+      "departure_airport": "JFK",
+      "arrival_time": "17:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 795,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 260
+        }
+      ],
+      "price": "1169",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 378,
+      "co2_vs_typical": "-11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 336 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 42 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic and Air France",
+      "flight_number": "VS 128",
+      "departure_time": "20:05",
+      "departure_airport": "JFK",
+      "arrival_time": "13:25",
+      "arrival_airport": "CDG",
+      "duration_minutes": 680,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MAN",
+          "duration_minutes": 155
+        }
+      ],
+      "price": "1187",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 443,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 367 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 76 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Air France",
+      "flight_number": "DL 5595",
+      "departure_time": "14:30",
+      "departure_airport": "JFK",
+      "arrival_time": "06:10",
+      "arrival_airport": "CDG",
+      "duration_minutes": 580,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 70
+        }
+      ],
+      "price": "1272",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 406,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "18:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 870,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 205
+        }
+      ],
+      "price": "1273",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 540,
+      "co2_vs_typical": "+27%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat power & USB outlets",
+        "Emissions estimate: 108 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1105,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 435
+        }
+      ],
+      "price": "1273",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 540,
+      "co2_vs_typical": "+27%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat power & USB outlets",
+        "Emissions estimate: 108 kg CO2e",
+        "Contrail warming potential: High",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "09:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1770,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 1100
+        }
+      ],
+      "price": "1273",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 540,
+      "co2_vs_typical": "+27%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 108 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Air France",
+      "flight_number": "DL 5798",
+      "departure_time": "17:25",
+      "departure_airport": "JFK",
+      "arrival_time": "10:35",
+      "arrival_airport": "CDG",
+      "duration_minutes": 670,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 167
+        }
+      ],
+      "price": "1287",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 405,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 331 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "JetBlue",
+      "flight_number": "B6 418",
+      "departure_time": "13:10",
+      "departure_airport": "JFK",
+      "arrival_time": "10:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 920,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 410
+        }
+      ],
+      "price": "1312",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A220-300 Passenger",
+      "co2_kg": 592,
+      "co2_vs_typical": "+39%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 64 kg CO2e",
+        "Contrail warming potential: Low",
+        "On-demand video",
+        "Emissions estimate: 528 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "JetBlue",
+      "flight_number": "B6 618",
+      "departure_time": "15:59",
+      "departure_airport": "JFK",
+      "arrival_time": "10:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 751,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 232
+        }
+      ],
+      "price": "1312",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A220-300 Passenger",
+      "co2_kg": 592,
+      "co2_vs_typical": "+39%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 64 kg CO2e",
+        "Contrail warming potential: Low",
+        "On-demand video",
+        "Emissions estimate: 528 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "17:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 845,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 295
+        }
+      ],
+      "price": "1313",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 399,
+      "co2_vs_typical": "-6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 67 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Royal Air Maroc",
+      "flight_number": "AT 201",
+      "departure_time": "20:45",
+      "departure_airport": "JFK",
+      "arrival_time": "17:20",
+      "arrival_airport": "CDG",
+      "duration_minutes": 875,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CMN",
+          "duration_minutes": 275
+        }
+      ],
+      "price": "1330",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 511,
+      "co2_vs_typical": "+20%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 331 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Above average legroom (32 in)",
+        "Emissions estimate: 179 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Royal Air Maroc",
+      "flight_number": "AT 201",
+      "departure_time": "20:45",
+      "departure_airport": "JFK",
+      "arrival_time": "11:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1990,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CMN",
+          "duration_minutes": 1390
+        }
+      ],
+      "price": "1330",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 511,
+      "co2_vs_typical": "+20%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 331 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Above average legroom (32 in)",
+        "Emissions estimate: 179 kg CO2e",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa and Brussels Airlines",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "07:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1660,
+      "stops": 2,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 470
+        },
+        {
+          "airport": "BRU",
+          "duration_minutes": 585
+        }
+      ],
+      "price": "1341",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 443,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 62 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 49 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Royal Air Maroc",
+      "flight_number": "AT 201",
+      "departure_time": "20:45",
+      "departure_airport": "JFK",
+      "arrival_time": "17:20",
+      "arrival_airport": "CDG",
+      "duration_minutes": 2315,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CMN",
+          "duration_minutes": 1715
+        }
+      ],
+      "price": "1341",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 475,
+      "co2_vs_typical": "+12%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 331 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 144 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 264",
+      "departure_time": "22:30",
+      "departure_airport": "JFK",
+      "arrival_time": "12:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 465,
+      "stops": 0,
+      "layovers": [],
+      "price": "1369",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 767",
+      "co2_kg": 317,
+      "co2_vs_typical": "-26%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 317 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Finnair",
+      "flight_number": "AY 16",
+      "departure_time": "22:50",
+      "departure_airport": "JFK",
+      "arrival_time": "18:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 805,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "HEL",
+          "duration_minutes": 130
+        }
+      ],
+      "price": "1382",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 583,
+      "co2_vs_typical": "+37%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 394 kg CO2e",
+        "Contrail warming potential: Low",
+        "Emissions estimate: 189 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Finnair",
+      "flight_number": "AY 16",
+      "departure_time": "22:50",
+      "departure_airport": "JFK",
+      "arrival_time": "22:35",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1065,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "HEL",
+          "duration_minutes": 390
+        }
+      ],
+      "price": "1383",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 653,
+      "co2_vs_typical": "+53%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 394 kg CO2e",
+        "Contrail warming potential: Low",
+        "Emissions estimate: 260 kg CO2e",
+        "Contrail warming potential: High",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 5595",
+      "departure_time": "14:30",
+      "departure_airport": "JFK",
+      "arrival_time": "08:10",
+      "arrival_airport": "CDG",
+      "duration_minutes": 700,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 180
+        }
+      ],
+      "price": "1427",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 422,
+      "co2_vs_typical": "-1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 348 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 15",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "14:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 690,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 135
+        }
+      ],
+      "price": "1445",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 374,
+      "co2_vs_typical": "-12%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 69 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "ITA",
+      "flight_number": "AZ 611",
+      "departure_time": "21:10",
+      "departure_airport": "JFK",
+      "arrival_time": "17:20",
+      "arrival_airport": "CDG",
+      "duration_minutes": 850,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FCO",
+          "duration_minutes": 200
+        }
+      ],
+      "price": "1447",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 565,
+      "co2_vs_typical": "+33%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 454 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 111 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa and Lufthansa City Airlines",
+      "flight_number": "LH 411",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "13:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 840,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MUC",
+          "duration_minutes": 275
+        }
+      ],
+      "price": "1455",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 439,
+      "co2_vs_typical": "+3%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 71 kg CO2e",
+        "Checked baggage not included in price",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 2545,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 1875
+        }
+      ],
+      "price": "1476",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 540,
+      "co2_vs_typical": "+27%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat power & USB outlets",
+        "Emissions estimate: 108 kg CO2e",
+        "Contrail warming potential: High",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "21:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 920,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 410
+        }
+      ],
+      "price": "1520",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 453,
+      "co2_vs_typical": "+6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 89 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 614",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "13:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 630,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 75
+        }
+      ],
+      "price": "1548",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 470,
+      "co2_vs_typical": "+10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 293 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 178 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Condor",
+      "flight_number": "DE 2017",
+      "departure_time": "16:25",
+      "departure_airport": "JFK",
+      "arrival_time": "09:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 685,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 140
+        }
+      ],
+      "price": "1560",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 393,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 333 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (28 in)",
+        "Stream media to your device",
+        "Emissions estimate: 60 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "Condor",
+      "flight_number": "DE 2017",
+      "departure_time": "16:25",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1045,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 500
+        }
+      ],
+      "price": "1560",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 385,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 333 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Stream media to your device",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "Condor",
+      "flight_number": "DE 2017",
+      "departure_time": "16:25",
+      "departure_airport": "JFK",
+      "arrival_time": "20:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1345,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 800
+        }
+      ],
+      "price": "1560",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 393,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 333 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (28 in)",
+        "Stream media to your device",
+        "Emissions estimate: 60 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 42",
+      "departure_time": "17:50",
+      "departure_airport": "JFK",
+      "arrival_time": "07:20",
+      "arrival_airport": "CDG",
+      "duration_minutes": 450,
+      "stops": 0,
+      "layovers": [],
+      "price": "1595",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 423,
+      "co2_vs_typical": "-1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "18:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 900,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 350
+        }
+      ],
+      "price": "1597",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 393,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 61 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage not included in price",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 116",
+      "departure_time": "20:20",
+      "departure_airport": "JFK",
+      "arrival_time": "20:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1075,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 570
+        }
+      ],
+      "price": "1607",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 450,
+      "co2_vs_typical": "+6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 104",
+      "departure_time": "16:55",
+      "departure_airport": "JFK",
+      "arrival_time": "09:40",
+      "arrival_airport": "CDG",
+      "duration_minutes": 645,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 135
+        }
+      ],
+      "price": "1632",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 408,
+      "co2_vs_typical": "-4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 81 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air France",
+      "flight_number": "AF 1",
+      "departure_time": "16:30",
+      "departure_airport": "JFK",
+      "arrival_time": "05:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 445,
+      "stops": 0,
+      "layovers": [],
+      "price": "1653",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 408,
+      "co2_vs_typical": "-4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air France",
+      "flight_number": "AF 3",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "07:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 450,
+      "stops": 0,
+      "layovers": [],
+      "price": "1653",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 408,
+      "co2_vs_typical": "-4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air France",
+      "flight_number": "AF 5",
+      "departure_time": "18:30",
+      "departure_airport": "JFK",
+      "arrival_time": "08:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 455,
+      "stops": 0,
+      "layovers": [],
+      "price": "1653",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 408,
+      "co2_vs_typical": "-4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "18:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 2310,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 1640
+        }
+      ],
+      "price": "1666",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 540,
+      "co2_vs_typical": "+27%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 108 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "ITA",
+      "flight_number": "AZ 609",
+      "departure_time": "16:05",
+      "departure_airport": "JFK",
+      "arrival_time": "10:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 760,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FCO",
+          "duration_minutes": 115
+        }
+      ],
+      "price": "1722",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 544,
+      "co2_vs_typical": "+28%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 454 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Stream media to your device",
+        "Emissions estimate: 90 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "ITA",
+      "flight_number": "AZ 603",
+      "departure_time": "17:35",
+      "departure_airport": "JFK",
+      "arrival_time": "13:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 820,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FCO",
+          "duration_minutes": 165
+        }
+      ],
+      "price": "1722",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 591,
+      "co2_vs_typical": "+39%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 454 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 136 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 614",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "16:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 825,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 270
+        }
+      ],
+      "price": "1726",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 472,
+      "co2_vs_typical": "+11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 293 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 180 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 618",
+      "departure_time": "23:10",
+      "departure_airport": "JFK",
+      "arrival_time": "16:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 665,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 115
+        }
+      ],
+      "price": "1726",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737MAX 8 Passenger",
+      "co2_kg": 472,
+      "co2_vs_typical": "+11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 292 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 180 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 595,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 80
+        }
+      ],
+      "price": "1753",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 453,
+      "co2_vs_typical": "+6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 89 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 116",
+      "departure_time": "20:20",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 810,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 300
+        }
+      ],
+      "price": "1797",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 433,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 48 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 116",
+      "departure_time": "20:20",
+      "departure_airport": "JFK",
+      "arrival_time": "17:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 910,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 395
+        }
+      ],
+      "price": "1797",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 450,
+      "co2_vs_typical": "+6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 106",
+      "departure_time": "21:05",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 765,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 250
+        }
+      ],
+      "price": "1875",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 416,
+      "co2_vs_typical": "-2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 89 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 104",
+      "departure_time": "16:55",
+      "departure_airport": "JFK",
+      "arrival_time": "12:35",
+      "arrival_airport": "CDG",
+      "duration_minutes": 820,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 315
+        }
+      ],
+      "price": "1934",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 408,
+      "co2_vs_typical": "-4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 81 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 104",
+      "departure_time": "16:55",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1015,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 510
+        }
+      ],
+      "price": "1975",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 416,
+      "co2_vs_typical": "-2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 89 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 174",
+      "departure_time": "18:40",
+      "departure_airport": "JFK",
+      "arrival_time": "10:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 615,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 110
+        }
+      ],
+      "price": "2010",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 488,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 174",
+      "departure_time": "18:40",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 910,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 400
+        }
+      ],
+      "price": "2010",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 471,
+      "co2_vs_typical": "+11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 48 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 174",
+      "departure_time": "18:40",
+      "departure_airport": "JFK",
+      "arrival_time": "17:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1010,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 495
+        }
+      ],
+      "price": "2010",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 488,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 182",
+      "departure_time": "22:40",
+      "departure_airport": "JFK",
+      "arrival_time": "17:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 770,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 270
+        }
+      ],
+      "price": "2077",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 362,
+      "co2_vs_typical": "-15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 297 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 172",
+      "departure_time": "20:55",
+      "departure_airport": "JFK",
+      "arrival_time": "20:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1040,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 530
+        }
+      ],
+      "price": "2095",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 488,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 4",
+      "departure_time": "12:50",
+      "departure_airport": "JFK",
+      "arrival_time": "12:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1080,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 280
+        }
+      ],
+      "price": "2102",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 683,
+      "co2_vs_typical": "+60%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 169 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 4",
+      "departure_time": "12:50",
+      "departure_airport": "JFK",
+      "arrival_time": "15:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1215,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 415
+        }
+      ],
+      "price": "2102",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 692,
+      "co2_vs_typical": "+62%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 178 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 2",
+      "departure_time": "19:50",
+      "departure_airport": "JFK",
+      "arrival_time": "17:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 910,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 70
+        }
+      ],
+      "price": "2102",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 697,
+      "co2_vs_typical": "+64%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 184 kg CO2e",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 2",
+      "departure_time": "19:50",
+      "departure_airport": "JFK",
+      "arrival_time": "22:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1240,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 405
+        }
+      ],
+      "price": "2102",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 697,
+      "co2_vs_typical": "+64%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 184 kg CO2e",
+        "Contrail warming potential: Medium",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air Europa and Air France",
+      "flight_number": "UX 92",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "18:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 880,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MAD",
+          "duration_minutes": 320
+        }
+      ],
+      "price": "2177",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 433,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 328 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 105 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage not included in price",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air Europa and Air France",
+      "flight_number": "UX 92",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "19:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 945,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MAD",
+          "duration_minutes": 385
+        }
+      ],
+      "price": "2177",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 444,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 328 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 115 kg CO2e",
+        "Checked baggage not included in price",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 2",
+      "departure_time": "19:50",
+      "departure_airport": "JFK",
+      "arrival_time": "18:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 975,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 150
+        }
+      ],
+      "price": "2192",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 676,
+      "co2_vs_typical": "+59%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "Emissions estimate: 162 kg CO2e",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Brussels Airlines",
+      "flight_number": "SN 502",
+      "departure_time": "18:10",
+      "departure_airport": "JFK",
+      "arrival_time": "07:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1880,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BRU",
+          "duration_minutes": 1365
+        }
+      ],
+      "price": "2198",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 500,
+      "co2_vs_typical": "+17%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 451 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 49 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "08:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 665,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 125
+        }
+      ],
+      "price": "2204",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 486,
+      "co2_vs_typical": "+14%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 67 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "09:40",
+      "arrival_airport": "CDG",
+      "duration_minutes": 720,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 180
+        }
+      ],
+      "price": "2204",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 493,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "10:40",
+      "arrival_airport": "CDG",
+      "duration_minutes": 780,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 240
+        }
+      ],
+      "price": "2204",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 480,
+      "co2_vs_typical": "+13%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 61 kg CO2e",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 172",
+      "departure_time": "20:55",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 775,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 260
+        }
+      ],
+      "price": "2270",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 471,
+      "co2_vs_typical": "+11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 48 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 176",
+      "departure_time": "19:35",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 855,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 345
+        }
+      ],
+      "price": "2285",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 471,
+      "co2_vs_typical": "+11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 48 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 172",
+      "departure_time": "20:55",
+      "departure_airport": "JFK",
+      "arrival_time": "17:30",
+      "arrival_airport": "CDG",
+      "duration_minutes": 875,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 355
+        }
+      ],
+      "price": "2285",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 488,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Brussels Airlines",
+      "flight_number": "SN 502",
+      "departure_time": "18:10",
+      "departure_airport": "JFK",
+      "arrival_time": "09:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1970,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BRU",
+          "duration_minutes": 1460
+        }
+      ],
+      "price": "2488",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 493,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 451 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 43 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "13:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 965,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 425
+        }
+      ],
+      "price": "2499",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 493,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag included",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 15",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "18:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 980,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 425
+        }
+      ],
+      "price": "2508",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 370,
+      "co2_vs_typical": "-13%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag included",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 100",
+      "departure_time": "18:20",
+      "departure_airport": "JFK",
+      "arrival_time": "10:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 635,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 135
+        }
+      ],
+      "price": "2734",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 441,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 376 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 112",
+      "departure_time": "18:30",
+      "departure_airport": "JFK",
+      "arrival_time": "10:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 625,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 120
+        }
+      ],
+      "price": "3195",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 450,
+      "co2_vs_typical": "+6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 180",
+      "departure_time": "19:10",
+      "departure_airport": "JFK",
+      "arrival_time": "10:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 585,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 80
+        }
+      ],
+      "price": "3195",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 450,
+      "co2_vs_typical": "+6%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 65 kg CO2e",
+        "Contrail warming potential: Low",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LEVEL and Vueling",
+      "flight_number": "LL 2628",
+      "departure_time": "23:45",
+      "departure_airport": "JFK",
+      "arrival_time": "09:25",
+      "arrival_airport": "CDG",
+      "duration_minutes": 1660,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BCN",
+          "duration_minutes": 1065
+        }
+      ],
+      "price": "3312",
+      "currency": "USD",
+      "cabin_class": "premium economy",
+      "plane_model": "LEVEL",
+      "co2_kg": null,
+      "co2_vs_typical": null,
+      "extensions": [
+        "Emissions estimate: 88 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": null
+    },
+    {
+      "airline": "Iberia",
+      "flight_number": "IB 326",
+      "departure_time": "20:40",
+      "departure_airport": "JFK",
+      "arrival_time": "17:55",
+      "arrival_airport": "CDG",
+      "duration_minutes": 915,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MAD",
+          "duration_minutes": 330
+        }
+      ],
+      "price": "3526",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 469,
+      "co2_vs_typical": "+10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 358 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (28 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 112 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS and Air France",
+      "flight_number": "LX 23",
+      "departure_time": "19:25",
+      "departure_airport": "JFK",
+      "arrival_time": "11:45",
+      "arrival_airport": "CDG",
+      "duration_minutes": 620,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "GVA",
+          "duration_minutes": 75
+        }
+      ],
+      "price": "3643",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 522,
+      "co2_vs_typical": "+23%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 461 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 61 kg CO2e",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 114",
+      "departure_time": "21:40",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 730,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 220
+        }
+      ],
+      "price": "3658",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 433,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 48 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 182",
+      "departure_time": "22:40",
+      "departure_airport": "JFK",
+      "arrival_time": "15:50",
+      "arrival_airport": "CDG",
+      "duration_minutes": 670,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 175
+        }
+      ],
+      "price": "3658",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 345,
+      "co2_vs_typical": "-19%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 297 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 48 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air Canada",
+      "flight_number": "AC 8555",
+      "departure_time": "15:50",
+      "departure_airport": "JFK",
+      "arrival_time": "10:00",
+      "arrival_airport": "CDG",
+      "duration_minutes": 730,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "YYZ",
+          "duration_minutes": 175
+        }
+      ],
+      "price": "3718",
+      "currency": "USD",
+      "cabin_class": "business class",
+      "plane_model": "Embraer 175",
+      "co2_kg": 551,
+      "co2_vs_typical": "+29%",
+      "extensions": [
+        "Standard recliner seat",
+        "In-seat power outlet",
+        "Stream media to your device",
+        "Emissions estimate: 157 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 394 kg CO2e",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": null
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 100",
+      "departure_time": "18:20",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 765,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 260
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 431,
+      "co2_vs_typical": "+1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 376 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 55 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 112",
+      "departure_time": "18:30",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 755,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 245
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 441,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 55 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 174",
+      "departure_time": "18:40",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 745,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 235
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 479,
+      "co2_vs_typical": "+12%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 55 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 180",
+      "departure_time": "19:10",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 715,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 205
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 441,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 55 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 106",
+      "departure_time": "19:20",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 705,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 205
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 337,
+      "co2_vs_typical": "-21%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 282 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Emissions estimate: 55 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 176",
+      "departure_time": "19:35",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 690,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 180
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 479,
+      "co2_vs_typical": "+12%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 55 kg CO2e",
+        "Contrail warming potential: Low",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 116",
+      "departure_time": "20:20",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 645,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 135
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 441,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 55 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 172",
+      "departure_time": "20:55",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "CDG",
+      "duration_minutes": 610,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LHR",
+          "duration_minutes": 95
+        }
+      ],
+      "price": "3833",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 479,
+      "co2_vs_typical": "+12%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 55 kg CO2e",
+        "Checked baggage for a fee",
+        "Fare non-refundable, taxes may be refundable",
+        "Ticket changes for a fee",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "JetBlue",
+      "flight_number": "B6 1407",
+      "departure_time": "19:21",
+      "departure_airport": "JFK",
+      "arrival_time": "09:15",
+      "arrival_airport": "CDG",
+      "duration_minutes": 474,
+      "stops": 0,
+      "layovers": [],
+      "price": "6063",
+      "currency": "USD",
+      "cabin_class": "business class",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 876,
+      "co2_vs_typical": "+106%",
+      "extensions": [
+        "Individual suite",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 876 kg CO2e",
+        "Contrail warming potential: Medium",
+        "1 checked bag up to 23 kg included",
+        "Full refund for cancellations",
+        "Free change, possible fare difference",
+        "Bag and fare conditions depend on the return flight"
+      ],
+      "legroom": null
+    }
+  ]
+}
