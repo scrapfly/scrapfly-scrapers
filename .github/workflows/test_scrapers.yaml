@@ -276,6 +276,10 @@ jobs:
             test: test_artist_scraping
           - project_dir: ticketmaster-scraper
             test: test_discovery_scraping
+          - project_dir: facebook-scraper
+            test: test_marketplace_scraping
+          - project_dir: facebook-scraper
+            test: test_events_scraping
           - project_dir: instagram-scraper
             test: test_post_comments_scraping
           - project_dir: chatgpt-scraper
