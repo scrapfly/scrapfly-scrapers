@@ -56,6 +56,29 @@ SEARCH_IMAGE_SCHEMA = {
     "rank": {"type": "integer", "required": True},
 }
 
+BLOG_POST_SCHEMA = {
+    "url":      {"type": "string", "required": True},
+    "title":    {"type": "string", "required": True},
+    "content":  {"type": "string", "required": True},
+    "author":   {"type": "string", "nullable": True},
+    "date":     {"type": "string", "nullable": True},
+    "images":   {"type": "list",   "required": True, "schema": {"type": "string"}},
+    "category": {"type": "string", "nullable": True},
+}
+
+NEWS_ARTICLE_SCHEMA = {
+    "url":          {"type": "string", "required": True},
+    "title":        {"type": "string", "required": True},
+    "description":  {"type": "string", "nullable": True},
+    "content":      {"type": "string", "required": True},
+    "press":        {"type": "string", "nullable": True},
+    "date":         {"type": "string", "nullable": True},
+    "modified_date":{"type": "string", "nullable": True},
+    "images":       {"type": "list",   "required": True, "schema": {"type": "string"}},
+    "sections":     {"type": "list",   "required": True, "schema": {"type": "string"}},
+    "origin_url":   {"type": "string", "nullable": True},
+}
+
 @pytest.mark.asyncio
 async def test_web_search_scraping():
     results = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
@@ -83,3 +106,26 @@ async def test_image_search_scraping():
         require_min_presence(results["results"], k, min_perc=SEARCH_IMAGE_SCHEMA[k].get("min_presence", 0.1))
 
     assert len(results["results"]) >= 20
+    
+@pytest.mark.asyncio
+async def test_blog_post_scraping():
+    results = await naver.scrape_blog_post([
+        "https://blog.naver.com/cherry_27_/224290687381",
+        "https://blog.naver.com/jylove_0120/224289170856",
+        "https://blog.naver.com/oro-mam/224289142276"
+    ])
+    result_validator = Validator(BLOG_POST_SCHEMA)
+    for result in results:
+        validate_or_fail(result, result_validator)
+
+
+@pytest.mark.asyncio
+async def test_news_article_scraping():
+    results = await naver.scrape_news_article([
+        "https://n.news.naver.com/article/001/0015234567",
+        "https://n.news.naver.com/article/001/0015234568",
+        "https://n.news.naver.com/article/001/0015234569",
+    ])
+    result_validator = Validator(NEWS_ARTICLE_SCHEMA)
+    for result in results:
+        validate_or_fail(result, result_validator)
