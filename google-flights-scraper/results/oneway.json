@@ -1,0 +1,3381 @@
+{
+  "search_date": "2026-05-19",
+  "route": "JFK-LHR",
+  "departure_date": "2026-05-19",
+  "return_date": null,
+  "flights": [
+    {
+      "airline": "Virgin Atlantic",
+      "flight_number": "VS 154",
+      "departure_time": "20:45",
+      "departure_airport": "JFK",
+      "arrival_time": "08:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 425,
+      "stops": 0,
+      "layovers": [],
+      "price": "434",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 337,
+      "co2_vs_typical": "-20%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 337 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "JetBlue",
+      "flight_number": "B6 7",
+      "departure_time": "20:52",
+      "departure_airport": "JFK",
+      "arrival_time": "09:30",
+      "arrival_airport": "LHR",
+      "duration_minutes": 458,
+      "stops": 0,
+      "layovers": [],
+      "price": "434",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 546,
+      "co2_vs_typical": "+30%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 546 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "14:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 710,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 135
+        }
+      ],
+      "price": "480",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 401,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 69 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic",
+      "flight_number": "VS 4",
+      "departure_time": "18:00",
+      "departure_airport": "JFK",
+      "arrival_time": "06:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 440,
+      "stops": 0,
+      "layovers": [],
+      "price": "434",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 353,
+      "co2_vs_typical": "-16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 353 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic",
+      "flight_number": "VS 10",
+      "departure_time": "18:30",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45",
+      "arrival_airport": "LHR",
+      "duration_minutes": 435,
+      "stops": 0,
+      "layovers": [],
+      "price": "434",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 337,
+      "co2_vs_typical": "-20%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 337 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic",
+      "flight_number": "VS 46",
+      "departure_time": "19:00",
+      "departure_airport": "JFK",
+      "arrival_time": "07:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 435,
+      "stops": 0,
+      "layovers": [],
+      "price": "434",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 355,
+      "co2_vs_typical": "-15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 355 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Virgin Atlantic",
+      "flight_number": "DL 5595",
+      "departure_time": "14:30",
+      "departure_airport": "JFK",
+      "arrival_time": "09:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 825,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 330
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 482,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 1047",
+      "departure_time": "15:55",
+      "departure_airport": "JFK",
+      "arrival_time": "11:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 865,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ATL",
+          "duration_minutes": 197
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 450,
+      "co2_vs_typical": "+7%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 117 kg CO2e",
+        "Contrail warming potential: Low",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 1047",
+      "departure_time": "15:55",
+      "departure_airport": "JFK",
+      "arrival_time": "13:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 980,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ATL",
+          "duration_minutes": 312
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 450,
+      "co2_vs_typical": "+7%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 117 kg CO2e",
+        "Contrail warming potential: Low",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and Virgin Atlantic",
+      "flight_number": "DL 5798",
+      "departure_time": "17:25",
+      "departure_airport": "JFK",
+      "arrival_time": "09:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 650,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 152
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 482,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 2293",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "11:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 770,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ATL",
+          "duration_minutes": 100
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 450,
+      "co2_vs_typical": "+7%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 117 kg CO2e",
+        "Contrail warming potential: Medium",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 2293",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "13:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 885,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ATL",
+          "duration_minutes": 215
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 450,
+      "co2_vs_typical": "+7%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 117 kg CO2e",
+        "Contrail warming potential: Medium",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 2245",
+      "departure_time": "18:27",
+      "departure_airport": "JFK",
+      "arrival_time": "13:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 818,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MSP",
+          "duration_minutes": 127
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A220-100 Passenger",
+      "co2_kg": 567,
+      "co2_vs_typical": "+35%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 189 kg CO2e",
+        "Contrail warming potential: Medium",
+        "On-demand video",
+        "Emissions estimate: 377 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 2190",
+      "departure_time": "20:10",
+      "departure_airport": "JFK",
+      "arrival_time": "13:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 725,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ATL",
+          "duration_minutes": 45
+        }
+      ],
+      "price": "438",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 458,
+      "co2_vs_typical": "+9%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 125 kg CO2e",
+        "Contrail warming potential: Medium",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air Canada",
+      "flight_number": "AC 8555",
+      "departure_time": "15:50",
+      "departure_airport": "JFK",
+      "arrival_time": "08:35",
+      "arrival_airport": "LHR",
+      "duration_minutes": 705,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "YYZ",
+          "duration_minutes": 160
+        }
+      ],
+      "price": "442",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 437,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "Stream media to your device",
+        "Emissions estimate: 105 kg CO2e",
+        "Contrail warming potential: Low",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 333 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air Canada",
+      "flight_number": "AC 8555",
+      "departure_time": "15:50",
+      "departure_airport": "JFK",
+      "arrival_time": "09:35",
+      "arrival_airport": "LHR",
+      "duration_minutes": 765,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "YYZ",
+          "duration_minutes": 235
+        }
+      ],
+      "price": "442",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 490,
+      "co2_vs_typical": "+17%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "Stream media to your device",
+        "Emissions estimate: 105 kg CO2e",
+        "Contrail warming potential: Low",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 386 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air Canada",
+      "flight_number": "AC 8555",
+      "departure_time": "15:50",
+      "departure_airport": "JFK",
+      "arrival_time": "11:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 900,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "YYZ",
+          "duration_minutes": 370
+        }
+      ],
+      "price": "442",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 490,
+      "co2_vs_typical": "+17%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "Stream media to your device",
+        "Emissions estimate: 105 kg CO2e",
+        "Contrail warming potential: Low",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 386 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 17",
+      "departure_time": "16:15",
+      "departure_airport": "JFK",
+      "arrival_time": "07:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 640,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 55
+        }
+      ],
+      "price": "454",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 377,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 72 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 17",
+      "departure_time": "16:15",
+      "departure_airport": "JFK",
+      "arrival_time": "13:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 945,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 355
+        }
+      ],
+      "price": "454",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 400,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "Emissions estimate: 95 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 17",
+      "departure_time": "16:15",
+      "departure_airport": "JFK",
+      "arrival_time": "16:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1150,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 565
+        }
+      ],
+      "price": "454",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 379,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 411",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "09:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 685,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MUC",
+          "duration_minutes": 90
+        }
+      ],
+      "price": "459",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 454,
+      "co2_vs_typical": "+8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 86 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 411",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "12:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 860,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MUC",
+          "duration_minutes": 265
+        }
+      ],
+      "price": "459",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 454,
+      "co2_vs_typical": "+8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 86 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 411",
+      "departure_time": "17:30",
+      "departure_airport": "JFK",
+      "arrival_time": "15:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1030,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MUC",
+          "duration_minutes": 435
+        }
+      ],
+      "price": "459",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A350",
+      "co2_kg": 454,
+      "co2_vs_typical": "+8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 86 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "KLM",
+      "flight_number": "KL 644",
+      "departure_time": "21:15",
+      "departure_airport": "JFK",
+      "arrival_time": "17:35",
+      "arrival_airport": "LHR",
+      "duration_minutes": 920,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 405
+        }
+      ],
+      "price": "465",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 323,
+      "co2_vs_typical": "-23%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 272 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 51 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "KLM",
+      "flight_number": "KL 644",
+      "departure_time": "21:15",
+      "departure_airport": "JFK",
+      "arrival_time": "19:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1030,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 515
+        }
+      ],
+      "price": "465",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 324,
+      "co2_vs_typical": "-23%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 272 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "KLM",
+      "flight_number": "KL 644",
+      "departure_time": "21:15",
+      "departure_airport": "JFK",
+      "arrival_time": "20:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1120,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 610
+        }
+      ],
+      "price": "465",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 311,
+      "co2_vs_typical": "-26%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 272 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Free Wi-Fi",
+        "Emissions estimate: 39 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 23",
+      "departure_time": "19:25",
+      "departure_airport": "JFK",
+      "arrival_time": "13:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 795,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "GVA",
+          "duration_minutes": 220
+        }
+      ],
+      "price": "468",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 553,
+      "co2_vs_typical": "+32%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 461 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 92 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 23",
+      "departure_time": "19:25",
+      "departure_airport": "JFK",
+      "arrival_time": "16:35",
+      "arrival_airport": "LHR",
+      "duration_minutes": 970,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "GVA",
+          "duration_minutes": 395
+        }
+      ],
+      "price": "468",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 553,
+      "co2_vs_typical": "+32%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 461 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 92 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 23",
+      "departure_time": "19:25",
+      "departure_airport": "JFK",
+      "arrival_time": "18:30",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1085,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "GVA",
+          "duration_minutes": 515
+        }
+      ],
+      "price": "468",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 553,
+      "co2_vs_typical": "+32%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 461 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 92 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa and Lufthansa City Airlines",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "17:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 890,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 315
+        }
+      ],
+      "price": "480",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 399,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 67 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "18:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 950,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 375
+        }
+      ],
+      "price": "480",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 401,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 69 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 17",
+      "departure_time": "16:15",
+      "departure_airport": "JFK",
+      "arrival_time": "11:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 845,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 260
+        }
+      ],
+      "price": "533",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 401,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 96 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 4506",
+      "departure_time": "12:59",
+      "departure_airport": "JFK",
+      "arrival_time": "09:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 926,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "RDU",
+          "duration_minutes": 340
+        }
+      ],
+      "price": "554",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 515,
+      "co2_vs_typical": "+23%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 107 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 4408",
+      "departure_time": "17:00",
+      "departure_airport": "JFK",
+      "arrival_time": "09:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 685,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "RDU",
+          "duration_minutes": 96
+        }
+      ],
+      "price": "554",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 515,
+      "co2_vs_typical": "+23%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 107 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "On-demand video",
+        "Emissions estimate: 408 kg CO2e"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 82",
+      "departure_time": "20:24",
+      "departure_airport": "JFK",
+      "arrival_time": "15:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 831,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "EDI",
+          "duration_minutes": 310
+        }
+      ],
+      "price": "580",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 517,
+      "co2_vs_typical": "+23%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 458 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Emissions estimate: 59 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "JetBlue",
+      "flight_number": "B6 418",
+      "departure_time": "13:10",
+      "departure_airport": "JFK",
+      "arrival_time": "06:30",
+      "arrival_airport": "LHR",
+      "duration_minutes": 740,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 243
+        }
+      ],
+      "price": "598",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A220-300 Passenger",
+      "co2_kg": 568,
+      "co2_vs_typical": "+35%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 64 kg CO2e",
+        "Contrail warming potential: Low",
+        "On-demand video",
+        "Emissions estimate: 504 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "JetBlue",
+      "flight_number": "B6 618",
+      "departure_time": "15:59",
+      "departure_airport": "JFK",
+      "arrival_time": "06:30",
+      "arrival_airport": "LHR",
+      "duration_minutes": 571,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 65
+        }
+      ],
+      "price": "598",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A220-300 Passenger",
+      "co2_kg": 568,
+      "co2_vs_typical": "+35%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 64 kg CO2e",
+        "Contrail warming potential: Low",
+        "On-demand video",
+        "Emissions estimate: 504 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 1560",
+      "departure_time": "14:59",
+      "departure_airport": "JFK",
+      "arrival_time": "09:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 781,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MIA",
+          "duration_minutes": 49
+        }
+      ],
+      "price": "613",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737MAX 8 Passenger",
+      "co2_kg": 572,
+      "co2_vs_typical": "+36%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 142 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "On-demand video",
+        "Emissions estimate: 430 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 1560",
+      "departure_time": "14:59",
+      "departure_airport": "JFK",
+      "arrival_time": "11:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 906,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MIA",
+          "duration_minutes": 179
+        }
+      ],
+      "price": "613",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737MAX 8 Passenger",
+      "co2_kg": 561,
+      "co2_vs_typical": "+34%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 142 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "On-demand video",
+        "Emissions estimate: 420 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 405",
+      "departure_time": "21:50",
+      "departure_airport": "JFK",
+      "arrival_time": "16:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 830,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 255
+        }
+      ],
+      "price": "624",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 401,
+      "co2_vs_typical": "-5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 332 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 69 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 614",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "11:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 625,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 80
+        }
+      ],
+      "price": "651",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 439,
+      "co2_vs_typical": "+5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 293 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 147 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 106",
+      "departure_time": "21:05",
+      "departure_airport": "JFK",
+      "arrival_time": "12:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 635,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 140
+        }
+      ],
+      "price": "675",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 379,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "15:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 605,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 110
+        }
+      ],
+      "price": "675",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 416,
+      "co2_vs_typical": "-1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "16:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 665,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 170
+        }
+      ],
+      "price": "675",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 416,
+      "co2_vs_typical": "-1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 82",
+      "departure_time": "20:24",
+      "departure_airport": "JFK",
+      "arrival_time": "20:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1166,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "EDI",
+          "duration_minutes": 660
+        }
+      ],
+      "price": "719",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 526,
+      "co2_vs_typical": "+25%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 458 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Emissions estimate: 69 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Virgin Atlantic",
+      "flight_number": "VS 138",
+      "departure_time": "23:40",
+      "departure_airport": "JFK",
+      "arrival_time": "12:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 445,
+      "stops": 0,
+      "layovers": [],
+      "price": "734",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 353,
+      "co2_vs_typical": "-16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 353 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Air France",
+      "flight_number": "AF 7",
+      "departure_time": "21:30",
+      "departure_airport": "JFK",
+      "arrival_time": "13:45",
+      "arrival_airport": "LHR",
+      "duration_minutes": 675,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CDG",
+          "duration_minutes": 125
+        }
+      ],
+      "price": "754",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 487,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Above average legroom (32 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 433 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 55 kg CO2e"
+      ],
+      "legroom": "32 in"
+    },
+    {
+      "airline": "ITA",
+      "flight_number": "AZ 611",
+      "departure_time": "21:10",
+      "departure_airport": "JFK",
+      "arrival_time": "15:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 810,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FCO",
+          "duration_minutes": 120
+        }
+      ],
+      "price": "764",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 566,
+      "co2_vs_typical": "+35%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 454 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Stream media to your device",
+        "Emissions estimate: 111 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta and KLM",
+      "flight_number": "DL 48",
+      "departure_time": "22:30",
+      "departure_airport": "JFK",
+      "arrival_time": "20:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1045,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "AMS",
+          "duration_minutes": 510
+        }
+      ],
+      "price": "765",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 375,
+      "co2_vs_typical": "-11%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 336 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 39 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus and British Airways",
+      "flight_number": "EI 106",
+      "departure_time": "21:05",
+      "departure_airport": "JFK",
+      "arrival_time": "12:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 595,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 100
+        }
+      ],
+      "price": "775",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 390,
+      "co2_vs_typical": "-7%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 63 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus and British Airways",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "21:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 965,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 485
+        }
+      ],
+      "price": "775",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 427,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 63 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus and British Airways",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "21:45",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1010,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 530
+        }
+      ],
+      "price": "775",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 418,
+      "co2_vs_typical": "avg",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 54 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 172",
+      "departure_time": "20:55",
+      "departure_airport": "JFK",
+      "arrival_time": "09:10",
+      "arrival_airport": "LHR",
+      "duration_minutes": 435,
+      "stops": 0,
+      "layovers": [],
+      "price": "809",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 423,
+      "co2_vs_typical": "+1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 182",
+      "departure_time": "22:40",
+      "departure_airport": "JFK",
+      "arrival_time": "10:35",
+      "arrival_airport": "LHR",
+      "duration_minutes": 415,
+      "stops": 0,
+      "layovers": [],
+      "price": "809",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787-10",
+      "co2_kg": 297,
+      "co2_vs_typical": "-29%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 297 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 104",
+      "departure_time": "16:55",
+      "departure_airport": "JFK",
+      "arrival_time": "08:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 610,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 120
+        }
+      ],
+      "price": "815",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 379,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Royal Air Maroc",
+      "flight_number": "AT 201",
+      "departure_time": "20:45",
+      "departure_airport": "JFK",
+      "arrival_time": "16:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 905,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CMN",
+          "duration_minutes": 290
+        }
+      ],
+      "price": "853",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 502,
+      "co2_vs_typical": "+20%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 331 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Above average legroom (32 in)",
+        "Emissions estimate: 171 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Royal Air Maroc",
+      "flight_number": "AT 201",
+      "departure_time": "20:45",
+      "departure_airport": "JFK",
+      "arrival_time": "17:45",
+      "arrival_airport": "LHR",
+      "duration_minutes": 960,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CMN",
+          "duration_minutes": 345
+        }
+      ],
+      "price": "853",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 485,
+      "co2_vs_typical": "+15%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 331 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 154 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "17:10",
+      "arrival_airport": "LHR",
+      "duration_minutes": 830,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 140
+        }
+      ],
+      "price": "892",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 546,
+      "co2_vs_typical": "+30%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat power & USB outlets",
+        "Emissions estimate: 114 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1120,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 440
+        }
+      ],
+      "price": "892",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 546,
+      "co2_vs_typical": "+30%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat power & USB outlets",
+        "Emissions estimate: 114 kg CO2e",
+        "Contrail warming potential: High"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "LOT",
+      "flight_number": "LO 27",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "09:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1800,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "WAW",
+          "duration_minutes": 1105
+        }
+      ],
+      "price": "909",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 546,
+      "co2_vs_typical": "+30%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 432 kg CO2e",
+        "Contrail warming potential: Low",
+        "Below average legroom (29 in)",
+        "In-seat power & USB outlets",
+        "Emissions estimate: 114 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 3",
+      "departure_time": "22:00",
+      "departure_airport": "JFK",
+      "arrival_time": "10:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 440,
+      "stops": 0,
+      "layovers": [],
+      "price": "940",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 344,
+      "co2_vs_typical": "-18%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 344 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 174",
+      "departure_time": "18:40",
+      "departure_airport": "JFK",
+      "arrival_time": "06:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 430,
+      "stops": 0,
+      "layovers": [],
+      "price": "949",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 423,
+      "co2_vs_typical": "+1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 116",
+      "departure_time": "20:20",
+      "departure_airport": "JFK",
+      "arrival_time": "08:30",
+      "arrival_airport": "LHR",
+      "duration_minutes": 430,
+      "stops": 0,
+      "layovers": [],
+      "price": "949",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 385,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Tap Air Portugal",
+      "flight_number": "TP 210",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "18:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 945,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration_minutes": 350
+        }
+      ],
+      "price": "1036",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 478,
+      "co2_vs_typical": "+14%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 354 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (28 in)",
+        "Emissions estimate: 123 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 618",
+      "departure_time": "23:10",
+      "departure_airport": "JFK",
+      "arrival_time": "11:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1905,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 1365
+        }
+      ],
+      "price": "1046",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737MAX 8 Passenger",
+      "co2_kg": 439,
+      "co2_vs_typical": "+5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 292 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 147 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 614",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "11:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 2065,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 1520
+        }
+      ],
+      "price": "1219",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 439,
+      "co2_vs_typical": "+5%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 293 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 147 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 614",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "20:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 2570,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 2030
+        }
+      ],
+      "price": "1219",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 516,
+      "co2_vs_typical": "+23%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 293 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Above average legroom (32 in)",
+        "Emissions estimate: 223 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 104",
+      "departure_time": "16:55",
+      "departure_airport": "JFK",
+      "arrival_time": "09:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 670,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 180
+        }
+      ],
+      "price": "1220",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 379,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 4",
+      "departure_time": "12:50",
+      "departure_airport": "JFK",
+      "arrival_time": "09:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 960,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 140
+        }
+      ],
+      "price": "1242",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 721,
+      "co2_vs_typical": "+72%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 208 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 4",
+      "departure_time": "12:50",
+      "departure_airport": "JFK",
+      "arrival_time": "15:10",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1280,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 465
+        }
+      ],
+      "price": "1242",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 690,
+      "co2_vs_typical": "+64%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Medium",
+        "In-seat USB outlet",
+        "Emissions estimate: 177 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 2",
+      "departure_time": "19:50",
+      "departure_airport": "JFK",
+      "arrival_time": "16:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 950,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 110
+        }
+      ],
+      "price": "1242",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 686,
+      "co2_vs_typical": "+63%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "Emissions estimate: 172 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 2",
+      "departure_time": "19:50",
+      "departure_airport": "JFK",
+      "arrival_time": "21:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1215,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 365
+        }
+      ],
+      "price": "1242",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 676,
+      "co2_vs_typical": "+61%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Low",
+        "In-seat USB outlet",
+        "Emissions estimate: 162 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Turkish Airlines",
+      "flight_number": "TK 2",
+      "departure_time": "19:50",
+      "departure_airport": "JFK",
+      "arrival_time": "22:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1295,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "IST",
+          "duration_minutes": 445
+        }
+      ],
+      "price": "1242",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 714,
+      "co2_vs_typical": "+70%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 514 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (30 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 200 kg CO2e",
+        "Contrail warming potential: High"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Tap Air Portugal",
+      "flight_number": "TP 210",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "17:45",
+      "arrival_airport": "LHR",
+      "duration_minutes": 880,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration_minutes": 285
+        }
+      ],
+      "price": "1309",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 478,
+      "co2_vs_typical": "+14%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 354 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (28 in)",
+        "Emissions estimate: 123 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 3179",
+      "departure_time": "14:30",
+      "departure_airport": "JFK",
+      "arrival_time": "12:10",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1000,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CLT",
+          "duration_minutes": 391
+        }
+      ],
+      "price": "1356",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 568,
+      "co2_vs_typical": "+35%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 96 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "On-demand video",
+        "Emissions estimate: 472 kg CO2e"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 3167",
+      "departure_time": "19:29",
+      "departure_airport": "JFK",
+      "arrival_time": "12:10",
+      "arrival_airport": "LHR",
+      "duration_minutes": 701,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "CLT",
+          "duration_minutes": 73
+        }
+      ],
+      "price": "1356",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A319",
+      "co2_kg": 586,
+      "co2_vs_typical": "+40%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power outlet",
+        "Stream media to your device",
+        "Emissions estimate: 115 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 472 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "ITA",
+      "flight_number": "AZ 609",
+      "departure_time": "16:05",
+      "departure_airport": "JFK",
+      "arrival_time": "09:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 755,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FCO",
+          "duration_minutes": 70
+        }
+      ],
+      "price": "1411",
+      "currency": "USD",
+      "cabin_class": "premium economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 820,
+      "co2_vs_typical": "+95%",
+      "extensions": [
+        "Extra reclining seat",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 682 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 138 kg CO2e"
+      ],
+      "legroom": null
+    },
+    {
+      "airline": "Lufthansa and Lufthansa City Airlines",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "07:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 660,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 95
+        }
+      ],
+      "price": "1480",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 486,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 67 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa and Lufthansa City Airlines",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "10:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 840,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 275
+        }
+      ],
+      "price": "1480",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 486,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 67 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 110",
+      "departure_time": "18:25",
+      "departure_airport": "JFK",
+      "arrival_time": "22:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1395,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "SNN",
+          "duration_minutes": 915
+        }
+      ],
+      "price": "1537",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 427,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 60 kg CO2e",
+        "Contrail warming potential: High"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 110",
+      "departure_time": "18:25",
+      "departure_airport": "JFK",
+      "arrival_time": "18:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1135,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "SNN",
+          "duration_minutes": 650
+        }
+      ],
+      "price": "1544",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 427,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 60 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "ITA",
+      "flight_number": "AZ 603",
+      "departure_time": "17:35",
+      "departure_airport": "JFK",
+      "arrival_time": "15:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1025,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FCO",
+          "duration_minutes": 335
+        }
+      ],
+      "price": "1601",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330-900neo",
+      "co2_kg": 566,
+      "co2_vs_typical": "+35%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 454 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Stream media to your device",
+        "Emissions estimate: 111 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 114",
+      "departure_time": "21:40",
+      "departure_airport": "JFK",
+      "arrival_time": "09:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 430,
+      "stops": 0,
+      "layovers": [],
+      "price": "1649",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 385,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 110",
+      "departure_time": "18:25",
+      "departure_airport": "JFK",
+      "arrival_time": "09:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 580,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "SNN",
+          "duration_minutes": 90
+        }
+      ],
+      "price": "1651",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 435,
+      "co2_vs_typical": "+4%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 368 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Emissions estimate: 67 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 112",
+      "departure_time": "18:30",
+      "departure_airport": "JFK",
+      "arrival_time": "06:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 430,
+      "stops": 0,
+      "layovers": [],
+      "price": "1749",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 385,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 176",
+      "departure_time": "19:35",
+      "departure_airport": "JFK",
+      "arrival_time": "07:45",
+      "arrival_airport": "LHR",
+      "duration_minutes": 430,
+      "stops": 0,
+      "layovers": [],
+      "price": "1749",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 423,
+      "co2_vs_typical": "+1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 4659",
+      "departure_time": "22:25",
+      "departure_airport": "JFK",
+      "arrival_time": "18:55",
+      "arrival_airport": "LHR",
+      "duration_minutes": 930,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BOS",
+          "duration_minutes": 453
+        }
+      ],
+      "price": "1787",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Embraer 175",
+      "co2_kg": 545,
+      "co2_vs_typical": "+30%",
+      "extensions": [
+        "Average legroom (30 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Stream media to your device",
+        "Emissions estimate: 80 kg CO2e",
+        "Contrail warming potential: Low",
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 465 kg CO2e"
+      ],
+      "legroom": "30 in"
+    },
+    {
+      "airline": "Icelandair",
+      "flight_number": "FI 618",
+      "departure_time": "23:10",
+      "departure_airport": "JFK",
+      "arrival_time": "20:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 2410,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "KEF",
+          "duration_minutes": 1875
+        }
+      ],
+      "price": "2129",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737MAX 8 Passenger",
+      "co2_kg": 516,
+      "co2_vs_typical": "+23%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 292 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Above average legroom (32 in)",
+        "Emissions estimate: 223 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Lufthansa",
+      "flight_number": "LH 401",
+      "departure_time": "15:40",
+      "departure_airport": "JFK",
+      "arrival_time": "08:40",
+      "arrival_airport": "LHR",
+      "duration_minutes": 720,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "FRA",
+          "duration_minutes": 155
+        }
+      ],
+      "price": "2465",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A340",
+      "co2_kg": 488,
+      "co2_vs_typical": "+16%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 419 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 69 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 15",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "16:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 895,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 310
+        }
+      ],
+      "price": "2567",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 379,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 74 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "SWISS",
+      "flight_number": "LX 15",
+      "departure_time": "20:30",
+      "departure_airport": "JFK",
+      "arrival_time": "17:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 980,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ZRH",
+          "duration_minutes": 395
+        }
+      ],
+      "price": "2567",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 377,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 305 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 72 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Brussels Airlines",
+      "flight_number": "SN 502",
+      "departure_time": "18:10",
+      "departure_airport": "JFK",
+      "arrival_time": "10:15",
+      "arrival_airport": "LHR",
+      "duration_minutes": 665,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BRU",
+          "duration_minutes": 135
+        }
+      ],
+      "price": "2686",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 499,
+      "co2_vs_typical": "+19%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 451 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 49 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Brussels Airlines",
+      "flight_number": "SN 502",
+      "departure_time": "18:10",
+      "departure_airport": "JFK",
+      "arrival_time": "17:05",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1075,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BRU",
+          "duration_minutes": 555
+        }
+      ],
+      "price": "2686",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 499,
+      "co2_vs_typical": "+19%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 451 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 49 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "British Airways",
+      "flight_number": "BA 180",
+      "departure_time": "19:10",
+      "departure_airport": "JFK",
+      "arrival_time": "07:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 430,
+      "stops": 0,
+      "layovers": [],
+      "price": "2779",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 385,
+      "co2_vs_typical": "-8%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 385 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 106",
+      "departure_time": "21:05",
+      "departure_airport": "JFK",
+      "arrival_time": "20:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1095,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 610
+        }
+      ],
+      "price": "2785",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 379,
+      "co2_vs_typical": "-10%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 327 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus and British Airways",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "14:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 565,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 70
+        }
+      ],
+      "price": "2785",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 427,
+      "co2_vs_typical": "+2%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 63 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Aer Lingus",
+      "flight_number": "EI 108",
+      "departure_time": "23:55",
+      "departure_airport": "JFK",
+      "arrival_time": "20:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 925,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "DUB",
+          "duration_minutes": 440
+        }
+      ],
+      "price": "2785",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 416,
+      "co2_vs_typical": "-1%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 364 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "In-seat USB outlet",
+        "Emissions estimate: 52 kg CO2e"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "Brussels Airlines",
+      "flight_number": "SN 502",
+      "departure_time": "18:10",
+      "departure_airport": "JFK",
+      "arrival_time": "21:35",
+      "arrival_airport": "LHR",
+      "duration_minutes": 1345,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "BRU",
+          "duration_minutes": 820
+        }
+      ],
+      "price": "2906",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 499,
+      "co2_vs_typical": "+19%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "In-seat USB outlet",
+        "On-demand video",
+        "Emissions estimate: 451 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Emissions estimate: 49 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American and British Airways",
+      "flight_number": "AA 82",
+      "departure_time": "20:24",
+      "departure_airport": "JFK",
+      "arrival_time": "12:00",
+      "arrival_airport": "LHR",
+      "duration_minutes": 636,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "EDI",
+          "duration_minutes": 115
+        }
+      ],
+      "price": "3068",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Airbus A321neo",
+      "co2_kg": 526,
+      "co2_vs_typical": "+25%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 458 kg CO2e",
+        "Contrail warming potential: Medium",
+        "Below average legroom (29 in)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Emissions estimate: 69 kg CO2e",
+        "Contrail warming potential: Low"
+      ],
+      "legroom": "31 in"
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 100",
+      "departure_time": "18:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 425,
+      "stops": 0,
+      "layovers": [],
+      "price": "3436",
+      "currency": "USD",
+      "cabin_class": "premium economy",
+      "plane_model": "Boeing 777",
+      "co2_kg": 564,
+      "co2_vs_typical": "+34%",
+      "extensions": [
+        "Extra reclining seat",
+        "Wi-Fi for a fee",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 564 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": null
+    },
+    {
+      "airline": "American",
+      "flight_number": "AA 106",
+      "departure_time": "19:20",
+      "departure_airport": "JFK",
+      "arrival_time": "07:20",
+      "arrival_airport": "LHR",
+      "duration_minutes": 420,
+      "stops": 0,
+      "layovers": [],
+      "price": "3436",
+      "currency": "USD",
+      "cabin_class": "premium economy",
+      "plane_model": "Boeing 787",
+      "co2_kg": 423,
+      "co2_vs_typical": "+1%",
+      "extensions": [
+        "Extra reclining seat",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 423 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": null
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 1",
+      "departure_time": "20:15",
+      "departure_airport": "JFK",
+      "arrival_time": "08:50",
+      "arrival_airport": "LHR",
+      "duration_minutes": 455,
+      "stops": 0,
+      "layovers": [],
+      "price": "4721",
+      "currency": "USD",
+      "cabin_class": "premium economy",
+      "plane_model": "Airbus A330",
+      "co2_kg": 637,
+      "co2_vs_typical": "+52%",
+      "extensions": [
+        "Extra reclining seat",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "On-demand video",
+        "Emissions estimate: 637 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": null
+    },
+    {
+      "airline": "Delta",
+      "flight_number": "DL 1029",
+      "departure_time": "11:10",
+      "departure_airport": "JFK",
+      "arrival_time": "06:25",
+      "arrival_airport": "LHR",
+      "duration_minutes": 855,
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "ATL",
+          "duration_minutes": 201
+        }
+      ],
+      "price": "4775",
+      "currency": "USD",
+      "cabin_class": "economy",
+      "plane_model": "Boeing 737",
+      "co2_kg": 616,
+      "co2_vs_typical": "+47%",
+      "extensions": [
+        "Average legroom (31 in)",
+        "Free Wi-Fi",
+        "In-seat power & USB outlets",
+        "Live TV",
+        "Emissions estimate: 117 kg CO2e",
+        "Contrail warming potential: Low",
+        "Extra reclining seat",
+        "On-demand video",
+        "Emissions estimate: 499 kg CO2e",
+        "Contrail warming potential: Medium"
+      ],
+      "legroom": "31 in"
+    }
+  ]
+}

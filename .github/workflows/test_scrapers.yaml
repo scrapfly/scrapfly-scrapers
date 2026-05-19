@@ -277,6 +277,11 @@ jobs:
           - project_dir: chatgpt-scraper
             test: test_scrape_conversation
           - project_dir: chatgpt-scraper
+<<<<<<< Add_google_flights
+            test: test_scrape_conversations    
+          - project_dir: google-flights-scraper
+            test: test_scrape_flights
+=======
             test: test_scrape_conversations            
           - project_dir: zoro-scraper
             test: test_search_scraping
@@ -290,6 +295,7 @@ jobs:
             test: test_search_scraping
           - project_dir: imovelweb-scraper
             test: test_property_scraping
+>>>>>>> main
 
     steps:
     - uses: actions/checkout@v4
