@@ -3,8 +3,7 @@
 This scraper uses [scrapfly.io](https://scrapfly.io/) and Python to scrape data from perplexity.ai.
 
 ## What it scrapes
-- Answer pages: query, answer text, sources (title, URL)
-- Multi-turn conversations: conversation ID, list of exchanges (query + answer + sources)
+- Answer pages: query, answer markdown, cited domains, source count, follow-up suggestions
 
 ## Fair Use Disclaimer
 

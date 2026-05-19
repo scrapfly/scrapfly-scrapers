@@ -72,7 +72,6 @@ async def scrape_answer(prompt: str) -> PerplexityAnswer:
             **BASE_CONFIG,
         )
     )
-    log.info(f"url_log: {response.scrape_result['log_url']}")
     scrape_result = response.scrape_result or {}
     extracted = scrape_result.get("extracted_data") or {}
     data = extracted.get("data")
