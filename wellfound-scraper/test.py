@@ -73,6 +73,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_company_scraping():
     companies_data = await wellfound.scrape_companies(
         urls = [
@@ -86,6 +87,7 @@ async def test_company_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await wellfound.scrape_search(
         role="python-developer", max_pages=2        

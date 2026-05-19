@@ -51,12 +51,13 @@ def parse_variants(result: ScrapeApiResponse) -> dict:
     """
     script = result.selector.xpath('//script[contains(., "MSKU")]/text()').get()
     if not script:
-        return {}
+        return []
     all_data = list(_find_json_objects(script))
     msku_data = nested_lookup("MSKU", all_data)
     if not msku_data:
-        return {}  # No variants found for this product
+        return []  # No variants found for this product
     data = msku_data[0]
+
     # First retrieve names for all selection options (e.g. Model, Color)
     selection_names = {}
     for menu in data["selectMenus"]:
@@ -78,32 +79,60 @@ def parse_variants(result: ScrapeApiResponse) -> dict:
     # example selection entry:
     # {'name': 'Gold', 'variants': [662315637181, 662315637177, 662315637173], 'label': 'Color'}
 
+    # Build ordered unique image list from URLs embedded in the MSKU script block
+    seen_ids: dict = {}
+    for url in re.findall(r"https://i\.ebayimg\.com/images/g/[^\"]+", script):
+        m = re.search(r"images/g/([^/]+)/", url)
+        if m:
+            img_id = m.group(1)
+            if img_id not in seen_ids:
+                seen_ids[img_id] = f"https://i.ebayimg.com/images/g/{img_id}/s-l1600.jpg"
+    ordered_images = list(seen_ids.values())
+    
+    pic_index_map = data.get("menuItemPictureIndexMap", {})
+    variant_images: dict = {}
+    for idx_str, img_indices in pic_index_map.items():
+        menu_item = data["menuItemMap"].get(idx_str, {})
+        imgs = [ordered_images[i] for i in img_indices if i < len(ordered_images)]
+        for vid in menu_item.get("matchingVariationIds", []):
+            variant_images.setdefault(str(vid), []).extend(imgs)
+            
+    
     # Finally, extract variants and apply selection details to each
     results = []
     variant_data = nested_lookup("variationsMap", data)[0]
     for id_, variant in variant_data.items():
-        result = defaultdict(list)
-        result["id"] = id_
+        item: dict = {"id": id_}
         for selection in selections:
             if int(id_) in selection["variants"]:
-                result[selection["label"]] = selection["name"]
-        result["price_original"] = variant["binModel"]["price"]["value"]["convertedFromValue"]
-        result["price_original_currency"] = variant["binModel"]["price"]["value"]["convertedFromCurrency"]
-        result["price_converted"] = variant["binModel"]["price"]["value"]["value"]
-        result["price_converted_currency"] = variant["binModel"]["price"]["value"]["currency"]
-        result["out_of_stock"] = variant["quantity"]["outOfStock"]
-        results.append(dict(result))
+                item[selection["label"]] = selection["name"]
+        price_val = variant["binModel"]["price"]["value"]
+        item["price_original"] = price_val.get("convertedFromValue", price_val.get("value"))
+        item["price_original_currency"] = price_val.get("convertedFromCurrency", price_val.get("currency"))
+        item["price_converted"] = price_val.get("value")
+        item["price_converted_currency"] = price_val.get("currency")
+        qty = variant.get("quantity", {})
+        item["out_of_stock"] = qty.get("outOfStock", True)
+        if not item["out_of_stock"]:
+            validations = qty.get("quantityInput", {}).get("validations", [])
+            max_val = next(
+                (v.get("maxValue") for v in validations if v.get("_type") == "NumberValidation"),
+                None,
+            )
+            item["quantity_available"] = int(max_val) if max_val is not None else None
+        item["images"] = variant_images.get(id_, [])
+        results.append(item)
     # example variant entry:
     # {
-    #     'id': '662315637173',
-    #     'Model': 'Apple iPhone 11 Pro Max',
-    #     'Storage Capacity': '64 GB',
-    #     'Color': 'Gold',
-    #     'price_original': 469,
-    #     'price_original_currency': 'CAD',
-    #     'price_converted': 341.55,
+    #     'id': '477101697616',
+    #     'Color': 'Deep Blue',
+    #     'price_original': 2199,
+    #     'price_original_currency': 'USD',
+    #     'price_converted': 2199,
     #     'price_converted_currency': 'USD',
     #     'out_of_stock': False
+    #     'quantity_available': 10,
+    #     'images': ['https://i.ebayimg.com/images/g/3QMAAeSwqdxo1XOt/s-l1600.jpg', 'https://i.ebayimg.com/images/g/3QMAAeSwqdxo1XOt/s-l1600.jpg']
     # }
     return results
 
@@ -142,10 +171,12 @@ def parse_product(result: ScrapeApiResponse):
 async def scrape_product(url: str) -> Dict:
     """Scrape ebay.com product listing page for product data"""
     page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    product = parse_product(page)
-    product["variants"] = parse_variants(page)
-    return product
+    return parse_product(page)
 
+async def scrape_product_variants(url: str) -> List[Dict]:
+    """Scrape ebay.com product listing page for variant data (price, stock, quantity, images)"""
+    page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    return parse_variants(page)
 
 def parse_search(result: ScrapeApiResponse) -> List[Dict]:
     """Parse ebay.com search result page for product previews"""
@@ -159,10 +190,21 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         location = box.xpath(".//*[contains(text(),'Located')]/text()").get()
         price = css(".s-card__price::text") or css(".s-item__price::text")
         url = css("a.s-card__link::attr(href)") or css("a.su-link::attr(href)")
+        rating = box.xpath(".//span[contains(text(), 'positive')]/text()").get()
 
         if price is None:
             continue  # skip boxes inside the best selling container
 
+        rating_count = None
+        if rating:
+            count_match = re.search(r'\(([\d.]+)K?\)', rating)
+            if count_match:
+                count_str = count_match.group(1)
+                if 'K)' in count_match.group(0):
+                    rating_count = int(float(count_str) * 1000)
+                else:
+                    rating_count = int(count_str)
+        
         item = {
             "url": url.split("?")[0] if url else None,
             "title": css(".s-card__title span::text"),
@@ -171,8 +213,8 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
             "location": location.split("Located in ")[1] if location else None,
             "subtitles": css(".s-card__subtitle span::text"),
             "photo": css("img::attr(data-src)") or css("img::attr(src)"),
-            "rating": css_float(".x-star-rating .clipped::text") or css_float(".s-item__reviews .clipped::text"),
-            "rating_count": int(box.css(".s-card__reviews-count span::text").re_first(r"(\d+)", default="0") or box.css(".s-item__reviews-count span::text").re_first(r"(\d+)", default="0")),
+            "rating": re.search(r'[\d.]+%', rating).group() if rating and re.search(r'[\d.]+%', rating) else None,
+            "rating_count": rating_count,
         }
         previews.append(item)
     return previews

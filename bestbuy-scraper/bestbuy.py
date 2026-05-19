@@ -108,17 +108,6 @@ def _extract_nested(data, keys, default=None):
         data = data.get(key, {})
     return data or default
 
-def extract_rehydrate_key(json_data):
-    """Extract the dynamic rehydrate key from JSON data"""
-    if not json_data or 'rehydrate' not in json_data:
-        return None
-    
-    rehydrate_data = json_data['rehydrate']
-    # Find keys that match the pattern :R[letters/numbers]:
-    for key in rehydrate_data.keys():
-        if key.startswith(':R') and key.endswith(':'):
-            return key
-    return None
 
 def parse_product(response: ScrapeApiResponse) -> Dict:
     """parse product data from bestbuy product pages"""
@@ -130,25 +119,21 @@ def parse_product(response: ScrapeApiResponse) -> Dict:
         json_data = extract_json(script_text)
         if not json_data:
             continue
-            
-        rehydrate_key = extract_rehydrate_key(json_data)
-        if not rehydrate_key:
-            continue
-    
-        if 'productBySkuId' in _extract_nested(json_data, ["rehydrate", rehydrate_key, "data"], default={}):
-            product_data = _extract_nested(json_data, ["rehydrate", rehydrate_key, "data", "productBySkuId"])
-            
-            # Determine data type based on available fields
-            if not data.get("product-info") and product_data:
+
+        for event in json_data.get("events", []):
+            if event.get("type") != "next":
+                continue
+            product_data = _extract_nested(event, ["value", "data", "productBySkuId"])
+            if not product_data:
+                continue
+
+            if not data.get("product-info") and product_data.get("brand") and product_data.get("whatItIs"):
                 data["product-info"] = product_data
-                
-            if not data.get("product-features") and product_data and "features" in product_data:
+            if not data.get("product-features") and "features" in product_data:
                 data["product-features"] = product_data.get("features")
-                
-            if not data.get("buying-options") and product_data and "buyingOptions" in product_data:
+            if not data.get("buying-options") and "buyingOptions" in product_data:
                 data["buying-options"] = product_data.get("buyingOptions")
-                
-            if not data.get("product-faq") and product_data and "questions" in product_data:
+            if not data.get("product-faq") and "questions" in product_data:
                 data["product-faq"] = product_data.get("questions")
 
     return data
@@ -197,15 +182,15 @@ def parse_search(response: ScrapeApiResponse):
             if '$' in elem:
                 original_price = re.sub(r'[^\d.]', '', elem) or None
                 break
-
-        rating = item.css('.font-weight-bold::text').get()
         
+        rating = None
         rating_count = 0
-        rating_count_element = item.css('.c-reviews::text').get()
-        if rating_count_element:
-            count_matches = re.findall(r'\(([0-9,]+)\s+reviews?\)', rating_count_element)
-            if count_matches:
-                rating_count = int(count_matches[0].replace(',', ''))
+        rating_text = item.css('div.c-ratings-reviews p.visually-hidden::text').get()
+        if rating_text:
+            m = re.search(r'Rating\s+([\d.]+)\s+out of\s+\d+\s+stars\s+with\s+([\d,]+)\s+reviews?', rating_text)
+            if m:
+                rating = m.group(1)
+                rating_count = int(m.group(2).replace(',', ''))
         
         images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
         

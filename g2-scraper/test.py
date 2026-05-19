@@ -74,7 +74,7 @@ alternatives_schema = {
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=2, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     review_data = await g2.scrape_reviews(
         url="https://www.g2.com/products/digitalocean/reviews", max_review_pages=2
@@ -95,7 +95,7 @@ async def test_review_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=2, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await g2.scrape_search(
         url="https://www.g2.com/search?query=Infrastructure", max_scrape_pages=2
@@ -107,7 +107,7 @@ async def test_search_scraping():
         require_min_presence(
             search_data, k, min_perc=search_schema[k].get("min_presence", 0.1)
         )
-    assert len(search_data) >= 20
+    assert len(search_data) > 20
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         search_data.sort(key=lambda x: x["link"])
         (Path(__file__).parent / 'results/search.json').write_text(

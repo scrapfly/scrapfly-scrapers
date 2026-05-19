@@ -18,12 +18,12 @@ output.mkdir(exist_ok=True)
 async def run():
 
     # enable scrapfly cache for basic usage
-    google.BASE_CONFIG["cache"] = True
+    google.BASE_CONFIG["cache"] = False
 
     print("running Google scrape and saving results to ./results directory")
 
     search_data = await google.scrape_serp(
-        query="scrapgly blog web scraping",
+        query="scrapfly blog web scraping",
         max_pages=3,
     )
     with open(output.joinpath("serp.json"), "w", encoding="utf-8") as file:
