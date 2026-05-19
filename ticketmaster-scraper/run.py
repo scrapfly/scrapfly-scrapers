@@ -17,7 +17,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    ticketmaster.BASE_CONFIG["cache"] = True
+    ticketmaster.BASE_CONFIG["cache"] = False
 
     log.info("running Ticketmaster scrape and saving results to ./results directory")
     

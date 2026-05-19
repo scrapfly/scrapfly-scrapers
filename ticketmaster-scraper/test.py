@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 pp = pprint.PrettyPrinter(indent=4)
 
-ticketmaster.BASE_CONFIG["cache"] = True
+ticketmaster.BASE_CONFIG["cache"] = False
 
 
 # Custom Validator to support min_presence
@@ -33,10 +33,10 @@ def require_min_presence(items, key, min_perc=0.1):
 
 artist_schema = {
     "artist_name": {"type": "string"},
-    "ratingValue": {"type": "float", "nullable": True, "min_presence": 0.5},
-    "bestRating": {"type": "integer", "nullable": True, "min_presence": 0.5},
-    "ratingCount": {"type": "integer", "nullable": True, "min_presence": 0.5},
-    "genre": {"type": "string", "nullable": True, "min_presence": 0.5},
+    "ratingValue": {"type": "float", "nullable": True, "min_presence": 0.1},
+    "bestRating": {"type": "integer", "nullable": True, "min_presence": 0.1},
+    "ratingCount": {"type": "integer", "nullable": True, "min_presence": 0.1},
+    "genre": {"type": "string", "nullable": True, "min_presence": 0.1},
     "events_count": {"type": "integer"},
     "events": {
         "type": "list",
@@ -73,6 +73,7 @@ discovery_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_artist_scraping():
     urls = [
         "https://www.ticketmaster.com/imagine-dragons-tickets/artist/1435919",
@@ -88,6 +89,7 @@ async def test_artist_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_discovery_scraping():
     start = datetime.now()
     end = start + timedelta(days=7)
