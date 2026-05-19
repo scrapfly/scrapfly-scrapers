@@ -20,6 +20,7 @@ BASE_CONFIG = {
     # AutoScout24 requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
+    "render_js": True
 }
 
 output = Path(__file__).parent / "results"
@@ -55,8 +56,8 @@ def parse_listings(result: ScrapeApiResponse) -> List[CarListing]:
         return []
     data = json.loads(script_data)
     listings = data.get("props", {}).get("pageProps", {}).get("listings", [])
-    
     return listings
+
 
 def parse_car_details(result: ScrapeApiResponse) -> CarDetails:
     """Parse car detail page"""
@@ -72,51 +73,32 @@ def parse_car_details(result: ScrapeApiResponse) -> CarDetails:
 
 
 async def scrape_listings(url: str, max_pages: int = 3) -> List[CarListing]:
-    """
-    Scrape car listings from AutoScout24 search/category page
-
-    Args:
-        url: AutoScout24 listings URL (e.g., https://www.autoscout24.com/lst/c/compact
-            or https://www.autoscout24.com/lst/bmw/116/bt_compact?&damaged_listing=exclude&desc=0&powertype=kw&search_id=1ws8t0eo2sb&sort=standard ) to suport filtering options
-        max_pages: Maximum number of pages to scrape
-
-    Returns:
-        List of car listings
-    """
+    """Scrape car listings from AutoScout24 search/category page"""
     all_listings = []
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     all_listings.extend(parse_listings(result))
+
     # check if url contains '?' to determine if we should use '&' or '?' for the page parameter
     if "?" in url:
         page_param = "&page="
     else:
         page_param = "?page="
+
     other_pages = [ScrapeConfig(url + f"{page_param}{page}", **BASE_CONFIG) for page in range(2, max_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         log.info(f"Scraping page {response.context['url']}")
-        if isinstance(response, ScrapflyScrapeError):
-            log.error(f"Error scraping listings from {response.context['url']}: {response.error}")
-            continue
         all_listings.extend(parse_listings(response))
-    log.info(f"Scraped {len(all_listings)} car listings from {url}")
+
+    log.success(f"Scraped {len(all_listings)} car listings from {url}")
     return all_listings
 
 async def scrape_car_details(urls: List[str]) -> List[CarDetails]:
-    """
-    Scrape detailed car information from car page
-
-    Args:
-        urls: List of AutoScout24 car detail URLs
-
-    Returns:
-        List of car details dictionaries
-    """
+    """Scrape detailed car information from car page"""
     all_car_details = []
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(response, ScrapflyScrapeError):
-            log.error(f"Error scraping car details from {response.context['url']}: {response.error}")
-            continue
         all_car_details.append(parse_car_details(response))
-    log.info(f"Scraped {len(all_car_details)} car details from {urls}")
+
+    log.success(f"Scraped {len(all_car_details)} car details from {urls}")
     return all_car_details
