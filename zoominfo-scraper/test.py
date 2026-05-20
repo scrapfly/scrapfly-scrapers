@@ -75,6 +75,7 @@ faq_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_company_scraping():
     companies_data = await zoominfo.scrape_comapnies(
         urls=[
@@ -90,6 +91,7 @@ async def test_company_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_directory_scraping():
     directory_data = await zoominfo.scrape_directory(
         url="https://www.zoominfo.com/companies-search/location-usa--california--los-angeles-industry-software",
@@ -99,6 +101,7 @@ async def test_directory_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_faq_scraping():
     faq_data = await zoominfo.scrape_faqs(
         url="https://www.zoominfo.com/c/tesla-inc/104333869"
