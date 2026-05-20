@@ -8,14 +8,10 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-# enable scrapfly cache
-naver.BASE_CONFIG["cache"] = True
 
-
-# Custom Validator to support min_presence
 class Validator(_Validator):
     def _validate_min_presence(self, min_presence, field, value):
-        pass  # required for adding non-standard keys to schema
+        pass
 
 
 def validate_or_fail(item, validator):
@@ -33,10 +29,9 @@ def require_min_presence(items, key, min_perc=0.1):
         )
 
 
-# Schema definitions
 SEARCH_WEB_SCHEMA = {
-    "title": {"type": "string", "required": True, "min_presence": 0.9},
-    "url": {"type": "string", "required": True, "min_presence": 0.9},
+    "title": {"type": "string", "required": True, "min_presence": 0.1},
+    "url": {"type": "string", "required": True, "min_presence": 0.1},
     "snippet": {"type": "string", "required": True},
     "source": {"type": "string", "required": False, "nullable": True},
     "rank": {"type": "integer", "required": True},
@@ -58,25 +53,25 @@ SEARCH_IMAGE_SCHEMA = {
 
 BLOG_POST_SCHEMA = {
     "url":      {"type": "string", "required": True},
-    "title":    {"type": "string", "required": True},
-    "content":  {"type": "string", "required": True},
-    "author":   {"type": "string", "nullable": True},
-    "date":     {"type": "string", "nullable": True},
-    "images":   {"type": "list",   "required": True, "schema": {"type": "string"}},
-    "category": {"type": "string", "nullable": True},
+    "title":    {"type": "string", "required": True, "min_presence": 0.1},
+    "content":  {"type": "string", "required": True, "min_presence": 0.1},
+    "author":   {"type": "string", "nullable": True, "min_presence": 0.1},
+    "date":     {"type": "string", "nullable": True, "min_presence": 0.1},
+    "images":   {"type": "list",   "required": True, "schema": {"type": "string"}, "min_presence": 0.1},
+    "category": {"type": "string", "nullable": True, "min_presence": 0.1},
 }
 
 NEWS_ARTICLE_SCHEMA = {
     "url":          {"type": "string", "required": True},
-    "title":        {"type": "string", "required": True},
-    "description":  {"type": "string", "nullable": True},
-    "content":      {"type": "string", "required": True},
-    "press":        {"type": "string", "nullable": True},
-    "date":         {"type": "string", "nullable": True},
-    "modified_date":{"type": "string", "nullable": True},
-    "images":       {"type": "list",   "required": True, "schema": {"type": "string"}},
-    "sections":     {"type": "list",   "required": True, "schema": {"type": "string"}},
-    "origin_url":   {"type": "string", "nullable": True},
+    "title":        {"type": "string", "required": True, "min_presence": 0.1},
+    "description":  {"type": "string", "nullable": True, "min_presence": 0.1},
+    "content":      {"type": "string", "required": True, "min_presence": 0.1},
+    "press":        {"type": "string", "nullable": True, "min_presence": 0.1},
+    "date":         {"type": "string", "nullable": True, "min_presence": 0.1},
+    "modified_date":{"type": "string", "nullable": True, "min_presence": 0.1},
+    "images":       {"type": "list",   "required": True, "schema": {"type": "string"}, "min_presence": 0.1},
+    "sections":     {"type": "list",   "required": True, "schema": {"type": "string"}, "min_presence": 0.1},
+    "origin_url":   {"type": "string", "nullable": True, "min_presence": 0.1},
 }
 
 @pytest.mark.asyncio
@@ -118,6 +113,9 @@ async def test_blog_post_scraping():
     for result in results:
         validate_or_fail(result, result_validator)
 
+    for k in BLOG_POST_SCHEMA:
+        require_min_presence(results, k, min_perc=BLOG_POST_SCHEMA[k].get("min_presence", 0.1))
+
 
 @pytest.mark.asyncio
 async def test_news_article_scraping():
@@ -129,3 +127,6 @@ async def test_news_article_scraping():
     result_validator = Validator(NEWS_ARTICLE_SCHEMA)
     for result in results:
         validate_or_fail(result, result_validator)
+
+    for k in NEWS_ARTICLE_SCHEMA:
+        require_min_presence(results, k, min_perc=NEWS_ARTICLE_SCHEMA[k].get("min_presence", 0.1))

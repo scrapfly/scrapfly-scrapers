@@ -23,19 +23,18 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
     "render_js": True,
+    "country": "kr", # match the domain's country
+    "proxy_pool": "public_residential_pool",
 }
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
-
-# Type definitions
 SearchType = Literal["web", "image", "blog", "cafe", "kin", "news", "influencer", "short content", "video"]
 SortType = Literal["sim", "date", "asc", "dsc"]
 PeriodType = Literal["all", "1d", "1w", "1m", "6m", "1y"]
 
 
-# URL Builder Functions
 def _build_nso_filter(sort: Optional[SortType] = None, period: Optional[PeriodType] = None) -> str:
     """
     Build NSO (Naver Search Options) filter string.
@@ -90,17 +89,14 @@ def _build_search_url(
     """
     base_url = "https://search.naver.com/search.naver"
 
-    # Calculate pagination start parameter
-    # Standard formula for most search types: (page - 1) * display + 1
+    # calculate pagination start parameter: (page - 1) * display + 1
     start = (page - 1) * display + 1
 
-    # Build base parameters
     params = {
         "query": query,
         "start": start,
     }
 
-    # Add search-type specific parameters
     type_configs = {
         "web": {
             "where": "web",
@@ -138,25 +134,17 @@ def _build_search_url(
         },
     }
 
-    # Update params with search type config
     params.update(type_configs.get(search_type, {"where": search_type}))
 
-    # Build and add NSO filter if applicable
     nso = _build_nso_filter(sort, period)
     if nso:
         params["nso"] = nso
 
-    # Build final URL with proper encoding
     query_string = urlencode(params)
-    log.info(f"Search URL: {base_url}?{query_string}")
     return f"{base_url}?{query_string}"
 
 
-# Define data structures with TypedDict
-
-
 class SearchWebResult(TypedDict):
-    """type hint for scraped web search result data"""
     title: str
     url: str
     snippet: str
@@ -165,7 +153,6 @@ class SearchWebResult(TypedDict):
 
 
 class SearchImageResult(TypedDict):
-    """type hint for scraped image search result data"""
     title: str
     link: str
     source: str
@@ -180,7 +167,6 @@ class SearchImageResult(TypedDict):
 
 
 class BlogPost(TypedDict):
-    """Type hint for scraped Naver blog post data."""
     url: str
     title: str
     content: str
@@ -191,7 +177,6 @@ class BlogPost(TypedDict):
 
 
 class NewsArticle(TypedDict):
-    """Type hint for scraped Naver news article data."""
     url: str
     title: str
     description: Optional[str]
@@ -204,7 +189,6 @@ class NewsArticle(TypedDict):
     origin_url: Optional[str]
 
 
-# Helper functions for parsing
 def _extract_json_from_html(content: str, start_pos: int) -> Optional[str]:
     """Extract a balanced JSON object from HTML at start_pos (opening brace); returns JSON or None."""
     brace_count = 0
@@ -255,7 +239,6 @@ def _js_to_json(js_str: str) -> str:
     return re.sub(r",(\s*[}\]])", r"\1", js_str)
 
 
-# Parsing functions
 def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     """
     Parse web search results from JSON embedded in HTML.
@@ -270,7 +253,6 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     selector = result.selector
     results: List[SearchWebResult] = []
 
-    # Extract JSON from entry.bootstrap
     pattern = r"entry\.bootstrap\([^,]+,\s*\{"
     match = re.search(pattern, content)
 
@@ -278,7 +260,6 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
         json_start = content.index("{", match.end() - 1)
         json_str = _extract_json_from_html(content, json_start)
 
-        # Parse JSON and extract results
         try:
             if json_str:
                 data = json.loads(json_str)
@@ -298,13 +279,12 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
                     if not title or not url:
                         continue
 
-                    # Extract source
                     source = None
                     subtexts = props.get("profile", {}).get("subTexts", [])
                     if subtexts:
                         source = subtexts[0].get("text", "") if isinstance(subtexts[0], dict) else str(subtexts[0])
                     source = source
-                    # Extract rank
+
                     click_log = props.get("clickLog", {})
                     rank = click_log.get("title", {}).get("r") or click_log.get("profile", {}).get("r") or idx
 
@@ -320,7 +300,6 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
         except (json.JSONDecodeError, KeyError, TypeError) as e:
             log.debug(f"JSON parsing error: {e}")
 
-    # Extract max_pages from pagination
     max_pages = 1
     page_numbers = []
     for link in selector.css("div.sc_page_inner a.btn"):
@@ -336,8 +315,7 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     if page_numbers:
         max_pages = max(page_numbers)
     num_of_displayed_results = len(results)
-    log.info(f"Max pages: {max_pages}")
-    log.info(f"Number of displayed results: {num_of_displayed_results}")
+
     return {
         "results": results,
         "max_pages": max_pages,
@@ -359,7 +337,7 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
     selector = result.selector
     results: List[SearchImageResult] = []
     data = None
-    # Check if no results found (not_found02 element)
+
     not_found = selector.css("div.not_found02")
     if not_found:
         log.info("No search results found (not_found02 element detected)")
@@ -367,7 +345,7 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
             "results": [],
             "num_of_displayed_results": -1,
         }
-    # Extract JSON from imageSearchTabData variable
+
     pattern = r"var\s+imageSearchTabData\s*=\s*\{"
     match = re.search(pattern, content)
 
@@ -375,10 +353,9 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
         json_start = content.index("{", match.end() - 1)
         js_str = _extract_json_from_html(content, json_start)
 
-        # Parse JSON and extract image results
+
         try:
             if js_str:
-                # Convert JavaScript object notation to valid JSON
                 json_str = _js_to_json(js_str)
                 data = json.loads(json_str)
                 items = data.get("content", {}).get("items", [])
@@ -388,7 +365,6 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
                         continue
 
                     viewer_thumb = item.get("viewerThumb", "")
-
                     thumbnail = item.get("thumbnail", viewer_thumb)
 
                     title = (
@@ -412,7 +388,6 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
                             "rank": idx,
                         }
                     )
-
         except (json.JSONDecodeError, KeyError, TypeError) as e:
             log.error(f"JSON parsing error: {e}")
             log.debug(
@@ -420,15 +395,11 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
             )
 
     num_of_displayed_results = len(results)
-    log.info(f"Number of displayed image results: {num_of_displayed_results}")
 
     return {
         "results": results,
         "num_of_displayed_results": num_of_displayed_results,
     }
-
-
-# Scraping functions
 
 
 async def scrape_web_search(
@@ -452,7 +423,6 @@ async def scrape_web_search(
     """
     log.info(f"Scraping web search for query: {query}")
 
-    # Scrape first page
     results = []
     first_url = _build_search_url(query, "web", sort=sort, period=period)
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(first_url, **BASE_CONFIG))
@@ -460,12 +430,13 @@ async def scrape_web_search(
     total_pages = first_page_result["max_pages"]
     results = first_page_result["results"]
     displayed_results = first_page_result["num_of_displayed_results"]
+
     if scrape_all_pages:
         pages_to_scrape = total_pages
     else:
         pages_to_scrape = min(total_pages, max_pages)
 
-    log.info(f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
+    log.info(f"scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
 
     scraped_pages = 1
     if pages_to_scrape > 1:
@@ -479,8 +450,8 @@ async def scrape_web_search(
         async for result in SCRAPFLY.concurrent_scrape(other_pages):
             results.extend(parse_web_search(result)["results"])
             scraped_pages += 1
-        log.info(f"Scraped {scraped_pages} pages (total: {pages_to_scrape})")
 
+    log.success(f"scraped {len(results)} from Naver search")
     return {"results": results, "max_pages": total_pages}
 
 
@@ -507,7 +478,6 @@ async def scrape_image_search(
     """
     log.info(f"Scraping image search for query: {query}")
 
-    # Scrape first page
     results: List[SearchImageResult] = []
     first_url = _build_search_url(query, search_type="image", sort=sort, period=period)
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(first_url, **BASE_CONFIG))
@@ -542,7 +512,7 @@ async def scrape_image_search(
                 break
             results.extend(page_data["results"])
     else:
-        # Scrape up to max_pages
+        # scrape up to max_pages
         if max_pages > 1:
             other_pages = [
                 ScrapeConfig(
@@ -561,23 +531,28 @@ async def scrape_image_search(
                     break
                 results.extend(page_data["results"])
 
-    log.info(f"Scraped {scraped_pages} pages")
+    log.success(f"Scraped {len(results)} image results from Naver")
     return {"results": results}
 
 
 def _parse_blog(result: ScrapeApiResponse, original_url: str) -> BlogPost:
     """Parse title and content from a blog post's iframe page."""
     sel = result.selector
-    title = sel.css("div.se-title-text ::text, .pcol1 ::text").get("").strip()
+    title = " ".join(sel.css("div.se-title-text ::text, .pcol1 ::text").getall()).strip()
+    if not title:
+        title = sel.css("meta[property='og:title']::attr(content)").get("").strip()
     content = " ".join(
-        sel.css("div.se-main-container ::text, div#postViewArea ::text").getall()
-    ).strip()
+        t.strip()
+        for t in sel.css("div.se-main-container ::text, div#postViewArea ::text").getall()
+        if t.strip()
+    )
     author = sel.css("span.nick ::text, a.blog_author ::text").get()
     date = sel.css("span.se_publishDate ::text, em.se_publishDate ::text").get()
     images = sel.css(
         "div.se-title-cover img::attr(src), div.se-main-container .se-module-image img::attr(src)"
     ).getall()
     category = sel.css("div.blog2_series a::text").get()
+
     return {
         "url": original_url,
         "title": title,
@@ -599,7 +574,11 @@ def _parse_news_article(result: ScrapeApiResponse) -> NewsArticle:
     press         = sel.css("span.media_end_head_top_press ::text, a.media_end_head_top_logo img::attr(alt)").get("").strip() or None
     date          = sel.css("._ARTICLE_DATE_TIME::attr(data-date-time)").get()
     modified_date = sel.css("._ARTICLE_MODIFY_DATE_TIME::attr(data-modify-date-time)").get()
-    images        = sel.css("article#dic_area img::attr(src)").getall()
+    images        = [
+        img.css("::attr(data-src)").get() or img.css("::attr(src)").get()
+        for img in sel.css("article#dic_area img")
+    ]
+    images        = [src for src in images if src and not src.startswith("data:")]
     sections      = sel.css("em.media_end_categorize_item ::text").getall()
     origin_url    = sel.css("a.media_end_head_origin_link::attr(href)").get()
     return {
@@ -618,16 +597,14 @@ def _parse_news_article(result: ScrapeApiResponse) -> NewsArticle:
 
 async def scrape_blog_post(urls: List[str]) -> List[BlogPost]:
     """Scrape Naver blog posts concurrently."""
-    log.info(f"Scraping {len(urls)} blog posts")
+    log.info(f"scraping {len(urls)} blog posts")
     configs = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     results: List[BlogPost] = []
     async for result in SCRAPFLY.concurrent_scrape(configs):
         url = str(result.config["url"])
         results.append(_parse_blog(result, url))
-        with open(output.joinpath("blog_post_debug.html"), "w", encoding="utf-8") as f:
-            f.write(result.content)
 
-    log.info(f"Scraped {len(results)} blog posts")
+    log.success(f"scraped {len(results)} blog posts from Naver")
     return results
 
 
@@ -638,5 +615,6 @@ async def scrape_news_article(urls: List[str]) -> List[NewsArticle]:
     results: List[NewsArticle] = []
     async for result in SCRAPFLY.concurrent_scrape(configs):
         results.append(_parse_news_article(result))
-    log.info(f"Scraped {len(results)} news articles")
+
+    log.success(f"scraped {len(results)} news articles from Naver")
     return results
