@@ -45,6 +45,13 @@ async def run():
     with open(output / "oneway.json", "w", encoding="utf-8") as f:
         json.dump(oneway, f, indent=2, ensure_ascii=False)
 
+    await google_flights.track_route(
+        origin="JFK",
+        destination="CDG",
+        depart="2026-09-15",
+        ret="2026-09-22",
+    )
+
 
 if __name__ == "__main__":
     asyncio.run(run())

@@ -5,9 +5,10 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
+import json
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional, TypedDict
 from urllib.parse import quote_plus
@@ -339,4 +340,44 @@ async def scrape_flights(
         return_date=ret,
         flights=parse_flights(response, year=year, currency=currency),
     )
-    
+
+
+def store_results(route: str, depart: str, ret: str | None, flights: List[FlightResult]) -> None:
+    history_file = output / "flights_history.json"
+    records = json.loads(history_file.read_text()) if history_file.exists() else []
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    for f in flights:
+        records.append({
+            "scraped_at": now,
+            "route": route,
+            "depart_date": depart,
+            "return_date": ret,
+            "airline": f["airline"],
+            "price": f["price"],
+            "stops": f["stops"],
+        })
+    history_file.write_text(json.dumps(records, indent=2))
+
+
+def historical_min(route: str, depart: str) -> Optional[int]:
+    history_file = output / "flights_history.json"
+    if not history_file.exists():
+        return None
+    records = json.loads(history_file.read_text())
+    prices = [int(r["price"]) for r in records if r["route"] == route and r["depart_date"] == depart and r["price"]]
+    return min(prices) if prices else None
+
+
+async def track_route(origin: str, destination: str, depart: str, ret: str) -> None:
+    route = f"{origin}-{destination}"
+    flights = (await scrape_flights(origin, destination, depart, ret))["flights"]
+    prices = [f["price"] for f in flights if f["price"]]
+    if not prices:
+        return
+    new_min = min(int(p) for p in prices)
+    old_min = historical_min(route, depart)
+    store_results(route, depart, ret, flights)
+    if old_min is not None and new_min < old_min:
+        log.success(f"price drop on {route} {depart}: {old_min} -> {new_min}")
+
+
