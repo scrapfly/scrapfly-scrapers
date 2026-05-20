@@ -75,6 +75,7 @@ NEWS_ARTICLE_SCHEMA = {
 }
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_web_search_scraping():
     results = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
 
@@ -89,6 +90,7 @@ async def test_web_search_scraping():
     assert len(results["results"]) >= 5
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_image_search_scraping():
     results = await naver.scrape_image_search(query="파이썬", max_pages=3)
 
@@ -103,6 +105,7 @@ async def test_image_search_scraping():
     assert len(results["results"]) >= 20
     
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_blog_post_scraping():
     results = await naver.scrape_blog_post([
         "https://blog.naver.com/cherry_27_/224290687381",
@@ -118,6 +121,7 @@ async def test_blog_post_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_news_article_scraping():
     results = await naver.scrape_news_article([
         "https://n.news.naver.com/article/001/0015234567",
