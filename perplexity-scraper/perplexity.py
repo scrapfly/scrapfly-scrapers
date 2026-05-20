@@ -48,9 +48,10 @@ JS_SCENARIO = [
         }
     },
     {
-        "wait": 10000,
+        "wait": 10000
     }
 ]
+
 class PerplexityAnswer(TypedDict):
     query: str
     answer_markdown: str
@@ -80,4 +81,5 @@ async def scrape_answer(prompt: str) -> PerplexityAnswer:
         raise KeyError(
             f"missing extracted_data.data in scrape result (see log: {log_url})"
         )
+    log.success(f"scraped perplexity answer for the prompt: {prompt}")
     return data

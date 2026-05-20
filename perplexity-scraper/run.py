@@ -21,10 +21,7 @@ async def run():
 
     result = await perplexity.scrape_answer("What is the best web scraping API in 2026?")
     with open(output / "answer.json", "w", encoding="utf-8") as f:
-        if isinstance(result, str):
-            f.write(result)
-        else:
-            json.dump(result, f, indent=2, ensure_ascii=False)
+        json.dump(result, f, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
