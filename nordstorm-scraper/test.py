@@ -6,7 +6,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable cache
-nordstorm.BASE_CONFIG["cache"] = True
+nordstorm.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -101,7 +101,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=5, reruns_delay=30)
 async def test_product_scraping():
     products_data = await nordstorm.scrape_products(
         urls=[
@@ -117,7 +117,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=5, reruns_delay=30)
 async def test_search_scraping():
     search_data = await nordstorm.scrape_search(
         url="https://www.nordstrom.com/sr?origin=keywordsearch&keyword=indigo", max_pages=3

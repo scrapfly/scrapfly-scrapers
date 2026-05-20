@@ -22,6 +22,7 @@ BASE_CONFIG = {
     # set the proxy country to US
     "country": "US",
     "render_js": True,
+    "proxy_pool": "public_residential_pool"
 }
 
 
