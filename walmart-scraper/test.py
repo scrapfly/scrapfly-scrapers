@@ -51,10 +51,10 @@ product_schema = {
 }
 
 search_schema = {
-    "id": {"type": "string"},
-    "usItemId": {"type": "string"},
-    "name": {"type": "string"},
-    "type": {"type": "string"},
+    "id": {"type": "string", "nullable": True},
+    "usItemId": {"type": "string", "nullable": True},
+    "name": {"type": "string", "nullable": True},
+    "type": {"type": "string", "nullable": True},
     "imageInfo": {
         "type": "dict",
         "schema": {
@@ -64,13 +64,13 @@ search_schema = {
             "size": {"type": "string", "nullable": True},
         },
     },
-    "canonicalUrl": {"type": "string"},
-    "classType": {"type": "string"},
+    "canonicalUrl": {"type": "string", "nullable": True},
+    "classType": {"type": "string", "nullable": True},
     "averageRating": {"type": "float", "nullable": True},
     "numberOfReviews": {"type": "integer", "nullable": True},
-    "salesUnitType": {"type": "string"},
-    "sellerId": {"type": "string"},
-    "sellerName": {"type": "string"},
+    "salesUnitType": {"type": "string", "nullable": True},
+    "sellerId": {"type": "string", "nullable": True},
+    "sellerName": {"type": "string", "nullable": True},
 }
 
 
