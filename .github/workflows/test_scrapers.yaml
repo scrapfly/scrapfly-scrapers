@@ -304,7 +304,10 @@ jobs:
             test: test_web_search_scraping
           - project_dir: naver-scraper
             test: test_image_search_scraping
-            test: test_scrape_conversations  
+          - project_dir: naver-scraper
+            test: test_blog_post_scraping
+          - project_dir: naver-scraper
+            test: test_news_article_scraping
           - project_dir: perplexity-scraper
             test: test_scrape_answer
 
