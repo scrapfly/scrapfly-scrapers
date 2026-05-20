@@ -304,6 +304,9 @@ jobs:
             test: test_web_search_scraping
           - project_dir: naver-scraper
             test: test_image_search_scraping
+            test: test_scrape_conversations  
+          - project_dir: perplexity-scraper
+            test: test_scrape_answer
 
     steps:
     - uses: actions/checkout@v4
