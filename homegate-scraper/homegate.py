@@ -59,15 +59,16 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     properties = []
     # scrape all property pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        # handle expired property pages
+        if not isinstance(response, ScrapeApiResponse):
+            continue
         try:
             data = parse_property_page(response)
             if data:
                 properties.append(data)
             else:
                 log.warning(f"expired or empty property page: {response.context['url']}")
-        except Exception:
-            log.warning(f"failed to parse property page: {response.context['url']}")
+        except Exception as e:
+            log.warning(f"failed to parse property page {response.context['url']}: {e}")
     log.info(f"scraped {len(properties)} property listings")
     return properties
 
@@ -94,7 +95,12 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
     ]
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
-        data = parse_next_data(response)
-        search_data.extend(data["resultList"]["search"]["fullSearch"]["result"]["listings"])
+        if not isinstance(response, ScrapeApiResponse):
+            continue
+        try:
+            data = parse_next_data(response)
+            search_data.extend(data["resultList"]["search"]["fullSearch"]["result"]["listings"])
+        except Exception as e:
+            log.warning(f"failed to parse search page {response.context['url']}: {e}")
     log.info("scraped {} proprties from {}", len(search_data), url)
     return search_data

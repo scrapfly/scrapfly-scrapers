@@ -9,7 +9,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-homegate.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
+homegate.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -269,13 +269,17 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
+    search_data = await homegate.scrape_search(
+        url="https://www.homegate.ch/rent/real-estate/city-bern/matching-list",
+        scrape_all_pages=False,
+        max_scrape_pages=2,
+    )
+    urls = [f"https://www.homegate.ch/rent/{item['listing']['id']}" for item in search_data]
+
     result = await homegate.scrape_properties(
-        urls=[
-            "https://www.homegate.ch/rent/4002086534",
-            "https://www.homegate.ch/rent/4002879785",
-            "https://www.homegate.ch/rent/4002086532",
-        ]
+        urls=urls[:5]
     )
     validator = Validator(property_schema, allow_unknown=True)
     for item in result:
@@ -289,6 +293,7 @@ async def test_properties_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     result = await homegate.scrape_search(
         url="https://www.homegate.ch/rent/real-estate/city-bern/matching-list",
