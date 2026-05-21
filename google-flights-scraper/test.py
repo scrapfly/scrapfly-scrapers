@@ -55,6 +55,14 @@ flight_search_schema = {
     },
 }
 
+price_insights_schema = {
+    "best_booking_window": {"type": "string", "nullable": True},
+    "current_price_level": {"type": "string", "nullable": True},
+    "typical_range_low": {"type": "integer", "nullable": True},
+    "typical_range_high": {"type": "integer", "nullable": True},
+    "savings_vs_typical": {"type": "string", "nullable": True},
+    "calendar_grid": {"type": "list"},
+}
 
 def _validate_or_raise(item, schema):
     validator = Validator(schema, allow_unknown=True)
@@ -74,3 +82,17 @@ async def test_scrape_flights():
     )
     _validate_or_raise(result, flight_search_schema)
     assert len(result["flights"]) >= 5
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_scrape_price_insights():
+    result = await google_flights.scrape_price_insights(
+        origin="JFK",
+        destination="CDG",
+        depart=TODAY,
+        ret=WEEK_FROM_NOW,
+        currency="USD",
+    )
+    assert result is not None
+    _validate_or_raise(result, price_insights_schema)
+    assert len(result["calendar_grid"]) > 0

@@ -6,6 +6,7 @@ $ export SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
+import json
 import re
 from datetime import datetime
 from pathlib import Path
@@ -60,6 +61,54 @@ _SHOW_MORE_SCENARIO = [
     {"wait": 2000}
 ]
 
+_PRICE_INSIGHTS_SCENARIO = [
+    {
+        "click": {
+            "selector": "button[jsname='b3VHJd']",
+            "ignore_if_not_visible": True,
+            "ignore": True,
+            "multiple": False
+        }
+    },
+    {"wait": 1000},
+    {
+        "wait_for_selector": {
+            "selector": "button[aria-label=\"View price history\"]",
+            "timeout": 15000
+        }
+    },
+    {
+        "click": {
+            "selector": "button[aria-label=\"View price history\"]",
+            "ignore_if_not_visible": True,
+            "ignore": True,
+            "multiple": False
+        }
+    },
+    {"wait": 2000},
+    {
+        "click": {
+            "selector": "button[jsname='KqtnKd']",
+            "ignore_if_not_visible": True,
+            "ignore": True
+        }
+    },
+    {"wait": 1000},
+    {
+        "wait_for_selector": {
+            "selector": "[data-action='1'] button",
+            "ignore_if_not_visible": True,
+            "ignore": True
+        }
+    },
+    {"wait": 1000},
+        {
+        "execute": {
+            "script": "const getBtn = () => { for (const label of document.querySelectorAll('div.R1KXyd')) { if (label.textContent.trim() === 'Departure') { return label.parentElement.querySelector('button[aria-label=\"Scroll right\"]'); } } return null; }; let btn = getBtn(); let maxClicks = 50; while (btn && !btn.disabled && maxClicks-- > 0) { btn.click(); await new Promise(r => setTimeout(r, 400)); btn = getBtn(); } return 'done';",
+            "timeout": 15000
+        }
+    }
+]
 
 class AirportInfo(TypedDict):
     name: Optional[str]
@@ -110,6 +159,19 @@ class FlightSearch(TypedDict):
     return_date: Optional[str]
     flights: List[FlightResult]
 
+class CalendarPriceEntry(TypedDict):
+    depart: str
+    ret: str
+    price: int
+
+
+class PriceInsights(TypedDict):
+    best_booking_window: Optional[str]
+    current_price_level: Optional[str]
+    typical_range_low: Optional[int]
+    typical_range_high: Optional[int]
+    savings_vs_typical: Optional[str]
+    calendar_grid: List[CalendarPriceEntry]
 
 def build_search_url(
     origin: str,
@@ -139,6 +201,32 @@ def parse_stops(text: Optional[str]) -> int:
     match = re.search(r"(\d+)", text)
     return int(match.group(1)) if match else 0
 
+
+def _parse_price_amount(text: str) -> Optional[int]:
+    """Parse a price string like '$630' or '1,234' into an integer."""
+    match = re.search(r"(\d[\d,]*)", text)
+    return int(match.group(1).replace(",", "")) if match else None
+
+
+def _parse_calendar_response(body: str) -> List[CalendarPriceEntry]:
+    results: List[CalendarPriceEntry] = []
+    for line in body.splitlines():
+        line = line.strip()
+        if not line.startswith('[["wrb.fr"'):
+            continue
+        try:
+            outer = json.loads(line)
+            inner = json.loads(outer[0][2])
+            for entry in inner[1]:
+                try:
+                    price = entry[2][0][1]
+                    if isinstance(price, int):
+                        results.append({"depart": entry[0], "ret": entry[1], "price": price})
+                except (IndexError, TypeError):
+                    continue
+        except (json.JSONDecodeError, IndexError, TypeError):
+            continue
+    return results
 
 def _arrival_with_suffix(
     dep_full: Optional[str], arr_full: Optional[str]
@@ -318,6 +406,40 @@ def parse_flights(
     log.success(f"parsed {len(flights)} flights")
     return flights
 
+def parse_price_insights(response: ScrapeApiResponse) -> Optional[PriceInsights]:
+    """Parse the Price insights panel from a Google Flights search response"""
+    sel = response.selector
+    booking_window = sel.css("div.frOi8.BgYkof[jsname='VgMll'] span.yLndKe::text").get()
+    current_level = sel.css("div.frOi8.BgYkof.fVSoi span.gOatQ.OkZdeb::text").get()
+    low = _parse_price_amount(sel.css("div.s2lHq div.OLEkCe.XYlWVb::text").get() or "")
+    high = _parse_price_amount(sel.css("div.s2lHq div.JBTUR.XYlWVb::text").get() or "")
+    savings = sel.css("div.ohJ41d.Px6wAd.eoY5cb span.pug83b::text").get()
+
+    calendar_grid_entries: List[CalendarPriceEntry] = []
+    for xhr in response.scrape_result.get("browser_data", {}).get("xhr_call", []):
+        body = xhr.get("response", {}).get("body", "").strip()
+        if body and "GetCalendarGrid" in xhr.get("url", ""):
+            calendar_grid_entries.extend(_parse_calendar_response(body))
+
+    if not any([booking_window, current_level, low, high, savings]):
+        if calendar_grid_entries:
+            return PriceInsights(
+                best_booking_window=None,
+                current_price_level=None,
+                typical_range_low=None,
+                typical_range_high=None,
+                savings_vs_typical=None,
+                calendar_grid=calendar_grid_entries,
+            )
+        return None
+    return PriceInsights(
+        best_booking_window=booking_window,
+        current_price_level=current_level,
+        typical_range_low=low,
+        typical_range_high=high,
+        savings_vs_typical=savings,
+        calendar_grid=calendar_grid_entries,
+    )
 
 async def scrape_flights(
     origin: str,
@@ -339,4 +461,18 @@ async def scrape_flights(
         return_date=ret,
         flights=parse_flights(response, year=year, currency=currency),
     )
+    
+async def scrape_price_insights(
+    origin: str,
+    destination: str,
+    depart: str,
+    ret: Optional[str] = None,
+    currency: str = "USD",
+) -> Optional[PriceInsights]:
+    """Scrape the Price insights panel for a Google Flights route."""
+    url = build_search_url(origin, destination, depart, ret, currency)
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, **BASE_CONFIG, js_scenario=_PRICE_INSIGHTS_SCENARIO)
+    )
+    return parse_price_insights(response)
     

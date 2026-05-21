@@ -8,7 +8,7 @@ The scraping code is located in the `google_flights.py` file. It's fully documen
 
 This scraper scrapes:
 - Google Flights search results (round-trip and one-way)
-- Flight price, airline, departure/arrival times, stops, duration, and CO2 data
+- Price insights: best booking window, typical price range, current price level, savings vs typical, and a departure/return date price calendar grid
 
 For output examples see the `./results` directory.
 
@@ -41,4 +41,5 @@ This Google Flights scraper uses __Python 3.10__ with [scrapfly-sdk](https://pyp
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_scrape_flights
+    $ poetry run pytest test.py -k test_scrape_price_insights
     ```
