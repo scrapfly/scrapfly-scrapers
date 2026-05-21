@@ -30,7 +30,8 @@ BASE_CONFIG = {
 def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
     # decode the .gz file
-    bytes_data = response.scrape_result["content"].encode("latin1")
+    content = response.scrape_result["content"]
+    bytes_data = content.read() if hasattr(content, "read") else content.encode("latin1")
     xml = str(gzip.decompress(bytes_data), "utf-8")
     selector = Selector(xml)
     data = []
@@ -241,6 +242,24 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
             render_js=True,
             rendering_wait=10000,
             auto_scroll=True,
+            js_scenario=[
+                {
+                    "wait": 2000
+                },
+                {
+                    "scroll": {
+                        "infinite": 2
+                    }
+                },
+                {
+                    "wait": 2000
+                },
+                {
+                    "scroll": {
+                        "infinite": 2
+                    }
+                }
+            ],
             **BASE_CONFIG,
         )
     )
