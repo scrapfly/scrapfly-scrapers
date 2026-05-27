@@ -368,15 +368,14 @@ def parse_video_api(response: ScrapeApiResponse) -> Dict:
             continue
         result = jmespath.search(
             """{
-            videoId: videoId,
-            title: title.runs[0].text,
-            description: descriptionSnippet.runs[0].text,
-            publishedTime: publishedTimeText.simpleText,
-            lengthText: lengthText.simpleText,
-            viewCount: viewCountText.simpleText,
-            thumbnails: thumbnail.thumbnails
+            videoId: contentId,
+            title: metadata.lockupMetadataViewModel.title.content,
+            publishedTime: metadata.lockupMetadataViewModel.metadata.contentMetadataViewModel.metadataRows[0].metadataParts[1].text.content,
+            viewCount: metadata.lockupMetadataViewModel.metadata.contentMetadataViewModel.metadataRows[0].metadataParts[0].text.content,
+            lengthText: contentImage.thumbnailViewModel.overlays[0].thumbnailBottomOverlayViewModel.badges[0].thumbnailBadgeViewModel.text,
+            thumbnails: contentImage.thumbnailViewModel.image.sources
             }""",
-            i["richItemRenderer"]["content"]["videoRenderer"],
+            i["richItemRenderer"]["content"]["lockupViewModel"],
         )
         result["url"] = f"https://youtu.be/{result['videoId']}"
         parsed_videos.append(result)

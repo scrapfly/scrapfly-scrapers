@@ -28,7 +28,6 @@ _thumnails_schema = {
 channel_videos_schema = {
     "videoId": {"type": "string"},
     "title": {"type": "string"},
-    "description": {"type": "string"},
     "publishedTime": {"type": "string"},
     "lengthText": {"type": "string"},
     "viewCount": {"type": "string"},
