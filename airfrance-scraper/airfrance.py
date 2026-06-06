@@ -8,7 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 from scrapfly import ScrapflyClient, BrowserConfig
 from playwright.sync_api import sync_playwright
-
+import uuid
 from datetime import datetime
 from typing import List, Optional, TypedDict
 
@@ -17,6 +17,7 @@ BROWSER_CONFIG = BrowserConfig(
         debug=True,
         country="FR",
         proxy_pool="residential",
+        session=uuid.uuid4().hex,
     )
 
 
@@ -51,7 +52,7 @@ class Flight(TypedDict):
     co2_kg: int
     airport_change_warning: Optional[List[str]]
 
-GQL_BOOKING_URL = "gql/v1?bookingFlow="
+GQL_BOOKING_OP = "operationName=SearchResultAvailableOffersQuery"
 SEARCH_BUTTON = "[data-testid='bwsfe-widget__search-button']"
 SEARCH_BUTTON_LOADING = f"{SEARCH_BUTTON} .bwc-button-content--loading"
 LANDING_URL = "https://wwws.airfrance.fr/"
@@ -156,7 +157,6 @@ def _fill_search_form(
         page.wait_for_timeout(10_000)
         page.click(SEARCH_BUTTON)
         page.wait_for_load_state("domcontentloaded", timeout=10000)
-        page.wait_for_timeout(10000)
         try:
             page.wait_for_selector("[data-testid='bwsfe-itinerary-list']", timeout=50000)
             return
@@ -169,13 +169,10 @@ def _fill_search_form(
 
 
 def _find_booking_response(xhrs: list[dict]) -> dict:
-    """Return the first GraphQL booking-flow response that contains availableOffers."""
+    """Return the first GraphQL SearchResultAvailableOffersQuery response."""
     for xhr in xhrs:
-        if GQL_BOOKING_URL not in xhr["url"]:
-            continue
-        payload = xhr["payload"]
-        if payload.get("data", {}).get("availableOffers") is not None:
-            return payload
+        if GQL_BOOKING_OP in xhr["url"] and xhr["payload"]:
+            return xhr["payload"]
     raise ValueError(
         f"availableOffers not found in any collected XHR ({len(xhrs)} responses captured)"
     )
