@@ -1,0 +1,846 @@
+{
+  "locale": "us/english",
+  "trip_type": "one-way",
+  "origin": "JFK",
+  "destination": "DXB",
+  "route": "JFK-DXB",
+  "search_date": "2026-06-09",
+  "departure_date": "2026-06-09",
+  "return_date": null,
+  "lowest_fare": {
+    "amount": 612.9,
+    "currency": "USD"
+  },
+  "flights": [
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 612.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "SAVER",
+      "seats_available": 5,
+      "captured_at": "2026-06-09T21:09:35.482762"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 773.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "FLEX",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482773"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 1909.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482777"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 1953.9,
+        "currency": "USD"
+      },
+      "cabin_class": "premium economy",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482779"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 5033.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "388",
+      "fare_brand": "SAVER",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482782"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 6919.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "388",
+      "fare_brand": "FLEX",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482784"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 9794.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482786"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 17947.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "388",
+      "fare_brand": "FLEX",
+      "seats_available": 6,
+      "captured_at": "2026-06-09T21:09:35.482788"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 202",
+      "departure_time": "23:00",
+      "departure_airport": "JFK",
+      "arrival_time": "20:10+1",
+      "arrival_airport": "DXB",
+      "duration": "13H10M",
+      "stops": 0,
+      "layovers": [],
+      "price": {
+        "amount": 25617.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 6,
+      "captured_at": "2026-06-09T21:09:35.482790"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 612.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "SAVER",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482799"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 773.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "FLEX",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482801"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 1909.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482802"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 1953.9,
+        "currency": "USD"
+      },
+      "cabin_class": "premium economy",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482804"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 9794.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 3,
+      "captured_at": "2026-06-09T21:09:35.482806"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 17947.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "388",
+      "fare_brand": "FLEX",
+      "seats_available": 6,
+      "captured_at": "2026-06-09T21:09:35.482808"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "22:45+1",
+      "arrival_airport": "DXB",
+      "duration": "16H25M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 25617.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 6,
+      "captured_at": "2026-06-09T21:09:35.482810"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206 / EK 092",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45+2",
+      "arrival_airport": "DXB",
+      "duration": "24H25M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "10H0M"
+        }
+      ],
+      "price": {
+        "amount": 739.6,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "SAVER",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482819"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206 / EK 092",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45+2",
+      "arrival_airport": "DXB",
+      "duration": "24H25M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "10H0M"
+        }
+      ],
+      "price": {
+        "amount": 900.6,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "FLEX",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482821"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206 / EK 092",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45+2",
+      "arrival_airport": "DXB",
+      "duration": "24H25M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "10H0M"
+        }
+      ],
+      "price": {
+        "amount": 2036.6,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482823"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206 / EK 092",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45+2",
+      "arrival_airport": "DXB",
+      "duration": "24H25M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "10H0M"
+        }
+      ],
+      "price": {
+        "amount": 2080.6,
+        "currency": "USD"
+      },
+      "cabin_class": "premium economy",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482828"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206 / EK 092",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45+2",
+      "arrival_airport": "DXB",
+      "duration": "24H25M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "10H0M"
+        }
+      ],
+      "price": {
+        "amount": 10121.6,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 3,
+      "captured_at": "2026-06-09T21:09:35.482830"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 206 / EK 092",
+      "departure_time": "22:20",
+      "departure_airport": "JFK",
+      "arrival_time": "06:45+2",
+      "arrival_airport": "DXB",
+      "duration": "24H25M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "MXP",
+          "duration": "10H0M"
+        }
+      ],
+      "price": {
+        "amount": 25944.6,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "388",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 2,
+      "captured_at": "2026-06-09T21:09:35.482832"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 4839 / EK 192",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "01:15+2",
+      "arrival_airport": "DXB",
+      "duration": "19H10M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration": "4H5M"
+        }
+      ],
+      "price": {
+        "amount": 3301.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "339",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 4,
+      "captured_at": "2026-06-09T21:09:35.482841"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 4839 / EK 192",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "01:15+2",
+      "arrival_airport": "DXB",
+      "duration": "19H10M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration": "4H5M"
+        }
+      ],
+      "price": {
+        "amount": 15268.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "339",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 4,
+      "captured_at": "2026-06-09T21:09:35.482843"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 4839 / EK 192",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "01:15+2",
+      "arrival_airport": "DXB",
+      "duration": "19H10M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration": "4H5M"
+        }
+      ],
+      "price": {
+        "amount": 27255.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "339",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 4,
+      "captured_at": "2026-06-09T21:09:35.482845"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 4839 / EK 194",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "08:20+2",
+      "arrival_airport": "DXB",
+      "duration": "26H15M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration": "11H10M"
+        }
+      ],
+      "price": {
+        "amount": 3301.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "339",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 4,
+      "captured_at": "2026-06-09T21:09:35.482852"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 4839 / EK 194",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "08:20+2",
+      "arrival_airport": "DXB",
+      "duration": "26H15M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration": "11H10M"
+        }
+      ],
+      "price": {
+        "amount": 15268.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "339",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 4,
+      "captured_at": "2026-06-09T21:09:35.482854"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 4839 / EK 194",
+      "departure_time": "22:05",
+      "departure_airport": "JFK",
+      "arrival_time": "08:20+2",
+      "arrival_airport": "DXB",
+      "duration": "26H15M",
+      "stops": 1,
+      "layovers": [
+        {
+          "airport": "LIS",
+          "duration": "11H10M"
+        }
+      ],
+      "price": {
+        "amount": 27255.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "339",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 4,
+      "captured_at": "2026-06-09T21:09:35.482856"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 985.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "77W",
+      "fare_brand": "FLEX",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482864"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 1909.9,
+        "currency": "USD"
+      },
+      "cabin_class": "economy",
+      "plane_model": "77W",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 9,
+      "captured_at": "2026-06-09T21:09:35.482866"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 1953.9,
+        "currency": "USD"
+      },
+      "cabin_class": "premium economy",
+      "plane_model": "77W",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 7,
+      "captured_at": "2026-06-09T21:09:35.482867"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 6515.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "77W",
+      "fare_brand": "FLEX",
+      "seats_available": 8,
+      "captured_at": "2026-06-09T21:09:35.482869"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 9199.9,
+        "currency": "USD"
+      },
+      "cabin_class": "business",
+      "plane_model": "77W",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 8,
+      "captured_at": "2026-06-09T21:09:35.482871"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 16815.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "77W",
+      "fare_brand": "FLEX",
+      "seats_available": 3,
+      "captured_at": "2026-06-09T21:09:35.482873"
+    },
+    {
+      "airline": "Emirates",
+      "flight_number": "EK 210",
+      "departure_time": "23:55",
+      "departure_airport": "EWR",
+      "arrival_time": "23:59+1",
+      "arrival_airport": "DXB",
+      "duration": "16H4M",
+      "stops": 0,
+      "layovers": [
+        {
+          "airport": "ATH",
+          "duration": "2H0M"
+        }
+      ],
+      "price": {
+        "amount": 23982.9,
+        "currency": "USD"
+      },
+      "cabin_class": "first",
+      "plane_model": "77W",
+      "fare_brand": "FLEXPLUS",
+      "seats_available": 3,
+      "captured_at": "2026-06-09T21:09:35.482875"
+    }
+  ]
+}
