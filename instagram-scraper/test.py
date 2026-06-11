@@ -7,7 +7,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=2)
 
 # enable cache?
-instagram.BASE_CONFIG["cache"] = True
+instagram.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -95,8 +95,7 @@ async def test_user_post_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_post_comments_scraping():
-    post = await instagram.scrape_post("https://www.instagram.com/p/Csthn7EO99u/")
-    result = await instagram.scrape_post_comments(post["id"], max_comments=20)
+    result = await instagram.scrape_post_comments("https://www.instagram.com/p/Csthn7EO99u/")
     schema = {
         "id": {"type": "string"},
         "text": {"type": "string"},
@@ -104,9 +103,9 @@ async def test_post_comments_scraping():
         "owner": {"type": "string"},
         "owner_id": {"type": "string"},
         "owner_verified": {"type": "boolean"},
-        "replies_count": {"type": "integer"},
+        "likes": {"type": "integer"},
     }
-    assert len(result) > 10
+    assert len(result) > 30
     validator = Validator(schema, allow_unknown=True)
     for comment in result:
         validate_or_fail(comment, validator)

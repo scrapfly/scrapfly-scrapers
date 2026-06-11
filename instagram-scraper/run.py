@@ -39,7 +39,7 @@ async def run():
     output.joinpath("all-user-posts.json").write_text(json.dumps(posts_all, indent=2, ensure_ascii=False), encoding='utf-8')
 
     # scrape post comments
-    comments = await instagram.scrape_post_comments(post_video["id"], max_comments=100)
+    comments = await instagram.scrape_post_comments("https://www.instagram.com/p/Csthn7EO99u/")
     output.joinpath("post-comments.json").write_text(json.dumps(comments, indent=2, ensure_ascii=False), encoding='utf-8')
 
 

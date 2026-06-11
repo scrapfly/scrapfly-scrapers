@@ -24,7 +24,28 @@ BASE_CONFIG = {
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
 INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
 INSTAGRAM_ACCOUNT_DOCUMENT_ID = "9310670392322965"
-INSTAGRAM_COMMENTS_DOC_ID = "26248690958161038"
+
+# scroll down the comments section to load them
+COMMENTS_JS_SCENARIO = [
+    {"wait": 2000},
+    {
+        "wait_for_selector": {
+            "selector": '//*[local-name()="svg" and @*[local-name()="aria-label"]="Comment"]'
+        }
+    },
+    {
+        "click": {
+            "selector": '//*[local-name()="svg" and @*[local-name()="aria-label"]="Close"]',
+            "ignore_if_not_visible": True,
+        }
+    },
+    {
+        "execute": {
+            "script": "function scrollComments(pct, intervalMs, times) {\n  pct = pct || 0.3;\n  intervalMs = intervalMs || 500;\n  times = times || 20;\n  return new Promise(function(resolve) {\n    var el = document.querySelector('div.x5yr21d.xw2csxc.x1odjw0f.x1n2onr6');\n    if (!el) { resolve(); return; }\n    var count = 0;\n    var timer = setInterval(function() {\n      var delta = el.scrollHeight * pct;\n      el.scrollTop += delta;\n      count++;\n      if (count >= times) {\n        clearInterval(timer);\n        resolve();\n      }\n    }, intervalMs);\n  });\n}\nreturn scrollComments(0.3, 500, 20);\n",
+            "timeout": 20000,
+        }
+    },
+]
 
 def parse_user(data: Dict) -> Dict:
     """Reduce the user data to the relevant fields"""
@@ -149,7 +170,6 @@ def parse_comments(data: Dict) -> Dict:
 
 def parse_post(data: Dict) -> Dict:
     """Reduce post dataset to the most important fields"""
-    log.debug("parsing post data {}", data["shortcode"])
     result = jmespath.search(
         """{
         id: id,
@@ -211,7 +231,6 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
 
 def parse_user_posts(data: Dict) -> Dict:
     """Reduce users posts' dataset to the most important fields"""
-    log.debug("parsing post data {}", data["code"])
     result = jmespath.search(
         """{
         id: id,
@@ -297,8 +316,7 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
             break
 
 def parse_post_comment(data: Dict) -> Dict:
-    """Reduce post comment dataset to the most important fields"""
-    log.debug("parsing comment data {}", data["pk"])
+    """refine the comment dataset"""
     return jmespath.search(
         """{
         id: pk,
@@ -308,68 +326,47 @@ def parse_post_comment(data: Dict) -> Dict:
         owner_id: user.id,
         owner_verified: user.is_verified,
         owner_profile_pic: user.profile_pic_url,
-        likes: comment_like_count,
-        replies_count: child_comment_count,
-        parent_comment_id: parent_comment_id
+        likes: comment_like_count
     }""",
         data,
     )
 
 
-async def scrape_post_comments(shortcode: str, max_comments: int = 1000):
-    """Scrape all comments from an Instagram post given the post ID"""
-    log.info("scraping instagram post comments: {}", shortcode)
-    comments = []
-    cursor = None
+async def scrape_post_comments(url: str):
+    """Scrape comments from an Instagram post"""
+    log.info("scraping instagram post comments: {}", url)
 
-    while len(comments) < max_comments:
-        variables = {
-            "after": cursor,
-            "before": None,
-            "first": 10,
-            "last": None,
-            "media_id": shortcode,
-            "sort_order": "popular",
-            "__relay_internal__pv__PolarisIsLoggedInrelayprovider": False,
-        }
-
-        body = f"variables={json.dumps(variables, separators=(',', ':'))}&doc_id={INSTAGRAM_COMMENTS_DOC_ID}"
-
-        result = await SCRAPFLY.async_scrape(
-            ScrapeConfig(
-                url="https://www.instagram.com/graphql/query",
-                method="POST",
-                body=body,
-                headers={
-                    "content-type": "application/x-www-form-urlencoded",
-                },
-                **BASE_CONFIG,
-            )
+    result = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            url=url,
+            render_js=True,
+            proxy_pool="public_residential_pool",
+            js_scenario=COMMENTS_JS_SCENARIO,
+            **BASE_CONFIG,
         )
+    )
 
-        if not result.content:
-            log.warning("empty response from comments API, stopping pagination")
-            break
+    comments = []
+    seen_ids = set()
+    xhr_calls = result.scrape_result.get("browser_data", {}).get("xhr_call") or []
+    for xhr in xhr_calls:
+        body = (xhr.get("response") or {}).get("body")
+        if not body or "comments_connection" not in body:
+            continue
         try:
-            content = result.content
-            if content.startswith("for (;;);"):
-                content = content[len("for (;;);"):]
-            data = json.loads(content)
+            data = json.loads(body)
         except json.JSONDecodeError:
-            log.warning("non-JSON response from comments API: {}", result.content[:200])
-            break
+            log.warning("no JSON comments found, skipping")
+            continue
 
-        comment_data = data["data"]["xdt_api__v1__media__media_id__comments__connection"]
-        for edge in comment_data["edges"]:
-            comments.append(parse_post_comment(edge["node"]))
+        edges = jmespath.search(
+            "data.xig_polaris_media.comments_connection.edges[].node", data
+        ) or []
+        for node in edges:
+            if node["id"] in seen_ids:
+                continue
+            seen_ids.add(node["id"])
+            comments.append(parse_post_comment(node))
 
-        page_info = comment_data["page_info"]
-        if not page_info["has_next_page"] or not page_info.get("end_cursor"):
-            break
-
-        cursor = page_info["end_cursor"]
-        log.info(f"scraped {len(comments)} comments")
-        if max_comments and len(comments) >= max_comments:
-            break
-
+    log.success("scraped {} comments", len(comments))
     return comments
