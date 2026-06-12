@@ -26,6 +26,7 @@ def run():
         departure_date=DEPARTURE,
         return_date=RETURN,
     )
+    
     with open(output / "roundtrip.json", "w", encoding="utf-8") as f:
         json.dump(roundtrip, f, indent=2, ensure_ascii=False)
 

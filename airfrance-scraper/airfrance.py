@@ -8,6 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 from scrapfly import ScrapflyClient, BrowserConfig
 from playwright.sync_api import sync_playwright
+from loguru import logger as log
 import uuid
 from datetime import datetime
 from typing import List, Optional, TypedDict
@@ -17,9 +18,12 @@ BROWSER_CONFIG = BrowserConfig(
         debug=True,
         country="FR",
         proxy_pool="residential",
-        session=uuid.uuid4().hex,
+        cache=True,
+        blacklist=True,
+        block_images=True,
+        block_media=True,
+        block_styles=True
     )
-
 
 client = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -81,16 +85,18 @@ def _date_to_day_id(date_str: str) -> str:
 
 
 def open_session():
+    log.debug("opening cloud browser session")
     p = sync_playwright().start()
     cdp_url = client.cloud_browser(BROWSER_CONFIG)
     browser = p.chromium.connect_over_cdp(cdp_url, timeout=180_000)
     context = browser.contexts[0]
     page = context.pages[0] if context.pages else context.new_page()
-    page.set_viewport_size({"width": 1280, "height": 800})
+    page.set_viewport_size({"width": 1920, "height": 1080})
     return p, browser, page
 
 
 def dismiss_cookie_banner(page):
+    log.debug("dismissing cookie banner")
     try:
         page.wait_for_selector("#accept_cookies_btn", timeout=15000)
         page.evaluate("() => document.querySelector('#accept_cookies_btn')?.click()")
@@ -101,6 +107,7 @@ def dismiss_cookie_banner(page):
 
 
 def fill_station(page, origin: str, destination: str) -> None:
+    log.debug(f"filling stations {origin} -> {destination}")
     for role, iata_code in (("origin", origin), ("destination", destination)):
         picker = page.locator(
             f"[data-testid='bwsfe-connection-picker__station-picker--{role}']"
@@ -116,29 +123,27 @@ def fill_station(page, origin: str, destination: str) -> None:
 
 
 def pick_date(page, date: str, return_date: str) -> None:
+    log.debug(f"picking dates {date} -> {return_date}")
     page.wait_for_selector('[data-testid="bwsfe-datepicker__toggle-button"]', timeout=15000)
     day_sel = f"#bwc-day_{_date_to_day_id(date)}"
 
-    page.evaluate(
-        "var btn=document.querySelector('[data-testid=\"bwsfe-datepicker__toggle-button\"]');"
-        "if(btn&&btn.getAttribute('aria-expanded')!=='true')btn.click();"
-    )
+    toggle = page.locator('[data-testid="bwsfe-datepicker__toggle-button"]')
+    if toggle.get_attribute("aria-expanded") != "true":
+        toggle.click()
     page.wait_for_timeout(1500)
 
     page.click(day_sel)
     page.wait_for_timeout(500)
 
-    page.click(f"#bwc-day_{_date_to_day_id(return_date)}")
+    return_sel = f"#bwc-day_{_date_to_day_id(return_date)}"
+    page.click(return_sel)
     page.wait_for_timeout(500)
 
-    page.evaluate(
-        "() => document.querySelector('[data-testid=\"bwc-calendar__confirm\"]')?.click()"
-    )
+    page.click('[data-testid="bwc-calendar__confirm"]')
 
 
 def _is_search_button_loading(page) -> bool:
     return page.locator(SEARCH_BUTTON_LOADING).count() > 0
-
 
 
 def _fill_search_form(
@@ -155,6 +160,7 @@ def _fill_search_form(
         pick_date(page, date, return_date)
         fill_station(page, origin, destination)
         page.wait_for_timeout(10_000)
+        log.debug(f"submitting search (attempt {attempt + 1})")
         page.click(SEARCH_BUTTON)
         page.wait_for_load_state("domcontentloaded", timeout=10000)
         try:
@@ -176,6 +182,7 @@ def _find_booking_response(xhrs: list[dict]) -> dict:
     raise ValueError(
         f"availableOffers not found in any collected XHR ({len(xhrs)} responses captured)"
     )
+
 
 def parse_flights(response: dict) -> List[Flight]:
     offers = response["data"]["availableOffers"]
@@ -240,15 +247,34 @@ def scrape_flights(
     destination: str,
     departure_date: str,
     return_date: str,
+    max_retries: int = 3,
 ) -> List[Flight]:
     """Scrape flight offers from Air France search GraphQL XHR."""
-    p, browser, page = open_session()
-    xhr_list, on_response = _start_xhr_collector(page)
-    try:
-        page.goto(LANDING_URL, wait_until="domcontentloaded", timeout=90_000)
-        _fill_search_form(page, origin, destination, departure_date, return_date)
-    finally:
-        page.remove_listener("response", on_response)
-        browser.close()
-    response = _find_booking_response(xhr_list)
-    return parse_flights(response)
+    last_error: Optional[Exception] = None
+    for attempt in range(1, max_retries + 1):
+        p, browser, page = open_session()
+        xhr_list, on_response = _start_xhr_collector(page)
+        try:
+            log.debug(f"attempt {attempt}/{max_retries}: navigating to {LANDING_URL}")
+            page.goto(LANDING_URL, wait_until="domcontentloaded", timeout=90_000)
+            page.wait_for_timeout(5_000)
+            _fill_search_form(page, origin, destination, departure_date, return_date)
+            log.debug("locating booking response in captured XHR")
+            response = _find_booking_response(xhr_list)
+            flights = parse_flights(response)
+            log.success(f"scraped {len(flights)} flights for {origin} -> {destination}")
+            return flights
+        except Exception as e:
+            last_error = e
+            print(f"scrape_flights attempt {attempt}/{max_retries} failed: {e}")
+        finally:
+            for cleanup in (
+                lambda: page.remove_listener("response", on_response),
+                browser.close,
+                p.stop,
+            ):
+                try:
+                    cleanup()
+                except Exception:
+                    pass
+    raise last_error
