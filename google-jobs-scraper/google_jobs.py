@@ -21,7 +21,16 @@ BASE_CONFIG = {
 
 SCROLL_JS = """
 return (async () => {
-    const isEnd = () => !!document.querySelector('div[jsname="CLJY1d"]');
+    const isEnd = () => {
+        const result = document.evaluate(
+            '//*[contains(text(),"No more jobs")]',
+            document,
+            null,
+            XPathResult.FIRST_ORDERED_NODE_TYPE,
+            null
+        );
+        return !!result.singleNodeValue;
+    };
     while (!isEnd()) {
         window.scrollTo(0, document.body.scrollHeight);
         await new Promise(r => setTimeout(r, 1000));

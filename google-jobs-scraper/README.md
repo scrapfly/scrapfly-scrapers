@@ -2,8 +2,6 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape job listing data from Google Jobs (the `udm=8` vertical on Google Search).
 
-Full tutorial <https://scrapfly.io/blog/guide-to-google-jobs-api-and-alternatives/>
-
 The scraping code is located in the `google_jobs.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
