@@ -312,6 +312,8 @@ jobs:
             test: test_scrape_answer
           - project_dir: google-jobs-scraper
             test: test_search_scraping            
+          - project_dir: emirates-scraper
+            test: test_scrape_flights
 
     steps:
     - uses: actions/checkout@v4
