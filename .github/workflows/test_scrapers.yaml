@@ -310,6 +310,8 @@ jobs:
             test: test_news_article_scraping
           - project_dir: perplexity-scraper
             test: test_scrape_answer
+          - project_dir: google-jobs-scraper
+            test: test_search_scraping            
 
     steps:
     - uses: actions/checkout@v4
