@@ -1,5 +1,5 @@
 """
-This is an example web scraper for imovelweb.com.
+This is an example web scraper for imovelweb.com.br.
 
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
@@ -10,9 +10,8 @@ import json
 import re
 from pathlib import Path
 from loguru import logger as log
-from typing import List, Dict, TypedDict
-from urllib.parse import urlencode, urlparse
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from typing import List, Dict, Optional
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -20,381 +19,132 @@ BASE_CONFIG = {
     "asp": True,
     "proxy_pool": "public_residential_pool",
     "render_js": True,
+    "country": "BR",
 }
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
-
-class Location(TypedDict, total=False):
-    street: str
-    number: str
-    postal_code: str
-    locality: str
-    city: str
-    district: str
-    province: str
-    country: str
-    latitude: float
-    longitude: float
+_PROPERTY_TYPES = {"Apartment", "House", "SingleFamilyResidence", "RealEstateListing", "Residence", "Accommodation"}
 
 
-class PriceInfo(TypedDict, total=False):
-    price: float
-    price_display: str
-    monthly_rental_price: float
-    monthly_rental_costs: float
-
-
-class Agency(TypedDict, total=False):
-    name: str
-    email: str
-    phone: str
-    logo: str
-    website: str
-
-
-class PropertyFeatures(TypedDict, total=False):
-    bedrooms: int
-    bathrooms: int
-    room_count: int
-    net_habitable_surface: float
-    has_lift: bool
-    has_terrace: bool
-    has_garden: bool
-    has_parking: int
-    is_furnished: bool
-
-
-class PropertyResult(TypedDict, total=False):
-    id: int
-    external_reference: str
-    link: str
-    type: str
-    subtype: str
-    location: Location
-    price: PriceInfo
-    features: PropertyFeatures
-    agency: Agency
-    images: List[str]
-    image_count: int
-    creation_date: str
-    last_modified: str
-
-
-class SearchResult(TypedDict):
-    total_pages: int
-    total_properties: int
-    search_properties: List[Dict]
+def _parse_jsonld(sel) -> Optional[Dict]:
+    """Find the property-specific JSON-LD block, skipping WebSite/Organization entries."""
+    for s in sel.xpath("//script[@type='application/ld+json']/text()").getall():
+        try:
+            data = json.loads(s)
+        except json.JSONDecodeError:
+            continue
+        for item in (data if isinstance(data, list) else [data]):
+            if isinstance(item, dict) and item.get("@type") in _PROPERTY_TYPES:
+                return item
+    return None
 
 
 def parse_property(result: ScrapeApiResponse) -> Dict:
-    """Parse detailed property data from imovelweb property page"""
-    classified_data = None
-    script_content = result.selector.xpath("//script[contains(text(), 'window.classified')]/text()").get()
-    if script_content:
-        match = re.search(r"window\.classified\s*=\s*({.*?});", script_content, re.DOTALL)
-        if match:
-            classified_data = json.loads(match.group(1))
-
-    if not classified_data:
-        return {}
-
-    prop = classified_data.get("property", {})
-    loc = prop.get("location", {})
-    trans = classified_data.get("transaction", {})
-    rental = trans.get("rental", {})
-    price_info = classified_data.get("price", {})
-    media = classified_data.get("media", {})
-    stats = classified_data.get("statistics", {})
-    pub = classified_data.get("publication", {})
-    certs = trans.get("certificates", {})
-    customers = classified_data.get("customers", [])
-    customer = customers[0] if customers else {}
-
-    return {
-        "id": classified_data.get("id"),
-        "external_reference": classified_data.get("externalReference"),
-        "type": prop.get("type"),
-        "subtype": prop.get("subtype"),
-        "link": classified_data.get("id") and f"https://www.immoweb.be/en/classified/{classified_data['id']}",
-        "price": price_info.get("mainValue"),
-        "price_display": price_info.get("mainDisplayPrice"),
-        "street": loc.get("street"),
-        "number": loc.get("number"),
-        "postal_code": loc.get("postalCode"),
-        "locality": loc.get("locality"),
-        "city": loc.get("locality"),
-        "district": loc.get("district"),
-        "province": loc.get("province"),
-        "country": loc.get("country"),
-        "latitude": loc.get("latitude"),
-        "longitude": loc.get("longitude"),
-        "monthly_rental_price": rental.get("monthlyRentalPrice"),
-        "monthly_rental_costs": rental.get("monthlyRentalCosts"),
-        "is_furnished": rental.get("isFurnished"),
-        "bedrooms": prop.get("bedroomCount", 0),
-        "bathrooms": prop.get("bathroomCount"),
-        "room_count": prop.get("roomCount"),
-        "net_habitable_surface": prop.get("netHabitableSurface"),
-        "has_lift": prop.get("hasLift"),
-        "has_terrace": prop.get("hasTerrace"),
-        "has_garden": prop.get("hasGarden"),
-        "has_parking": prop.get("parkingCountIndoor") or prop.get("parkingCountOutdoor"),
-        "images": [pic.get("largeUrl") for pic in media.get("pictures", [])],
-        "image_count": len(media.get("pictures", [])),
-        "view_count": stats.get("viewCount"),
-        "bookmark_count": stats.get("bookmarkCount"),
-        "creation_date": pub.get("creationDate"),
-        "last_modified": pub.get("lastModificationDate"),
-        "epc_score": certs.get("epcScore"),
-        "energy_class": certs.get("primaryEnergyConsumptionLevel"),
-        "agency_name": customer.get("name"),
-        "agency_email": customer.get("email"),
-        "agency_phone": customer.get("phoneNumber"),
-        "agency_logo": customer.get("logoUrl"),
-        "agency_website": customer.get("website"),
-    }
-
-
-def parse_search_page(result: ScrapeApiResponse) -> SearchResult:
-    """Parse search page data from imovelweb search page"""
+    """Parse detailed property data from an imovelweb.com.br property page."""
     sel = result.selector
-    total_properties = 0
-    max_pages = 1
+    out: Dict = {"url": result.context["url"], "currency": "BRL"}
+
+    if ld := _parse_jsonld(sel):
+        addr = ld.get("address", {})
+        parts = [p.strip() for p in (addr.get("addressLocality") or "").strip(" ,").split(",") if p.strip().lower() != "brasil"]
+        out.update({
+            "description": ld.get("description"),
+            "bedrooms": ld.get("numberOfBedrooms"),
+            "bathrooms": ld.get("numberOfBathroomsTotal"),
+            "area_m2": (ld.get("floorSize") or {}).get("value"),
+            "phone": ld.get("telephone"),
+            "street": addr.get("streetAddress"),
+            "neighborhood": addr.get("addressRegion"),
+            "city": parts[0] if parts else None,
+            "state": parts[1] if len(parts) > 1 else None,
+        })
+
+    h1 = sel.css("h1::text").get("").strip()
+    out["title"] = h1 if h1.lower() != "imovelweb" else None
+
+    if m := re.search(r"R\$\s*([\d.]+(?:,\d+)?)", sel.css("title::text").get("")):
+        out["price_display"] = f"R$ {m.group(1)}"
+        out["price"] = float(m.group(1).replace(".", "").replace(",", "."))
+
+    out["images"] = sel.css("img[src*='imovelwebcdn'][src*='/avisos/']::attr(src)").getall()
+    return out
+
+
+def parse_search_page(result: ScrapeApiResponse) -> Dict:
+    """Parse listing cards from an imovelweb.com.br search page."""
+    sel = result.selector
     properties = []
 
-    no_results = sel.css("h1.empty-state__title::text").get()
-    if no_results and "no matching results" in no_results.lower():
-        log.warning("No matching results found for this search")
-        return {
-            "total_properties": 0,
-            "total_pages": 0,
-            "properties": [],
-        }
-
-    title = sel.css("h1.search-results__title::text").get()
-    if title:
-        match = re.search(r"(\d+(?:,\d+)*)\s+propert", title)
-        total_properties = int(match.group(1).replace(",", ""))
-
-    max_pages = 1
-    page_links = sel.css("ul.pagination li.pagination__item a.pagination__link::attr(href)").getall()
-    for link in page_links:
-        match = re.search(r"[?&]page=(\d+)", link)
-        if match:
-            page_num = int(match.group(1))
-            max_pages = max(max_pages, page_num)
-
-    property_cards = sel.css("article.card--result:not([id*='recommendation'])")
-
-    log.info(f"Found {len(property_cards)} property cards on search page")
-
-    for card in property_cards:
-        try:
-            property_id = card.css("::attr(id)").get() or ""
-            if property_id:
-                property_id = property_id.replace("classified_", "")
-            link = card.css("a::attr(href)").get() or card.xpath(".//a/@href").get()
-            if link and not link.startswith("http"):
-                root_domain = result.context["uri"][
-                    "root_domain"
-                ]
-                link = f"https://{root_domain}{link}" if link.startswith("/") else f"https://{root_domain}/{link}"
-
-            currency = None
-            price_min = None
-            price_max = None
-
-            price_text = card.css("[class*='price'], [data-testid*='price']::text").get()
-            if price_text:
-                currency_match = re.search(r"([€$£¥]|R\$)", price_text)
-                currency = currency_match.group(1) if currency_match else currency
-
-                numbers = re.findall(r"[\d.,]+", price_text)
-                clean_numbers = [num.replace(",", "").replace(".", "") for num in numbers]
-
-                price_min = clean_numbers[0] if clean_numbers else price_min
-                price_max = clean_numbers[1] if len(clean_numbers) > 1 else price_max
-
-            location_text = card.css(
-                "p.card__information--locality::text, p.card--results__information--locality::text"
-            ).get()
-
-            postal_code = None
-            city = None
-            if location_text:
-                location_text = location_text.strip()
-                match = re.match(r"(\d+)\s+(.+)", location_text)
-                if match:
-                    postal_code = match.group(1)
-                    city = match.group(2)
-                else:
-                    city = location_text
-
-            bedrooms = None
-            bedrooms_span = card.css(
-                "p.card__information--property span.abbreviation span[aria-hidden='true']::text"
-            ).get()
-            if bedrooms_span:
-                bed_match = re.search(r"(\d+)", bedrooms_span)
-                if bed_match:
-                    bedrooms = bed_match.group(1)
-
-            area = None
-            area_text = card.css("p.card__information--property::text").getall()
-            for text in area_text:
-                if text.strip() and text.strip().isdigit():
-                    area = f"{text.strip()} m²"
-                    break
-
-            description = card.css("div.card__description::text").get() or ""
-            description = description.strip()
-
-            flags = []
-            flag_items = card.css("div.flag-list__item span.flag-list__text::text").getall()
-            flags = [f.strip() for f in flag_items if f.strip()]
-
-            agency_logo = (
-                card.css("img.card--result__agency-logo::attr(src), img.card__logo--large::attr(src)").get() or ""
-            )
-            agency_name = (
-                card.css("img.card--result__agency-logo::attr(alt), img.card__logo--large::attr(alt)").get() or ""
-            )
-
-            images = []
-            image_urls = card.css("img.card__media-picture::attr(src)").getall()
-            images = [img for img in image_urls if img]
-
-            property_data = {
-                "id": property_id,
-                "url": link,
-                "currency": currency,
-                "price_min": price_min,
-                "price_max": price_max,
-                "postal_code": postal_code,
-                "city": city,
-                "bedrooms": bedrooms,
-                "area": area,
-                "description": description,
-                "flags": flags,
-                "agency_logo": agency_logo,
-                "agency_name": agency_name,
-                "images": images,
-            }
-            properties.append(property_data)
-        except Exception as e:
-            log.error(f"Error parsing property card {card}: {e}")
+    for card in sel.css(".postingCardLayout-module__posting-card-layout"):
+        link = card.attrib.get("data-to-posting", "")
+        if not link:
             continue
+        features = card.css("[data-qa='POSTING_CARD_FEATURES'] span::text").getall()
+        properties.append({
+            "title": card.css("[data-qa='POSTING_CARD_DESCRIPTION'] a::text").get("").strip() or None,
+            "price": card.css("[data-qa='POSTING_CARD_PRICE']::text").get("").strip() or None,
+            "area": next((t.strip() for t in features if "m²" in t), None),
+            "bedrooms": next((t.strip() for t in features if re.search(r"\bquartos?\b|\bdormitórios?\b", t, re.I)), None),
+            "bathrooms": next((t.strip() for t in features if re.search(r"\bbanheiros?\b", t, re.I)), None),
+            "url": f"https://www.imovelweb.com.br{link}" if link.startswith("/") else link,
+            "thumbnail": card.css(".postingGallery-module__gallery-container img::attr(src)").get(),
+        })
 
-    return {
-        "total_properties": total_properties,
-        "total_pages": max_pages,
-        "properties": properties,
-    }
+    log.info(f"Found {len(properties)} property cards on search page")
+
+    total_properties = len(properties)
+    if m := re.search(r"([\d.]+)\s+imóv", " ".join(sel.css("h1::text, [data-qa='results-count']::text").getall()), re.I):
+        total_properties = int(m.group(1).replace(".", ""))
+
+    next_page = sel.css("a[rel='next']::attr(href)").get()
+    if next_page and next_page.startswith("/"):
+        next_page = f"https://www.imovelweb.com.br{next_page}"
+
+    return {"total_properties": total_properties, "next_page": next_page, "properties": properties}
 
 
-async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
-    """Scrape detailed property data from imovelweb property pages"""
+async def scrape_properties(urls: List[str]) -> List[Dict]:
+    """Scrape detailed property data from imovelweb.com.br property pages."""
     log.info(f"Scraping {len(urls)} property pages")
-
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     properties = []
-
-    async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+    async for result in SCRAPFLY.concurrent_scrape([ScrapeConfig(url, **BASE_CONFIG) for url in urls]):
         try:
-            parsed = parse_property(result)
-            if not parsed:
-                log.warning(f"No property data parsed from {result.context.get('url')}")
-                continue
-            properties.append(parsed)
+            properties.append(parse_property(result))
         except Exception as e:
-            log.error(f"Error parsing property page {result.context.get('url')}: {e}")
-            continue
-
-    log.success(f"Scraped {len(properties)} properties from property pages")
+            log.error(f"Error parsing {result.context.get('url')}: {e}")
+    log.success(f"Scraped {len(properties)} properties")
     return properties
 
 
 async def scrape_search(
-    query: str = None, for_sale: bool = False, max_pages: int = 3, scrape_all_pages: bool = False, **filters
-) -> SearchResult:
-    """scrape imovelweb search pages
+    location: str = "sao-paulo-sp",
+    property_type: str = "imoveis",
+    for_sale: bool = False,
+    max_pages: int = 3,
+) -> Dict:
+    """Scrape imovelweb.com.br search pages. """
+    transaction = "venda" if for_sale else "aluguel"
+    start_url = f"https://www.imovelweb.com.br/{property_type}-{transaction}-{location}.html"
 
-    Args:
-        query (str, optional): search query. Defaults to None.
-        for_sale (bool, optional): search for salet. Defaults to False (for rent).
-        max_pages (int, optional): maximum number of pages to scrape. Defaults to 3.
-        scrape_all_pages (bool, optional): scrape all pages. Defaults to False.
-        **filters: search filters (e.g. location, price, etc.)
+    log.info(f"Scraping first page: {start_url}")
+    first_data = parse_search_page(await SCRAPFLY.async_scrape(ScrapeConfig(start_url, **BASE_CONFIG)))
 
-    Returns:
-        List[Dict]: list of properties
-    """
-    search_properties = []
-    base_url = "https://www.immoweb.be/en/search/house-and-apartment"  # using .be as .com redirects and blocks filters
+    all_properties = first_data["properties"]
+    total_properties = first_data["total_properties"]
+    next_page_url = first_data["next_page"]
+    pages_scraped = 1
+    while next_page_url and pages_scraped < max_pages:
+        log.info(f"Scraping page {pages_scraped + 1}: {next_page_url}")
+        try:
+            page_data = parse_search_page(await SCRAPFLY.async_scrape(ScrapeConfig(next_page_url, **BASE_CONFIG)))
+            all_properties.extend(page_data["properties"])
+            next_page_url = page_data["next_page"]
+            pages_scraped += 1
+        except Exception as e:
+            log.error(f"Error scraping {next_page_url}: {e}")
+            break
 
-    listing_type = "for-sale" if for_sale else "for-rent"
-
-    query_slug = ""
-
-    if query:
-        query_slug = query.lower().replace(" ", "-")
-
-    url = f"{base_url}/{listing_type}/{query_slug}".rstrip("/")
-
-    if filters:
-        processed_filters = {}
-        for key, value in filters.items():
-            if isinstance(value, list):
-                processed_filters[key] = ",".join(str(v) for v in value)
-            else:
-                processed_filters[key] = value
-
-        query_parts = []
-        for key, value in processed_filters.items():
-            if "," in str(value):
-                query_parts.append(f"{key}={value}")
-            else:
-                query_parts.append(f"{key}={urlencode({key: value})[len(key)+1:]}")
-
-        url += "?" + "&".join(query_parts)
-
-    log.info(f"Scraping search first page: {url}")
-
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    first_page_data = parse_search_page(first_page)
-    search_properties = first_page_data["properties"]
-    total_properties = first_page_data["total_properties"]
-    total_pages = first_page_data["total_pages"]
-
-    if scrape_all_pages:
-        pages_to_scrape = total_pages
-    else:
-        pages_to_scrape = min(max_pages, total_pages)
-
-    scraped_pages = 1
-    log.info(f"Scraping {pages_to_scrape - 1} additional pages (total: {pages_to_scrape})")
-
-    if pages_to_scrape > 1:
-        separator = "&" if urlparse(url).query else "?"
-        other_pages = [
-            ScrapeConfig(url + f"{separator}page={page}", **BASE_CONFIG) for page in range(2, pages_to_scrape + 1)
-        ]
-        async for result in SCRAPFLY.concurrent_scrape(other_pages):
-            try:
-                page_data = parse_search_page(result)
-                search_properties.extend(page_data["properties"])
-                scraped_pages += 1
-            except Exception as e:
-                log.error(f"Error parsing search page {result.context.get('url')}: {e}")
-                continue
-        log.success(f"scraped properties {len(search_properties)}")
-
-    data = {
-        "total_pages": total_pages,
-        "total_properties": total_properties,
-        "search_properties": search_properties,
-    }
-
-    return data
+    log.success(f"Scraped {len(all_properties)} properties across {pages_scraped} pages")
+    return {"total_properties": total_properties, "total_pages": pages_scraped, "search_properties": all_properties}
