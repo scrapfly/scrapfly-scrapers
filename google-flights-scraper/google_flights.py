@@ -21,6 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     "asp": True,
     "country": "US",
+    "proxy_pool": "public_residential_pool",
     "render_js": True,
 }
 
@@ -104,8 +105,8 @@ _PRICE_INSIGHTS_SCENARIO = [
     {"wait": 1000},
         {
         "execute": {
-            "script": "const getBtn = () => { for (const label of document.querySelectorAll('div.R1KXyd')) { if (label.textContent.trim() === 'Departure') { return label.parentElement.querySelector('button[aria-label=\"Scroll right\"]'); } } return null; }; let btn = getBtn(); let maxClicks = 50; while (btn && !btn.disabled && maxClicks-- > 0) { btn.click(); await new Promise(r => setTimeout(r, 400)); btn = getBtn(); } return 'done';",
-            "timeout": 15000
+            "script": "const getBtn = () => { for (const label of document.querySelectorAll('div.R1KXyd')) { if (label.textContent.trim() === 'Departure') { return label.parentElement.querySelector('button[aria-label=\"Scroll right\"]'); } } return null; }; let btn = getBtn(); let maxClicks = 10; while (btn && !btn.disabled && maxClicks-- > 0) { btn.click(); await new Promise(r => setTimeout(r, 400)); btn = getBtn(); } return 'done';",
+            "timeout": 18000
         }
     }
 ]
@@ -378,7 +379,7 @@ def parse_flights(
             "span[aria-label^='Arrival time']::text"
         ).get()
 
-        price = _find(r"From (\d[\d,]*) \w+ dollars", label) or 0
+        price = _find(r"From (\d[\d,]*) \w+ dollars", label) or "0"
         duration_label = (
             card.css("div[aria-label^='Total duration']::attr(aria-label)").get() or ""
         )
