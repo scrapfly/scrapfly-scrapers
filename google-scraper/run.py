@@ -52,6 +52,12 @@ async def run():
     )
     with open(output.joinpath("google_map_places.json"), "w", encoding="utf-8") as file:
         json.dump(google_map_places, file, indent=2, ensure_ascii=False)
+        
+    ai_mode_data = await google.scrape_ai_mode(
+        query="best web scraping tools 2026",
+    )
+    with open(output.joinpath("ai_mode.json"), "w", encoding="utf-8") as file:
+        json.dump(ai_mode_data, file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":

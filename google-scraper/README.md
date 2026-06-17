@@ -46,4 +46,5 @@ This Google.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.or
     $ poetry run pytest test.py -k test_keyword_scraping
     $ poetry run pytest test.py -k test_place_url_scraping    
     $ poetry run pytest test.py -k test_place_scraping
+    $ poetry run pytest test.py  -k test_ai_mode_scraping
     ```

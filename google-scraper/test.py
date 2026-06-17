@@ -68,6 +68,23 @@ map_place_schema = {
     "1_stars": {"type": "string"},
 }
 
+ai_mode_source_schema = {
+    "title": {"type": "string", "required": True, "minlength": 1},
+    "url": {"type": "string", "required": True, "minlength": 1},
+    "snippet": {"type": "string", "nullable": True},
+}
+
+ai_mode_schema = {
+    "query": {"type": "string", "required": True, "minlength": 1},
+    "answer": {"type": "string", "required": True, "minlength": 1},
+    "sources": {
+        "type": "list",
+        "required": True,
+        "schema": {"type": "dict", "schema": ai_mode_source_schema},
+    },
+    "captured_at": {"type": "string", "required": True, "minlength": 1},
+}
+
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -142,5 +159,21 @@ async def test_place_scraping():
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["name"])
         (Path(__file__).parent / 'results/google_map_places.json').write_text(
+            json.dumps(result, indent=2, ensure_ascii=False, default=str)
+        )
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_ai_mode_scraping():
+    result = await google.scrape_ai_mode(
+        query="best web scraping tools 2026",
+    )
+    validator = Validator(ai_mode_schema, allow_unknown=True)
+    validate_or_fail(result, validator)
+    assert len(result["answer"]) > 50
+    assert len(result["sources"]) > 0
+    if os.getenv("SAVE_TEST_RESULTS") == "true":
+        (Path(__file__).parent / "results/ai_mode.json").write_text(
             json.dumps(result, indent=2, ensure_ascii=False, default=str)
         )
