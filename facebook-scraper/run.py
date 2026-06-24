@@ -19,6 +19,16 @@ facebook.BASE_CONFIG["cache"] = False
 
 async def run():
 
+    page_data = await facebook.scrape_facebook_page(
+        page_urls=[
+            "https://www.facebook.com/bbcnews",
+            "https://www.facebook.com/adidas/",
+            "https://www.facebook.com/copperkettleyqr/",
+        ]
+    )
+    with open(output.joinpath("pages.json"), "w", encoding="utf-8") as file:
+        json.dump(page_data, file, indent=2, ensure_ascii=False)
+
     print("running Facebook scrape and saving results to ./results directory")
 
     marketplace_data = await facebook.scrape_marketplace_listings(

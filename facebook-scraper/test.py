@@ -5,11 +5,38 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
+facebook.BASE_CONFIG["cache"] = True
+
 
 def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)
         pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
+
+
+page_schema = {
+    "name": {"type": "string"},
+    "username": {"type": "string"},
+    "url": {"type": "string"},
+    "page_id": {"type": "string"},
+    "category": {"type": "string"},
+    "intro": {"type": "string", "nullable": True},
+    "likes": {"type": "integer", "nullable": True},
+    "talking_about": {"type": "integer", "nullable": True},
+    "were_here": {"type": "integer", "nullable": True},
+    "phone": {"type": "string", "nullable": True},
+    "email": {"type": "string", "nullable": True},
+    "website": {"type": "string", "nullable": True},
+    "address": {"type": "string", "nullable": True},
+    "address_map_url": {"type": "string", "nullable": True},
+    "price_range": {"type": "string", "nullable": True},
+    "recommend_percent": {"type": "float", "nullable": True},
+    "review_count": {"type": "integer", "nullable": True},
+    "confirmed_owner": {"type": "boolean"},
+    "profile_picture_url": {"type": "string", "nullable": True},
+    "cover_photo_url": {"type": "string", "nullable": True},
+    "social_links": {"type": "list", "nullable": True, "schema": {"type": "string"}},
+}
 
 
 marketplace_listing_schema = {
@@ -65,6 +92,21 @@ event_schema = {
     "social_context": {"type": "string", "nullable": True},
     "price_range": {"type": "string", "nullable": True},
 }
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_page_scraping():
+    """Test scraping Facebook pages"""
+    pages_data = await facebook.scrape_facebook_page(page_urls=[
+        "https://www.facebook.com/bbcnews",
+        "https://www.facebook.com/adidas",
+        "https://www.facebook.com/copperkettleyqr",
+    ])
+    validator = Validator(page_schema, allow_unknown=True)
+    for item in pages_data:
+        validate_or_fail(item, validator)
+    assert len(pages_data) >= 1
 
 
 @pytest.mark.asyncio
