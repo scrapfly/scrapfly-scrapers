@@ -7,6 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import re
 import os
 import json
+import datetime
 from typing import Dict, List, Optional
 from urllib.parse import quote
 from loguru import logger as log
@@ -45,7 +46,7 @@ def parse_page(response: ScrapeApiResponse) -> Dict:
         if idx == -1:
             return None
         texts = re.findall(r'"text":"((?:[^"\\]|\\.)*)"', html[max(0, idx - 3000):idx])
-        return texts[-1].encode().decode("unicode_escape").replace("\\/", "/") if texts else None
+        return json.loads(f'"{texts[-1]}"').replace(r"\/", "/") if texts else None
     
     def num(s: str) -> Optional[int]:
         return int(re.sub(r"\D", "", s)) if s else None
@@ -268,3 +269,116 @@ async def scrape_facebook_page(page_urls: list[str]) -> list[Dict]:
         result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
         results.append(parse_page(result))
     return results
+
+
+def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
+    """Parse Facebook group posts from rendered HTML"""
+    html = response.scrape_result["content"]
+    sel = response.selector
+
+    group_name = (sel.xpath('//meta[@property="og:title"]/@content').get() or "").split(" | ")[0].strip() or None
+    group_url = sel.xpath('//meta[@property="og:url"]/@content').get()
+
+    def find(obj, typename, depth=0):
+        if depth > 60 or not isinstance(obj, (dict, list)):
+            return []
+        if isinstance(obj, list):
+            return [r for el in obj for r in find(el, typename, depth + 1)]
+        res = [obj] if obj.get("__typename") == typename else []
+        return res + [r for v in obj.values() for r in find(v, typename, depth + 1)]
+
+    def find_comments(obj, depth=0):
+        """Find comment nodes that have both preferred_body and an author renderer."""
+        if depth > 60 or not isinstance(obj, (dict, list)):
+            return []
+        if isinstance(obj, list):
+            return [r for el in obj for r in find_comments(el, depth + 1)]
+        res = [obj] if (obj.get("preferred_body") and obj.get("comet_comment_author_name_and_badges_renderer")) else []
+        return res + [r for v in obj.values() for r in find_comments(v, depth + 1)]
+
+    stories, feedback, comments = {}, {}, {}
+
+    for script in re.findall(r'<script type="application/json"[^>]*>(.*?)</script>', html, re.DOTALL):
+        try:
+            data = json.loads(script)
+        except (json.JSONDecodeError, Exception):
+            continue
+
+        for s in find(data, "Story"):
+            if (pid := s.get("post_id")) and pid not in stories:
+                stories[pid] = s
+
+        for r in find(data, "UnauthenticatedUCometUFISummaryAndActionsRenderer"):
+            fb = r.get("feedback") or {}
+            if tid := fb.get("subscription_target_id"):
+                feedback[tid] = fb
+
+        for node in find_comments(data):
+            c = (node.get("comet_comment_author_name_and_badges_renderer") or {}).get("comment") or {}
+            parent = (c.get("parent_feedback") or {}).get("share_fbid")
+            if not parent:
+                continue
+            comments.setdefault(parent, []).append({
+                "author": (c.get("user") or {}).get("name"),
+                "text": (node.get("preferred_body") or {}).get("text"),
+            })
+
+    results = []
+    for post_id, story in stories.items():
+        actors = story.get("actors") or []
+        ct = story.get("creation_time")
+
+        msg, msg_ranges = None, []
+        try:
+            m = story["comet_sections"]["content"]["story"]["comet_sections"]["message"]["story"]["message"]
+            msg, msg_ranges = m.get("text"), m.get("ranges") or []
+        except (KeyError, TypeError):
+            pass
+
+        fb = feedback.get(str(post_id)) or {}
+        
+        cr = fb.get("comment_rendering_instance") or {}
+
+        media_urls, link_title, link_url = [], None, None
+        for att in story.get("attachments") or []:
+            ad = (att.get("styles") or {}).get("attachment") or {}
+            for node in (ad.get("all_subattachments") or {}).get("nodes") or []:
+                if uri := ((node.get("media") or {}).get("image") or {}).get("uri"):
+                    media_urls.append(uri)
+            img = (ad.get("media") or {}).get("photo_image") or (ad.get("media") or {}).get("image") or {}
+            if uri := img.get("uri"):
+                media_urls.append(uri)
+            if isinstance(ad.get("title"), dict) and ad["title"].get("text"):
+                link_title, link_url = ad["title"]["text"], ad.get("url")
+
+        results.append({
+            "post_url": story.get("permalink_url"),
+            "group": group_name,
+            "group_url": group_url,
+            "posted_at": datetime.datetime.fromtimestamp(ct, datetime.timezone.utc).isoformat().replace("+00:00", "Z") if ct else None,
+            "text": msg,
+            "author": actors[0].get("name") if actors else None,
+            "reactions": (fb.get("reaction_count") or {}).get("count"),
+            "comments": (cr.get("comments") or {}).get("total_count") or fb.get("total_comment_count"),
+            "shares": (fb.get("share_count") or {}).get("count"),
+            "link_title": link_title,
+            "link_url": link_url,
+            "media": media_urls or None,
+            "mentions": [r["entity"]["name"] for r in msg_ranges if r.get("entity", {}).get("__typename") == "User" and r["entity"].get("name")] or None,
+            "top_comments": comments.get(str(post_id)) or None,
+        })
+
+    log.success(f"parsed {len(results)} group posts from {group_url}")
+    return results
+
+
+async def scrape_group_posts(group_urls: List[str]) -> List[Dict]:
+    """Scrape posts from one or more public Facebook groups"""
+    all_posts = []
+    for url in group_urls:
+        log.info(f"scraping Facebook group posts from {url}")
+        result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+        posts = parse_group_posts(result)
+        all_posts.extend(posts)
+        log.success(f"scraped {len(posts)} posts from {url}")
+    return all_posts

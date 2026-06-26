@@ -60,6 +60,34 @@ marketplace_listing_schema = {
     },
 }
 
+group_post_schema = {
+    "post_url": {"type": "string", "nullable": True},
+    "group": {"type": "string"},
+    "group_url": {"type": "string"},
+    "posted_at": {"type": "string", "nullable": True},
+    "text": {"type": "string", "nullable": True},
+    "author": {"type": "string"},
+    "reactions": {"type": "integer", "nullable": True},
+    "comments": {"type": "integer", "nullable": True},
+    "shares": {"type": "integer", "nullable": True},
+    "link_title": {"type": "string", "nullable": True},
+    "link_url": {"type": "string", "nullable": True},
+    "media": {"type": "list", "nullable": True, "schema": {"type": "string"}},
+    "mentions": {"type": "list", "nullable": True, "schema": {"type": "string"}},
+    "top_comments": {
+        "type": "list",
+        "nullable": True,
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "author": {"type": "string", "nullable": True},
+                "text": {"type": "string", "nullable": True},
+            },
+        },
+    },
+}
+
+
 event_schema = {
     "id": {"type": "string"},
     "title": {"type": "string"},
@@ -98,11 +126,13 @@ event_schema = {
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_page_scraping():
     """Test scraping Facebook pages"""
-    pages_data = await facebook.scrape_facebook_page(page_urls=[
-        "https://www.facebook.com/bbcnews",
-        "https://www.facebook.com/adidas",
-        "https://www.facebook.com/copperkettleyqr",
-    ])
+    pages_data = await facebook.scrape_facebook_page(
+        page_urls=[
+            "https://www.facebook.com/bbcnews",
+            "https://www.facebook.com/adidas",
+            "https://www.facebook.com/copperkettleyqr",
+        ]
+    )
     validator = Validator(page_schema, allow_unknown=True)
     for item in pages_data:
         validate_or_fail(item, validator)
@@ -131,3 +161,19 @@ async def test_events_scraping():
         assert validator.validate(item), {"item": item, "errors": validator.errors}
 
     assert len(events_data) >= 1
+
+
+@pytest.mark.asyncio
+async def test_group_posts_scraping():
+    """Test scraping Facebook group posts"""
+    group_data = await facebook.scrape_group_posts(
+        group_urls=[
+            "https://www.facebook.com/groups/instantpotcommunity",
+            "https://www.facebook.com/groups/dotnetdevelopers",
+            "https://www.facebook.com/groups/airfryerrecipesuk",
+        ]
+    )
+    validator = Validator(group_post_schema, allow_unknown=True)
+    for item in group_data:
+        validate_or_fail(item, validator)
+    assert len(group_data) >= 1
