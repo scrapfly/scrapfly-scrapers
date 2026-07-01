@@ -136,7 +136,7 @@ search_product_schema = {
 async def test_product_scraping():
     products_data = await allegro.scrape_product(
         urls=[
-            "https://allegro.pl/oferta/procesor-amd-ryzen-5-7500f-tray-17401107639",
+            "https://allegro.pl/oferta/plyta-glowna-asus-tuf-gaming-b760m-plus-ii-socket-lga1700-18502514203",
             "https://allegro.pl/oferta/plyta-glowna-socket-am5-asus-b650e-max-gaming-wifi-atx-17328863669",
         ]
     )
