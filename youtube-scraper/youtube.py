@@ -338,7 +338,7 @@ async def scrape_channel(channel_ids: List[str]) -> List[Dict]:
                 },
                 {
                     "wait_for_selector": {
-                        "selector": "//yt-formatted-string[@title='About']",
+                        "selector": "//ytd-about-channel-renderer",
                         "timeout": 10000,
                     }
                 },
