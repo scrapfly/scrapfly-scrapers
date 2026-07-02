@@ -147,6 +147,6 @@ async def test_trend_scraping():
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_sitemap_scraping():
     sitemap_urls = await similarweb.scrape_sitemaps(
-        url="https://www.similarweb.com/sitemaps/top-websites/top-websites-001.xml.gz"
+        url="https://www.similarweb.com/blog/post-sitemap2.xml"
     )
     assert len(sitemap_urls) > 100
