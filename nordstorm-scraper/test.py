@@ -25,8 +25,7 @@ product_schema = {
         "schema": {
             "brandName": {"type": "string"},
             "brandUrl": {"type": "string"},
-            "hasBrandPage": {"type": "boolean"},
-            "imsBrandId": {"type": "integer"},
+            "labelId": {"type": "string"},
         },
     },
     "description": {"type": "string"},
@@ -61,40 +60,43 @@ product_schema = {
 }
 
 search_schema = {
-    "id": {"type": "integer"},
-    "brandId": {"type": "integer"},
-    "brandName": {"type": "string"},
-    "styleNumber": {"type": "string"},
-    "colorCount": {"type": "integer"},
-    "colorDefaultId": {"type": "string"},
-    "name": {"type": "string"},
-    "extraNameCopy": {"type": "string"},
-    "priceCurrencyCode": {"type": "string"},
-    "priceCountryCode": {"type": "string"},
-    "price": {
-        "type": "dict",
+    "id": {"type": "string"},
+    "labelId": {"type": "string"},
+    "labelDisplayName": {"type": "string"},
+    "webPathAlias": {"type": "string"},
+    "copyProductTitle": {"type": "string"},
+    "coreProducts": {
+        "type": "list",
         "schema": {
-            "totalPriceRange": {
-                "type": "dict",
-                "schema": {
-                    "min": {
+            "type": "dict",
+            "schema": {
+                "coreProductId": {"type": "string"},
+                "coreChoices": {
+                    "type": "list",
+                    "schema": {
                         "type": "dict",
                         "schema": {
-                            "currencyCode": {"type": "string"},
-                            "units": {"type": "integer"},
-                            "nanos": {"type": "integer"},
-                        },
-                    },
-                    "max": {
-                        "type": "dict",
-                        "schema": {
-                            "currencyCode": {"type": "string"},
-                            "units": {"type": "integer"},
-                            "nanos": {"type": "integer"},
+                            "coreChoiceId": {"type": "string"},
+                            "displayColorDescription": {"type": "string"},
                         },
                     },
                 },
-            }
+            },
+        },
+    },
+    "propositions": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "sellingRetailPriceRange": {
+                    "type": "dict",
+                    "schema": {
+                        "min": {"type": "string"},
+                        "max": {"type": "string"},
+                    },
+                },
+            },
         },
     },
 }

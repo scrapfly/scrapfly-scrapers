@@ -27,65 +27,52 @@ BASE_CONFIG = {
 
 
 def parse_product(data: dict) -> dict:
-    # parse product basic data like id, name, features etc.
+    core_product = data["coreProducts"][0]
+    npt_parts = [part for part in core_product.get("nptHierarchy", "").split(".") if part]
+    reviews = data.get("reviews") or {}
     product = jmespath.search(
         """{
         id: id,
-        title: productTitle,
-        type: productTypeName,
-        typeParent: productTypeParentName,
-        ageGroups: ageGroups,
-        reviewAverageRating: reviewAverageRating,
-        numberOfReviews: numberOfReviews,
-        brand: brand,
-        description: sellingStatement,
-        features: features,
-        gender: gender,
-        isAvailable: isAvailable
+        title: copyProductTitle,
+        description: copyDescription,
+        features: copyFeatures
         }""",
         data,
     )
-    # product variants have their own colors, prices and photos:
-    prices_by_sku = data["price"]["bySkuId"] if data["price"] else None
-    colors_by_id = data["filters"]["color"]["byId"]
+    product["type"] = npt_parts[-1].replace("_", " ").title() if npt_parts else None
+    product["typeParent"] = npt_parts[-2].replace("_", " ").title() if len(npt_parts) > 1 else None
+    product["reviewAverageRating"] = reviews.get("averageRating")
+    product["numberOfReviews"] = reviews.get("numberOfReviews")
+    product["brand"] = {
+        "brandName": data.get("labelDisplayName"),
+        "brandUrl": data.get("brandLink"),
+        "labelId": data.get("labelId"),
+    }
+    product["gender"] = (core_product.get("gender") or {}).get("label")
     product["media"] = []
-    for media_item in data["mediaExperiences"]["carouselsByColor"]:
-        item = jmespath.search(
-            """{
-                colorCode: colorCode,
-                colorName: colorName
-            }""",
-            media_item,
-        )
-        item["urls"] = [i["url"] for i in media_item["orderedShots"]]
-        product["media"].append(item)
-    # Each product has SKUs(Stock Keeping Units) which are the actual variants:
     product["variants"] = {}
-    for sku, sku_data in data["skus"]["byId"].items():
-        # get basic variant data
-        parsed = jmespath.search(
-            """{
-                id: id,
-                sizeId: sizeId,
-                colorId: colorId,
-                totalQuantityAvailable: totalQuantityAvailable
-            }""",
-            sku_data,
+    for choice in core_product.get("coreChoices", []):
+        product["media"].append(
+            {
+                "colorCode": choice["coreChoiceId"],
+                "colorName": choice.get("displayColorDescription"),
+                "urls": [shot["imageUrl"] for shot in choice.get("orderedShots", [])],
+            }
         )
-        # get variant price from
-        parsed["price"] = prices_by_sku[sku]["regular"]["price"] if prices_by_sku else None
-        # get variant color data
-        parsed["color"] = jmespath.search(
-            """{
-            id: id,
-            value: value,
-            sizes: isAvailableWith,
-            mediaIds: styleMediaIds,
-            swatch: swatchMedia.desktop
-            }""",
-            colors_by_id[parsed["colorId"]],
-        )
-        product["variants"][sku] = parsed
+        for variant_item in choice.get("items", []):
+            sku = variant_item.get("sku") or {}
+            sku_id = sku.get("skuId")
+            if not sku_id:
+                continue
+            proposition = (sku.get("propositions") or [{}])[0]
+            pricings = proposition.get("pricings") or [{}]
+            product["variants"][sku_id] = {
+                "id": sku_id,
+                "sizeId": (variant_item.get("sizeDimension1") or {}).get("code"),
+                "colorId": choice["coreChoiceId"],
+                "totalQuantityAvailable": (proposition.get("availability") or {}).get("shipQuantity", 0),
+                "price": (pricings[0].get("sellingRetail") or {}).get("price"),
+            }
     return product
 
 
@@ -111,12 +98,8 @@ async def scrape_products(urls: List[str]):
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = find_hidden_data(response)
-        # extract only product data from the dataset
-        # find first key "stylesById" and take first value (which is the current product)
-        product = nested_lookup("stylesById", data)
-        product = list(product[0].values())[0]
-        # parse the final data using jmespath
-        products.append(parse_product(product))
+        entities = data["productDisplay"]["productDisplaysById"]["entities"]
+        products.append(parse_product(list(entities.values())[0]))
     log.success(f"scraped {len(products)} product listings from product pages")
     return products
 
