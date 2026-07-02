@@ -92,6 +92,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     result = await goat.scrape_products(
         urls=[
@@ -112,6 +113,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     result = await goat.scrape_search("pumar dark", max_pages=3)
     validator = Validator(search_schema, allow_unknown=True)
