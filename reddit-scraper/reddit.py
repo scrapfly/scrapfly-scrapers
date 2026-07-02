@@ -69,8 +69,8 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
             {
                 "authorProfile": "https://www.reddit.com/user/" + author if author else None,
                 "authorId": box.xpath(".//shreddit-post/@author-id").get(),
-                "title": box.xpath("./@aria-label").get(),
-                "link": "https://www.reddit.com" + link if link else None,
+                "title": box.xpath(".//shreddit-post/@post-title").get(),
+                "link": "https://www.reddit.com" + link if link and link.startswith("/") else link,
                 "publishingDate": box.xpath(".//shreddit-post/@created-timestamp").get(),
                 "postId": box.xpath(".//shreddit-post/@id").get(),
                 "postLabel": post_label.strip() if post_label else None,
