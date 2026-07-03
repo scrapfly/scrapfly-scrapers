@@ -131,7 +131,7 @@ async def scrape_reviews(url: str) -> List[Review]:
     """scrape product reviews of a given URL of an amazon product"""
     # pagination is not publically available, so we can't scrape more than one page
     log.info(f"scraping review page: {url}")
-    api_response = await SCRAPFLY.async_scrape(ScrapeConfig(url, render_js=True, auto_scroll=True, rendering_wait=5000, **BASE_CONFIG))
+    api_response = await SCRAPFLY.async_scrape(ScrapeConfig(url, render_js=True, auto_scroll=True, rendering_wait=8000, **BASE_CONFIG))
     reviews = parse_reviews(api_response)
     log.info(f"scraped {len(reviews)} reviews")
     return reviews
@@ -175,13 +175,12 @@ def parse_product(result) -> Product:
     }
     # extract details from "Product Information" table:
     info_table = {}
-    for row in sel.css('#productDetails_detailBullets_sections1 tr'):
+    for row in sel.css('table.prodDetTable tr'):
         label = row.css("th::text").get("").strip()
-        value = row.css("td::text").get("").strip()
-        if not value:
-            value = row.css("td span::text").get("").strip()
-        info_table[label] = value
-    info_table['Customer Reviews'] = sel.xpath("//td[div[@id='averageCustomerReviews']]//span[@class='a-icon-alt']/text()").get()
+        value = " ".join(v.strip() for v in row.css("td ::text").getall() if v.strip())
+        if label:
+            info_table[label] = value
+    info_table['Customer Reviews'] = sel.xpath("//div[@id='averageCustomerReviews']//span[@class='a-icon-alt']/text()").get()
     rank = sel.xpath("//tr[th[text()=' Best Sellers Rank ']]//td//text()").getall()
     info_table['Best Sellers Rank'] = ' '.join([text.strip() for text in rank if text.strip()])
     parsed['info_table'] = info_table
@@ -197,7 +196,7 @@ async def scrape_product(url: str) -> List[Product]:
         url, 
         **BASE_CONFIG, 
         render_js=True, 
-        wait_for_selector="#productDetails_detailBullets_sections1 tr",
+        wait_for_selector="#productTitle",
     ))
     variants = [parse_product(product_result)]
 
