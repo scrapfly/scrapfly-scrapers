@@ -45,6 +45,15 @@ async def run():
     with open(output / "oneway.json", "w", encoding="utf-8") as f:
         json.dump(oneway, f, indent=2, ensure_ascii=False)
 
+    price_insights = await google_flights.scrape_price_insights(
+        origin="JFK",
+        destination="CDG",
+        depart=TODAY,
+        ret=WEEK_FROM_NOW,
+        currency="USD",
+    )
+    with open(output / "price_insights.json", "w", encoding="utf-8") as f:
+        json.dump(price_insights, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     asyncio.run(run())
