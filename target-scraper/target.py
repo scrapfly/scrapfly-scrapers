@@ -9,6 +9,8 @@ import os
 import re
 import json
 from typing import Dict, List, Optional, TypedDict
+from urllib.parse import parse_qs, urlencode, urlparse
+from uuid import uuid4
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -67,6 +69,20 @@ def _extract_deferred_modules(response: ScrapeApiResponse) -> Dict[str, Dict]:
             if module_type := module.get("module_type"):
                 modules[module_type] = module.get("module_data", {})
     return modules
+
+
+def _extract_redsky_credentials(response: ScrapeApiResponse) -> Dict[str, str]:
+    """extract the redsky 'key' and 'visitor_id' from the store_location_v1 XHR captured on the homepage"""
+    xhr_calls = response.scrape_result.get("browser_data", {}).get("xhr_call") or []
+    for xhr in xhr_calls:
+        if "store_location_v1" not in xhr.get("url", ""):
+            continue
+        params = parse_qs(urlparse(xhr["url"]).query)
+        key = params.get("key", [None])[0]
+        visitor_id = params.get("visitor_id", [None])[0]
+        if key and visitor_id:
+            return {"key": key, "visitor_id": visitor_id}
+    raise ValueError("missing store_location_v1 XHR with key and visitor_id")
 
 
 def _is_in_stock(fulfillment: Optional[Dict]) -> bool:
@@ -142,7 +158,24 @@ async def scrape_product(url: str) -> Product:
 
 def parse_availability(response: ScrapeApiResponse) -> Dict:
     """parse fulfillment and availability data from a product_summary_with_fulfillment_v1 response"""
-    pass
+    data = json.loads(response.content)
+    summaries = data.get("data", {}).get("product_summaries")
+    if summaries is None:
+        raise ValueError("missing data.product_summaries in availability response")
+
+    availability = {}
+    for summary in summaries:
+        tcin = summary["tcin"]
+        fulfillment = summary.get("fulfillment") or {}
+        availability[tcin] = {
+            "tcin": tcin,
+            "title": summary.get("item", {}).get("product_description", {}).get("title"),
+            "price": summary.get("price"),
+            "free_shipping": (summary.get("free_shipping") or {}).get("enabled", False),
+            "fulfillment": fulfillment,
+            "in_stock": _is_in_stock(fulfillment),
+        }
+    return availability
 
 
 async def scrape_availability(
@@ -151,7 +184,32 @@ async def scrape_availability(
     zip_code: str,
 ) -> Dict:
     """scrape product availability and fulfillment data from product_summary_with_fulfillment_v1"""
-    pass
+    session = str(uuid4()).replace("-", "")
+    warm_up = await SCRAPFLY.async_scrape(ScrapeConfig(
+        "https://www.target.com/",
+        session=session,
+        render_js=True,
+        wait_for_selector="xhr:store_location_v1",
+        rendering_wait=5000,
+        **BASE_CONFIG,
+    ))
+    credentials = _extract_redsky_credentials(warm_up)
+
+    url = "https://redsky.target.com/redsky_aggregations/v1/web/product_summary_with_fulfillment_v1?" + urlencode({
+        "key": credentials["key"],
+        "visitor_id": credentials["visitor_id"],
+        "tcins": ",".join(tcins),
+        "store_id": store_id,
+        "pricing_store_id": store_id,
+        "required_store_id": store_id,
+        "scheduled_delivery_store_id": store_id,
+        "zip": zip_code,
+        "channel": "WEB",
+        "page": f"/p/A-{tcins[0]}",
+    })
+
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, session=session, **BASE_CONFIG))
+    return parse_availability(response)
 
 
 def parse_store_locations(response: ScrapeApiResponse) -> List[Dict]:
