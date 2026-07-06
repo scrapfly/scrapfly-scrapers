@@ -22,7 +22,7 @@ BASE_CONFIG = {
 }
 
 POLL_URL = "https://www.kayak.com/i/api/search/dynamic/flights/poll"
-SEARCH_RESULTS_SELECTOR = "//div[contains(text(), 'results')]"
+SEARCH_RESULTS_SELECTOR = "//div[contains(@id, 'results')]"
 
 
 def build_search_url(origin, destination, departure_date, return_date=None, sort="bestflight_a"):
