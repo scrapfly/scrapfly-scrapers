@@ -318,6 +318,8 @@ jobs:
             test: test_scrape_flights
           - project_dir: skyscanner-scraper
             test: test_scrape_flights_oneway            
+          - project_dir: kayak-scraper
+            test: test_scrape_roundtrip
 
     steps:
     - uses: actions/checkout@v4
