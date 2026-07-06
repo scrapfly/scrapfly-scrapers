@@ -314,6 +314,8 @@ jobs:
             test: test_search_scraping            
           - project_dir: emirates-scraper
             test: test_scrape_flights
+          - project_dir: kayak-scraper
+            test: test_scrape_roundtrip
 
     steps:
     - uses: actions/checkout@v4
