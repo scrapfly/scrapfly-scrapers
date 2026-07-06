@@ -7,10 +7,10 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 
 import os
 import operator
-
+from datetime import datetime, timezone
 from urllib.parse import quote
 from loguru import logger as log
-from typing import Dict, List
+from typing import Dict, List, TypedDict
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 
@@ -170,6 +170,39 @@ def parse_keywords(response: ScrapeApiResponse) -> List[str]:
     return {"related_search": related_search, "people_ask_for": people_ask_for}
 
 
+EXTRACTION_PROMPT = (
+    "Extract a JSON object from this Google AI Mode search result page (udm=50). "
+    "Ignore the top navigation, cookie banner, sign-in prompts, sidebar, "
+    "related searches, and the follow-up input at the bottom.\n"
+    "Fields:\n"
+    "- query: the original search query shown above the AI answer\n"
+    "- answer: the AI Mode answer text from the main answer column only. "
+    "Return plain text with paragraph breaks. Do not include markdown links, "
+    "bullet markdown syntax, tables, or inline citation URLs.\n"
+    "- sources: array of source cards from the dedicated sources panel attached "
+    "to the AI answer (small cards with a title, external link, and snippet). "
+    "Include only those panel cards, not inline links mentioned inside the answer "
+    "body and not sidebar or related-result links. Each item has:\n"
+    "  - title: source page title\n"
+    "  - url: full destination URL\n"
+    "  - snippet: short excerpt on the card, or null if missing\n"
+    "Return only the JSON object."
+)
+
+
+class AiModeSource(TypedDict):
+    title: str
+    url: str
+    snippet: str | None
+
+
+class AiModeResult(TypedDict):
+    query: str
+    answer: str
+    sources: List[AiModeSource]
+    captured_at: str
+
+
 async def scrape_keywords(query: str) -> List[str]:
     """request google search page for keyword data"""
     response = await SCRAPFLY.async_scrape(
@@ -248,3 +281,23 @@ async def scrape_serp(query: str, max_pages: int = None) -> List[Dict]:
     log.success(f"scraped {len(results)} SERP results of the query: {query}")
     results.sort(key=operator.itemgetter("position"))
     return results
+
+async def scrape_ai_mode(query: str, hl: str = "en", gl: str = "US") -> AiModeResult:
+    """scrape Google AI Mode (udm=50) search results"""
+    url = f"https://www.google.com/search?q={quote(query)}&udm=50&hl={hl}&gl={gl}"
+    log.info(f"scraping Google AI Mode for query: {query!r}")
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            url,
+            **BASE_CONFIG,
+            extraction_prompt=EXTRACTION_PROMPT,
+            wait_for_selector='button[aria-label="Good response"][aria-pressed="false"]',
+            rendering_wait=5000,
+        )
+    )
+    scrape_result = response.scrape_result or {}
+    extracted = scrape_result.get("extracted_data") or {}
+    data = extracted.get("data")
+    data["captured_at"] = datetime.now(timezone.utc).isoformat()
+    log.success(f"scraped AI Mode answer ({len(data.get('sources', []))} sources)")
+    return data
