@@ -164,6 +164,8 @@ jobs:
             test: test_place_url_scraping
           - project_dir: google-scraper
             test: test_place_scraping
+          - project_dir: google-scraper
+            test: test_ai_mode_scraping            
           - project_dir: yelp-scraper
             test: test_review_scraping
           - project_dir: yelp-scraper

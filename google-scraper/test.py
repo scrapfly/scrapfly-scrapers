@@ -91,7 +91,7 @@ ai_mode_schema = {
 async def test_serp_scraping():
     result = await google.scrape_serp(
         query="scrapgly blog web scraping",
-        max_pages=3,
+        max_pages=4,
     )
 
     validator = Validator(serp_schema)
