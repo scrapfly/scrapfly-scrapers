@@ -5,12 +5,14 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
+import gzip
 import os
 import re
 import json
 from typing import Dict, List, Optional, TypedDict
 from urllib.parse import parse_qs, urlencode, urlparse
 from uuid import uuid4
+from parsel import Selector
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -232,25 +234,92 @@ async def scrape_store_locations_sitemap(url: str) -> List[Dict]:
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     return parse_store_locations_sitemap(response)
 
-def parse_store_locations(response: ScrapeApiResponse) -> List[Dict]:
-    """parse store location entries from a sitemap response"""
-    pass
+def parse_store_locations(response: ScrapeApiResponse) -> Dict:
+    """parse store location data from a store_location_v1 response"""
+    data = json.loads(response.content)
+    store = data.get("data", {}).get("store")
+    if store is None:
+        raise ValueError("missing data.store in store location response")
+
+    params = parse_qs(urlparse(response.context["url"]).query)
+    page = params.get("page", [""])[0]
+    if page.startswith("/sl/"):
+        slug, store_id = page.strip("/").split("/")[-2:]
+        store["slug"] = slug
+        store["url"] = f"https://www.target.com/sl/{slug}/{store_id}"
+    return store
 
 
-async def scrape_store_locations(url: str) -> List[Dict]:
-    """scrape store location URLs from the Target store sitemap (stable fallback for store-id discovery)"""
-    pass
+async def scrape_store_locations(store_ids: List[str]) -> List[Dict]:
+    """scrape store location details from store_location_v1 for a list of store IDs"""
+    session = str(uuid4()).replace("-", "")
+    warm_up = await SCRAPFLY.async_scrape(ScrapeConfig(
+        "https://www.target.com/",
+        session=session,
+        render_js=True,
+        wait_for_selector="xhr:store_location_v1",
+        rendering_wait=5000,
+        **BASE_CONFIG,
+    ))
+    credentials = _extract_redsky_credentials(warm_up)
+
+    to_scrape = [
+        ScrapeConfig(
+            "https://redsky.target.com/redsky_aggregations/v1/web/store_location_v1?" + urlencode({
+                "key": credentials["key"],
+                "visitor_id": credentials["visitor_id"],
+                "store_id": store_id,
+                "channel": "WEB",
+                "page": "/c/root",
+            }),
+            session=session,
+            **BASE_CONFIG,
+        )
+        for store_id in store_ids
+    ]
+
+    stores = []
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        stores.append(parse_store_locations(response))
+    return stores
 
 
-def parse_search(response: ScrapeApiResponse) -> Dict:
-    """parse product listing data from a search API response"""
-    pass
+
+def parse_search(response: ScrapeApiResponse) -> List[Dict]:
+    """parse product listing data from a search results page"""
+    products = []
+    for card in response.selector.css('[data-test="@web/site-top-of-funnel/ProductCardWrapper"]'):
+        link = card.css('a[href*="/A-"]::attr(href)').get()
+        if not link:
+            continue
+        match = re.search(r'/A-(\d+)', link)
+        if not match:
+            continue
+        products.append({
+            "tcin": match.group(1),
+            "url": "https://www.target.com" + link.split("#")[0],
+            "title": (
+                card.css('[data-test="@web/ProductCard/title"] ::text').get()
+                or card.css('[data-test="@web/ProductCard/title"]::attr(aria-label)').get()
+            ),
+            "brand": card.css('[data-test="@web/ProductCard/ProductCardBrandAndRibbonMessage/brand"] ::text').get(),
+            "price": card.css('[data-test="current-price"] span ::text').get(),
+            "reg_price": card.css('[data-test="comparison-price"] span ::text').get(),
+        })
+    return products
 
 
 async def scrape_search(
     keyword: str,
-    store_id: str,
     max_pages: Optional[int] = None,
 ) -> List[Dict]:
-    """scrape product search results and paginate through all result pages"""
-    pass
+    """scrape search results and paginate through all result pages"""
+    results: List[Dict] = []
+    for page in range(max_pages or 1):
+        params = {"searchTerm": keyword}
+        if page > 0:
+            params["Nao"] = page * 24
+        url = "https://www.target.com/s?" + urlencode(params)
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, render_js=True, **BASE_CONFIG))
+        results.extend(parse_search(response))
+    return results
