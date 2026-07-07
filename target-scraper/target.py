@@ -211,6 +211,26 @@ async def scrape_availability(
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, session=session, **BASE_CONFIG))
     return parse_availability(response)
 
+def parse_store_locations_sitemap(response: ScrapeApiResponse) -> List[Dict]:
+    """parse store location entries from a sitemap response"""
+    content = response.scrape_result["content"]
+    bytes_data = content.read() if hasattr(content, "read") else content.encode("latin1")
+    if bytes_data.startswith(b"\x1f\x8b"):
+        bytes_data = gzip.decompress(bytes_data)
+    selector = Selector(text=bytes_data.decode("utf-8"))
+
+    locations = []
+    for url in selector.xpath("//url/loc/text()"):
+        url = url.get()
+        slug, store_id = urlparse(url).path.strip("/").split("/")[-2:]
+        locations.append({"url": url, "slug": slug, "store_id": store_id})
+    return locations
+
+
+async def scrape_store_locations_sitemap(url: str) -> List[Dict]:
+    """scrape store location URLs from the Target store sitemap"""
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    return parse_store_locations_sitemap(response)
 
 def parse_store_locations(response: ScrapeApiResponse) -> List[Dict]:
     """parse store location entries from a sitemap response"""
