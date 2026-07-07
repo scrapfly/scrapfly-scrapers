@@ -35,6 +35,29 @@ class CategoryProduct(TypedDict):
     features: List[str]
 
 
+class ReviewRatings(TypedDict):
+    overall: Optional[float]
+    ease_of_use: Optional[float]
+    features: Optional[float]
+    value_for_money: Optional[float]
+    customer_service: Optional[float]
+    likelihood_to_recommend: Optional[int]
+
+
+class Review(TypedDict):
+    title: str
+    date: Optional[str]
+    reviewer_name: str
+    reviewer_role: Optional[str]
+    reviewer_industry: Optional[str]
+    reviewer_usage_duration: Optional[str]
+    reviewer_avatar: Optional[str]
+    ratings: ReviewRatings
+    review_body: Optional[str]
+    pros: Optional[str]
+    cons: Optional[str]
+
+
 def parse_category_page(response: ScrapeApiResponse) -> List[CategoryProduct]:
     """Parse product listings from a Capterra category page."""
     sel = response.selector
@@ -114,15 +137,10 @@ def parse_category_page(response: ScrapeApiResponse) -> List[CategoryProduct]:
     return products
 
 
-def _get_total_pages(response: ScrapeApiResponse) -> int:
-    pages = [
-        int(re.search(r"page=(\d+)", href).group(1))
-        for href in response.selector.css(
-            '[data-testid="pagination-section"] a[href*="page="]::attr(href)'
-        ).getall()
-        if re.search(r"page=(\d+)", href)
-    ]
-    return max(pages) if pages else 1
+def _get_total_pages(response: ScrapeApiResponse, href_selector: str) -> int:
+    hrefs = " ".join(response.selector.css(href_selector).getall())
+    pages = [int(n) for n in re.findall(r"page=(\d+)", hrefs)]
+    return max(pages, default=1)
 
 
 async def scrape_category(category: str, max_pages: int = None) -> List[CategoryProduct]:
@@ -132,7 +150,10 @@ async def scrape_category(category: str, max_pages: int = None) -> List[Category
 
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
     products = parse_category_page(first_page)
-    total_pages = _get_total_pages(first_page)
+    total_pages = _get_total_pages(
+        first_page,
+        '[data-testid="pagination-section"] a[href*="page="]::attr(href)',
+    )
 
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
@@ -153,11 +174,118 @@ async def scrape_category(category: str, max_pages: int = None) -> List[Category
     return products
 
 
-def parse_review_page(response: ScrapeApiResponse) -> Dict:
-    """Parse product review page."""
-    pass
+def _parse_rating_value(card, testid: str) -> Optional[float]:
+    """Extract the numeric rating value for a given data-testid rating element."""
+    text = card.css(f'[data-testid="{testid}"] [class*="sr2r3oj"]::text').get()
+    if text:
+        try:
+            return float(text.strip())
+        except ValueError:
+            pass
+    return None
 
 
-async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
-    """Scrape product reviews."""
-    pass
+def parse_review_page(response: ScrapeApiResponse) -> List[Review]:
+    """Parse product reviews from a Capterra review page."""
+    sel = response.selector
+    reviews = []
+
+    for card in sel.css(".c1ofrhif"):
+        reviewer_texts = [
+            t.strip()
+            for t in card.xpath(
+                './/div[contains(@class,"text-neutral-90") and contains(@class,"w-full")]//text()'
+            ).getall()
+            if t.strip()
+        ]
+
+        name = reviewer_texts[0] if reviewer_texts else ""
+        role = reviewer_texts[1] if len(reviewer_texts) > 1 else None
+        industry = reviewer_texts[2] if len(reviewer_texts) > 2 else None
+
+        usage_duration = None
+        for i, text in enumerate(reviewer_texts):
+            if "used the software for" in text.lower() and i + 1 < len(reviewer_texts):
+                usage_duration = reviewer_texts[i + 1]
+                # industry may appear before the usage marker, so stop after match
+                if industry and "used the software for" in industry.lower():
+                    industry = reviewer_texts[2] if len(reviewer_texts) > 2 else None
+                break
+
+        avatar = card.css('img[data-testid="reviewer-profile-pic"]::attr(src)').get()
+
+        title = card.css("h3.font-semibold::text").get("").strip()
+        date = card.css(".typo-0.text-neutral-90::text").get()
+
+        likelihood_raw = card.css('progress[max="10"]::attr(value)').get()
+        likelihood = int(likelihood_raw) if likelihood_raw else None
+
+        ratings: ReviewRatings = {
+            "overall": _parse_rating_value(card, "Overall Rating-rating"),
+            "ease_of_use": _parse_rating_value(card, "Ease of Use-rating"),
+            "features": _parse_rating_value(card, "Features-rating"),
+            "value_for_money": _parse_rating_value(card, "Value for Money-rating"),
+            "customer_service": _parse_rating_value(card, "Customer Service-rating"),
+            "likelihood_to_recommend": likelihood,
+        }
+
+        review_body = card.xpath(
+            './/div[contains(@class,"!mt-4")]//p[1]'
+        ).xpath("string(.)").get()
+
+        pros = cons = None
+        for section in card.css(".space-y-2"):
+            icon_title = section.css("title::text").get()
+            if icon_title == "Positive icon":
+                pros = section.css("p").xpath("string(.)").get()
+            elif icon_title == "Negative icon":
+                cons = section.css("p").xpath("string(.)").get()
+
+        reviews.append(
+            Review(
+                title=title,
+                date=date.strip() if date else None,
+                reviewer_name=name,
+                reviewer_role=role,
+                reviewer_industry=industry,
+                reviewer_usage_duration=usage_duration,
+                reviewer_avatar=avatar,
+                ratings=ratings,
+                review_body=review_body.strip() if review_body else None,
+                pros=pros.strip() if pros else None,
+                cons=cons.strip() if cons else None,
+            )
+        )
+
+    return reviews
+
+
+async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Review]:
+    """Scrape paginated product reviews."""
+    url = url.rstrip("/")
+    if not url.endswith("/reviews"):
+        url += "/reviews"
+    url += "/"
+
+    log.info(f"scraping reviews from {url}")
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    reviews = parse_review_page(first_page)
+    total_pages = _get_total_pages(first_page, '[data-testid="page-item-section"]::attr(href)')
+
+    if max_review_pages and max_review_pages < total_pages:
+        total_pages = max_review_pages
+
+    if total_pages > 1:
+        log.info(f"scraping reviews pagination, remaining ({total_pages - 1}) more pages")
+        to_scrape = [
+            ScrapeConfig(f"{url}?page={page}", **BASE_CONFIG)
+            for page in range(2, total_pages + 1)
+        ]
+        async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+            try:
+                reviews.extend(parse_review_page(response))
+            except Exception as exc:
+                log.error(f"failed to parse reviews page: {exc}")
+
+    log.success(f"scraped {len(reviews)} reviews from {url}")
+    return reviews
