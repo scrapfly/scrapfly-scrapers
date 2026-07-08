@@ -161,7 +161,6 @@ def parse_property(response: ScrapeApiResponse) -> AirbnbProperty:
     description = pdp["descriptions"]["longDescriptionHtml"]["localizedString"]
     overview = pdp["overview"]["items"]
     room_type = sharing["propertyType"]
-    location = sharing["location"]
     person_capacity = pdp["personCapacity"]
 
     amenities = []

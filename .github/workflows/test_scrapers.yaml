@@ -314,6 +314,11 @@ jobs:
             test: test_search_scraping            
           - project_dir: emirates-scraper
             test: test_scrape_flights
+          - project_dir: airbnb-scraper
+            test: test_search_scraping
+          - project_dir: airbnb-scraper
+            test: test_property_scraping
+                        
 
     steps:
     - uses: actions/checkout@v4

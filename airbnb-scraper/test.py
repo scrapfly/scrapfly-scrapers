@@ -89,13 +89,13 @@ async def test_search_scraping():
         check_in=TODAY,
         check_out=WEEK_FROM_NOW,
         adults=1,
-        max_pages=1,
+        max_pages=3,
     )
 
     validator = Validator(search_schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
-    assert len(result) >= 5
+    assert len(result) >= 40
 
 
 @pytest.mark.asyncio
@@ -108,11 +108,11 @@ async def test_property_scraping():
         adults=1,
         max_pages=1,
     )
-    urls = [item["url"] for item in search_results if item.get("url")][:1]
+    urls = [item["url"] for item in search_results if item.get("url")][:4]
     assert urls, "scrape_listings returned no usable URLs to feed into scrape_properties"
     result = await airbnb.scrape_properties(urls=urls)
 
     validator = Validator(property_schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
-    assert len(result) >= 1
+    assert len(result) >= 2
