@@ -322,6 +322,11 @@ jobs:
             test: test_scrape_flights_oneway            
           - project_dir: kayak-scraper
             test: test_scrape_roundtrip
+          - project_dir: airbnb-scraper
+            test: test_search_scraping
+          - project_dir: airbnb-scraper
+            test: test_property_scraping
+                        
 
     steps:
     - uses: actions/checkout@v4
