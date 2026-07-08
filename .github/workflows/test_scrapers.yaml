@@ -280,6 +280,10 @@ jobs:
             test: test_marketplace_scraping
           - project_dir: facebook-scraper
             test: test_events_scraping
+          - project_dir: facebook-scraper
+            test: test_page_scraping
+          - project_dir: facebook-scraper
+            test: test_group_posts_scraping            
           - project_dir: instagram-scraper
             test: test_post_comments_scraping
           - project_dir: chatgpt-scraper

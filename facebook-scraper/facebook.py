@@ -208,15 +208,15 @@ def parse_event(response: ScrapeApiResponse) -> List[Dict]:
 
         if event_place:
             parsed_event["location_details"] = {"name": event_place.get("contextual_name"), "id": event_place.get("id")}
-        if photo := event.get("cover_photo", {}).get("photo"):
+        if photo := (event.get("cover_photo") or {}).get("photo"):
             parsed_event["cover_photo"] = {
-                "url": photo.get("eventImage", {}).get("uri"),
+                "url": (photo.get("eventImage") or {}).get("uri"),
                 "accessibility_caption": photo.get("accessibility_caption"),
                 "id": photo.get("id"),
             }
         if social_context := event.get("social_context"):
             parsed_event["social_context"] = social_context.get("text")
-        if price_range := event.get("ticketing_context_row", {}).get("price_range_text"):
+        if price_range := (event.get("ticketing_context_row") or {}).get("price_range_text"):
             parsed_event["price_range"] = price_range
 
         parsed_events.append(parsed_event)
