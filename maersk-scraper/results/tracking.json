@@ -1,0 +1,143 @@
+{
+  "tracking_number": "269124324",
+  "origin": "JAWAHARLAL NEHRU",
+  "destination": "VERACRUZ",
+  "containers": [
+    {
+      "container_number": "MSKU1026068",
+      "container_type": "40' DRY",
+      "last_updated": "2026-07-03T16:58:38Z",
+      "status": "IN_PROGRESS",
+      "current_location": "VERACRUZ",
+      "status_date": "2026-07-03T10:13:00.000",
+      "events": [
+        {
+          "location": "Mumbai",
+          "facility": "JM Yard",
+          "description": "GATE-OUT",
+          "date": "2026-04-18T08:17:00.000",
+          "vessel": null,
+          "voyage": null,
+          "is_current": false
+        },
+        {
+          "location": "JAWAHARLAL NEHRU",
+          "facility": "JAWAHARLAL NEHRU NSICT DPW",
+          "description": "GATE-IN",
+          "date": "2026-04-21T09:39:00.000",
+          "vessel": null,
+          "voyage": null,
+          "is_current": false
+        },
+        {
+          "location": "JAWAHARLAL NEHRU",
+          "facility": "JAWAHARLAL NEHRU NSICT DPW",
+          "description": "LOAD",
+          "date": "2026-04-24T18:40:00.000",
+          "vessel": "MAERSK HARTFORD",
+          "voyage": "616W",
+          "is_current": false
+        },
+        {
+          "location": "JAWAHARLAL NEHRU",
+          "facility": "JAWAHARLAL NEHRU NSICT DPW",
+          "description": "CONTAINER DEPARTURE",
+          "date": "2026-04-25T09:00:00.000",
+          "vessel": "MAERSK HARTFORD",
+          "voyage": "616W",
+          "is_current": false
+        },
+        {
+          "location": "SALALAH",
+          "facility": "SALALAH TERMINAL",
+          "description": "CONTAINER ARRIVAL",
+          "date": "2026-04-27T19:42:00.000",
+          "vessel": "MAERSK HARTFORD",
+          "voyage": "616W",
+          "is_current": false
+        },
+        {
+          "location": "SALALAH",
+          "facility": "SALALAH TERMINAL",
+          "description": "DISCHARG",
+          "date": "2026-04-28T06:07:00.000",
+          "vessel": "MAERSK HARTFORD",
+          "voyage": "616W",
+          "is_current": false
+        },
+        {
+          "location": "SALALAH",
+          "facility": "SALALAH TERMINAL",
+          "description": "LOAD",
+          "date": "2026-05-12T23:45:00.000",
+          "vessel": "MAERSK COPENHAGEN",
+          "voyage": "615N",
+          "is_current": false
+        },
+        {
+          "location": "SALALAH",
+          "facility": "SALALAH TERMINAL",
+          "description": "CONTAINER DEPARTURE",
+          "date": "2026-05-13T04:45:00.000",
+          "vessel": "MAERSK COPENHAGEN",
+          "voyage": "615N",
+          "is_current": false
+        },
+        {
+          "location": "PORT TANGIER MEDITERRANEE",
+          "facility": "TANGER MED 2",
+          "description": "CONTAINER ARRIVAL",
+          "date": "2026-06-17T04:42:00.000",
+          "vessel": "MAERSK COPENHAGEN",
+          "voyage": "615N",
+          "is_current": false
+        },
+        {
+          "location": "PORT TANGIER MEDITERRANEE",
+          "facility": "TANGER MED 2",
+          "description": "DISCHARG",
+          "date": "2026-06-17T06:15:00.000",
+          "vessel": "MAERSK COPENHAGEN",
+          "voyage": "615N",
+          "is_current": false
+        },
+        {
+          "location": "PORT TANGIER MEDITERRANEE",
+          "facility": "TANGER MED 2",
+          "description": "LOAD",
+          "date": "2026-06-19T13:00:00.000",
+          "vessel": "COLOMBIA EXPRESS",
+          "voyage": "624W",
+          "is_current": false
+        },
+        {
+          "location": "PORT TANGIER MEDITERRANEE",
+          "facility": "TANGER MED 2",
+          "description": "CONTAINER DEPARTURE",
+          "date": "2026-06-20T05:04:00.000",
+          "vessel": "COLOMBIA EXPRESS",
+          "voyage": "624W",
+          "is_current": false
+        },
+        {
+          "location": "VERACRUZ",
+          "facility": "HUTCHISON PORTS ICAVE",
+          "description": "CONTAINER ARRIVAL",
+          "date": "2026-07-02T16:30:00.000",
+          "vessel": "COLOMBIA EXPRESS",
+          "voyage": "624W",
+          "is_current": false
+        },
+        {
+          "location": "VERACRUZ",
+          "facility": "HUTCHISON PORTS ICAVE",
+          "description": "DISCHARG",
+          "date": "2026-07-03T10:13:00.000",
+          "vessel": "COLOMBIA EXPRESS",
+          "voyage": "624W",
+          "is_current": true
+        }
+      ]
+    }
+  ]
+}

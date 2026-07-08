@@ -1,0 +1,229 @@
+{
+  "url": "https://www.maersk.com/schedules/pointToPoint?from=2IW9P6J7XAW72&to=1JUKNJGWHQBNJ&fromRkstCode=CNSGH&toRkstCode=NLROT&containerIsoCode=45G1&fromServiceMode=CY&toServiceMode=CY&numberOfWeeks=4&dateType=D&date=2026-08-15&dateTo=2026-09-12&vesselFlag=",
+  "from_rkst_code": "CNSGH",
+  "to_rkst_code": "NLROT",
+  "departure_date": "2026-08-15",
+  "route_count": 5,
+  "routes": [
+    {
+      "route_id": "769242022",
+      "route_code": "E1",
+      "route_direction": "W",
+      "estimated_transit_time": "P40DT1H",
+      "estimated_transit_days": 40,
+      "vessel_name": "BUSAN EXPRESS",
+      "origin_facility": "CNSGHY3",
+      "destination_facility": "NLROTTM",
+      "departure_time": "2026-08-15T12:00:00",
+      "arrival_time": "2026-09-24T07:00:00",
+      "service_name": "AE1",
+      "voyage_number": "633W",
+      "legs": [
+        {
+          "carriage_type": "OCEAN",
+          "transport_mode": "MVS",
+          "vessel": {
+            "name": "BUSAN EXPRESS",
+            "code": "IE8",
+            "flag_country": "DE"
+          },
+          "origin": {
+            "facility_code": "CNSGHY3",
+            "geo_id": "37O5HQ17XCL3X",
+            "estimated_arrival": "2026-08-13T00:01:00",
+            "estimated_departure": "2026-08-15T12:00:00",
+            "voyage_number": "633W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "destination": {
+            "facility_code": "NLROTTM",
+            "geo_id": "HHMT8D8RO96BR",
+            "estimated_arrival": "2026-09-24T07:00:00",
+            "estimated_departure": "2026-09-26T03:00:00",
+            "voyage_number": "633W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "transit_time": "P40DT1H"
+        }
+      ]
+    },
+    {
+      "route_id": "769242022",
+      "route_code": "E1",
+      "route_direction": "W",
+      "estimated_transit_time": "P40DT1H",
+      "estimated_transit_days": 40,
+      "vessel_name": "BARZAN",
+      "origin_facility": "CNSGHY3",
+      "destination_facility": "NLROTTM",
+      "departure_time": "2026-08-22T12:00:00",
+      "arrival_time": "2026-10-01T07:00:00",
+      "service_name": "AE1",
+      "voyage_number": "634W",
+      "legs": [
+        {
+          "carriage_type": "OCEAN",
+          "transport_mode": "MVS",
+          "vessel": {
+            "name": "BARZAN",
+            "code": "IA5",
+            "flag_country": "DE"
+          },
+          "origin": {
+            "facility_code": "CNSGHY3",
+            "geo_id": "37O5HQ17XCL3X",
+            "estimated_arrival": "2026-08-20T00:01:00",
+            "estimated_departure": "2026-08-22T12:00:00",
+            "voyage_number": "634W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "destination": {
+            "facility_code": "NLROTTM",
+            "geo_id": "HHMT8D8RO96BR",
+            "estimated_arrival": "2026-10-01T07:00:00",
+            "estimated_departure": "2026-10-03T03:00:00",
+            "voyage_number": "634W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "transit_time": "P40DT1H"
+        }
+      ]
+    },
+    {
+      "route_id": "769242022",
+      "route_code": "E1",
+      "route_direction": "W",
+      "estimated_transit_time": "P40DT1H",
+      "estimated_transit_days": 40,
+      "vessel_name": "BERLIN EXPRESS",
+      "origin_facility": "CNSGHY3",
+      "destination_facility": "NLROTTM",
+      "departure_time": "2026-08-29T12:00:00",
+      "arrival_time": "2026-10-08T07:00:00",
+      "service_name": "AE1",
+      "voyage_number": "635W",
+      "legs": [
+        {
+          "carriage_type": "OCEAN",
+          "transport_mode": "MVS",
+          "vessel": {
+            "name": "BERLIN EXPRESS",
+            "code": "IE6",
+            "flag_country": "DE"
+          },
+          "origin": {
+            "facility_code": "CNSGHY3",
+            "geo_id": "37O5HQ17XCL3X",
+            "estimated_arrival": "2026-08-27T00:01:00",
+            "estimated_departure": "2026-08-29T12:00:00",
+            "voyage_number": "635W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "destination": {
+            "facility_code": "NLROTTM",
+            "geo_id": "HHMT8D8RO96BR",
+            "estimated_arrival": "2026-10-08T07:00:00",
+            "estimated_departure": "2026-10-10T03:00:00",
+            "voyage_number": "635W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "transit_time": "P40DT1H"
+        }
+      ]
+    },
+    {
+      "route_id": "769242022",
+      "route_code": "E1",
+      "route_direction": "W",
+      "estimated_transit_time": "P42DT1H",
+      "estimated_transit_days": 42,
+      "vessel_name": "GDANSK EXPRESS",
+      "origin_facility": "CNSGHY3",
+      "destination_facility": "NLROTTM",
+      "departure_time": "2026-09-05T12:00:00",
+      "arrival_time": "2026-10-17T07:00:00",
+      "service_name": "AE1",
+      "voyage_number": "636W",
+      "legs": [
+        {
+          "carriage_type": "OCEAN",
+          "transport_mode": "MVS",
+          "vessel": {
+            "name": "GDANSK EXPRESS",
+            "code": "IF3",
+            "flag_country": "DE"
+          },
+          "origin": {
+            "facility_code": "CNSGHY3",
+            "geo_id": "37O5HQ17XCL3X",
+            "estimated_arrival": "2026-09-03T00:01:00",
+            "estimated_departure": "2026-09-05T12:00:00",
+            "voyage_number": "636W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "destination": {
+            "facility_code": "NLROTTM",
+            "geo_id": "HHMT8D8RO96BR",
+            "estimated_arrival": "2026-10-17T07:00:00",
+            "estimated_departure": "2026-10-19T03:00:00",
+            "voyage_number": "636W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "transit_time": "P40DT1H"
+        }
+      ]
+    },
+    {
+      "route_id": "769242022",
+      "route_code": "E1",
+      "route_direction": "W",
+      "estimated_transit_time": "P42DT1H",
+      "estimated_transit_days": 42,
+      "vessel_name": "ROTTERDAM EXPRESS",
+      "origin_facility": "CNSGHY3",
+      "destination_facility": "NLROTTM",
+      "departure_time": "2026-09-12T12:00:00",
+      "arrival_time": "2026-10-24T07:00:00",
+      "service_name": "AE1",
+      "voyage_number": "637W",
+      "legs": [
+        {
+          "carriage_type": "OCEAN",
+          "transport_mode": "MVS",
+          "vessel": {
+            "name": "ROTTERDAM EXPRESS",
+            "code": "II9",
+            "flag_country": "DE"
+          },
+          "origin": {
+            "facility_code": "CNSGHY3",
+            "geo_id": "37O5HQ17XCL3X",
+            "estimated_arrival": "2026-09-10T00:01:00",
+            "estimated_departure": "2026-09-12T12:00:00",
+            "voyage_number": "637W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "destination": {
+            "facility_code": "NLROTTM",
+            "geo_id": "HHMT8D8RO96BR",
+            "estimated_arrival": "2026-10-24T07:00:00",
+            "estimated_departure": "2026-10-26T03:00:00",
+            "voyage_number": "637W",
+            "service_name": "AE1",
+            "service_code": "411"
+          },
+          "transit_time": "P40DT1H"
+        }
+      ]
+    }
+  ]
+}
