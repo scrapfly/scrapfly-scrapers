@@ -19,6 +19,16 @@ facebook.BASE_CONFIG["cache"] = False
 
 async def run():
 
+    page_data = await facebook.scrape_facebook_page(
+        page_urls=[
+            "https://www.facebook.com/bbcnews",
+            "https://www.facebook.com/adidas/",
+            "https://www.facebook.com/copperkettleyqr/",
+        ]
+    )
+    with open(output.joinpath("pages.json"), "w", encoding="utf-8") as file:
+        json.dump(page_data, file, indent=2, ensure_ascii=False)
+
     print("running Facebook scrape and saving results to ./results directory")
 
     marketplace_data = await facebook.scrape_marketplace_listings(
@@ -30,6 +40,16 @@ async def run():
     events_data = await facebook.scrape_facebook_events(event_name="New York, NY")
     with open(output.joinpath("events.json"), "w", encoding="utf-8") as file:
         json.dump(events_data, file, indent=2, ensure_ascii=False)
+
+    group_data = await facebook.scrape_group_posts(
+        group_urls=[
+            "https://www.facebook.com/groups/instantpotcommunity",
+            "https://www.facebook.com/groups/dotnetdevelopers",
+            "https://www.facebook.com/groups/airfryerrecipesuk",
+        ]
+    )
+    with open(output.joinpath("group_posts.json"), "w", encoding="utf-8") as file:
+        json.dump(group_data, file, indent=2, ensure_ascii=False)
 
     print("Scraping completed! Check ./results directory for output files")
 
