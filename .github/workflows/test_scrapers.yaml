@@ -332,6 +332,16 @@ jobs:
             test: test_property_scraping
           - project_dir: pinterest-scraper
             test: test_search_scraping            
+          - project_dir: target-scraper
+            test: test_product_scraping
+          - project_dir: target-scraper
+            test: test_search_scraping
+          - project_dir: target-scraper
+            test: test_availability_scraping
+          - project_dir: target-scraper
+            test: test_store_locations_sitemap
+          - project_dir: target-scraper
+            test: test_store_locations
                         
 
     steps:
