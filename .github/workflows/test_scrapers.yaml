@@ -342,6 +342,11 @@ jobs:
             test: test_store_locations_sitemap
           - project_dir: target-scraper
             test: test_store_locations
+          - project_dir: capterra-scraper
+            test: test_store_locations
+          - project_dir: capterra-scraper
+            test: test_store_locations                        
+            
                         
 
     steps:
