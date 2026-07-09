@@ -1,0 +1,59 @@
+{
+  "88440369": {
+    "tcin": "88440369",
+    "title": "Amazon Echo Show 5 (3rd Gen, 2023 release) | Smart Display with Deeper Bass and Clearer Sound - Charcoal",
+    "price": {
+      "current_retail": 89.99,
+      "display_was_now": false,
+      "formatted_current_price": "$89.99",
+      "formatted_current_price_type": "reg",
+      "reg_retail": 89.99,
+      "location_id": 3991
+    },
+    "free_shipping": true,
+    "fulfillment": {
+      "product_id": "88440369",
+      "is_out_of_stock_in_all_store_locations": false,
+      "sold_out": false,
+      "shipping_options": {
+        "availability_status": "IN_STOCK",
+        "loyalty_availability_status": "IN_STOCK",
+        "services": [
+          {
+            "cutoff": "2026-07-07T18:00:00Z",
+            "shipping_method_id": "STANDARD",
+            "min_delivery_date": "2026-07-09",
+            "max_delivery_date": "2026-07-09",
+            "is_two_day_shipping": true,
+            "is_base_shipping_method": true
+          }
+        ]
+      },
+      "store_options": [
+        {
+          "search_response_store_type": "PRIMARY",
+          "location_available_to_promise_quantity": 1.0,
+          "pre_order_location_available_to_promise_quantity": 0.0,
+          "location_id": "1771",
+          "store": {
+            "location_name": "Cedar Rapids South"
+          },
+          "order_pickup": {
+            "availability_status": "IN_STOCK",
+            "pickup_date": "2026-07-07",
+            "guest_pick_sla": 120,
+            "location_locale": "America/Chicago"
+          },
+          "in_store_only": {
+            "availability_status": "IN_STOCK"
+          }
+        }
+      ],
+      "scheduled_delivery": {
+        "availability_status": "IN_STOCK",
+        "location_available_to_promise_quantity": 1.0
+      }
+    },
+    "in_stock": true
+  }
+}
