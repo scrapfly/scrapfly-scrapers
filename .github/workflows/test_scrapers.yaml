@@ -343,11 +343,15 @@ jobs:
           - project_dir: target-scraper
             test: test_store_locations
           - project_dir: capterra-scraper
-            test: test_store_locations
+            test: test_category_scraping
           - project_dir: capterra-scraper
-            test: test_store_locations                        
-            
-                        
+            test: test_review_scraping
+          - project_dir: rs-online-scraper
+            test: test_product_scraping  
+          - project_dir: rs-online-scraper
+            test: test_category_scraping
+          - project_dir: rs-online-scraper
+            test: test_search_scraping  
 
     steps:
     - uses: actions/checkout@v4
