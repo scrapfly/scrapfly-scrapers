@@ -10,6 +10,7 @@ import os
 from typing import Dict, Optional
 from urllib.parse import quote, urlencode
 import jmespath
+import re
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient
 
@@ -168,65 +169,88 @@ def parse_comments(data: Dict) -> Dict:
         )
 
 
-def parse_post(data: Dict) -> Dict:
-    """Reduce post dataset to the most important fields"""
-    result = jmespath.search(
-        """{
-        id: id,
-        shortcode: shortcode,
-        dimensions: dimensions,
-        src: display_url,
-        thumbnail_src: thumbnail_src,
-        media_preview: media_preview,
-        video_url: video_url,
-        views: video_view_count,
-        likes: edge_media_preview_like.count,
-        location: location.name,
-        taken_at: taken_at_timestamp,
-        related: edge_web_media_to_related_media.edges[].node.shortcode,
-        type: product_type,
-        video_duration: video_duration,
-        music: clips_music_attribution_info,
-        is_video: is_video,
-        tagged_users: edge_media_to_tagged_user.edges[].node.user.username,
-        captions: edge_media_to_caption.edges[].node.text,
-        related_profiles: edge_related_profiles.edges[].node.username
-    }""",
-        data,
+def _extract_xig_polaris_media(html: str) -> Optional[Dict]:
+    scripts = re.findall(
+        r'<script[^>]*data-sjs[^>]*>(.*?)</script>', html, re.DOTALL
     )
-    comments_data = parse_comments(data)
-    result.update(comments_data)
+    for script in scripts:
+        if "xig_polaris_media" not in script:
+            continue
+        try:
+            payload = json.loads(script)
+            modules = payload["require"][0][3][0]["__bbox"]["require"]
+        except (KeyError, IndexError, TypeError, json.JSONDecodeError):
+            continue
+        for module in modules:
+            if not isinstance(module, list) or len(module) <= 3:
+                continue
+            for entry in module[3]:
+                if not isinstance(entry, dict):
+                    continue
+                media = (
+                    entry.get("__bbox", {})
+                    .get("result", {})
+                    .get("data", {})
+                    .get("xig_polaris_media")
+                )
+                if media:
+                    return media
+    return None
 
-    return result
+
+def parse_post(data: Dict) -> Dict:
+    """Parse post data from the xig_polaris_media HTML-embedded structure"""
+    post = data.get("if_not_gated_logged_out") or data
+    caption_text = (post.get("caption") or {}).get("text")
+
+    comments = []
+    for edge in (data.get("comments_connection") or {}).get("edges") or []:
+        node = edge.get("node")
+        if not node:
+            continue
+        user = node.get("user") or {}
+        comments.append({
+            "id": str(node.get("pk", "")),
+            "text": node.get("text", ""),
+            "created_at": node.get("created_at"),
+            "owner": user.get("username", ""),
+            "owner_id": str(user.get("pk", "")),
+            "owner_verified": user.get("is_verified", False),
+            "likes": node.get("comment_like_count", 0),
+        })
+
+    return {
+        "id": str(post.get("pk", "")),
+        "shortcode": post.get("code", ""),
+        "src": post.get("display_uri", ""),
+        "src_attached": [
+            m["display_uri"]
+            for m in post.get("carousel_media") or []
+            if m.get("display_uri")
+        ],
+        "likes": post.get("like_count"),
+        "taken_at": post.get("taken_at"),
+        "location": (post.get("location") or {}).get("name"),
+        "captions": [caption_text] if caption_text else [],
+        "comments_count": post.get("comment_count"),
+        "comments": comments,
+    }
 
 
 async def scrape_post(url_or_shortcode: str) -> Dict:
-    """Scrape single Instagram post data"""
-    if "http" in url_or_shortcode:
-        shortcode = url_or_shortcode.split("/p/")[-1].split("/")[0]
+    """Scrape single Instagram post data by parsing the HTML page"""
+    if "http" not in url_or_shortcode:
+        url = f"https://www.instagram.com/p/{url_or_shortcode}/"
     else:
-        shortcode = url_or_shortcode
-    log.info("scraping instagram post: {}", shortcode)
-    variables = json.dumps({
-        'shortcode':shortcode,'fetch_tagged_user_count':None,
-        'hoisted_comment_id':None,'hoisted_reply_id':None
-    }, separators=(',', ':'))
-    body = f"variables={variables}&doc_id={INSTAGRAM_DOCUMENT_ID}"
-    url = "https://www.instagram.com/graphql/query"
-    result = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            url=url,
-            method="POST",
-            body=body,
-           headers={
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            **BASE_CONFIG
-        )
-    )
+        url = url_or_shortcode
+    
+    log.info("scraping instagram post: {}", url)
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, **BASE_CONFIG))
+    media = _extract_xig_polaris_media(result.content)
+    if not media:
+        raise ValueError(f"Could not find post data in page: {url}")
+    return parse_post(media)
 
-    data = json.loads(result.content)
-    return parse_post(data["data"]["xdt_shortcode_media"])
 
 
 def parse_user_posts(data: Dict) -> Dict:
