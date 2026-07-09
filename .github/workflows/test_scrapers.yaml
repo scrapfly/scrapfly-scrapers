@@ -352,6 +352,10 @@ jobs:
             test: test_category_scraping
           - project_dir: rs-online-scraper
             test: test_search_scraping  
+          - project_dir: maersk-scraper
+            test: test_scrape_tracking  
+          - project_dir: maersk-scraper
+            test: test_scrape_schedule_search  
 
     steps:
     - uses: actions/checkout@v4
