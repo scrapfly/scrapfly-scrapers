@@ -176,7 +176,7 @@ async def scrape_category(category: str, max_pages: int = None) -> List[Category
 
 def _parse_rating_value(card, testid: str) -> Optional[float]:
     """Extract the numeric rating value for a given data-testid rating element."""
-    text = card.css(f'[data-testid="{testid}"] [class*="sr2r3oj"]::text').get()
+    text = card.css(f'[data-testid="{testid}"] span:nth-child(2)::text').get()
     if text:
         try:
             return float(text.strip())
@@ -190,7 +190,7 @@ def parse_review_page(response: ScrapeApiResponse) -> List[Review]:
     sel = response.selector
     reviews = []
 
-    for card in sel.css(".c1ofrhif"):
+    for card in sel.css("div[data-test-id='review-cards-container'] > div > div"):
         reviewer_texts = [
             t.strip()
             for t in card.xpath(
