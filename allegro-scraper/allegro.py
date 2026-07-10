@@ -171,13 +171,18 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
     review_script = sel.xpath('//script[contains(text(), "aggregateRating")]/text()').get()
     review_data = json.loads(review_script) if review_script else None
     rating = review_data.get("aggregateRating", None)
-    reviews = review_data.get("reviews", None)
+    reviews = review_data.get("review", None)
     if reviews:
+        normalized_reviews = []
         for review in reviews:
-            for field in ("content", "pros", "cons"):
-                val = review.get(field)
-                if isinstance(val, dict):
-                    review[field] = val.get("text")
+            rating_value = review.get("reviewRating", {}).get("ratingValue")
+            normalized_reviews.append({
+                "author": review.get("author", {}).get("name"),
+                "rating": int(rating_value) if rating_value else None,
+                "content": review.get("reviewBody"),
+                "datePublished": review.get("datePublished"),
+            })
+        reviews = normalized_reviews
 
     # specifications
     specifications = []

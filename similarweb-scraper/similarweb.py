@@ -89,14 +89,18 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     """parse links for bestbuy sitemap"""
     content = response.scrape_result['content']
 
-    # base64-encoded string
-    if isinstance(content, str):
-        decoded_bytes = base64.b64decode(content)
-        xml = gzip.decompress(decoded_bytes).decode('utf-8')
-    # bytes-io object        
-    elif isinstance(content, BytesIO):
-        xml = gzip.decompress(content.read()).decode('utf-8')
-        
+    if isinstance(content, BytesIO):
+        content = content.read()
+
+    # gzip-compressed sitemap, delivered as base64-encoded string or raw bytes
+    if isinstance(content, (str, bytes)):
+        try:
+            raw_bytes = base64.b64decode(content) if isinstance(content, str) else content
+            xml = gzip.decompress(raw_bytes).decode('utf-8')
+        except Exception:
+            # plain-text XML sitemap (not gzipped)
+            xml = content.decode('utf-8') if isinstance(content, bytes) else content
+
     selector = Selector(xml)
     data = []
     for url in selector.xpath("//url/loc/text()"):

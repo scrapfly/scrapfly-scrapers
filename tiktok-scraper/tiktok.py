@@ -21,8 +21,8 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # bypass tiktok.com web scraping blocking
     "asp": True,
-    # set the proxy country to US
     "country": "AU",
+    "proxy_pool": "public_residential_pool",
 }
 
 
@@ -100,32 +100,22 @@ def parse_comments(response: ScrapeApiResponse) -> List[Dict]:
 async def scrape_comments(post_url: str) -> List[Dict]:
     """scrape comments from tiktok posts from xhr call parsing"""
     log.info("scraping the post page for the comment data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(
-        post_url, **BASE_CONFIG, render_js=True, rendering_wait=5000,
-        # click the comment icon to load the comments and trigger the API call
-        js_scenario=[
-            {
-                "wait_for_selector": {
-                    "selector": "//span[@data-e2e='comment-icon']",
-                    "timeout": 5000
-                }
-            },
-            {
-                "click": {
-                    "ignore_if_not_visible": False,
-                    "selector": "//span[@data-e2e='comment-icon']"
-                }
-            },
-            {
-                "wait_for_selector": {
-                    "selector": "div.TUXTabBar",
-                    "timeout": 5000
-                }
-            },
-            {"wait": 7000}
-        ])
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            post_url,
+            **BASE_CONFIG,
+            render_js=True,
+            rendering_wait=5000,
+            # click the comment icon to load the comments and trigger the API call
+            js_scenario=[
+                {"wait_for_selector": {"selector": "//*[@data-e2e='comment-icon']"}},
+                {"click": {"selector": "//*[@data-e2e='comment-icon']"}},
+                {"click": {"selector": "//span[@data-testid='tux-web-text' and text()='Comments']"}},
+                {"wait": 10000},
+            ],
+        )
     )
-    
+
     data = parse_comments(response)
     log.success(f"scraped {len(data)} comments from the post with the URL {post_url}")
     return data
@@ -163,7 +153,7 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
             log.error(f"Failed to parse search data from XHR call: {e}")
             continue
         search_data.extend(data)
-    
+
     # parse all the data using jmespath
     parsed_search = []
     for item in search_data:
@@ -203,6 +193,7 @@ async def scrape_search(keyword: str) -> List[Dict]:
         ScrapeConfig(
             url,
             asp=True,
+            proxy_pool="public_residential_pool",
             country="AU",
             wait_for_selector="//div[@data-e2e='search_top-item']",
             render_js=True,

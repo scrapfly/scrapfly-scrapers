@@ -7,9 +7,8 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import json
 import os
-import jmespath
 
-from typing import Dict
+from typing import Dict, List, Optional
 
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient
@@ -19,119 +18,80 @@ BASE_CONFIG = {
     # X.com (Twitter) requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
-    # X.com (Twitter) is javascript-powered web application so it requires
-    # headless browsers for scraping
-    "render_js": True,
 }
 
 
-async def _scrape_twitter_app(url: str, _retries: int = 0, **scrape_config) -> Dict:
-    """Scrape X.com (Twitter) page and scroll to the end of the page if possible"""
-    if not _retries:
-        log.info("scraping {}", url)
-    else:
-        log.info("retrying {}/2 {}", _retries, url)
-    result = await SCRAPFLY.async_scrape(
-        ScrapeConfig(url, auto_scroll=True, lang=["en-US"], **scrape_config, **BASE_CONFIG)
-    )
-    if "Something went wrong, but" in result.content:
-        if _retries > 2:
-            raise Exception("Twitter web app crashed too many times")
-        return await _scrape_twitter_app(url, _retries=_retries + 1, **scrape_config)
-    return result
+def _find_ld_json(scripts: List[str], type_: str) -> Optional[Dict]:
+    """find a JSON-LD script block by schema type"""
+    for script in scripts:
+        try:
+            data = json.loads(script)
+        except json.JSONDecodeError:
+            continue
+        if data.get("@type") == type_:
+            return data
+    return None
 
 
-def parse_tweet(data: Dict) -> Dict:
-    """Parse X.com (Twitter) tweet JSON dataset for the most important fields"""
-    result = jmespath.search(
-        """{
-        created_at: legacy.created_at,
-        attached_urls: legacy.entities.urls[].expanded_url,
-        attached_urls2: legacy.entities.url.urls[].expanded_url,
-        attached_media: legacy.entities.media[].media_url_https,
-        tagged_users: legacy.entities.user_mentions[].screen_name,
-        tagged_hashtags: legacy.entities.hashtags[].text,
-        favorite_count: legacy.favorite_count,
-        bookmark_count: legacy.bookmark_count,
-        quote_count: legacy.quote_count,
-        reply_count: legacy.reply_count,
-        retweet_count: legacy.retweet_count,
-        quote_count: legacy.quote_count,
-        text: legacy.full_text,
-        is_quote: legacy.is_quote_status,
-        is_retweet: legacy.retweeted,
-        language: legacy.lang,
-        user_id: legacy.user_id_str,
-        id: legacy.id_str,
-        conversation_id: legacy.conversation_id_str,
-        source: source,
-        views: views.count
-    }""",
-        data,
-    )
-    result["poll"] = {}
-    poll_data = jmespath.search("card.legacy.binding_values", data) or []
-    for poll_entry in poll_data:
-        key, value = poll_entry["key"], poll_entry["value"]
-        if "choice" in key:
-            result["poll"][key] = value["string_value"]
-        elif "end_datetime" in key:
-            result["poll"]["end"] = value["string_value"]
-        elif "last_updated_datetime" in key:
-            result["poll"]["updated"] = value["string_value"]
-        elif "counts_are_final" in key:
-            result["poll"]["ended"] = value["boolean_value"]
-        elif "duration_minutes" in key:
-            result["poll"]["duration"] = value["string_value"]
-    user_data = jmespath.search("core.user_results.result", data)
-    if user_data:
-        result["user"] = parse_profile(user_data)
-    return result
+def _interaction_count(stats: List[Dict], name: str = None, interaction_type: str = None) -> Optional[int]:
+    """get interaction count by stat name or interaction type"""
+    for stat in stats or []:
+        if name and stat.get("name") == name:
+            return stat.get("userInteractionCount")
+        if interaction_type and stat.get("interactionType", "").endswith(interaction_type):
+            return stat.get("userInteractionCount")
+    return None
 
 
 async def scrape_tweet(url: str) -> Dict:
-    """
-    Scrape a single tweet page for Tweet thread e.g.:
-    https://twitter.com/Scrapfly_dev/status/1667013143904567296
-    Return parent tweet, reply tweets and recommended tweets
-    """
-    result = await _scrape_twitter_app(url, wait_for_selector="[data-testid='tweet']")
-    # capture background requests and extract ones that request Tweet data
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    tweet_call = [f for f in _xhr_calls if "TweetResultByRestId" in f["url"]]
-    for xhr in tweet_call:
-        if not xhr["response"]:
-            continue
-        data = json.loads(xhr["response"]["body"])
-        return parse_tweet(data['data']['tweetResult']['result'])
-
-
-def parse_profile(data: Dict) -> Dict:
-    """parse X.com (Twitter) user profile JSON dataset as a flat structure"""
-    return {"id": data["id"], "rest_id": data["rest_id"], "verified": data["is_blue_verified"], **data["legacy"]}
+    """scrape a tweet page and return text, author and engagement stats"""
+    log.info("scraping tweet {}", url)
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    scripts = result.selector.xpath('//script[@type="application/ld+json"]/text()').getall()
+    data = _find_ld_json(scripts, "SocialMediaPosting")
+    if not data:
+        raise Exception(f"Failed to find tweet data on {url}")
+    stats = data.get("interactionStatistic", [])
+    author = data.get("author", {})
+    return {
+        "id": data.get("identifier"),
+        "url": data.get("url") or data.get("mainEntityOfPage"),
+        "text": data.get("articleBody") or data.get("text"),
+        "created_at": data.get("dateCreated") or data.get("datePublished"),
+        "reply_count": data.get("commentCount") or _interaction_count(stats, name="Replies"),
+        "retweet_count": _interaction_count(stats, name="Retweets"),
+        "favorite_count": _interaction_count(stats, name="Likes"),
+        "view_count": _interaction_count(stats, interaction_type="ViewAction"),
+        "user": {
+            "name": author.get("name"),
+            "screen_name": (author.get("alternateName") or "").lstrip("@"),
+            "url": author.get("url"),
+        },
+    }
 
 
 async def scrape_profile(url: str) -> Dict:
-    """
-    Scrapes X.com (Twitter) user profile page e.g.:
-    https://x.com/scrapfly_dev
-    returns user data and latest tweets
-    """
-    result = await _scrape_twitter_app(url, wait_for_selector="xhr:UserTweets")
-    # capture background requests and extract ones that contain user data
-    # and their latest tweets
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    for xhr in _xhr_calls:
-        if "UserTweets" not in xhr["url"] or not xhr.get("response"):
-            continue
-        data = json.loads(xhr["response"]["body"])
-        instructions = data["data"]["user"]["result"]["timeline"]["timeline"]["instructions"]
-        for instruction in instructions:
-            for entry in instruction.get("entries", []):
-                item = entry.get("content", {}).get("itemContent", {})
-                if item.get("__typename") != "TimelineTweet":
-                    continue
-                user_result = item["tweet_results"]["result"]["core"]["user_results"]["result"]
-                if user_result.get("rest_id"):
-                    return parse_profile(user_result)
-        raise Exception("Failed to scrape user profile - no matching user data background requests")
+    """scrape a user profile page and return profile data"""
+    log.info("scraping profile {}", url)
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    scripts = result.selector.xpath('//script[@type="application/ld+json"]/text()').getall()
+    data = _find_ld_json(scripts, "ProfilePage")
+    if not data:
+        raise Exception(f"Failed to find profile data on {url}")
+    user = data.get("mainEntity", {})
+    stats = user.get("interactionStatistic", [])
+    image = user.get("image", {})
+    return {
+        "id": user.get("identifier"),
+        "rest_id": user.get("identifier"),
+        "name": user.get("name"),
+        "screen_name": user.get("additionalName"),
+        "description": user.get("description"),
+        "location": (user.get("homeLocation") or {}).get("name"),
+        "website": user.get("sameAs"),
+        "profile_image_url": image.get("contentUrl"),
+        "created_at": data.get("dateCreated"),
+        "followers_count": _interaction_count(stats, interaction_type="FollowAction"),
+        "friends_count": _interaction_count(stats, interaction_type="SubscribeAction"),
+        "statuses_count": _interaction_count(stats, interaction_type="WriteAction"),
+    }
