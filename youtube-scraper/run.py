@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache
-    youtube.BASE_CONFIG["cache"] = True
+    youtube.BASE_CONFIG["cache"] = False
     youtube.BASE_CONFIG["debug"] = True
 
     print("running YouTube scrape and saving results to ./results directory")

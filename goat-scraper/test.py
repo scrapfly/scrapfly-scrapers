@@ -94,13 +94,13 @@ search_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
-    result = await goat.scrape_products(
-        urls=[
-            "https://www.goat.com/sneakers/air-jordan-3-retro-white-cement-reimagined-dn3707-100",
-            "https://www.goat.com/sneakers/travis-scott-x-air-jordan-1-retro-high-og-cd4487-100",
-            "https://www.goat.com/sneakers/travis-scott-x-wmns-air-jordan-1-low-og-olive-dz4137-106",
-        ]
-    )
+    search_data = await goat.scrape_search("air jordan", max_pages=1)
+    product_urls = [
+        f"https://www.goat.com/sneakers/{product['slug']}" for product in search_data[:3]
+    ]
+    assert len(product_urls) > 1, "search returned no product urls"
+
+    result = await goat.scrape_products(urls=product_urls)
     validator = Validator(product_schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)

@@ -211,7 +211,7 @@ async def scrape_video(ids: List[str]) -> List[Dict]:
     """scrape video metadata from YouTube videos"""
     data = []
     to_scrape = [
-        ScrapeConfig(f"https://youtu.be/{video_id}", proxy_pool="public_residential_pool", **BASE_CONFIG)
+        ScrapeConfig(f"https://youtu.be/{video_id}", proxy_pool="public_residential_pool", **BASE_CONFIG, render_js=True)
         for video_id in ids
     ]
     log.info(f"scraping {len(to_scrape)} video metadata from video pages")
@@ -502,6 +502,7 @@ async def scrape_shorts(ids: List[str]) -> List[Dict]:
         ScrapeConfig(
             f"https://youtu.be/{short_id}",
             proxy_pool="public_residential_pool",
+            render_js=True,
             **BASE_CONFIG,
         )
         for short_id in ids

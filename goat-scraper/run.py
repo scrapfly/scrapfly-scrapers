@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache for basic use
-    goat.BASE_CONFIG["cache"] = True
+    goat.BASE_CONFIG["cache"] = False
 
     print("running Goat scrape and saving results to ./results directory")
 

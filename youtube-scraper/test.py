@@ -28,7 +28,7 @@ _thumnails_schema = {
 channel_videos_schema = {
     "videoId": {"type": "string"},
     "title": {"type": "string"},
-    "publishedTime": {"type": "string"},
+    "publishedTime": {"type": "string", "nullable": True},
     "lengthText": {"type": "string"},
     "viewCount": {"type": "string"},
     "thumbnails": _thumnails_schema,
@@ -77,7 +77,7 @@ comments_schema = {
         "schema": {
             "id": {"type": "string"},
             "text": {"type": "string"},
-            "publishedTime": {"type": "string"},
+            "publishedTime": {"type": "string", "nullable": True},
         },
     },
     "author": {
@@ -104,7 +104,7 @@ search_schema = {
     "id": {"type": "string"},
     "title": {"type": "string"},
     "description": {"type": "string", "nullable": True},
-    "publishedTime": {"type": "string"},
+    "publishedTime": {"type": "string", "nullable": True},
     "videoLength": {"type": "string"},
     "viewCount": {"type": "string", "nullable": True},
     "videoBadges": {
