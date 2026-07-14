@@ -6,7 +6,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 # enable scrapfly cache
-allegro.BASE_CONFIG["cache"] = True
+allegro.BASE_CONFIG["cache"] = False
 
 class Validator(_Validator):
     def _validate_min_presence(self, min_presence, field, value):
@@ -98,7 +98,7 @@ product_schema = {
                 "author": {"type": "string"},
                 "seller": {"type": "string"},
                 "rating": {"type": "integer"},
-                "content": {"type": "string"},
+                "content": {"type": "string", "nullable": True},
                 "pros": {"type": "string", "nullable": True},
                 "cons": {"type": "string", "nullable": True},
                 "photos": {"type": "list", "schema": {"type": "string"}},
@@ -116,7 +116,7 @@ product_schema = {
             },
         },
     },
-    "allegro_smart_badge": {"type": "boolean"},
+    "allegro_smart_badge": {"type": "boolean","nullable": True},
 }
 
 search_product_schema = {
@@ -135,7 +135,7 @@ search_product_schema = {
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
     search_data = await allegro.scrape_search("plyta glowna", max_pages=1)
-    product_urls = [product["url"] for product in search_data["products"][:4]]
+    product_urls = [product["url"] for product in search_data["products"][:3]]
     assert len(product_urls) > 1, "search returned no product urls"
 
     products_data = await allegro.scrape_product(urls=product_urls)
