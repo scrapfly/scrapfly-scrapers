@@ -21,7 +21,6 @@ BASE_CONFIG = {
     "country": "US",
     "proxy_pool": "public_residential_pool",
     "render_js": True,
-    "rendering_wait": 5000,
 }
 
 
@@ -188,7 +187,7 @@ def parse_reviews(response: ScrapeApiResponse) -> List[IMDbReview]:
 async def scrape_reviews(title_id: str) -> List[IMDbReview]:
     """scrape user reviews from IMDb /reviews/ pages"""
     url = f"https://www.imdb.com/title/{title_id}/reviews/"
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, wait_for_selector='a[aria-label^="User"]', **BASE_CONFIG))
     reviews = []
     reviews = parse_reviews(result)
     log.success(f"scraped {len(reviews)} reviews for {title_id}")

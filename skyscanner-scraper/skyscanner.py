@@ -109,7 +109,7 @@ def _parse_flight(
     trip_type = "round_trip" if len(legs) == 2 else "one_way"
 
     carrier = _carrier_name(leg["carriers"]["marketing"])
-    operator = _carrier_name(leg["carriers"]["operating"])
+    operator = _carrier_name(leg["carriers"].get("operating", []))
     operated_by = operator if operator and operator != carrier else None
 
     return FlightResult(
