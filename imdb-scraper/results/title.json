@@ -1,0 +1,70 @@
+[
+  {
+    "id": "tt0111161",
+    "url": "https://www.imdb.com/title/tt0111161/",
+    "name": "The Shawshank Redemption",
+    "type": "Movie",
+    "rating_value": 9.3,
+    "rating_count": 3206795,
+    "content_rating": "R",
+    "genre": [
+      "Drama"
+    ],
+    "description": "After a banker is sentenced to life in Shawshank Prison, he forms an unlikely friendship with a seasoned inmate and clings to hope amid cruelty and corruption.",
+    "cast": [
+      {
+        "@type": "Person",
+        "url": "https://www.imdb.com/name/nm0000209/",
+        "name": "Tim Robbins"
+      },
+      {
+        "@type": "Person",
+        "url": "https://www.imdb.com/name/nm0000151/",
+        "name": "Morgan Freeman"
+      },
+      {
+        "@type": "Person",
+        "url": "https://www.imdb.com/name/nm0348409/",
+        "name": "Bob Gunton"
+      }
+    ],
+    "directors": [
+      {
+        "@type": "Person",
+        "url": "https://www.imdb.com/name/nm0001104/",
+        "name": "Frank Darabont"
+      }
+    ],
+    "runtime_minutes": 142,
+    "keywords": [
+      "prison",
+      "based on the works of stephen king",
+      "escape from prison",
+      "friendship between men",
+      "wrongful conviction"
+    ],
+    "box_office": {
+      "budget": {
+        "amount": 25000000,
+        "currency": "USD",
+        "__typename": "Money"
+      },
+      "gross_us_canada": {
+        "amount": 28767189,
+        "currency": "USD",
+        "__typename": "Money"
+      },
+      "gross_worldwide": {
+        "amount": 29423730,
+        "currency": "USD",
+        "__typename": "Money"
+      },
+      "opening_weekend": {
+        "amount": 727327,
+        "currency": "USD",
+        "__typename": "Money"
+      }
+    },
+    "release_date": "1994-10-14"
+  }
+]
