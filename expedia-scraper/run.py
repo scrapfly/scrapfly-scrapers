@@ -35,5 +35,15 @@ async def run():
     print(f"saved {len(hotels)} hotels to results/hotels.json")
 
 
+    flight_results = await expedia.scrape_flight_search(
+        origin="JFK",
+        destination="LAX",
+        departure_date=TODAY,
+        return_date=WEEK_FROM_NOW,
+    )
+    output.joinpath("flights.json").write_text(
+        json.dumps(flight_results, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+
 if __name__ == "__main__":
     asyncio.run(run())
