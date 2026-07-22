@@ -24,6 +24,8 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
+    "render_js": True,
+    "proxy_pool": "public_residential_pool"
 }
 
 def parse_hidden_data(response: ScrapeApiResponse) -> List[Dict]:
