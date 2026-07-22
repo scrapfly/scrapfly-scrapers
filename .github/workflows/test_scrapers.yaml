@@ -274,6 +274,10 @@ jobs:
             test: test_listings_scraping
           - project_dir: autoscout24-scraper
             test: test_car_details_scraping
+          - project_dir: ticketmaster-scraper
+            test: test_artist_scraping
+          - project_dir: ticketmaster-scraper
+            test: test_discovery_scraping
           - project_dir: facebook-scraper
             test: test_marketplace_scraping
           - project_dir: facebook-scraper
