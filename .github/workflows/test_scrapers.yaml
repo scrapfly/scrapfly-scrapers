@@ -378,6 +378,12 @@ jobs:
             test: test_chart_scraping
           - project_dir: imdb-scraper
             test: test_person_scraping
+          - project_dir: lowes-scraper
+            test: test_product_scraping
+          - project_dir: lowes-scraper
+            test: test_search_scraping
+          - project_dir: lowes-scraper
+            test: test_store_locations_scraping
 
 
     steps:
