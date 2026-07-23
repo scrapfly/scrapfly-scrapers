@@ -6,7 +6,8 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import json
 import os
-from datetime import datetime
+import re
+from datetime import datetime, timedelta
 from typing import Dict, List, Optional, TypedDict
 from urllib.parse import urlencode
 
@@ -30,9 +31,12 @@ _HQV_HEADERS = {
     "apollographql-client-name": "phoenix_shop",
     "apollographql-client-version": "v1",
     "graphql-operation-name": _HQV_OP,
-    "graphql-operation-signature": "d4eec435708414c81a2293d4990f71c8c44c47338da24b32547089516e028794",
     "graphql-require-safelisting": "true",
 }
+
+# required header for the graphql call
+_OPERATION_SIGNATURES: Dict[str, str] = {}
+
 _HQV_QUERY = """
 query phoenixShopHQVPropertyInfoCall($propertyId: ID!, $filter: [ContactNumberType], $descriptionsFilter: [PropertyDescriptionType]) {
   property(id: $propertyId) {
@@ -118,6 +122,45 @@ def _build_search_url(city: str, from_date: str, to_date: str, num_rooms: int = 
         "numberOfRooms": num_rooms,
         "numAdultsPerRoom": num_adults,
     })
+
+
+def _parse_operation_signatures(html: str) -> Dict[str, str]:
+    """parse the GraphQL operation safelist from page __NEXT_DATA__"""
+
+    match = re.search(r'<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)</script>', html)
+    if not match:
+        return {}
+    try:
+        data = json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return {}
+
+    signatures = (data.get("props", {}).get("pageProps", {}) or {}).get("operationSignatures") or []
+    return {
+        item["operationName"]: item["signature"]
+        for item in signatures
+        if isinstance(item, dict) and item.get("operationName") and item.get("signature")
+    }
+
+
+async def _get_operation_signature(operation: str) -> str:
+    """resolve an operation's safelist signature, fetching a search page to harvest it if not cached"""
+
+    if operation not in _OPERATION_SIGNATURES:
+        from_date = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
+        to_date = (datetime.now() + timedelta(days=32)).strftime("%Y-%m-%d")
+        url = _build_search_url("New York", from_date, to_date)
+        log.info("fetching operation signatures from {}", url)
+
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, asp=True, country="US", proxy_pool="public_residential_pool")
+        )
+        _OPERATION_SIGNATURES.update(_parse_operation_signatures(response.content))
+
+    if operation not in _OPERATION_SIGNATURES:
+        raise RuntimeError(f"operation signature for '{operation}' not found in page data")
+
+    return _OPERATION_SIGNATURES[operation]
 
 
 def parse_search(data: Dict) -> List[MarriottProperty]:
@@ -226,6 +269,7 @@ async def scrape_search(
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(url, **BASE_CONFIG, wait_for_selector=f"xhr:{_SEARCH_XHR}")
     )
+    _OPERATION_SIGNATURES.update(_parse_operation_signatures(response.content))
     xhr_calls = response.scrape_result.get("browser_data", {}).get("xhr_call", [])
     call = next((c for c in xhr_calls if _SEARCH_XHR in c.get("url", "")), None)
     if not call:
@@ -238,11 +282,13 @@ async def scrape_search(
 async def scrape_hotels(property_ids: List[str]) -> List[MarriottHotel]:
     """Scrape hotel details for the given Marriott property ids."""
     log.info("scraping hotel details for {} properties", len(property_ids))
+    signature = await _get_operation_signature(_HQV_OP)
+    headers = {**_HQV_HEADERS, "graphql-operation-signature": signature}
     to_scrape = [
         ScrapeConfig(
             _HQV_URL,
             method="POST",
-            headers=_HQV_HEADERS,
+            headers=headers,
             body=json.dumps({
                 "operationName": _HQV_OP,
                 "query": _HQV_QUERY,
