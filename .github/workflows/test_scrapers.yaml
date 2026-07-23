@@ -368,6 +368,16 @@ jobs:
             test: test_reviews_scraping
           - project_dir: google-play-scraper
             test: test_search_scraping
+          - project_dir: imdb-scraper
+            test: test_title_scraping
+          - project_dir: imdb-scraper
+            test: test_review_scraping
+          - project_dir: imdb-scraper
+            test: test_search_scraping
+          - project_dir: imdb-scraper
+            test: test_chart_scraping
+          - project_dir: imdb-scraper
+            test: test_person_scraping
 
 
     steps:
