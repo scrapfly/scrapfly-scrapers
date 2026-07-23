@@ -160,35 +160,37 @@ async def scrape_titles(urls: List[str]) -> List[IMDbTitle]:
 
 
 def parse_reviews(response: ScrapeApiResponse) -> List[IMDbReview]:
-    """parse user reviews from /reviews/ page __NEXT_DATA__"""
+    """parse featured user reviews from title page __NEXT_DATA__"""
     page = _parse_next_data(response.selector).get("props", {}).get("pageProps", {})
-    items = ((page.get("contentData") or {}).get("reviews")) or []
+    edges = ((page.get("mainColumnData") or {}).get("featuredReviews") or {}).get("edges") or []
     reviews = []
-    for item in items:
-        review = item.get("review") or {}
-        author = review.get("author") or {}
-        raw = review.get("reviewText") or ""
+    for edge in edges:
+        node = edge.get("node") or {}
+        if not node.get("id"):
+            continue
+        author = node.get("author") or {}
+        raw = ((node.get("text") or {}).get("originalText") or {}).get("plaidHtml") or ""
         text = html.unescape(raw)
         text = re.sub(r"<br\s*/?>", "\n", text, flags=re.I)
         text = re.sub(r"<[^>]+>", "", text).strip() or None
         reviews.append(
             IMDbReview(
-                id=review.get("reviewId"),
+                id=node["id"],
                 author=(author.get("username") or {}).get("text"),
-                summary=review.get("reviewSummary"),
+                summary=(node.get("summary") or {}).get("originalText"),
                 text=text,
-                rating=review.get("authorRating"),
-                spoiler=bool(review.get("spoiler")),
+                rating=node.get("authorRating"),
+                spoiler=bool(node.get("spoiler")),
             )
         )
     return reviews
 
 
 async def scrape_reviews(title_id: str) -> List[IMDbReview]:
-    """scrape user reviews from IMDb /reviews/ pages"""
-    url = f"https://www.imdb.com/title/{title_id}/reviews/"
-    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, wait_for_selector='a[aria-label^="User"]', **BASE_CONFIG))
-    reviews = []
+    """scrape featured user reviews from the title page hidden dataset
+    (the /reviews/ page requires sign-in and no longer embeds review data)"""
+    url = f"https://www.imdb.com/title/{title_id}/"
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     reviews = parse_reviews(result)
     log.success(f"scraped {len(reviews)} reviews for {title_id}")
     return reviews

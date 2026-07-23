@@ -15,7 +15,7 @@ output.mkdir(exist_ok=True)
 
 
 async def run():
-    imdb.BASE_CONFIG["cache"] = True
+    imdb.BASE_CONFIG["cache"] = False
 
     print("running IMDb scrape and saving results to ./results directory")
 
