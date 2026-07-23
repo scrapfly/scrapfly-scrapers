@@ -362,6 +362,12 @@ jobs:
             test: test_category_scraping
           - project_dir: digikey-scraper
             test: test_search_scraping
+          - project_dir: google-play-scraper
+            test: test_app_scraping
+          - project_dir: google-play-scraper
+            test: test_reviews_scraping
+          - project_dir: google-play-scraper
+            test: test_search_scraping
 
 
     steps:
