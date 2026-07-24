@@ -1,0 +1,77 @@
+{
+  "classification": "success",
+  "tracking_number": "LBAA19526",
+  "status": "Actual Vessel Departure",
+  "events": [
+    {
+      "timestamp": "2026-08-23T00:00:00+08:00",
+      "status": "transit",
+      "description": "Estimated Vessel Arrival (Last Updated)",
+      "location": "Shanghai"
+    },
+    {
+      "timestamp": "2026-08-05T00:00:00+08:00",
+      "status": "transit",
+      "description": "Estimated Vessel Arrival",
+      "location": "Shanghai"
+    },
+    {
+      "timestamp": "2026-06-27T10:54:00+01:00",
+      "status": "transit",
+      "description": "Actual Vessel Departure",
+      "location": "Port of Felixstowe"
+    },
+    {
+      "timestamp": "2026-06-27T04:00:00+01:00",
+      "status": "transit",
+      "description": "Estimated Vessel Departure (Last Updated)",
+      "location": "Port of Felixstowe"
+    },
+    {
+      "timestamp": "2026-06-26T00:00:00+01:00",
+      "status": "transit",
+      "description": "Estimated Vessel Departure",
+      "location": "Port of Felixstowe"
+    },
+    {
+      "timestamp": "2026-06-15T12:12:00+01:00",
+      "status": "pre-transit",
+      "description": "CFS/CY Cut-Off Date",
+      "location": "Purfleet"
+    },
+    {
+      "timestamp": "2026-06-15T12:12:00+01:00",
+      "status": "unknown",
+      "description": "Customer Documentation Cut-off",
+      "location": "Leeds"
+    },
+    {
+      "timestamp": "2026-06-10T16:01:00+01:00",
+      "status": "transit",
+      "description": "Arrival at Origin DGF Terminal",
+      "location": "Purfleet"
+    },
+    {
+      "timestamp": "2026-06-05T12:13:00+01:00",
+      "status": "pre-transit",
+      "description": "Booking Confirmed to Customer",
+      "location": "London"
+    },
+    {
+      "timestamp": "2026-06-05T09:19:00+01:00",
+      "status": "pre-transit",
+      "description": "Customer Booking Received",
+      "location": "London"
+    },
+    {
+      "timestamp": "2026-06-05T09:19:00+01:00",
+      "status": "pre-transit",
+      "description": "Shipment Entered into System",
+      "location": "London"
+    }
+  ],
+  "retrieved_at": null,
+  "estimated_delivery": "2026-08-23T00:00:00+08:00",
+  "origin": "London",
+  "destination": "Shanghai"
+}
