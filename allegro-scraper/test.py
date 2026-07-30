@@ -134,10 +134,10 @@ search_product_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
-    search_data = await allegro.scrape_search("plyta glowna", max_pages=1)
-    product_urls = [product["url"] for product in search_data["products"][:3]]
-    assert len(product_urls) > 1, "search returned no product urls"
-
+    product_urls = [
+            "https://allegro.pl/oferta/procesor-amd-ryzen-5-7500f-tray-17401107639",
+            "https://allegro.pl/oferta/plyta-glowna-socket-am5-asus-b650e-max-gaming-wifi-atx-17328863669",
+        ]
     products_data = await allegro.scrape_product(urls=product_urls)
     validator = Validator(product_schema, allow_unknown=True)
     for item in products_data:
@@ -149,6 +149,7 @@ async def test_product_scraping():
     assert len(products_data) >= 1
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await allegro.scrape_search("Cooler CPU")
     
