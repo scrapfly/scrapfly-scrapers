@@ -23,10 +23,13 @@ async def test_user_scraping():
     schema = {
         "name": {"type": "string"},
         "username": {"type": "string"},
-        "category": {"type": "string"},
+        "id": {"type": "string"},
         "bio": {"type": "string"},
         "followers": {"type": "integer"},
         "follows": {"type": "integer"},
+        "is_private": {"type": "boolean"},
+        "is_verified": {"type": "boolean"},
+        "profile_image": {"type": "string"},
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
