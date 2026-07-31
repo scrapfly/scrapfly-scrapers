@@ -57,19 +57,23 @@ def parse_user(data: Dict) -> Dict:
         name: full_name,
         username: username,
         id: pk,
-        category: category_name,
-        business_category: business_category_name,
-        phone: business_phone_number,
-        email: business_email,
         bio: biography,
         bio_links: bio_links[].url,
-        homepage: external_url,
         followers: follower_count,
         follows: following_count,
         facebook_id: id,
         is_private: is_private,
         is_verified: is_verified,
-        profile_image: profile_pic_url
+        is_memorialized: is_memorialized,
+        pronouns: pronouns,
+        account_badges: account_badges,
+        threads_handle: text_post_app_badge_label,
+        profile_image: profile_pic_url,
+        highlights: lox_highlights_connection.edges[].node.{
+            id: id,
+            title: title,
+            cover_image: cover_media_cropped_thumbnail_url
+        }
     }""",
         data,
     )

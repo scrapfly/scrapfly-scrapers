@@ -29,7 +29,22 @@ async def test_user_scraping():
         "follows": {"type": "integer"},
         "is_private": {"type": "boolean"},
         "is_verified": {"type": "boolean"},
+        "is_memorialized": {"type": "boolean"},
+        "pronouns": {"type": "list", "nullable": True},
+        "account_badges": {"type": "list", "nullable": True},
+        "threads_handle": {"type": "string", "nullable": True},
         "profile_image": {"type": "string"},
+        "highlights": {
+            "type": "list",
+            "schema": {
+                "type": "dict",
+                "schema": {
+                    "id": {"type": "string"},
+                    "title": {"type": "string"},
+                    "cover_image": {"type": "string"},
+                },
+            },
+        },
     }
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result, validator)
