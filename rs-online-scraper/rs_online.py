@@ -100,8 +100,11 @@ def parse_product(response: ScrapeApiResponse) -> RSProduct:
     rs_stock_number = (sel.css(".product.attribute.sku .value::text").get() or "").strip()
     mpn = "".join(sel.css('[itemprop="manufacturer_part_number"]::text').getall()).strip()
 
-    stock_text = (sel.css(".badge-block.stock-status-bg .badge-text::text").get() or "").strip()
-    stock_match = re.match(r"(.+?)\s*-\s*(\d+)\s*$", stock_text)
+    stock_match = None
+    for text in sel.css(".badge-block.stock-status-bg .badge-text ::text").getall():
+        stock_match = re.match(r"(.+?)\s*-\s*(\d+)\s*$", text.strip())
+        if stock_match:
+            break
     stock_quantity = int(stock_match.group(2)) if stock_match else None
     if not availability and stock_match:
         availability = stock_match.group(1)
