@@ -237,6 +237,7 @@ async def scrape_hotel_search(
         url=build_hotel_search_url(destination, check_in, check_out, adults),
         session=session,
         wait_for_selector="xhr:graphql",
+        rendering_wait="5000",
         auto_scroll=True,
         **BASE_CONFIG,
     ))
@@ -280,6 +281,7 @@ async def scrape_flight_search(
         session=session,
         auto_scroll=True,
         wait_for_selector="xhr:graphql",
+        rendering_wait="5000",
         **BASE_CONFIG,
     ))
     captured_call = _find_graphql_call(

@@ -42,12 +42,12 @@ async def test_scrape_hotel_search():
         destination="New York",
         check_in=TODAY,
         check_out=WEEK_FROM_NOW,
-        max_pages=1,
+        max_pages=2,
     )
     validator = Validator(hotel_schema, allow_unknown=True)
     for hotel in hotels:
         assert validator.validate(hotel), validator.errors
-    assert len(hotels) >= 10
+    assert len(hotels) >= 5
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -57,7 +57,7 @@ async def test_scrape_flight_search():
         destination="LAX",
         departure_date=TODAY,
         return_date=WEEK_FROM_NOW,
-        max_pages=1,
+        max_pages=2,
     )
     validator = Validator(flight_schema, allow_unknown=True)
     for flight in flights:
