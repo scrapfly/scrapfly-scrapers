@@ -229,7 +229,7 @@ async def scrape_facebook_events(event_name: str = "New York, NY") -> List[Dict]
     log.info(f"scraping Facebook Events for event: {event_name}")
 
     # build events URL with location
-    url = f"https://www.facebook.com/events/search?q={quote(event_name)}"
+    url = f"https://www.facebook.com/events/search?q={quote(event_name)}&sde=Abq6hpNmijm8kReC4KYmmDP0NuT4IxNliFRnd3vuRZUj8uh4BsVIK3dVq186DripYNQbuwiy5LR0V3y0W_iqLV_W"
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url=url,
