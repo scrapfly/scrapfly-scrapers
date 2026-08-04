@@ -5,7 +5,7 @@ from pathlib import Path
 import pprint
 
 import pytest
-from cerberus import Validator
+from cerberus import Validator as _Validator
 
 import airbnb
 
@@ -15,6 +15,20 @@ TODAY = datetime.now().strftime("%Y-%m-%d")
 WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
 
 airbnb.BASE_CONFIG["cache"] = os.getenv("SCRAPFLY_CACHE") == "true"
+
+
+class Validator(_Validator):
+    def _validate_min_presence(self, min_presence, field, value):
+        pass  # required for adding non-standard keys to schema
+
+
+def require_min_presence(items, key, min_perc=0.1):
+    """check whether dataset contains items with some amount of non-null values for a given key"""
+    count = sum(1 for item in items if item.get(key))
+    if count < len(items) * min_perc:
+        pytest.fail(
+            f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
+        )
 
 
 def validate_or_fail(item, validator):
@@ -29,7 +43,7 @@ search_schema = {
     "room_type": {"type": "string", "nullable": True},
     "rating": {"type": "float", "nullable": True},
     "review_count": {"type": "integer", "nullable": True},
-    "price_total": {"type": "string", "nullable": True},
+    "price_total": {"type": "string", "nullable": True, "min_presence": 0.1},
 }
 
 property_schema = {
@@ -44,6 +58,7 @@ property_schema = {
     "host": {
         "type": "dict",
         "nullable": True,
+        "min_presence": 0.1,
         "schema": {
             "name": {"type": "string"},
             "is_superhost": {"type": "boolean"},
@@ -61,8 +76,8 @@ property_schema = {
     "person_capacity": {"type": "integer", "nullable": True},
     "rating": {"type": "float", "nullable": True},
     "review_count": {"type": "integer", "nullable": True},
-    "price_per_night": {"type": "string", "nullable": True},
-    "price_total": {"type": "string", "nullable": True},
+    "price_per_night": {"type": "string", "nullable": True, "min_presence": 0.1},
+    "price_total": {"type": "string", "nullable": True, "min_presence": 0.1},
     "reviews": {
         "type": "list",
         "nullable": True,
@@ -95,6 +110,8 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
+    for k in search_schema:
+        require_min_presence(result, k, min_perc=search_schema[k].get("min_presence", 0.1))
     assert len(result) >= 40
 
 
@@ -110,9 +127,11 @@ async def test_property_scraping():
     )
     urls = [item["url"] for item in search_results if item.get("url")][:4]
     assert urls, "scrape_listings returned no usable URLs to feed into scrape_properties"
-    result = await airbnb.scrape_properties(urls=urls)
+    result = await airbnb.scrape_properties(urls=urls, check_in=TODAY, check_out=WEEK_FROM_NOW)
 
     validator = Validator(property_schema, allow_unknown=True)
     for item in result:
         validate_or_fail(item, validator)
+    for k in property_schema:
+        require_min_presence(result, k, min_perc=property_schema[k].get("min_presence", 0.1))
     assert len(result) >= 2

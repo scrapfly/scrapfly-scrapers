@@ -36,7 +36,9 @@ async def run():
     )
 
     urls = [item["url"] for item in search_results if item.get("url")][:3]
-    property_results = await airbnb.scrape_properties(urls=urls)
+    property_results = await airbnb.scrape_properties(
+        urls=urls, check_in=TODAY, check_out=WEEK_FROM_NOW
+    )
     output.joinpath("property.json").write_text(
         json.dumps(property_results, indent=2, ensure_ascii=False), encoding="utf-8"
     )

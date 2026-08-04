@@ -174,30 +174,61 @@ def parse_property(response: ScrapeApiResponse) -> AirbnbProperty:
 
     host = None
     coordinates = None
+    location = None
     price_per_night = None
     price_total = None
     rating = None
     review_count = None
 
-    for section in sections["sections"]:
+    xhr_calls = response.scrape_result.get("browser_data", {}).get("xhr_call", [])
+    section_list = list(sections["sections"])
+    for call in xhr_calls:
+        if "StaysPdpSections" not in call.get("url", ""):
+            continue
+        try:
+            body = json.loads(call["response"]["body"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        hydrated = (((body.get("data") or {}).get("presentation") or {}).get("stayProductDetailPage") or {}).get("sections") or {}
+        section_list.extend(hydrated.get("sections") or [])
+
+    for section in section_list:
         kind = section["sectionComponentType"]
         data = section.get("section") or {}
 
         if kind == "MEET_YOUR_HOST":
-            card = data["cardData"]
-            host = {"name": card["name"], "is_superhost": card["isSuperhost"]}
+            card = data.get("cardData")  # older payloads; newer ones ship an empty stub here
+            if card:
+                host = {"name": card["name"], "is_superhost": card["isSuperhost"]}
         elif kind == "LOCATION_PDP":
             coordinates = {"lat": data["lat"], "lng": data["lng"]}
             location = data["subtitle"]
         elif kind == "BOOK_IT_SIDEBAR":
-            line = (data.get("structuredDisplayPrice") or {}).get("primaryLine") or {}
-            price_per_night = line.get("price")
-            qualifier = line.get("qualifier")
-            if price_per_night and qualifier:
-                price_total = f"{price_per_night} {qualifier}"
+            display_price = data.get("structuredDisplayPrice") or {}
+            line = display_price.get("primaryLine") or {}
+            # per-night lines carry "price"; discounted total lines carry "discountedPrice"
+            price = line.get("price") or line.get("discountedPrice")
+            qualifier = line.get("qualifier") or ""
+            if price:
+                price_total = f"{price} {qualifier}".strip()
+                if re.fullmatch(r"(per\s+)?night", qualifier.strip(), re.IGNORECASE):
+                    price_per_night = price
+            if not price_per_night:
+                # nightly rate only appears in the breakdown, e.g. "7 nights x $203.44"
+                for group in (display_price.get("explanationData") or {}).get("priceDetails") or []:
+                    for item in group.get("items") or []:
+                        m = re.search(r"nights?\s*x\s*(\$[\d,.]+)", item.get("description") or "")
+                        if m:
+                            price_per_night = m.group(1)
+                            break
         elif kind == "REVIEWS_DEFAULT":
             rating = data.get("overallRating")
             review_count = data.get("overallCount")
+
+    if host is None:
+        passport = (pdp.get("hostInfo") or {}).get("passportData") or {}
+        if passport:
+            host = {"name": passport.get("name"), "is_superhost": passport.get("isSuperhost")}
 
     rating_stats = pdp.get("quality", {}).get("listingRatingStats", {}).get("overallRatingStats", {})
     rating = rating or rating_stats.get("ratingAverage")
@@ -280,11 +311,26 @@ async def scrape_listings(
     return results
 
 
-async def scrape_properties(urls: List[str]) -> List[AirbnbProperty]:
-    """scrape Airbnb property pages"""
+async def scrape_properties(
+    urls: List[str],
+    check_in: Optional[str] = None,
+    check_out: Optional[str] = None,
+    adults: int = 1,
+) -> List[AirbnbProperty]:
+    """scrape Airbnb property pages
+
+    check_in/check_out (YYYY-MM-DD) are required for price fields
+    without stay dates Airbnb returns no pricing data
+    """
     results = []
     for url in urls:
-        log.info(f"scraping property page: {url}")
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, wait_for_selector="xhr:StaysPdpReviewsQuery", **BASE_CONFIG))
+        params = {"adults": str(adults)}
+        if check_in:
+            params["check_in"] = check_in
+        if check_out:
+            params["check_out"] = check_out
+        full_url = url + ("&" if "?" in url else "?") + urlencode(params)
+        log.info(f"scraping property page: {full_url}")
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(full_url, wait_for_selector="xhr:StaysPdpReviewsQuery", **BASE_CONFIG))
         results.append(parse_property(response))
     return results
