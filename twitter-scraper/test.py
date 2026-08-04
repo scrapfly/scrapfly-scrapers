@@ -19,16 +19,27 @@ TWEET_SCHEMA = {
     "text": {"type": "string", "minlength": 1},
     "retweet_count": {"type": "integer", "min": 0},
     "reply_count": {"type": "integer", "min": 0},
+    "is_reply": {"type": "boolean"},
+    "is_quote": {"type": "boolean"},
+    "media": {"type": "list"},
+    "user": {
+        "type": "dict",
+        "schema": {
+            "screen_name": {"type": "string", "minlength": 1},
+        },
+    },
 }
 
-USER_SCHEMA = {
+PROFILE_SCHEMA = {
     "id": {"type": "string"},
     "rest_id": {"type": "string", "regex": r"^\d+$"},
+    "screen_name": {"type": "string", "minlength": 1},
     "verified": {"type": "boolean"},
-    "fast_followers_count": {"type": "integer", "min": 0},
     "followers_count": {"type": "integer", "min": 0},
     "friends_count": {"type": "integer", "min": 0},
+    "statuses_count": {"type": "integer", "min": 0},
     "description": {"type": "string", "minlength": 50},
+    "tweets": {"type": "list", "minlength": 1},
 }
 
 
@@ -46,6 +57,7 @@ async def test_tweet_scraping():
 async def test_user_scraping():
     url = "https://x.com/robinhanson"
     result = await twitter.scrape_profile(url)
-    user_validator = Validator(USER_SCHEMA, allow_unknown=True)
-    validate_or_fail(result, user_validator)
-
+    profile_validator = Validator(PROFILE_SCHEMA, allow_unknown=True)
+    validate_or_fail(result, profile_validator)
+    tweet_validator = Validator(TWEET_SCHEMA, allow_unknown=True)
+    validate_or_fail(result["tweets"][0], tweet_validator)
