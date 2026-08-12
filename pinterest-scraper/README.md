@@ -2,8 +2,6 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape data from Pinterest.com.
 
-Full tutorial <...>
-
 The scraping code is located in the `pinterest.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
 This scraper scrapes:
@@ -43,7 +41,7 @@ This Pinterest.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi
     $ poetry install --with dev
     $ poetry run pytest test.py
     # or specific scraping areas
-    $ poetry run pytest test.py -k test_search_scraping
+    $ poetry run pytest test.py -k test
     $ poetry run pytest test.py -k test_board_scraping
     $ poetry run pytest test.py -k test_profile_scraping
     $ poetry run pytest test.py -k test_pin_scraping

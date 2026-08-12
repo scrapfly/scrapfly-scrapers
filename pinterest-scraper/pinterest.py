@@ -4,16 +4,16 @@ This is an example web scraper for pinterest.com.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+import base64
 import json
 import os
 import re
 from datetime import datetime
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, TypedDict, Union
+from io import BytesIO
+from typing import Any, Dict, List, Optional, Tuple, TypedDict
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 from uuid import uuid4
 
-import aiohttp
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -21,7 +21,6 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     "asp": True,
     "proxy_pool": "public_residential_pool",
-    "country": "US",
 }
 
 BASE_URL = "https://www.pinterest.com"
@@ -88,7 +87,7 @@ class PinDetail(PinResult, total=False):
 class DownloadResult(TypedDict):
     pin_id: str
     url: str
-    file_path: Optional[str]
+    image_base64: Optional[str]
     success: bool
 
 
@@ -262,7 +261,7 @@ def parse_search_results(pages: List[dict], query: str) -> PinSearch:
     return PinSearch(query=query, search_date=datetime.now().strftime("%Y-%m-%d"), pins=pins)
 
 
-async def scrape_pinterest(query: str, max_pages: int = 3) -> PinSearch:
+async def scrape_search(query: str, max_pages: int = 3) -> PinSearch:
     """Scrape Pinterest search results and return parsed pin data."""
     session_id = str(uuid4()).replace("-", "")
     url = build_url("search/pins", q=query)
@@ -449,30 +448,40 @@ async def scrape_pin(pin_url: str) -> PinDetail:
     )
 
 
-async def download_pin_images(pins: List[Dict[str, Any]], output_dir: Union[str, Path]) -> List[DownloadResult]:
-    """download the best-quality image for each scraped pin to a local directory"""
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+def _content_to_base64(content: Any) -> str:
+    """normalize Scrapfly binary/text content into a base64 string"""
+    if isinstance(content, BytesIO):
+        return base64.b64encode(content.getvalue()).decode("ascii")
+    if isinstance(content, bytes):
+        return base64.b64encode(content).decode("ascii")
+    return content
+
+
+async def download_pin_images(pins: List[Dict[str, Any]]) -> List[DownloadResult]:
+    """download the best-quality image for each scraped pin and return it as base64"""
     results: List[DownloadResult] = []
 
-    async with aiohttp.ClientSession() as session:
-        for pin in pins:
-            pin_id = str(pin.get("pin_id") or "unknown")
-            image_url = pin.get("image") or pin.get("image_thumb")
-            file_path = None
+    for pin in pins:
+        pin_id = str(pin.get("pin_id") or "unknown")
+        image_url = pin.get("image") or pin.get("image_thumb")
+        image_base64 = None
 
-            if image_url:
-                try:
-                    async with session.get(image_url) as resp:
-                        resp.raise_for_status()
-                        ext = Path(urlparse(image_url).path).suffix or ".jpg"
-                        file_path = output_dir / f"{pin_id}{ext}"
-                        file_path.write_bytes(await resp.read())
-                except Exception as e:
-                    log.error(f"failed to download pin {pin_id} image: {e}")
-                    file_path = None
+        if image_url:
+            try:
+                resp = await SCRAPFLY.async_scrape(ScrapeConfig(image_url, **BASE_CONFIG))
+                image_base64 = _content_to_base64(resp.scrape_result["content"])
+            except Exception as e:
+                log.error(f"failed to download pin {pin_id} image: {e}")
+                image_base64 = None
 
-            results.append(DownloadResult(pin_id=pin_id, url=image_url or "", file_path=str(file_path) if file_path else None, success=bool(file_path)))
+        results.append(
+            DownloadResult(
+                pin_id=pin_id,
+                url=image_url or "",
+                image_base64=image_base64,
+                success=bool(image_base64),
+            )
+        )
 
-    log.success(f"downloaded {sum(r['success'] for r in results)}/{len(results)} pin images to {output_dir}")
+    log.success(f"downloaded {sum(r['success'] for r in results)}/{len(results)} pin images as base64")
     return results

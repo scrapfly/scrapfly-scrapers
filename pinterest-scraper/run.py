@@ -1,7 +1,7 @@
 """
 This example run script shows how to run the Pinterest.com scraper defined in ./pinterest.py
 It scrapes pin search results, a board, a profile, a single pin, and downloads pin
-images, saving everything to ./results/
+images as base64, saving everything to ./results/
 
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
@@ -42,8 +42,10 @@ async def run():
         json.dump(pin_data, f, indent=2, ensure_ascii=False)
     print("saved pin details to results/pin.json")
 
-    download_results = await pinterest.download_pin_images(board_data["pins"][:1], output / "downloads")
-    print(f"downloaded {sum(r['success'] for r in download_results)} pin images to results/downloads")
+    download_results = await pinterest.download_pin_images(board_data["pins"][:1])
+    with open(output / "downloads.json", "w", encoding="utf-8") as f:
+        json.dump(download_results, f, indent=2, ensure_ascii=False)
+    print(f"downloaded {sum(r['success'] for r in download_results)} pin images to results/downloads.json")
 
 
 if __name__ == "__main__":

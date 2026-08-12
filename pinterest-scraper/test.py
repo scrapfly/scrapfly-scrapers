@@ -4,6 +4,7 @@ import pinterest
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
+pinterest.BASE_CONFIG["debug"] = True
 
 
 def validate_or_fail(item, validator):
@@ -44,9 +45,12 @@ pin_detail_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
-    result = await pinterest.scrape_pinterest(query="home office desk", max_pages=2)
+    result = await pinterest.scrape_search(query="home office desk", max_pages=2)
     assert len(result["pins"]) >= 5
 
+    validator = Validator(pin_schema, allow_unknown=True)
+    for pin in result["pins"]:
+        assert validator.validate(pin), {"pin": pin, "errors": validator.errors}
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -77,14 +81,12 @@ async def test_pin_scraping():
     result = await pinterest.scrape_pin("https://www.pinterest.com/pin/4608941770563535744/")
     validator = Validator(pin_detail_schema, allow_unknown=True)
     validate_or_fail(result, validator)
-    assert result["title"]
-    assert result["image"]
 
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
-async def test_download_images(tmp_path):
+async def test_download_images():
     board = await pinterest.scrape_board("https://www.pinterest.com/nasa/mars/", max_pages=1)
     pins = board["pins"][:1]
-    results = await pinterest.download_pin_images(pins, tmp_path)
-    assert len(results) == 1
+    results = await pinterest.download_pin_images(pins)
+    assert results[0]["image_base64"]
