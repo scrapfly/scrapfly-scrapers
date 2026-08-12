@@ -183,10 +183,8 @@ def parse_video(response: ScrapeApiResponse) -> Dict:
             "name": video_details.get("author"),
             "identifierId": video_details.get("channelId"),
             "id": channel_id.replace("/", "") if channel_id else None,
-            "verified": (
-                True
-                if verified and [i for i in verified if i["tooltip"] == "Verified"][0]
-                else False
+            "verified": any(
+                i.get("tooltip") == "Verified" for i in (verified or [])
             ),
             "channelUrl": (
                 f"https://www.youtube.com{channel_id}" if channel_id else None
@@ -404,11 +402,19 @@ async def scrape_channel_videos(
     chips = jp_all("$..chipViewModel", initial_script_data)
 
     # there are different continuation tokens based on the sorting order
-    continuation_token = [
-        i["tapCommand"]["innertubeCommand"]["continuationCommand"]["token"]
-        for i in chips
-        if i.get("text") == sort_by
-    ][0]
+    # small channels may have no chips at all; fall back to the page's default token
+    continuation_token = next(
+        (
+            i["tapCommand"]["innertubeCommand"]["continuationCommand"]["token"]
+            for i in chips
+            if i.get("text") == sort_by
+        ),
+        None,
+    )
+    if continuation_token is None:
+        continuation_token = jp_first(
+            "$..continuationCommand.token", initial_script_data
+        )
 
     # 2. call the API to get the video data
     videos = []
