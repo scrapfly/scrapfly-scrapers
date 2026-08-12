@@ -30,7 +30,7 @@ async def run():
         origin="JFK",
         destination="LHR",
         departure_date=TODAY,
-        rtn=1,
+        return_date=WEEK_FROM_NOW,
     )
     with open(output / "roundtrip.json", "w", encoding="utf-8") as f:
         json.dump(roundtrip, f, indent=2, ensure_ascii=False)
@@ -39,7 +39,7 @@ async def run():
     oneway = await skyscanner.scrape_flights(
         origin="JFK",
         destination="CDG",
-        departure_date=WEEK_FROM_NOW,
+        departure_date=TODAY,
     )
     with open(output / "oneway.json", "w", encoding="utf-8") as f:
         json.dump(oneway, f, indent=2, ensure_ascii=False)
