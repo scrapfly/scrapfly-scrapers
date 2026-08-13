@@ -125,7 +125,7 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
         "rest_id": user_id,
         "url": _meta(entity, "url") or sel.css('meta[property="og:url"]::attr(content)').get(),
         "name": _meta(entity, "name"),
-        "screen_name": _meta(entity, "additionalName") or "",
+        "screen_name": (_meta(entity, "alternateName") or "").lstrip("@"),
         "description": _meta(entity, "description"),
         "location": _meta(entity.css("[itemprop=homeLocation]"), "name"),
         "website": _meta(entity, "sameAs"),
