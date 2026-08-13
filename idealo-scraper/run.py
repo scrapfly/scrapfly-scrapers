@@ -16,27 +16,30 @@ output.mkdir(exist_ok=True)
 
 
 async def run():
-    idealo.BASE_CONFIG["cache"] = True
     idealo.BASE_CONFIG["debug"] = True
 
     print("running idealo.de scrape and saving results to ./results directory")
 
-    products = await idealo.scrape_products(
-        urls=[
-            "https://www.idealo.de/preisvergleich/OffersOfProduct/207643424.html",
-            "https://www.idealo.de/preisvergleich/OffersOfProduct/207644441.html",
-        ]
-    )
-    with open(output / "products.json", "w", encoding="utf-8") as f:
-        json.dump(products, f, indent=2, ensure_ascii=False)
+    # products = await idealo.scrape_products(
+    #     urls=[
+    #         "https://www.idealo.de/preisvergleich/OffersOfProduct/207643424.html",
+    #         "https://www.idealo.de/preisvergleich/OffersOfProduct/207644441.html",
+    #     ]
+    # )
+    # with open(output / "products.json", "w", encoding="utf-8") as f:
+    #     json.dump(products, f, indent=2, ensure_ascii=False)
 
-    search_results = await idealo.scrape_search(query="sonnenfinsternis brillen")
-    with open(output / "search.json", "w", encoding="utf-8") as f:
-        json.dump(search_results, f, indent=2, ensure_ascii=False)
+    # search_results = await idealo.scrape_search(query="sonnenfinsternis brillen")
+    # with open(output / "search.json", "w", encoding="utf-8") as f:
+    #     json.dump(search_results, f, indent=2, ensure_ascii=False)
 
-    manufacturer = await idealo.scrape_manufacturer(url="https://www.idealo.de/preisvergleich/Hersteller/1274.html")
-    with open(output / "manufacturer.json", "w", encoding="utf-8") as f:
-        json.dump(manufacturer, f, indent=2, ensure_ascii=False)
+    # manufacturer = await idealo.scrape_manufacturer(url="https://www.idealo.de/preisvergleich/Hersteller/1274.html")
+    # with open(output / "manufacturer.json", "w", encoding="utf-8") as f:
+    #     json.dump(manufacturer, f, indent=2, ensure_ascii=False)
+    
+    price_history = await idealo.scrape_price_history(id="207643424",period="3M")
+    with open(output / "price_history.json", "w", encoding="utf-8") as f:
+        json.dump(price_history, f, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":

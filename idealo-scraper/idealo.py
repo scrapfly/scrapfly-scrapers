@@ -8,9 +8,10 @@ import os
 import re
 import json
 from urllib.parse import urljoin, urlencode
-from typing import List, Optional, TypedDict
+from typing import List, Literal, Optional, TypedDict
 
 from loguru import logger as log
+import uuid
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -36,6 +37,7 @@ await clickUntilGone();
 
 BASE_URL = "https://www.idealo.de"
 SEARCH_PAGE_SIZE = 15
+PeriodType = Literal["1Y", "3M", "6M", "1M"]
 
 
 class IdealoOffer(TypedDict):
@@ -85,6 +87,24 @@ class IdealoManufacturer(TypedDict):
     products: List[IdealoListingItem]
 
 
+class IdealoPriceHistoryPoint(TypedDict):
+    date: Optional[str]
+    price: Optional[float]
+
+
+class IdealoPriceHistory(TypedDict):
+    product_id: str
+    period: PeriodType
+    currency: str
+    start_date: Optional[str]
+    avg_price: Optional[float]
+    lowest_price: Optional[float]
+    lowest_price_days: Optional[int]
+    highest_price: Optional[float]
+    highest_price_days: Optional[int]
+    points: List[IdealoPriceHistoryPoint]
+
+
 def _parse_price(text: Optional[str]) -> Optional[float]:
     if not text:
         return None
@@ -97,6 +117,12 @@ def _parse_price(text: Optional[str]) -> Optional[float]:
     except ValueError:
         return None
 
+
+def _parse_history_price(value) -> Optional[float]:
+    try:
+        return float(value) / 100
+    except (TypeError, ValueError):
+        return None
 
 def _parse_int(text: Optional[str]) -> Optional[int]:
     if not text:
@@ -288,3 +314,49 @@ async def scrape_manufacturer(url: str) -> IdealoManufacturer:
     manufacturer = parse_manufacturer(response)
     log.success(f"scraped manufacturer {manufacturer['name']} with {len(manufacturer['products'])} products")
     return manufacturer
+
+
+def parse_price_history(response: ScrapeApiResponse, product_id: str, period: PeriodType) -> IdealoPriceHistory:
+    """parse price history data from idealo.de price-chart API"""
+    data = json.loads(response.content)
+    stats = data.get("statistics") or {}
+    points = [
+        IdealoPriceHistoryPoint(date=point.get("x"), price=_parse_history_price(point.get("y")))
+        for point in data.get("data") or []
+    ]
+    return IdealoPriceHistory(
+        product_id=product_id,
+        period=period,
+        currency="EUR",
+        start_date=data.get("startDate"),
+        avg_price=_parse_history_price(stats.get("avgPrice")),
+        lowest_price=_parse_history_price(stats.get("lowestPrice")),
+        lowest_price_days=stats.get("lowestPriceDays"),
+        highest_price=_parse_history_price(stats.get("highestPrice")),
+        highest_price_days=stats.get("highestPriceDays"),
+        points=points,
+    )
+
+
+async def scrape_price_history(id: str, period: PeriodType, site_id=1) -> IdealoPriceHistory:
+    """scrape price history from idealo.de"""
+    url = f"{BASE_URL}/preisvergleich/OffersOfProduct/{id}.html"
+    log.info(f"scraping price history page {url}")
+    session = f"idealo-price-history-{uuid.uuid4()}"
+    page = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, wait_for_selector='[class*="price-chart"]', session=session, **BASE_CONFIG)
+    )
+
+    history_url = f"{BASE_URL}/price-chart/sites/{site_id}/products/{id}/history?period={period}"
+    log.info(f"scraping price history API {history_url}")
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            history_url,
+            session=session,
+            headers={"accept": "application/json", "referer": url},
+            **{**BASE_CONFIG, "render_js": False},
+        )
+    )
+    price_history = parse_price_history(response, id, period)
+    log.success(f"scraped price history {price_history['product_id']} with {len(price_history['points'])} price points")
+    return price_history

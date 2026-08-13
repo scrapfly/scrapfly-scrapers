@@ -67,6 +67,27 @@ manufacturer_schema = {
     },
 }
 
+price_history_point_schema = {
+    "date": {"type": "string", "nullable": True},
+    "price": {"type": "number", "nullable": True},
+}
+
+price_history_schema = {
+    "product_id": {"type": "string"},
+    "period": {"type": "string"},
+    "currency": {"type": "string"},
+    "start_date": {"type": "string", "nullable": True},
+    "avg_price": {"type": "number", "nullable": True},
+    "lowest_price": {"type": "number", "nullable": True},
+    "lowest_price_days": {"type": "integer", "nullable": True},
+    "highest_price": {"type": "number", "nullable": True},
+    "highest_price_days": {"type": "integer", "nullable": True},
+    "points": {
+        "type": "list",
+        "schema": {"type": "dict", "schema": price_history_point_schema},
+    },
+}
+
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -99,3 +120,12 @@ async def test_manufacturer_scraping():
     validator = Validator(manufacturer_schema, allow_unknown=True)
     validate_or_fail(data, validator)
     assert len(data["products"]) >= 5
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_price_history_scraping():
+    data = await idealo.scrape_price_history(id="207643424", period="3M")
+    validator = Validator(price_history_schema, allow_unknown=True)
+    validate_or_fail(data, validator)
+    assert len(data["points"]) >= 5
