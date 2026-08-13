@@ -81,23 +81,42 @@ def _build_search_url(
     return f"https://www.airbnb.com/s/{slug}/homes?{urlencode(params)}"
 
 
-def parse_search(response: ScrapeApiResponse) -> List[AirbnbSearchResult]:
-    """parse search results from an Airbnb search page"""
+def _parse_search_payloads(response: ScrapeApiResponse) -> List[Dict]:
+    """extract the staysSearch result payloads embedded in a search page"""
     match = re.search(r'id="data-deferred-state-0"[^>]*>(.*?)</script>', response.content, re.DOTALL)
     if not match:
         return []
 
     niobe = json.loads(match.group(1).strip()).get("niobeClientData", [])
-    results = []
-
+    payloads = []
     for entry in niobe:
         if not isinstance(entry, list) or len(entry) < 2:
             continue
         if not entry[0].startswith("StaysSearch:"):
             continue
+        payloads.append(entry[1]["data"]["presentation"]["staysSearch"]["results"])
+    return payloads
 
-        listings = entry[1]["data"]["presentation"]["staysSearch"]["results"]["searchResults"]
-        for item in listings:
+
+def parse_total_pages(response: ScrapeApiResponse) -> int:
+    """parse the number of available search pages
+
+    taken from the embedded JSON rather than the pagination nav, which isn't
+    always rendered by the time the page is captured
+    """
+    for payload in _parse_search_payloads(response):
+        cursors = (payload.get("paginationInfo") or {}).get("pageCursors") or []
+        if cursors:
+            return len(cursors)
+    return 1
+
+
+def parse_search(response: ScrapeApiResponse) -> List[AirbnbSearchResult]:
+    """parse search results from an Airbnb search page"""
+    results = []
+
+    for payload in _parse_search_payloads(response):
+        for item in payload["searchResults"]:
             raw_id = item.get("demandStayListing", {}).get("id", "")
             try:
                 listing_id = base64.b64decode(raw_id + "==").decode().split(":")[-1]
@@ -201,8 +220,10 @@ def parse_property(response: ScrapeApiResponse) -> AirbnbProperty:
             if card:
                 host = {"name": card["name"], "is_superhost": card["isSuperhost"]}
         elif kind == "LOCATION_PDP":
-            coordinates = {"lat": data["lat"], "lng": data["lng"]}
-            location = data["subtitle"]
+            # older payloads inline the location here; newer ones ship an empty stub
+            if data.get("lat") is not None:
+                coordinates = {"lat": data["lat"], "lng": data["lng"]}
+            location = location or data.get("subtitle")
         elif kind == "BOOK_IT_SIDEBAR":
             display_price = data.get("structuredDisplayPrice") or {}
             line = display_price.get("primaryLine") or {}
@@ -224,6 +245,11 @@ def parse_property(response: ScrapeApiResponse) -> AirbnbProperty:
         elif kind == "REVIEWS_DEFAULT":
             rating = data.get("overallRating")
             review_count = data.get("overallCount")
+
+    pdp_location = pdp.get("location") or {}
+    if coordinates is None and pdp_location.get("latitude") is not None:
+        coordinates = {"lat": pdp_location["latitude"], "lng": pdp_location["longitude"]}
+    location = location or pdp_location.get("subtitle")
 
     if host is None:
         passport = (pdp.get("hostInfo") or {}).get("passportData") or {}
@@ -297,9 +323,7 @@ async def scrape_listings(
             break
 
         if page == 1:
-            nav = re.search(r'aria-label="Search results pagination".*?</nav>', response.content, re.DOTALL)
-            pages = [int(n) for n in re.findall(r">(\d+)</(?:button|a)>", nav.group(0))] if nav else []
-            limit = min(max_pages, max(pages) if pages else 1)
+            limit = min(max_pages, parse_total_pages(response))
             log.info(f"scraping up to {limit} pages")
 
         results.extend(page_results)
