@@ -19,6 +19,7 @@ BASE_CONFIG = {
     "asp": True,
     "proxy_pool": "public_residential_pool",
     "render_js": True,
+    "rendering_wait": 5000,
     "country": "US",
 }
 
@@ -238,7 +239,6 @@ async def scrape_flights(
         ScrapeConfig(
             url,
             **BASE_CONFIG,
-            rendering_wait=5000,
             wait_for_selector=RESULTS_SORTED_SELECTOR,
         )
     )
