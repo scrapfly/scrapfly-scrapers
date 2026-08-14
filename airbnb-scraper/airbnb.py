@@ -12,7 +12,7 @@ import base64
 from urllib.parse import urlencode, quote
 from typing import Dict, List, Optional, TypedDict
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -20,7 +20,6 @@ BASE_CONFIG = {
     "country": "US",
     "proxy_pool": "public_residential_pool",
     "render_js": True,
-    "rendering_wait": 5000,
 }
 
 
@@ -68,15 +67,15 @@ def _build_search_url(
     check_in: Optional[str] = None,
     check_out: Optional[str] = None,
     adults: int = 1,
-    page: int = 1,
+    cursor: Optional[str] = None,
 ) -> str:
     params = {"query": query, "adults": str(adults)}
     if check_in:
         params["checkin"] = check_in
     if check_out:
         params["checkout"] = check_out
-    if page > 1:
-        params["page"] = str(page)
+    if cursor:
+        params["cursor"] = cursor
     slug = quote(query.replace(", ", "-").replace(" ", "-"))
     return f"https://www.airbnb.com/s/{slug}/homes?{urlencode(params)}"
 
@@ -98,17 +97,23 @@ def _parse_search_payloads(response: ScrapeApiResponse) -> List[Dict]:
     return payloads
 
 
-def parse_total_pages(response: ScrapeApiResponse) -> int:
-    """parse the number of available search pages
+def parse_page_cursors(response: ScrapeApiResponse) -> List[str]:
+    """parse the pagination cursor of every available search page
 
-    taken from the embedded JSON rather than the pagination nav, which isn't
-    always rendered by the time the page is captured
+    search pagination is cursor based - the ?page= parameter is ignored by
+    Airbnb and returns the first page again, so the cursors have to be taken
+    from the embedded JSON of the first page
     """
     for payload in _parse_search_payloads(response):
         cursors = (payload.get("paginationInfo") or {}).get("pageCursors") or []
         if cursors:
-            return len(cursors)
-    return 1
+            return cursors
+    return []
+
+
+def parse_total_pages(response: ScrapeApiResponse) -> int:
+    """parse the number of available search pages"""
+    return len(parse_page_cursors(response)) or 1
 
 
 def parse_search(response: ScrapeApiResponse) -> List[AirbnbSearchResult]:
@@ -309,28 +314,37 @@ async def scrape_listings(
     max_pages: int = 3,
 ) -> List[AirbnbSearchResult]:
     """scrape Airbnb search results for a location"""
-    results = []
-    limit = max_pages
+    # scrape the first page, which also carries the cursors of all other pages
+    first_url = _build_search_url(query, check_in, check_out, adults)
+    log.info(f"scraping first search page: {first_url}")
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(first_url, **BASE_CONFIG, rendering_wait=5000))
 
-    for page in range(1, max_pages + 1):
-        url = _build_search_url(query, check_in, check_out, adults, page)
-        log.info(f"scraping search page {page}: {url}")
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-        page_results = parse_search(response)
+    results = parse_search(first_page)
+    if not results:
+        log.error(f"query {query} found no results")
+        return []
+    seen = {item["id"] for item in results}
+    log.success(f"scraped {len(results)} listings from the first page")
 
-        if not page_results:
-            log.warning(f"no results on page {page}, stopping")
-            break
+    # the first cursor points back at the page we already have
+    all_cursors = parse_page_cursors(first_page)
+    cursors = all_cursors[1:max_pages]
+    if not cursors:
+        return results
 
-        if page == 1:
-            limit = min(max_pages, parse_total_pages(response))
-            log.info(f"scraping up to {limit} pages")
-
+    log.info(f"scraping {len(cursors)} more pages of {len(all_cursors)} total")
+    to_scrape = [
+        ScrapeConfig(
+            _build_search_url(query, check_in, check_out, adults, cursor), **BASE_CONFIG, rendering_wait=5000
+        )
+        for cursor in cursors
+    ]
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        # Airbnb reshuffles results between requests so pages can overlap
+        page_results = [item for item in parse_search(response) if item["id"] not in seen]
+        seen.update(item["id"] for item in page_results)
         results.extend(page_results)
-        log.success(f"page {page}: scraped {len(page_results)} listings (total: {len(results)})")
-
-        if page >= limit:
-            break
+        log.success(f"scraped {len(page_results)} listings (total: {len(results)})")
 
     return results
 
@@ -355,6 +369,20 @@ async def scrape_properties(
             params["check_out"] = check_out
         full_url = url + ("&" if "?" in url else "?") + urlencode(params)
         log.info(f"scraping property page: {full_url}")
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(full_url, wait_for_selector="xhr:StaysPdpReviewsQuery", **BASE_CONFIG))
+        try:
+            response = await SCRAPFLY.async_scrape(
+                ScrapeConfig(
+                    full_url,
+                    **BASE_CONFIG,
+                    rendering_wait=15000,
+                    wait_for_selector="xhr:StaysPdpReviewsQuery",
+                )
+            )
+        except ScrapflyScrapeError as e:
+            if e.code != "ERR::SCRAPE::DOM_SELECTOR_NOT_FOUND":
+                raise
+            log.warning(f"no reviews XHR on {url}, scraping without reviews")
+            response = await SCRAPFLY.async_scrape(ScrapeConfig(full_url, **BASE_CONFIG, rendering_wait=15000))
+
         results.append(parse_property(response))
     return results
