@@ -35,6 +35,11 @@ class CategoryProduct(TypedDict):
     features: List[str]
 
 
+class CategoryResult(TypedDict):
+    total_pages: int
+    products: List[CategoryProduct]
+
+
 class ReviewRatings(TypedDict):
     overall: Optional[float]
     ease_of_use: Optional[float]
@@ -56,6 +61,11 @@ class Review(TypedDict):
     review_body: Optional[str]
     pros: Optional[str]
     cons: Optional[str]
+
+
+class ReviewResult(TypedDict):
+    total_pages: int
+    reviews: List[Review]
 
 
 def parse_category_page(response: ScrapeApiResponse) -> List[CategoryProduct]:
@@ -137,32 +147,40 @@ def parse_category_page(response: ScrapeApiResponse) -> List[CategoryProduct]:
     return products
 
 
-def _get_total_pages(response: ScrapeApiResponse, href_selector: str) -> int:
-    hrefs = " ".join(response.selector.css(href_selector).getall())
-    pages = [int(n) for n in re.findall(r"page=(\d+)", hrefs)]
-    return max(pages, default=1)
+def _get_total_pages(response: ScrapeApiResponse) -> int:
+    href = response.selector.xpath('//a[.//i[@aria-label="chevron-line-right"]]/@href').get()
+    if not href:
+        return 1
+    match = re.search(r"page=(\d+)", href)
+    return int(match.group(1)) if match else 1
 
 
-async def scrape_category(category: str, max_pages: int = None) -> List[CategoryProduct]:
-    """Scrape category listings with pagination."""
+def _pages_to_scrape(total_pages: int, max_pages: int) -> int:
+    if max_pages < 0:
+        raise ValueError("max_pages must be 0 or greater")
+    if max_pages == 0:
+        return total_pages
+    return min(max_pages, total_pages)
+
+
+async def scrape_category(category: str, max_pages: int) -> CategoryResult:
+    """Scrape category listings with pagination. Pass max_pages=0 to scrape all pages."""
     base_url = f"https://www.capterra.com/{category}/"
     log.info(f"scraping category page {base_url}")
 
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
     products = parse_category_page(first_page)
-    total_pages = _get_total_pages(
-        first_page,
-        '[data-testid="pagination-section"] a[href*="page="]::attr(href)',
-    )
+    total_pages = _get_total_pages(first_page)
+    print(f"total_pages: {total_pages}")
+    pages_to_scrape = _pages_to_scrape(total_pages, max_pages)
 
-    if max_pages and max_pages < total_pages:
-        total_pages = max_pages
-
-    if total_pages > 1:
-        log.info(f"scraping category pagination, remaining ({total_pages - 1}) more pages")
+    if pages_to_scrape > 1:
+        log.info(
+            f"scraping category pagination, remaining ({pages_to_scrape - 1}) more pages"
+        )
         to_scrape = [
             ScrapeConfig(f"{base_url}?page={page}", **BASE_CONFIG)
-            for page in range(2, total_pages + 1)
+            for page in range(2, pages_to_scrape + 1)
         ]
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
             try:
@@ -171,7 +189,10 @@ async def scrape_category(category: str, max_pages: int = None) -> List[Category
                 log.error(f"failed to parse page: {exc}")
 
     log.success(f"scraped {len(products)} products from Capterra category '{category}'")
-    return products
+    return {
+        "total_pages": total_pages,
+        "products": products,
+    }
 
 
 def _parse_rating_value(card, testid: str) -> Optional[float]:
@@ -260,8 +281,8 @@ def parse_review_page(response: ScrapeApiResponse) -> List[Review]:
     return reviews
 
 
-async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Review]:
-    """Scrape paginated product reviews."""
+async def scrape_reviews(url: str, max_review_pages: int) -> ReviewResult:
+    """Scrape paginated product reviews. Pass max_review_pages=0 to scrape all pages."""
     url = url.rstrip("/")
     if not url.endswith("/reviews"):
         url += "/reviews"
@@ -270,16 +291,16 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Review]
     log.info(f"scraping reviews from {url}")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     reviews = parse_review_page(first_page)
-    total_pages = _get_total_pages(first_page, '[data-testid="page-item-section"]::attr(href)')
+    total_pages = _get_total_pages(first_page)
+    pages_to_scrape = _pages_to_scrape(total_pages, max_review_pages)
 
-    if max_review_pages and max_review_pages < total_pages:
-        total_pages = max_review_pages
-
-    if total_pages > 1:
-        log.info(f"scraping reviews pagination, remaining ({total_pages - 1}) more pages")
+    if pages_to_scrape > 1:
+        log.info(
+            f"scraping reviews pagination, remaining ({pages_to_scrape - 1}) more pages"
+        )
         to_scrape = [
             ScrapeConfig(f"{url}?page={page}", **BASE_CONFIG)
-            for page in range(2, total_pages + 1)
+            for page in range(2, pages_to_scrape + 1)
         ]
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
             try:
@@ -288,4 +309,7 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Review]
                 log.error(f"failed to parse reviews page: {exc}")
 
     log.success(f"scraped {len(reviews)} reviews from {url}")
-    return reviews
+    return {
+        "total_pages": total_pages,
+        "reviews": reviews,
+    }

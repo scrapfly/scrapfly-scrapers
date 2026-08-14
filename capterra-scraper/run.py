@@ -23,14 +23,14 @@ async def run():
         max_pages=3,
     )
     with open(output.joinpath("category.json"), "w", encoding="utf-8") as file:
-        json.dump(category_data, file, indent=2, ensure_ascii=False)
+        json.dump(category_data["products"], file, indent=2, ensure_ascii=False)
 
     reviews_data = await capterra.scrape_reviews(
         url="https://www.capterra.com/p/211559/Trello/",
         max_review_pages=3,
     )
     with open(output.joinpath("reviews.json"), "w", encoding="utf-8") as file:
-        json.dump(reviews_data, file, indent=2, ensure_ascii=False)
+        json.dump(reviews_data["reviews"], file, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
