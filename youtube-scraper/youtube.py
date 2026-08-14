@@ -5,7 +5,6 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
-import re
 import os
 import datetime
 import secrets
@@ -123,26 +122,35 @@ async def call_youtube_api(
     return response
 
 
+def parse_script_variable(script: str, variable: str) -> Dict:
+    """parse the JSON object assigned to a JavaScript variable in a script tag"""
+    if not script:
+        raise ValueError(f"no script tag containing {variable} was found")
+    _, separator, payload = script.partition(variable)
+    if not separator:
+        raise ValueError(f"{variable} was not found in the script tag")
+
+    start = payload.find("{")
+    if start == -1:
+        raise ValueError(f"no JSON object was found after {variable}")
+
+    return json.JSONDecoder().raw_decode(payload[start:])[0]
+
+
 def parse_yt_initial_data(response: ScrapeApiResponse) -> Dict:
     """parse ytInitialData script from YouTube pages"""
     selector = response.selector
     data = selector.xpath("//script[contains(text(),'ytInitialData')]/text()").get()
-    data = json.loads(
-        re.search(r"var ytInitialData = ({.*});", data, re.DOTALL).group(1)
-    )
-    return data
+    return parse_script_variable(data, "ytInitialData")
 
 
 def parse_video_details(response: ScrapeApiResponse) -> Dict:
     """parse video metadata from YouTube video page"""
     selector = response.selector
-    video_details = selector.xpath(
+    data = selector.xpath(
         "//script[contains(text(),'ytInitialPlayerResponse')]/text()"
     ).get()
-    video_details = json.loads(video_details.split(" = ")[1].split(";var")[0]).get(
-        "videoDetails"
-    )
-    return video_details
+    return parse_script_variable(data, "ytInitialPlayerResponse").get("videoDetails")
 
 
 def parse_video(response: ScrapeApiResponse) -> Dict:
@@ -183,11 +191,8 @@ def parse_video(response: ScrapeApiResponse) -> Dict:
             "name": video_details.get("author"),
             "identifierId": video_details.get("channelId"),
             "id": channel_id.replace("/", "") if channel_id else None,
-            "verified": (
-                True
-                if verified and [i for i in verified if i["tooltip"] == "Verified"][0]
-                else False
-            ),
+            # channels can carry other badges instead ("Official Artist Channel")
+            "verified": any(i.get("tooltip") == "Verified" for i in verified or []),
             "channelUrl": (
                 f"https://www.youtube.com{channel_id}" if channel_id else None
             ),
@@ -211,7 +216,15 @@ async def scrape_video(ids: List[str]) -> List[Dict]:
     """scrape video metadata from YouTube videos"""
     data = []
     to_scrape = [
-        ScrapeConfig(f"https://youtu.be/{video_id}", proxy_pool="public_residential_pool", **BASE_CONFIG, render_js=True)
+        ScrapeConfig(
+            f"https://youtu.be/{video_id}",
+            proxy_pool="public_residential_pool",
+            **BASE_CONFIG,
+            render_js=True,
+            # the page is sometimes returned as an empty app shell, wait for the
+            # video metadata to make sure the data scripts are rendered
+            wait_for_selector="//ytd-watch-metadata",
+        )
         for video_id in ids
     ]
     log.info(f"scraping {len(to_scrape)} video metadata from video pages")
@@ -286,22 +299,29 @@ async def scrape_comments(video_id: str, max_scrape_pages=None) -> List[Dict]:
 
 def parse_channel(response: ScrapeApiResponse) -> Dict:
     """parse channel metadata from YouTube channel page"""
-    _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
+    browser_data = response.scrape_result.get("browser_data") or {}
+    _xhr_calls = browser_data.get("xhr_call") or []
     info_call = [c for c in _xhr_calls if "youtube.com/youtubei/v1/browse" in c["url"]]
-    data = json.loads(info_call[0]["response"]["body"]) if info_call else None
+    if not info_call:
+        raise ValueError(
+            "no browse API call was captured, the channel About panel didn't load"
+        )
+    data = json.loads(info_call[0]["response"]["body"])
 
     metadata = jp_first("$..aboutChannelViewModel", data)
+    if not metadata:
+        raise ValueError("no aboutChannelViewModel was found in the browse API response")
+
     links = []
-    if "links" in metadata:
-        for i in metadata["links"]:
-            i = i["channelExternalLinkViewModel"]
-            links.append(
-                {
-                    "title": i["title"]["content"],
-                    "url": i["link"]["content"],
-                    "favicon": i["favicon"],
-                }
-            )
+    for i in metadata.get("links") or []:
+        i = i["channelExternalLinkViewModel"]
+        links.append(
+            {
+                "title": i["title"]["content"],
+                "url": i["link"]["content"],
+                "favicon": i["favicon"],
+            }
+        )
     result = jmespath.search(
         """{
         description: description,
@@ -355,16 +375,12 @@ async def scrape_channel(channel_ids: List[str]) -> List[Dict]:
     return data
 
 
-def parse_video_api(response: ScrapeApiResponse) -> Dict:
-    """parse video data from YouTube API response"""
+def parse_video_items(items: List[Dict]) -> List[Dict]:
+    """parse video data from the video grid items of channel pages and API responses"""
     parsed_videos = []
-    data = json.loads(response.content)
-    continuation_tokens = jp_all("$..continuationCommand.token", data)
-    # first API response includes indexing data
-    videos = jp_all("$..reloadContinuationItemsCommand.continuationItems", data)
-    videos = videos[-1] if len(videos) > 1 else jp_first("$..continuationItems", data)
-    for i in videos:
-        if "richItemRenderer" not in i:
+    for i in items or []:
+        lockup = jp_first("$.richItemRenderer.content.lockupViewModel", i)
+        if not lockup:
             continue
         result = jmespath.search(
             """{
@@ -375,13 +391,35 @@ def parse_video_api(response: ScrapeApiResponse) -> Dict:
             lengthText: contentImage.thumbnailViewModel.overlays[0].thumbnailBottomOverlayViewModel.badges[0].thumbnailBadgeViewModel.text,
             thumbnails: contentImage.thumbnailViewModel.image.sources
             }""",
-            i["richItemRenderer"]["content"]["lockupViewModel"],
+            lockup,
         )
         result["url"] = f"https://youtu.be/{result['videoId']}"
         parsed_videos.append(result)
+    return parsed_videos
+
+
+def parse_channel_videos_page(data: Dict) -> Dict:
+    """parse the video grid rendered in the channel page HTML"""
+
+    contents = jp_first("$..richGridRenderer.contents", data) or []
+    return {
+        "videos": parse_video_items(contents),
+        "continuationToken": jp_first(
+            "$..continuationItemRenderer..continuationCommand.token", contents
+        ),
+    }
+
+
+def parse_video_api(response: ScrapeApiResponse) -> Dict:
+    """parse video data from YouTube API response"""
+    data = json.loads(response.content)
+    continuation_tokens = jp_all("$..continuationCommand.token", data)
+
+    videos = jp_all("$..reloadContinuationItemsCommand.continuationItems", data)
+    videos = videos[-1] if len(videos) > 1 else jp_first("$..continuationItems", data)
 
     return {
-        "videos": parsed_videos,
+        "videos": parse_video_items(videos),
         "continuationToken": continuation_tokens[-1] if continuation_tokens else None,
     }
 
@@ -404,16 +442,31 @@ async def scrape_channel_videos(
     chips = jp_all("$..chipViewModel", initial_script_data)
 
     # there are different continuation tokens based on the sorting order
-    continuation_token = [
-        i["tapCommand"]["innertubeCommand"]["continuationCommand"]["token"]
-        for i in chips
-        if i.get("text") == sort_by
-    ][0]
+    continuation_token = next(
+        (
+            jp_first("$.tapCommand..continuationCommand.token", i)
+            for i in chips
+            if i.get("text") == sort_by
+        ),
+        None,
+    )
 
-    # 2. call the API to get the video data
     videos = []
     cursor = 0
 
+    # channels below a certain size don't render the sorting chips at all and
+    # their videos are part of the channel page itself, already sorted by latest
+    if not continuation_token:
+        log.warning(
+            f"no {sort_by} sorting chip found for the channel {channel_id}, "
+            "falling back to the default video listing of the channel page"
+        )
+        data = parse_channel_videos_page(initial_script_data)
+        videos.extend(data["videos"])
+        continuation_token = data["continuationToken"]
+        cursor += 1
+
+    # 2. call the API to get the video data
     while continuation_token and (
         cursor < max_scrape_pages if max_scrape_pages else True
     ):
@@ -460,7 +513,11 @@ def parse_search_response(response: ScrapeApiResponse) -> List[Dict]:
 
     return {
         "videos": results,
-        "continuationToken": jp_first("$..continuationCommand.token", data),
+        # scoped to the results list, the search filter chips in the header carry
+        # their own tokens, which return pages without any search result
+        "continuationToken": jp_first(
+            "$..continuationItemRenderer..continuationCommand.token", data
+        ),
     }
 
 

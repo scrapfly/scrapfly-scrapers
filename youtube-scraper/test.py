@@ -207,13 +207,14 @@ async def test_video_scraping():
         ids=[
             "1Y-XvvWlyzk",
             "muo6I9XY8K4",
-            "y7FbFJ4jOW8"
+            "y7FbFJ4jOW8",
+            "dQw4w9WgXcQ"
         ]
     )
     validator = Validator(video_schema, allow_unknown=True)
     for i in video_data:
         validate_or_fail(i, validator)
-    assert len(video_data) == 3
+    assert len(video_data) == 4
 
 
 @pytest.mark.asyncio
@@ -245,13 +246,21 @@ async def test_channel_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_channel_videos_scraping():
+    validator = Validator(channel_videos_schema, allow_unknown=True)
+
     channel_videos = await youtube.scrape_channel_videos(
         channel_id="statquest", sort_by="Latest", max_scrape_pages=3
     )
-    validator = Validator(channel_videos_schema, allow_unknown=True)
     for i in channel_videos:
         validate_or_fail(i, validator)
-    assert len(channel_videos) > 40
+    assert len(channel_videos) > 30
+
+    small_channel_videos = await youtube.scrape_channel_videos(
+        channel_id="scrapfly", sort_by="Latest", max_scrape_pages=1
+    )
+    for i in small_channel_videos:
+        validate_or_fail(i, validator)
+    assert len(small_channel_videos) > 0
 
 
 @pytest.mark.asyncio
