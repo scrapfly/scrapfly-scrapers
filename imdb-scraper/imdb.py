@@ -160,24 +160,23 @@ async def scrape_titles(urls: List[str]) -> List[IMDbTitle]:
 
 
 def parse_reviews(response: ScrapeApiResponse) -> List[IMDbReview]:
-    """parse featured user reviews from title page __NEXT_DATA__"""
+    """parse user reviews from the reviews page __NEXT_DATA__"""
     page = _parse_next_data(response.selector).get("props", {}).get("pageProps", {})
-    edges = ((page.get("mainColumnData") or {}).get("featuredReviews") or {}).get("edges") or []
+    items = ((page.get("contentData") or {}).get("reviews")) or []
     reviews = []
-    for edge in edges:
-        node = edge.get("node") or {}
-        if not node.get("id"):
+    for item in items:
+        node = item.get("review") or {}
+        if not node.get("reviewId"):
             continue
         author = node.get("author") or {}
-        raw = ((node.get("text") or {}).get("originalText") or {}).get("plaidHtml") or ""
-        text = html.unescape(raw)
+        text = html.unescape(node.get("reviewText") or "")
         text = re.sub(r"<br\s*/?>", "\n", text, flags=re.I)
         text = re.sub(r"<[^>]+>", "", text).strip() or None
         reviews.append(
             IMDbReview(
-                id=node["id"],
+                id=node["reviewId"],
                 author=(author.get("username") or {}).get("text"),
-                summary=(node.get("summary") or {}).get("originalText"),
+                summary=node.get("reviewSummary"),
                 text=text,
                 rating=node.get("authorRating"),
                 spoiler=bool(node.get("spoiler")),
@@ -187,9 +186,8 @@ def parse_reviews(response: ScrapeApiResponse) -> List[IMDbReview]:
 
 
 async def scrape_reviews(title_id: str) -> List[IMDbReview]:
-    """scrape featured user reviews from the title page hidden dataset
-    (the /reviews/ page requires sign-in and no longer embeds review data)"""
-    url = f"https://www.imdb.com/title/{title_id}/"
+    """scrape user reviews from the title reviews page hidden dataset"""
+    url = f"https://www.imdb.com/title/{title_id}/reviews/"
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
     reviews = parse_reviews(result)
     log.success(f"scraped {len(reviews)} reviews for {title_id}")
