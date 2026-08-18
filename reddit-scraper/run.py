@@ -16,7 +16,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache
-    reddit.BASE_CONFIG["cache"] = True
+    reddit.BASE_CONFIG["cache"] = False
     reddit.BASE_CONFIG["debug"] = True
 
     print("running Reddit scraper and saving results to ./results directory")
