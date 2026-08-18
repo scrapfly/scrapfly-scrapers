@@ -8,6 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 from typing import Dict, List, Union
 from datetime import datetime
+from uuid import uuid4
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -22,6 +23,25 @@ BASE_CONFIG = {
     "render_js": True,
     "proxy_pool": "public_residential_pool"
 }
+
+
+# old.reddit gates logged out traffic per session, so old.reddit requests share one warm session
+OLD_REDDIT_SESSION = "reddit-" + str(uuid4()).replace("-", "")
+
+
+async def scrape_old_reddit(url: str) -> ScrapeApiResponse:
+    """scrape an old.reddit URL, which sends some logged out requests to a login wall on HTTP 200"""
+    global OLD_REDDIT_SESSION
+    for _ in range(3):  # retry the login wall, it follows the session rather than the URL
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, **BASE_CONFIG, session=OLD_REDDIT_SESSION)
+        )
+        if "/login/" not in (response.scrape_result.get("url") or ""):
+            return response
+        log.debug("Redirected to the login wall, rotating the session and retrying...")
+        OLD_REDDIT_SESSION = "reddit-" + str(uuid4()).replace("-", "")
+    raise RuntimeError(f"old.reddit kept redirecting to the login wall for {url}")
+
 
 def parse_subreddit(response: ScrapeApiResponse) -> Dict:
     """parse article data from HTML"""
@@ -88,7 +108,9 @@ def parse_subreddit(response: ScrapeApiResponse) -> Dict:
 async def scrape_subreddit(subreddit_id: str, max_pages: int = None) -> Dict:
     """scrape articles on a subreddit"""
     base_url = f"https://www.reddit.com/r/{subreddit_id}/"
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(base_url, **BASE_CONFIG, wait_for_selector="//article[@data-post-id]")
+    )
     subreddit_data = {}
     data = parse_subreddit(response)
     subreddit_data["info"] = data["info"]
@@ -96,8 +118,8 @@ async def scrape_subreddit(subreddit_id: str, max_pages: int = None) -> Dict:
     cursor = data["cursor"]
 
     def make_pagination_url(cursor_id: str):
-        return f"https://www.reddit.com/svc/shreddit/community-more-posts/hot/?after={cursor_id}%3D%3D&t=DAY&name=wallstreetbets&feedLength=3" 
-        
+        return f"https://www.reddit.com/svc/shreddit/community-more-posts/hot/?after={cursor_id}%3D%3D&t=DAY&name={subreddit_id}&feedLength=3"
+
     while cursor and (max_pages is None or max_pages > 0):
         url = make_pagination_url(cursor)
         response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
@@ -127,7 +149,8 @@ def parse_post_info(response: ScrapeApiResponse) -> Dict:
     info["postLabel"] = label.strip() if label else None
     info["publishingDate"] = selector.xpath("//shreddit-post/@created-timestamp").get()
     info["postTitle"] = selector.xpath("//shreddit-post/@post-title").get()
-    info["postLink"] = selector.xpath("//shreddit-canonical-url-updater/@value").get()
+    permalink = selector.xpath("//shreddit-post/@permalink").get()
+    info["postLink"] = "https://www.reddit.com" + permalink if permalink else None
     info["commentCount"] = int(comments) if comments else None
     info["upvoteCount"] = int(upvotes) if upvotes else None
     info["attachmentType"] = selector.xpath("//shreddit-post/@post-type").get()
@@ -190,8 +213,8 @@ async def scrape_post(url: str, sort: Union["old", "new", "top"]) -> Dict:
     # scrape the comments from the old.reddit version, with the same post URL
     # click the load more button on the page to retrieve more results    
     bulk_comments_page_url = post_link.replace("www", "old") + f"?sort={sort}&limit=500"
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(bulk_comments_page_url, **BASE_CONFIG))
-    post_data["comments"] = parse_post_comments(response) 
+    response = await scrape_old_reddit(bulk_comments_page_url)
+    post_data["comments"] = parse_post_comments(response)
     log.success(f"scraped {len(post_data['comments'])} comments from the post {url}")
     return post_data
 
@@ -228,12 +251,12 @@ def parse_user_posts(response: ScrapeApiResponse) -> List[Dict]:
 async def scrape_user_posts(username: str, sort: Union["new", "top", "controversial"], max_pages: int = None) -> List[Dict]:
     """scrape user posts"""
     url = f"https://old.reddit.com/user/{username}/submitted/?sort={sort}"
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    response = await scrape_old_reddit(url)
     data = parse_user_posts(response)
     post_data, next_page_url = data["data"], data["url"]
 
     while next_page_url and (max_pages is None or max_pages > 0):
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(next_page_url, **BASE_CONFIG))
+        response = await scrape_old_reddit(next_page_url)
         data = parse_user_posts(response)
         next_page_url = data["url"]
         post_data.extend(data["data"])
@@ -279,12 +302,12 @@ def parse_user_comments(response: ScrapeApiResponse) -> List[Dict]:
 async def scrape_user_comments(username: str, sort: Union["new", "top", "controversial"], max_pages: int = None) -> List[Dict]:
     """scrape user posts"""
     url = f"https://old.reddit.com/user/{username}/comments/?sort={sort}"
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    response = await scrape_old_reddit(url)
     data = parse_user_comments(response)
     post_data, next_page_url = data["data"], data["url"]
 
     while next_page_url and (max_pages is None or max_pages > 0):
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(next_page_url, **BASE_CONFIG))
+        response = await scrape_old_reddit(next_page_url)
         data = parse_user_comments(response)
         next_page_url = data["url"]
         post_data.extend(data["data"])
