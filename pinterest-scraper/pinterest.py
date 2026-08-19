@@ -7,8 +7,8 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import os
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Tuple, TypedDict
-from urllib.parse import parse_qs, quote, urlencode, urlparse
+from typing import List, Optional, Tuple, TypedDict
+from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 from uuid import uuid4
 
 from loguru import logger as log
@@ -24,7 +24,6 @@ BASE_CONFIG = {
 
 
 BASE_URL = "https://www.pinterest.com/search/pins/"
-SEARCH_API_URL = "https://www.pinterest.com/resource/BaseSearchResource/get/"
 
 
 class PinResult(TypedDict):
@@ -53,36 +52,24 @@ def build_url(query: str) -> str:
     return BASE_URL + "?" + urlencode({"q": query})
 
 
-def build_post_payload(query: str, bookmark: str | None = None, search_call: dict | None = None) -> str:
-    """Build urlencoded POST body for the Pinterest search API."""
-    if search_call and bookmark:
-        body = search_call.get("body")
-        if body:
-            parsed = parse_qs(body, keep_blank_values=True)
-        else:
-            parsed = parse_qs(urlparse(search_call["url"]).query, keep_blank_values=True)
+def build_search_url(search_call: dict, bookmark: Optional[str] = None) -> str:
+    """Rebuild the captured search API URL for one page of results.
 
-        if parsed.get("data"):
-            data = json.loads(parsed["data"][0])
-            data["options"]["bookmarks"] = [bookmark]
-            return urlencode({
-                "source_url": parsed["source_url"][0],
-                "data": json.dumps(data, separators=(",", ":")),
-            })
-
-    options: Dict[str, Any] = {
-        "query": query,
-        "scope": "pins",
-        "appliedProductFilters": "---",
-        "redux_normalize_feed": True,
-    }
-    if bookmark:
-        options["bookmarks"] = [bookmark]
-
-    return urlencode({
-        "source_url": f"/search/pins/?q={quote(query)}",
-        "data": json.dumps({"options": options, "context": {}}, separators=(",", ":")),
-    })
+    The browser issues this call gated, which returns image-only pin stubs, so
+    ungate it to get the full pin metadata.
+    """
+    parts = urlparse(search_call["url"])
+    params = {key: values[0] for key, values in parse_qs(parts.query, keep_blank_values=True).items()}
+    params.pop("_", None)  # per-request cache buster, stale once replayed
+    try:
+        data = json.loads(params["data"])
+        data["options"]["gated"] = False
+        # the captured call can already be paginated, so always set the bookmark
+        data["options"]["bookmarks"] = [bookmark] if bookmark else []
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError(f"unexpected search XHR shape: {search_call['url'][:200]}") from exc
+    params["data"] = json.dumps(data, separators=(",", ":"))
+    return urlunparse(parts._replace(query=urlencode(params)))
 
 
 def get_search_call(response: ScrapeApiResponse) -> Tuple[dict, dict]:
@@ -108,7 +95,7 @@ def parse_search_results(pages: List[dict] | dict, query: str) -> PinSearch:
                 pin_id=str(pin_id),
                 url=f"https://www.pinterest.com/pin/{pin_id}/",
                 title=(pin.get("title") or pin.get("grid_title") or "").strip(),
-                description=pin.get("description"),
+                description=(pin.get("description") or "").strip() or None,
                 alt_text=pin.get("auto_alt_text") or pin.get("seo_alt_text"),
                 image=(images.get("orig") or {}).get("url"),
                 image_thumb=(images.get("236x") or {}).get("url"),
@@ -124,41 +111,50 @@ def parse_search_results(pages: List[dict] | dict, query: str) -> PinSearch:
 async def scrape_pinterest(query: str, max_pages: int = 3) -> PinSearch:
     """Scrape Pinterest search results and return parsed pin data."""
     session_id = str(uuid4()).replace("-", "")
-    url = build_url(query)
     pages: List[dict] = []
+    bookmark: Optional[str] = None
+    seen_bookmarks = set()
 
     log.info(f"scraping Pinterest search: {query}")
     first = await SCRAPFLY.async_scrape(
-        ScrapeConfig(url, session=session_id, render_js=True, auto_scroll=True,rendering_wait=8000, **BASE_CONFIG)
+        ScrapeConfig(build_url(query), session=session_id, render_js=True, auto_scroll=True, rendering_wait=8000, **BASE_CONFIG)
     )
-
     search_call, headers = get_search_call(first)
-    headers = {**headers, "content-type": "application/x-www-form-urlencoded"}
-    first_data = json.loads(search_call["response"]["body"])
-    pages.append(first_data)
-    bookmark = first_data.get("resource_response", {}).get("bookmark")
-    log.info("page 1: captured")
+    # the browser's own response is gated, so every page is refetched ungated below
 
-    for page in range(2, max_pages + 1):
-        if not bookmark:
-            log.info("no more pages")
-            break
-
+    for page in range(1, max_pages + 1):
         resp = await SCRAPFLY.async_scrape(
             ScrapeConfig(
-                SEARCH_API_URL,
+                build_search_url(search_call, bookmark),
                 **BASE_CONFIG,
-                session=session_id,
-                method="POST",
+                session=session_id,  # carries the rendered page's cookies over to the API calls
                 headers=headers,
-                body=build_post_payload(query, bookmark=bookmark, search_call=search_call),
                 render_js=False,
             )
         )
         data = json.loads(resp.content)
-        pages.append(data)
-        bookmark = data.get("resource_response", {}).get("bookmark")
-        log.info(f"page {page}: captured")
+        resource_response = data.get("resource_response", {})
+        results = resource_response.get("data", {}).get("results")
+        if results is None:
+            raise RuntimeError(
+                f"search API response missing results on page {page} "
+                f"(status={resource_response.get('status')!r}, message={resource_response.get('message')!r})"
+            )
+        if not results:
+            log.info(f"page {page}: no results, stopping")
+            break
+        pin_results = [pin for pin in results if pin.get("type") == "pin"]
+        if pin_results and not any(pin.get("title") or pin.get("description") or pin.get("board") for pin in pin_results):
+            raise RuntimeError(f"page {page} returned pin stubs without metadata - the ungated search option is no longer honoured")
 
-    log.success(f"scraped {len(pages)} pages for query: {query}")
-    return parse_search_results(pages, query)
+        pages.append(data)
+        log.info(f"page {page}: scraped {len(results)} results")
+        bookmark = resource_response.get("bookmark")
+        if not bookmark or bookmark in seen_bookmarks:
+            log.info("no more pages")
+            break
+        seen_bookmarks.add(bookmark)
+
+    search = parse_search_results(pages, query)
+    log.success(f"scraped {len(search['pins'])} pins for query: {query}")
+    return search
