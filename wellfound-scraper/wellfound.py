@@ -7,6 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 
 import os
 import json
+import re
 from typing import Dict, List, TypedDict
 from copy import deepcopy
 from loguru import logger as log
@@ -51,10 +52,10 @@ class CompanyData(TypedDict):
 
 def extract_apollo_state(result: ScrapeApiResponse):
     """extract apollo state graph from a page"""
-    data = result.selector.css("script#__NEXT_DATA__::text").get()
-    if data == None:
+    match = re.search(r'<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)</script>', result.content)
+    if not match:
         return
-    data = json.loads(data)
+    data = json.loads(match.group(1))
     graph = data["props"]["pageProps"]["apolloState"]["data"]
     return graph
 
