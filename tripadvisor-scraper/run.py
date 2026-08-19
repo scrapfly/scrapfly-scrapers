@@ -21,12 +21,12 @@ async def run():
 
     print("running Tripadvisor scrape and saving results to ./results directory")
     result_location = await tripadvisor.scrape_location_data(query="Malta")
-    output.joinpath("location.json").write_text(json.dumps(result_location, indent=2, ensure_ascii=False))
+    output.joinpath("location.json").write_text(json.dumps(result_location, indent=2, ensure_ascii=False), encoding="utf-8")
 
     result_search = await tripadvisor.scrape_search(
-        search_url="https://www.tripadvisor.com/Hotels-g60763-oa30-New_York_City_New_York-Hotels.htmll", max_pages=2
+        search_url="https://www.tripadvisor.com/Hotels-g60763-oa30-New_York_City_New_York-Hotels.html", max_pages=2
     )
-    output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False))
+    output.joinpath("search.json").write_text(json.dumps(result_search, indent=2, ensure_ascii=False), encoding="utf-8")
 
     result_hotel = await tripadvisor.scrape_hotel(
         "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
