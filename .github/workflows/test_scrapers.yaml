@@ -386,6 +386,16 @@ jobs:
             test: test_store_locations_scraping
 
 
+          - project_dir: shopify-scraper
+            test: test_preflight_scraping
+          - project_dir: shopify-scraper
+            test: test_catalog_scraping
+          - project_dir: shopify-scraper
+            test: test_collection_scraping
+          - project_dir: shopify-scraper
+            test: test_product_page_scraping
+          - project_dir: shopify-scraper
+            test: test_product_urls_scraping
     steps:
     - uses: actions/checkout@v4
 

@@ -378,6 +378,21 @@ Below is the list of available web scrapers for the supported domains along with
 </tr>
 
 <tr>
+    <td><a href="./shopify-scraper/">Shopify stores</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-shopify-stores">How to Scrape Shopify Stores for Products, Prices, and Variants</a></td>
+    <td>
+    <ul>
+        <li><a href="./shopify-scraper/results/preflight.json">Storefront preflight</a></li>
+        <li><a href="./shopify-scraper/results/catalog.json">Catalog products.json</a></li>
+        <li><a href="./shopify-scraper/results/collection.json">Collection products</a></li>
+        <li><a href="./shopify-scraper/results/product_pages.json">Product pages</a></li>
+        <li><a href="./shopify-scraper/results/product_urls.json">Sitemap product urls</a></li>
+    </ul>
+    </td>
+    <td><img src="https://img.shields.io/badge/Shopify_scraper-success-brightgreen" alt="Shopify-scraper-status"></td>
+</tr>
+
+<tr>
     <td><a href="./similarweb-scraper/">Similarweb.com</a></td>
     <td><a href="https://scrapfly.io/blog/how-to-scrape-similarweb/">How to Scrape SimilarWeb Website Traffic Analytics</a></td>
     <td>

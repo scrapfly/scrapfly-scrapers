@@ -1,0 +1,29 @@
+[
+  {
+    "store_url": "https://www.apple.com",
+    "catalog_url": "https://www.apple.com/products.json?limit=1&page=1",
+    "status_code": 200,
+    "content_type": "text/html; charset=utf-8",
+    "outcome": "not_json",
+    "product_count": null,
+    "is_shopify_catalog": false
+  },
+  {
+    "store_url": "https://www.deathwishcoffee.com",
+    "catalog_url": "https://www.deathwishcoffee.com/products.json?limit=1&page=1",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "outcome": "shopify_catalog",
+    "product_count": 1,
+    "is_shopify_catalog": true
+  },
+  {
+    "store_url": "https://www.allbirds.com",
+    "catalog_url": "https://www.allbirds.com/products.json?limit=1&page=1",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "outcome": "shopify_catalog",
+    "product_count": 1,
+    "is_shopify_catalog": true
+  }
+]
