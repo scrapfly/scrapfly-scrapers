@@ -5,9 +5,9 @@ https://scrapfly.io/blog/how-to-scrape-twitter/
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
+import json
 import os
-import re
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
@@ -18,6 +18,7 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
 }
+SYNDICATION_API = "https://cdn.syndication.twimg.com/tweet-result"
 
 
 def _meta(scope, prop: str, own: bool = False) -> Optional[str]:
@@ -26,8 +27,11 @@ def _meta(scope, prop: str, own: bool = False) -> Optional[str]:
     return scope.css(f'meta[itemprop="{prop}"]::attr(content)').get()
 
 
-def _int(val: Optional[str]) -> Optional[int]:
-    return int(val) if val else None
+def _int(val) -> Optional[int]:
+    try:
+        return int(val) if val not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
 
 
 def _stat(scope, action: str) -> Optional[int]:
@@ -37,11 +41,65 @@ def _stat(scope, action: str) -> Optional[int]:
     return None
 
 
+def parse_tweet(data: Dict) -> Dict:
+    """parse tweet dataset of X.com's embed (syndication) API"""
+    user = data.get("user") or {}
+    quoted = data.get("quoted_tweet") or {}
+    quoted_user = quoted.get("user") or {}
+    entities = data.get("entities") or {}
+    reply_id = data.get("in_reply_to_status_id_str")
+    tweet_id = data.get("id_str")
+    screen_name = user.get("screen_name") or ""
+    return {
+        "id": tweet_id,
+        "conversation_id": (data.get("parent") or {}).get("id_str") or reply_id or tweet_id,
+        "url": f"https://x.com/{screen_name}/status/{tweet_id}",
+        "text": data.get("text"),
+        "lang": data.get("lang"),
+        "created_at": data.get("created_at"),
+        "reply_count": data.get("conversation_count") or 0,
+        # retweet and view counts are not exposed to logged out visitors
+        "retweet_count": 0,
+        "favorite_count": data.get("favorite_count"),
+        "is_edited": bool(data.get("isEdited")),
+        "user": {
+            "id": user.get("id_str"),
+            "name": user.get("name"),
+            "screen_name": screen_name,
+            "url": f"https://x.com/{screen_name}" if screen_name else None,
+            "profile_image_url": (user.get("profile_image_url_https") or "").replace("_normal.", "_400x400.") or None,
+            "verified": bool(user.get("is_blue_verified")),
+            "business_label": (user.get("highlighted_label") or {}).get("description"),
+        },
+        "is_reply": bool(reply_id),
+        "in_reply_to_url": (
+            f"https://x.com/{data.get('in_reply_to_screen_name')}/status/{reply_id}" if reply_id else None
+        ),
+        "is_quote": bool(quoted),
+        "quoted_tweet_url": (
+            f"https://x.com/{quoted_user.get('screen_name')}/status/{quoted.get('id_str')}" if quoted else None
+        ),
+        "attached_urls": [u.get("expanded_url") for u in entities.get("urls") or []],
+        "tagged_users": [m.get("screen_name") for m in entities.get("user_mentions") or []],
+        "tagged_hashtags": [h.get("text") for h in entities.get("hashtags") or []],
+        "media": [
+            {
+                "url": m.get("media_url_https"),
+                "type": m.get("type"),
+                "width": (m.get("original_info") or {}).get("width"),
+                "height": (m.get("original_info") or {}).get("height"),
+            }
+            for m in data.get("mediaDetails") or []
+        ],
+    }
+
+
 def _parse_post(post) -> Dict:
+    """parse tweet from schema.org microdata (tweets listed on profile pages)"""
     author = post.css("[itemprop=author]")
-    tweet_id = _meta(post, "identifier")
-    in_reply_to_url = _meta(post, "isPartOf", own=True)
-    quoted_tweet_url = _meta(post, "isBasedOn", own=True)
+    tweet_id = _meta(post, "identifier") or post.attrib.get("data-tweet-id")
+    screen_name = (_meta(author, "alternateName") or _meta(author, "additionalName") or "").lstrip("@")
+    quote_href = post.xpath('.//*[@data-href][not(ancestor::*[@data-href])][1]/@data-href').get()
     images = post.xpath(
         './/*[@itemprop="image" and @itemtype="https://schema.org/ImageObject" '
         'and not(ancestor::*[@itemprop="hasPart"])]'
@@ -49,46 +107,32 @@ def _parse_post(post) -> Dict:
     return {
         "id": tweet_id,
         "conversation_id": tweet_id,
-        "url": _meta(post, "url"),
+        "url": _meta(post, "url") or (f"https://x.com/{screen_name}/status/{tweet_id}" if tweet_id and screen_name else None),
         "text": _meta(post, "articleBody") or _meta(post, "text"),
         "created_at": _meta(post, "dateCreated") or _meta(post, "datePublished"),
-        "reply_count": int(_meta(post, "commentCount") or 0) or _stat(post, "ReplyAction") or 0,
-        "retweet_count": _stat(post, "ShareAction") or 0,
-        "quote_count": _stat(post, "InteractAction"),
+        "reply_count": _int(_meta(post, "commentCount")) or _stat(post, "ReplyAction") or 0,
+        "retweet_count": 0,
         "favorite_count": _stat(post, "LikeAction"),
-        "view_count": _stat(post, "ViewAction"),
         "user": {
             "name": _meta(author, "name"),
-            "screen_name": (_meta(author, "alternateName") or "").lstrip("@"),
-            "url": _meta(author, "url"),
+            "screen_name": screen_name,
+            "url": _meta(author, "url") or (f"https://x.com/{screen_name}" if screen_name else None),
             "profile_image_url": _meta(author, "image"),
         },
-        "is_reply": bool(in_reply_to_url),
-        "in_reply_to_url": in_reply_to_url,
-        "is_quote": bool(quoted_tweet_url),
-        "quoted_tweet_url": quoted_tweet_url,
+        "is_reply": bool(_meta(post, "isPartOf", own=True)),
+        "in_reply_to_url": _meta(post, "isPartOf", own=True),
+        "is_quote": bool(quote_href),
+        "quoted_tweet_url": f"https://x.com{quote_href}" if quote_href else None,
         "media": [
             {
-                "url": _meta(image, "contentUrl", own=True),
-                "thumbnail_url": _meta(image, "thumbnailUrl", own=True),
-                "width": _int(_meta(image, "width", own=True)),
-                "height": _int(_meta(image, "height", own=True)),
+                "url": _meta(img, "contentUrl", own=True),
+                "thumbnail_url": _meta(img, "thumbnailUrl", own=True),
+                "width": _int(_meta(img, "width", own=True)),
+                "height": _int(_meta(img, "height", own=True)),
             }
-            for image in images
+            for img in images
         ],
     }
-
-
-def parse_tweet(response: ScrapeApiResponse, url: str) -> Dict:
-    """parse tweet data from schema.org markup on a tweet page"""
-    tweet_id = re.search(r"/status/(\d+)", url)
-    tweet_id = tweet_id.group(1) if tweet_id else None
-    posts = response.selector.css('[itemtype="https://schema.org/SocialMediaPosting"]')
-    post = next((p for p in posts if _meta(p, "identifier") == tweet_id), None) if tweet_id else None
-    post = post or (posts[0] if posts else None)
-    if not post:
-        raise Exception(f"Failed to find tweet data on {url}")
-    return _parse_post(post)
 
 
 def parse_profile(response: ScrapeApiResponse) -> Dict:
@@ -125,7 +169,7 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
         "rest_id": user_id,
         "url": _meta(entity, "url") or sel.css('meta[property="og:url"]::attr(content)').get(),
         "name": _meta(entity, "name"),
-        "screen_name": (_meta(entity, "alternateName") or "").lstrip("@"),
+        "screen_name": (_meta(entity, "alternateName") or _meta(entity, "additionalName") or "").lstrip("@"),
         "description": _meta(entity, "description"),
         "location": _meta(entity.css("[itemprop=homeLocation]"), "name"),
         "website": _meta(entity, "sameAs"),
@@ -143,11 +187,15 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
     }
 
 
-async def scrape_tweet(url: str) -> Dict:
-    """scrape a tweet page and return text, author and engagement stats"""
-    log.info("scraping tweet {}", url)
+async def scrape_tweet(tweet_id: str) -> Dict:
+    """scrape a tweet using X.com's public embed widget API"""
+    log.info("scraping tweet {}", tweet_id)
+    url = f"{SYNDICATION_API}?id={tweet_id}&token=x&lang=en"
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    return parse_tweet(result, url)
+    data = json.loads(result.content)
+    if not data.get("id_str"):
+        raise Exception(f"Failed to find tweet data for id {tweet_id}")
+    return parse_tweet(data)
 
 
 async def scrape_profile(url: str) -> Dict:

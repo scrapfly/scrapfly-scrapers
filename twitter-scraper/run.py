@@ -19,8 +19,8 @@ async def run():
 
     print("running X.com tweet scrape and saving results to ./results directory")
 
-    url = "https://x.com/robinhanson/status/1872047986873885082"
-    tweet = await twitter.scrape_tweet(url)
+    tweet_id = "1872047986873885082"
+    tweet = await twitter.scrape_tweet(tweet_id)
     output.joinpath("tweet.json").write_text(json.dumps(tweet, indent=2, ensure_ascii=False))
 
     url = "https://x.com/robinhanson/"
