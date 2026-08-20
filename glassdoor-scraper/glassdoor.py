@@ -7,6 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 from enum import Enum
 import json
+import math
 import os
 import re
 from typing import Dict, List, Optional, Tuple, TypedDict
@@ -134,8 +135,11 @@ def parse_reviews_api_metadata(result: ScrapeApiResponse) -> Dict:
     }
 
 
-async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
+async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict]:
     """Scrape Glassdoor reviews listings from reviews page (with pagination)"""
+
+    # the reviews API no longer returns a page count, so the page size is used to derive it
+    page_size = 5
 
     def generate_api_request_config(employer_id: int, dynamic_profile_id: int, page_number: int) -> ScrapeConfig:
         return ScrapeConfig(
@@ -158,7 +162,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
                 "mlHighlightSearch":None,
                 "onlyCurrentEmployees":False,
                 "overallRating":None,
-                "pageSize":5,"page":page_number,
+                "pageSize":page_size,"page":page_number,
                 "preferredTldId":0,
                 "reviewCategories":[],
                 "sort":"DATE",
@@ -184,8 +188,10 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
         generate_api_request_config(employer_metadata['employer_id'], employer_metadata['dynamic_profile_id'], 1)
     )
     first_page_data = json.loads(first_api_page.content)
-    review_data.extend(first_page_data['data']['employerReviews']['reviews'])
-    total_pages = first_page_data['data']['employerReviews']['numberOfPages']
+    first_page_reviews = first_page_data['data']['employerReviews']
+    review_data.extend(first_page_reviews['reviews'])
+    # the API dropped the numberOfPages field, the page count comes from the filtered review count
+    total_pages = math.ceil(first_page_reviews['filteredReviewsCount'] / page_size)
 
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
@@ -197,6 +203,9 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
+        if isinstance(result, ScrapflyScrapeError):
+            log.error(f"failed to scrape a reviews API page, got: {result.message}")
+            continue
         page_data = json.loads(result.content)
         review_data.extend(page_data['data']['employerReviews']['reviews'])
 
