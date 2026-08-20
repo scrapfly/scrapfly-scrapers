@@ -119,12 +119,9 @@ def build_next_page_config(
 def _has_next_page(page_data: Dict | List[Dict], search_type: Literal["hotel", "flight"] = "hotel") -> bool:
     """check whether the server indicates more results are available"""
     if search_type == "hotel":
-        pagination = (page_data.get("data") or {}).get("propertySearch", {}).get("pagination")
-        if not pagination:
-            return False
-        return bool(pagination.get("subSets", {}).get("nextSubSet"))
-    listing_result = (page_data[0].get("data") or {}).get("flightsSearch", {}).get("listingResult") or {}
-    return bool(listing_result.get("moreListingsAvailable"))
+        pagination = page_data["data"]["propertySearch"].get("pagination") or {}
+        return bool((pagination.get("subSets") or {}).get("nextSubSet"))
+    return bool(page_data[0]["data"]["flightsSearch"]["listingResult"].get("moreListingsAvailable"))
 
 
 def parse_hotels(page_data: Dict, captured_at: str) -> List[Hotel]:
@@ -133,11 +130,15 @@ def parse_hotels(page_data: Dict, captured_at: str) -> List[Hotel]:
     region = search.get("criteria", {}).get("primary", {}).get("destination", {}).get("regionName", "")
     market_country = region.rsplit(", ", 1)[-1] if region else None
 
-    analytics = (page_data.get("extensions") or {}).get("analytics") or []
+    analytics = (page_data.get("extensions") or {}).get("analytics") or [{}]
+    hotel_results = (
+        analytics[0].get("tealiumUtagData", {}).get("entity", {}).get("hotels", {}).get("results", {}).get("results") or []
+    )
     star_ratings = {
         str(item["hotelId"]): item.get("starRating")
-        for item in analytics[0].get("tealiumUtagData", {}).get("entity", {}).get("hotels", {}).get("results", {}).get("results", [])
-    } if analytics else {}
+        for item in hotel_results
+        if isinstance(item, dict) and "hotelId" in item
+    }
 
     hotels = []
     for listing in search.get("propertySearchListings", []):
@@ -146,9 +147,11 @@ def parse_hotels(page_data: Dict, captured_at: str) -> List[Hotel]:
 
         hotel_id = listing.get("id")
         heading = listing.get("headingSection") or {}
-        review = ((listing.get("summarySections") or [{}])[0].get("reviewSummary") or {})
-        review_text = review.get("graphic", {}).get("text")
-        review_count_text = ((review.get("subtexts") or [{}])[0].get("shoppingProductTitle") or {}).get("text", "")
+        summary = (listing.get("summarySections") or [{}])[0] or {}
+        review = summary.get("reviewSummary") or {}
+        review_text = (review.get("graphic") or {}).get("text")
+        subtexts = review.get("subtexts") or [{}]
+        review_count_text = ((subtexts[0] or {}).get("shoppingProductTitle") or {}).get("text", "")
 
         nightly_price = total_price = None
         for message in (listing.get("priceSection") or {}).get("priceSummary", {}).get("displayMessages") or []:
@@ -161,16 +164,17 @@ def parse_hotels(page_data: Dict, captured_at: str) -> List[Hotel]:
                 elif "$" in value:
                     total_price = value
 
+        messages = heading.get("messages") or [{}]
         hotels.append({
             "hotel_id": hotel_id,
             "name": heading.get("heading"),
-            "url": listing.get("cardLink", {}).get("resource", {}).get("value"),
+            "url": ((listing.get("cardLink") or {}).get("resource") or {}).get("value"),
             "nightly_price": nightly_price,
             "total_price": total_price,
             "star_rating": star_ratings.get(hotel_id),
             "review_score": float(review_text) if review_text else None,
             "review_count": int(re.sub(r"\D", "", review_count_text)) if review_count_text else None,
-            "location": (heading.get("messages") or [{}])[0].get("text"),
+            "location": (messages[0] or {}).get("text"),
             "market_country": market_country,
             "captured_at": captured_at,
         })
@@ -188,7 +192,7 @@ def parse_flights(page_data: List[Dict], origin: str, destination: str, cabin_cl
 
         content = listing.get("flightsShoppingOfferContent") or {}
         secondary = content.get("secondarySection") or []
-        timeline = secondary[0] if secondary else {}
+        timeline = (secondary[0] or {}) if secondary else {}
         stops_count = timeline.get("stops")
         if stops_count is None:
             stops = None
@@ -197,11 +201,11 @@ def parse_flights(page_data: List[Dict], origin: str, destination: str, cabin_cl
         else:
             stops = f"{stops_count} stop" + ("s" if stops_count > 1 else "")
 
-        airline_contents = (secondary[1].get("contents") or []) if len(secondary) > 1 else []
+        airline_contents = ((secondary[1] or {}).get("contents") or []) if len(secondary) > 1 else []
         airline = airline_contents[-1].get("text") if airline_contents else None
 
         tertiary = content.get("tertiarySection") or []
-        duration_contents = (tertiary[0].get("contents") or []) if tertiary else []
+        duration_contents = ((tertiary[0] or {}).get("contents") or []) if tertiary else []
         duration_text = duration_contents[0].get("text") if duration_contents else None
         duration = duration_text.split(" • ")[0] if duration_text else None
 
