@@ -1,6 +1,6 @@
 """
 This example run script shows how to run the Twitter.com scraper defined in ./twitter.py
-It scrapes product data and product search and saves it to ./results/
+It scrapes tweet and profile data and saves it to ./results/
 
 To run this script set the env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
@@ -19,10 +19,10 @@ async def run():
 
     print("running X.com tweet scrape and saving results to ./results directory")
 
-    url = "https://x.com/robinhanson/status/1872047986873885082"
-    tweet = await twitter.scrape_tweet(url)
+    tweet_id = "1872047986873885082"
+    tweet = await twitter.scrape_tweet(tweet_id)
     output.joinpath("tweet.json").write_text(json.dumps(tweet, indent=2, ensure_ascii=False))
-    
+
     url = "https://x.com/robinhanson/"
     profile = await twitter.scrape_profile(url)
     output.joinpath("profile.json").write_text(json.dumps(profile, indent=2, ensure_ascii=False))
