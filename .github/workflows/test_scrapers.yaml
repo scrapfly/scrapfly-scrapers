@@ -271,7 +271,7 @@ jobs:
           - project_dir: amazon-scraper
             test: test_review_scraping
           - project_dir: autoscout24-scraper
-            test: test_listings_scraping
+            test: test_page_url or test_listings_scraping
           - project_dir: autoscout24-scraper
             test: test_car_details_scraping
           - project_dir: ticketmaster-scraper
@@ -418,7 +418,7 @@ jobs:
         SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
       run: |
         cd ${{ matrix.project_dir }}
-        poetry run pytest test.py -k ${{ matrix.test }}
+        poetry run pytest test.py -k "${{ matrix.test }}"
 
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
