@@ -40,6 +40,7 @@ This AutoScout24.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://py
     $ poetry install --with dev
     $ poetry run pytest test.py
     # or specific scraping areas
+    $ poetry run pytest test.py -k test_page_url
     $ poetry run pytest test.py -k test_listings_scraping
     $ poetry run pytest test.py -k test_car_details_scraping
     ```
