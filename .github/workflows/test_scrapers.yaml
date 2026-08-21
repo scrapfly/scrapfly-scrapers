@@ -362,6 +362,10 @@ jobs:
             test: test_category_scraping
           - project_dir: digikey-scraper
             test: test_search_scraping
+          - project_dir: expedia-scraper
+            test: test_scrape_hotel_search
+          - project_dir: expedia-scraper
+            test: test_scrape_flight_search
 
 
     steps:
