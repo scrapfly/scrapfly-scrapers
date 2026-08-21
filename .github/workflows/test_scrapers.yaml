@@ -388,8 +388,16 @@ jobs:
             test: test_scrape_hotel_search
           - project_dir: expedia-scraper
             test: test_scrape_flight_search
-
-
+          - project_dir: shopify-scraper
+            test: test_preflight_scraping
+          - project_dir: shopify-scraper
+            test: test_catalog_scraping
+          - project_dir: shopify-scraper
+            test: test_collection_scraping
+          - project_dir: shopify-scraper
+            test: test_product_page_scraping
+          - project_dir: shopify-scraper
+            test: test_product_urls_scraping
     steps:
     - uses: actions/checkout@v4
 
