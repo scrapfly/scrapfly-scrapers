@@ -154,6 +154,7 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
         }
 
     # images
+    gallery_images = None
     gallery_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "gallery")]/text()').get()
     gallery_data = json.loads(gallery_json) if gallery_json else None
     if gallery_data is not None:
@@ -170,8 +171,8 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
     # review data
     review_script = sel.xpath('//script[contains(text(), "aggregateRating")]/text()').get()
     review_data = json.loads(review_script) if review_script else None
-    rating = review_data.get("aggregateRating", None)
-    reviews = review_data.get("review", None)
+    rating = review_data.get("aggregateRating", None) if review_data else None
+    reviews = review_data.get("review", None) if review_data else None
     if reviews:
         normalized_reviews = []
         for review in reviews:
@@ -195,6 +196,7 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
             )
 
     # shipping info
+    shipping_price = None
     shipping_elem = sel.xpath('//button[@data-analytics-view-label="ShippingInfo"]//span/text()').get()
     if shipping_elem:
         shipping_text = shipping_elem.strip()
@@ -232,7 +234,13 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
 
 async def scrape_product(urls: list[str]) -> Dict:
     """scrape a single Allegro product"""
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    product_config = {
+        **BASE_CONFIG,
+        "cache": False,
+        "rendering_wait": 5000,
+        "wait_for_selector": '//script[@data-serialize-box-id and contains(text(), "formattedPrice")]',
+    }
+    to_scrape = [ScrapeConfig(url, **product_config) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:

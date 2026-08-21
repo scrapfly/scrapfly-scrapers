@@ -49,11 +49,11 @@ def parse_search_page(response: ScrapeApiResponse):
 
         image = result.xpath(".//img[@alt='Product Avatar Image']/@src").get()
 
-        raw_rate = result.xpath(".//label[contains(text(), '/5')]/text()").get()
+        raw_rate = result.xpath(".//span[contains(@class, 'elv-star-wrapper__desc__rating')]/text()").get()
         rate = float(raw_rate.split("/")[0]) if raw_rate else None
 
-        raw_reviews = result.xpath(".//a[contains(@href, '#reviews')]//label[not(contains(text(), '/5'))]/text()").get()
-        reviews_number = int(raw_reviews.strip("()")) if raw_reviews else None
+        raw_reviews = result.xpath(".//span[contains(@class, 'elv-star-wrapper__desc__count')]/text()").get()
+        reviews_number = int(raw_reviews.strip("()").replace(",", "")) if raw_reviews else None
 
         description_parts = result.xpath(".//div[div[contains(text(), 'Product Description')]]/p//text()").getall()
         description = "".join(description_parts).strip() if description_parts else None
@@ -122,15 +122,16 @@ def parse_review_page(response: ScrapeApiResponse):
         total_pages = 0
 
     data = []
-    # main review container selector from 'div' to 'article'
-    for review in selector.xpath("//article[.//div[@itemprop='reviewBody']]"):
-        author_name = review.xpath(".//div[@itemprop='author']/meta[@itemprop='name']/@content").get()
+    # main review container selector, scoped to the reviews section's article cards
+    for review in selector.xpath("//section[@id='reviews']//article"):
+        author_container = review.xpath(".//div[contains(@class, 'avatar')]/parent::a/following-sibling::div[1]")
+        author_name = author_container.xpath(
+            ".//div[contains(@class, 'elv-text-base') and contains(@class, 'elv-font-bold')]/text()"
+        ).get()
         author_profile = review.xpath(".//div[contains(@class, 'avatar')]/parent::a/@href").get()
 
         # Author details have a new, less structured format
-        author_details = review.xpath(
-            ".//div[div[@itemprop='author']]//div[contains(@class, 'elv-text-subtle')]/text()"
-        ).getall()
+        author_details = author_container.xpath(".//div[contains(@class, 'elv-text-subtle')]/text()").getall()
         author_position = author_details[0] if author_details and len(author_details) > 0 else None
         author_company_size = next((detail for detail in author_details if "emp." in detail), None)
 
@@ -139,10 +140,13 @@ def parse_review_page(response: ScrapeApiResponse):
             ".//div[contains(@class, 'gap-3') and contains(@class, 'flex-wrap')]//label/text()"
         ).getall()
 
-        review_date = review.xpath(".//meta[@itemprop='datePublished']/@content").get()
-        # selector for review rate using the reliable itemprop meta tag
-        review_rate = review.xpath(".//span[@itemprop='reviewRating']/meta[@itemprop='ratingValue']/@content").get()
-        review_title = review.xpath(".//div[@itemprop='name']//text()").get()
+        review_date = review.xpath(".//span[contains(@class, 'elv-status-badge')]/preceding-sibling::meta[1]/@content").get()
+        # selector for review rate using the star rating widget
+        raw_review_rate = review.xpath(".//span[contains(@class, 'elv-star-wrapper__desc__rating')]/text()").get()
+        review_rate = raw_review_rate.split("/")[0] if raw_review_rate else None
+        review_title = review.xpath(
+            ".//div[contains(@class, 'elv-text-lg') and contains(@class, 'elv-font-bold')]/text()"
+        ).get()
 
         # selectors for review likes and dislikes
         review_likes_parts = review.xpath(
@@ -238,8 +242,8 @@ def parse_alternatives(response: ScrapeApiResponse):
             link = f"https://www.g2.com{link}"
             
         # Extract rating and number of reviews
-        rating_text = alt.xpath(".//label[contains(@class, 'elv-font-semibold')]/text()").get()
-        reviews_text = alt.xpath(".//label[contains(@class, 'elv-font-light')]/text()").get()
+        rating_text = alt.xpath(".//span[contains(@class, 'elv-star-wrapper__desc__rating')]/text()").get()
+        reviews_text = alt.xpath(".//span[contains(@class, 'elv-star-wrapper__desc__count')]/text()").get()
         
         # Clean up the reviews count
         number_of_reviews = None
