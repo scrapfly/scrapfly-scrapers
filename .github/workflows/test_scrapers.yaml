@@ -408,6 +408,10 @@ jobs:
             test: test_product_page_scraping
           - project_dir: shopify-scraper
             test: test_product_urls_scraping
+          - project_dir: app-store-scraper
+            test: test_app_scraping
+          - project_dir: app-store-scraper
+            test: test_reviews_scraping
     steps:
     - uses: actions/checkout@v4
 
