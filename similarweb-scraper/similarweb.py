@@ -32,7 +32,12 @@ def parse_hidden_data(response: ScrapeApiResponse) -> List[Dict]:
     """parse website insights from hidden script tags"""
     selector = response.selector
     script = selector.xpath("//script[contains(text(), 'window.__APP_DATA__')]/text()").get()
-    data = json.loads(re.findall(r"(\{.*?)(?=window\.__APP_META__)", script, re.DOTALL)[0])
+    if not script:
+        raise ValueError(f"no window.__APP_DATA__ script found on {response.scrape_result['url']}")
+    match = re.findall(r"(\{.*?)(?=window\.__APP_META__)", script, re.DOTALL)
+    if not match:
+        raise ValueError(f"couldn't extract window.__APP_DATA__ payload from {response.scrape_result['url']}")
+    data = json.loads(match[0])
     return data
 
 
@@ -40,7 +45,10 @@ async def scrape_website(domains: List[str]) -> List[Dict]:
     """scrape website inights from website pages"""
     # define a list of similarweb URLs for website pages
     urls = [f"https://www.similarweb.com/website/{domain}/" for domain in domains]
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    to_scrape = [
+        ScrapeConfig(url, **BASE_CONFIG, wait_for_selector="//script[contains(text(), 'window.__APP_DATA__')]", rendering_wait=7000)
+        for url in urls
+    ]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         website_data = parse_hidden_data(response)["layout"]["data"]
@@ -80,7 +88,9 @@ def parse_website_compare(response: ScrapeApiResponse, first_domain: str, second
 async def scrape_website_compare(first_domain: str, second_domain: str) -> Dict:
     """parse website comparing data from similarweb comparing pages"""
     url = f"https://www.similarweb.com/website/{first_domain}/vs/{second_domain}/"
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, **BASE_CONFIG, wait_for_selector="//script[contains(text(), 'window.__APP_DATA__')]")
+    )
     data = parse_website_compare(response, first_domain, second_domain)
     f"scraped comparing insights between {first_domain} and {second_domain}"
     log.success(f"scraped comparing insights between {first_domain} and {second_domain}")
