@@ -384,6 +384,14 @@ jobs:
             test: test_search_scraping
           - project_dir: lowes-scraper
             test: test_store_locations_scraping
+          - project_dir: idealo-scraper
+            test: test_product_scraping
+          - project_dir: idealo-scraper
+            test: test_search_scraping
+          - project_dir: idealo-scraper
+            test: test_manufacturer_scraping
+          - project_dir: idealo-scraper
+            test: test_price_history_scraping
           - project_dir: dhl-scraper
             test: test_scrape_tracking
           - project_dir: expedia-scraper
