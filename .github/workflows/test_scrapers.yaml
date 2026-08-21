@@ -412,6 +412,10 @@ jobs:
             test: test_app_scraping
           - project_dir: app-store-scraper
             test: test_reviews_scraping
+          - project_dir: goodreads-scraper
+            test: test_book_scraping
+          - project_dir: goodreads-scraper
+            test: test_list_scraping
     steps:
     - uses: actions/checkout@v4
 
