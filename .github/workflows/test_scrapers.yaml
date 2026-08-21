@@ -384,8 +384,6 @@ jobs:
             test: test_search_scraping
           - project_dir: lowes-scraper
             test: test_store_locations_scraping
-
-
           - project_dir: shopify-scraper
             test: test_preflight_scraping
           - project_dir: shopify-scraper
