@@ -13,12 +13,11 @@ from datetime import datetime
 import urllib.parse
 from pathlib import Path
 from loguru import logger as log
-from typing import List, Dict, TypedDict, Optional, Any
+from typing import List, Dict, TypedDict, Optional, Any, Union
 from scrapfly import (
     ScrapeConfig,
     ScrapflyClient,
     ScrapeApiResponse,
-    ScrapflyScrapeError,
 )
 
 
@@ -226,16 +225,25 @@ async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
     log.info(f"Scraping {len(urls)} product pages")
     # JavaScript code to click the "Show more" button  to get all the product data
     JS = [
+        {   
+            "wait_for_selector": {
+                "selector": "button.pr-rd-show-more[aria-label=\"Show More Reviews\"]"
+            }
+        },
         {
             "execute": {
-                "script": "async function clickUntilDisabled(){const maxClicks=50;const waitBetweenClicks=1500;let clicks=0;while(clicks<maxClicks){const btn=document.querySelector('button.pr-rd-show-more:not([disabled])');if(!btn||!btn.offsetParent){break;}try{btn.click();clicks++;await new Promise(r=>setTimeout(r,waitBetweenClicks));}catch(e){break;}}return clicks;}return await clickUntilDisabled();",
-                "timeout": 5000,  # you can increase this if needed to get more reviews
+                "script": "async function clickUntilDisabled(){const maxClicks=5;const waitBetweenClicks=1000;let clicks=0;while(clicks<maxClicks){const btn=document.querySelector('button.pr-rd-show-more:not([disabled])');if(!btn||!btn.offsetParent){break;}try{btn.click();clicks++;await new Promise(r=>setTimeout(r,waitBetweenClicks));}catch(e){break;}}return clicks;}return await clickUntilDisabled();",
+                "timeout": 20000,
             }
         }
     ]
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG, js_scenario=JS) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, Exception):
+            url = getattr(getattr(response, "request", None), "url", "unknown url")
+            log.error(f"Error scraping product page {url}: {response}")
+            continue
         try:
             products.append(parse_product(response))
         except Exception as e:
@@ -354,7 +362,32 @@ def parse_search_listing(response: ScrapeApiResponse) -> ZoroSearchListing:
     }
 
 
-async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages: bool = False) -> ZoroSearchListing:
+def build_search_url(
+    query: str,
+    sort_by: Optional[str] = None,
+    sort_order: str = "asc",
+    filters: Optional[Dict[str, Union[str, List[str]]]] = None,
+) -> str:
+    """Build a Zoro search URL with optional sorting and facet filters"""
+    params: List[tuple] = [("q", query)]
+    if sort_by:
+        params.append(("sort", f"{sort_order}|{sort_by}"))
+    if filters:
+        for key, value in filters.items():
+            values = value if isinstance(value, list) else [value]
+            for v in values:
+                params.append((key, v))
+    return f"https://www.zoro.com/search?{urllib.parse.urlencode(params)}"
+
+
+async def scrape_search_listing(
+    query: str,
+    max_pages: int = 3,
+    scrape_all_pages: bool = False,
+    sort_by: Optional[str] = None,
+    sort_order: str = "asc",
+    filters: Optional[Dict[str, Union[str, List[str]]]] = None,
+) -> ZoroSearchListing:
     """
     Scrape Zoro search pages for product listings
 
@@ -362,12 +395,15 @@ async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages
         query: Search query string
         max_pages: Maximum number of pages to scrape (default: 3)
         scrape_all_pages: Whether to scrape all pages (default: False)
+        sort_by: Field to sort by, e.g. "price" or "averageRating" (default: relevance)
+        sort_order: Sort direction, "asc" or "desc" (default: "asc")
+        filters: Extra facet filters to apply to the search, e.g. {"fqv:Color": "Green"}.
+            Pass a list of values to apply multiple values for the same facet.
     Returns:
         ZoroSearchListing dictionary with products and metadata
     """
     log.info(f"Scraping Zoro search page for query: {query}")
-    encoded_query = urllib.parse.quote(query)
-    base_url = f"https://www.zoro.com/search?q={encoded_query}"
+    base_url = build_search_url(query, sort_by=sort_by, sort_order=sort_order, filters=filters)
     log.info(f"Scraping first page of search listing: {base_url}")
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(base_url, auto_scroll=True, **BASE_CONFIG, rendering_wait=5000)
@@ -395,8 +431,9 @@ async def scrape_search_listing(query: str, max_pages: int = 3, scrape_all_pages
         ]
         async for response in SCRAPFLY.concurrent_scrape(other_pages):
             scraped_pages += 1
-            if isinstance(response, ScrapflyScrapeError):
-                log.error(f"Error scraping page {scraped_pages}: {response.error}")
+            if isinstance(response, Exception):
+                url = getattr(getattr(response, "request", None), "url", "unknown url")
+                log.error(f"Error scraping page {scraped_pages} ({url}): {response}")
                 continue
             log.info(f"Scraped page {scraped_pages} of {pages_to_scrape}")
             page_data = parse_search_listing(response)

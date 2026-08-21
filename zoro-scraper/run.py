@@ -33,7 +33,7 @@ async def run():
         json.dump(product, file, indent=2, ensure_ascii=False)
 
     log.info("scraping search listing")
-    search_listing = await zoro.scrape_search_listing("Gloves")
+    search_listing = await zoro.scrape_search_listing("Gloves", filters={"sort": "desc|averageRating"})
     with open(output.joinpath("search_listing.json"), "w", encoding="utf-8") as file:
         json.dump(search_listing, file, indent=2, ensure_ascii=False)
 
