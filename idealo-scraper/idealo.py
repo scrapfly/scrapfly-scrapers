@@ -7,12 +7,13 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import re
 import json
+import asyncio
 from urllib.parse import urljoin, urlencode
 from typing import List, Literal, Optional, TypedDict
 
 from loguru import logger as log
 import uuid
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -37,7 +38,21 @@ await clickUntilGone();
 
 BASE_URL = "https://www.idealo.de"
 SEARCH_PAGE_SIZE = 15
+MAX_RETRIES = 3
+RETRY_DELAY = 5
 PeriodType = Literal["1Y", "3M", "6M", "1M"]
+
+
+async def scrape_with_retry(config: ScrapeConfig, _retries: int = 0) -> ScrapeApiResponse:
+    """scrape a config and retry on any failure - idealo blocks requests intermittently"""
+    try:
+        return await SCRAPFLY.async_scrape(config)
+    except Exception as e:
+        if _retries < MAX_RETRIES:
+            log.debug(f"retrying failed request to {config.url}: {e}")
+            await asyncio.sleep(RETRY_DELAY)
+            return await scrape_with_retry(config, _retries=_retries + 1)
+        raise Exception(f"unable to scrape {config.url}, max retries exceeded") from e
 
 
 class IdealoOffer(TypedDict):
@@ -265,8 +280,11 @@ async def scrape_products(urls: List[str]) -> List[IdealoProduct]:
     """scrape product pages from idealo.de"""
     products = []
     to_scrape = [ScrapeConfig(url, js=LOAD_MORE_JS, **BASE_CONFIG) for url in urls]
-    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(response, ScrapflyScrapeError):
+    responses = await asyncio.gather(
+        *[scrape_with_retry(config) for config in to_scrape], return_exceptions=True
+    )
+    for response in responses:
+        if isinstance(response, Exception):
             log.error(f"failed to scrape product: {response}")
             continue
         products.append(parse_product(response))
@@ -280,7 +298,7 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
     first_url = f"{BASE_URL}/preisvergleich/MainSearchProductCategory.html?{params}"
     log.info(f"scraping the first search page {first_url}")
 
-    first_page = await SCRAPFLY.async_scrape(
+    first_page = await scrape_with_retry(
         ScrapeConfig(first_url, wait_for_selector='[class*="sr-resultList"]', **BASE_CONFIG)
     )
     data = parse_search(first_page)
@@ -295,8 +313,11 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
             url = f"{BASE_URL}/preisvergleich/MainSearchProductCategory/100I16-{offset}.html?{params}"
             other_pages.append(ScrapeConfig(url, wait_for_selector='[class*="sr-resultList"]', **BASE_CONFIG))
 
-        async for response in SCRAPFLY.concurrent_scrape(other_pages):
-            if isinstance(response, ScrapflyScrapeError):
+        responses = await asyncio.gather(
+            *[scrape_with_retry(config) for config in other_pages], return_exceptions=True
+        )
+        for response in responses:
+            if isinstance(response, Exception):
                 log.error(f"failed to scrape search page: {response}")
                 continue
             results.extend(parse_search(response)["results"])
@@ -308,7 +329,7 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
 async def scrape_manufacturer(url: str) -> IdealoManufacturer:
     """scrape a manufacturer listing page from idealo.de"""
     log.info(f"scraping manufacturer page {url}")
-    response = await SCRAPFLY.async_scrape(
+    response = await scrape_with_retry(
         ScrapeConfig(url, wait_for_selector='[class*="sr-resultList"]', **BASE_CONFIG)
     )
     manufacturer = parse_manufacturer(response)
@@ -343,13 +364,13 @@ async def scrape_price_history(id: str, period: PeriodType, site_id=1) -> Idealo
     url = f"{BASE_URL}/preisvergleich/OffersOfProduct/{id}.html"
     log.info(f"scraping price history page {url}")
     session = f"idealo-price-history-{uuid.uuid4()}"
-    page = await SCRAPFLY.async_scrape(
+    page = await scrape_with_retry(
         ScrapeConfig(url, wait_for_selector='[class*="price-chart"]', session=session, **BASE_CONFIG)
     )
 
     history_url = f"{BASE_URL}/price-chart/sites/{site_id}/products/{id}/history?period={period}"
     log.info(f"scraping price history API {history_url}")
-    response = await SCRAPFLY.async_scrape(
+    response = await scrape_with_retry(
         ScrapeConfig(
             history_url,
             session=session,
