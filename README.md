@@ -175,6 +175,20 @@ Below is the list of available web scrapers for the supported domains along with
 </tr>
 
 <tr>
+    <td><a href="/goodreads-scraper/">Goodreads.com</a></td>
+    <td></td>
+    <td>
+    <ul>
+        <li><a href="./goodreads-scraper/results/book.json">Book pages</a></li>
+        <li><a href="./goodreads-scraper/results/reviews.json">Review pages</a></li>
+        <li><a href="./goodreads-scraper/results/list.json">List pages</a></li>
+        <li><a href="./goodreads-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><img src="https://img.shields.io/badge/Goodreads_scraper-success-brightgreen" alt="goodreads-scraper-status"></td>
+</tr>
+
+<tr>
     <td><a href="/google-scraper/">Google.com</a></td>
     <td><a href="https://scrapfly.io/blog/how-to-scrape-google/">How to Scrape Google Search Results</a> - <a href="https://scrapfly.io/blog/how-to-scrape-google-maps/">How to Scrape Google Maps</a></td>
     <td>
