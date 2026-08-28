@@ -120,7 +120,7 @@ async def test_properties_scraping():
     properties_data = await realestate.scrape_properties(
         urls=[
             "https://www.realestate.com.au/property-house-vic-tarneit-143160680",
-            "https://www.realestate.com.au/property-house-vic-bundoora-141557712",
+            "https://www.realestate.com.au/property-house-vic-doreen-151765412",
             "https://www.realestate.com.au/property-townhouse-vic-glenroy-143556608",
         ]
     )
