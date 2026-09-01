@@ -420,6 +420,10 @@ jobs:
             test: test_listing_scraping
           - project_dir: loopnet-scraper
             test: test_search_scraping
+          - project_dir: goibibo-scraper
+            test: test_hotel_search_scraping
+          - project_dir: goibibo-scraper
+            test: test_flight_search_scraping
     steps:
     - uses: actions/checkout@v4
 
