@@ -59,12 +59,16 @@ review_schema = {
 async def test_category_scraping():
     category_data = await capterra.scrape_category(
         category="scheduling-software",
-        max_pages=1,
+        max_pages=2,
     )
     validator = Validator(category_product_schema, allow_unknown=True)
-    for item in category_data:
+    for item in category_data["products"]:
         validate_or_fail(item, validator)
-    assert len(category_data) >= 10
+    assert len(category_data["products"]) >= 10
+    if category_data["total_pages"] < 21:
+        pytest.fail(
+            f"expected total_pages >= 21, got {category_data['total_pages']}"
+        )
 
 
 @pytest.mark.asyncio
@@ -72,9 +76,14 @@ async def test_category_scraping():
 async def test_review_scraping():
     reviews_data = await capterra.scrape_reviews(
         url="https://www.capterra.com/p/211559/Trello/reviews/",
-        max_review_pages=1,
+        max_review_pages=2,
     )
     validator = Validator(review_schema, allow_unknown=True)
-    for item in reviews_data:
+    for item in reviews_data["reviews"]:
         validate_or_fail(item, validator)
-    assert len(reviews_data) >= 5
+    assert len(reviews_data["reviews"]) >= 5
+    if reviews_data["total_pages"] != 100:
+        pytest.fail(
+            f"expected total_pages=100, got {reviews_data['total_pages']}"
+        )
+
