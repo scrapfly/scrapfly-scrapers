@@ -1,0 +1,3270 @@
+[
+  {
+    "flight_number": "IX 1789, IX 1786",
+    "airline_code": "IX",
+    "airline_name": "Air India Express",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "10:40",
+    "arrival_time": "15:25",
+    "departure_timestamp": 1787222400000,
+    "arrival_timestamp": 1787239500000,
+    "duration": "04h 45m",
+    "stops": 1,
+    "layover_cities": [
+      "BHO"
+    ],
+    "legs": [
+      {
+        "flight_number": "IX-1789",
+        "airline": "Air India Express",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "10:40",
+        "arrival_city": "Bhopal",
+        "arrival_time": "12:05"
+      },
+      {
+        "flight_number": "IX-1786",
+        "airline": "Air India Express",
+        "aircraft": "Boeing 737",
+        "departure_city": "Bhopal",
+        "departure_time": "13:40",
+        "arrival_city": "Mumbai",
+        "arrival_time": "15:25"
+      }
+    ],
+    "fare": 6040,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "IX 1395",
+    "airline_code": "IX",
+    "airline_name": "Air India Express",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "19:15",
+    "arrival_time": "21:40",
+    "departure_timestamp": 1787253300000,
+    "arrival_timestamp": 1787262000000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "IX-1395",
+        "airline": "Air India Express",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "19:15",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "21:40"
+      }
+    ],
+    "fare": 6129,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 5096",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "HDO",
+    "origin_city": "Ghaziabad",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "17:00",
+    "arrival_time": "19:05",
+    "departure_timestamp": 1787245200000,
+    "arrival_timestamp": 1787252700000,
+    "duration": "02h 05m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-5096",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Ghaziabad",
+        "departure_time": "17:00",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "19:05"
+      }
+    ],
+    "fare": 6442,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "SG 802",
+    "airline_code": "SG",
+    "airline_name": "SpiceJet",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "22:30",
+    "arrival_time": "00:50",
+    "departure_timestamp": 1787265000000,
+    "arrival_timestamp": 1787273400000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "SG-802",
+        "airline": "SpiceJet",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "22:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "00:50"
+      }
+    ],
+    "fare": 6447,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6676",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "12:00",
+    "arrival_time": "14:15",
+    "departure_timestamp": 1787227200000,
+    "arrival_timestamp": 1787235300000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6676",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "12:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "14:15"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1836",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "12:05",
+    "arrival_time": "14:30",
+    "departure_timestamp": 1787227500000,
+    "arrival_timestamp": 1787236200000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1836",
+        "airline": "Akasa Air",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "12:05",
+        "arrival_city": "Mumbai",
+        "arrival_time": "14:30"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 324",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "13:00",
+    "arrival_time": "15:10",
+    "departure_timestamp": 1787230800000,
+    "arrival_timestamp": 1787238600000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-324",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "13:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "15:10"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6022",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:00",
+    "arrival_time": "16:25",
+    "departure_timestamp": 1787234400000,
+    "arrival_timestamp": 1787243100000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6022",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "14:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "16:25"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6318",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:45",
+    "arrival_time": "17:00",
+    "departure_timestamp": 1787237100000,
+    "arrival_timestamp": 1787245200000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6318",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "14:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "17:00"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 864",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "15:30",
+    "arrival_time": "17:45",
+    "departure_timestamp": 1787239800000,
+    "arrival_timestamp": 1787247900000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-864",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "15:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "17:45"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1128",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "16:00",
+    "arrival_time": "18:20",
+    "departure_timestamp": 1787241600000,
+    "arrival_timestamp": 1787250000000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1128",
+        "airline": "Akasa Air",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "16:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:20"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 327",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "16:15",
+    "arrival_time": "18:35",
+    "departure_timestamp": 1787242500000,
+    "arrival_timestamp": 1787250900000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-327",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "16:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:35"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6706",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "17:00",
+    "arrival_time": "19:15",
+    "departure_timestamp": 1787245200000,
+    "arrival_timestamp": 1787253300000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6706",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "17:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:15"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1820",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "17:30",
+    "arrival_time": "19:45",
+    "departure_timestamp": 1787247000000,
+    "arrival_timestamp": 1787255100000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1820",
+        "airline": "Akasa Air",
+        "aircraft": null,
+        "departure_city": "New Delhi",
+        "departure_time": "17:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:45"
+      }
+    ],
+    "fare": 6530,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "IX 1038",
+    "airline_code": "IX",
+    "airline_name": "Air India Express",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "18:40",
+    "arrival_time": "20:30",
+    "departure_timestamp": 1787251200000,
+    "arrival_timestamp": 1787257800000,
+    "duration": "01h 50m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "IX-1038",
+        "airline": "Air India Express",
+        "aircraft": null,
+        "departure_city": "New Delhi",
+        "departure_time": "18:40",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "20:30"
+      }
+    ],
+    "fare": 6539,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1940",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DXN",
+    "origin_city": "Noida",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:10",
+    "arrival_time": "16:20",
+    "departure_timestamp": 1787235000000,
+    "arrival_timestamp": 1787242800000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1940",
+        "airline": "Akasa Air",
+        "aircraft": "Boeing 737",
+        "departure_city": "Noida",
+        "departure_time": "14:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "16:20"
+      }
+    ],
+    "fare": 6618,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 5198",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DXN",
+    "origin_city": "Noida",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "15:00",
+    "arrival_time": "17:10",
+    "departure_timestamp": 1787238000000,
+    "arrival_timestamp": 1787245800000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-5198",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Noida",
+        "departure_time": "15:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "17:10"
+      }
+    ],
+    "fare": 6618,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1942",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DXN",
+    "origin_city": "Noida",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "21:05",
+    "arrival_time": "23:20",
+    "departure_timestamp": 1787259900000,
+    "arrival_timestamp": 1787268000000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1942",
+        "airline": "Akasa Air",
+        "aircraft": null,
+        "departure_city": "Noida",
+        "departure_time": "21:05",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:20"
+      }
+    ],
+    "fare": 6618,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 449",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "05:00",
+    "arrival_time": "07:15",
+    "departure_timestamp": 1787202000000,
+    "arrival_timestamp": 1787210100000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-449",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "05:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "07:15"
+      }
+    ],
+    "fare": 6688,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 395",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "21:45",
+    "arrival_time": "00:05",
+    "departure_timestamp": 1787262300000,
+    "arrival_timestamp": 1787270700000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-395",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "21:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "00:05"
+      }
+    ],
+    "fare": 6688,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6114",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "22:45",
+    "arrival_time": "01:05",
+    "departure_timestamp": 1787265900000,
+    "arrival_timestamp": 1787274300000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6114",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "22:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "01:05"
+      }
+    ],
+    "fare": 6688,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 322",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "23:30",
+    "arrival_time": "01:45",
+    "departure_timestamp": 1787268600000,
+    "arrival_timestamp": 1787276700000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-322",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "23:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "01:45"
+      }
+    ],
+    "fare": 6688,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 955",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "20:20",
+    "arrival_time": "22:20",
+    "departure_timestamp": 1787257200000,
+    "arrival_timestamp": 1787264400000,
+    "duration": "02h 00m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-955",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "20:20",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "22:20"
+      }
+    ],
+    "fare": 6739,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1112",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:20",
+    "arrival_time": "11:45",
+    "departure_timestamp": 1787217600000,
+    "arrival_timestamp": 1787226300000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1112",
+        "airline": "Akasa Air",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "09:20",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:45"
+      }
+    ],
+    "fare": 6893,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6218",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "06:05",
+    "arrival_time": "08:20",
+    "departure_timestamp": 1787205900000,
+    "arrival_timestamp": 1787214000000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6218",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "06:05",
+        "arrival_city": "Mumbai",
+        "arrival_time": "08:20"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6814",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "07:15",
+    "arrival_time": "09:30",
+    "departure_timestamp": 1787210100000,
+    "arrival_timestamp": 1787218200000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6814",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "07:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "09:30"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 320",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "08:00",
+    "arrival_time": "10:20",
+    "departure_timestamp": 1787212800000,
+    "arrival_timestamp": 1787221200000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-320",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "08:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "10:20"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 675",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "08:45",
+    "arrival_time": "11:00",
+    "departure_timestamp": 1787215500000,
+    "arrival_timestamp": 1787223600000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-675",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "08:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:00"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6107",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:30",
+    "arrival_time": "11:55",
+    "departure_timestamp": 1787218200000,
+    "arrival_timestamp": 1787226900000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6107",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "09:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:55"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6328",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "10:15",
+    "arrival_time": "12:35",
+    "departure_timestamp": 1787220900000,
+    "arrival_timestamp": 1787229300000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6328",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "10:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "12:35"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6047",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "11:00",
+    "arrival_time": "13:15",
+    "departure_timestamp": 1787223600000,
+    "arrival_timestamp": 1787231700000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6047",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "11:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "13:15"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 329",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "18:00",
+    "arrival_time": "20:15",
+    "departure_timestamp": 1787248800000,
+    "arrival_timestamp": 1787256900000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-329",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "18:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "20:15"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 354",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:00",
+    "arrival_time": "21:25",
+    "departure_timestamp": 1787252400000,
+    "arrival_timestamp": 1787261100000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-354",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "19:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "21:25"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 303",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "20:00",
+    "arrival_time": "22:10",
+    "departure_timestamp": 1787256000000,
+    "arrival_timestamp": 1787263800000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-303",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "20:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "22:10"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 853",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "20:45",
+    "arrival_time": "23:00",
+    "departure_timestamp": 1787258700000,
+    "arrival_timestamp": 1787266800000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-853",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "20:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:00"
+      }
+    ],
+    "fare": 6898,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2615",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "02:45",
+    "arrival_time": "05:15",
+    "departure_timestamp": 1787193900000,
+    "arrival_timestamp": 1787202900000,
+    "duration": "02h 30m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2615",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "02:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "05:15"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 1785",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "12:00",
+    "arrival_time": "14:25",
+    "departure_timestamp": 1787227200000,
+    "arrival_timestamp": 1787235900000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-1785",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "12:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "14:25"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2933",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "15:30",
+    "arrival_time": "17:55",
+    "departure_timestamp": 1787239800000,
+    "arrival_timestamp": 1787248500000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2933",
+        "airline": "Air India",
+        "aircraft": "Airbus A350",
+        "departure_city": "New Delhi",
+        "departure_time": "15:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "17:55"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 1777",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "16:00",
+    "arrival_time": "18:25",
+    "departure_timestamp": 1787241600000,
+    "arrival_timestamp": 1787250300000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-1777",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "16:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:25"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2941",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "16:30",
+    "arrival_time": "18:50",
+    "departure_timestamp": 1787243400000,
+    "arrival_timestamp": 1787251800000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2941",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "16:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:50"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 441",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "17:00",
+    "arrival_time": "19:25",
+    "departure_timestamp": 1787245200000,
+    "arrival_timestamp": 1787253900000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-441",
+        "airline": "Air India",
+        "aircraft": "Boeing 777",
+        "departure_city": "New Delhi",
+        "departure_time": "17:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:25"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2751",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "17:30",
+    "arrival_time": "19:55",
+    "departure_timestamp": 1787247000000,
+    "arrival_timestamp": 1787255700000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2751",
+        "airline": "Air India",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "17:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:55"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2999",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "22:00",
+    "arrival_time": "00:25",
+    "departure_timestamp": 1787263200000,
+    "arrival_timestamp": 1787271900000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2999",
+        "airline": "Air India",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "22:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "00:25"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2437",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "22:30",
+    "arrival_time": "00:55",
+    "departure_timestamp": 1787265000000,
+    "arrival_timestamp": 1787273700000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2437",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "22:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "00:55"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2439",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "23:00",
+    "arrival_time": "01:25",
+    "departure_timestamp": 1787266800000,
+    "arrival_timestamp": 1787275500000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2439",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "23:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "01:25"
+      }
+    ],
+    "fare": 7000,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1833",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "06:50",
+    "arrival_time": "09:10",
+    "departure_timestamp": 1787208600000,
+    "arrival_timestamp": 1787217000000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1833",
+        "airline": "Akasa Air",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "06:50",
+        "arrival_city": "Mumbai",
+        "arrival_time": "09:10"
+      }
+    ],
+    "fare": 7019,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1119",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "08:40",
+    "arrival_time": "11:00",
+    "departure_timestamp": 1787215200000,
+    "arrival_timestamp": 1787223600000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1119",
+        "airline": "Akasa Air",
+        "aircraft": null,
+        "departure_city": "New Delhi",
+        "departure_time": "08:40",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:00"
+      }
+    ],
+    "fare": 7019,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1110",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "10:30",
+    "arrival_time": "12:40",
+    "departure_timestamp": 1787221800000,
+    "arrival_timestamp": 1787229600000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1110",
+        "airline": "Akasa Air",
+        "aircraft": null,
+        "departure_city": "New Delhi",
+        "departure_time": "10:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "12:40"
+      }
+    ],
+    "fare": 7019,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "QP 1826",
+    "airline_code": "QP",
+    "airline_name": "Akasa Air",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:55",
+    "arrival_time": "22:20",
+    "departure_timestamp": 1787255700000,
+    "arrival_timestamp": 1787264400000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "QP-1826",
+        "airline": "Akasa Air",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "19:55",
+        "arrival_city": "Mumbai",
+        "arrival_time": "22:20"
+      }
+    ],
+    "fare": 7019,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2945",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "11:00",
+    "arrival_time": "13:25",
+    "departure_timestamp": 1787223600000,
+    "arrival_timestamp": 1787232300000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2945",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "11:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "13:25"
+      }
+    ],
+    "fare": 7159,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2441",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "18:25",
+    "arrival_time": "20:55",
+    "departure_timestamp": 1787250300000,
+    "arrival_timestamp": 1787259300000,
+    "duration": "02h 30m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2441",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "18:25",
+        "arrival_city": "Mumbai",
+        "arrival_time": "20:55"
+      }
+    ],
+    "fare": 7159,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2433",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "21:30",
+    "arrival_time": "23:55",
+    "departure_timestamp": 1787261400000,
+    "arrival_timestamp": 1787270100000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2433",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "21:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:55"
+      }
+    ],
+    "fare": 7159,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6490, 6E 295",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "04:55",
+    "arrival_time": "10:10",
+    "departure_timestamp": 1787201700000,
+    "arrival_timestamp": 1787220600000,
+    "duration": "05h 15m",
+    "stops": 1,
+    "layover_cities": [
+      "IDR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6490",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "04:55",
+        "arrival_city": "Indore",
+        "arrival_time": "06:25"
+      },
+      {
+        "flight_number": "6E-295",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Indore",
+        "departure_time": "09:05",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "10:10"
+      }
+    ],
+    "fare": 7350,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2951",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "13:30",
+    "arrival_time": "15:50",
+    "departure_timestamp": 1787232600000,
+    "arrival_timestamp": 1787241000000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2951",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "13:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "15:50"
+      }
+    ],
+    "fare": 7369,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6459, 6E 594",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "05:55",
+    "arrival_time": "11:30",
+    "departure_timestamp": 1787205300000,
+    "arrival_timestamp": 1787225400000,
+    "duration": "05h 35m",
+    "stops": 1,
+    "layover_cities": [
+      "RPR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6459",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "05:55",
+        "arrival_city": "Raipur",
+        "arrival_time": "07:55"
+      },
+      {
+        "flight_number": "6E-594",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Raipur",
+        "departure_time": "09:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:30"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6018, 6E 6145",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "04:40",
+    "arrival_time": "11:45",
+    "departure_timestamp": 1787200800000,
+    "arrival_timestamp": 1787226300000,
+    "duration": "07h 05m",
+    "stops": 1,
+    "layover_cities": [
+      "NAG"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6018",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "04:40",
+        "arrival_city": "Nagpur",
+        "arrival_time": "06:20"
+      },
+      {
+        "flight_number": "6E-6145",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Nagpur",
+        "departure_time": "10:05",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:45"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6443, 6E 5344",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:00",
+    "arrival_time": "13:45",
+    "departure_timestamp": 1787216400000,
+    "arrival_timestamp": 1787233500000,
+    "duration": "04h 45m",
+    "stops": 1,
+    "layover_cities": [
+      "NAG"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6443",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "09:00",
+        "arrival_city": "Nagpur",
+        "arrival_time": "10:45"
+      },
+      {
+        "flight_number": "6E-5344",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Nagpur",
+        "departure_time": "12:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "13:45"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 2021, 6E 5163",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "12:10",
+    "arrival_time": "19:15",
+    "departure_timestamp": 1787227800000,
+    "arrival_timestamp": 1787253300000,
+    "duration": "07h 05m",
+    "stops": 1,
+    "layover_cities": [
+      "UDR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-2021",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "12:10",
+        "arrival_city": "Udaipur",
+        "arrival_time": "13:15"
+      },
+      {
+        "flight_number": "6E-5163",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Udaipur",
+        "departure_time": "17:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:15"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 2249, 6E 5132",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "15:00",
+    "arrival_time": "19:35",
+    "departure_timestamp": 1787238000000,
+    "arrival_timestamp": 1787254500000,
+    "duration": "04h 35m",
+    "stops": 1,
+    "layover_cities": [
+      "BHO"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-2249",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "15:00",
+        "arrival_city": "Bhopal",
+        "arrival_time": "16:20"
+      },
+      {
+        "flight_number": "6E-5132",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Bhopal",
+        "departure_time": "18:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:35"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6312, 6E 6110",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:25",
+    "arrival_time": "20:05",
+    "departure_timestamp": 1787235900000,
+    "arrival_timestamp": 1787256300000,
+    "duration": "05h 40m",
+    "stops": 1,
+    "layover_cities": [
+      "RPR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6312",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "14:25",
+        "arrival_city": "Raipur",
+        "arrival_time": "16:15"
+      },
+      {
+        "flight_number": "6E-6110",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Raipur",
+        "departure_time": "18:20",
+        "arrival_city": "Mumbai",
+        "arrival_time": "20:05"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6829, 6E 552",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "17:20",
+    "arrival_time": "22:05",
+    "departure_timestamp": 1787246400000,
+    "arrival_timestamp": 1787263500000,
+    "duration": "04h 45m",
+    "stops": 1,
+    "layover_cities": [
+      "IDR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6829",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "17:20",
+        "arrival_city": "Indore",
+        "arrival_time": "18:45"
+      },
+      {
+        "flight_number": "6E-552",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Indore",
+        "departure_time": "20:40",
+        "arrival_city": "Mumbai",
+        "arrival_time": "22:05"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6433, 6E 5133",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "16:30",
+    "arrival_time": "22:20",
+    "departure_timestamp": 1787243400000,
+    "arrival_timestamp": 1787264400000,
+    "duration": "05h 50m",
+    "stops": 1,
+    "layover_cities": [
+      "NAG"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6433",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "16:30",
+        "arrival_city": "Nagpur",
+        "arrival_time": "18:15"
+      },
+      {
+        "flight_number": "6E-5133",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Nagpur",
+        "departure_time": "20:45",
+        "arrival_city": "Mumbai",
+        "arrival_time": "22:20"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 5138, 6E 5049",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:10",
+    "arrival_time": "23:40",
+    "departure_timestamp": 1787253000000,
+    "arrival_timestamp": 1787269200000,
+    "duration": "04h 30m",
+    "stops": 1,
+    "layover_cities": [
+      "RPR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-5138",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "19:10",
+        "arrival_city": "Raipur",
+        "arrival_time": "21:00"
+      },
+      {
+        "flight_number": "6E-5049",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Raipur",
+        "departure_time": "22:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:40"
+      }
+    ],
+    "fare": 7403,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6050, 6E 6382",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "08:15",
+    "arrival_time": "13:30",
+    "departure_timestamp": 1787213700000,
+    "arrival_timestamp": 1787232600000,
+    "duration": "05h 15m",
+    "stops": 1,
+    "layover_cities": [
+      "IXC"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6050",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "08:15",
+        "arrival_city": "Chandigarh",
+        "arrival_time": "09:10"
+      },
+      {
+        "flight_number": "6E-6382",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Chandigarh",
+        "departure_time": "11:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "13:30"
+      }
+    ],
+    "fare": 7482,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 5298, 6E 5021",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:00",
+    "arrival_time": "13:50",
+    "departure_timestamp": 1787216400000,
+    "arrival_timestamp": 1787233800000,
+    "duration": "04h 50m",
+    "stops": 1,
+    "layover_cities": [
+      "DED"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-5298",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "09:00",
+        "arrival_city": "Dehradun",
+        "arrival_time": "09:50"
+      },
+      {
+        "flight_number": "6E-5021",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Dehradun",
+        "departure_time": "11:35",
+        "arrival_city": "Mumbai",
+        "arrival_time": "13:50"
+      }
+    ],
+    "fare": 7482,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 5206, 6E 708",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "13:20",
+    "arrival_time": "18:30",
+    "departure_timestamp": 1787232000000,
+    "arrival_timestamp": 1787250600000,
+    "duration": "05h 10m",
+    "stops": 1,
+    "layover_cities": [
+      "LKO"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-5206",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "13:20",
+        "arrival_city": "Lucknow",
+        "arrival_time": "14:30"
+      },
+      {
+        "flight_number": "6E-708",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Lucknow",
+        "departure_time": "16:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:30"
+      }
+    ],
+    "fare": 7482,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 5038, 6E 5234",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:00",
+    "arrival_time": "19:35",
+    "departure_timestamp": 1787234400000,
+    "arrival_timestamp": 1787254500000,
+    "duration": "05h 35m",
+    "stops": 1,
+    "layover_cities": [
+      "IXC"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-5038",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "14:00",
+        "arrival_city": "Chandigarh",
+        "arrival_time": "15:00"
+      },
+      {
+        "flight_number": "6E-5234",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Chandigarh",
+        "departure_time": "17:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "19:35"
+      }
+    ],
+    "fare": 7482,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6479, 6E 2058",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "21:25",
+    "arrival_time": "02:15",
+    "departure_timestamp": 1787261100000,
+    "arrival_timestamp": 1787278500000,
+    "duration": "04h 50m",
+    "stops": 1,
+    "layover_cities": [
+      "LKO"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6479",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "21:25",
+        "arrival_city": "Lucknow",
+        "arrival_time": "22:40"
+      },
+      {
+        "flight_number": "6E-2058",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Lucknow",
+        "departure_time": "23:50",
+        "arrival_city": "Mumbai",
+        "arrival_time": "02:15"
+      }
+    ],
+    "fare": 7482,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 2151, 6E 2058",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:45",
+    "arrival_time": "02:15",
+    "departure_timestamp": 1787255100000,
+    "arrival_timestamp": 1787278500000,
+    "duration": "06h 30m",
+    "stops": 1,
+    "layover_cities": [
+      "LKO"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-2151",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "19:45",
+        "arrival_city": "Lucknow",
+        "arrival_time": "20:50"
+      },
+      {
+        "flight_number": "6E-2058",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Lucknow",
+        "departure_time": "23:50",
+        "arrival_city": "Mumbai",
+        "arrival_time": "02:15"
+      }
+    ],
+    "fare": 7482,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 704, 6E 6196",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "02:25",
+    "arrival_time": "07:55",
+    "departure_timestamp": 1787192700000,
+    "arrival_timestamp": 1787212500000,
+    "duration": "05h 30m",
+    "stops": 1,
+    "layover_cities": [
+      "HYD"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-704",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "02:25",
+        "arrival_city": "Hyderabad",
+        "arrival_time": "04:40"
+      },
+      {
+        "flight_number": "6E-6196",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Hyderabad",
+        "departure_time": "06:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "07:55"
+      }
+    ],
+    "fare": 7613,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6497, 6E 6619",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "18:45",
+    "arrival_time": "00:45",
+    "departure_timestamp": 1787251500000,
+    "arrival_timestamp": 1787273100000,
+    "duration": "06h 00m",
+    "stops": 1,
+    "layover_cities": [
+      "PAT"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6497",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "18:45",
+        "arrival_city": "Patna",
+        "arrival_time": "20:20"
+      },
+      {
+        "flight_number": "6E-6619",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Patna",
+        "departure_time": "22:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "00:45"
+      }
+    ],
+    "fare": 7613,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 882, 6E 5143",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "23:15",
+    "arrival_time": "04:30",
+    "departure_timestamp": 1787267700000,
+    "arrival_timestamp": 1787286600000,
+    "duration": "05h 15m",
+    "stops": 1,
+    "layover_cities": [
+      "HYD"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-882",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "23:15",
+        "arrival_city": "Hyderabad",
+        "arrival_time": "01:30"
+      },
+      {
+        "flight_number": "6E-5143",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Hyderabad",
+        "departure_time": "03:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "04:30"
+      }
+    ],
+    "fare": 7613,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2943",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "07:30",
+    "arrival_time": "09:55",
+    "departure_timestamp": 1787211000000,
+    "arrival_timestamp": 1787219700000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2943",
+        "airline": "Air India",
+        "aircraft": "Airbus A350",
+        "departure_city": "New Delhi",
+        "departure_time": "07:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "09:55"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2963",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:00",
+    "arrival_time": "11:15",
+    "departure_timestamp": 1787216400000,
+    "arrival_timestamp": 1787224500000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2963",
+        "airline": "Air India",
+        "aircraft": "Boeing 787",
+        "departure_city": "New Delhi",
+        "departure_time": "09:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:15"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2927",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:30",
+    "arrival_time": "12:00",
+    "departure_timestamp": 1787218200000,
+    "arrival_timestamp": 1787227200000,
+    "duration": "02h 30m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2927",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "09:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "12:00"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2425",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "10:30",
+    "arrival_time": "12:50",
+    "departure_timestamp": 1787221800000,
+    "arrival_timestamp": 1787230200000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2425",
+        "airline": "Air India",
+        "aircraft": "Boeing 787",
+        "departure_city": "New Delhi",
+        "departure_time": "10:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "12:50"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2985",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:30",
+    "arrival_time": "21:55",
+    "departure_timestamp": 1787254200000,
+    "arrival_timestamp": 1787262900000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2985",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "19:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "21:55"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2957",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "20:30",
+    "arrival_time": "23:05",
+    "departure_timestamp": 1787257800000,
+    "arrival_timestamp": 1787267100000,
+    "duration": "02h 35m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2957",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "20:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:05"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2981",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "21:00",
+    "arrival_time": "23:20",
+    "departure_timestamp": 1787259600000,
+    "arrival_timestamp": 1787268000000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2981",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "21:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:20"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 1780",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:30",
+    "arrival_time": "18:20",
+    "departure_timestamp": 1787236200000,
+    "arrival_timestamp": 1787250000000,
+    "duration": "03h 50m",
+    "stops": 1,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-1780",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "14:30",
+        "arrival_city": "Indore",
+        "arrival_time": "16:05"
+      },
+      {
+        "flight_number": "AI-1780",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "Indore",
+        "departure_time": "16:50",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:20"
+      }
+    ],
+    "fare": 7630,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "IX 1605",
+    "airline_code": "IX",
+    "airline_name": "Air India Express",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "06:00",
+    "arrival_time": "08:10",
+    "departure_timestamp": 1787205600000,
+    "arrival_timestamp": 1787213400000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "IX-1605",
+        "airline": "Air India Express",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "06:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "08:10"
+      }
+    ],
+    "fare": 7759,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "IX 1056",
+    "airline_code": "IX",
+    "airline_name": "Air India Express",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "17:50",
+    "arrival_time": "20:10",
+    "departure_timestamp": 1787248200000,
+    "arrival_timestamp": 1787256600000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "IX-1056",
+        "airline": "Air India Express",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "17:50",
+        "arrival_city": "Mumbai",
+        "arrival_time": "20:10"
+      }
+    ],
+    "fare": 7759,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2955",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "18:00",
+    "arrival_time": "20:25",
+    "departure_timestamp": 1787248800000,
+    "arrival_timestamp": 1787257500000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2955",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "18:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "20:25"
+      }
+    ],
+    "fare": 7798,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6171, 6E 233",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "05:40",
+    "arrival_time": "10:25",
+    "departure_timestamp": 1787204400000,
+    "arrival_timestamp": 1787221500000,
+    "duration": "04h 45m",
+    "stops": 1,
+    "layover_cities": [
+      "HSR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6171",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "05:40",
+        "arrival_city": "Rajkot",
+        "arrival_time": "07:25"
+      },
+      {
+        "flight_number": "6E-233",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Rajkot",
+        "departure_time": "09:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "10:25"
+      }
+    ],
+    "fare": 7860,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2805",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "20:00",
+    "arrival_time": "22:30",
+    "departure_timestamp": 1787256000000,
+    "arrival_timestamp": 1787265000000,
+    "duration": "02h 30m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2805",
+        "airline": "Air India",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "20:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "22:30"
+      }
+    ],
+    "fare": 7886,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "SG 808",
+    "airline_code": "SG",
+    "airline_name": "SpiceJet",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "14:30",
+    "arrival_time": "17:05",
+    "departure_timestamp": 1787236200000,
+    "arrival_timestamp": 1787245500000,
+    "duration": "02h 35m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "SG-808",
+        "airline": "SpiceJet",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "14:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "17:05"
+      }
+    ],
+    "fare": 7890,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6470",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "06:55",
+    "arrival_time": "09:05",
+    "departure_timestamp": 1787208900000,
+    "arrival_timestamp": 1787216700000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "6E-6470",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "06:55",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "09:05"
+      }
+    ],
+    "fare": 7894,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2977",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:00",
+    "arrival_time": "21:25",
+    "departure_timestamp": 1787252400000,
+    "arrival_timestamp": 1787261100000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2977",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "19:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "21:25"
+      }
+    ],
+    "fare": 7950,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2975",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "06:30",
+    "arrival_time": "08:50",
+    "departure_timestamp": 1787207400000,
+    "arrival_timestamp": 1787215800000,
+    "duration": "02h 20m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2975",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "06:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "08:50"
+      }
+    ],
+    "fare": 8336,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2429",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "07:00",
+    "arrival_time": "09:25",
+    "departure_timestamp": 1787209200000,
+    "arrival_timestamp": 1787217900000,
+    "duration": "02h 25m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2429",
+        "airline": "Air India",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "07:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "09:25"
+      }
+    ],
+    "fare": 8336,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 2496, 6E 215",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "12:40",
+    "arrival_time": "18:55",
+    "departure_timestamp": 1787229600000,
+    "arrival_timestamp": 1787252100000,
+    "duration": "06h 15m",
+    "stops": 1,
+    "layover_cities": [
+      "SXR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-2496",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "12:40",
+        "arrival_city": "Srinagar",
+        "arrival_time": "14:05"
+      },
+      {
+        "flight_number": "6E-215",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Srinagar",
+        "departure_time": "16:05",
+        "arrival_city": "Mumbai",
+        "arrival_time": "18:55"
+      }
+    ],
+    "fare": 8516,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 7646, 6E 2719",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DXN",
+    "origin_city": "Noida",
+    "destination_code": "NMI",
+    "destination_city": "Navi Mumbai",
+    "departure_time": "06:15",
+    "arrival_time": "12:50",
+    "departure_timestamp": 1787206500000,
+    "arrival_timestamp": 1787230200000,
+    "duration": "06h 35m",
+    "stops": 1,
+    "layover_cities": [
+      "JAI"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-7646",
+        "airline": "IndiGo",
+        "aircraft": null,
+        "departure_city": "Noida",
+        "departure_time": "06:15",
+        "arrival_city": "Jaipur",
+        "arrival_time": "07:00"
+      },
+      {
+        "flight_number": "6E-2719",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Jaipur",
+        "departure_time": "11:05",
+        "arrival_city": "Navi Mumbai",
+        "arrival_time": "12:50"
+      }
+    ],
+    "fare": 8822,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "SG 815",
+    "airline_code": "SG",
+    "airline_name": "SpiceJet",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "09:15",
+    "arrival_time": "11:25",
+    "departure_timestamp": 1787217300000,
+    "arrival_timestamp": 1787225100000,
+    "duration": "02h 10m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "SG-815",
+        "airline": "SpiceJet",
+        "aircraft": "Boeing 737",
+        "departure_city": "New Delhi",
+        "departure_time": "09:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "11:25"
+      }
+    ],
+    "fare": 8849,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 2013, 6E 6205",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "21:50",
+    "arrival_time": "02:55",
+    "departure_timestamp": 1787262600000,
+    "arrival_timestamp": 1787280900000,
+    "duration": "05h 05m",
+    "stops": 1,
+    "layover_cities": [
+      "AMD"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-2013",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "21:50",
+        "arrival_city": "Ahmedabad",
+        "arrival_time": "23:25"
+      },
+      {
+        "flight_number": "6E-6205",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "Ahmedabad",
+        "departure_time": "01:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "02:55"
+      }
+    ],
+    "fare": 9218,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6488, 6E 2389",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "11:20",
+    "arrival_time": "17:40",
+    "departure_timestamp": 1787224800000,
+    "arrival_timestamp": 1787247600000,
+    "duration": "06h 20m",
+    "stops": 1,
+    "layover_cities": [
+      "IDR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6488",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "11:20",
+        "arrival_city": "Indore",
+        "arrival_time": "12:50"
+      },
+      {
+        "flight_number": "6E-2389",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Indore",
+        "departure_time": "16:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "17:40"
+      }
+    ],
+    "fare": 9350,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 2169, 6E 6598",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "19:40",
+    "arrival_time": "23:45",
+    "departure_timestamp": 1787254800000,
+    "arrival_timestamp": 1787269500000,
+    "duration": "04h 05m",
+    "stops": 1,
+    "layover_cities": [
+      "IDR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-2169",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "19:40",
+        "arrival_city": "Indore",
+        "arrival_time": "21:10"
+      },
+      {
+        "flight_number": "6E-6598",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Indore",
+        "departure_time": "22:20",
+        "arrival_city": "Mumbai",
+        "arrival_time": "23:45"
+      }
+    ],
+    "fare": 9350,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 2678",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "08:30",
+    "arrival_time": "10:45",
+    "departure_timestamp": 1787214600000,
+    "arrival_timestamp": 1787222700000,
+    "duration": "02h 15m",
+    "stops": 0,
+    "layover_cities": [],
+    "legs": [
+      {
+        "flight_number": "AI-2678",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "New Delhi",
+        "departure_time": "08:30",
+        "arrival_city": "Mumbai",
+        "arrival_time": "10:45"
+      }
+    ],
+    "fare": 9583,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 9920, AI 2998",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "10:30",
+    "arrival_time": "16:05",
+    "departure_timestamp": 1787221800000,
+    "arrival_timestamp": 1787241900000,
+    "duration": "05h 35m",
+    "stops": 1,
+    "layover_cities": [
+      "ATQ"
+    ],
+    "legs": [
+      {
+        "flight_number": "AI-9920",
+        "airline": "Air India",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "10:30",
+        "arrival_city": "Amritsar",
+        "arrival_time": "12:00"
+      },
+      {
+        "flight_number": "AI-2998",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "Amritsar",
+        "departure_time": "13:15",
+        "arrival_city": "Mumbai",
+        "arrival_time": "16:05"
+      }
+    ],
+    "fare": 11195,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6983, 6E 2104",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "15:35",
+    "arrival_time": "21:25",
+    "departure_timestamp": 1787240100000,
+    "arrival_timestamp": 1787261100000,
+    "duration": "05h 50m",
+    "stops": 1,
+    "layover_cities": [
+      "HSR"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6983",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A320",
+        "departure_city": "New Delhi",
+        "departure_time": "15:35",
+        "arrival_city": "Rajkot",
+        "arrival_time": "17:15"
+      },
+      {
+        "flight_number": "6E-2104",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Rajkot",
+        "departure_time": "20:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "21:25"
+      }
+    ],
+    "fare": 11203,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "6E 6261, 6E 6285",
+    "airline_code": "6E",
+    "airline_name": "IndiGo",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "00:15",
+    "arrival_time": "05:30",
+    "departure_timestamp": 1787184900000,
+    "arrival_timestamp": 1787203800000,
+    "duration": "05h 15m",
+    "stops": 1,
+    "layover_cities": [
+      "AMD"
+    ],
+    "legs": [
+      {
+        "flight_number": "6E-6261",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "New Delhi",
+        "departure_time": "00:15",
+        "arrival_city": "Ahmedabad",
+        "arrival_time": "01:50"
+      },
+      {
+        "flight_number": "6E-6285",
+        "airline": "IndiGo",
+        "aircraft": "Airbus A321",
+        "departure_city": "Ahmedabad",
+        "departure_time": "04:00",
+        "arrival_city": "Mumbai",
+        "arrival_time": "05:30"
+      }
+    ],
+    "fare": 11591,
+    "currency": "INR"
+  },
+  {
+    "flight_number": "AI 9757, AI 2492",
+    "airline_code": "AI",
+    "airline_name": "Air India",
+    "origin_code": "DEL",
+    "origin_city": "New Delhi",
+    "destination_code": "BOM",
+    "destination_city": "Mumbai",
+    "departure_time": "11:50",
+    "arrival_time": "16:40",
+    "departure_timestamp": 1787226600000,
+    "arrival_timestamp": 1787244000000,
+    "duration": "04h 50m",
+    "stops": 1,
+    "layover_cities": [
+      "LKO"
+    ],
+    "legs": [
+      {
+        "flight_number": "AI-9757",
+        "airline": "Air India",
+        "aircraft": null,
+        "departure_city": "New Delhi",
+        "departure_time": "11:50",
+        "arrival_city": "Lucknow",
+        "arrival_time": "13:05"
+      },
+      {
+        "flight_number": "AI-2492",
+        "airline": "Air India",
+        "aircraft": "Airbus A320 N",
+        "departure_city": "Lucknow",
+        "departure_time": "14:10",
+        "arrival_city": "Mumbai",
+        "arrival_time": "16:40"
+      }
+    ],
+    "fare": 11963,
+    "currency": "INR"
+  }
+]
