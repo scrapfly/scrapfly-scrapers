@@ -117,17 +117,17 @@ property_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
-    properties_data = await realestate.scrape_properties(
-        urls=[
-            "https://www.realestate.com.au/property-house-vic-tarneit-143160680",
-            "https://www.realestate.com.au/property-house-vic-doreen-151765412",
-            "https://www.realestate.com.au/property-townhouse-vic-glenroy-143556608",
-        ]
+    search_data = await realestate.scrape_search(
+        url="https://www.realestate.com.au/buy/in-melbourne+-+northern+region,+vic/list-1",
+        max_scrape_pages=1,
     )
+    urls = [item["propertyLink"] for item in search_data if item.get("propertyLink")][:5]
+    assert urls, "search returned no property URLs to drive the property test"
+    properties_data = await realestate.scrape_properties(urls=urls)
     validator = Validator(property_schema, allow_unknown=True)
     for item in properties_data:
         validate_or_fail(item, validator)
-    assert len(properties_data) >= 1
+    assert len(properties_data) >= 3
 
 
 @pytest.mark.asyncio
