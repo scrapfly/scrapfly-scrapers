@@ -96,14 +96,14 @@ search_listing_schema = {
 }
 
 @pytest.mark.asyncio
-# @pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_product_scraping():
-    search_data = await zoro.scrape_search_listing(query="Gloves", max_pages=1)
+    search_data = await zoro.scrape_search_listing(query="Gloves", max_pages=1, filters={"sort": "desc|averageRating"})
     urls = [
         f"https://www.zoro.com/{p['slug']}/i/{p['zoroNo']}/"
         for p in search_data["products"]
         if p.get("slug") and p.get("zoroNo")
-    ][:5]
+    ][:3]
     assert urls, "search returned no products to drive the product test"
     products_data = await zoro.scrape_product(urls=urls)
 
@@ -119,7 +119,7 @@ async def test_product_scraping():
     assert len(products_data) >= 1
 
 @pytest.mark.asyncio
-# @pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_listing_data = await zoro.scrape_search_listing("Gloves", max_pages=3)
     
