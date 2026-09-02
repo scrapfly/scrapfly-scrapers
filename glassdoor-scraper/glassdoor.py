@@ -7,10 +7,11 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 from enum import Enum
 import json
+import math
 import os
 import re
 from typing import Dict, List, Optional, Tuple, TypedDict
-from urllib.parse import urljoin
+from urllib.parse import quote_plus, urljoin
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
@@ -25,47 +26,6 @@ BASE_CONFIG = {
 }
 
 
-def find_hidden_data(result: ScrapeApiResponse) -> Optional[dict]:
-    """
-    Extract hidden web cache (Apollo Graphql framework) from Glassdoor page HTML
-    It's either in NEXT_DATA script or direct apolloState js variable
-    """
-    # data can be in __NEXT_DATA__ cache
-    data = result.selector.css("script#__NEXT_DATA__::text").get()
-    if data:
-        data = json.loads(data)["props"]["pageProps"]["apolloCache"]
-    else:
-        match = re.search(r'apolloState":\s*({.+})};', result.content)
-        if match:
-            data = json.loads(match.group(1))
-        else:
-            log.warning(f"Could not find __NEXT_DATA__ or apolloState on page {result.context['url']}")
-            return None
-
-    def _unpack_apollo_data(apollo_data):
-        """
-        Glassdoor uses Apollo GraphQL client and the dataset is a graph of references.
-        This function unpacks the __ref references to actual values.
-        """
-
-        def resolve_refs(data, root):
-            if isinstance(data, dict):
-                if "__ref" in data:
-                    return resolve_refs(root[data["__ref"]], root)
-                else:
-                    return {k: resolve_refs(v, root) for k, v in data.items()}
-            elif isinstance(data, list):
-                return [resolve_refs(i, root) for i in data]
-            else:
-                return data
-
-        if not apollo_data:
-            return {}
-        return resolve_refs(apollo_data.get("ROOT_QUERY") or apollo_data, apollo_data)
-
-    return _unpack_apollo_data(data)
-
-
 def parse_jobs(result: ScrapeApiResponse) -> Tuple[List[Dict], List[str]]:
     """Parse Glassdoor jobs page for job data and other page pagination urls"""
     selector = result.selector
@@ -73,15 +33,18 @@ def parse_jobs(result: ScrapeApiResponse) -> Tuple[List[Dict], List[str]]:
     for box in selector.xpath("//div[contains(@class, 'jobCard JobCard')]"):
         job_data.append({
             "jobTitle": box.xpath(".//a/text()").get(),
-            "jobLink": box.xpath(".//a/@href").get(),
+            "jobLink": urljoin(result.context["url"], box.xpath(".//a/@href").get()),
             "job_location": box.xpath(".//div[@data-test='emp-location']/text()").get(),
             "jobSalary": box.xpath(".//div[@data-test='detailSalary']/text()").get(),
-            "jobDate": box.xpath("//div[@data-test='job-age']/text()").get(),
+            "jobDate": box.xpath(".//div[@data-test='job-age']/text()").get(),
         })
 
     script_data = selector.xpath("//script[contains(text(), 'paginationLinks')]/text()").get()
-    pagination_links = re.search(r'\\"paginationLinks\\":\s*(\[.*?\])\s*,\s*\\"searchResultsMetadata\\"', script_data).group(1)
-    unescaped = pagination_links.replace('\\"', '"').replace('\\u0026', '&')
+    match = re.search(r'\\"paginationLinks\\":\s*(\[.*?\])\s*,\s*\\"searchResultsMetadata\\"', script_data or "")
+    if not match:
+        log.warning("could not find pagination links on {}", result.context["url"])
+        return job_data, []
+    unescaped = match.group(1).replace('\\"', '"').replace('\\u0026', '&')
     pagination_links = json.loads(unescaped)
     
     other_pages = [
@@ -99,43 +62,42 @@ async def scrape_jobs(url: str, max_pages: Optional[int] = None) -> List[Dict]:
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
 
     jobs, other_page_urls = parse_jobs(first_page)
-    _total_pages = len(other_page_urls) + 1
-    if max_pages and _total_pages > max_pages:
-        other_page_urls = other_page_urls[:max_pages]
+    total_pages = len(other_page_urls) + 1
+    # the first page is already scraped, so max_pages caps the remaining pages
+    if max_pages and total_pages > max_pages:
+        other_page_urls = other_page_urls[: max_pages - 1]
 
-    log.info("scraped first page of jobs of {}, scraping remaining {} pages", url, _total_pages - 1)
-    other_pages = [ScrapeConfig(url, **BASE_CONFIG) for url in other_page_urls]
+    log.info("scraped first page of jobs of {}, scraping remaining {} pages", url, len(other_page_urls))
+    other_pages = [ScrapeConfig(page_url, **BASE_CONFIG) for page_url in other_page_urls]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
         if not isinstance(result, ScrapflyScrapeError):
             jobs.extend(parse_jobs(result)[0])
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
-    log.info("scraped {} jobs from {} in {} pages", len(jobs), url, _total_pages)
+    log.info("scraped {} jobs from {} in {} of {} pages", len(jobs), url, len(other_page_urls) + 1, total_pages)
     return jobs
-
-
-def parse_reviews(result: ScrapeApiResponse) -> Dict:
-    """parse Glassdoor reviews page for review data"""
-    cache = find_hidden_data(result)
-    if not cache:
-        return {}
-    reviews_data = next((v for k, v in cache.items() if k.startswith("employerReviewsRG")), {})
-    return reviews_data
 
 
 def parse_reviews_api_metadata(result: ScrapeApiResponse) -> Dict:
     """parse Glassdoor reviews api metadata from html page"""
     selector = result.selector
     script_data = selector.xpath("//script[contains(text(), 'profileId')]/text()").get()
-    employer_metadata = json.loads(re.search(r'"employer"\s*:\s*(\{[^}]+\})', script_data).group(1))
+    match = re.search(r'"employer"\s*:\s*\{', script_data or "")
+    if not match:
+        raise ValueError(f"could not find employer metadata on {result.context['url']}")
+    # the employer object holds nested objects, so it is decoded instead of matched with a regex
+    employer_metadata, _ = json.JSONDecoder().raw_decode(script_data, match.end() - 1)
     return {
         'employer_id': int(employer_metadata['id']),
         'dynamic_profile_id': int(employer_metadata['profileId']),
     }
 
 
-async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
+async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict]:
     """Scrape Glassdoor reviews listings from reviews page (with pagination)"""
+
+    # the reviews API no longer returns a page count, so the page size is used to derive it
+    page_size = 5
 
     def generate_api_request_config(employer_id: int, dynamic_profile_id: int, page_number: int) -> ScrapeConfig:
         return ScrapeConfig(
@@ -158,7 +120,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
                 "mlHighlightSearch":None,
                 "onlyCurrentEmployees":False,
                 "overallRating":None,
-                "pageSize":5,"page":page_number,
+                "pageSize":page_size,"page":page_number,
                 "preferredTldId":0,
                 "reviewCategories":[],
                 "sort":"DATE",
@@ -174,18 +136,16 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     log.info("scraping reviews api requirements from {}", url)
 
     first_page_html = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, **BASE_CONFIG))
-    if isinstance(first_page_html, ScrapflyScrapeError):
-        log.error(f"Failed to scrape the first page {url}, got: {first_page_html.message}")
-        return {"reviews": [], "message": "Failed to scrape initial page"}
-
     employer_metadata = parse_reviews_api_metadata(first_page_html)
 
     first_api_page = await SCRAPFLY.async_scrape(
         generate_api_request_config(employer_metadata['employer_id'], employer_metadata['dynamic_profile_id'], 1)
     )
     first_page_data = json.loads(first_api_page.content)
-    review_data.extend(first_page_data['data']['employerReviews']['reviews'])
-    total_pages = first_page_data['data']['employerReviews']['numberOfPages']
+    first_page_reviews = first_page_data['data']['employerReviews']
+    review_data.extend(first_page_reviews['reviews'])
+    # the API dropped the numberOfPages field, the page count comes from the filtered review count
+    total_pages = math.ceil(first_page_reviews['filteredReviewsCount'] / page_size)
 
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
@@ -197,11 +157,40 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> Dict:
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
+        if isinstance(result, ScrapflyScrapeError):
+            log.error(f"failed to scrape a reviews API page, got: {result.message}")
+            continue
         page_data = json.loads(result.content)
         review_data.extend(page_data['data']['employerReviews']['reviews'])
 
     log.info("scraped {} reviews from {} in {} pages", len(review_data), url, total_pages)
     return review_data
+
+
+def parse_salary_range(salary_range: str) -> List[Dict]:
+    """parse a glassdoor salary range like "$70.5K - $100K" into min and max percentiles"""
+    # an hourly rate is not comparable to an annual salary, so it is not reported as one
+    if re.search(r"/\s*h(?:r|our)|hourly|per hour", salary_range, re.I):
+        return []
+    # the two numbers have to sit around a range separator, otherwise a rating or a
+    # submission count rendered in the same node gets read as a salary
+    match = re.search(
+        r"([\d.,]+)\s*([KkMm])?\s*(?:/\s*\w+)?\s*(?:[-–—]|\bto\b)\s*\$?\s*([\d.,]+)\s*([KkMm])?",
+        salary_range,
+    )
+    if not match:
+        return []
+    values = []
+    for number, suffix in ((match.group(1), match.group(2)), (match.group(3), match.group(4))):
+        try:
+            value = float(number.replace(",", ""))
+        except ValueError:
+            return []
+        # the magnitude suffix has to be applied arithmetically, replacing "K" with "000" mangles decimals
+        values.append(value * {"k": 1_000, "m": 1_000_000}.get((suffix or "").lower(), 1))
+    if not 0 < values[0] <= values[1]:
+        return []
+    return [{"ident": "min", "value": values[0]}, {"ident": "max", "value": values[1]}]
 
 
 def parse_salaries(result: ScrapeApiResponse) -> Dict:
@@ -221,17 +210,17 @@ def parse_salaries(result: ScrapeApiResponse) -> Dict:
         if not job_title:
             continue
 
-        salary_range = "".join(
-            item.css('[class*="SalaryItem_salaryRange"] [class*="BlurredContent_blurred"]::text').getall()
+        salary_range = " ".join(
+            text.strip() for text in item.css('[class*="SalaryItem_salaryRange"] ::text').getall()
         ).strip() or None
         salary_count_text = item.css('[class*="SalaryItem_salaryCount"]::text').get() or ""
         
         salary_count = 0
         if "Salaries submitted" in salary_count_text:
             try:
-                salary_count = int(salary_count_text.split()[0])
+                salary_count = int(salary_count_text.split()[0].replace(',', ''))
             except (ValueError, IndexError):
-                pass
+                log.warning("could not parse salary count {!r}", salary_count_text)
         
         salary_item = {
             "jobTitle": {
@@ -243,21 +232,11 @@ def parse_salaries(result: ScrapeApiResponse) -> Dict:
             }
         }
         
-        # Parse salary range
-        if salary_range:
-            range_clean = salary_range.replace('$', '').replace('K', '000')
-            if ' - ' in range_clean:
-                try:
-                    min_str, max_str = range_clean.split(' - ')
-                    min_salary = float(min_str.replace(',', ''))
-                    max_salary = float(max_str.replace(',', ''))
-                    salary_item["basePayStatistics"]["percentiles"] = [
-                        {"ident": "min", "value": min_salary},
-                        {"ident": "max", "value": max_salary}
-                    ]
-                except ValueError:
-                    pass
-        
+        percentiles = parse_salary_range(salary_range) if salary_range else []
+        if salary_range and not percentiles:
+            log.warning("could not parse salary range {!r}", salary_range)
+        salary_item["basePayStatistics"]["percentiles"] = percentiles
+
         salary_data["results"].append(salary_item)
     
     # Extract pagination from HTML
@@ -277,7 +256,7 @@ def parse_salaries(result: ScrapeApiResponse) -> Dict:
         except (ValueError, IndexError):
             pass
     
-    salary_data["salaryCount"] = len(salary_data["results"])
+    salary_data["salaryCount"] = sum(item["salaryCount"] for item in salary_data["results"])
     
     log.info(f"Parsed {len(salary_data['results'])} salary items")
     return salary_data
@@ -302,6 +281,7 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
             salaries["results"].extend(parse_salaries(result)["results"])
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
+    salaries["salaryCount"] = sum(item["salaryCount"] for item in salaries["results"])
     log.info("scraped {} salaries from {} in {} pages", len(salaries["results"]), url, total_pages)
     return salaries
 
@@ -312,28 +292,30 @@ class FoundCompany(TypedDict):
     name: str
     id: int
     shortName: str
-    logoURL: str
-    websiteURL: str
+    logoURL: Optional[str]
+    websiteURL: Optional[str]
 
 
 async def find_companies(query: str) -> List[FoundCompany]:
     """find company Glassdoor ID and name by query. e.g. "ebay" will return "eBay" with ID 7853"""
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url=f"https://www.glassdoor.com/autocomplete/employers?term={query}",
-            **BASE_CONFIG,
+            url=f"https://www.glassdoor.com/autocomplete/employers?term={quote_plus(query)}",
+            # the autocomplete endpoint answers with json, so there is nothing to render
+            asp=True,
+            country="US",
         )
     )
     data = json.loads(result.content)
     companies = []
-    for result in data:
+    for company in data:
         companies.append(
             {
-                "name": result["label"],
-                "id": result["id"],
-                "shortName": result.get("shortName", ""),
-                "logoURL": result.get("logoURL"),
-                "websiteURL": result.get("websiteURL", ""),
+                "name": company["label"],
+                "id": company["id"],
+                "shortName": company.get("shortName", ""),
+                "logoURL": company.get("logoURL"),
+                "websiteURL": company.get("websiteURL", ""),
             }
         )
     return companies
@@ -397,7 +379,7 @@ class Url:
     @staticmethod
     def reviews(employer: str, employer_id: str, region: Optional[Region] = None) -> str:
         employer = employer.replace(" ", "-")
-        url = f"https://www.glassdoor.com/Reviews/{employer}-Reviews-E{employer_id}.htm?"
+        url = f"https://www.glassdoor.com/Reviews/{employer}-Reviews-E{employer_id}.htm"
         if region:
             return url + f"?filter.countryId={region.value}"
         return url
@@ -405,7 +387,7 @@ class Url:
     @staticmethod
     def salaries(employer: str, employer_id: str, region: Optional[Region] = None) -> str:
         employer = employer.replace(" ", "-")
-        url = f"https://www.glassdoor.com/Salary/{employer}-Salaries-E{employer_id}.htm?"
+        url = f"https://www.glassdoor.com/Salary/{employer}-Salaries-E{employer_id}.htm"
         if region:
             return url + f"?filter.countryId={region.value}"
         return url
@@ -413,7 +395,7 @@ class Url:
     @staticmethod
     def jobs(employer: str, employer_id: str, region: Optional[Region] = None) -> str:
         employer = employer.replace(" ", "-")
-        url = f"https://www.glassdoor.com/Jobs/{employer}-Jobs-E{employer_id}.htm?"
+        url = f"https://www.glassdoor.com/Jobs/{employer}-Jobs-E{employer_id}.htm"
         if region:
             return url + f"?filter.countryId={region.value}"
         return url
@@ -422,8 +404,9 @@ class Url:
     def change_page(url: str, page: int) -> str:
         """update page number in a glassdoor url"""
         if re.search(r"_P\d+\.htm", url):
-            new = re.sub(r"(?:_P\d+)*.htm", f"_P{page}.htm", url)
+            new = re.sub(r"(?:_P\d+)*\.htm", f"_P{page}.htm", url, count=1)
         else:
-            new = re.sub(".htm", f"_P{page}.htm", url)
-        assert new != url
+            new = re.sub(r"\.htm", f"_P{page}.htm", url, count=1)
+        if new == url:
+            raise ValueError(f"cannot add a page number to url: {url}")
         return new

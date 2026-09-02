@@ -24,19 +24,19 @@ async def run():
     # or use URL builder to build urls from company name and ID
     url = glassdoor.Url.jobs("eBay", "7853", region=glassdoor.Region.UNITED_STATES)
     result_jobs = await glassdoor.scrape_jobs(url, max_pages=3)
-    output.joinpath("jobs.json").write_text(json.dumps(result_jobs, indent=2, ensure_ascii=False))
+    output.joinpath("jobs.json").write_text(json.dumps(result_jobs, indent=2, ensure_ascii=False), encoding="utf-8")
 
     url = "https://www.glassdoor.com/Salary/eBay-Salaries-E7853.htm"
     result_salaries = await glassdoor.scrape_salaries(url, max_pages=3)
-    output.joinpath("salaries.json").write_text(json.dumps(result_salaries, indent=2, ensure_ascii=False))
+    output.joinpath("salaries.json").write_text(json.dumps(result_salaries, indent=2, ensure_ascii=False), encoding="utf-8")
 
     url = "https://www.glassdoor.com/Reviews/eBay-Reviews-E7853.htm"
     result_reviews = await glassdoor.scrape_reviews(url, max_pages=3)
-    output.joinpath("reviews.json").write_text(json.dumps(result_reviews, indent=2, ensure_ascii=False))
+    output.joinpath("reviews.json").write_text(json.dumps(result_reviews, indent=2, ensure_ascii=False), encoding="utf-8")
     
     # find companies
     companies = await glassdoor.find_companies("eBay")
-    output.joinpath("companies.json").write_text(json.dumps(companies, indent=2, ensure_ascii=False))
+    output.joinpath("companies.json").write_text(json.dumps(companies, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":

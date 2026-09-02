@@ -41,7 +41,7 @@ This Glassdoor.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi
     $ poetry install --with dev
     $ poetry run pytest test.py
     # or specific scraping areas
-    $ poetry run pytest test.py -k test_search_scraping
+    $ poetry run pytest test.py -k test_find_companies
     $ poetry run pytest test.py -k test_job_scraping
     $ poetry run pytest test.py -k test_salary_scraping
     ```
