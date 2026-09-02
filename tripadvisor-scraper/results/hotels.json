@@ -8,7 +8,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.3",
-      "reviewCount": 1215
+      "reviewCount": 1275
     },
     "address": {
       "@type": "PostalAddress",
@@ -17,7 +17,7 @@
       "postalCode": "SLM 3143",
       "addressCountry": {
         "@type": "Country",
-        "name": "Malta"
+        "name": "MT"
       }
     },
     "geo": {
@@ -25,11 +25,278 @@
       "latitude": 35.9096,
       "longitude": 14.508747
     },
+    "amenityFeatures": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Free public parking nearby",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Free internet",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Fitness Center with Gym / Workout Room",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Pool",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Free breakfast",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Beach",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Airport transportation",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Meeting rooms",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Paid private parking nearby",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Street parking",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Wifi",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Fitness / spa locker rooms",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Sauna",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Pool / beach towels",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Infinity pool",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Pool with view",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Outdoor pool",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Heated pool",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Saltwater pool",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Shallow end in pool",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Bar / lounge",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Coffee shop",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Restaurant",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Breakfast available",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Breakfast buffet",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Breakfast in the room",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Complimentary Instant Coffee",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Complimentary tea",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Complimentary welcome drink",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Outdoor dining area",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Vending machine",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Poolside bar",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Taxi service",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Spa",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Steam room",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Rooftop terrace",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "24-hour security",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Baggage storage",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Non-smoking hotel",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Sun deck",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Sun loungers / beach chairs",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Sun terrace",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Doorperson",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "First aid kit",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Umbrella",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "24-hour check-in",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "24-hour front desk",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Express check-in / check-out",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Dry cleaning",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Laundry service",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Ironing service",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Shoeshine",
+        "value": true
+      }
+    ],
     "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/db/ba/a1/hotel-1926.jpg?w=500&h=-1&s=1"
   },
   "description": "Inspired by the life and passions of one man and featuring a touch of the roaring twenties, 1926 Le Soleil Hotel & Spa offers luxurious rooms and suites in the central city of Sliema. The hotel is located 200 meters from the seafront and also offers a splendid 1926 La Plage Beach Club on the water’s edge as well as a luxury SPA. The beach club is located 200 meters away from the hotel and is a seasonal operation. Our concept of ‘Lean Luxury’ includes the following: • Luxury rooms at affordable prices • Uncomplicated comfort and a great sleep • Smart design technology • Raindance showerheads • Flat screens • SuitePad Tablets • Self check in and check out (if desired) • Coffee & tea making facilities",
   "featues": [
+    "Free public parking nearby",
     "Free internet",
+    "Fitness Center with Gym / Workout Room",
+    "Pool",
+    "Free breakfast",
+    "Beach",
     "Airport transportation",
     "Meeting rooms",
     "Paid private parking nearby",
@@ -44,10 +311,12 @@
     "Heated pool",
     "Saltwater pool",
     "Shallow end in pool",
+    "Bar / lounge",
     "Coffee shop",
     "Restaurant",
     "Breakfast available",
     "Breakfast buffet",
+    "Breakfast in the room",
     "Complimentary Instant Coffee",
     "Complimentary tea",
     "Complimentary welcome drink",
@@ -82,296 +351,248 @@
     "Refrigerator",
     "Cable / satellite TV",
     "Walk-in shower",
-    "Telephone",
-    "Wardrobe / closet",
-    "Bottled water",
-    "Private bathrooms",
-    "Tile / marble floor",
-    "Wake-up service / alarm clock",
-    "Flatscreen TV",
-    "Hair dryer",
     "Non-smoking rooms"
   ],
   "reviews": [
     {
-      "title": "Not for us",
-      "text": "We had to stay here overnight as our hotel (The Waterfront) had been overbooked. It may be that for this reason we were given the smallest and darkest room in the hotel. The room and bathroom were claustrophobic. There were no drawers or wardrobes - just a rack with 6 hangers and a box. You couldn't enjoy a stay in this room. It was noisy - noise from the street, hotel doors banging shut & loos flushing.We couldn't try the rooftop pool or bar as it was fully booked and closed at 6pm.We walked down the street to the hotel's beach club/pool. This was good except that it was very windy.  Hotels on this side of Sliema get the full brunt of any wind (the Hotels facing Manoel Island are protected). Breakfast was ok - you have to pay extra for omelettes,  poached eggs.The staff at Reception were very friendly and helpful. I didn't like the idea of using an App to book a slot at the pool, spa or gaining room access.",
+      "title": "Hotel muito bom",
+      "text": "The hotel is very pleasant and cool, and the room was comfortable. Alex was amazing and very helpful; he explained everything clearly and was very kind throughout our stay. The hotel offers access to a beach club, which is also excellent and great for enjoying the hotter days. I highly recommend staying at this hotel if you are visiting Malta.",
+      "rate": 5.0,
+      "tripDate": "July 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
+    },
+    {
+      "title": "Only Staff make it 5* but the hotel needs work!!",
+      "text": "Pros:\nWould come back here purely for how great staff were! Reception staff were absolutely amazing! I’m frustrated I didn’t get their names at the end so I could give them the recognition they deserved but all the gentlemen staff were very attentive and polite and made an effort to learn visitors names and address them as such which I really appreciated!\nStaff at the rooftop restaurant were also very attentive! I did manage to get Rajip’s name who was nothing short of incredible! Also gave great recommendations on things to do during my stay in Malta which was very helpful and overhead him giving the same level of service to other tables everytime I was there! Thank you Rajib and also reception staff whose names I  regrettably didn’t catch!.\nCons:\nThe fact that visitors have to pay to use the spa services at €40 per person for 1hour and half I think is pretty ridiculous. Considering I paid £1k+ for my stay here I think there should be complimentary free usage of spa services for a limited time per day. Yes, there’s a pool on the roof included in the stay which gets 0% shade and not the most comfortable in 30degress + weather. I also booked a room with the plunge pool on the balcony which is a foot bath at best! Very misleading.\nBreakfast:\nThe al carte breakfast menu really isn’t great at all! I’ve seen 3* buffets with better menus. Having table service is great but at the cost of breakfast options and smaller sizes…not worth it.  Portions are small and limited. The waffles were lovely but you’re served a quarter of the waffle  and when I asked for eggs to have on the side I was told I had to pick. I didn’t make a fuss but the next day Rajip was kind of enough to offer me both which another newer member didn’t (not her fault it’s how things are and should change) if you want a full English you have to pay for it which I think is ridiculous. Everything on the menu should be included in breakfast with larger portions.\nAll in all staff and the Michelin star restaurant (minus breakfast) make it 5*. Hotel could do with lots of changes.",
       "rate": 3.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "July 2026",
+      "tripType": "Traveled solo",
+      "ownerResponse": null
     },
     {
-      "title": "Would highly recommend!",
-      "text": "We loved our stay here at the Le Soliel. The staffs has been very accommodating and professional ensuring the guests always have a wonderful experience even through the simplest things. The room and amenities are very nice as well. Too bad 3 days was not enough to enjoy Malta and the hotel. We really loved our stay here and would highly recommend! And definitely, we will be back! Thank you very much to all staffs for such an easy and comforting stay.",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled with friends"
-    },
-    {
-      "title": "Excellent hotel. Great service",
-      "text": "We stayed for a wonderful week at 1926 hotel. The upper floor outdoor pool and terrace were luxurious and easy booked using the hotel app, The Beach club was absolutely a sunworshipers paradise and the bar food and drinks were really good. The hotel and Beach club staff gave 100% and nothing was any trouble for them.Room was very nice quiet and comfortable. Room service was impeccable. All around a great stay.",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Wonderful Experience",
-      "text": "Absolutely wonderful experience in the property. The staff is absolutely charming and knowledgeable, and the amenities of the hotel are wonderful. It’s a peaceful retreat while exploring and enjoying the island.",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Good experience",
-      "text": "Good hotel, nice view on the sea.Very close to the beach and the shopping streets. We recommend————————————————————-",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Great hotel in Malta",
-      "text": "Great amenities, hospitable staff. Easily accessible from the airport and within walking distance of plenty of things in the area to do",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled with friends"
-    },
-    {
-      "title": "Lovely Stay at 1926",
-      "text": "Lovely and clean hotel. Front desk was very friendly and helpful. I would definitely stay here again if coming back to Malta in the future.",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Fantastic Stay",
-      "text": "Booked as we were dining at Le GV. Great location and fantastic facilities to make use of. Brilliant check in process and having room card information on phone is such a fantastic way forward.Thank you to Anand for looking after us on check in… such a lovely, helpful and informative process.Dear David,Thank you for sharing your experience with us. We are truly pleased to know that you appreciated our prime location and found our facilities to be of a high standard. It is also gratifying to hear that our digital room card solution enhanced your check-in experience, and that the service provided by Anand was both attentive and informative.Your positive feedback is greatly valued, and we remain dedicated to continually refining our guest experience. We hope to have the pleasure of welcoming you back to 1926 Le Soleil Hotel & Spa in the future.Best Regards,  Giorgia F.  Senior Hospitality Agent - 1926 Le Soleil Hotel & Spa",
-      "rate": 5.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "A hotel of two halves",
-      "text": "Arrived around 12 midday and went to check in, we were told our alotted room was unavailable due to a maintenance issue, so we would be upgraded to a suite for one night, but this would not be available until 3pm. The next morning, we went to reception to see how and when we would move to our allocated superior room, only to be told we would have to check out by 11am and then check in again at 3pm. As we were already checked in, we said that this was not acceptable and we would expect to be moved seamlessly into our alotted room as no one had stayed in the room overnight so it didn't need cleaning it should be ready immediately. After waiting an hour we were moved into our allocated superior room, which was very nice. The other problem we had was room cleaning. We had to complain 3 times that our room hadn't been cleaned, which is quite a lot when we only stayed for 5 days! The breakfast was OK, but unfortunately, the cooked bacon, sausage, hash browns, etc. were always either cold or luke warm! On the plus side, we went on the complimentary vintage bus tour around the island, which was arranged by the hotel, which was excellent. Used the beach club once. It was OK, but not brilliant. It gets very busy, and the day we went, the staff wouldn't put the parasols up because it was apparently too windy! You can book sunloungers on the roof through the hotel app. Finally, we must send a big thank you to Santiago, who was excellent when our transport back to the airport didn't turn up on time, arranging a taxi as backup. Unfortunately, overall, I don't think we could recommend the hotel.Dear Peter,Thank you for taking the time to share your detailed feedback regarding your recent stay at 1926 Le Soleil Hotel & Spa. We appreciate your recognition of the upgraded suite provided upon arrival and are pleased to hear that you enjoyed both the comfort of your allocated superior room and the complimentary vintage bus tour around the island. Additionally, we are delighted that Santiago was able to assist you effectively with your departure arrangements.We regret to learn about the challenges you encountered, particularly concerning the room change process, housekeeping frequency, and the temperature of the breakfast offerings. Furthermore, we acknowledge your comments regarding the beach club experience and the difficulties with parasol availability. Please accept our apologies for any inconvenience caused. Your observations are invaluable to us and will be shared with the relevant teams as we continue to strive for improvement in our services and guest experience.We would be honoured to welcome you again in the future and hope to have the opportunity to provide you with a more seamless and enjoyable stay.Best Regards,Giorgia F.  Senior Hospitality Agent - 1926 Le Soleil Hotel & Spa",
+      "title": "Hotel with pretensions and basic breakfast",
+      "text": "Hotel with pretensions and interesting details, but with incomprehensible service failures and a very basic breakfast buffet for the style of the hotel.\nWe asked for conditioner and body lotion and one day they gave it to us, two days later they denied it to us at the front desk saying that they didn't have any of that. The shower gel, hand soap, and shampoo are all the same product.\nOut of seven days, they did turndown service for us twice and the rest of the time they didn't come by. It's incomprehensible and for several days we had to ask for products because they wouldn't refill them even seeing they were used up (tissues, tea bags...).\nThe beach club is very nice but the temperature of the pool is incomprehensible, it's like real broth. You can't enjoy it after 9:30.\nThe breakfast buffet is very sparse for this type of hotel. Every day they put out the same thing, varying the scrambled eggs (watery) and the potatoes. There is no live cooking and one day the cereal bread is missing, another day the chia... They don't pay much attention.\nYou can't call the four machines they have a gym. Two cardio machines, a couple of benches, and a pulley that can't be used because they don't have different grips. It's useless and they don't pay attention to it. A shame because the idea isn't bad.\nGood for the daily water bottle, the spa, the terrace, and the beach club. Good for the waiters at Margaux and the guys at the Beach club.",
       "rate": 3.0,
-      "tripDate": "September 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "July 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
     },
     {
-      "title": "Not that great",
-      "text": "Firstly the staff have been superb and the service excellent Issues are:To enter your room you are given a code on line, personally I think this can be a security risk so not keen. Even more so as my code didn’t work and kept having to get cleaners to let me in. I was then given an actual key which worked properly and this again due to great service. Also online is the only way to use the spa or the roof top pool. Again none of this worked ! It’s says available then doesn’t let you book and so you actually go up to the roof and there is space ! Only a few people at a time are ‘allowed’ there in a hotel with hundreds of rooms. I actually gave up and didn’t get to use facilities at all due to the system just doesn’t work ! I gave 4 days notice that I need a late checkout and was told to wait and then the night before was told I can’t have a late checkout. this happens so late that my plans I had made then had to be cancelled and changed !! Why  4 days to tell me that!I couldn’t use any facilities as either the  system does t work or so few places allowed ! Use it as hotel only and not as a spaDear Jon,Thank you for taking the time to share your feedback regarding your recent stay at 1926 Le Soleil Hotel & Spa. We are grateful for your recognition of the efforts and of our team and we are pleased to know that you found both the staff and service to be of a high standard.We regret to learn about the difficulties you experienced with our digital access system and the online booking process for the spa and rooftop pool. Your concerns regarding security and the inconvenience of the entry code are duly noted, as is your feedback on the limited access to certain facilities and the challenges faced when requesting a late checkout. Please accept our apologies for any disruptions these issues may have caused to your plans and overall experience.Your comments are invaluable to us as they highlight areas where we can further enhance our guest experience. Please be assured that we are committed to continuously improving our services and systems to better meet the needs of our guests.We hope you will consider visiting us again in the future so we may have the opportunity to offer you a more seamless and enjoyable stay.Best Regards,  Giorgia F.  Senior Hospitality Agent – 1926 Le Soleil Hotel & Spa",
-      "rate": 2.0,
-      "tripDate": "October 2025",
-      "tripType": "Traveled on business"
-    },
-    {
-      "title": "Top to be",
-      "text": "Hotel that has all the right cards to be at the top: location in Sliema, modern and well-kept style, rooms equipped with all the necessary comforts, customer care, great breakfast, spa and swimming pools. We very much enjoyed the aperitif offered on the terrace. I was sorry, however, to note that sometimes the customer is considered only as a tourist. Not being able to access the starred restaurant on the terrace (it does not accept children) we had dinner, on their advice, in the one on the beach / solarium. Spectacular view, bad food, to pass on to the typical tourist. Having to leave very early we were offered the possibility, first, of a takeaway breakfast (since we had paid for it with the room), then, of something quick to consume at the counter (a coffee and some croissants). Result: no coffee (machine in the breakfast room still off) a plate with mini croissants and leftover cake from the day before that, of course, we refused. Fortunately, a nespresso machine with pods was available in the room. Unable to book a Bolt taxi from our phone, we ask the reception to do it for us the night before, so we don't have problems early in the morning. A taxi arrives without signs, without a taximeter, with a driver who does not remember where he must take us and to whom we must give directions. In the end he asks us 28€, against the 10€ paid on the way (Bolt would have asked 8€ for the same route). I hope you can improve these aspects and be in every way the 4 stars you expect.",
-      "rate": 4.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled with family"
-    },
-    {
-      "title": "If you like relaxing between construction sites, this is the place for you",
-      "text": "The hotel has a nice lobby, but this is just a facade. The room was furnished with what looked like the cheapest office furniture they could find. Our room was dark and a bit on the damp side. While it did have an A/C controller, it didn't actually do anything. During meal times the room also filled with the smell of whatever is being cooked.As the hotel butts up against the adjacent building you have a lovely view into someone's home, (the alternative being a room on the front which suffers from high noise volumes and dirt from the construction site opposite). No sunlight penetrates the room and you need to go outside and look up to see if it's a sunny day.Staff were cheerful and pleasant, but with a few exceptions (concierge guy was very good) generally useless. One example of manyeach day we asked: Can I have some normal tea in my room as the cleaner only leaves flavoured bags each day? Each day the answer was: Yes, no problem sir, we'll bring some up. Each day nothing arrived The rooftop bar/pool area is very noisy from the construction site and rather small and the beach club down the hill and across the main road is also next to a construction site. All round this is a very disappointing hotel seeking maximum payments for minimum service and standards. To give you an idea, this is one or may even two levels down from a Premier Inn",
-      "rate": 2.0,
-      "tripDate": "May 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Good hotel - with air up",
-      "text": "We can recommend the hotel only conditionally. For us, the price / performance ratio did not match - a pity. Rooms: clean and neatly equipped. There is no proper storage in the bathroom. Breakfast: Good selection of who comes after 9:00 am may have to wait for a seat. It's a little impersonal.Pool & beach club: really great! Here you can relax super. Attention: Pool must be reserved online. The location of the hotel is good and you can reach everything on the island great by bus. All in all, a good hotel, but there is still potential for improvement at the 4* standard.",
+      "title": "Mixed feelings",
+      "text": "We stayed in this hotel for 2 days. Overall, we were not very satisfied. The check-in process was quite bumpy, and we did not receive the room we had booked. However, they accommodated us, and we received another room. Nevertheless, in terms of amenities and service, it is not a 4-star experience as stated. There are noticeable signs of wear and tear on the furniture and decor, etc. Additionally, the rooms are quite noisy, and the constant shuffling above is clearly audible. One searches for consistency in this hotel. On one hand, it offers a very nice lobby and a lot in terms of sports and fitness facilities, as well as a beach club. But the rooms and the service lag behind. The location of the hotel is very good; it is less than a 10-minute walk to the ferry terminal to cross over to Valletta. Despite everything, the rooms are clean, and the staff was friendly. However, it is negatively noted that they only superficially addressed my husband's gluten allergy. We would have liked to add breakfast for 15 euros, but upon inquiry, we were only told that there is a bit of selection of gluten-free items. We experienced this very differently in Malta and Gozo, and even in 3-star hotels, there was always sufficient gluten-free food provided. The hotel should reflect on this, especially since Malta is a leader in gluten-free products, and locals are even state-supported if they are affected by celiac disease, as it is already difficult for those affected to be sure they are not poisoned.",
       "rate": 3.0,
-      "tripDate": "May 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "July 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
     },
     {
-      "title": "Underwhelming!! Stay elsewhere!",
-      "text": "I’m not sure where to begin… So the Hotel is situated opposite a building site for context. Upon arrival you are met with friendliness and the reception area is modern and well kept. However, our room was not ready and there was no where to wait so we were sent away for 6 hours. After getting up at 3am all we wanted to do was relax but we couldn’t. Not ideal.We had booked what they call a Deluxe Room and for that you get from what I can see a Standard/Premier Room but on a high floor. See photos of said Deluxe Room. This is anything but Deluxe! Very basic, only a rail to hang your clothes, no chest of drawers. Very very basic! Bathroom ok but run down.  Bed hard. Shower weak. We were woken up daily by workmen doing their work right opposite us. Work being a complete build so a lot of noise ! Zero privacy. Zero point in even having a balcony. See photos for the view!You have to reserve your spot on the very small paddling pool on the roof. Very comfy sun loungers but dirty glass around the pool, oh and a bright red crane right over your head as you try to relax. We tried the breakfast, it was good and a lot of choice. We also had treatments which were good. The people in the spa are lovely. It’s because of them I’ve given an extra star.We had a late flight home and like in normal hotels we asked for late check out. Firstly they told me I had to wait till the night before we check out to find out if it’s possible but would be €60. We then enquired and were told the hotel was full. A lie. I checked other sites and there was availability. We were not asking to stay in our room particularly but have somewhere to freshen up before our late flight. We were then told there were rooms but we would have to pay €150. The reception team were very unhelpful but offered to keep our luggage so we had no choice but to wander - again for 6 hours waiting for our pick up. Pool was full. No where to shower or wait. Another long day ahead.During our stay we decided to go to the bar and have a cocktail. We ordered them and there was zero alcohol in the drink! I mentioned this to the bar man who was very offended and reluctantly put a little more in the glass. He also told me they only put 10ml of drink in the cocktail when the standard is much more. A bit of a rip off if you ask me.We were looking forward to seeing the pool by the sea. Well this is not by the hotel. It’s a walk down the hill and along the seafront. Another run down area next to some rocks that they call a private beach. Over all I do not recommend this Hotel. Our little trip was to relax and our experience here was not that. It looks fabulous and lovely in the pictures but it’s not. Ok the reception area is well kept but our room was not and the staff could be vastly improved.There are definitely nicer hotels in Malta and I’m sure are run by people who believe in good service when this hotel did very little.I would say look elsewhere.",
-      "rate": 2.0,
-      "tripDate": "April 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Great stay for couples in Malta",
-      "text": "We stayed at 1926 for a week over the Easter break, Malta was lovely and we were really lucky with the weather!Location wise the hotel is a short walk from the shops, restaurants and bars in Sliema and also the ferry to Valletta or other day trips, we even strolled up to St Julian’s too. The hotel were really helpful with everything we needed.Room was great and yes there is construction but generally there’s no getting away from it in Malta and didn’t find it bothered us. Being lucky with the weather they did open up the beach club which was a short walk away which provided towels etc and id ideal as there are few sandy beaches. The rooftop pool was also open which had a heated pool, note you have to book this on the app when you arrive as only few spaces but was well worth it and the food was amazing! My biggest feedback was not being able to book the spa (like you can the rooftop) it’s not very big at all and the evening we went it was just full of families with young kids splashing in the pool, even messing about in the steam and sauna and this was just really disappointing/not relaxing and so we avoided it for the rest of the week. Really handy having the usual luggage store and then you can change in the spa changing rooms / freshen up before travelling. Makes for a great base for Malta!",
-      "rate": 4.0,
-      "tripDate": "April 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Cozy hotel",
-      "text": "Good hotel located in Sliema, five minutes by boat from the valley Friendly staff, hearty and varied breakfast.Improved some aspects of the rooms such as hygienic devices conditioner, cream, maintenance bathroom doors. Some towels were stained.Overall good experience",
-      "rate": 4.0,
-      "tripDate": "April 2025",
-      "tripType": "Traveled with friends"
-    },
-    {
-      "title": "Exceptional Stay at 1926 Le Soleil: Spontaneous Booking Turned Into a Memorable Luxury Experienc",
-      "text": "We booked 1926 Le Soleil spontaneously while already in Malta and unfortunately encountered a bit of a booking issue at the beginning. However, this was resolved in the most professional and heartfelt way by the hotel manager, Olga, whom we would like to especially commend. Thanks to her, we received a fantastic upgrade to the “Sunny Suite” with a corner balcony and beautiful sea view – truly one of the highlights of our trip.The hotel itself is full of thoughtful features: the rooftop pool with heated water and the most comfortable loungers we’ve ever experienced offered true relaxation. The indoor pool, sauna, steam bath, and modern gym provide a top-level wellness experience.The in-house restaurant “Margaux” is also highly recommended – the food is delicious, especially the steaks, and the prices are very fair for the quality offered.A minor downside was that the air conditioning was still on winter mode during our stay in April. Since opening the windows brings in mosquitoes (which can lead to restless nights), we were provided with a state-of-the-art fan, which worked perfectly – an innovative and effective solution.The staff throughout the hotel were extremely friendly, attentive, and always happy to help – we truly felt welcomed and well taken care of.The location is also ideal: right by the Tigné Point promenade, close to shopping and with easy access to the ferry to Valletta – great for both exploring and relaxing.All in all, we had a wonderful and memorable holiday full of comfort, good food, and amazing service. We’ll definitely be back!",
-      "rate": 5.0,
-      "tripDate": "April 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Little privacy and a construction site close to the hotel",
-      "text": "Some important details for those who are preparing to book this hotel. The hotel is located in a position set back from the sea, the photos of the beach club suggest it is facing the sea, instead it is located in a narrow alley a few minutes walk from the sea. The main flaw, incorrectly not reported on the hotel website, is that close to the structure there is a very noisy construction site in full swing (Saturday and Sunday included), so forget about a good sleep and privacy. The structure is quite modern, small rooms and not soundproofed, so beyond the yard you hear the noise of the other rooms, the corridor, etc .. I point out that the hotel bar closes at 11pm, and even if you are sitting down to drink a cocktail you turn off the lights:-) , just to invite you to go to sleep. I confirm, like other reviews, that the breakfast is high quality, machines to serve with Lavazza coffee, good choice of sweet and savory, fresh juice, fruit, yogurt. Beautiful rooftop terrace with a small sea view pool and restaurant (not tried). Overall I was not convinced, I would not go back.",
-      "rate": 3.0,
-      "tripDate": "April 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Great hotel and staff very pleasant stay !! 100% recommend",
-      "text": "We visited in April ,hotel and staff are all amazing !! Our waiters Denish and Suzanne was great ,very helpful,he arranged for me to get a happy birthday song from all waiters and a cake with a sparkler!!  Suzanne arranged for us to get poached eggs for breakfast which is not on menu !! No extras charges!! You won’t go wrong with this hotel so helpful and such a pleasant stay!!Dear ben c,Thank you for choosing 1926 Le Soleil Hotel & Spa!It brings us immense joy to read such a positive review about your stay with us in April. It's delightful to know that you found our staff, especially Denish and Suzanne, to be so helpful and accommodating. Their commitment to service is indeed a reflection of our hotel's philosophy.Your mention of the special birthday celebration arranged by our team and the personalised breakfast experience is particularly heartwarming. It's these moments that we strive to create for all our guests. We hope that your pleasant experience will bring you back to us!Best Regards,Giorgia F.Hospitality Team1926 Le Soleil Hotel & Spa",
-      "rate": 5.0,
-      "tripDate": "April 2025",
-      "tripType": "Traveled with family"
-    },
-    {
-      "title": "Honest review",
-      "text": "I feel very disappointed after staying here for 3 nights and I can completely agree with the others who state that they have been mislead. The hotel is not on the seafront, not like the pictures advertised of the beach club. The hotel entrance is down a side street a few streets back from the sea front. The room we had was upgraded to a superior double. I would have expected a normal double to be of this size and standard in a 4 star hotel. It was basic however, on the plus side, the bed was big and comfy. The room was cleaned daily and we got fresh towels when we requested them.There was a selection of items at breakfast - cooked and continental which were regularly topped up. The orange juice was fresh and they had a selection of fresh fruit too.The bar served a large selection of premium drinks and the cocktails looked nice and good value with a happy hour. There was building work going on outside the hotel which was noisy but I think it could have been worse if we were on a lower level floor. The spa was a big let down, there was about 4 loungers and a few hard chairs. There was only one jet in the hydro pool which worked as the other two were broken. The sauna and steam room were small but adequate. The whole spa needs a massive revamp, it looks a bit grubby especially around the pool area. Don’t believe the reviews about Prosecco on arrival as the hotel does not offer this.The location of the hotel is good for catching the ferry to Valletta but overall, I think there is other hotels in the area which are more premium class for around the same price.",
-      "rate": 3.0,
-      "tripDate": "March 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Family holiday",
-      "text": "The staff were excellent, very accommodating and supportive. Access to the spa was a great treat to relax and cool off after a day sightseeing or at the Hotels beach club. Beach club and roof top pool & cabanas are fantastic amenities. Choice of dishes for breakfast was super.Minor note - The App is a great idea although completing bookings was a challenge however the reception team supported this. Book early to secure places on trips and the rooftop pool amenities",
-      "rate": 5.0,
-      "tripDate": "July 2025",
-      "tripType": "Traveled with family"
-    },
-    {
-      "title": null,
-      "text": "Excellent Hotel and great staff. Nice size standard  room. Small balcony but didn’t use much and a bit overlooked but not an issue to us. Great breakfast selection with both British and continental. Excellent cocktails especially the Pina Colada’s. Super friendly bar man!  They also have a happy hour 2-1 cocktails most evenings. Lovely roof top pool with loungers and gazebos but has to be booked in Advance. Best part for us was the beach club a short walk down the street. Wonderful pool! Plenty of loungers. Not too overcrowded. Even had steps at the side of the pool into the sea so you could take a dip. Beach club - No cost to hotel guests apart from food and drink but reasonable prices and v good food. Beach towels available. Overall great holiday and would go back again. Thank you 1926.",
-      "rate": 5.0,
-      "tripDate": "July 2025",
-      "tripType": null
-    },
-    {
-      "title": "Bad experience flee!",
-      "text": "Bad experience first time in superior category hotel that you are without hot water for two daysI booked a 4 night stay at Hotel 1926 Le Soleil and on the second evening we are still without hot water in the room. Despite repeated reports, the problem has not been solved and no one offered a real solution or a minimal gesture of courtesy, resulting in deciding to wash with cold water or not to wash.Tiny room, but the price absolutely not: over € 200 per night for a Service that to define disappointing is little.I expected a very different level from a hotel in this category. I would not recommend and will not return.",
+      "title": "Great staff but poor room and operations",
+      "text": "I would not recommend staying at this hotel. A male staff member entered my room at 9:30 PM without knocking or announcing themselves. After entering, they said they believed the room was vacant, which points to a serious lapse in communication and hotel operations and was a major violation of my privacy.\nI was also assigned a room without a fridge and only learned this after checking in. The room itself was in unacceptable condition. The bathroom had a strong sewage odor, rusted fixtures, damaged walls, a toilet that would not flush properly, toothpaste stains left behind from a previous guest, and the curtains had visible food stains, raising serious concerns about cleanliness. The walls also provided very little sound insulation, making it easy to hear noise from both the hallway and neighboring rooms.\nThe customer service staff were friendly and professional, and location was convenient but they could not make up for the poor room condition, lack of privacy, and operational issues. Kindly note that both pools are closed by 6:30PM for travelers arriving later in the day. I would not stay here again.",
       "rate": 1.0,
-      "tripDate": "July 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "June 2026",
+      "tripType": "Traveled solo",
+      "ownerResponse": null
     },
     {
-      "title": "Perfect stay!",
-      "text": "Everything i have to say about this hotel is positive! From the friendly/helpful staff, to the complimentary sunset cruise. Perfect hotel for couples, lovely and modern but tasteful decor throughout. Beach club literally is a 2 min walk away and has a great atmosphere. We ate there twice, both times we were blown away by the food. Rooftop pool is so very chilled and immaculately clean...be sure to reserve beds. The online app makes your stay really seamless. We booked our airport taxi (€20) via this and reserved sunbeds and made dinner reservations. Breakfast was fresh and delicious every day. Never too busy. Water taxi return to Valletta, for 2 was €9 and takes less than 10 mins. Honestly, one of the best hotels we've stayed in. Thank you.",
+      "title": "They scam you to pay twice and use your bank card remotely without authorisation",
+      "text": "I am only going to write about one thing - the scam they are practicing with your payment card. I see from another recent review I am not the only one. They take payments from your card without authorisation. They then claim you haven't made the payment and ask you to make it again at checkout. If you say you have already taken the money they dispute this and ask for proof. In my case I had fortunately seen on my Monzo account the money had gone prior to checkout and could send them a screenshot. They seemed to accept this and allowed me to depart. However they then tried 2 more times to take payments from my card whilst I was travelling home. I have had to get a replacement card. I have made a complaint to Jet2 but as my holiday has finished I have been diverted to an online complaint system instead of speaking to a person. All around a sour taste to what should have been a nice holiday.",
+      "rate": 1.0,
+      "tripDate": "June 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": null
+    },
+    {
+      "title": "Badly designed rooms massively let it down",
+      "text": "Great location, fantastic beach club and rooftop pool but badly let down by room design.  NO drawers whatsoever, one small rail (not even a single wardrobe) .  No mirror at design for doing hair and make up.   Large mirror other wide of room but no plugs nearby to plug in hairdryer.\nWould not stay in this hotel again for these reasons.  We had clothes and 'stuff' all over the room because there was simply no place to put anything.",
+      "rate": 3.0,
+      "tripDate": "June 2026",
+      "tripType": "Traveled with friends",
+      "ownerResponse": null
+    },
+    {
+      "title": "1926 Hotel Selima   Malta",
+      "text": "Really super hotel a  5 star experience .\nStaff are amazing can’t do enough for you .\nPool side and Champagne bar staff amazing especially Jayron who made us superb cocktails.\nAlways plentiful quiet corners to chill and relax.\nThe Champagne breakfast what can I say, again 5*\nAll freshly cooked to order.\nA truly stunning hotel beautiful interior\nand spotless throughout.",
       "rate": 5.0,
-      "tripDate": "July 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "June 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
     },
     {
-      "title": "Excellent hotel in the best location in Malta",
-      "text": "Excellent hotel with reception and other very beautiful dependencies. Great maintenance, impeccable cleaning and very kind staff. Located 150mt from the ferry to Valeta, descending a light slope. It has a spa with included access (part treatments) in the same building, a very well equipped gym right in front with also included access and a great beach club about 150mts from the hotel (functioning only in the warmer months). On the rooftop there is a terrace with swimming pool, sun loungers and couples' cabins, and reservation (free) is required in advance. Rooms and spacious bathrooms. I stayed in a room with a balcony with 2 chairs and noise-proof door, which ensures a peaceful sleep, even though the place is quiet.The room has a very comfortable king-size bed, a sofa bed with TV in front but sideways to the bed. There is a desk with chair and center table. 2-door cabinet with safe. The box is wide and has good water flow. The wi-fi signal is strong and very fast. The breakfast is rich, varied and all very tasty.It is a great choice in the best location of Malta (Sliema), away from the nightly bustle of St. Julians and the moisture of Valeta, but close to both.",
-      "rate": 5.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Great Choice Despite Minor Issues",
-      "text": "Overall very pleased we spent a week at this hotel. The location is ideal with easy walking to the shops, restaurants and ferries. The staff at reception were always attentive and friendly. The breakfast had a large selection and of good quality, I liked the fact you were greeted on entry and advised which table to use rather than wandering around trying to find one. We rarely had to wait for the lift. I was amazed that a complimentary tour was available in a historic bus with a trip to the Blue Grotto, Dingli Cliffs and Mdina. The beachside club was excellent apart from one staff member who was aggressive and rude when we had the temerity to drink water from a bottle not purchased at the facility, we didn’t know the rule but the message should have been delivered in a different manner. The bedroom furniture was far from standard and ideal with no wardrobes or drawers to put things away. A poorly thought out choice. There was lots of noise from very early in the morning from the updating of the building opposite including, contrary to my travel company info, Sunday. Ear plugs certainly helped and as we were advised before going it didn’t bother me as out all day. I recommend two trips, the Tuk Tuk tour of Gozo was awesome and you were picked up close to the hotel and The Sunset Cruise to the Blue Lagoon by Hornblower Cruises, much quieter at this time and sunset fantastic. Uber rides are inexpensive compared with the UK and if travelling with Jet2 I would forget the arranged transport (arrived early and got us to the airport too soon after lots of pickups on the way and terrible attitude) and go by Uber or Bolt. Overall loved our holiday in Sliema and very pleased I chose this hotel.",
+      "title": "Great location and the Beachclub makes it a perfect place to stay",
+      "text": "We stayed here for a week and had a great time. Perfect location for exploring Sleima and Valetta with just a 5 minute walk to the ferry. Lots of buses make it easy to travel to Mdina and Rabat. Room was lovely.  Balcony so small that it just fitted two chairs but still nice for an evening glass of wine or morning coffee. Friendly and helpful staff. Roof top pool only has limited space which has to be booked in advance so I suggest booking ASAP after arrival. Beachclub is a 5 minute walk and lots of sunbeds and a pool. Get there by 10.30,  or after 4 30pm. Food at the beachclub is really good.",
       "rate": 4.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "June 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
     },
     {
-      "title": "Wow, just wow",
-      "text": "What an exceptional hotel. This should definitely be a 5* hotel. From the moment we arrived we just knew this was going to be special. Cold water on arrival. Check in with Francesca was quick and easy with everything explained. No room key, access to room is keypad which is a great idea. The room (Premium suite) was simply stunning, bright, spacious and relaxing. Incredible views of the sea from the balcony.Every single member of the hotel staff were so friendly, attentive and would do anything they could for you, even making sure you had cool water in your room fridge. Rooftop pool was amazing, although getting into warm water for a swim was a little shock (it’s heated only by the sun). You don’t have to leave your sun bed for drinks or food, simply scan the code on your table to order and it arrives. The beach club/infinity pool is not attached to the hotel, it’s across the road off the promenade. It too is stunning, cold and refreshing with unbelievable views across the sea. Spent many hours in the water watching the cruise ships coming in and out. Again, staff here were amazing, attentive and very friendly. I have booked to come back already.",
-      "rate": 5.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled with family"
-    },
-    {
-      "title": "Clean and comfortable with excellent service",
-      "text": "We booked a Junior Suite. Our arrival was all very courteous and pleased to find we had a 10th floor room which gave us panoramic and sea views which we had not completely expected. We had a balcony, plenty long enough, but only around 2ft wide, and no room to walk past  one of the small chairs. There is so much building work going on in the vicinity, I counted 40 tower cranes from our balcony, but work does not start until after 8am and finishes no later than 6pm, so no unwelcome disturbance. We used the roof top pool, although the booking system was not very efficient for this, and everything in the hotel is booked on their app, which they help you set up on your phone when you check in. The roof top pool is quiet, only around a dozen sunbeds, but they are fabulous and comfy and plenty of parasols which staff are happy to put up and adjust for you. Despite the booking system making it appear fully booked, when we were there on 3 occasions , there were no more than 4 other guests. The downside - the pool was too shallow to swim in, and if you want to cool down after roasting in the sun, use the shower, the pool is far too hot, like bath water.We also used the hotel's private water front pool, bar and sunbed area. The pool was great, able to manage a little swim, and  perfect temperature. Sunbeds were good, and parasols again put up by staff. It was much more congested down here , no need to book, just turn up and towels provided. Drinks available any time, just catch the waiter's eyes. Disappointed not to be able to bring own water, it had to be bought from the bar, no outside food or drink could be brought in. My big gripe was loud club disco music - it is not a club 18-30s hotel so why play loud thumping bass rubbish. Fortunately a couple of visits to Le Plage area they had someone playing the music quieter, and although not an Abba aficionado, hearing 4 of their songs in an hour was a distinct improvement.Breakfast was a good spread, with English cooked breakfast, continental meats and cheeses, fruit yoghurts, a choice of pastries and various teas and coffees from a machine. We only had one lunch, taken down at Le Plage, a decent enough burger and chips.Room was spacious, bed and pillows comfortable, a good size wardrobe, with iron and board, we had to ask for more hangers, but ended not unpacking our bags because there was not a single drawer - very disappointing. There was a room safe, and the room was cleaned daily, and also an early evening visit to top up on the complimentary tea and nespresso machine. One complimentary daily bottle of water as tap water not considered good for English palate. air conditioning worked well and not too noisy. Nice big shower, but I dont think the guys that installed it, put on a big enough slope, as I ended having to squeegee the water into the drain with my feet after the shower.We had a great complimentary bus tour visiting 3 locations on the island on a 1960's vintage bus, I was a little disappointed it was not the older vintage bus shown on their promotional pics, but you cant complain about free. I was disappointed that the night after was arrived there was also a free sunset cruise round Valletta harbour, which we were not made aware of, and the reception staff indicated it runs on a Wednesday - however after looking for it on their app it did not appear, and it was only the day before the reception staff told us it was not running that week. So we ended up booking one of the trips through VisitMalta.com.We booked a taxi through the hotel back to the airport, very clean, on time and cost Eur23 for the two of us.At round £200 per night with breakfast it was pricey, and I guess we got what we paid for. I have to admit  that paying that much, I was expecting a more usable balcony, drawers in the room, a less rowdy pool by the sea, and to be able to use water from the room or elsewhere by the pool, and not to have to pay Eur3 for a small bottle. I thought also to qualify as a suite it would be more than an ensuite room with a skinny balcony. On the plus side, there was the complimentary tour, and a panoramic view. Decent location near bus stops and Sliema Ferries with plenty of local restaurants and close to 2 shopping precincts.",
+      "title": "Nice hotel, good location, few issues let it down",
+      "text": "Really nice hotel situated in a great location. Having never visited Malta before we didn’t really know the best place to base ourselves but this hotel worked perfect for us. Rooms were nice, although a bit on the small side and there wasn’t much clothes storage in our room. Really enjoyed the pool at the beach club, and the food and drinks from here were great. Didn’t try the rooftop pool due to the booking system, but I wouldn’t let this put you off as the beach club had plenty of beds. Whilst I enjoyed the music and the atmosphere at the pool, it was quite loud so if you were looking for a more relaxing pool Experince this could be an issue. The main issue with this hotel, which i have seen mentioned in previous reviews, was the payment on arrival. 5 days prior to arriving they charged my card for the night of the first stay. I was not aware this was going to happen so emailed the hotel and queried it. They told me that it wasn’t a charge it was a hold and no\nMoney has been taken, which wasn’t true. After back and forth they said they would put the money back on the car after we paid the full amount on check in. When we checked in they charged us the full amount, and never refunded the card. It took 3 days of us going back down to the reception to query why the original “deposit” hadn’t been refunded. To add to this the first 2 nights of our stay during the night random charges appeared on my card. The first was only £1 but the second was a random £80 charge. My card declined the payment so nothing was taken, but the hotel couldn’t explain why this had happened. Another thing to add was the staff who cleaned the rooms appeared to do this very late in the day, sometimes arriving at 5pm despite asking them multiple times prior in the day if they could do the room earlier, as we needed to get back in earlier on this particular evening. Didn’t affect us too much but definitely make sure to use the app to request the clean first thing in the day if you require this service. Overall a nice hotel and I would return, but the payment issues did cause some stress on holiday. It wouldn’t let us pay upfront, but if you do get the option for this I would take it to save the hassle.",
       "rate": 4.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "June 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": null
     },
     {
-      "title": "A fantastic last minute find.",
-      "text": "Two couples late forties & mid fifties made the crazy mistake of booking a hotel in the clubbing heart of St Julians.Thankfully a bit of research found availability at 1926 Le Soleil Hotel.Yes there’s negative reviews which very nearly put us off & yes there’s a building site either side (let’s be honest where’s not having building work done in Malta)From arrival, to the delightful lady checking us in to the rooftop pool staff & beach club staff it was all perfect.It’s a great location & somewhere I’d highly recommend coming too.We loved it.",
-      "rate": 5.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled with friends"
-    },
-    {
-      "title": "Great Hotel in Sliema",
-      "text": "We stayed at this hotel for 2 nights with breakfast included. Definitely some details to improve in the rooms because they are not really 4 star hotels, but overall great!The really superlative breakfast with a wide choice for all palates and the pools of the structure are both fabulous, both on the roof and by the sea.Staff really nice and knowledgeable.",
-      "rate": 4.0,
-      "tripDate": "June 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Excellent hotel.",
-      "text": "We have just returned from a week at the 1926 Soleil as first time guests.Staff: Very friendly and welcoming.Room: We had a junior suite, two huge beds, large bathroom, robes and slippers supplied, nice air con, small balcony and fridge. ( worth the upgrade)Great beach club on the sea front, 5 minutes walk. Roof terrace and pool with comfortable sun loungers ( you must book in advance)Great location near Sliema ferry and restaurants, and 5 minute walk to The Point shopping mall. All in all we had a great experience, and we will stay again on our next trip to Sliema.Dear Dave,Thank you very much for sharing such a thoughtful review following your recent stay at 1926 Le Soleil Hotel & Spa. We are truly pleased to learn that you found our staff to be friendly and welcoming, and that the junior suite met your expectations in terms of comfort and amenities. It is also gratifying to know that you enjoyed our 1926 La Plage beach club, the pool facilities, and our convenient location near local attractions.Your positive remarks serve as valuable encouragement for our team, while your feedback on aspects such as advance booking for La Terrace roof terrace and pool provides important insights to help us continue enhancing our guests’ experience. Please rest assured that we are committed to continuous improvement and truly value the perspectives of our guests.We look forward to welcoming you back on your next visit to Sliema and offering you another memorable stay.Best Regards,  Giorgia F.  Senior Hospitality Agent  1926 Le Soleil Hotel & Spa",
-      "rate": 5.0,
-      "tripDate": "September 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Nice hotel with many additional features",
-      "text": "We were here on our honeymoon for a week. This hotel's top features include a Michelin restaurant, a spa, a rooftop terrace with pool and serving, and a beach club. The breakfast was very good, and the drinks in the bar also impeccable. Standard rooms were slightly smaller in size and equipment than we had expected and actually suitable not more than a weekend for a couple. The balcony saved us. The air conditioning only works when someone is in the room and actively starts it, and when the balcony door is closed. The latter was not always quite easy to get (the tired door). I did not expect to see mold in the bathroom when the hotel looks so newly renovated. We had to ask quite a few times for small things that the cleaning staff had forgotten to fill with, but I think they were under pretty much pressure, and we were always brought what we needed to the room. Everyone we met from the hotel staff were friendly and helpful.",
-      "rate": 4.0,
-      "tripDate": "September 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Nice hotel, great location and facilities. Has a few issues.",
-      "text": "We stayed here for a short break, just 2 adults. Prior to our arrival, the hotel messaged via WhatsApp asking for pre registration and access to their website app where you can book a taxi from the airport to the hotel (it’s €23 through the hotel. Or you can go to the taxi stand in the airport and it is €20). We tried to get an Uber which would have been cheaper but the payment wouldn’t authorise through PayPal, as it was coming up as €13. Maybe Malta doesn’t use PayPal? The hotel entrance is very modern with nice decor and a calming environment. We were greeted by staff, who, throughout the stay, were nothing but friendly and helpful. Our room wasn’t ready when we arrived. Check in is at 3pm and we arrived at about 11:30. We had requested an earlier check in which was approved, subject to availability. We requested this, along with a high floor and sea view, when we made the booking through Booking.com (other booking sites available…). Even though the room wasn’t available, the staff explained that we could still make use of the beach club which is about 100 metres from the hotel whilst we wait for the room. The beach club has its own restaurant and bar area. There are a lot of sun beds available. Parasols also, which you have to ask the staff to put up, down, move around. We were told that you aren’t allowed to take any other food or drinks in from outside and they need to be purchased from their bar. Large water is €4. Cocktails are €11. They have happy hour everyday 4pm-6pm which is a set choice cocktail menu, 2-4-1 on the same cocktail. The food is slightly pricey in the restaurant (brioche ham and cheese toastie with crisps - €14) but tastes nice. The pool area of the beach club is nice. Some maintenance is required on the pool as tiles are missing and the pool floor in places had bits on it, almost like it hadn’t been vacuumed. However, it looks out at the sea and there is access via some steps to the sea if you want to go in. There is no sandy beach in Sliema. It’s all rocks. Beach club opens at 9:30. Closes around 6pm. Once the room was available, you get the access code via the website app. This must be a new system as the doors to the rooms still have locking barrels in them. The doors don’t feel or sound very secure. Each time our neighbour went in and out of their door, it was like they were coming in through our door! The hotel have put a new coded system in but not upgraded the doors. Due to this, the rooms aren’t very sound proof and quite a bit of noise can be heard from outside the room. We booked the superior room which had breakfast included. Quite a bit of space available for us two. Enough hanging and folding space for clothes. Areas to store suitcases. Tea and coffee available in the room and bottle of water, for which, the first one is free but there after you need to pay for another. The shower was small and the water didn’t appear to get that warm. The plastic around the shower door was also damaged so water leaked out into the bathroom quite a lot. The shower also didn’t feel very secure. The sliding doors were wobbling. They came out of their guiders occasionally. The whole unit just needs replacing really. The hotel has Molton Brown shower gel and shampoo on the wall. We ran out of shower gel after the first shower so had to call reception to refill it, someone came straight away to do this.The air con system in the room is good in the sense that it does make the room cool but the conservation/eco system they have in place is ridiculous. The air con only works if all the doors are closed and you are in the room as it is motion activated. So when you want it on through the night, the air con turns off and the switch is too far away from the bed to just reach up and turn it back on. So you have to get up out of bed, in the middle of the night to turn the air con on again. And it appears to only be on for an hour. During our stay, the room was too stuffy and hot to not have the air con on through the night. The air con also doesn’t automatically come back on once you close the balcony doors. So you open the doors and the air con goes off but once you close the doors, you would think it would come back on but it doesn’t. On the topic of balcony doors, one of ours didn’t lock. Luckily we were on the 6th floor so possibly not going to get someone breaking in. However, not really the point. We had to chase maintenance twice to come and have a look at balcony door which resulted in not being able to open the balcony door as we couldn’t lock it again once it had been opened. It just needs replacing. The bed was large and comfy. The hotel have put a mattress topper on it although it was too small for the bed so felt strange having the pillows on the actual mattress and then the rest of your body higher up than your head. Either get a mattress topper that fits or get rid of it. One of the light switches was cracked and broken. The plug socket made my plug extremely hot. The USB charging socket next to the bed didn’t let me use my phone whilst it was charging. I didn’t really trust the electrics in that room in all honestly. I just think for a 4* hotel, it’s not great the amount of things that were broken, not working, not quite up to 4* hotel standard that were in our room. You have access to the gym, which is across the road. We didn’t use it but seemed very modern. One of the staff stated it had only been open 2 months.The website app is quite good. On here, you can make reservation for the rooftop pool, book taxis and get general information. We had to join a waiting list for the rooftop pool area as it only allows a certain amount of guests up there at any one time. There are gazebos available and sun beds with a parasol but you need to reserve your spot well in advance otherwise you are unlikely going to be able to get up there. That being said, we were luckily and just went up one afternoon and asked the staff if any were available (this was about 3:30pm) and a gazebo was available so we were able to have that for the afternoon. Bookings are 9am-1pm and then 2pm-6pm. So if you want to book all day up there, you need to make sure both times on your preferred date is available. Otherwise, you might get asked to move…Breakfast was a choice of pastries, cold meats, salad, fresh fruit, cereal, yoghurt, “full English” type food, toast, tea, coffee and juice. It’s open 7-10:30 weekday and 7-11 weekend. Sometimes the hot food was a bit cold if it had been out for a while. We used the app to book a couple of taxis during our stay. One to the airport from the hotel which was €23. Reception stated that it is room charge but it turns out that it defaults to pay the driver, who does have a card machine within their car. So once we arrived at the airport, we just paid by card in the car. We also booked a taxi to St Julien’s which is €12. However, there doesn’t appear to be a way of booking a taxi for the return journey so we were advised by reception to get a card from the taxi driver and contact them when we want picking up. We just called the hotel again and asked them to contact the taxi company for us instead, thinking it would be easier for payment as it would just go on the room. The taxi booking system seems like it could be easier. Upon our arrival at St Julien’s, the driver expected payment for the journey. We advised them that we would be paying the hotel as we were told by reception staff it is room charge. The driver had to double check with their boss which was fine and all okay. Upon arrival back at the hotel, we made the payment of €12 for the journey and thought nothing more of it. The next day, whilst en-route to the airport to go home, the taxi driver stated they have been informed by the hotel staff that we hadn’t paid for the St Julien’s taxi journey. Yet, when we checked out, we were told everything had been finalised, nothing to pay. If you are going to have a taxi booking service via a hotel website app, just have it that guests pay the hotel and the taxi service invoices the hotel rather than having multiple options to pay. Clearly just gets confusing. All in all, it is a nice hotel with helpful and friendly staff. Nothing seems too much of a problem for them - supplying us with additional beach towels for a boat trip. Lots of facilities available for use. Exclusive use of the beach club, rooftop pool area, wellness options. It’s in a good location with lots of restaurant, bars and shops a 5-10 minute walk down a hill to the harbour front away. However, with the problems and issues stated above, would give this hotel 4 out of 5.",
-      "rate": 4.0,
-      "tripDate": "September 2025",
-      "tripType": "Traveled as a couple"
-    },
-    {
-      "title": "Fantastic hotel",
-      "text": "Fantastic hotel. Modern, clean and superb service. Good quality buffet breakfast. Beach club is about 5-10 mins walk away but is also excellent.",
-      "rate": 5.0,
-      "tripDate": "September 2025",
-      "tripType": "Traveled on business"
-    },
-    {
-      "title": "Chic behavior towards the guest.  ROOM CATEGORY reduced due to not availability!",
-      "text": "2bed superior? Corresponds to a small room with nice bathroom. In the courtyard=exhaust air room of the kitchen=loud and smelly. When responding at the reception first extremely friendly and endeavoured, then changing rooms simply 1 floor up with the same requirements. For comparison, the room opposite has 2 large beds street side in the quarter rel. RUHIG. The newly received room 2 small beds maximum 20 cm separable.. beyond the 2bedded room superior.. A 20-something-year-old arrogant sniffle, announces amused. That this corresponds to a 2 bed superior. PRIMARILY, this would be info before changing rooms and not overbearing after. SECONDARY, it would be a minimal behavior of the hotel if the chosen room category is not available, with an accommodation like upgrade would be common.. not a lower class and certainly not with such sufficient arrogance. Apero on the roof terrace in plastic glasses.. 4**** doesn't correspond. poorly organized. Basically we are talking about a 4 star hotel.  I definitely know something else about that. The maids etc are all very nice and accommodating, especially since this is also in the stairwell\" the guest always comes first\". Perhaps the young gentleman at the reception should go beyond his spectacle rim and use the stairwell more often to practice empathy towards the guest and see through a room visit that a change of room from unsatisfactory to unsatisfactory does not involve an increase.",
+      "title": "Average hotel",
+      "text": "Very mediocre hotel the room itself was fine , but we had a hotel with sea view unfortunately I did not enrich so I did not see the stripe of sea what would be seen . That was not the biggest problem there is a rooftop bar with swimming pool , which is one of the reasons why I booked this in a center , but this is only accessible with a reservation and works in time slots and these were all fully booked in our stay . In the evening it is also not open for a drink. That is a great pity if one cannot make use of it. I also found that it was in a bit of a muddy neighborhood with garbage bags everywhere etc. No it was not my thing and also after a night of trying to sleep ( I heard the neighbors snoring as if they were in my room ) booked another hotel and left . They wanted to arrange everything for us like other room because of the neighbors snoring. Access to other pool at another hotel . But no money back for the unslept days. But I was so sorry about the hotel that we took our loss and took a few more very nice days in another hotel",
       "rate": 2.0,
-      "tripDate": "September 2025",
-      "tripType": "Traveled with friends"
+      "tripDate": "April 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
     },
     {
-      "title": "A wonderful hotel!",
-      "text": "Staff are particularly good, always pleasant and extremely helpful. Clean, comfortable rooms and we had a sea view as the room was on the ninth floor. Beach club was great with comfortable sun beds and direct sea access. Free vintage bus tour of Malta sights an added bonus. Thank you.",
+      "title": "The best hotel experience in Malta",
+      "text": "Wow this hotel is fantastic what a beautiful stay we have had . The staff are the most amazing staff Ive ever experienced. Big shout out and thank you to Santiago on reception hes is amazing so polite helpful and genuinely a lovely person he always helped us with any questions or requests we had also Min is one of the nicest bar staff I've ever met and so friendly. Mario in the upstairs pool area was great and really accommodating and helpful. They are just to name a few so many other wonderful staff. The hotel itself is gorgeous the rooms were spotless and cleaned to a high standard.I felt safe at all times very central to the harbour , shops restaurants and the buses . The spa is gorgeous. The food in the pool bar is lovely the guy behind the bar in the pool bar is also super friendly.The main event is the beach bar wow wow wow what an amazing experience just fantastic thanks everyone we will 100% be back from Karen and Chris Clarke",
       "rate": 5.0,
-      "tripDate": "August 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "April 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": "Dear Karen,\nThank you for taking the time to share such an enthusiastic review of your stay at 1926 Le Soleil Hotel and Spa. We are truly grateful for your kind words regarding our dedicated team members and their attentive service, as well as your appreciation for the cleanliness and elegance of our rooms. It is also wonderful to know that you enjoyed our central location, the spa facilities, and the culinary experience at our pool and beach bars.\nYour detailed feedback regarding your positive interactions with our staff, as well as your enjoyment of the various amenities, is sincerely valued. Please be assured that your comments inspire us to maintain the highest standards and continually seek ways to enhance our guests’ experiences.\nWe would be delighted to welcome you back for another memorable visit in the future.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
     },
     {
-      "title": "terrible experience",
-      "text": "A truly appalling experience. The hotel caught fire in the middle of the night — frightening enough on its own — but what made everything worse was the behavior of Duty Manager Philip. Instead of showing responsibility or basic respect, he was dismissive, arrogant, and completely unhelpful. We were first told our belongings could be collected, but after traveling all the way back, Philip coldly claimed there was nothing. No apology, no empathy, just wasted time and added stress.⚠️ Tip for future travelers: If you ever stay here, be prepared for management that shows zero accountability or respect toward guests. In emergencies, you will not get honesty, clarity, or basic courtesy.",
+      "title": "City break, sight seeing and food",
+      "text": "Arrived by car reception greeting good, went up to the room to be disappointed, it was very small, the bathroom in particular, basin was a cloakroom style basin very small, and the shower hinged inwards, which meant you had to cram yourself into a corner to close the door, very uncomfortable. Bed hard but not horrendous. All amenities there except a hair dryer. Again room very small.\nBreakfast was a buffet, all staff friendly and attentive, but for me a huge failing is the use of powered eggs for the scrambled eggs, no other options for eggs, unless you asked for fried or poached and they happily made them fresh for you. Which was great, but not being given this as a choice or explained, I'd imagine people didn't know.\nTwo other things really bothered me, the first was free water, you arrive in your room and there is a bottle of water with Compliments, but with a note saying if you want more you will be charged for it. I find this outrageous, I've travelled all over the world and water has always been made available free of charge.\nLastly, checking out, we had a few pool side drinks and food so when I went to check out I was informed that the credit card that they took on arrival had been used and charged for all my items also any City tax that I needed to pay, asking why and could I not have used up my last cash euros, I was informed that a refund would take several days, nobody explained this before hand and not that it's a issue on my card, but I gave NEVER not being given an alternative method of payment before SHOCKING.",
+      "rate": 3.0,
+      "tripDate": "April 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
+    },
+    {
+      "title": "Don´t go there with children!!",
+      "text": "The hotel is absolutely unfriendly to children. Children are not allowed in the outdoor pool on the rooftop, nor in the gym. They are not even allowed when accompanied by their parents! That is hard to understand for parents and even more for the kids!! The SPA is only accessible with children during very limited hours in the morning and afternoon when you are normally on sightseeing trips.\nThe employee at the reception explained that this restriction is noticed somewhere on the hompage. Who is reading the conditions of the hotel on their homepage before booking? They sould mention during the booking process that they prefer to have adults only as their guests.",
       "rate": 1.0,
-      "tripDate": "August 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "April 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": null
     },
     {
-      "title": "Absolutely terrible experience: Fire and Irresponsible Deputy Manager",
-      "text": "Absolutely terrible experience. The hotel caught fire in the middle of the night, which was already frightening enough. To make matters worse, Deputy Manager Philip completely shirked responsibility afterwards. We went all the way back to the hotel to collect our belongings because we were told they were available, but when we arrived, Philip told us there was nothing, wasting our time and leaving us extremely frustrated. This lack of honesty and accountability is unacceptable. Very disappointed and angry with how the situation was handled.",
-      "rate": 1.0,
-      "tripDate": "August 2025",
-      "tripType": "Traveled as a couple"
+      "title": "Great hotel but not a family hotel",
+      "text": "We've just had 3 nights at the hotel (3 generations, Inc kids aged 12&14). It has a lot of great points, the staff are amazing, the food was great and the location is very handy BUT it wasn't what we were expecting. From the Jet2 website it looked like a hotel that overlooked the sea and had 2 outdoor pools and an indoor pool (our Jet2 search criteria) which is why we booked it. However the big pool in the picture is a beach club which only opens in May and isn't attached to the hotel, the other outdoor pool is heated but adult only and the spa pool is very small and was only available to children 8-11am and 3-4pm. It was far from ideal. The other thing that isn't clear from the Jet2 website is that the hotel is in the middle of buildings and not next to the sea. We had 2 rooms, 1 looked straight onto apartment block balconies and the other faced the street, we had hoped for a balcony we could enjoy a drink on. The location is very handy for ferries, eateries, shops etc but is in the middle of the mêlée, not peaceful, overlooking the sea!\nThe other aspect that was a bit disappointing was the room itself, it was called a Family Suite but it wasn't a suite, it was a room with 2 big beds in it and a small bathroom. There was limited space for clothes, only hanging space (no drawers and and only 1 high shelf), there were 2 hooks for robes, not 4, no towel rail to hang wet towels, 2 chairs on the tiny balcony, there just wasn't enough space. It would be better to get rid of the 2nd big bed and put bunk beds in and add a chest of drawers. The room became very claustrophobic v quickly!\nI feel bad putting this negative review but wish I'd known what we had booked before arriving. This is a lovely hotel for adults and I'd highly recommend it for adults, the rooftop bar is amazing, just leave the kids at home!",
+      "rate": 3.0,
+      "tripDate": "April 2026",
+      "tripType": null,
+      "ownerResponse": null
     },
     {
-      "title": "1926 makes up for a very modern experience perfect for couples",
-      "text": "We stayed here during our vacation in July. The service of the personnel made our stay a treat. The room was perfect, and spaceful.",
+      "title": "Lovely hotel, great staff.",
+      "text": "Gorgeous hotel. Exceptionally clean and maintained. Lovely breakfast menu, a self service buffet which was always replenished. We didn't eat in the evening as we wanted to try food from around the island. The gym was very clean and all machines worked. The spa was clean and well maintained. All staff were excellent -very friendly, polite and helpful.\nThe coffee/tea facilities in the room were good, there was even a Nespresso machine!  I drink tea but there were only small coffee cups so a teapot would have been better for me.\nThere were only two problems..there were no proper cupboards or wardrobes, just an open framework of shelving and a hanging rail. This wasn't enough for two people, meaning we had to store clothes in our suitcases. I like to put worn clothes back in my case throughout the stay but I was unable to do so.\nThe other is the corridors...they are tiled floors which are easy to keep clean and look very nice, but they are noisy at times as they echo when doors close and people wheel their suitcases along. A carpet might soften the noise.\nOn the whole, we had a great holiday and we would recommend this hotel.",
+      "rate": 4.0,
+      "tripDate": "March 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": "Dear Naomi,\nThank you very much for taking the time to share your detailed impressions of your stay at 1926 Le Soleil Hotel and Spa. We are delighted to read your kind words regarding our dedicated staff, the cleanliness of our facilities, and the quality of our breakfast offerings. It is also gratifying to know that you appreciated the amenities provided in your room, including the Nespresso machine, as well as the high standards maintained in our gym and spa.\nWe also value your constructive feedback concerning the room storage options and the acoustics in our corridors. Your observations regarding the wardrobe and shelving arrangement, as well as the noise levels due to tiled flooring, are important to us. Please be assured that we continuously review our guests’ comments to enhance both comfort and convenience for future stays.\nWe hope to have the pleasure of welcoming you back on your next visit to the island, and we look forward to providing you with an even more enjoyable experience.\nSincerely,\nGiorgia F.\nHospitality Team – 1926 Collection"
+    },
+    {
+      "title": "The spa saved us from storms",
+      "text": "We were unfortunate with weather over St. Patrick's weekend, but the spa at 1926 Le Soleil saved us.  Tamara,  Aleksandar,  Ivana and Biljana were fabulous. We booked several massages (deep tissue, aromatherapy and hot stone/ salt) and,  as it qas my birthday, were treated to a bathing experience at 1926 Le Bains. What a joy!\nThe room was nice,  if on the small side, but it had a balcony.  The breakfast was tasty and plentiful. A lovely relaxing weekend,  even in the storms.",
+      "rate": 4.0,
+      "tripDate": "March 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": "Dear Ana,\nThank you very much for taking the time to share your experience at 1926 Le Soleil Hotel & Spa. We are delighted to hear that our spa facilities and the dedicated service provided by Tamara, Aleksandar, Ivana, and Biljana contributed to making your stay memorable, especially during unexpected weather conditions. It is wonderful to know that you enjoyed the variety of massage treatments and the special bathing experience for your birthday. We also appreciate your positive comments regarding the comfort of your room, the balcony, and the quality of our breakfast offerings.\nWe acknowledge your mention of the room size and value your constructive feedback, as it assists us in our ongoing efforts to enhance guest satisfaction. Please rest assured that we are committed to continuous improvement, and guest feedback such as yours is invaluable to us.\nWe would be honored to welcome you again in the future for another relaxing and enjoyable stay, regardless of the weather.\nSincerely,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "Amazing hotel amazing stay",
+      "text": "Stayed for 4 nights with my mother who is 80 years old, our tour operator had not informed the hotel that we wanted a twin room and a king size had been allocated; the hotel were quick to change this for us and it was actually an upgrade on a higher floor which was marvellous. The hotel is immaculately clean and well situated within walking distance to everywhere required.\nWe didn’t use the spa but it looked amazing, the staff are super friendly and go over and above to make you feel welcome, nothing is too much trouble. We ate at Margeaux’s most evenings and the presentation, taste and service was special.\nBreakfast is buffet style and hot and plentiful.\nWould stay again !!\nRecommend to all",
       "rate": 5.0,
-      "tripDate": "July 2025",
-      "tripType": "Traveled as a couple"
+      "tripDate": "March 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": "Dear Vanessa,\nThank you for taking the time to share your wonderful feedback regarding your recent stay at 1926 Le Soleil Hotel & Spa. We are delighted to learn that you and your mother enjoyed a comfortable visit, and it is pleasing to hear our team was able to promptly accommodate your room preference, providing you with an upgraded experience. Your kind words about the cleanliness of our property, the convenient location, and the exceptional service from our staff are greatly appreciated. We are also glad that you found the dining experience at Margeaux’s and our breakfast offerings to be of high quality.\nYour generous recommendation and intention to return mean a great deal to us. We remain committed to enhancing our guests' experiences and sincerely value your feedback as it inspires us to continuously improve.\nWe hope to have the pleasure of welcoming you back in the future.\nSincerely,\nGiorgia F.\nHospitality Team - 1926 Collection"
     },
     {
-      "title": "Perfect stay in Sliema",
-      "text": "This hotel was absolutely amazing. They had everything we needed on the property, the staff were friendly and helpful, and the restaurants were great. The amount of things you get out of a stay here, it is like a resort. It is very much worth what it costs, which is very affordable for everything you get in my opinion. They upgraded us when we got there free of cost. The room was immaculately clean and they came and cleaned early when we weren’t there. They helped up get a ride to the airport early in the morning. The pools are spectacular. It’s near a lot of restaurants and grocery stores, and is just a 5 minute walk from the Valletta ferry. I would stay here again in a heart beat it was truly one of the best hotels we have stayed at.",
+      "title": "Malta for the First Time",
+      "text": "We just spent 3 1/2 weeks at this hotel. The reason we chose it was it had 2 bedroom apartments as part of their offerings. Unfortunately when we arrived we were booked into the wrong apartment and it took 2 days to get us moved to the apartment we requested. Having said that the hotel has many good things going for it. First of all the location is great. There are numerous restaurants within a 10 minute walk, same for 2 banks and a great pharmacy just 2 blocks away. 2 convenience stores and 2 grocery stores are also less than a 10 minute walk away as is the Point Shopping Centre.\nWalking to the Strand either on the harbour side or the Mediterranean side is also a few minutes walk away and the ferry to Valetta is a 10 minute walk.\nThe hotel's amenities are good including a rooftop view with a terrific 360 view. There is also an indoor pool and spa. Both pools are on the small side and quite shallow, more for cooling off rather than swimming. The indoor pool is really more like a giant hot tub as it is quite narrow and heated to probably 80 or higher.\nWe only ate at Margaux and the food was quite good although we did find the menu to be a bit limited and it never changed in the entire time we were there.\nThe staff were eager to please and helpful. Occasionally a minor difficulty in communication but never a problem. A special shout out to Mohammed who took us to our room on that first day and then just seemed to keep an eye on us to make sure or stay went well.\nBecause we were there longer than most there were a few things to note. First is that it took 3 weeks to get the wifi in our apartment fixed. Until then we had to use the guest service option which was not as secure and often unstable so that was a frustration. The apartments themselves, while quiet and very clean they are sparsely furnished. For example in the 2 bedroom apartments there was 1 sofa, not sufficient for 4 people to sit on and not very comfortable. The kitchen was also quite sparse, so little things like salt and pepper, maybe some olive oil, napkins, oven mitts should be present but they were not. There is no direct phone from the apartment to the hotel so ether have to use the hotel app or use a cell phone to call the hotel directly, The hotel app is good but if you actually need to talk to someone then a phone call or go to the front desk is are the only options.",
+      "rate": 4.0,
+      "tripDate": "February 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": "Dear Guest,\nThank you for taking the time to share such a detailed review of your recent stay at 1926 Le Soleil Hotel & Spa. We are pleased to learn that you found our location convenient, with easy access to local amenities and attractions, and that you enjoyed the panoramic views from our rooftop as well as the professionalism and helpfulness of our staff. Your positive comments regarding our team, particularly Mohammed, are very much appreciated and will be shared with all concerned.\nWe regret the inconvenience caused by the initial apartment allocation and the delay in resolving the Wi-Fi issues during your extended stay. Your observations regarding the apartment furnishings, kitchen provisions, and communication channels are duly noted. We understand how these aspects can impact overall comfort and convenience, especially for longer stays, and we appreciate your constructive feedback as it guides our ongoing efforts to enhance the guest experience.\nPlease rest assured that your comments are invaluable to us as we continuously strive to improve our services and facilities. We sincerely hope to have the opportunity to welcome you back in the future and provide an even more enjoyable stay.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "1926 le soleil hotel & spa",
+      "text": "If you want to relax and enjoy yourself this is a wonderful place to go and you will find beautiful staff special when you will meet PETRA one of the manager and what about the SPA it is so special u have to come there is NO words to explain come and visit  1926 le soleil hotel & spa",
       "rate": 5.0,
-      "tripDate": "August 2025",
-      "tripType": "Traveled with friends"
+      "tripDate": "March 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": "Dear Alfred,\nThank you very much for sharing your thoughtful feedback regarding your recent experience at 1926 Le Soleil Hotel & Spa. We are delighted to learn that you found our property to be a wonderful place for relaxation and leisure. Your kind words about our dedicated team, especially your mention of Petra, as well as your appreciation for the unique atmosphere of our spa, are greatly valued by all of us.\nWe continuously strive to provide memorable experiences for our guests and your feedback serves as an encouragement for our ongoing commitment to excellence.\nWe sincerely hope to have the pleasure of welcoming you again in the future.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "A Stay That Quietly Redefined Our Expectations — 1926 Le Soleil Hotel & Spa, Sliema",
+      "text": "There are hotels one merely tolerates, hotels one genuinely enjoys, and then the rare few that quietly rearrange one's sense of what hospitality can be. The 1926 Le Soleil Hotel & Spa in Sliema belongs firmly to the last category — and having now returned to the 1926 family for a second time, I can say without the faintest exaggeration that it ranks among the finest establishments I have ever had the pleasure of staying in.\nFrom the very first day, the level of attention was nothing short of extraordinary. The staff were, in the truest sense, at our beck and call: scarcely a day passed without someone discreetly ensuring that all was well. On more than one occasion the telephone in our room rang, and it was reception, calling simply to ask whether we required anything at all — whether something might be brought up, arranged, or seen to. It is one thing to be looked after; it is quite another to be anticipated. We felt, frankly, spoiled — granted a kind of effortless VIP treatment that never once tipped over into intrusion.\nThe housekeeping team deserves particular praise. They were unfailingly warm and — a genuinely welcome surprise — every one of them spoke excellent English. This turned even the smallest logistics into a pleasure rather than a negotiation: we could agree on cleaning times, coordinate the replenishment of coffee capsules, and request fresh towels without the slightest friction.\nThen there was the beach bar, where we spent several happy hours almost every single day, entirely free of charge. What so many hotels and resorts treat as a premium privilege — charging upwards of 25 EUR per person — was here simply part of the experience: comfortable loungers, parasols both by the sea and around the pool, and food that was, without overstatement, superb. I developed a particular weakness for the grilled salmon, served with crisp salad sides and fries, though the mussels were every bit its equal; my wife worked her way steadily through the menu over the course of our stay and pronounced every dish a delight. The cocktails, too, were sublime — and on one memorable occasion we were treated, entirely gratis, to drinks made from the local prickly-pear cactus. It was a charming gesture in itself, rendered all the more delightful by the fact that the drinks proved utterly remarkable.\nA hotel cannot, of course, take credit for the weather — but it can take full advantage of it, and Le Soleil does so with real flair. Through the hotel's own app we discovered and booked a day-long cruise aboard the Hera II, a circumnavigation of Malta lasting some nine hours. The day encompassed not only snacks and a proper lunch but also diving at Golden Bay, swimming in the celebrated Blue Lagoon off the island of Comino, and bathing in the open sea, descending directly from the deck by ladder into deep water. It was an unforgettable experience — one we would almost certainly never have stumbled upon had it not been so seamlessly offered through the hotel's own platform.\nBreakfast and dinner, taken in the hotel's Margaux restaurant, were consistently excellent: a generous and varied selection, unlimited helpings, and service of real warmth. One small detail captures the spirit of the place perfectly. On our very first morning, our waiter noted that I take my coffee with almond milk — and from that day forward he asked, entirely of his own accord, each and every morning, whether he should bring it prepared just so. That he remembered us at all was gratifying; that he had committed my preferences and dietary needs to memory was, quite simply, remarkable.\nThe spa was a haven. We rested thoroughly, though to our slight regret we never quite found the time to experience the massages first-hand — an omission we fully intend to remedy on our next visit, for return we most certainly shall. We did, however, make the most of the hotel's own pool and sauna, which offered a wonderfully intimate, understated, and private atmosphere — an excellent experience in every respect.\nAnd finally — most important of all — the reception. Put plainly, it was the finest front-desk service we have ever encountered anywhere. The only team to rival it is that of the sister property, 1926 Les Bains, just across the street. These were people who not only remembered us from our previous stay a year earlier — and I mean genuinely remembered, for a receptionist recognised us, approached with a smile, welcomed us warmly, and told us how lovely it was to see us both again — but who were also tirelessly helpful, arranging our taxis to and from the airport, striking up genuinely enjoyable conversations, and forever asking whether there was anything further they could do. Beyond their professionalism, they were simply good company: good people, exactly where they belong.\n1926 Le Soleil is, without hesitation, one of the very best hotels I have ever stayed in. We will be back.",
+      "rate": 5.0,
+      "tripDate": "June 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
+    },
+    {
+      "title": "Great hotel!",
+      "text": "This hotel is over the top- staff is amazing,  our room is clean,  spacious and comfortable.  A staff member comes around in the afternoon to see if you need anything- towels,  cleaning, etc.  The breakfast is the best we've had in all our travels. They have plenty of amenities,  most we didn't use because we aren't here long enough but they all look great.  Perfect location.  HIGHLY recommend.",
+      "rate": 5.0,
+      "tripDate": "June 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
+    },
+    {
+      "title": "Very good hotel BUT………",
+      "text": "This hotel is really very good. The staff are wonderful and the amenities great. The area it is located in is a little rundown. We booked a deluxe room which is no different to a standard room except that one wall is papered. A couple of minor points, the room was on the small side and the shower floor slippy and it was hard not to flood the bathroom when having a shower. There is little storage for your clothes which have to be kept on open shelving. All quite minor points really which taken together would still  mean a five star review.\nHowever our experience on arrival needs to be noted so that others are aware. When we booked direct with the hotel we were told we could pay on arrival which we did. We were told that the payment hadn’t gone through and we were asked to pay again, which we did. We were again told that the payment hadn’t gone through so could we do it again ? I pointed out that the terminal had said approved on both occasions. A male member of staff ( slightly  more assertive ) asked us to check our banking app which we did and showed him that the payment had been taken (1900€) This wasn’t good enough he said as the payment said pending. We pointed out that this is normal banking procedure. Unfortunately the member of staff just wouldn’t listen. We were told we couldn’t have access to our room until we paid again. Obviously this was very upsetting, my husband then called the bank in the UK and had to have this personal conversation in a busy foyer. The bank assured us the payment had gone through. I eventually asked for a manager who did smooth things over, offering us complimentary drinks and a complimentary taxi for our return journey to the airport. However over the next couple of days we had calls from the fraud dept at our bank advising that the payment had indeed gone through twice but the bank had stopped the second payment due to fraud protocols. The main issue here is that the hotel would not accept that they had indeed tried to put the payment through twice saying that just wasn’t possible. So beware if you intend to pay on arrival as the hotel doesn’t  seem to understand how the international banking system works and you could potentially be left high and dry in a foreign country. This situation cast a nasty shadow on our holiday which was hard to overcome.",
+      "rate": 4.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": null
+    },
+    {
+      "title": "Ideal location in Sliema with extremely comfortable room and excellent customer service from all staff.",
+      "text": "I had a great experience at 1926 Le Soleil. It had a luxurious feel but was also relaxed.\nThe hotel was absolutely spotless, rooms cleaned each day with a turn down service in the evening.\nThe staff at reception, at breakfast, in the lobby bar, rooftop bar and beach club were so friendly and professional and willing to answer any questions and accommodate requests.\nDespite its position in Sliema, it was relatively quiet. I didn’t eat in the restaurant in the evening as was out and about trying local restaurants. I had breakfast at the hotel a few times and it was good and plentiful.\nMajority of bookings could be managed through the app, I didn’t have any problems booking sunbeds. Favourite part of hotel stay was the rooftop bar and beach club. Hotel extremely handy location, mins away from ferry to Valetta.\nWould definitely stay again if in Malta.\nOnly criticisms would be lack of storage in room and towels looked a little tired. Like others have said, it would be nice if water was replenished each day but there is a supermarket nearby.",
+      "rate": 5.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled solo",
+      "ownerResponse": "Dear Valérie,\nThank you for taking the time to share your experience at 1926 Le Soleil Hotel & Spa. We are truly delighted to learn that you enjoyed our convenient location, the spacious and comfortable room, as well as the diverse and substantial breakfast. It is also gratifying to hear that the refined cuisine at our restaurant and the attentive service provided by our team contributed positively to your stay.\nYour kind words are greatly appreciated and serve as motivation for us to continue delivering exceptional hospitality. We highly value your feedback, as it guides us in our pursuit of continuous improvement.\nWe hope to have the pleasure of welcoming you back in the future for another memorable visit.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "Excellent.",
+      "text": "Very comfortable room, no noise, very varied and plentiful breakfast buffet. We also dined a few times in the evening at the hotel; it is good, but the menu is not very varied. Hotel particularly well located to reach the ferry to Valletta or Gozo.",
+      "rate": 5.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": "Dear Guest,\nThank you for taking the time to share your feedback regarding your recent stay at 1926 Le Soleil Hotel & Spa. We are pleased to learn that you found your room comfortable and quiet, and that you appreciated the extensive breakfast buffet. It is also gratifying to hear that our hotel's location provided you with convenient access to the ferry services.\nWe appreciate your comments regarding the dinner menu and understand the desire for greater variety. Your observations are valuable to us, and we continuously strive to enhance our offerings to better serve our guests’ preferences.\nWe look forward to welcoming you back to our hotel for another enjoyable stay in the future.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "Very good service at a surprisingly reasonable price.",
+      "text": "Excellent value for money. The staff was very attentive.\nThe room turned out to be small for working, and the bathroom was narrow with small items out of place.\nPros: cleanliness, air conditioning worked perfectly. Breakfasts were good.\nThey have made a very cozy resting place on the terrace.\nGood location.\nI recommend it.",
+      "rate": 4.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled with family",
+      "ownerResponse": "Dear Adolfo,\nThank you for taking the time to share your experience at 1926 Le Soleil Hotel & Spa. We greatly appreciate your kind words regarding our attentive staff, the overall cleanliness, and the value for money. It is also gratifying to know that you enjoyed our comfortable terrace, the efficient air conditioning, and our breakfast offerings, as well as our convenient location.\nWe have taken note of your observations about the room and bathroom size, as well as the arrangement of amenities. Your feedback is invaluable and will assist us in our ongoing efforts to enhance the guest experience and ensure our facilities meet the expectations of all our visitors.\nWe sincerely hope to have the pleasure of welcoming you back on your next visit to the area.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "Great locations, amazing service would return",
+      "text": "Excellent service from all staff, so clean, great breakfast - all staff go above and beyond and service with a smile.  Great cocktails.  Spacious room which is cleaned daily.  Rooftop pool with drinks is slightly more expensive than first floor bar. If it’s about the experience and nice place for a lunch.  Reserve a space,\nLovely thick towels.  Did not score a 5 due to two  minor issues the large great sun beds are uncomfortable in the middle you need to sit to the side.  The cabana and other chairs are prefect.  The other issue was the shower was not very powerful had to use the lower one and at times the water was not hot which we assume was due to use.  Spa facilities were great and I enjoyed a wonderful massage",
+      "rate": 4.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled with friends",
+      "ownerResponse": "Dear Sally,\nThank you very much for taking the time to share your detailed feedback regarding your recent stay with us at 1926 Le Soleil Hotel & Spa. We are delighted to learn that you appreciated our convenient location, the dedication of our team, the cleanliness of our facilities, and the quality of our breakfast and cocktails. It is also wonderful to hear that you enjoyed the spaciousness of your room, the daily housekeeping, and the relaxing spa experience.\nWe regret to learn that aspects of your experience, such as the comfort of certain sun beds and the water pressure and temperature in your shower, did not fully meet your expectations. Please be assured that your comments have been noted, as we constantly strive to enhance the comfort and satisfaction of our guests with every visit.\nWe truly value your feedback as it helps guide our ongoing improvements, and we hope to have the pleasure of welcoming you back in the future for an even more enjoyable stay.\nSincerely,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "Great location but obsessed with its app",
+      "text": "The location of this hotel is its best feature. The rooms are ok, if a little sparse and soulless, and we enjoyed the spa. The staff were friendly but it lacks a bit in genuine customer service because of an obsession with tech. You are directed to do pretty much everything through their app, including booking sun loungers by the rooftop pool (which, be warned, must be done before you arrive if you want to use them during the first few days of your trip).  It feels like a lot of admin for a holiday and takes away any sense of warmth and hospitality.",
+      "rate": 4.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled as a couple",
+      "ownerResponse": "Dear Eleanor,\nThank you for taking the time to share your feedback regarding your recent stay at 1926 Le Soleil Hotel & Spa. We are pleased to learn that you appreciated our central location, enjoyed the spa facilities, and found our team to be welcoming during your visit.\nWe also acknowledge your observations regarding our digital services and the reliance on our mobile application for various aspects of your stay, such as booking sun loungers. We understand that this approach may not suit all preferences and can affect the traditional sense of hospitality. Your comments are valuable to us as we strive to balance efficiency with a personal touch, and we continuously review our procedures to enhance the guest experience.\nWe look forward to the opportunity of welcoming you again in the future and hope to provide an even more enjoyable and seamless stay.\nBest Regards,\nGiorgia F.\nHospitality Team - 1926 Collection"
+    },
+    {
+      "title": "Never ever again...",
+      "text": "This was a very disappointing experience. I was initially assigned to an accessible room, which meant there was a lowered toilet and no shower curtain. When using the shower, it was not possible to position the shower head properly without flooding the entire bathroom. In addition, the air conditioning was not working.\nOn the second day, I returned to the room and noticed a number of insects on the bathroom floor. I took photos and later understood these to be baby cockroaches. At that point, I did not raise it immediately. However, when I later sat on the bed, I saw several large cockroaches moving around the room. I took photos and a video and went to reception. The staff member initially suggested sending housekeeping at 11pm to spray the room so that I could still sleep there.\nAfter insisting, I was eventually moved to another room. However, I was asked whether I would return to the original room the following day due to reservations, which I declined.\nThe breakfast was enjoyable, but aside from the room change, no compensation, upgrade or alternative resolution was offered. Based on this experience, I would not stay here again.",
+      "rate": 2.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled on business",
+      "ownerResponse": null
+    },
+    {
+      "title": "Great relaxing stay",
+      "text": "My friends and I stayed at this beautiful hotel for one week. The staff went above and beyond to help my friends and I have a lovely relaxing stay. The breakfast staff especially were very friendly and helpful and did their very best to make this stay great. Highly recommend this hotel to anyone staying in silema Malta!! Thank you for four Irish girls!! 🇮🇪",
+      "rate": 5.0,
+      "tripDate": "May 2026",
+      "tripType": "Traveled with friends",
+      "ownerResponse": null
     }
   ]
 }

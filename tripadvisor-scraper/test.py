@@ -31,9 +31,10 @@ def require_min_presence(items, key, min_perc=0.1):
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_hotel_scraping():
+    max_review_pages = 3
     result_hotel = await tripadvisor.scrape_hotel(
         "https://www.tripadvisor.com/Hotel_Review-g190327-d264936-Reviews-1926_Hotel_Spa-Sliema_Island_of_Malta.html",
-        max_review_pages=3,
+        max_review_pages=max_review_pages,
     )
     # test hotel info
     schema = {
@@ -55,19 +56,42 @@ async def test_hotel_scraping():
         "rate": {"type": "float", "nullable": True},
         "tripDate": {"type": "string", "nullable": True},
         "tripType": {"type": "string", "nullable": True},
+        # ownerResponse is absent on purpose: whether management replies is not a parser fact
     }
 
     validator = Validator(schema, allow_unknown=True)
     validate_or_fail(result_hotel, validator)
-    assert len(result_hotel["reviews"]) >= 10
+    reviews = result_hotel["reviews"]
+    assert len(reviews) >= 10
+    # max_review_pages counts the first page, 10 reviews per page
+    assert len(reviews) <= max_review_pages * 10
     for k in review_schema:
-        require_min_presence(result_hotel["reviews"], k, min_perc=review_schema[k].get("min_presence", 0.1))   
+        require_min_presence(reviews, k, min_perc=review_schema[k].get("min_presence", 0.1))
+
+    require_min_presence(reviews, "title", min_perc=0.5)
+    require_min_presence(reviews, "text", min_perc=0.5)
+    # "Traveled as a couple", not the bare label - the value is split across nodes
+    assert any(t["tripType"] and t["tripType"].strip() != "Traveled" for t in reviews)
+    assert result_hotel["featues"], "no amenities parsed"
+    # the hotel's reply belongs in its own field, not glued onto the guest review
+    for review in reviews:
+        if review["ownerResponse"]:
+            assert review["ownerResponse"] not in (review["text"] or "")
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_location_data_scraping():
-    result_location = await tripadvisor.scrape_location_data(query="Malta")
-    assert len(result_location) > 10
+    result_location = await tripadvisor.scrape_location_data(query="Barcelona")
+    assert len(result_location) >= 1
+    require_min_presence(result_location, "localizedName", min_perc=1.0)
+    require_min_presence(result_location, "placeType", min_perc=1.0)
+    require_min_presence(result_location, "url", min_perc=0.9)
+    names = " ".join(item.get("localizedName") or "" for item in result_location).lower()
+    assert "barcelona" in names
+    # one typeahead response's worth - a merged one runs to nine
+    assert len(result_location) <= 12
+    # the nested section links hang off the top-ranked row, whatever its placeType
+    assert any(i["HOTELS_URL"] for i in result_location)
 
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
@@ -83,6 +107,11 @@ async def test_search_scraping():
     validator = Validator(schema, allow_unknown=True)
     for item in result_search:
         assert validator.validate(item), {"item": item, "errors": validator.errors}
+
+    urls = [item["url"] for item in result_search]
+    assert len(urls) == len(set(urls))
+    # one page yields ~31-33 with sponsored cards, so this only passes if page 2 landed
+    assert len(result_search) >= 55
 
 
      
