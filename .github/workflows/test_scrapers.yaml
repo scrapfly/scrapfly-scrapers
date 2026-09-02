@@ -247,7 +247,11 @@ jobs:
           - project_dir: idealista-scraper
             test: test_search_scraping
           - project_dir: glassdoor-scraper
-            test: test_glassdoor_url or test_salary_range_parsing or test_find_companies
+            test: test_glassdoor_url
+          - project_dir: glassdoor-scraper
+            test: test_salary_range_parsing
+          - project_dir: glassdoor-scraper
+            test: test_find_companies
           - project_dir: glassdoor-scraper
             test: test_job_scraping
           - project_dir: glassdoor-scraper
@@ -456,7 +460,7 @@ jobs:
         SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
       run: |
         cd ${{ matrix.project_dir }}
-        poetry run pytest test.py -k "${{ matrix.test }}"
+        poetry run pytest test.py -k ${{ matrix.test }}
 
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
