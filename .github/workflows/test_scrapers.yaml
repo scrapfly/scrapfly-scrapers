@@ -421,7 +421,11 @@ jobs:
           - project_dir: goodreads-scraper
             test: test_book_scraping
           - project_dir: goodreads-scraper
+            test: test_review_scraping
+          - project_dir: goodreads-scraper
             test: test_list_scraping
+          - project_dir: goodreads-scraper
+            test: test_search_scraping
           - project_dir: loopnet-scraper
             test: test_listing_scraping
           - project_dir: loopnet-scraper
