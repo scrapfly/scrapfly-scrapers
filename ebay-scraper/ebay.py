@@ -150,8 +150,10 @@ def parse_product(result: ScrapeApiResponse):
     item["price_converted"] = css(".x-price-approx__price ::text")  # ebay automatically converts price for some regions
 
     item["name"] = css_join("h1 span::text")
-    item["seller_name"] = sel.xpath("//div[contains(@class,'info__about-seller')]/a/span/text()").get()
-    item["seller_url"] = sel.xpath("//div[contains(@class,'info__about-seller')]/a/@href").get().split("?")[0]
+    seller = sel.css('[data-testid=x-sellercard-atf] a[href*="/str/"]')
+    item["seller_name"] = seller.css("span::text").get("").strip()
+    seller_url = seller.css("::attr(href)").get("")
+    item["seller_url"] = seller_url.split("?")[0] if seller_url else None
     item["photos"] = sel.css('.ux-image-filmstrip-carousel-item.image img::attr("src")').getall()  # carousel images
     item["photos"].extend(sel.css('.ux-image-carousel-item.image img::attr("src")').getall())  # main image
     # description is an iframe (independant page). We can keep it as an URL or scrape it later.
@@ -159,11 +161,11 @@ def parse_product(result: ScrapeApiResponse):
     # feature details from the description table:
     feature_table = sel.css("div.ux-layout-section--features")
     features = {}
-    for feature in feature_table.css("dl.ux-labels-values"):
-        # iterate through each label of the table and select first sibling for value:
-        label = "".join(feature.css(".ux-labels-values__labels-content > div > span::text").getall()).strip(":\n ")
-        value = "".join(feature.css(".ux-labels-values__values-content > div > span *::text").getall()).strip(":\n ")
-        features[label] = value
+    for dt in feature_table.css("dt.ux-labels-values__labels"):
+        label = "".join(dt.css("::text").getall()).strip(":\n ")
+        value = "".join(dt.xpath("following-sibling::dd[1]//text()").getall()).strip(":\n ")
+        if label:
+            features[label] = value
     item["features"] = features
     return item
 

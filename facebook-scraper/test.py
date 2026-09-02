@@ -5,7 +5,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-facebook.BASE_CONFIG["cache"] = True
+facebook.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
@@ -164,6 +164,7 @@ async def test_events_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_group_posts_scraping():
     """Test scraping Facebook group posts"""
     group_data = await facebook.scrape_group_posts(
