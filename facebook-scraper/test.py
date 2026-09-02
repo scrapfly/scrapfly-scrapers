@@ -5,7 +5,7 @@ import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 
-facebook.BASE_CONFIG["cache"] = True
+facebook.BASE_CONFIG["cache"] = False
 
 
 def validate_or_fail(item, validator):
