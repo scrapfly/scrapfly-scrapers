@@ -71,11 +71,14 @@ def parse_hidden_data(response: ScrapeApiResponse) -> Dict:
 def parse_search_data(data: List[Dict]) -> List[Dict]:
     """refine search data"""
     search_data = []
-    data = list(data.values())[0]
-    for listing in data["results"]["exact"]["items"]:
+    search_key = next((key for key in data if key.endswith("Search")), None)
+    if not search_key:
+        raise ValueError(f"no search key found in hidden data: {list(data)}")
+    results = data[search_key]["results"]
+    for listing in results["exact"]["items"]:
         # refine each property listing in the search results
         search_data.append(parse_property_data(listing["listing"]))
-    max_search_pages = data["results"]["pagination"]["maxPageNumberAvailable"]
+    max_search_pages = results["pagination"]["maxPageNumberAvailable"]
     return {"search_data": search_data, "max_search_pages": max_search_pages}
 
 
