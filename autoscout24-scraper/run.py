@@ -25,12 +25,12 @@ async def run():
     listings = await autoscout24.scrape_listings(url, max_pages=3)
     output.joinpath("listings.json").write_text(json.dumps(listings, indent=2, ensure_ascii=False), encoding="utf-8")
     
-    # car detail pages
+    # car detail pages, taken from the listings above because offers expire
     urls = [
-        "https://www.autoscout24.com/offers/bmw-116-116d-euro-6-diesel-white-7bc1efe2-6741-46d9-9af1-9c1e525bdd86",
-        "https://www.autoscout24.com/offers/fiat-500-1-0-hybrid-dolcevita-electric-gasoline-white-2fc80bb0-03e3-4d12-bee0-08b5c4dc4bbc",
-        "https://www.autoscout24.com/offers/fiat-500-lim-dolcevita-1-0-pdch-dab-klima-uvm-electric-gasoline-white-117b7cf9-f7e8-449c-bfdd-cfd449484f99"
-    ]
+        "https://www.autoscout24.com" + listing["url"]
+        for listing in listings
+        if listing.get("url")
+    ][:3]
     
     car_details = await autoscout24.scrape_car_details(urls)
     output.joinpath("car_details.json").write_text(json.dumps(car_details, indent=2, ensure_ascii=False), encoding="utf-8")

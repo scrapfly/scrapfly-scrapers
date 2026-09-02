@@ -275,6 +275,8 @@ jobs:
           - project_dir: amazon-scraper
             test: test_review_scraping
           - project_dir: autoscout24-scraper
+            test: test_page_url
+          - project_dir: autoscout24-scraper
             test: test_listings_scraping
           - project_dir: autoscout24-scraper
             test: test_car_details_scraping
