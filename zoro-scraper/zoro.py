@@ -6,6 +6,7 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard
 """
 
+import asyncio
 import os
 import json
 import re
@@ -18,6 +19,7 @@ from scrapfly import (
     ScrapeConfig,
     ScrapflyClient,
     ScrapeApiResponse,
+    ScrapflyError,
 )
 
 
@@ -211,6 +213,53 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
         "reviews": reviews,
     }
 
+_EXPAND_REVIEWS_JS = """
+async function expandReviews() {
+    const selector = 'button.pr-rd-show-more:not([disabled])';
+    const deadline = Date.now() + 15000;
+    let clicks = 0;
+    while (Date.now() < deadline && !document.querySelector(selector)) {
+        await new Promise(r => setTimeout(r, 500));
+    }
+    while (clicks < 5 && Date.now() < deadline) {
+        const btn = document.querySelector(selector);
+        if (!btn || !btn.offsetParent) break;
+        btn.click();
+        clicks++;
+        await new Promise(r => setTimeout(r, 1000));
+    }
+    return clicks;
+}
+try {
+    return await expandReviews();
+} catch (e) {
+    return 0;
+}
+"""
+
+REVIEW_SCENARIO = [
+    # let the page settle before injecting anything: a navigation while the script is mid-flight
+    # kills its execution context and the API reports that as a failed scenario
+    {"wait": 2000},
+    {"execute": {"script": _EXPAND_REVIEWS_JS, "timeout": 20000}},
+]
+
+
+async def _scrape_product_page(url: str) -> ScrapeApiResponse:
+    """scrape a single product page, falling back to a plain render if review expansion fails"""
+    try:
+        return await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, **BASE_CONFIG, js_scenario=REVIEW_SCENARIO)
+        )
+    except ScrapflyError as e:
+        if e.code != "ERR::SCRAPE::SCENARIO_EXECUTION":
+            raise
+        # a failed scenario throws away the whole page, including the product data that never
+        # needed the scenario at all, so retry without it and keep whatever reviews the widget
+        # loaded on its own instead of dropping the product entirely
+        log.warning(f"Review expansion failed on {url}, retrying without the scenario: {e.message}")
+        return await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+
 
 async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
     """
@@ -223,31 +272,24 @@ async def scrape_product(urls: List[str]) -> List[ZoroProduct]:
         List of ZoroProduct dictionaries
     """
     log.info(f"Scraping {len(urls)} product pages")
-    # JavaScript code to click the "Show more" button  to get all the product data
-    JS = [
-        {   
-            "wait_for_selector": {
-                "selector": "button.pr-rd-show-more[aria-label=\"Show More Reviews\"]"
-            }
-        },
-        {
-            "execute": {
-                "script": "async function clickUntilDisabled(){const maxClicks=5;const waitBetweenClicks=1000;let clicks=0;while(clicks<maxClicks){const btn=document.querySelector('button.pr-rd-show-more:not([disabled])');if(!btn||!btn.offsetParent){break;}try{btn.click();clicks++;await new Promise(r=>setTimeout(r,waitBetweenClicks));}catch(e){break;}}return clicks;}return await clickUntilDisabled();",
-                "timeout": 20000,
-            }
-        }
-    ]
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG, js_scenario=JS) for url in urls]
+    limit = asyncio.Semaphore(max(1, SCRAPFLY.max_concurrency))
+
+    async def scrape_one(url: str) -> ScrapeApiResponse:
+        async with limit:
+            return await _scrape_product_page(url)
+
+    responses = await asyncio.gather(
+        *[scrape_one(url) for url in urls], return_exceptions=True
+    )
     products = []
-    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+    for url, response in zip(urls, responses):
         if isinstance(response, Exception):
-            url = getattr(getattr(response, "request", None), "url", "unknown url")
             log.error(f"Error scraping product page {url}: {response}")
             continue
         try:
             products.append(parse_product(response))
         except Exception as e:
-            log.error(f"Error scraping product page {response.context['url']}: {e}")
+            log.error(f"Error parsing product page {url}: {e}")
     log.info(f"Scraped {len(products)} product pages")
 
     return products

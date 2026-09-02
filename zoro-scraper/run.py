@@ -25,7 +25,7 @@ async def run():
     log.info("scraping product")
     urls = [
         "https://www.zoro.com/proto-general-purpose-double-latch-tool-box-with-tray-steel-red-20-w-x-85-d-x-95-h-j9975r/i/G0067825/",
-        "https://www.zoro.com/stanley-series-2000-tool-box-plastic-blackyellow-19-in-w-x-10-14-in-d-x-10-in-h-019151m/i/G6197466/",
+        "https://www.zoro.com/stanley-rolling-tool-chest-50-gal-capacity-37-in-w-x-23-in-d-x-23-in-h-structural-foam-black-037025h/i/G2464271/",
         "https://www.zoro.com/ansell-hyflex-coated-gloves-polyurethane-dipped-palm-coated-ansi-abrasion-level-3-black-large-1-pair-48-101/i/G0050565/"
     ]
     product = await zoro.scrape_product(urls)
