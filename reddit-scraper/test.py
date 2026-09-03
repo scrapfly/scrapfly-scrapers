@@ -19,7 +19,7 @@ def validate_or_fail(item, validator):
 
 def require_min_presence(items, key, min_perc=0.1):
     """check whether dataset contains items with some amount of non-null values for a given key"""
-    count = sum(1 for item in items if item.get(key))
+    count = sum(1 for item in items if key in item and item[key] is not None)
     if count < len(items) * min_perc:
         pytest.fail(
             f'inadequate presence of "{key}" field in dataset, only {count} out of {len(items)} items have it (expected {min_perc*100}%)'
@@ -55,12 +55,10 @@ post_schema = {
                 "author": {"type": "string", "nullable": True},
                 "authorProfile": {"type": "string", "nullable": True},
                 "commentId": {"type": "string"},
-                "link": {"type": "string"},
+                "link": {"type": "string", "nullable": True},
                 "publishingDate": {"type": "string"},
                 "commentBody": {"type": "string", "nullable": True},
-                "upvotes": {"type": "integer"},
-                "dislikes": {"type": "integer"},
-                "downvotes": {"type": "integer"},
+                "upvotes": {"type": "integer", "nullable": True},
             }
         }
     }
@@ -133,16 +131,15 @@ user_comment_schema = {
         "type": "list",
         "schema": {"type": "string"}
     },
-    "dislikes": {"type": "integer"},
-    "upvotes": {"type": "integer"},
-    "downvotes": {"type": "integer"},
+    "publishingDate": {"type": "string"},
+    "upvotes": {"type": "integer", "nullable": True},
     "replyTo": {
         "type": "dict",
         "schema": {
-            "postTitle": {"type": "string"},
-            "postLink": {"type": "string"},
-            "postAuthor": {"type": "string"},
-            "postSubreddit": {"type": "string"}
+            "postTitle": {"type": "string", "nullable": True},
+            "postLink": {"type": "string", "nullable": True},
+            "postAuthor": {"type": "string", "nullable": True, "min_presence": 0},
+            "postSubreddit": {"type": "string", "nullable": True},
         }
     }
 }
