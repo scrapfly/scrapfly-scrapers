@@ -6,9 +6,8 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
-from typing import Dict, List, Union
-from datetime import datetime
-from uuid import uuid4
+import re
+from typing import Callable, Dict, List, Literal, Optional
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -19,299 +18,339 @@ BASE_CONFIG = {
     "asp": True,
     # set the proxy country to US
     "country": "US",
-    # bypassing reddit requires emabling JavaScript and using the residential proxy pool
+    # bypassing reddit requires enabling JavaScript and using the residential proxy pool
     "render_js": True,
-    "proxy_pool": "public_residential_pool"
+    "proxy_pool": "public_residential_pool",
 }
 
-
-# old.reddit gates logged out traffic per session, so old.reddit requests share one warm session
-OLD_REDDIT_SESSION = "reddit-" + str(uuid4()).replace("-", "")
+REDDIT_URL = "https://www.reddit.com"
 
 
-async def scrape_old_reddit(url: str) -> ScrapeApiResponse:
-    """scrape an old.reddit URL, which sends some logged out requests to a login wall on HTTP 200"""
-    global OLD_REDDIT_SESSION
-    for _ in range(3):  # retry the login wall, it follows the session rather than the URL
-        response = await SCRAPFLY.async_scrape(
-            ScrapeConfig(url, **BASE_CONFIG, session=OLD_REDDIT_SESSION)
-        )
-        if "/login/" not in (response.scrape_result.get("url") or ""):
-            return response
-        log.debug("Redirected to the login wall, rotating the session and retrying...")
-        OLD_REDDIT_SESSION = "reddit-" + str(uuid4()).replace("-", "")
-    raise RuntimeError(f"old.reddit kept redirecting to the login wall for {url}")
+def absolute_url(path: Optional[str]) -> Optional[str]:
+    """turn a reddit path into an absolute URL"""
+    if not path:
+        return None
+    if path.startswith("http"):
+        return path
+    return REDDIT_URL + path if path.startswith("/") else f"{REDDIT_URL}/{path}"
+
+
+def to_int(value) -> Optional[int]:
+    """parse an integer attribute, or None when missing"""
+    return int(value) if value else None
+
+
+def parse_score(node) -> Optional[int]:
+    """parse score from @score or the rendered vote button faceplate-number"""
+    score = (
+        node.xpath("./@score").get()
+        or node.xpath(".//shreddit-comment-action-row/@score").get()
+        or node.xpath(".//span[contains(@class, 'rpl-vote-button-group')]//faceplate-number/@number").get()
+        or node.xpath(".//button[@upvote]/following-sibling::span[1]//faceplate-number/@number").get()
+    )
+    return to_int(score)
+
+
+def profile_url(author: Optional[str]) -> Optional[str]:
+    """build a reddit user profile URL"""
+    return f"{REDDIT_URL}/user/{author}" if author else None
+
+
+def comment_text(node) -> Optional[str]:
+    """join paragraph text from a shreddit comment body"""
+    parts = node.xpath(".//div[contains(@id, 'rtjson-content')]//p//text()").getall()
+    text = "".join(parts).strip()
+    return text or None
+
+
+def parse_attachment(post) -> tuple:
+    """parse post attachment type and the best available media/content URL"""
+    attachment_type = post.xpath("./@post-type").get()
+    attachment_link = (
+        post.xpath(".//img[contains(@class, 'media-lightbox-img')]/@src").get()
+        or post.xpath(".//shreddit-player/@preview").get()
+        or post.xpath("./@content-href").get()
+    )
+    return attachment_type, absolute_url(attachment_link)
+
+
+def next_profile_page_url(selector) -> Optional[str]:
+    """extract the next profile pagination URL from a faceplate-partial cursor link"""
+    partial = selector.xpath("//faceplate-partial[contains(@src, '-more-posts')]/@src").get()
+    return absolute_url(partial)
+
+
+async def scrape_paginated(
+    url: str,
+    parse: Callable[[ScrapeApiResponse], list],
+    wait_for_selector: str = None,
+    max_pages: int = None,
+) -> list:
+    """scrape a first page then follow faceplate-partial pagination"""
+    config = {**BASE_CONFIG}
+    if wait_for_selector:
+        config["wait_for_selector"] = wait_for_selector
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **config))
+    data = parse(response)
+    next_url = next_profile_page_url(response.selector)
+
+    while next_url and (max_pages is None or max_pages > 0):
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(next_url, **BASE_CONFIG))
+        data.extend(parse(response))
+        next_url = next_profile_page_url(response.selector)
+        if max_pages is not None:
+            max_pages -= 1
+    return data
 
 
 def parse_subreddit(response: ScrapeApiResponse) -> Dict:
-    """parse article data from HTML"""
+    """parse subreddit info and post cards from HTML"""
     selector = response.selector
     url = response.context["url"]
-    info = {}
-    info["id"] = url.split("/r")[-1].replace("/", "")
-    info["description"] = selector.xpath("//shreddit-subreddit-header/@description").get()
-    members_text = selector.xpath("//faceplate-number[following-sibling::text()[contains(., 'members')]]/@number").get()
+    members = selector.xpath("//faceplate-number[following-sibling::text()[contains(., 'members')]]/@number").get()
     weekly_active = selector.xpath("//shreddit-subreddit-header/@weekly-active-users").get()
     rank = selector.xpath("//strong[@id='position']/text()").get()
-    info["rank"] = rank.strip() if rank else None
-    info["members"] = int(members_text) if members_text else (int(weekly_active) if weekly_active else None)
-    info["bookmarks"] = {}
+
+    bookmarks = {}
     for item in selector.xpath("//div[faceplate-tracker[@source='community_menu']]/faceplate-tracker"):
         name = item.xpath(".//a/span/span/span/text()").get()
         link = item.xpath(".//a/@href").get()
         if name and link:
-            info["bookmarks"][name] = link
+            bookmarks[name] = link
 
-    info["url"] = url
-    post_data = []
-    for box in selector.xpath("//article[@data-post-id]"):
-        link = box.xpath(".//a/@href").get()
-        author = box.xpath(".//shreddit-post/@author").get()
-        post_label = box.xpath(".//span[contains(@class, 'bg-tone-4')]/div/text()").get()
-        upvotes = box.xpath(".//shreddit-post/@score").get()
-        comment_count = box.xpath(".//shreddit-post/@comment-count").get()
-        attachment_type = box.xpath(".//shreddit-post/@post-type").get()
-
-        attachment_link = None
-        if attachment_type:
-            if attachment_type == "image":
-                attachment_link = box.xpath(".//img[contains(@class, 'media-lightbox-img')]/@src").get()
-                if not attachment_link:
-                    attachment_link = box.xpath(".//img[contains(@alt, 'r/wallstreetbets')]/@src").get()
-            elif attachment_type == "video":
-                attachment_link = box.xpath(".//shreddit-player/@preview").get()
-            elif attachment_type == "gallery":
-                attachment_link = box.xpath(".//img[contains(@class, 'media-lightbox-img')]/@src").get()
-            if not attachment_link:
-                attachment_link = box.xpath(".//shreddit-post/@content-href").get()
-
-        post_data.append(
+    posts = []
+    for article in selector.xpath("//article[@data-post-id]"):
+        post = article.xpath(".//shreddit-post")
+        if not post:
+            continue
+        post = post[0]
+        author = post.xpath("./@author").get()
+        label = article.xpath(".//span[contains(@class, 'bg-tone-4')]/div/text()").get()
+        attachment_type, attachment_link = parse_attachment(post)
+        posts.append(
             {
-                "authorProfile": "https://www.reddit.com/user/" + author if author else None,
-                "authorId": box.xpath(".//shreddit-post/@author-id").get(),
-                "title": box.xpath(".//shreddit-post/@post-title").get(),
-                "link": "https://www.reddit.com" + link if link and link.startswith("/") else link,
-                "publishingDate": box.xpath(".//shreddit-post/@created-timestamp").get(),
-                "postId": box.xpath(".//shreddit-post/@id").get(),
-                "postLabel": post_label.strip() if post_label else None,
-                "postUpvotes": int(upvotes) if upvotes else None,
-                "commentCount": int(comment_count) if comment_count else None,
+                "authorProfile": profile_url(author),
+                "authorId": post.xpath("./@author-id").get(),
+                "title": post.xpath("./@post-title").get(),
+                "link": absolute_url(article.xpath(".//a/@href").get()),
+                "publishingDate": post.xpath("./@created-timestamp").get(),
+                "postId": post.xpath("./@id").get(),
+                "postLabel": label.strip() if label else None,
+                "postUpvotes": to_int(post.xpath("./@score").get()),
+                "commentCount": to_int(post.xpath("./@comment-count").get()),
                 "attachmentType": attachment_type,
                 "attachmentLink": attachment_link,
             }
         )
-    # id for the next posts batch
-    cursor_id = selector.xpath("//shreddit-post/@more-posts-cursor").get()
-    return {"post_data": post_data, "info": info, "cursor": cursor_id}
+
+    return {
+        "info": {
+            "id": url.split("/r")[-1].replace("/", ""),
+            "description": selector.xpath("//shreddit-subreddit-header/@description").get(),
+            "rank": rank.strip() if rank else None,
+            "members": to_int(members) if members else to_int(weekly_active),
+            "bookmarks": bookmarks,
+            "url": url,
+        },
+        "post_data": posts,
+        "cursor": selector.xpath("//shreddit-post/@more-posts-cursor").get(),
+    }
 
 
 async def scrape_subreddit(subreddit_id: str, max_pages: int = None) -> Dict:
-    """scrape articles on a subreddit"""
-    base_url = f"https://www.reddit.com/r/{subreddit_id}/"
+    """scrape posts from a subreddit"""
+    log.info("scraping subreddit r/{}", subreddit_id)
+    url = f"{REDDIT_URL}/r/{subreddit_id}/"
     response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(base_url, **BASE_CONFIG, wait_for_selector="//article[@data-post-id]")
+        ScrapeConfig(url, **BASE_CONFIG, wait_for_selector="//article[@data-post-id]")
     )
-    subreddit_data = {}
     data = parse_subreddit(response)
-    subreddit_data["info"] = data["info"]
-    subreddit_data["posts"] = data["post_data"]
+    subreddit_data = {"info": data["info"], "posts": data["post_data"]}
     cursor = data["cursor"]
 
-    def make_pagination_url(cursor_id: str):
-        return f"https://www.reddit.com/svc/shreddit/community-more-posts/hot/?after={cursor_id}%3D%3D&t=DAY&name={subreddit_id}&feedLength=3"
-
     while cursor and (max_pages is None or max_pages > 0):
-        url = make_pagination_url(cursor)
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+        page_url = (
+            f"{REDDIT_URL}/svc/shreddit/community-more-posts/hot/"
+            f"?after={cursor}%3D%3D&t=DAY&name={subreddit_id}&feedLength=3"
+        )
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(page_url, **BASE_CONFIG))
         data = parse_subreddit(response)
         cursor = data["cursor"]
-
-        post_data = data["post_data"]
-        subreddit_data["posts"].extend(post_data)
+        subreddit_data["posts"].extend(data["post_data"])
         if max_pages is not None:
             max_pages -= 1
-    log.success(f"scraped {len(subreddit_data['posts'])} posts from the rubreddit: r/{subreddit_id}")
+
+    log.success(f"scraped {len(subreddit_data['posts'])} posts from the subreddit: r/{subreddit_id}")
     return subreddit_data
 
 
 def parse_post_info(response: ScrapeApiResponse) -> Dict:
-    """parse post data from a subreddit post"""
+    """parse post data from a subreddit post page"""
     selector = response.selector
-    info = {}
+    author = selector.xpath("//shreddit-post/@author").get()
     label = selector.xpath("//faceplate-tracker[@source='post']/a/span/div/text()").get()
-    comments = selector.xpath("//shreddit-post/@comment-count").get()
-    upvotes = selector.xpath("//shreddit-post/@score").get()
-    info["authorId"] = selector.xpath("//shreddit-post/@author-id").get()
-    info["author"] = selector.xpath("//shreddit-post/@author").get()
-    info["authorProfile"] = "https://www.reddit.com/user/" + info["author"] if info["author"] else None
-    info["subreddit"] = selector.xpath("//shreddit-post/@subreddit-prefixed-name").get().replace("r/", "")
-    info["postId"] = selector.xpath("//shreddit-post/@id").get()
-    info["postLabel"] = label.strip() if label else None
-    info["publishingDate"] = selector.xpath("//shreddit-post/@created-timestamp").get()
-    info["postTitle"] = selector.xpath("//shreddit-post/@post-title").get()
-    permalink = selector.xpath("//shreddit-post/@permalink").get()
-    info["postLink"] = "https://www.reddit.com" + permalink if permalink else None
-    info["commentCount"] = int(comments) if comments else None
-    info["upvoteCount"] = int(upvotes) if upvotes else None
-    info["attachmentType"] = selector.xpath("//shreddit-post/@post-type").get()
-    info["attachmentLink"] = selector.xpath("//shreddit-post/@content-href").get()
-    return info
+    subreddit = selector.xpath("//shreddit-post/@subreddit-prefixed-name").get()
+    return {
+        "authorId": selector.xpath("//shreddit-post/@author-id").get(),
+        "author": author,
+        "authorProfile": profile_url(author),
+        "subreddit": subreddit.replace("r/", "") if subreddit else None,
+        "postId": selector.xpath("//shreddit-post/@id").get(),
+        "postLabel": label.strip() if label else None,
+        "publishingDate": selector.xpath("//shreddit-post/@created-timestamp").get(),
+        "postTitle": selector.xpath("//shreddit-post/@post-title").get(),
+        "postLink": absolute_url(selector.xpath("//shreddit-post/@permalink").get()),
+        "commentCount": to_int(selector.xpath("//shreddit-post/@comment-count").get()),
+        "upvoteCount": to_int(selector.xpath("//shreddit-post/@score").get()),
+        "attachmentType": selector.xpath("//shreddit-post/@post-type").get(),
+        "attachmentLink": selector.xpath("//shreddit-post/@content-href").get(),
+    }
 
 
 def parse_post_comments(response: ScrapeApiResponse) -> List[Dict]:
-    """parse post comments"""
-
-    def parse_comment(parent_selector) -> Dict:
-        """parse a comment object"""
-        author = parent_selector.xpath("./@data-author").get()
-        link = parent_selector.xpath("./@data-permalink").get()
-        dislikes = parent_selector.xpath(".//span[contains(@class, 'dislikes')]/@title").get()
-        upvotes = parent_selector.xpath(".//span[contains(@class, 'likes')]/@title").get()
-        downvotes = parent_selector.xpath(".//span[contains(@class, 'unvoted')]/@title").get()        
-        return {
-            "authorId": parent_selector.xpath("./@data-author-fullname").get(),
+    """parse post comments from shreddit-comment elements, rebuilding the reply tree"""
+    comments = {}
+    parent_ids = {}
+    order = []
+    for node in response.selector.xpath("//shreddit-comment"):
+        thing_id = node.xpath("./@thingid").get()
+        if not thing_id or thing_id in comments:
+            continue
+        author = node.xpath("./@author").get()
+        if author == "[deleted]":
+            author = None
+        comments[thing_id] = {
+            "authorId": node.xpath("./@author-id").get() or node.xpath(".//shreddit-overflow-menu/@author-id").get(),
             "author": author,
-            "authorProfile": "https://www.reddit.com/user/" + author if author else None,
-            "commentId": parent_selector.xpath("./@data-fullname").get(),
-            "link": "https://www.reddit.com" + link if link else None,
-            "publishingDate": parent_selector.xpath(".//time/@datetime").get(),
-            "commentBody": parent_selector.xpath(".//div[@class='md']/p/text()").get(),
-            "upvotes": int(upvotes) if upvotes else None,
-            "dislikes": int(dislikes) if dislikes else None,
-            "downvotes": int(downvotes) if downvotes else None,            
+            "authorProfile": profile_url(author),
+            "commentId": thing_id,
+            "link": absolute_url(node.xpath("./@permalink").get()),
+            "publishingDate": node.xpath("./@created").get(),
+            "commentBody": comment_text(node),
+            "upvotes": parse_score(node),
         }
+        parent_ids[thing_id] = node.xpath("./@parentid").get()
+        order.append(thing_id)
 
-    def parse_replies(what) -> List[Dict]:
-        """recursively parse replies"""
-        replies = []
-        for reply_box in what.xpath(".//div[@data-type='comment']"):
-            reply_comment = parse_comment(reply_box)
-            child_replies = parse_replies(reply_box)
-            if child_replies:
-                reply_comment["replies"] = child_replies
-            replies.append(reply_comment)
-        return replies
-
-    selector = response.selector
-    data = []
-    for item in selector.xpath("//div[@class='sitetable nestedlisting']/div[@data-type='comment']"):
-        comment_data = parse_comment(item)
-        replies = parse_replies(item)
-        if replies:
-            comment_data["replies"] = replies
-        data.append(comment_data)            
-    return data
+    top_level = []
+    for thing_id in order:
+        comment = comments[thing_id]
+        parent_id = parent_ids[thing_id]
+        if parent_id and parent_id in comments:
+            comments[parent_id].setdefault("replies", []).append(comment)
+        else:
+            top_level.append(comment)
+    return top_level
 
 
-async def scrape_post(url: str, sort: Union["old", "new", "top"]) -> Dict:
-    """scrape eubreddit post and comment data"""
+async def scrape_post_comments(subreddit: str, post_id: str, sort: str) -> List[Dict]:
+    """fetch and parse one sort's worth of comments via the shreddit comments endpoint"""
+    url = f"{REDDIT_URL}/svc/shreddit/comments/r/{subreddit}/{post_id}?sort={sort}"
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
-    post_data = {}
-    post_data["info"] = parse_post_info(response)
-    # get the post link from postLink, otherwise use the attachmentLink
-    post_link = post_data["info"]["postLink"] if post_data["info"]["postLink"] else post_data["info"]["attachmentLink"]
-    # scrape the comments from the old.reddit version, with the same post URL
-    # click the load more button on the page to retrieve more results    
-    bulk_comments_page_url = post_link.replace("www", "old") + f"?sort={sort}&limit=500"
-    response = await scrape_old_reddit(bulk_comments_page_url)
-    post_data["comments"] = parse_post_comments(response)
+    return parse_post_comments(response)
+
+
+async def scrape_post(url: str, sort: Literal["old", "new", "top"]) -> Dict:
+    """scrape subreddit post and comment data"""
+    log.info("scraping post {}", url)
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(url, **BASE_CONFIG, wait_for_selector="//shreddit-post")
+    )
+    post_data = {"info": parse_post_info(response)}
+    comments_by_id = {}
+    for comment_sort in dict.fromkeys([sort, "top", "new", "old"]):
+        for comment in await scrape_post_comments(
+            post_data["info"]["subreddit"], post_data["info"]["postId"], comment_sort
+        ):
+            comments_by_id.setdefault(comment["commentId"], comment)
+    post_data["comments"] = list(comments_by_id.values())
     log.success(f"scraped {len(post_data['comments'])} comments from the post {url}")
     return post_data
 
 
 def parse_user_posts(response: ScrapeApiResponse) -> List[Dict]:
-    """parse user posts from user profiles"""
-    selector = response.selector
+    """parse user posts from a profile page or its pagination partial"""
     data = []
-    for box in selector.xpath("//div[@id='siteTable']/div[contains(@class, 'thing')]"):
-        author = box.xpath("./@data-author").get()
-        link = box.xpath("./@data-permalink").get()
-        publishing_date = box.xpath("./@data-timestamp").get()
-        publishing_date = datetime.fromtimestamp(int(publishing_date) / 1000.0).strftime('%Y-%m-%dT%H:%M:%S.%f%z') if publishing_date else None
-        comment_count = box.xpath("./@data-comments-count").get()
-        post_score = box.xpath("./@data-score").get() 
-        data.append({
-            "authorId": box.xpath("./@data-author-fullname").get(),
-            "author": author,
-            "authorProfile": "https://www.reddit.com/user/" + author if author else None,
-            "postId": box.xpath("./@data-fullname").get(),
-            "postLink": "https://www.reddit.com" + link if link else None,
-            "postTitle": box.xpath(".//p[@class='title']/a/text()").get(),
-            "postSubreddit": box.xpath("./@data-subreddit-prefixed").get(),
-            "publishingDate": publishing_date,
-            "commentCount": int(comment_count) if comment_count else None,
-            "postScore": int(post_score) if post_score else None,
-            "attachmentType": box.xpath("./@data-type").get(),
-            "attachmentLink": box.xpath("./@data-url").get(),
-        })
-    next_page_url = selector.xpath("//span[@class='next-button']/a/@href").get()
-    return {"data": data, "url": next_page_url}
-
-
-async def scrape_user_posts(username: str, sort: Union["new", "top", "controversial"], max_pages: int = None) -> List[Dict]:
-    """scrape user posts"""
-    url = f"https://old.reddit.com/user/{username}/submitted/?sort={sort}"
-    response = await scrape_old_reddit(url)
-    data = parse_user_posts(response)
-    post_data, next_page_url = data["data"], data["url"]
-
-    while next_page_url and (max_pages is None or max_pages > 0):
-        response = await scrape_old_reddit(next_page_url)
-        data = parse_user_posts(response)
-        next_page_url = data["url"]
-        post_data.extend(data["data"])
-        if max_pages is not None:
-            max_pages -= 1
-    log.success(f"scraped {len(post_data)} posts from the {username} reddit profile")
-    return post_data
-
-
-def parse_user_comments(response: ScrapeApiResponse) -> List[Dict]:
-    """parse user posts from user profiles"""
-    selector = response.selector
-    data = []
-    for box in selector.xpath("//div[@id='siteTable']/div[contains(@class, 'thing')]"):
-        author = box.xpath("./@data-author").get()
-        link = box.xpath("./@data-permalink").get()
-        dislikes = box.xpath(".//span[contains(@class, 'dislikes')]/@title").get()
-        upvotes = box.xpath(".//span[contains(@class, 'likes')]/@title").get()
-        downvotes = box.xpath(".//span[contains(@class, 'unvoted')]/@title").get()
-        data.append({
-            "authorId": box.xpath("./@data-author-fullname").get(),
-            "author": author,
-            "authorProfile": "https://www.reddit.com/user/" + author if author else None,
-            "commentId": box.xpath("./@data-fullname").get(),
-            "commentLink": "https://www.reddit.com" + link if link else None,
-            "commentBody": "".join(box.xpath(".//div[contains(@class, 'usertext-body')]/div/p/text()").getall()).replace("\n", ""),
-            "attachedCommentLinks": box.xpath(".//div[contains(@class, 'usertext-body')]/div/p/a/@href").getall(),
-            "publishingDate": box.xpath(".//time/@datetime").get(),
-            "dislikes": int(dislikes) if dislikes else None,
-            "upvotes": int(upvotes) if upvotes else None,
-            "downvotes": int(downvotes) if downvotes else None,
-            "replyTo": {
-                "postTitle": box.xpath(".//p[@class='parent']/a[@class='title']/text()").get(),
-                "postLink": "https://www.reddit.com" + box.xpath(".//p[@class='parent']/a[@class='title']/@href").get(),
-                "postAuthor": box.xpath(".//p[@class='parent']/a[contains(@class, 'author')]/text()").get(),
-                "postSubreddit": box.xpath("./@data-subreddit-prefixed").get(),    
+    for post in response.selector.xpath("//shreddit-post"):
+        author = post.xpath("./@author").get()
+        attachment_type, attachment_link = parse_attachment(post)
+        data.append(
+            {
+                "authorId": post.xpath("./@author-id").get(),
+                "author": author,
+                "authorProfile": profile_url(author),
+                "postId": post.xpath("./@id").get(),
+                "postLink": absolute_url(post.xpath("./@permalink").get()),
+                "postTitle": post.xpath("./@post-title").get(),
+                "postSubreddit": post.xpath("./@subreddit-prefixed-name").get(),
+                "publishingDate": post.xpath("./@created-timestamp").get(),
+                "commentCount": to_int(post.xpath("./@comment-count").get()),
+                "postScore": to_int(post.xpath("./@score").get()),
+                "attachmentType": attachment_type,
+                "attachmentLink": attachment_link,
             }
-        })
-    next_page_url = selector.xpath("//span[@class='next-button']/a/@href").get()
-    return {"data": data, "url": next_page_url}
+        )
+    return data
 
 
-async def scrape_user_comments(username: str, sort: Union["new", "top", "controversial"], max_pages: int = None) -> List[Dict]:
+async def scrape_user_posts(
+    username: str, sort: Literal["new", "top", "controversial"], max_pages: int = None
+) -> List[Dict]:
     """scrape user posts"""
-    url = f"https://old.reddit.com/user/{username}/comments/?sort={sort}"
-    response = await scrape_old_reddit(url)
-    data = parse_user_comments(response)
-    post_data, next_page_url = data["data"], data["url"]
-
-    while next_page_url and (max_pages is None or max_pages > 0):
-        response = await scrape_old_reddit(next_page_url)
-        data = parse_user_comments(response)
-        next_page_url = data["url"]
-        post_data.extend(data["data"])
-        if max_pages is not None:
-            max_pages -= 1
+    log.info("scraping posts from user {}", username)
+    url = f"{REDDIT_URL}/user/{username}/submitted/?sort={sort}"
+    post_data = await scrape_paginated(
+        url, parse_user_posts, wait_for_selector="//shreddit-post", max_pages=max_pages
+    )
     log.success(f"scraped {len(post_data)} posts from the {username} reddit profile")
     return post_data
+
+
+def parse_user_comments(response: ScrapeApiResponse, username: str) -> List[Dict]:
+    """parse user comments from a profile page or its pagination partial"""
+    data = []
+    for box in response.selector.xpath("//shreddit-profile-comment"):
+        href = box.xpath("./@href").get()
+        author = box.xpath(".//shreddit-overflow-menu/@author-name").get() or username
+        post_title = "".join(box.xpath(".//h2//a//text()").getall()).strip()
+        post_link = box.xpath(".//h2//a/@href").get()
+        subreddit_match = re.match(r"^(/r/[^/]+)/", href or "")
+        data.append(
+            {
+                "authorId": box.xpath(".//shreddit-overflow-menu/@author-id").get(),
+                "author": author,
+                "authorProfile": profile_url(author),
+                "commentId": box.xpath("./@comment-id").get(),
+                "commentLink": absolute_url(href),
+                "commentBody": comment_text(box),
+                "attachedCommentLinks": [
+                    link
+                    for link in box.xpath(".//div[contains(@id, 'rtjson-content')]//a/@href").getall()
+                    if link and "reddit.com" not in link
+                ],
+                "publishingDate": box.xpath(".//faceplate-timeago/@ts").get(),
+                "upvotes": parse_score(box),
+                "replyTo": {
+                    "postTitle": post_title or None,
+                    "postLink": absolute_url(post_link),
+                    "postSubreddit": subreddit_match.group(1).lstrip("/") if subreddit_match else None,
+                },
+            }
+        )
+    return data
+
+
+async def scrape_user_comments(
+    username: str, sort: Literal["new", "top", "controversial"], max_pages: int = None
+) -> List[Dict]:
+    """scrape user comments"""
+    log.info("scraping comments from user {}", username)
+    url = f"{REDDIT_URL}/user/{username}/comments/?sort={sort}"
+    comment_data = await scrape_paginated(
+        url,
+        lambda response: parse_user_comments(response, username),
+        wait_for_selector="//shreddit-profile-comment",
+        max_pages=max_pages,
+    )
+    log.success(f"scraped {len(comment_data)} comments from the {username} reddit profile")
+    return comment_data
