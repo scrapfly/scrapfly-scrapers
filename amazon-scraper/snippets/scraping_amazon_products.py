@@ -19,7 +19,10 @@ def parse_product(result) -> Dict:
     # images are stored in javascript state data found in the html
     # for this we can use a simple regex pattern that can be in one of those locations:
     images = []
-    if color_images := re.findall(r"colorImages':.*'initial':\s*(\[.+?\])},\n", result.content):
+    if color_images := re.findall(
+        r"colorImages':.*'initial':\s*(?:A\.\$\.parseJSON\(')?(\[.+?\])(?:'\))?},\n",
+        result.content,
+    ):
         images = [img['large'] for img in json.loads(color_images[0])]
     if image_gallery := re.findall(r"imageGalleryData'\s*:\s*(\[.+\]),\n", result.content):
         images = [img['mainUrl'] for img in json.loads(image_gallery[0])]

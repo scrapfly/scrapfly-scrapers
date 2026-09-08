@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 from cerberus import Validator as _Validator
+from parsel import Selector
 import pytest
 
 import amazon
@@ -30,6 +31,17 @@ def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)
         pytest.fail(f"Validation failed for item: {pp.pformat(item)}\nErrors: {validator.errors}")
+
+
+def test_product_images_from_parsejson_state():
+    class Result:
+        content = """'colorImages': { 'initial': A.$.parseJSON('[{"large":"https://m.media-amazon.com/image.jpg"}]')},
+"""
+        selector = Selector(text="<html></html>")
+
+    assert amazon.parse_product(Result())["images"] == [
+        "https://m.media-amazon.com/image.jpg"
+    ]
 
 
 @pytest.mark.asyncio
