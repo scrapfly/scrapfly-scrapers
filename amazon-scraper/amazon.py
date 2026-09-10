@@ -111,7 +111,7 @@ class Review(TypedDict):
 
 def parse_reviews(result: ScrapeApiResponse) -> List[Review]:
     """parse review from single review page"""
-    review_boxes = result.selector.css("#localTopReviewsList li:has(span)")
+    review_boxes = result.selector.css("[data-hook=review]")
     parsed = []
     for box in review_boxes:
         rating = box.css("i[data-hook=review-star-rating] ::text").re_first(r"(\d+\.*\d*) out")
@@ -131,10 +131,18 @@ async def scrape_reviews(url: str) -> List[Review]:
     """scrape product reviews of a given URL of an amazon product"""
     # pagination is not publically available, so we can't scrape more than one page
     log.info(f"scraping review page: {url}")
-    api_response = await SCRAPFLY.async_scrape(ScrapeConfig(url, render_js=True, auto_scroll=True, rendering_wait=8000, **BASE_CONFIG))
-    reviews = parse_reviews(api_response)
-    log.info(f"scraped {len(reviews)} reviews")
-    return reviews
+    config = {**BASE_CONFIG, "cache": False}
+    for attempt in range(1, 6 + 1):
+        api_response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, render_js=True, auto_scroll=True, rendering_wait=8000, **config)
+        )
+        reviews = parse_reviews(api_response)
+        if reviews:
+            log.info(f"scraped {len(reviews)} reviews")
+            return reviews
+        log.debug(f"review widget was not rendered, retrying ({attempt}/6)")
+    log.warning(f"failed to scrape reviews of {url}: Amazon kept gating the review widget")
+    return []
 
 
 class Product(TypedDict):
@@ -150,15 +158,37 @@ class Product(TypedDict):
     info_table: Dict[str, str]
 
 
+IMAGE_PATTERNS = [
+    r"'colorImages':\s*\{\s*'initial':\s*A\.\$\.parseJSON\('(\[.+?\])'\)",
+    r"'imageGalleryData'\s*:\s*A\.\$\.parseJSON\('(\[.+?\])'\)",
+    r"'colorImages':\s*\{\s*'initial':\s*(\[.+?\])\s*\}",
+    r"'imageGalleryData'\s*:\s*(\[.+?\])\s*,",
+]
+
+
+def parse_images(html: str) -> List[str]:
+    """parse product image URLs from the javascript state data embedded in the page HTML"""
+    for pattern in IMAGE_PATTERNS:
+        if not (match := re.search(pattern, html)):
+            continue
+
+        # the payload is a javascript single quoted string, so escaped quotes have to be unescaped
+        try:
+            data = json.loads(match.group(1).replace("\\'", "'"))
+        except json.JSONDecodeError:
+            continue
+
+        # every location uses its own key for the full sized image
+        images = [img.get("hiRes") or img.get("large") or img.get("mainUrl") for img in data]
+        if any(images):
+            return [img for img in images if img]
+    log.warning("could not find product images in the page state data")
+    return []
+
+
 def parse_product(result) -> Product:
     """parse Amazon's product page (e.g. https://www.amazon.com/dp/B07KR2N2GF) for essential product data"""
-    # images are stored in javascript state data found in the html
-    # for this we can use a simple regex pattern that can be in one of those locations:
-    images = []
-    if color_images := re.findall(r"colorImages':.*'initial':\s*(\[.+?\])},\n", result.content):
-        images = [img['large'] for img in json.loads(color_images[0])]
-    if image_gallery := re.findall(r"imageGalleryData'\s*:\s*(\[.+\]),\n", result.content):
-        images = [img['mainUrl'] for img in json.loads(image_gallery[0])]
+    images = parse_images(result.content)
 
     # the other fields can be extracted with simple css selectors
     # we can define our helper functions to keep our code clean
