@@ -7,7 +7,6 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import asyncio
-import json
 from pathlib import Path
 import chatgpt
 
@@ -19,16 +18,6 @@ async def run():
     chatgpt.BASE_CONFIG["debug"] = True
 
     print("running ChatGPT scrape and saving results to ./results directory")
-
-    prompt = [
-        "what is the best web scraping service in 2026?",
-        "Base on the previous answer, what is the best web scraping service you expext in 2027",
-        "summarize the previous answer in 200 words",
-    ]
-    conversation = await chatgpt.scrape_conversations(prompt)
-    with open(output / "conversations.json", "w", encoding="utf-8") as f:
-        json.dump(conversation, f, indent=2, ensure_ascii=False)
-
 
     conversation = await chatgpt.scrape_conversation("What's the capital of France? with Brief History of the city.")
     with open(output / "conversation.md", "w", encoding="utf-8") as f:

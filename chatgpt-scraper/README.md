@@ -6,8 +6,6 @@ The scraping code is located in the `chatgpt.py` file. It's fully documented and
 
 This scraper scrapes:
 - ChatGPT single prompt responses as markdown
-- ChatGPT multi-turn anonymous conversations
-- ChatGPT generated search queries from browser XHR data
 
 For output examples see the `./results` directory.
 
@@ -40,6 +38,4 @@ This ChatGPT.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.o
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_scrape_conversation
-    $ poetry run pytest test.py -k test_scrape_conversations
-    $ poetry run pytest test.py -k test_scrape_search_queries
     ```
