@@ -59,20 +59,20 @@ js_scenario = [
     },
     {
         "wait_for_selector": {
-            "selector": "button[data-testid='send-button']",
+            "selector": "button[data-composer-submit]",
             "timeout": 15000,
         }
     },
     {
         "condition": {
-            "selector": "button[data-testid='send-button']",
+            "selector": "button[data-composer-submit]",
             "selector_state": "not_existing",
             "action": "exit_failed",
         }
     },
     {
         "click": {
-            "selector": "button[data-testid='send-button']",
+            "selector": "button[data-composer-submit]",
             "ignore_if_not_visible": False,
             "multiple": False,
         }
@@ -80,7 +80,7 @@ js_scenario = [
     {"wait": 10000},
     {
         "condition": {
-            "selector": "button[data-testid='send-button']",
+            "selector": "button[data-composer-submit]",
             "selector_state": "existing",
             "action": "exit_success",
         }
