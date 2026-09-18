@@ -195,7 +195,7 @@ def parse_search(response: ScrapeApiResponse):
         
         images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
         
-        if name and sku:
+        if name and sku and price:
             data.append({
                 "name": name,
                 "link": link if (link and link.startswith('http')) else (f"https://www.bestbuy.com{link}" if link else None),
@@ -208,14 +208,16 @@ def parse_search(response: ScrapeApiResponse):
             })
 
     total_pages = 1
-    if len(data):
+    if selector.css(".product-grid-view-container li"):
         try:
-            pagination_text = selector.css(".pagination-num-found::text").get()
-            if pagination_text:
-                total_matches = re.findall(r'of (\d+)', pagination_text.replace(',', ''))
-                if total_matches:
-                    total_count = int(total_matches[0])
-                    total_pages = (total_count + len(data) - 1) // len(data) 
+            count_text = selector.css(".show-more-count-text::text").get()
+            if count_text:
+                count_matches = re.findall(r'([\d,]+) of ([\d,]+)', count_text)
+                if count_matches:
+                    page_size = int(count_matches[0][0].replace(',', ''))
+                    total_count = int(count_matches[0][1].replace(',', ''))
+                    if page_size:
+                        total_pages = (total_count + page_size - 1) // page_size
         except Exception as e:
             log.warning(f"Could not parse total pages: {e}")
             total_pages = 1

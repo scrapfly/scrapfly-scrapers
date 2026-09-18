@@ -133,8 +133,6 @@ def parse_search_page(data):
       }""",
             item,
         )
-        # execulde the skeletonImages key from the data
-        parsed_data["listingModel"].pop("skeletonImages")
         result.append(parsed_data)
     return result
 
