@@ -25,6 +25,7 @@ async def run():
     search_data = await google.scrape_serp(
         query="scrapfly blog web scraping",
         max_pages=3,
+        resolve_goto_urls=True,
     )
     with open(output.joinpath("serp.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)

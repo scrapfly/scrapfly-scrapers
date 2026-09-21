@@ -92,6 +92,7 @@ async def test_serp_scraping():
     result = await google.scrape_serp(
         query="scrapgly blog web scraping",
         max_pages=4,
+        resolve_goto_urls=True,
     )
 
     validator = Validator(serp_schema)
@@ -102,6 +103,10 @@ async def test_serp_scraping():
             result, k, min_perc=serp_schema[k].get("min_presence", 0.1)
         )
     assert len(result) >= 20
+    unresolved = [item for item in result if google.GOTO_PREFIX in item["url"]]
+    assert len(unresolved) <= len(result) * 0.1, (
+        f"{len(unresolved)} out of {len(result)} goto URLs were not resolved"
+    )
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         result.sort(key=lambda x: x["position"])
         (Path(__file__).parent / 'results/serp.json').write_text(

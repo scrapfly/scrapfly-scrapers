@@ -6,9 +6,10 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
+import re
 import operator
 from datetime import datetime, timezone
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 from loguru import logger as log
 from typing import Dict, List, TypedDict
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
@@ -28,6 +29,12 @@ BASE_CONFIG = {
 class NoResults(Exception):
     "Raised when requesting pagination without results"
     pass
+
+
+# Google no longer embeds destination URLs in the SERP HTML. Each organic result
+# now links to an opaque redirect: /goto?url=<encrypted token>. The token can't be
+# decoded locally, so the only way to get the real URL is to request the redirect.
+GOTO_PREFIX = "/goto?url="
 
 
 def parse_place(response: ScrapeApiResponse) -> Dict:
@@ -238,6 +245,9 @@ def parse_serp(response: ScrapeApiResponse) -> List[Dict]:
         description = "".join(box.xpath(".//div[@data-sncf]//text()").getall())
         if not title or not url:
             continue
+
+        if url.startswith("/"):
+            url = "https://www.google.com" + url
         position += 1
         results.append(
             {
@@ -245,16 +255,80 @@ def parse_serp(response: ScrapeApiResponse) -> List[Dict]:
                 "title": title,
                 "url": url,
                 "origin": box.xpath(".//div[*[cite]]/div/span/text()").get(),
-                "domain": url.split("https://")[-1].split("/")[0].replace("www.", ""),
+                "domain": parse_domain(url),
                 "description": description.split(" — ")[-1] if description else None,
-                "date": box.xpath(".//span[contains(text(),' —')]/span/text()").get(),
+                "date": parse_date(box),
             }
         )
     results.sort(key=lambda x: x["position"])
     return results
 
 
-async def scrape_serp(query: str, max_pages: int = None) -> List[Dict]:
+def parse_domain(url: str) -> str:
+    """get the bare domain of a URL"""
+    return urlparse(url).netloc.replace("www.", "")
+
+
+# either an absolute date ("Sep 10, 2026") or a relative one ("2 years ago")
+DATE_PATTERN = re.compile(
+    r"[A-Z][a-z]{2,8} \d{1,2}, \d{4}"
+    r"|\d+ (?:second|minute|hour|day|week|month|year)s? ago"
+)
+
+
+def parse_date(box) -> str:
+    """parse the publication date of a search result, if it shows one"""
+    # most results put the date in front of the snippet: "Sep 10, 2026 — ..."
+    date = box.xpath(".//span[contains(text(),' —')]/span/text()").get()
+    if date:
+        return date
+    # video results show it next to the view count: "3.2K+ views · 2 years ago"
+    meta = "".join(box.xpath(".//div[*[cite]]//text()").getall())
+    match = DATE_PATTERN.search(meta)
+    return match.group(0) if match else None
+
+
+async def resolve_goto_redirects(results: List[Dict]) -> List[Dict]:
+    """resolve Google's /goto?url= redirects into the real destination URLs"""
+
+    # dedupe: the same redirect can show up on more than one page
+    resolved = {result["url"]: None for result in results if GOTO_PREFIX in result["url"]}
+    if not resolved:
+        return results
+
+    config = {**BASE_CONFIG, "render_js": False}
+    to_scrape = [
+        # a blocked or dead destination mustn't abort the batch, and it's not worth
+        # retrying - the redirect Google returned is all we're after here
+        ScrapeConfig(url, **config, raise_on_upstream_error=False, retry=False)
+        for url in resolved
+    ]
+    log.info(f"resolving {len(to_scrape)} google /goto redirect URLs")
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, Exception):
+            # the redirect is already followed by the time the destination errors,
+            # so the failed response still tells us where it pointed to
+            error, response = response, getattr(response, "api_response", None)
+            if response is None:
+                log.warning(f"failed to resolve a goto URL: {error}")
+                continue
+        requested = response.result["config"]["url"]
+        destination = response.scrape_result["url"]
+        if GOTO_PREFIX in destination:  # no redirect happened
+            log.warning(f"goto URL did not redirect: {requested}")
+            continue
+        resolved[requested] = destination
+
+    for result in results:
+        destination = resolved.get(result["url"])
+        if destination:
+            result["url"] = destination
+            result["domain"] = parse_domain(destination)
+    log.success(f"resolved {sum(1 for url in resolved.values() if url)}/{len(resolved)} goto URLs")
+    return results
+
+
+async def scrape_serp(query: str, max_pages: int = None, resolve_goto_urls: bool = True) -> List[Dict]:
     """query google search for serp results"""
     results = []
     results_per_page = 10
@@ -279,6 +353,8 @@ async def scrape_serp(query: str, max_pages: int = None) -> List[Dict]:
             log.error(f"Error occured: {e}")
             continue
     log.success(f"scraped {len(results)} SERP results of the query: {query}")
+    if resolve_goto_urls:
+        results = await resolve_goto_redirects(results)
     results.sort(key=operator.itemgetter("position"))
     return results
 
