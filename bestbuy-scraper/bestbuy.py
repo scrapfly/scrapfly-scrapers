@@ -238,30 +238,20 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         if sort:
             params["sp"] = sort
         return base_url + urlencode(params)
+
+    search_js_scenario = [
+        {"wait": 2000},
+        {"scroll": {"infinite": 2}},
+        {"wait": 5000},
+        {"scroll": {"infinite": 2}},
+    ]
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             form_search_url(1),
             render_js=True,
             rendering_wait=10000,
             auto_scroll=True,
-            js_scenario=[
-                {
-                    "wait": 2000
-                },
-                {
-                    "scroll": {
-                        "infinite": 2
-                    }
-                },
-                {
-                    "wait": 2000
-                },
-                {
-                    "scroll": {
-                        "infinite": 2
-                    }
-                }
-            ],
+            js_scenario=search_js_scenario,
             **BASE_CONFIG,
         )
     )
@@ -275,7 +265,17 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
 
     log.info(f"scraping search pagination, {total_pages - 1} more pages")
     # add the remaining pages to a scraping list to scrape them concurrently
-    to_scrape = [ScrapeConfig(form_search_url(page_number), **BASE_CONFIG, render_js=True, rendering_wait=10000, auto_scroll=True) for page_number in range(2, total_pages + 1)]
+    to_scrape = [
+        ScrapeConfig(
+            form_search_url(page_number),
+            render_js=True,
+            rendering_wait=10000,
+            auto_scroll=True,
+            js_scenario=search_js_scenario,
+            **BASE_CONFIG,
+        )
+        for page_number in range(2, total_pages + 1)
+    ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_search(response)["data"]
         search_data.extend(data)
