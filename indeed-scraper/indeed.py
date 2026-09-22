@@ -82,9 +82,11 @@ async def scrape_search(url: str, max_results: int = 1000) -> List[Dict]:
 
 def parse_job_page(result: ScrapeApiResponse):
     """parse job data from job listing page"""
-    data = re.findall(r"_initialData=(\{.+?\});", result.content)
-    data = json.loads(data[0])
-    data = data["jobInfoWrapperModel"]["jobInfoModel"]
+    match = re.search(r"window\._rootProps\s*=\s*", result.content)
+    if not match:
+        raise ValueError("could not find job data in page")
+    root_props, _ = json.JSONDecoder().raw_decode(result.content, match.end())
+    data = root_props["preloadedVJData"]["jobInfoWrapperModel"]["jobInfoModel"]
     return {
         "description": data["sanitizedJobDescription"],
         **data["jobMetadataHeaderModel"],
