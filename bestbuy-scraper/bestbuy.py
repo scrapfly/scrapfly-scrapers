@@ -195,7 +195,7 @@ def parse_search(response: ScrapeApiResponse):
         
         images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
         
-        if name and sku:
+        if name and sku and price:
             data.append({
                 "name": name,
                 "link": link if (link and link.startswith('http')) else (f"https://www.bestbuy.com{link}" if link else None),
@@ -208,14 +208,16 @@ def parse_search(response: ScrapeApiResponse):
             })
 
     total_pages = 1
-    if len(data):
+    if selector.css(".product-grid-view-container li"):
         try:
-            pagination_text = selector.css(".pagination-num-found::text").get()
-            if pagination_text:
-                total_matches = re.findall(r'of (\d+)', pagination_text.replace(',', ''))
-                if total_matches:
-                    total_count = int(total_matches[0])
-                    total_pages = (total_count + len(data) - 1) // len(data) 
+            count_text = selector.css(".show-more-count-text::text").get()
+            if count_text:
+                count_matches = re.findall(r'([\d,]+) of ([\d,]+)', count_text)
+                if count_matches:
+                    page_size = int(count_matches[0][0].replace(',', ''))
+                    total_count = int(count_matches[0][1].replace(',', ''))
+                    if page_size:
+                        total_pages = (total_count + page_size - 1) // page_size
         except Exception as e:
             log.warning(f"Could not parse total pages: {e}")
             total_pages = 1
@@ -236,30 +238,20 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         if sort:
             params["sp"] = sort
         return base_url + urlencode(params)
+
+    search_js_scenario = [
+        {"wait": 2000},
+        {"scroll": {"infinite": 2}},
+        {"wait": 5000},
+        {"scroll": {"infinite": 2}},
+    ]
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             form_search_url(1),
             render_js=True,
             rendering_wait=10000,
             auto_scroll=True,
-            js_scenario=[
-                {
-                    "wait": 2000
-                },
-                {
-                    "scroll": {
-                        "infinite": 2
-                    }
-                },
-                {
-                    "wait": 2000
-                },
-                {
-                    "scroll": {
-                        "infinite": 2
-                    }
-                }
-            ],
+            js_scenario=search_js_scenario,
             **BASE_CONFIG,
         )
     )
@@ -273,7 +265,17 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
 
     log.info(f"scraping search pagination, {total_pages - 1} more pages")
     # add the remaining pages to a scraping list to scrape them concurrently
-    to_scrape = [ScrapeConfig(form_search_url(page_number), **BASE_CONFIG, render_js=True, rendering_wait=10000, auto_scroll=True) for page_number in range(2, total_pages + 1)]
+    to_scrape = [
+        ScrapeConfig(
+            form_search_url(page_number),
+            render_js=True,
+            rendering_wait=10000,
+            auto_scroll=True,
+            js_scenario=search_js_scenario,
+            **BASE_CONFIG,
+        )
+        for page_number in range(2, total_pages + 1)
+    ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         data = parse_search(response)["data"]
         search_data.extend(data)
