@@ -100,7 +100,7 @@ async def scrape_jobs(job_keys: List[str]):
     log.info(f"scraping {len(job_keys)} job listings")
     results = []
     urls = [f"https://www.indeed.com/viewjob?jk={job_key}" for job_key in job_keys]
-    to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
+    to_scrape = [ScrapeConfig(url, render_js=True, **BASE_CONFIG) for url in urls]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         results.append(parse_job_page(result))
     return results
