@@ -59,8 +59,15 @@ def icon_count(html: str, icon: str) -> Optional[int]:
 
 def icon_text(html: str, icon: str) -> Optional[str]:
     """read text shown after a stable icon (location, etc.)"""
-    match = re.search(rf'data-icon="icon-{icon}".*?font-normal">([^<]+)<', html)
+    match = re.search(rf'data-icon="icon-{icon}".{{0,2000}}?<div class="[^"]*font-normal[^"]*">([^<]+)</div>', html, re.S)
     return unescape(match.group(1)) if match else None
+
+
+def verified_badge(html: str, name: Optional[str]) -> bool:
+    """check for a verification badge rendered next to the display name"""
+    if not name:
+        return False
+    return bool(re.search(rf'>{re.escape(name)}</\w+>.{{0,600}}?data-icon="icon-verified', html, re.S))
 
 
 def website_url(html: str) -> Optional[str]:
@@ -77,8 +84,31 @@ def href_count(html: str, path: str) -> Optional[int]:
 
 def views_count(html: str, tweet_id: str) -> Optional[int]:
     """read view count from the tweet permalink (locale-independent)"""
-    match = re.search(rf'href="/\w+/status/{re.escape(tweet_id)}"[^>]*><span[^>]*>([^<]+)</span>', html)
+    match = re.search(rf'href="/\w+/status/{re.escape(tweet_id)}"[^>]*>\s*<div[^>]*>([^<]+)</div>', html)
     return parse_count(match.group(1)) if match else None
+
+
+def tweet_timestamp(html: str, tweet_id: str) -> Optional[str]:
+    """read the epoch timestamp attached to the tweet's own permalink"""
+    match = re.search(rf'href="/\w+/status/{re.escape(tweet_id)}".{{0,3000}}?"timestamp":(\d+)', html, re.S)
+    return match.group(1) if match else None
+
+
+def main_tweet_html(html: str, tweet_id: str) -> str:
+    """narrow the page down to the <article> of the scraped tweet (drops replies and thread context)"""
+    anchor = re.search(rf'href="/\w+/status/{re.escape(tweet_id)}"', html)
+    if not anchor:
+        return html
+    open_tags = []
+    for tag in re.finditer(r"<(/?)article", html):
+        if not tag.group(1):
+            open_tags.append(tag.start())
+            continue
+        start = open_tags.pop() if open_tags else None
+        # innermost articles close first, so the first article wrapping the permalink is the tweet itself
+        if start is not None and start < anchor.start() < tag.end():
+            return html[start:tag.end()]
+    return html
 
 
 def author_name(title: Optional[str]) -> Optional[str]:
@@ -109,8 +139,10 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
     url = meta(sel, prop="og:url")
     tweet_id = re.search(r"/status/(\d+)", url or "")
     tweet_id = tweet_id.group(1) if tweet_id else None
+    # status pages embed the whole conversation, keep only the scraped tweet
+    html = main_tweet_html(html, tweet_id) if tweet_id else html
     text = unescape(meta(sel, prop="og:description") or "") or None
-    ts = re.search(r'"timestamp":(\d+)', html)
+    name = author_name(meta(sel, prop="og:title"))
     media = unique(r'src="(https://pbs\.twimg\.com/media/[^"]+)"', html)
     views = views_count(html, tweet_id) if tweet_id else None
 
@@ -119,7 +151,7 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
         "conversation_id": tweet_id,
         "url": url,
         "text": text,
-        "created_at": twitter_date(ts.group(1)) if ts else None,
+        "created_at": twitter_date(tweet_timestamp(html, tweet_id)) if tweet_id else None,
         "language": sel.xpath("//html/@lang").get(),
         "attached_urls": unique(r"https://t\.co/\w+", text or ""),
         "attached_media": [unescape(u) for u in media] or None,
@@ -131,10 +163,10 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
         "bookmark_count": icon_count(html, "bookmark-stroke"),
         "views": str(views) if views is not None else None,
         "user": {
-            "name": author_name(meta(sel, prop="og:title")),
+            "name": name,
             "screen_name": (meta(sel, name="twitter:creator") or "").lstrip("@") or None,
             "profile_image_url": meta(sel, prop="og:image"),
-            "verified": 'data-icon="icon-verified"' in html,
+            "verified": verified_badge(html, name),
         },
     }
 
@@ -150,13 +182,14 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
     website = website_url(html)
     bio_urls = unique(r"https://t\.co/\w+", description or "")
     followers = href_count(html, "/verified_followers")
+    name = author_name(meta(sel, prop="og:title"))
 
     return {
         "id": user_gid(rest_id),
         "rest_id": rest_id,
-        "name": author_name(meta(sel, prop="og:title")),
+        "name": name,
         "screen_name": (meta(sel, name="twitter:creator") or "").lstrip("@") or None,
-        "verified": 'data-icon="icon-verified"' in html,
+        "verified": verified_badge(html, name),
         "description": description,
         "location": icon_text(html, "location-stroke"),
         "joined": meta(sel, name="twitter:data2") if meta(sel, name="twitter:label2") == "Joined" else None,
