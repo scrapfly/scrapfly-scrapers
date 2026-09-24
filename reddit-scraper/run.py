@@ -30,7 +30,7 @@ async def run():
 
     post_data = await reddit.scrape_post(
         url="https://www.reddit.com/r/wallstreetbets/comments/1c4vwlp/what_are_your_moves_tomorrow_april_16_2024/",
-        sort="top",        
+        sort="top",
     )
     with open(output.joinpath("post.json"), "w", encoding="utf-8") as file:
         json.dump(post_data, file, indent=2, ensure_ascii=False)
@@ -54,4 +54,3 @@ async def run():
 
 if __name__ == "__main__":
     asyncio.run(run())
-        
