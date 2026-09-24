@@ -21,12 +21,15 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     "asp": True,
     "proxy_pool": "public_residential_pool",
+    "country": "us",
 }
 
 BASE_URL = "https://www.pinterest.com"
 RESOURCE_URL = f"{BASE_URL}/resource"
 SEARCH_PAGE_URL = f"{BASE_URL}/search/pins/"
-IMAGE_SIZE_PRIORITY = ["orig", "1200x", "736x", "474x", "236x", "170x"]
+IMAGE_SIZE_PRIORITY = ["orig", "1200x", "736x", "564x", "474x", "236x", "170x"]
+THUMB_SIZE_PRIORITY = ["236x", "170x", "474x", *IMAGE_SIZE_PRIORITY]
+END_BOOKMARK = "-end-"
 
 
 def build_url(path: str = "", **params) -> str:
@@ -38,6 +41,23 @@ def build_url(path: str = "", **params) -> str:
 def build_search_page_url(query: str) -> str:
     """Generate a Pinterest search URL for the given query."""
     return SEARCH_PAGE_URL + "?" + urlencode({"q": query})
+
+
+def url_path_parts(url: str) -> List[str]:
+    """split a URL (or bare path) into its non-empty path segments"""
+    return [part for part in urlparse(url).path.split("/") if part]
+
+
+def parse_pin_id(pin_url: str) -> str:
+    """extract the numeric pin ID from a pin URL, a slugged pin URL or a bare ID"""
+    if pin_url.isdigit():
+        return pin_url
+    parts = url_path_parts(pin_url)
+    if not parts:
+        raise ValueError(f"could not find a pin ID in {pin_url!r}")
+
+    # slugged pin URLs look like /pin/some-pin-title--142567144444540246/
+    return parts[-1].rsplit("--", 1)[-1]
 
 
 class PinResult(TypedDict):
@@ -52,7 +72,11 @@ class PinResult(TypedDict):
     video_url: Optional[str]
     is_product: bool
     board: Optional[str]
+    board_url: Optional[str]
     owner: Optional[str]
+    domain: Optional[str]
+    save_count: Optional[int]
+    created_at: Optional[str]
 
 
 class PinSearch(TypedDict):
@@ -86,7 +110,6 @@ class ProfileScrape(TypedDict):
 
 class PinDetail(PinResult, total=False):
     images: Dict[str, str]
-    board_url: Optional[str]
 
 
 class DownloadResult(TypedDict):
@@ -116,34 +139,78 @@ def build_search_url(search_call: dict, bookmark: Optional[str] = None) -> str:
     return urlunparse(parts._replace(query=urlencode(params)))
 
 
+def _clean(value: Any) -> Optional[str]:
+    """strip a text field and turn blanks into None"""
+    return value.strip() or None if isinstance(value, str) else None
+
+
 def _pick_image(images: Dict[str, Any], sizes: List[str]) -> Optional[str]:
     """pick the first available image URL for the given size priority list"""
     for size in sizes:
-        if images.get(size):
+        if isinstance(images.get(size), dict) and images[size].get("url"):
             return images[size]["url"]
-    return next(iter(images.values()))["url"] if images else None
+    return next((img["url"] for img in images.values() if isinstance(img, dict) and img.get("url")), None)
+
+
+def _pick_video(pin: Dict[str, Any]) -> Optional[str]:
+    """pick a pin's video URL, preferring a progressive MP4 over an HLS playlist"""
+    video_lists = [(pin.get("videos") or {}).get("video_list") or {}]
+    for page in (pin.get("story_pin_data") or {}).get("pages") or []:
+        for block in page.get("blocks") or []:
+            video_lists.append((block.get("video") or {}).get("video_list") or {})
+    urls = [v["url"] for video_list in video_lists for v in video_list.values() if isinstance(v, dict) and v.get("url")]
+    return next((url for url in urls if ".mp4" in url), urls[0] if urls else None)
 
 
 def parse_pin_item(pin: Any) -> Optional[PinResult]:
-    """normalize a raw Pinterest pin object (from board/profile feeds) into PinResult"""
+    """normalize a raw Pinterest pin object (from any feed or resource) into PinResult"""
     if not isinstance(pin, dict) or pin.get("type") != "pin" or not (pin_id := pin.get("id")):
         return None
-    images = pin.get("images") or {}
-    videos = (pin.get("videos") or {}).get("video_list") or {}
+    board = pin.get("board") or {}
+    # feeds expose different title/description fields depending on the field_set_key
+    title = _clean(pin.get("title")) or _clean(pin.get("grid_title")) or _clean(pin.get("seo_title"))
+    description = (
+        _clean(pin.get("description"))
+        or _clean(pin.get("closeup_unified_description"))
+        or _clean(pin.get("closeup_description"))
+    )
     return PinResult(
         pin_id=str(pin_id),
         url=build_url(f"pin/{pin_id}"),
-        title=(pin.get("title") or pin.get("grid_title") or "").strip(),
-        description=pin.get("description"),
-        alt_text=pin.get("auto_alt_text") or pin.get("seo_alt_text") or pin.get("alt_text"),
-        image=_pick_image(images, IMAGE_SIZE_PRIORITY),
-        image_thumb=_pick_image(images, ["236x", "170x", "474x", *IMAGE_SIZE_PRIORITY]),
-        destination_link=pin.get("link"),
-        video_url=next((v.get("url") for v in videos.values() if v.get("url")), None),
-        is_product=bool(pin.get("shopping_flags")),
-        board=(pin.get("board") or {}).get("name"),
-        owner=(pin.get("pinner") or {}).get("username"),
+        title=title or "",
+        description=description,
+        alt_text=_clean(pin.get("auto_alt_text")) or _clean(pin.get("seo_alt_text")) or _clean(pin.get("alt_text")),
+        image=_pick_image(pin.get("images") or {}, IMAGE_SIZE_PRIORITY),
+        image_thumb=_pick_image(pin.get("images") or {}, THUMB_SIZE_PRIORITY),
+        destination_link=pin.get("link") or pin.get("tracked_link"),
+        video_url=_pick_video(pin),
+        is_product=bool(pin.get("shopping_flags")) or bool(pin.get("product_metadata")),
+        board=board.get("name"),
+        board_url=build_url(board["url"]) if board.get("url") else None,
+        owner=(pin.get("pinner") or {}).get("username") or (pin.get("native_creator") or {}).get("username"),
+        domain=pin.get("domain") or pin.get("link_domain"),
+        save_count=pin.get("repin_count"),
+        created_at=pin.get("created_at"),
     )
+
+
+def parse_pin_items(items: List[Any]) -> List[PinResult]:
+    """normalize a feed's raw items, dropping non-pin entries (ads modules, story racks)"""
+    return [pin for item in items if (pin := parse_pin_item(item))]
+
+
+def assert_not_stubs(items: List[Any], context: str) -> None:
+    """fail loudly when a feed hands back image-only pin stubs instead of full pins
+
+    Pinterest gates its feeds by default, which strips every field except the
+    images - silently returning pins with no title/description/board is worse
+    than raising, so this makes the regression obvious.
+    """
+    raw_pins = [item for item in items if isinstance(item, dict) and item.get("type") == "pin"]
+    if raw_pins and not any(
+        pin.get("title") or pin.get("grid_title") or pin.get("description") or pin.get("board") for pin in raw_pins
+    ):
+        raise RuntimeError(f"{context} returned pin stubs without metadata - the ungated option is no longer honoured")
 
 
 def extract_page_data(html: str) -> Tuple[Optional[str], Dict[str, Any]]:
@@ -187,39 +254,70 @@ def build_session_headers(response: ScrapeApiResponse, app_version: Optional[str
     return headers
 
 
+async def fetch_resource(
+    session_id: str,
+    resource_name: str,
+    source_url: str,
+    options: Dict[str, Any],
+    headers: Dict[str, str],
+) -> Dict[str, Any]:
+    """call Pinterest's internal /resource/<Name>/get/ API and return its resource_response"""
+    params = {
+        "source_url": source_url,
+        "data": json.dumps({"options": options, "context": {}}, separators=(",", ":")),
+    }
+    response = await SCRAPFLY.async_scrape(
+        ScrapeConfig(
+            f"{RESOURCE_URL}/{resource_name}/get/?" + urlencode(params),
+            session=session_id,
+            render_js=False,
+            headers=headers,
+            **BASE_CONFIG,
+        )
+    )
+    try:
+        return json.loads(response.content)["resource_response"]
+    except (json.JSONDecodeError, KeyError, TypeError) as exc:
+        raise RuntimeError(f"{resource_name} did not return a resource_response: {response.content[:200]}") from exc
+
+
 async def paginate_resource(
     session_id: str,
     resource_name: str,
     source_url: str,
     options: Dict[str, Any],
-    first_page_data: List[dict],
-    bookmark: Optional[str],
     headers: Dict[str, str],
     max_pages: int,
 ) -> List[dict]:
     """paginate a Pinterest resource feed (board/profile pins) reusing a bootstrapped session"""
-    pages: List[dict] = list(first_page_data)
-    page = 2
-    while bookmark and page <= max_pages:
-        params = {
-            "source_url": source_url,
-            "data": json.dumps({"options": {**options, "bookmarks": [bookmark]}, "context": {}}, separators=(",", ":")),
-        }
-        resp = await SCRAPFLY.async_scrape(
-            ScrapeConfig(
-                f"{RESOURCE_URL}/{resource_name}/get/?" + urlencode(params),
-                session=session_id,
-                render_js=False,
-                headers=headers,
-                **BASE_CONFIG,
+    items: List[dict] = []
+    bookmark: Optional[str] = None
+    seen_bookmarks = set()
+
+    for page in range(1, max_pages + 1):
+        page_options = {**options, "gated": False}
+        if bookmark:
+            page_options["bookmarks"] = [bookmark]
+        resource_response = await fetch_resource(session_id, resource_name, source_url, page_options, headers)
+        data = resource_response.get("data")
+        if not isinstance(data, list):
+            raise RuntimeError(
+                f"{resource_name} page {page} returned no feed data "
+                f"(status={resource_response.get('status')!r}, message={resource_response.get('message')!r})"
             )
-        )
-        resource_response = json.loads(resp.content)["resource_response"]
-        pages.extend(resource_response.get("data") or [])
+        if not data:
+            log.info(f"{resource_name}: page {page} is empty, stopping")
+            break
+        assert_not_stubs(data, f"{resource_name} page {page}")
+
+        items.extend(data)
+        log.info(f"{resource_name}: page {page} captured ({len(items)} items so far)")
         bookmark = resource_response.get("bookmark")
-        log.info(f"{resource_name}: page {page} captured ({len(pages)} pins so far)")
-        page += 1
-    return pages
+        if not bookmark or bookmark == END_BOOKMARK or bookmark in seen_bookmarks:
+            log.info(f"{resource_name}: no more pages")
+            break
+        seen_bookmarks.add(bookmark)
+    return items
 
 
 def get_search_call(response: ScrapeApiResponse) -> Tuple[dict, dict]:
@@ -236,25 +334,8 @@ def parse_search_results(pages: List[dict] | dict, query: str) -> PinSearch:
     """Parse raw Pinterest search API responses into a normalized result set."""
     pins: List[PinResult] = []
     for page in pages if isinstance(pages, list) else [pages]:
-        for pin in page.get("resource_response", {}).get("data", {}).get("results", []):
-            if pin.get("type") != "pin" or not (pin_id := pin.get("id")):
-                continue
-            images = pin.get("images") or {}
-            videos = (pin.get("videos") or {}).get("video_list") or {}
-            pins.append(PinResult(
-                pin_id=str(pin_id),
-                url=f"https://www.pinterest.com/pin/{pin_id}/",
-                title=(pin.get("title") or pin.get("grid_title") or "").strip(),
-                description=(pin.get("description") or "").strip() or None,
-                alt_text=pin.get("auto_alt_text") or pin.get("seo_alt_text"),
-                image=(images.get("orig") or {}).get("url"),
-                image_thumb=(images.get("236x") or {}).get("url"),
-                destination_link=pin.get("link"),
-                video_url=next((v.get("url") for v in videos.values() if v.get("url")), None),
-                is_product=bool(pin.get("shopping_flags")),
-                board=(pin.get("board") or {}).get("name"),
-                owner=(pin.get("pinner") or {}).get("username"),
-            ))
+        results = page.get("resource_response", {}).get("data", {}).get("results") or []
+        pins.extend(parse_pin_items(results))
     return PinSearch(query=query, search_date=datetime.now().strftime("%Y-%m-%d"), pins=pins)
 
 
@@ -293,14 +374,12 @@ async def scrape_search(query: str, max_pages: int = 3) -> PinSearch:
         if not results:
             log.info(f"page {page}: no results, stopping")
             break
-        pin_results = [pin for pin in results if pin.get("type") == "pin"]
-        if pin_results and not any(pin.get("title") or pin.get("description") or pin.get("board") for pin in pin_results):
-            raise RuntimeError(f"page {page} returned pin stubs without metadata - the ungated search option is no longer honoured")
+        assert_not_stubs(results, f"search page {page}")
 
         pages.append(data)
         log.info(f"page {page}: scraped {len(results)} results")
         bookmark = resource_response.get("bookmark")
-        if not bookmark or bookmark in seen_bookmarks:
+        if not bookmark or bookmark == END_BOOKMARK or bookmark in seen_bookmarks:
             log.info("no more pages")
             break
         seen_bookmarks.add(bookmark)
@@ -313,15 +392,16 @@ async def scrape_search(query: str, max_pages: int = 3) -> PinSearch:
 async def scrape_board(board_url: str, max_pages: int = 3) -> BoardScrape:
     """scrape a Pinterest board's metadata and pins"""
     session_id = str(uuid4()).replace("-", "")
+    path_parts = url_path_parts(board_url)
 
     log.info(f"scraping Pinterest board: {board_url}")
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(board_url, session=session_id, render_js=True, auto_scroll=True, rendering_wait=6000, **BASE_CONFIG)
     )
     app_version, resources = extract_page_data(response.content)
-    _, board_entry = get_resource_entry(resources, "BoardResource")
+    board_options, board_entry = get_resource_entry(resources, "BoardResource")
     board_data = board_entry["data"]
-    feed_options, feed_entry = get_resource_entry(resources, "BoardFeedResource")
+    feed_options, _ = get_resource_entry(resources, "BoardFeedResource")
 
     headers = build_session_headers(response, app_version, board_url)
     raw_pins = await paginate_resource(
@@ -329,22 +409,22 @@ async def scrape_board(board_url: str, max_pages: int = 3) -> BoardScrape:
         resource_name="BoardFeedResource",
         source_url=board_url,
         options=feed_options,
-        first_page_data=feed_entry.get("data") or [],
-        bookmark=feed_entry.get("nextBookmark"),
         headers=headers,
         max_pages=max_pages,
     )
-    pins = [pin for raw in raw_pins if (pin := parse_pin_item(raw))]
+    pins = parse_pin_items(raw_pins)
 
+    owner = board_data.get("owner") or {}
     log.success(f"scraped board {board_url} with {len(pins)} pins")
     return BoardScrape(
-        username=next((p for p in urlparse(board_url).path.split("/") if p), board_url),
-        board_slug=next((p for p in urlparse(board_url).path.split("/") if p), board_url),
-        board_name=board_data.get("name") or next((p for p in urlparse(board_url).path.split("/") if p), board_url),
-        description=board_data.get("description") or None,
+        # the resource options carry the board's canonical /<username>/<slug>/ pair
+        username=board_options.get("username") or owner.get("username") or (path_parts[0] if path_parts else board_url),
+        board_slug=board_options.get("slug") or (path_parts[1] if len(path_parts) > 1 else board_url),
+        board_name=board_data.get("name") or board_options.get("slug") or board_url,
+        description=_clean(board_data.get("description")),
         pin_count=board_data.get("pin_count"),
         follower_count=board_data.get("follower_count"),
-        url=board_url,
+        url=build_url(board_data["url"]) if board_data.get("url") else board_url,
         pins=pins,
     )
 
@@ -353,7 +433,7 @@ async def scrape_profile(username: str, max_pages: int = 3) -> ProfileScrape:
     """scrape a Pinterest user's profile metadata and their pins"""
     session_id = str(uuid4()).replace("-", "")
     profile_url = username if "pinterest.com" in username else build_url(username)
-    username = next((p for p in urlparse(profile_url).path.split("/") if p), username)
+    username = next(iter(url_path_parts(profile_url)), username)
 
     log.info(f"scraping Pinterest profile: {profile_url}")
     response = await SCRAPFLY.async_scrape(
@@ -362,7 +442,7 @@ async def scrape_profile(username: str, max_pages: int = 3) -> ProfileScrape:
     app_version, resources = extract_page_data(response.content)
     _, user_entry = get_resource_entry(resources, "UserResource")
     user_data = user_entry["data"]
-    feed_options, feed_entry = get_resource_entry(resources, "UserPinsResource")
+    feed_options, _ = get_resource_entry(resources, "UserPinsResource")
 
     headers = build_session_headers(response, app_version, profile_url)
     raw_pins = await paginate_resource(
@@ -370,87 +450,62 @@ async def scrape_profile(username: str, max_pages: int = 3) -> ProfileScrape:
         resource_name="UserPinsResource",
         source_url=profile_url,
         options=feed_options,
-        first_page_data=feed_entry.get("data") or [],
-        bookmark=feed_entry.get("nextBookmark"),
         headers=headers,
         max_pages=max_pages,
     )
-    pins = [pin for raw in raw_pins if (pin := parse_pin_item(raw))]
+    pins = parse_pin_items(raw_pins)
 
     log.success(f"scraped profile {username} with {len(pins)} pins")
     return ProfileScrape(
-        username=username,
-        full_name=user_data.get("first_name"),
-        bio=user_data.get("seo_description"),
+        username=user_data.get("username") or username,
+        full_name=user_data.get("full_name") or user_data.get("first_name"),
+        # `about` is the user-written bio, seo_description only prefixes it with the name
+        bio=_clean(user_data.get("about")) or _clean(user_data.get("seo_description")),
         follower_count=user_data.get("follower_count"),
         following_count=user_data.get("following_count"),
         pin_count=user_data.get("pin_count"),
-        profile_image=user_data.get("image_medium_url"),
+        profile_image=user_data.get("image_xlarge_url") or user_data.get("image_medium_url"),
         url=profile_url,
         pins=pins,
     )
 
 
-def _text(selector, css: str) -> Optional[str]:
-    """join and clean all descendant text nodes matched by a CSS selector"""
-    parts = [t.strip() for t in selector.css(f"{css} ::text").getall() if t.strip()]
-    return " ".join(parts) if parts else None
-
-
-def _rewrite_image_size(url: Optional[str], size: str) -> Optional[str]:
-    """rewrite a pinimg.com image URL to a different size variant, e.g. 736x -> originals"""
-    if not url:
-        return None
-    return re.sub(r"/(originals|\d+x\d*)/", f"/{size}/", url, count=1)
-
-
 async def scrape_pin(pin_url: str) -> PinDetail:
     """scrape a single Pinterest pin's details"""
-    if "pinterest.com" not in pin_url:
-        pin_url = build_url(f"pin/{pin_url}")
-    pin_id = next((p for p in urlparse(pin_url).path.split("/") if p), pin_url)
+    session_id = str(uuid4()).replace("-", "")
+    pin_id = parse_pin_id(pin_url)
+    pin_url = build_url(f"pin/{pin_id}")
 
     log.info(f"scraping Pinterest pin: {pin_url}")
     response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(pin_url, render_js=True, rendering_wait=5000, **BASE_CONFIG)
+        ScrapeConfig(pin_url, session=session_id, render_js=True, rendering_wait=5000, **BASE_CONFIG)
     )
-    sel = response.selector
+    # deleted or private pins quietly bounce to the /ideas/ feed instead of 404ing
+    landed = response.scrape_result.get("url") or pin_url
+    if f"/pin/{pin_id}" not in urlparse(landed).path:
+        raise ValueError(f"pin {pin_id} did not resolve - Pinterest redirected to {landed}, the pin is likely deleted or private")
 
-    native_image = sel.css("[data-test-id=pin-closeup-image] img::attr(src)").get()
-    images = {
-        "orig": _rewrite_image_size(native_image, "originals"),
-        "736x": _rewrite_image_size(native_image, "736x"),
-        "474x": _rewrite_image_size(native_image, "474x"),
-        "236x": _rewrite_image_size(native_image, "236x"),
-    }
-    images = {size: url for size, url in images.items() if url}
+    app_version, _ = extract_page_data(response.content)
+    headers = build_session_headers(response, app_version, pin_url)
+    resource_response = await fetch_resource(
+        session_id=session_id,
+        resource_name="PinResource",
+        source_url=f"/pin/{pin_id}/",
+        options={"id": pin_id, "field_set_key": "unauth_react_main_pin", "fetch_visual_search_objects": False},
+        headers=headers,
+    )
+    data = resource_response.get("data")
+    pin = parse_pin_item(data)
+    if pin is None:
+        raise RuntimeError(
+            f"PinResource returned no pin for {pin_id} "
+            f"(status={resource_response.get('status')!r}, message={resource_response.get('message')!r})"
+        )
 
-    description = _text(sel, "[data-test-id=main-pin-description-text]")
-    if description and "}" in description:
-        description = description.rsplit("}", 1)[-1].strip() or None
-
-    board_link = sel.css("[data-test-id=pin-metadata-drawer-original-board-section] a")
-    board_name = (board_link.css("::text").get() or "").strip() or None
-    board_href = board_link.attrib.get("href")
-
-    owner_href = sel.css("[data-test-id=creator-profile-link]::attr(href)").get()
-    owner = next((p for p in owner_href.split("/") if p), owner_href) if owner_href else _text(sel, "[data-test-id=creator-profile-name]")
-
+    log.success(f"scraped pin {pin_id}")
     return PinDetail(
-        pin_id=pin_id,
-        url=pin_url,
-        title=_text(sel, "[data-test-id=pinTitle]") or "",
-        description=description,
-        alt_text=sel.css("[data-test-id=pin-closeup-image] img::attr(alt)").get(),
-        image=images.get("orig") or native_image,
-        image_thumb=images.get("236x"),
-        destination_link=None,
-        video_url=None,
-        is_product=bool(sel.css("[data-test-id=product-title]").get()),
-        board=board_name,
-        owner=owner,
-        images=images,
-        board_url=(build_url(board_href) if board_href else None),
+        **pin,
+        images={size: img["url"] for size, img in (data.get("images") or {}).items() if isinstance(img, dict) and img.get("url")},
     )
 
 

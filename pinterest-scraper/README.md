@@ -52,11 +52,19 @@ This Pinterest.com scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi
 ## How It Works
 
 Pinterest's board and profile pages server-render a resource cache (embedded in
-the page's `__PWS_INITIAL_PROPS__` script tag) containing the first page of
-data. Additional pages are fetched from Pinterest's internal
-`/resource/<Name>/get/` API, authorized with the `csrftoken` cookie and
-`x-app-version` header captured from that same browser session — no login
+the page's `__PWS_INITIAL_PROPS__` script tag) describing which internal
+`/resource/<Name>/get/` feed backs the page. Every page of pins — including the
+first — is then fetched from that API, authorized with the `csrftoken` cookie
+and `x-app-version` header captured from the same browser session. No login is
 required, since this is all public data.
 
-Pin detail pages don't expose this resource cache, so `scrape_pin` parses the
-rendered DOM directly instead.
+Those feeds are *gated* by default: the request Pinterest's own front end makes
+(and the copy cached in the page) returns image-only pin stubs with no title,
+description, board or owner. Each call therefore forces `"gated": false` in the
+resource options to get the full pin objects back, and the scraper raises if a
+page comes back as stubs anyway rather than silently emitting empty pins.
+
+Pin detail pages render client side and expose no resource cache at all, so
+`scrape_pin` reads the pin from the `PinResource` API using the same session.
+Deleted or private pins quietly redirect to `/ideas/` instead of returning a
+404, which `scrape_pin` detects and reports.

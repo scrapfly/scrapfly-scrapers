@@ -37,7 +37,7 @@ async def run():
         json.dump(profile_data, f, indent=2, ensure_ascii=False)
     print(f"saved {len(profile_data['pins'])} pins to results/profile.json")
 
-    pin_data = await pinterest.scrape_pin("https://www.pinterest.com/pin/4608941770563535744/")
+    pin_data = await pinterest.scrape_pin("https://www.pinterest.com/pin/142567144444540246/")
     with open(output / "pin.json", "w", encoding="utf-8") as f:
         json.dump(pin_data, f, indent=2, ensure_ascii=False)
     print("saved pin details to results/pin.json")
