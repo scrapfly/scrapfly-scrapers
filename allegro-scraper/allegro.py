@@ -153,16 +153,16 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
             "coupon": price_data.get("coupon", None)
         }
 
-    # images
+    # images: the offer gallery lives under "galleryItems" (another box's "gallery" key holds review photos)
     gallery_images = None
-    gallery_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "gallery")]/text()').get()
+    gallery_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "galleryItems")]/text()').get()
     gallery_data = json.loads(gallery_json) if gallery_json else None
     if gallery_data is not None:
-        gallery_images = gallery_data.get("gallery", None)
+        gallery_images = [item["thumbnail"] for item in gallery_data.get("galleryItems", []) if item.get("thumbnail")]
 
-    # fallback to html parsing
+    # fallback to html parsing: gallery thumbnails
     if not gallery_images:
-        gallery_images = sel.xpath('//button[@aria-selected]//img/@src').getall()
+        gallery_images = sel.xpath('//*[@data-box-name="showoffer.gallery"]//img[contains(@src, "/s128/")]/@src').getall()
 
     # seller info
     seller_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "sellerName")]/text()').get()
