@@ -93,16 +93,16 @@ def retrieve_graphql_body(result: ScrapeApiResponse) -> List[Dict]:
     }
 
 
-def retrieve_total_results(result: ScrapeApiResponse) -> int:
-    """parse total search-result count from the apollo data store embedded in the page"""
+def retrieve_search_data(result: ScrapeApiResponse) -> Dict:
+    """parse the first page search data (results and pagination) from the apollo data store embedded in the page"""
     script_data = result.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get()
     apollo = json.loads(script_data)
     keys_list = list(apollo["ROOT_QUERY"]["searchQueries"].keys())
     # the second key holds the actual search query result (same convention as retrieve_graphql_body)
-    return int(apollo["ROOT_QUERY"]["searchQueries"][keys_list[1]]["pagination"]["nbResultsTotal"])
+    return apollo["ROOT_QUERY"]["searchQueries"][keys_list[1]]
 
 
-def generate_graphql_request(url_params: str, body: Dict, offset: int):
+def generate_graphql_request(url_params: str, body: Dict, offset: int, session: Optional[str] = None):
     """create a scrape config for the search graphql request"""
     body["variables"]["input"]["pagination"]["offset"] = offset
     return ScrapeConfig(
@@ -118,7 +118,8 @@ def generate_graphql_request(url_params: str, body: Dict, offset: int):
             },
         data=body,
         method="POST",
-        asp=True
+        session=session,
+        **BASE_CONFIG,
     )
 
 
@@ -164,24 +165,41 @@ async def scrape_search(
     )
     search_url = "https://www.booking.com/searchresults.en-gb.html?" + url_params
     # first scrape the first page and find total amount of pages
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
-    _total_results = retrieve_total_results(first_page)
-    _max_scrape_results = max_pages * 25
-    if _max_scrape_results and _max_scrape_results < _total_results:
-        _total_results = _max_scrape_results
+    # use a session so the graphql pages share the first page's cookies and IP,
+    # otherwise booking.com ranks results differently per request and pages overlap
+    session = uuid4().hex
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, session=session, **BASE_CONFIG))
+    # booking.com sometimes answers with an AWS WAF challenge page: 200, but without the apollo data
+    if not first_page.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get():
+        raise Exception("booking.com returned an anti-bot challenge page instead of search results")
+    search_data = retrieve_search_data(first_page)
+    # the first page size varies (15, 20 or 25 results), while the graphql api accepts any page size,
+    # so request pages with a fixed size of 25 results. Offsets must be a multiple of the page size,
+    # otherwise the graphql api returns truncated pages.
+    _page_size = 25
+    _total_results = int(search_data["pagination"]["nbResultsTotal"])
+    if max_pages and max_pages * _page_size < _total_results:
+        _total_results = max_pages * _page_size
 
     data = []
+    # request every page through the graphql api, including the first one: the results embedded in the page
+    # carry extra fields, and mixing them would give the first page a different shape than the others
+    offsets = list(range(0, _total_results, _page_size))
     body = retrieve_graphql_body(first_page)
-    to_scrape = [
-        generate_graphql_request(url_params, body, offset)
-        for offset in range(0, _total_results, 25)
-    ]
+    body["variables"]["input"]["pagination"]["rowsPerPage"] = _page_size
+    to_scrape = [generate_graphql_request(url_params, body, offset, session) for offset in offsets]
     log.info(f"scraping search results from the graphql api: {len(to_scrape)} pages to request")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             data.extend(parse_graphql_response(response))
         except Exception as e:
             log.error("Failed to parse search results: {}", e)
+
+    # the same property can appear on multiple pages
+    unique_data = {}
+    for result in data:
+        unique_data.setdefault(result.get("basicPropertyData", {}).get("id"), result)
+    data = list(unique_data.values())
     log.success(f"scraped {len(data)} results from search pages")
     return data
        
