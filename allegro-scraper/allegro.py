@@ -158,12 +158,11 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
     gallery_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "galleryItems")]/text()').get()
     gallery_data = json.loads(gallery_json) if gallery_json else None
     if gallery_data is not None:
-        gallery_images = [item["original"] for item in gallery_data.get("galleryItems", []) if item.get("original")]
+        gallery_images = [item["thumbnail"] for item in gallery_data.get("galleryItems", []) if item.get("thumbnail")]
 
-    # fallback to html parsing: gallery thumbnails, upsized to the original image
+    # fallback to html parsing: gallery thumbnails
     if not gallery_images:
-        thumbnails = sel.xpath('//*[@data-box-name="showoffer.gallery"]//img[contains(@src, "/s128/")]/@src').getall()
-        gallery_images = [url.replace("/s128/", "/original/") for url in thumbnails]
+        gallery_images = sel.xpath('//*[@data-box-name="showoffer.gallery"]//img[contains(@src, "/s128/")]/@src').getall()
 
     # seller info
     seller_json = sel.xpath('//script[@data-serialize-box-id and contains(text(), "sellerName")]/text()').get()
