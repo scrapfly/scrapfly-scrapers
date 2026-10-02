@@ -368,7 +368,11 @@ async def scrape_product_pages(urls: List[str]) -> List[ShopifyProductPage]:
 
 def parse_sitemap_locations(response: ScrapeApiResponse) -> List[str]:
     """parse every loc entry of a sitemap index or a sitemap"""
-    return response.selector.css("loc::text").getall()
+    # sitemaps are namespaced XML, and parsel 1.12+ parses them as XML (it detects the <?xml declaration),
+    # where a bare "loc" matches nothing. naming the sitemap namespace also leaves out <image:loc> entries
+    selector = Selector(text=response.content, type="xml")
+    namespaces = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    return selector.xpath("//sm:loc/text()", namespaces=namespaces).getall()
 
 
 async def scrape_product_urls(store_url: str, max_sitemaps: int = 1) -> List[str]:
