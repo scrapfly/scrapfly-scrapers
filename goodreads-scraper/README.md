@@ -8,7 +8,7 @@ This scraper scrapes:
 - Goodreads book pages, from their JSON-LD `Book` block and the page markup
 - Goodreads book reviews, the review sample a book page ships with, from its `__NEXT_DATA__` Apollo records
 - Goodreads list pages, which turn a public list into book stubs and book URLs
-- Goodreads book search results, which use the same row markup as list pages
+- Goodreads book search results, from the `Book` records in the page's Next.js flight data
 
 For output examples see the `./results` directory.
 

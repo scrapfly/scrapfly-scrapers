@@ -78,6 +78,52 @@ def _resolve(apollo: Dict, node) -> Dict:
     return node if isinstance(node, dict) else {}
 
 
+def _flight_books(response: ScrapeApiResponse) -> List[Dict]:
+    """collect the Book records out of the Next.js flight data of a search page
+
+    Search pages ship no __NEXT_DATA__. Their server data arrives as string chunks pushed with
+    self.__next_f.push([1, "..."]), and every result passes its full Book record as a "book" prop.
+    """
+    chunks = response.selector.xpath('//script[contains(text(), "self.__next_f.push")]/text()').re(
+        r"self\.__next_f\.push\((\[1,.*\])\)"
+    )
+    flight = "".join(json.loads(chunk)[1] for chunk in chunks)
+    decoder = json.JSONDecoder()
+    books = []
+    for match in re.finditer(r'"book":\{', flight):
+        book, _ = decoder.raw_decode(flight, match.end() - 1)
+        if book.get("__typename") == "Book":
+            book["_series_title"] = _series_title(book, flight)
+            books.append(book)
+    return books
+
+
+def _full_title(book: Dict) -> Optional[str]:
+    """title with the series suffix the search rows used to show, e.g. "Dune (Dune, #1)" """
+    placement = ((book.get("bookSeries") or [{}])[0] or {}).get("seriesPlacement")
+    if book.get("title") and book.get("_series_title") and placement:
+        return f"{book['title']} ({book['_series_title']}, #{placement})"
+    return book.get("title")
+
+
+def _series_title(book: Dict, flight: str) -> Optional[str]:
+    """series name of a Book record; repeated series are references like "$5b:props:children:0:..." to an earlier row"""
+    series = ((book.get("bookSeries") or [{}])[0] or {}).get("series")
+    if isinstance(series, str) and series.startswith("$"):
+        row, *path = series[1:].split(":")
+        start = re.search(r"(?<![\w$])" + re.escape(row) + r":(?=[\[{])", flight)
+        if not start:
+            return None
+        series, _ = json.JSONDecoder().raw_decode(flight, start.end())
+        for key in path:
+            if isinstance(series, list):
+                # React elements are ["$", type, key, props]
+                series = series[3] if key == "props" else series[int(key)]
+            else:
+                series = series[key]
+    return series.get("title") if isinstance(series, dict) else None
+
+
 def _page_url(url: str, page: int) -> str:
     """set the page query parameter of a Goodreads search URL"""
     parts = urlparse(url)
@@ -86,9 +132,9 @@ def _page_url(url: str, page: int) -> str:
 
 
 def _total_pages(response: ScrapeApiResponse) -> int:
-    """read the last page number out of the plain link list Goodreads paginates with"""
-    pages = [int(text) for text in response.selector.css('a[href*="page="]::text').getall() if text.strip().isdigit()]
-    return max(pages) if pages else 1
+    """read the page count out of the "Page 1 of 100" search pagination label"""
+    total = response.selector.css('[data-testid="pagination-label"] ::text').re_first(r"of\s+([\d,]+)")
+    return _to_int(total) or 1
 
 
 def _find_book_ld_json(sel: Selector) -> Dict:
@@ -177,6 +223,31 @@ def parse_list(response: ScrapeApiResponse) -> List[Dict]:
     return books
 
 
+def parse_search(response: ScrapeApiResponse) -> List[Dict]:
+    """parse a search page and return book stubs with the same fields as parse_list"""
+    books = []
+    for book in _flight_books(response):
+        author = (book.get("primaryContributorEdge") or {}).get("node") or {}
+        stats = (book.get("work") or {}).get("stats") or {}
+        books.append(
+            {
+                "rank": None,
+                "title": _full_title(book),
+                "url": _clean_url(book.get("webUrl")),
+                "author": author.get("name"),
+                "author_url": _clean_url(author.get("webUrl")),
+                # the small cover parse_list returns: same image with the _SY75_ size suffix
+                "image_url": re.sub(r"(\.\w+)$", r"._SY75_\1", book["imageUrl"]) if book.get("imageUrl") else None,
+                "avg_rating": stats.get("averageRating"),
+                "ratings_count": stats.get("ratingsCount"),
+                "score": None,
+                "votes": None,
+            }
+        )
+    log.success(f"parsed {len(books)} books from the search page")
+    return books
+
+
 async def scrape_book(url: str) -> Dict:
     """scrape a single book page and return parsed book data"""
     log.info("scraping book {}", url)
@@ -250,14 +321,15 @@ async def scrape_reviews(url: str) -> List[Dict]:
 async def scrape_search(query: str, max_pages: int = 2) -> List[Dict]:
     """scrape book stubs from Goodreads search results
 
-    Search results are rendered with the same table markup as list pages, so the rows are
-    read by parse_list. Rank, score and votes are list page columns and stay None here.
+    Search pages no longer share the list page table markup, so their results are read from
+    the page's Book records by parse_search. Rank, score and votes are list page columns and
+    stay None here.
     """
     base_url = f"https://www.goodreads.com/search?q={quote_plus(query)}"
 
     log.info(f"scraping the first search page for '{query}'")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
-    books = parse_list(first_page)
+    books = parse_search(first_page)
     total_pages = min(_total_pages(first_page), max_pages)
 
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
@@ -266,7 +338,7 @@ async def scrape_search(query: str, max_pages: int = 2) -> List[Dict]:
         if not isinstance(result, ScrapeApiResponse):
             continue
         try:
-            books.extend(parse_list(result))
+            books.extend(parse_search(result))
         except Exception as e:
             log.error(f"failed to scrape search page: {e}")
 
