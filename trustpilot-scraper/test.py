@@ -30,7 +30,7 @@ company_schema = {
             "websiteUrl": {"type": "string"},
             "websiteTitle": {"type": "string"},
             "profileImageUrl": {"type": "string"},
-            "stars": {"type": "integer"},
+            "stars": {"type": "float"},
         },
     },
     "reviews": {
@@ -52,7 +52,7 @@ company_schema = {
 
 search_schema = {
     "businessUnitId": {"type": "string"},
-    "stars": {"type": "integer"},
+    "stars": {"type": "float"},
     "identifyingName": {"type": "string"},
     "displayName": {"type": "string"},
     "logoUrl": {"type": "string"},
