@@ -219,10 +219,12 @@ def parse_store_locations_sitemap(response: ScrapeApiResponse) -> List[Dict]:
     bytes_data = content.read() if hasattr(content, "read") else content.encode("latin1")
     if bytes_data.startswith(b"\x1f\x8b"):
         bytes_data = gzip.decompress(bytes_data)
-    selector = Selector(text=bytes_data.decode("utf-8"))
+    # sitemaps declare a default xmlns: parse as XML and select url/loc in that namespace
+    selector = Selector(text=bytes_data.decode("utf-8"), type="xml")
+    namespaces = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
     locations = []
-    for url in selector.xpath("//url/loc/text()"):
+    for url in selector.xpath("//sm:url/sm:loc/text()", namespaces=namespaces):
         url = url.get()
         slug, store_id = urlparse(url).path.strip("/").split("/")[-2:]
         locations.append({"url": url, "slug": slug, "store_id": store_id})
