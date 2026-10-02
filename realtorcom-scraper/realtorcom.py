@@ -93,26 +93,52 @@ async def scrape_property(url: str) -> List[Dict]:
 
 
 def _parse_search_card_meta(result: ScrapeApiResponse) -> Dict[str, Dict]:
-    """extract metadata from rendered property cards"""
-    def _to_int(v):
-        if v is None:
+    """
+    extract property card metadata from the React Router data stream embedded in the page
+    (only the first ~10 cards are rendered in the HTML, the rest are skeletons).
+    The stream uses the turbo-stream format: a flat list of values in which objects map
+    "_<key index>" to a value index and lists hold value indexes.
+    """
+    scripts = result.selector.xpath("//script[contains(text(), 'streamController.enqueue')]/text()").getall()
+    stream = "".join(json.loads(re.search(r'enqueue\((".*")\)', script, re.S).group(1)) for script in scripts)
+    values = []
+    for line in filter(None, stream.split("\n")):
+        chunk = json.loads(re.sub(r"^[PE]\d+:", "", line))  # "P<id>:"/"E<id>:" lines resolve/reject deferred data
+        if isinstance(chunk, list):  # a line can also be a single index of an already known value
+            values.extend(chunk)
+
+    def hydrate(index):
+        if index < 0:  # negative indexes are constants like null and undefined
             return None
-        v = re.sub(r"[^\d]", "", v)
-        return int(v) if v else None
+        value = values[index]
+        if isinstance(value, dict):
+            return {values[int(key[1:])]: hydrate(i) for key, i in value.items()}
+        if isinstance(value, list) and all(isinstance(i, int) for i in value):
+            return [hydrate(i) for i in value]
+        return value
+
+    def to_baths(text):
+        # "2", "2.5" or "4.5+": count a half bath as one, like realtor.com's own integer total
+        match = re.match(r"\d+(\.\d+)?", text or "")
+        return math.ceil(float(match.group())) if match else None
 
     meta_by_permalink: Dict[str, Dict] = {}
-    for card in result.selector.xpath("//article[.//a[contains(@href,'/realestateandhomes-detail/')]]"):
-        href = card.xpath(".//a[contains(@href,'/realestateandhomes-detail/')]/@href").get() or ""
-        m = re.search(r"/realestateandhomes-detail/([^?#]+)", href)
-        if not m:
+    if "properties" not in values:
+        return meta_by_permalink
+    key = f"_{values.index('properties')}"
+    for value in values:
+        if not isinstance(value, dict) or key not in value:
             continue
-        permalink = m.group(1)
-        meta_by_permalink[permalink] = {
-            "beds": _to_int(card.css('[data-testid="property-meta-beds"] [data-testid="meta-value"]::text').get()),
-            "baths": _to_int(card.css('[data-testid="property-meta-baths"] [data-testid="meta-value"]::text').get()),
-            "sqft": _to_int(card.css('[data-testid="property-meta-sqft"] [data-testid="meta-value"]::text').get()),
-            "lot_size": _to_int(card.css('[data-testid="property-meta-lot-size"] [data-testid="meta-value"]::text').get()),
-        }
+        for prop in hydrate(value[key]) or []:
+            if not isinstance(prop, dict) or not prop.get("ldpSlug"):
+                continue
+            description = prop.get("description") or {}
+            meta_by_permalink[prop["ldpSlug"]] = {
+                "beds": description.get("beds") or None,  # studios have 0 beds, the cards showed none
+                "baths": to_baths(description.get("baths_consolidated")),
+                "sqft": description.get("sqft"),
+                "lot_size": description.get("lot_sqft"),
+            }
     return meta_by_permalink
 
 
@@ -182,7 +208,7 @@ def parse_search(result: ScrapeApiResponse) -> Dict:
         floor_size = prop_detail.get("floorSize", {})
         image = item.get("image", "")
 
-        dom_meta = card_meta.get(permalink, {})
+        meta = card_meta.get(permalink, {})
         ld_baths = prop_detail.get("numberOfBathroomsTotal") or None
         ld_sqft = floor_size.get("value") if floor_size else None
 
@@ -192,10 +218,10 @@ def parse_search(result: ScrapeApiResponse) -> Dict:
             "list_price": list_price,
             "photos": [{"href": image}] if image else [],
             "description": {
-                "beds": prop_detail.get("numberOfBedrooms") or dom_meta.get("beds"),
-                "baths": ld_baths or dom_meta.get("baths"),
-                "sqft": ld_sqft or dom_meta.get("sqft"),
-                "lot_size": dom_meta.get("lot_size"),
+                "beds": prop_detail.get("numberOfBedrooms") or meta.get("beds"),
+                "baths": ld_baths or meta.get("baths"),
+                "sqft": ld_sqft or meta.get("sqft"),
+                "lot_size": meta.get("lot_size"),
                 "type": prop_detail.get("@type"),
             },
             "location": {
@@ -247,7 +273,9 @@ async def scrape_feed(url) -> Dict[str, datetime]:
     """scrapes atom RSS feed and returns all entries in "url:publish date" format"""
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, retry=True))
     body = result.content
-    selector = Selector(text=body)
+    # parse as XML and drop the sitemap namespace: parsel >= 1.12 detects XML from the <?xml declaration on its own
+    selector = Selector(text=body, type="xml")
+    selector.remove_namespaces()
     results = {}
     for item in selector.xpath("//sitemap"):
         url = item.xpath("loc/text()").get()
