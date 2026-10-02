@@ -40,10 +40,15 @@ def parse_property_pages(response: ScrapeApiResponse) -> Dict:
     # unescape escaped json characters like `\\"` to `"`
     _property_datastring = _hidden_datasets[0].encode("utf-8").decode("unicode_escape")
     property_data = json.loads(_property_datastring)
+    # the property page app was renamed from "app_cldp" to "app_demand_referral_cldp"
+    page_data = property_data["app_demand_referral_cldp"]["data"]
+    # expired listings (HTTP 410) set an error and return a stub classified without listing data
+    if page_data.get("error"):
+        raise Exception(f"classified not available: {page_data['error']}")
     # remove web app related keys
     parsed = {
         key: value
-        for key, value in property_data["app_cldp"]["data"]["classified"].items()
+        for key, value in page_data["classified"].items()
         if key
         in [
             "sections",
@@ -53,6 +58,11 @@ def parse_property_pages(response: ScrapeApiResponse) -> Dict:
             "contactSections",
         ]
     }
+    # listing photos and floorplans moved out of "sections" into "domains.medias", put them back where they used to be
+    medias = (page_data["classified"].get("domains") or {}).get("medias") or {}
+    gallery = {key: medias[key] for key in ("images", "floorplans") if medias.get(key)}
+    if gallery and "sections" in parsed:
+        parsed["sections"]["gallery"] = gallery
     return parsed
 
 
