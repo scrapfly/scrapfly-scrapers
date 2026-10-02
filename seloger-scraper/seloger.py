@@ -29,11 +29,32 @@ def parse_search(result: ScrapeApiResponse):
     """parse property listing data from seloger search pages"""
     # select the script tag from the HTML
     selector = result.selector
+    # listing data embedded in the page as window["__UFRN_FETCHER__"]=JSON.parse("..."), keyed by listing id
+    classifieds = {}
+    fetcher_script = selector.xpath("//script[contains(text(), '__UFRN_FETCHER__')]/text()").get()
+    if fetcher_script:
+        fetcher_json = re.search(r'JSON\.parse\((".+")\)', fetcher_script, re.DOTALL).group(1)
+        serp_data = json.loads(json.loads(fetcher_json))["data"].get("classified-serp-init-data") or {}
+        classifieds = serp_data.get("pageProps", {}).get("classifiedsData") or {}
     data = []
     for i in selector.xpath("//div[@data-testid='serp-core-classified-card-testid']"):
         # If the card doesn't have a main link, it's an empty placeholder, so we skip it.
         if not i.xpath(".//a[@data-testid='card-mfe-covering-link-testid']/@href").get():
             continue
+
+        # the card no longer renders the price per m², read it from the listing data (card id: "classified-card-<id>")
+        listing = classifieds.get(i.attrib.get("id", "").replace("classified-card-", ""), {})
+        price_per_m2 = ((listing.get("hardFacts") or {}).get("price") or {}).get("additionalInformation")
+        if price_per_m2 and "," in price_per_m2:
+            # round "3\u202f915,66\xa0€/m²" to the format the cards used to show: "3\u202f916\xa0€/m²"
+            number, unit = price_per_m2.split("\xa0", 1)
+            rounded = int(float(number.replace("\u202f", "").replace(",", ".")) + 0.5)
+            price_per_m2 = f"{rounded:,}".replace(",", "\u202f") + "\xa0" + unit
+        if not price_per_m2 or "m²" not in price_per_m2:
+            # fallback to html parsing
+            price_per_m2 = i.xpath(
+                ".//div[contains(@data-testid, 'cardmfe-price')]//span[contains(text(),'m²')]/text()"
+            ).get()
 
         data.append(
             {
@@ -41,9 +62,7 @@ def parse_search(result: ScrapeApiResponse):
                 "url": i.xpath(".//a[@data-testid='card-mfe-covering-link-testid']/@href").get(),
                 "images": i.xpath(".//div[contains(@data-testid, 'cardmfe-picture')]//img/@src").getall(),
                 "price": i.xpath(".//div[contains(@data-testid, 'cardmfe-price')]/@aria-label").get(),
-                "price_per_m2": i.xpath(
-                    ".//div[contains(@data-testid, 'cardmfe-price')]//span[contains(text(),'m²')]/text()"
-                ).get(),
+                "price_per_m2": price_per_m2,
                 "property_facts": i.xpath(
                     ".//div[contains(@data-testid, 'keyfacts')]/div[text() != '·']/text()"
                 ).getall(),
