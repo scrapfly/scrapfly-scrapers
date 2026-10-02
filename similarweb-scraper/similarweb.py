@@ -113,9 +113,11 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
             # plain-text XML sitemap (not gzipped)
             xml = content.decode('utf-8') if isinstance(content, bytes) else content
 
-    selector = Selector(xml)
+    # sitemaps declare a default xmlns: parse as XML and select url/loc in that namespace
+    selector = Selector(text=xml, type="xml")
+    namespaces = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     data = []
-    for url in selector.xpath("//url/loc/text()"):
+    for url in selector.xpath("//sm:url/sm:loc/text()", namespaces=namespaces):
         data.append(url.get())
     return data
 
