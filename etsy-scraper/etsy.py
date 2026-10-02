@@ -39,12 +39,12 @@ def parse_search(response: ScrapeApiResponse) -> Dict:
     total_pages = math.ceil(total_listings / 48)
     for product in selector.xpath("//div[@data-search-results-lg]/ul/li[div[@data-appears-component-name]]"):
         link = product.xpath(".//a[contains(@class, 'v2-listing-card')]/@href").get()
-        rate = product.xpath(".//span[contains(@class, 'review_stars')]/span/text()").get()
-        number_of_reviews = strip_text(product.xpath(".//div[contains(@aria-label,'star rating')]/p/text()").get())
+        rate = product.xpath(".//clg-static-review-stars/@rating").get()
+        number_of_reviews = strip_text(product.xpath(".//clg-static-review-stars/@review-count-text").get())
         if number_of_reviews:
-            number_of_reviews = number_of_reviews.replace("(", "").replace(")", "")
+            number_of_reviews = number_of_reviews.replace("(", "").replace(")", "").replace(",", "")
             number_of_reviews = (
-                int(number_of_reviews.replace("k", "").replace(".", "")) * 10
+                int(float(number_of_reviews.replace("k", "")) * 1000)
                 if "k" in number_of_reviews
                 else number_of_reviews
             )
