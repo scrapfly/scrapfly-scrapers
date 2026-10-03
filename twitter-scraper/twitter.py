@@ -78,7 +78,10 @@ def website_url(html: str) -> Optional[str]:
 
 def href_count(html: str, path: str) -> Optional[int]:
     """read a profile stat via a stable href path"""
-    match = re.search(rf'href="[^"]*{re.escape(path)}"[^>]*><div[^>]*><div[^>]*>([^<]+)</div>', html)
+    match = re.search(
+        rf'href="[^"]*{re.escape(path)}"[^>]*><div[^>]*><(?:div|span)[^>]*>([^<]+)</(?:div|span)>',
+        html,
+    )
     return parse_count(match.group(1)) if match else None
 
 
