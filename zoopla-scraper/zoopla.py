@@ -53,6 +53,10 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     """refine property data using JMESPath"""
     selector = response.selector
     url = selector.xpath("//meta[@property='og:url']/@content").get()
+    if selector.xpath("//*[@data-testid='regular-listings']"):
+        raise ValueError("Zoopla returned search results instead of the requested property listing")
+    if not url or "/details/" not in urlparse(url).path:
+        raise ValueError("Zoopla returned a page without property details")
     price = selector.xpath("//p[contains(text(),'£')]/text()").get()
     receptions = selector.xpath("//p[contains(text(),'reception')]/text()").get()
     baths = selector.xpath("//p[contains(text(),'bath')]/text()").get()
@@ -127,7 +131,8 @@ async def scrape_properties(urls: List[str]):
             **BASE_CONFIG,
             render_js=True,
             auto_scroll=True,
-            wait_for_selector="//section[@aria-labelledby='local-area']",
+            # Wait for property content or a search redirect, which the parser reports.
+            wait_for_selector="//section[@aria-labelledby='about'] | //*[@data-testid='regular-listings']",
         )
         for url in urls
     ]
@@ -135,10 +140,12 @@ async def scrape_properties(urls: List[str]):
     # scrape all page URLs concurrently
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
+            if isinstance(result, Exception):
+                raise result
             log.info("scraping property page {}", result.context["url"])
             properties.append(parse_property(result))
         except Exception as e:
-            log.error(f"An error occurred while scraping property pages", e)
+            log.error("An error occurred while scraping property pages: {}", e)
             continue
     return properties
 
