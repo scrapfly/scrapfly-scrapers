@@ -105,13 +105,42 @@ async def scrape_comments(post_url: str) -> List[Dict]:
             post_url,
             **BASE_CONFIG,
             render_js=True,
-            rendering_wait=5000,
+            rendering_stage="complete",
             # click the comment icon to load the comments and trigger the API call
             js_scenario=[
-                {"wait_for_selector": {"selector": "//*[@data-e2e='comment-icon']"}},
+                # the video page often needs more than 15s (the longest single wait) to show the comment icon,
+                # so wait for it twice: the first wait is allowed to time out
+                {
+                    "wait_for_selector": {
+                        "selector": "//*[@data-e2e='comment-icon']",
+                        "state": "visible",
+                        "timeout": 15000,
+                        "ignore": True,
+                    }
+                },
+                {
+                    "wait_for_selector": {
+                        "selector": "//*[@data-e2e='comment-icon']",
+                        "state": "visible",
+                        "timeout": 15000,
+                    }
+                },
                 {"click": {"selector": "//*[@data-e2e='comment-icon']"}},
+                {
+                    "wait_for_selector": {
+                        "selector": "//span[@data-testid='tux-web-text' and text()='Comments']",
+                        "state": "visible",
+                        "timeout": 15000,
+                    }
+                },
                 {"click": {"selector": "//span[@data-testid='tux-web-text' and text()='Comments']"}},
-                {"wait": 10000},
+                {
+                    "wait_for_selector": {
+                        "selector": "//*[@data-e2e='comment-level-1']",
+                        "state": "visible",
+                        "timeout": 15000,
+                    }
+                },
             ],
         )
     )
