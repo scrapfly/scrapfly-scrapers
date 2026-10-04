@@ -89,6 +89,11 @@ def _find_graphql_call(xhr_calls: List[Dict], query_name: str) -> Dict:
     raise ValueError(f"could not find {query_name} call in captured browser traffic")
 
 
+def _unbatch(page_data: Dict | List[Dict]) -> Dict:
+    """batched GraphQL queries (RemainderListings) return a list with one result"""
+    return page_data[0] if isinstance(page_data, list) else page_data
+
+
 def build_next_page_config(
     captured_call: Dict,
     session: str,
@@ -99,7 +104,9 @@ def build_next_page_config(
     """build ScrapeConfig for the next GraphQL page reusing session and captured headers"""
     payload = json.loads(captured_call["body"])
     if search_type == "hotel":
-        for count in payload["variables"]["criteria"]["secondary"]["counts"]:
+        # RemainderListings sends the query as a batch of one
+        variables = (payload[0] if isinstance(payload, list) else payload)["variables"]
+        for count in variables["criteria"]["secondary"]["counts"]:
             if count["id"] == "resultsStartingIndex":
                 count["value"] = next_start_index
             elif count["id"] == "resultsSize":
@@ -245,11 +252,14 @@ async def scrape_hotel_search(
         auto_scroll=True,
         **BASE_CONFIG,
     ))
-    captured_call = _find_graphql_call(
-        search_response.scrape_result["browser_data"]["xhr_call"], "PropertyListingQuery"
-    )
+    xhr_calls = search_response.scrape_result["browser_data"]["xhr_call"]
+    try:
+        captured_call = _find_graphql_call(xhr_calls, "PropertyListingQuery")
+    except ValueError:
+        # some search pages load the listings with a batched RemainderListings query instead
+        captured_call = _find_graphql_call(xhr_calls, "RemainderListings")
 
-    page_data = json.loads(captured_call["response"]["body"])
+    page_data = _unbatch(json.loads(captured_call["response"]["body"]))
     hotels = parse_hotels(page_data, captured_at)
 
     page = 1
@@ -258,7 +268,7 @@ async def scrape_hotel_search(
         response = await SCRAPFLY.async_scrape(build_next_page_config(
             captured_call, session, next_start_index, PAGE_SIZE, "hotel"
         ))
-        page_data = json.loads(response.content)
+        page_data = _unbatch(json.loads(response.content))
         hotels.extend(parse_hotels(page_data, captured_at))
         page += 1
         log.info(f"expedia: fetched page {page}/{max_pages} (startingIndex={next_start_index})")
