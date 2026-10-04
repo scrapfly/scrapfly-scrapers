@@ -13,7 +13,7 @@ from typing import List
 from urllib.parse import quote, urlencode
 
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -34,6 +34,16 @@ def create_search_payload(query_data: dict, page_number: int = None):
     return json.dumps(payload)
 
 
+def _load_search_api(result) -> dict:
+    """load a search API response, which is not JSON when zillow blocks or rejects the request"""
+    try:
+        return json.loads(result.content)
+    except json.JSONDecodeError:
+        message = f"zillow.com returned a search API response that is not JSON (status {result.upstream_status_code}), the request was likely blocked"
+        log.error(message)
+        raise Exception(message)
+
+
 async def scrape_search(url: str, max_scrape_pages: int=None) -> List[dict]:
     """base search function which is used by sale and rent search functions"""
     search_data = []
@@ -49,7 +59,7 @@ async def scrape_search(url: str, max_scrape_pages: int=None) -> List[dict]:
         ScrapeConfig(_backend_url, **BASE_CONFIG, headers={"content-type": "application/json"},
                       body=create_search_payload(query_data), method="PUT")
     )
-    data = json.loads(api_result.content)
+    data = _load_search_api(api_result)
     property_data = data["cat1"]["searchResults"]["listResults"]
     search_data.extend(property_data)
     _total_pages = data["cat1"]["searchList"]["totalPages"]
@@ -73,7 +83,11 @@ async def scrape_search(url: str, max_scrape_pages: int=None) -> List[dict]:
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
-        property_data = json.loads(result.content)["cat1"]["searchResults"]["listResults"]
+        # a failed request comes back as an error object, raise it instead of parsing it
+        if isinstance(result, ScrapflyError):
+            log.error(f"failed to scrape a search page: {result}")
+            raise result
+        property_data = _load_search_api(result)["cat1"]["searchResults"]["listResults"]
         search_data.extend(property_data)
 
     log.success(f"scraped {len(search_data)} properties from search pages")
@@ -85,6 +99,9 @@ async def scrape_properties(urls: List[str]):
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     results = []
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(result, ScrapflyError):
+            log.error(f"failed to scrape a property page: {result}")
+            raise result
         data = result.selector.css("script#__NEXT_DATA__::text").get()
         if data:
             # Option 1: some properties are located in NEXT DATA cache
@@ -94,6 +111,11 @@ async def scrape_properties(urls: List[str]):
         else:
             # Option 2: other times it's in Apollo cache
             data = result.selector.css("script#hdpApolloPreloadedData::text").get()
+            if not data:
+                # neither data script: zillow returned some other page, e.g. a block page
+                message = f"zillow.com returned a page without property data for {result.context['url']}, the request was likely blocked"
+                log.error(message)
+                raise Exception(message)
             data = json.loads(json.loads(data)["apiCache"])
             property_data = next(v["property"] for k, v in data.items() if "ForSale" in k)
         results.append(property_data)
