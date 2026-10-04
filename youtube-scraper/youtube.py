@@ -15,7 +15,7 @@ from jsonpath_ng.ext import parse
 from typing import Dict, List, Literal
 from urllib.parse import urlencode, quote, urlparse, parse_qs
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -150,7 +150,19 @@ def parse_video_details(response: ScrapeApiResponse) -> Dict:
     data = selector.xpath(
         "//script[contains(text(),'ytInitialPlayerResponse')]/text()"
     ).get()
-    return parse_script_variable(data, "ytInitialPlayerResponse").get("videoDetails")
+    player_response = parse_script_variable(data, "ytInitialPlayerResponse")
+    playability = player_response.get("playabilityStatus") or {}
+    # youtube sometimes answers with a bot check ("Sign in to confirm you're not a bot") instead of the video
+    if playability.get("status") == "LOGIN_REQUIRED":
+        reason = playability.get("reason") or ""
+        message = (
+            f"youtube.com blocked the request with its anti-bot check: {reason}"
+            if "not a bot" in reason
+            else f"youtube.com asked to sign in instead of returning the video: {reason}"
+        )
+        log.error(message)
+        raise Exception(message)
+    return player_response.get("videoDetails")
 
 
 def parse_video(response: ScrapeApiResponse) -> Dict:
@@ -217,7 +229,8 @@ async def scrape_video(ids: List[str]) -> List[Dict]:
     data = []
     to_scrape = [
         ScrapeConfig(
-            f"https://youtu.be/{video_id}",
+            # the youtu.be short link sometimes fails to resolve as www.youtu.be, use the page it redirects to
+            f"https://www.youtube.com/watch?v={video_id}",
             proxy_pool="public_residential_pool",
             **BASE_CONFIG,
             render_js=True,
@@ -229,6 +242,10 @@ async def scrape_video(ids: List[str]) -> List[Dict]:
     ]
     log.info(f"scraping {len(to_scrape)} video metadata from video pages")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        # a failed request comes back as an error object, raise it instead of parsing it
+        if isinstance(response, ScrapflyError):
+            log.error(f"failed to scrape a video page: {response}")
+            raise response
         post_data = parse_video(response)
         data.append(post_data)
     log.success(f"scraped {len(data)} video metadata from video pages")
