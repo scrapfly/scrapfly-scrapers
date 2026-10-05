@@ -41,7 +41,7 @@ answer_schema = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_scrape_answer():
-    result = await perplexity.scrape_answer("What is the best web scraping API in 2026?")
+    result = await perplexity.scrape_answer("What is web scraping")
     validator = Validator(answer_schema, allow_unknown=True)
     validate_or_fail(result, validator)
     assert len(result["answer_markdown"]) > 50
