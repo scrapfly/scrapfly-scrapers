@@ -246,7 +246,11 @@ def parse_category(response: ScrapeApiResponse) -> List[DigikeyCategoryResult]:
 
         image_obj = detail.get("image") or {}
         manufacturer_obj = compare.get("manufacturer")
-        manufacturer = manufacturer_obj.get("Name") if isinstance(manufacturer_obj, dict) else manufacturer_obj
+        # digikey renamed the key from "Name" to "name"
+        if isinstance(manufacturer_obj, dict):
+            manufacturer = manufacturer_obj.get("name") or manufacturer_obj.get("Name")
+        else:
+            manufacturer = manufacturer_obj
 
         results.append(DigikeyCategoryResult(
             name=detail.get("description"),
