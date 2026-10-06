@@ -105,7 +105,7 @@ search_schema = {
     "title": {"type": "string"},
     "description": {"type": "string", "nullable": True},
     "publishedTime": {"type": "string", "nullable": True},
-    "videoLength": {"type": "string"},
+    "videoLength": {"type": "string", "nullable": True},  # live streams have no length
     "viewCount": {"type": "string", "nullable": True},
     "videoBadges": {
         "type": "list",
