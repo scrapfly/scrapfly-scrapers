@@ -139,6 +139,7 @@ async def scrape_answer(prompt: str) -> PerplexityAnswer:
             url,
             method="POST",
             body=json.dumps({"params": params, "query_str": prompt}),
+            headers={"content-type": "application/json"},
             render_js=False,
             **BASE_CONFIG,
         )
