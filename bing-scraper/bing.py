@@ -8,7 +8,7 @@ import re
 import os
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 from typing import Dict, List
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse, parse_qs
 from loguru import logger as log
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -28,10 +28,8 @@ def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
     """parse SERPs from bing search pages"""
     selector = response.selector
     data = []
-    if "first" not in response.context["url"]:
-        position = 0
-    else:
-        position = int(response.context["url"].split("first=")[-1])
+    # the "first" URL parameter is the result offset; bing can add more parameters after it
+    position = int(parse_qs(urlparse(response.context["url"]).query).get("first", ["0"])[0])
     for result in selector.xpath("//li[@class='b_algo']"):
         url = result.xpath(".//h2/a/@href").get()
         description = result.xpath("normalize-space(.//div/p)").extract_first()
