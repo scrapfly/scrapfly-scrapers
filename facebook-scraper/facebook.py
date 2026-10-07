@@ -17,8 +17,9 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 
 JS = [
-    {"wait_for_selector": {"selector": "div[aria-label='Close']", "timeout": 3000}},
-    {"click": {"selector": "div[aria-label='Close']"}},
+    # close the login dialog; facebook does not show it on every page, so both steps are skipped when it is missing
+    {"wait_for_selector": {"selector": "div[aria-label='Close']", "timeout": 3000, "ignore": True}},
+    {"click": {"selector": "div[aria-label='Close']", "ignore_if_not_visible": True}},
     {"wait": 500},
     {"scroll": {"selector": "bottom"}},
 ]
@@ -183,19 +184,24 @@ def parse_event(response: ScrapeApiResponse) -> List[Dict]:
         except (json.JSONDecodeError, Exception):
             continue
 
-    parsed_events = []
+    # the same event can appear several times in the page (a full copy or short copies), keep its most complete copy
+    events_by_id = {}
     for event in all_events:
-        event_place = event.get("event_place", {})
-        location = (
-            event_place.get("contextual_name", "")
-            if event_place
-            else ("Online Event" if event.get("is_online") else "")
-        )
+        known = events_by_id.get(event.get("id"))
+        if known is None or len(event) > len(known):
+            events_by_id[event.get("id")] = event
+
+    parsed_events = []
+    for event in events_by_id.values():
+        event_place = event.get("event_place") or {}
+        # online events have no place name (event pages give them an empty "Online event" place)
+        location = event_place.get("contextual_name") or ("Online Event" if event.get("is_online") else "")
 
         parsed_event = {
             "id": event.get("id"),
             "title": event.get("name"),
-            "date": event.get("day_time_sentence"),
+            # event pages keep the short date in start_time_formatted, search results in day_time_sentence
+            "date": event.get("start_time_formatted") or event.get("day_time_sentence"),
             "location": location,
             "url": event.get("url") or event.get("eventUrl"),
             "start_timestamp": event.get("start_timestamp"),
@@ -208,9 +214,10 @@ def parse_event(response: ScrapeApiResponse) -> List[Dict]:
 
         if event_place:
             parsed_event["location_details"] = {"name": event_place.get("contextual_name"), "id": event_place.get("id")}
-        if photo := (event.get("cover_photo") or {}).get("photo"):
+        cover = event.get("cover_photo") or (event.get("cover_media_renderer") or {}).get("cover_photo") or {}
+        if photo := cover.get("photo"):
             parsed_event["cover_photo"] = {
-                "url": (photo.get("eventImage") or {}).get("uri"),
+                "url": (photo.get("eventImage") or photo.get("full_image") or {}).get("uri"),
                 "accessibility_caption": photo.get("accessibility_caption"),
                 "id": photo.get("id"),
             }
@@ -239,6 +246,26 @@ async def scrape_facebook_events(event_name: str = "New York, NY") -> List[Dict]
 
     # Parse events from the response
     events = parse_event(result)
+
+    # facebook does not always send the event details (date, place) with the search results,
+    # in that case they are read from each event's own page
+    missing = {event["id"]: event for event in events if not event["date"] and event["url"]}
+    if missing:
+        log.info(f"scraping {len(missing)} event pages for details missing from the search results")
+        to_scrape = [ScrapeConfig(event["url"], **BASE_CONFIG) for event in missing.values()]
+        async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+            if not isinstance(response, ScrapeApiResponse):
+                continue
+            # repeating events open on the page of their next date: /events/<event id>/<date id>/
+            ids = re.search(r"/events/(\d+)/(?:(\d+)/)?", response.scrape_result["url"])
+            if not ids or ids.group(1) not in missing:
+                continue
+            page_id = ids.group(2) or ids.group(1)
+            details = next((item for item in parse_event(response) if item["id"] == page_id and item["date"]), None)
+            if details:
+                # keep the id and link of the search result, take the other details from the event page
+                details.pop("id"), details.pop("url")
+                missing[ids.group(1)].update(details)
 
     log.success(f"scraped {len(events)} events from {event_name}")
     return events

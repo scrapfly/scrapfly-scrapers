@@ -155,7 +155,9 @@ async def test_marketplace_scraping():
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_events_scraping():
     """Test scraping Facebook Events"""
-    events_data = await facebook.scrape_facebook_events(event_name="New York, NY")
+    # "concert" returned events in every load we tried; a city like "New York, NY" sometimes gets
+    # facebook's "We didn't find any results" page
+    events_data = await facebook.scrape_facebook_events(event_name="concert")
     validator = Validator(event_schema, allow_unknown=True)
     for item in events_data:
         assert validator.validate(item), {"item": item, "errors": validator.errors}
