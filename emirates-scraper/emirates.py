@@ -10,9 +10,15 @@ import os
 from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, TypedDict
+from urllib.parse import urlparse
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
+from scrapfly import (
+    ScrapeApiResponse,
+    ScrapeConfig,
+    ScrapflyClient,
+    ScrapflyScrapeError,
+)
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -94,9 +100,10 @@ def _fill_airport(field: str, code: str) -> list:
     ]
 
 
-def _select_date(date_iso: str, picker: str) -> list:
-    return [
-        {"click": {"selector": picker, "timeout": 5000}},
+def _select_date(date_iso: str, picker: str = "") -> list:
+    """open the calendar with the picker field (when given) and click the date"""
+    open_calendar = [{"click": {"selector": picker, "timeout": 5000}}] if picker else []
+    return open_calendar + [
         {"wait": 1000},
         {"execute": {"script": _date_click_script(date_iso)}},
     ]
@@ -127,7 +134,9 @@ def _build_search_scenario(
 
     if return_date:
         scenario += _select_date(departure_date, "#startDate")
-        scenario += _select_date(return_date, "#endDate")
+        # after the departure date the calendar moves on to the return date by itself,
+        # so the return day is picked without clicking the return field
+        scenario += _select_date(return_date)
     else:
         scenario += _select_date(departure_date, "#date-input0, #startDate")
 
@@ -163,8 +172,19 @@ def parse_branded_fares(response: ScrapeApiResponse) -> dict:
     """Parse branded-fares API response from captured XHR calls."""
     _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
     for xhr in _xhr_calls:
-        if "search-results/branded-fares" not in xhr.get("url", "") or not xhr.get("response"):
+        url = urlparse(xhr.get("url", ""))
+        # the full search results come from the call without query parameters,
+        # calls with parameters (leg, pageNumber, ...) only load a part of them
+        if not url.path.endswith("search-results/branded-fares") or url.query or not xhr.get("response"):
             continue
+        status = xhr["response"].get("status")
+        if status != 200:
+            # emirates can answer the results request with a redirect to its access restricted page
+            if "accessrestricted" in ((xhr["response"].get("headers") or {}).get("location") or ""):
+                raise ValueError("emirates.com redirected the flight results request to its access restricted page")
+            raise ValueError(
+                f"emirates.com answered the branded-fares search results with status {status} instead of flight data"
+            )
         return json.loads(xhr["response"]["body"])
     raise ValueError("branded-fares xhr call not found")
 
@@ -242,13 +262,21 @@ async def scrape_flights(
     locale: str = "us/english",
 ) -> FlightSearch:
     """Scrape flights from emirates.com"""
-    response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            f"https://www.emirates.com/{locale}/book/",
-            **BASE_CONFIG,
-            js_scenario=_build_search_scenario(origin, destination, departure_date, return_date),
+    try:
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(
+                f"https://www.emirates.com/{locale}/book/",
+                **BASE_CONFIG,
+                js_scenario=_build_search_scenario(origin, destination, departure_date, return_date),
+            )
         )
-    )
+    except ScrapflyScrapeError as e:
+        # emirates can send the browser to its access restricted page during the search,
+        # the next scenario step then fails because the search form is gone
+        result = (e.api_response.scrape_result if e.api_response else None) or {}
+        if "accessrestricted" in (result.get("url") or ""):
+            raise ValueError("emirates.com redirected the search to its access restricted page") from e
+        raise
     data = parse_branded_fares(response)
     return FlightSearch(
         locale=locale,
