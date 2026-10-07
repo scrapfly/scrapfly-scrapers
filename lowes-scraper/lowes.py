@@ -8,7 +8,7 @@ import json
 import os
 import re
 from typing import Dict, List, Optional, TypedDict
-from urllib.parse import quote_plus, urlencode
+from urllib.parse import quote_plus, urlencode, urljoin
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
@@ -70,8 +70,8 @@ def _store_search_url(search_term: str, max_results: int = 10) -> str:
 
 def _state(response: ScrapeApiResponse) -> Dict:
     """get page state from __PRELOADED_STATE__ or __NEXT_DATA__"""
-    script = response.selector.xpath("//script[contains(text(),'__PRELOADED_STATE__')]/text()").get()
-    if script:
+    # other scripts (like an inlined JS bundle) can mention __PRELOADED_STATE__ too, use the one that assigns it
+    for script in response.selector.xpath("//script[contains(text(),'__PRELOADED_STATE__')]/text()").getall():
         match = re.search(r"__PRELOADED_STATE__['\"]\s*\]\s*=\s*(\{.*\})", script, re.DOTALL)
         if match:
             return json.loads(match.group(1))
@@ -130,6 +130,7 @@ async def scrape_products(urls: List[str]) -> List[LowesProduct]:
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         if not isinstance(response, ScrapeApiResponse):
+            log.warning(f"skipped a product page that failed: {response}")
             continue
         try:
             log.info("scraping product {}", response.context["url"])
@@ -184,17 +185,26 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[LowesSearchResul
 
     log.info(f"scraping the first search page for '{query}'")
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
+    # a broad search can land on a category page without products, it links its own product list
+    category_list = _state(first_page).get("catPageRedirectUrl")
+    if category_list:
+        log.info(f"lowes.com answered with a category page, scraping its product list {category_list}")
+        first_page = await SCRAPFLY.async_scrape(ScrapeConfig(urljoin(base_url, category_list), **BASE_CONFIG))
+    # lowes can also redirect a search to a product list page, so the next pages use the url it landed on
+    list_url = first_page.scrape_result["url"]
+    separator = "&" if "?" in list_url else "?"
     data = parse_search(first_page)
     results = data["data"]
     total_pages = min(data["total_pages"], max_pages)
 
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
     to_scrape = [
-        ScrapeConfig(f"{base_url}&offset={data['page_size'] * (page - 1)}", **BASE_CONFIG)
+        ScrapeConfig(f"{list_url}{separator}offset={data['page_size'] * (page - 1)}", **BASE_CONFIG)
         for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         if not isinstance(result, ScrapeApiResponse):
+            log.warning(f"skipped a search page that failed: {result}")
             continue
         try:
             results.extend(parse_search(result)["data"])
@@ -207,8 +217,12 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[LowesSearchResul
 
 
 def parse_store_locations(response: ScrapeApiResponse) -> List[LowesStoreLocation]:
+    content = response.content
+    # an answer loaded in a browser shows the JSON inside a <pre> element
+    if content.lstrip().startswith("<"):
+        content = response.selector.css("pre::text").get() or ""
     try:
-        data = json.loads(response.content)
+        data = json.loads(content)
     except json.JSONDecodeError:
         return []
     locations = []
