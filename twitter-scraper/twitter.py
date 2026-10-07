@@ -47,14 +47,16 @@ def parse_count(text: Optional[str]) -> Optional[int]:
 
 
 def inline_icons(html: str) -> str:
-    """x.com draws icons from one shared <symbol> sprite and buttons and badges only <use href="#id"> them,
-    copy each symbol's data-icon name onto its <use> tags so icon lookups find them next to counts and names"""
+    """x.com buttons and badges can draw their icon with <use href="#id">, where the id is the icon name itself
+    (#icon-reply-stroke) or a <symbol> of a shared sprite; copy the icon name onto the <use> tags so icon lookups
+    find them next to counts and names"""
     sprite = dict(re.findall(r'<symbol id="([^"]+)"[^>]*>\s*<svg[^>]*?data-icon="([^"]+)"', html))
-    return re.sub(
-        r'<use href="#([^"]+)"',
-        lambda m: f'<use href="#{m.group(1)}" data-icon="{sprite[m.group(1)]}"' if m.group(1) in sprite else m.group(0),
-        html,
-    )
+
+    def add_name(match):
+        icon = sprite.get(match.group(1)) or (match.group(1) if match.group(1).startswith("icon-") else None)
+        return f'{match.group(0)} data-icon="{icon}"' if icon else match.group(0)
+
+    return re.sub(r'<use href="#([^"]+)"', add_name, html)
 
 
 def icon_count(html: str, icon: str) -> Optional[int]:
