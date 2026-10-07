@@ -25,7 +25,7 @@ JS = [
 ]
 BASE_CONFIG = {
     # bypass facebook.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     "render_js": True,
