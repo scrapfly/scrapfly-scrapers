@@ -17,9 +17,9 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    # X.com (Twitter) requires Anti Scraping Protection bypass feature.
-    # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    # X.com (Twitter) requires the Unblocker (anti-bot bypass) feature.
+    # for more: https://scrapfly.io/docs/scrape-api/unblocker
+    "unblocker": True,
     "render_js": True,
     "auto_scroll": True,
     "rendering_wait": 2000,
@@ -44,6 +44,19 @@ def parse_count(text: Optional[str]) -> Optional[int]:
         return None
     mult = {"K": 1_000, "M": 1_000_000, "B": 1_000_000_000}.get((match.group(2) or "").upper(), 1)
     return int(float(match.group(1)) * mult)
+
+
+def inline_icons(html: str) -> str:
+    """x.com buttons and badges can draw their icon with <use href="#id">, where the id is the icon name itself
+    (#icon-reply-stroke) or a <symbol> of a shared sprite; copy the icon name onto the <use> tags so icon lookups
+    find them next to counts and names"""
+    sprite = dict(re.findall(r'<symbol id="([^"]+)"[^>]*>\s*<svg[^>]*?data-icon="([^"]+)"', html))
+
+    def add_name(match):
+        icon = sprite.get(match.group(1)) or (match.group(1) if match.group(1).startswith("icon-") else None)
+        return f'{match.group(0)} data-icon="{icon}"' if icon else match.group(0)
+
+    return re.sub(r'<use href="#([^"]+)"', add_name, html)
 
 
 def icon_count(html: str, icon: str) -> Optional[int]:
@@ -136,7 +149,7 @@ def unique(pattern: str, text: str) -> List[str]:
 
 def parse_tweet(response: ScrapeApiResponse) -> Dict:
     """parse a rendered tweet/status page"""
-    html = response.scrape_result["content"]
+    html = inline_icons(response.scrape_result["content"])
     sel = response.selector
 
     url = meta(sel, prop="og:url")
@@ -176,7 +189,7 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
 
 def parse_profile(response: ScrapeApiResponse) -> Dict:
     """parse a rendered profile page"""
-    html = response.scrape_result["content"]
+    html = inline_icons(response.scrape_result["content"])
     sel = response.selector
 
     rest_id = re.search(r"profile_banners/(\d+)/", html)
