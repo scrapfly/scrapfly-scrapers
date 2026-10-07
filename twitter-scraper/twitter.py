@@ -17,9 +17,9 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    # X.com (Twitter) requires Anti Scraping Protection bypass feature.
-    # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    # X.com (Twitter) requires the Unblocker (anti-bot bypass) feature.
+    # for more: https://scrapfly.io/docs/scrape-api/unblocker
+    "unblocker": True,
     "render_js": True,
     "auto_scroll": True,
     "rendering_wait": 2000,
