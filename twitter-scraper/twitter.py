@@ -46,6 +46,17 @@ def parse_count(text: Optional[str]) -> Optional[int]:
     return int(float(match.group(1)) * mult)
 
 
+def inline_icons(html: str) -> str:
+    """x.com draws icons from one shared <symbol> sprite and buttons and badges only <use href="#id"> them,
+    copy each symbol's data-icon name onto its <use> tags so icon lookups find them next to counts and names"""
+    sprite = dict(re.findall(r'<symbol id="([^"]+)"[^>]*>\s*<svg[^>]*?data-icon="([^"]+)"', html))
+    return re.sub(
+        r'<use href="#([^"]+)"',
+        lambda m: f'<use href="#{m.group(1)}" data-icon="{sprite[m.group(1)]}"' if m.group(1) in sprite else m.group(0),
+        html,
+    )
+
+
 def icon_count(html: str, icon: str) -> Optional[int]:
     """read a count next to a stable icon (locale-independent)"""
     start = html.find(f'data-icon="icon-{icon}"')
@@ -136,7 +147,7 @@ def unique(pattern: str, text: str) -> List[str]:
 
 def parse_tweet(response: ScrapeApiResponse) -> Dict:
     """parse a rendered tweet/status page"""
-    html = response.scrape_result["content"]
+    html = inline_icons(response.scrape_result["content"])
     sel = response.selector
 
     url = meta(sel, prop="og:url")
@@ -176,7 +187,7 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
 
 def parse_profile(response: ScrapeApiResponse) -> Dict:
     """parse a rendered profile page"""
-    html = response.scrape_result["content"]
+    html = inline_icons(response.scrape_result["content"])
     sel = response.selector
 
     rest_id = re.search(r"profile_banners/(\d+)/", html)
