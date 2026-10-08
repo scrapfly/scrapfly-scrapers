@@ -91,8 +91,14 @@ async def scrape_keywords(query: str):
     """scrape bing search pages for keyword data"""
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
     log.info("scraping Bing search for keyword data")
-    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True))
+    # bing sends a lighter page without the related searches box to Linux browsers,
+    # so the browser presents itself as Windows
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG, render_js=True, os="win11"))
     keyword_data = parse_keywords(response)
+    if not keyword_data:
+        # bing does not show the related searches box for every query
+        log.warning(f"bing.com showed no related searches for '{query}' on this page load")
+        return keyword_data
     log.success(
         f"scraped {len(keyword_data)} keywords from Bing search"
     )

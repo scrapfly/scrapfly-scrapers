@@ -64,7 +64,9 @@ async def test_serp_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_keyword_scraping():
-    keyword_data = await bing.scrape_keywords(query="web scraping emails")
+    # bing shows the related searches box for "web scraping api" on every load we tried,
+    # for "web scraping emails" only on a few
+    keyword_data = await bing.scrape_keywords(query="web scraping api")
     assert len(keyword_data) >= 1
     if os.getenv("SAVE_TEST_RESULTS") == "true":
         (Path(__file__).parent / 'results/keywords.json').write_text(json.dumps(keyword_data, indent=2, ensure_ascii=False))
