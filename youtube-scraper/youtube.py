@@ -20,7 +20,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyEr
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "US",
 }
 
