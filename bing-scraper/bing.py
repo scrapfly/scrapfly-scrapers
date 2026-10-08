@@ -15,7 +15,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass Bing web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the poxy location to US to get the result in English
     "country": "GB",
     "proxy_pool": "public_residential_pool",
