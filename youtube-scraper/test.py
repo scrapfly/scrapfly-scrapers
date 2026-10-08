@@ -151,6 +151,13 @@ shorts_schema = {
     "isLiveContent": {"type": "boolean"},
 }
 
+transcript_schema = {
+    "videoId": {"type": "string", "minlength": 5},
+    "startMs": {"type": "integer", "min": 0},
+    "endMs": {"type": "integer", "min": 0},
+    "text": {"type": "string"},
+}
+
 video_schema = {
     "video": {
         "type": "dict",
@@ -288,3 +295,16 @@ async def test_shorts_scraping():
     validator = Validator(shorts_schema, allow_unknown=True)
     for i in shorts_data:
         validate_or_fail(i, validator)
+
+
+@pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
+async def test_transcript_scraping():
+    # youtube shows these two videos' transcripts in its older and in its newer transcript panel
+    video_ids = ["x7X9w_GIm1s", "NbXDe_AvRXw"]
+    transcript_data = await youtube.scrape_transcript(video_ids=video_ids)
+    validator = Validator(transcript_schema, allow_unknown=True)
+    for i in transcript_data:
+        validate_or_fail(i, validator)
+    for video_id in video_ids:
+        assert len([i for i in transcript_data if i["videoId"] == video_id]) > 20
