@@ -20,9 +20,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyEr
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    # bypass youtube.com web scraping blocking
     "asp": True,
-    # set the proxy country to US
     "country": "US",
 }
 
@@ -588,4 +586,144 @@ async def scrape_shorts(ids: List[str]) -> List[Dict]:
         post_data["thumbnail"] = post_data["thumbnail"]["thumbnails"]
         data.append(post_data)
     log.success(f"scraped {len(data)} video metadata from short pages")
+    return data
+
+
+def find_value(data, key: str):
+    """first value of a key anywhere in nested dicts and lists"""
+    if isinstance(data, dict):
+        if key in data:
+            return data[key]
+        data = list(data.values())
+    if isinstance(data, list):
+        for value in data:
+            found = find_value(value, key)
+            if found is not None:
+                return found
+    return None
+
+
+def find_transcript_items(data, found: Dict) -> Dict:
+    """collect the transcript items of both transcript panels from a YouTube API answer"""
+    if isinstance(data, dict):
+        for key in ("transcriptSegmentRenderer", "macroMarkersPanelItemViewModel"):
+            if key in data:
+                found[key].append(data[key])
+        for value in data.values():
+            find_transcript_items(value, found)
+    elif isinstance(data, list):
+        for value in data:
+            find_transcript_items(value, found)
+    return found
+
+
+def parse_transcript(response: ScrapeApiResponse) -> List[Dict]:
+    """parse transcript segments from YouTube's own transcript call captured by the browser"""
+    video_id = parse_qs(urlparse(response.context["url"]).query)["v"][0]
+    answers = []  # status of each transcript answer, for the message when none has segments
+    for xhr in response.scrape_result["browser_data"]["xhr_call"]:
+        url = xhr.get("url", "")
+        if not xhr.get("response") or not ("youtubei/v1/get_transcript" in url or "youtubei/v1/get_panel" in url):
+            continue
+        answers.append(xhr["response"].get("status"))
+        if xhr["response"].get("status") != 200:
+            continue
+        empty = {"transcriptSegmentRenderer": [], "macroMarkersPanelItemViewModel": []}
+        found = find_transcript_items(json.loads(xhr["response"]["body"]), empty)
+        # older transcript panel (get_transcript): every line has its start and end in milliseconds
+        if found["transcriptSegmentRenderer"]:
+            return [
+                {
+                    "videoId": video_id,
+                    "startMs": int(segment["startMs"]),
+                    "endMs": int(segment["endMs"]),
+                    "text": "".join(run.get("text", "") for run in segment["snippet"].get("runs", [])),
+                }
+                for segment in found["transcriptSegmentRenderer"]
+            ]
+        # newer transcript panel (get_panel): every line only has its start in whole seconds,
+        # so a line ends where the next one starts and the last one at the end of the video
+        lines = []
+        for marker in found["macroMarkersPanelItemViewModel"]:
+            items = marker.get("item", {}).get("timelineItemViewModel", {}).get("contentItems", [])
+            # chapter markers and empty lines have no transcript text
+            segments = [i["transcriptSegmentViewModel"] for i in items if "transcriptSegmentViewModel" in i]
+            texts = [segment["simpleText"] for segment in segments if segment.get("simpleText")]
+            seconds = find_value(marker.get("onTap", {}), "startTimeSeconds")
+            if texts and seconds is not None:
+                lines.append((int(float(seconds) * 1000), " ".join(texts)))
+        if lines:
+            video_end = int(parse_video_details(response).get("lengthSeconds") or 0) * 1000
+            return [
+                {
+                    "videoId": video_id,
+                    "startMs": start,
+                    "endMs": lines[n + 1][0] if n + 1 < len(lines) else max(video_end, start),
+                    "text": text,
+                }
+                for n, (start, text) in enumerate(lines)
+            ]
+    if not answers:
+        # videos without a transcript have no "Show transcript" button, so the page never asks for one
+        log.warning(
+            f"the page of video {video_id} sent no transcript request (no transcript, or the panel did not open)"
+        )
+    elif all(status != 200 for status in answers):
+        log.warning(f"youtube.com answered the transcript request of video {video_id} with status {answers[-1]}")
+    else:
+        log.warning(f"youtube.com answered the transcript request of video {video_id} without segments")
+    return []
+
+
+async def scrape_transcript(video_ids: List[str]) -> List[Dict]:
+    """scrape transcript segments (start and end time in milliseconds and text) of YouTube videos"""
+    transcript_button = "ytd-video-description-transcript-section-renderer button"
+    # a transcript line in the older and in the newer transcript panel
+    transcript_line = "ytd-transcript-segment-renderer, transcript-segment-view-model"
+    click_button = f"document.querySelector('{transcript_button}')?.click();"
+    # language menu of the transcript panel ("English (auto-generated)" etc.)
+    menu = (
+        "ytd-engagement-panel-section-list-renderer[target-id='engagement-panel-searchable-transcript'] "
+        "yt-sort-filter-sub-menu-renderer"
+    )
+    no_line = f"!document.querySelector('{transcript_line}')"
+    to_scrape = [
+        ScrapeConfig(
+            f"https://www.youtube.com/watch?v={video_id}",
+            proxy_pool="public_residential_pool",
+            **BASE_CONFIG,
+            render_js=True,
+            # open the transcript panel, the page then loads the transcript with its get_transcript call.
+            # the button is clicked from javascript: a browser click is skipped when the button is off screen.
+            # the steps do nothing for videos without a transcript (no "Show transcript" button)
+            js_scenario=[
+                {"wait_for_selector": {"selector": transcript_button, "timeout": 10000, "ignore": True}},
+                {"execute": {"script": click_button}},
+                {"wait_for_selector": {"selector": transcript_line, "timeout": 10000, "ignore": True}},
+                # when no transcript line was loaded:
+                # - the page sometimes asks for a caption language the video does not have and gets no lines,
+                #   so pick the video's own language from the panel's language menu
+                # - a click right after the page loaded sometimes does not open the panel, so click once more
+                {
+                    "execute": {
+                        "script": f'if ({no_line}) {{ var label = document.querySelector("{menu} #label"); '
+                        f"if (label) {{ label.click(); }} else {{ {click_button} }} }}"
+                    }
+                },
+                {"wait": 1000},
+                {"execute": {"script": f'if ({no_line}) {{ document.querySelector("{menu} #menu a")?.click(); }}'}},
+                {"wait_for_selector": {"selector": transcript_line, "timeout": 10000, "ignore": True}},
+            ],
+        )
+        for video_id in video_ids
+    ]
+    data = []
+    log.info(f"scraping transcripts of {len(to_scrape)} videos")
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        # a failed request comes back as an error object, raise it instead of parsing it
+        if isinstance(response, ScrapflyError):
+            log.error(f"failed to scrape a video page: {response}")
+            raise response
+        data.extend(parse_transcript(response))
+    log.success(f"scraped {len(data)} transcript segments from {len(video_ids)} videos")
     return data

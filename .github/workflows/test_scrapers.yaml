@@ -184,6 +184,8 @@ jobs:
             test: test_search_scraping
           - project_dir: youtube-scraper
             test: test_shorts_scraping
+          - project_dir: youtube-scraper
+            test: test_transcript_scraping
           - project_dir: immoscout24-scraper
             test: test_search_scraping
           - project_dir: immoscout24-scraper

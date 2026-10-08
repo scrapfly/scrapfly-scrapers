@@ -70,6 +70,14 @@ async def run():
     with open(output.joinpath("shorts.json"), "w", encoding="utf-8") as file:
         json.dump(shorts_data, file, indent=2, ensure_ascii=False)
 
+    transcript_data = await youtube.scrape_transcript(
+        video_ids=[
+            "x7X9w_GIm1s"
+        ]
+    )
+    with open(output.joinpath("transcripts.json"), "w", encoding="utf-8") as file:
+        json.dump(transcript_data, file, indent=2, ensure_ascii=False)
+
 
 if __name__ == "__main__":
     asyncio.run(run())
