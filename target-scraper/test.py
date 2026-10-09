@@ -70,6 +70,8 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)
+    # a search page lists about 20 products, an empty or broken page must fail the test
+    assert len(search_data) >= 10
 
 
 @pytest.mark.asyncio
