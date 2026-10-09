@@ -572,16 +572,25 @@ async def scrape_shorts(ids: List[str]) -> List[Dict]:
     """scrape metadata from YouTube shorts"""
     to_scrape = [
         ScrapeConfig(
-            f"https://youtu.be/{short_id}",
+            # the youtu.be short link redirects to the watch page, request it directly like scrape_video
+            f"https://www.youtube.com/watch?v={short_id}",
             proxy_pool="public_residential_pool",
             render_js=True,
             **BASE_CONFIG,
+            # the page is sometimes returned as an empty app shell, wait for the video metadata
+            # to make sure the data scripts are rendered; the wait is optional because the
+            # metadata box sometimes renders late while the data scripts are already there
+            js_scenario=[{"wait_for_selector": {"selector": "//ytd-watch-metadata", "timeout": 15000, "ignore": True}}],
         )
         for short_id in ids
     ]
     data = []
     log.info(f"scraping {len(to_scrape)} short video metadata from video pages")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        # a failed request comes back as an error object, raise it instead of parsing it
+        if isinstance(response, ScrapflyError):
+            log.error(f"failed to scrape a short video page: {response}")
+            raise response
         post_data = parse_video_details(response)
         post_data["thumbnail"] = post_data["thumbnail"]["thumbnails"]
         data.append(post_data)
