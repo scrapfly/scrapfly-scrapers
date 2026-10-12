@@ -181,8 +181,14 @@ def parse_property(response: ScrapeApiResponse) -> AirbnbProperty:
     sections = pdp_data["data"]["presentation"]["stayProductDetailPage"]["sections"]
     sharing = sections["metadata"]["sharingConfig"]
 
-    title = pdp["title"]["content"]["localizedString"]
-    description = pdp["descriptions"]["longDescriptionHtml"]["localizedString"]
+    # homes carry {"content": {"localizedString": ...}}, hotel listings a plain {"text": ...}
+    title = pdp["title"]["content"]["localizedString"] if "content" in pdp["title"] else pdp["title"]["text"]
+    descriptions = pdp["descriptions"]
+    if descriptions.get("longDescriptionHtml"):
+        description = descriptions["longDescriptionHtml"]["localizedString"]
+    else:
+        # hotel listings have no long description, only a short one
+        description = descriptions["shortDescriptionHtml"]["content"]["localizedString"]
     overview = pdp["overview"]["items"]
     room_type = sharing["propertyType"]
     person_capacity = pdp["personCapacity"]
@@ -232,6 +238,9 @@ def parse_property(response: ScrapeApiResponse) -> AirbnbProperty:
         elif kind == "BOOK_IT_SIDEBAR":
             display_price = data.get("structuredDisplayPrice") or {}
             line = display_price.get("primaryLine") or {}
+            # hotel listings split the line into parts, e.g. "From", "$771", "for 3 nights"
+            for part in line.get("orderedComponents") or []:
+                line = {**line, **part}
             # per-night lines carry "price"; discounted total lines carry "discountedPrice"
             price = line.get("price") or line.get("discountedPrice")
             qualifier = line.get("qualifier") or ""
