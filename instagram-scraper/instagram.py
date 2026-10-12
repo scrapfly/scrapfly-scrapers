@@ -343,6 +343,20 @@ async def scrape_post_comments(url: str):
 
     comments = []
     seen_ids = set()
+
+    # the first comments are embedded in the page itself, the next ones are loaded while scrolling
+    has_more = None
+    page_data = result.selector.xpath("//script[contains(text(),'comments_connection')]/text()").get()
+    if page_data:
+        connections = nested_lookup("comments_connection", json.loads(page_data))
+        if connections:
+            has_more = (connections[0].get("page_info") or {}).get("has_next_page")
+            for edge in connections[0].get("edges") or []:
+                comment = parse_post_comment(edge["node"])
+                if comment["id"] not in seen_ids:
+                    seen_ids.add(comment["id"])
+                    comments.append(comment)
+
     xhr_calls = result.scrape_result.get("browser_data", {}).get("xhr_call") or []
     for xhr in xhr_calls:
         body = (xhr.get("response") or {}).get("body")
@@ -363,5 +377,8 @@ async def scrape_post_comments(url: str):
             seen_ids.add(node["id"])
             comments.append(parse_post_comment(node))
 
+    if has_more is False:
+        # instagram sometimes marks the first comments as the only ones, so the page loads no more
+        log.warning("instagram.com returned only {} comments and no more to load for {}", len(comments), url)
     log.success("scraped {} comments", len(comments))
     return comments
