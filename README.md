@@ -27,7 +27,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./airfrance-scraper/">Air France</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-air-france-flights">How to Scrape Air France Flights with Python (2026)</a></td>
     <td>
     <ul>
         <li><a href="./airfrance-scraper/results/roundtrip.json">Roundtrip</a></li>
@@ -38,7 +38,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./airbnb-scraper/">Airbnb.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-airbnb">How to Scrape Airbnb Listings and Prices (2026)</a></td>
     <td>
     <ul>
         <li><a href="./airbnb-scraper/results/property.json">Property</a></li>
@@ -152,7 +152,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./capterra-scraper/">Capterra.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-capterra">How to Scrape Capterra Software Reviews and Listings (2026)</a></td>
     <td>
     <ul>
         <li><a href="./capterra-scraper/results/category.json">Category</a></li>
@@ -164,7 +164,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./chatgpt-scraper/">ChatGPT.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-chatgpt">How to Scrape ChatGPT in 2026</a></td>
     <td>
     <ul>
         <li><a href="./chatgpt-scraper/results/conversations.json">Conversations</a></li>
@@ -187,7 +187,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./dhl-scraper/">DHL</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-dhl">How to Scrape DHL Parcel Tracking Data in 2026</a></td>
     <td>
     <ul>
         <li><a href="./dhl-scraper/results/tracking.json">Tracking</a></li>
@@ -198,7 +198,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./digikey-scraper/">DigiKey.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-digikey">How to Scrape DigiKey Pricing, Stock, and Specs in 2026</a></td>
     <td>
     <ul>
         <li><a href="./digikey-scraper/results/category.json">Category</a></li>
@@ -236,7 +236,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./emirates-scraper/">Emirates</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-emirates-flights">How to Scrape Emirates Flights with Python (2026)</a></td>
     <td>
     <ul>
         <li><a href="./emirates-scraper/results/oneway.json">Oneway</a></li>
@@ -338,7 +338,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./goibibo-scraper/">Goibibo</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
     <td>
     <ul>
         <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
@@ -350,7 +350,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./goodreads-scraper/">Goodreads.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goodreads">How to Scrape Goodreads for Book Data, Ratings, and Reviews</a></td>
     <td>
     <ul>
         <li><a href="./goodreads-scraper/results/book.json">Book pages</a></li>
@@ -377,7 +377,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./google-jobs-scraper/">Google Jobs</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google-jobs">How to Scrape Google Jobs in 2026</a></td>
     <td>
     <ul>
         <li><a href="./google-jobs-scraper/results/search.json">Search</a></li>
@@ -388,7 +388,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./google-play-scraper/">Google Play</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google-play-app-reviews-and-data">How to Scrape Google Play App Reviews and Data</a></td>
     <td>
     <ul>
         <li><a href="./google-play-scraper/results/app.json">App</a></li>
@@ -456,7 +456,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./imdb-scraper/">IMDb.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
     <ul>
         <li><a href="./imdb-scraper/results/chart.json">Chart</a></li>
@@ -546,7 +546,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./kayak-scraper/">Kayak</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-kayak">How to Scrape Kayak Flight Prices in 2026</a></td>
     <td>
     <ul>
         <li><a href="./kayak-scraper/results/oneway.json">Oneway</a></li>
@@ -597,7 +597,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./lowes-scraper/">Lowes.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-lowe">How to Scrape Lowe's Product and Pricing Data in 2026</a></td>
     <td>
     <ul>
         <li><a href="./lowes-scraper/results/products.json">Products</a></li>
@@ -610,7 +610,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./maersk-scraper/">Maersk</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-maersk">How to Scrape Maersk Shipping Data in 2026</a></td>
     <td>
     <ul>
         <li><a href="./maersk-scraper/results/schedule.json">Schedule</a></li>
@@ -622,7 +622,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./marriott-scraper/">Marriott.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-marriott">Scraping Marriott Hotel Prices and Availability (2026)</a></td>
     <td>
     <ul>
         <li><a href="./marriott-scraper/results/hotel.json">Hotel</a></li>
@@ -672,7 +672,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./perplexity-scraper/">Perplexity.ai</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
     <td>
     <ul>
         <li><a href="./perplexity-scraper/results/answer.json">Answer</a></li>
@@ -683,7 +683,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./pinterest-scraper/">Pinterest.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-pinterest">How to Scrape Pinterest in 2026</a></td>
     <td>
     <ul>
         <li><a href="./pinterest-scraper/results/board.json">Board</a></li>
@@ -762,7 +762,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./rs-online-scraper/">Rs-online.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
     <td>
     <ul>
         <li><a href="./rs-online-scraper/results/category.json">Category</a></li>
@@ -816,7 +816,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./skyscanner-scraper/">Skyscanner</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
     <td>
     <ul>
         <li><a href="./skyscanner-scraper/results/oneway.json">Oneway</a></li>
@@ -840,7 +840,7 @@ Below is the list of available web scrapers for the supported domains along with
 
   <tr>
     <td><a href="./target-scraper/">Target.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-target-com">How to Scrape Target.com Product and Pricing Data</a></td>
     <td>
     <ul>
         <li><a href="./target-scraper/results/availability.json">Availability</a></li>

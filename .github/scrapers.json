@@ -1,4 +1,20 @@
 {
+  "airbnb-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-airbnb",
+        "title": "How to Scrape Airbnb Listings and Prices (2026)"
+      }
+    ]
+  },
+  "airfrance-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-air-france-flights",
+        "title": "How to Scrape Air France Flights with Python (2026)"
+      }
+    ]
+  },
   "aliexpress-scraper": {
     "name": "Aliexpress.com",
     "guides": [
@@ -84,6 +100,22 @@
       "search.json": "Search pages"
     }
   },
+  "capterra-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-capterra",
+        "title": "How to Scrape Capterra Software Reviews and Listings (2026)"
+      }
+    ]
+  },
+  "chatgpt-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-chatgpt",
+        "title": "How to Scrape ChatGPT in 2026"
+      }
+    ]
+  },
   "crunchbase-scraper": {
     "name": "Crunchbase.com",
     "guides": [
@@ -96,6 +128,22 @@
       "company.json": "Company pages",
       "person.json": "Investor pages"
     }
+  },
+  "dhl-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-dhl",
+        "title": "How to Scrape DHL Parcel Tracking Data in 2026"
+      }
+    ]
+  },
+  "digikey-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-digikey",
+        "title": "How to Scrape DigiKey Pricing, Stock, and Specs in 2026"
+      }
+    ]
   },
   "domaincom-scraper": {
     "name": "Domain.com.au",
@@ -123,6 +171,14 @@
       "product-with-variants.json": "Product pages with variant",
       "search.json": "Search pages"
     }
+  },
+  "emirates-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-emirates-flights",
+        "title": "How to Scrape Emirates Flights with Python (2026)"
+      }
+    ]
   },
   "etsy-scraper": {
     "name": "Etsy.com",
@@ -200,8 +256,22 @@
       "search.json": "Search pages"
     }
   },
+  "goibibo-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices",
+        "title": "How to Scrape Goibibo Prices in 2026"
+      }
+    ]
+  },
   "goodreads-scraper": {
     "name": "Goodreads.com",
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-goodreads",
+        "title": "How to Scrape Goodreads for Book Data, Ratings, and Reviews"
+      }
+    ],
     "datasets": {
       "book.json": "Book pages",
       "reviews.json": "Review pages",
@@ -214,6 +284,22 @@
       {
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-google-flights",
         "title": "How to Scrape Google Flights Data in 2026"
+      }
+    ]
+  },
+  "google-jobs-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-google-jobs",
+        "title": "How to Scrape Google Jobs in 2026"
+      }
+    ]
+  },
+  "google-play-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-google-play-app-reviews-and-data",
+        "title": "How to Scrape Google Play App Reviews and Data"
       }
     ]
   },
@@ -262,6 +348,14 @@
       "search_data.json": "Search pages",
       "search_URLs.json": "Provinces pages"
     }
+  },
+  "imdb-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-imdb",
+        "title": "How to Scrape IMDb Data, Ratings, and Featured Reviews"
+      }
+    ]
   },
   "immobilienscout24-scraper": {
     "name": "Immobilienscout24.de",
@@ -338,6 +432,14 @@
       "video-post.json": "Video Post"
     }
   },
+  "kayak-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-kayak",
+        "title": "How to Scrape Kayak Flight Prices in 2026"
+      }
+    ]
+  },
   "leboncoin-scraper": {
     "name": "Leboncoin.fr",
     "guides": [
@@ -367,8 +469,30 @@
       "articles.json": "Article pages"
     }
   },
+  "lowes-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-lowe",
+        "title": "How to Scrape Lowe's Product and Pricing Data in 2026"
+      }
+    ]
+  },
+  "maersk-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-maersk",
+        "title": "How to Scrape Maersk Shipping Data in 2026"
+      }
+    ]
+  },
   "marriott-scraper": {
-    "name": "Marriott.com"
+    "name": "Marriott.com",
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-marriott",
+        "title": "Scraping Marriott Hotel Prices and Availability (2026)"
+      }
+    ]
   },
   "mouser-scraper": {
     "guides": [
@@ -398,6 +522,22 @@
       "products.json": "Product pages",
       "search.json": "Search pages"
     }
+  },
+  "perplexity-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-perplexity",
+        "title": "How to Scrape Perplexity AI in 2026"
+      }
+    ]
+  },
+  "pinterest-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-pinterest",
+        "title": "How to Scrape Pinterest in 2026"
+      }
+    ]
   },
   "realestatecom-scraper": {
     "name": "Realestate.com.au",
@@ -468,6 +608,14 @@
       "search.json": "Search pages"
     }
   },
+  "rs-online-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-rs-online",
+        "title": "How to Scrape RS-Online (rs-online.com) in 2026"
+      }
+    ]
+  },
   "seloger-scraper": {
     "name": "Seloger.com",
     "guides": [
@@ -512,6 +660,14 @@
       "sitemap_urls.json": "Sitemaps"
     }
   },
+  "skyscanner-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-skyscanner",
+        "title": "How to Scrape Skyscanner Flight Prices in Python (2026)"
+      }
+    ]
+  },
   "stockx-scraper": {
     "name": "Stockx.com",
     "guides": [
@@ -524,6 +680,14 @@
       "product.json": "Product pages",
       "search.json": "Search pages"
     }
+  },
+  "target-scraper": {
+    "guides": [
+      {
+        "url": "https://scrapfly.io/blog/posts/how-to-scrape-target-com",
+        "title": "How to Scrape Target.com Product and Pricing Data"
+      }
+    ]
   },
   "threads-scraper": {
     "name": "Threads.net",
