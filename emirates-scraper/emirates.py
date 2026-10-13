@@ -74,38 +74,76 @@ class FlightSearch(TypedDict):
     flights: List[FlightResult]
 
 
-def _date_click_script(date_iso: str) -> str:
+def _date_labels(date_iso: str) -> tuple:
+    """the two ways the calendar labels a day: "Tuesday, 13  October 2026" or "Tuesday, October 13, 2026\""""
     parsed_date = datetime.strptime(date_iso, "%Y-%m-%d")
     date_label = f"{parsed_date.strftime('%A')}, {parsed_date.day}  {parsed_date.strftime('%B %Y')}"
     date_alt = f"{parsed_date.strftime('%A')}, {parsed_date.strftime('%B')} {parsed_date.day}, {parsed_date.year}"
+    return date_label, date_alt
+
+
+def _date_click_script(date_iso: str) -> str:
+    """click the day that is on screen: the calendar also keeps copies of neighbouring months out of view"""
+    date_label, date_alt = _date_labels(date_iso)
     return (
-        f"document.querySelector('[aria-label*=\"{date_label}\"]')"
-        f"?.click() || document.querySelector('[aria-label*=\"{date_alt}\"]')?.click();"
+        f'var days=[...document.querySelectorAll(\'[aria-label*="{date_label}"],[aria-label*="{date_alt}"]\')];'
+        "days.find(d=>d.getClientRects().length&&getComputedStyle(d).visibility!=='hidden')?.click();"
     )
+
+
+def _date_cell_selector(date_iso: str) -> str:
+    """the day in the calendar, whichever label format the page uses (an XPath selector)"""
+    date_label, date_alt = _date_labels(date_iso)
+    return f'//*[contains(@aria-label,"{date_label}") or contains(@aria-label,"{date_alt}")]'
 
 
 def _pick_airport_option(code: str) -> str:
     return (
         "var items=[...document.querySelectorAll('[data-testid^=\"options_\"]')];"
-        f"(items.find(o=>o.textContent.includes('{code}'))||items[0])?.click();"
+        f"items.find(o=>o.textContent.includes('{code}'))?.click();"
+    )
+
+
+def _retype_airport_script(selector: str, code: str) -> str:
+    """set the airport code again when the field lost typed letters ("FK" or "K" instead of "JFK"), the way
+    the page's own input handling expects it (native value setter + input event)"""
+    return (
+        f'var field=document.querySelector("{selector}");'
+        f"if(field&&field.value!=='{code}'){{"
+        f"Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(field,'{code}');"
+        "field.dispatchEvent(new Event('input',{bubbles:true}));}"
     )
 
 
 def _fill_airport(field: str, code: str) -> list:
+    selector = f"[data-testid^='combobox_{field}'] input"
     return [
-        {"fill": {"selector": f"[data-testid^='combobox_{field}'] input", "value": code, "clear": True}},
+        {"fill": {"selector": selector, "value": code, "clear": True}},
         {"wait": 1000},
-        {"wait_for_selector": {"selector": "[data-testid^='options_']", "timeout": 10000}},
+        # the field sometimes keeps only part of the typed code while the page is busy, set it again then
+        {"execute": {"script": _retype_airport_script(selector, code)}},
+        {"wait": 1000},
+        # wait for the suggestion of the typed airport itself: the list shows other airports first
+        {
+            "wait_for_selector": {
+                "selector": f"//*[starts-with(@data-testid,'options_')][contains(.,'{code}')]",
+                "timeout": 8000,
+            }
+        },
         {"execute": {"script": _pick_airport_option(code)}},
     ]
 
 
-def _select_date(date_iso: str, picker: str = "") -> list:
-    """open the calendar with the picker field (when given) and click the date"""
+def _select_date(date_iso: str, field: str, picker: str = "") -> list:
+    """open the calendar with the picker field (when given), wait for the day to be drawn, click it and check
+    that the date field took it"""
     open_calendar = [{"click": {"selector": picker, "timeout": 5000}}] if picker else []
     return open_calendar + [
         {"wait": 1000},
+        {"wait_for_selector": {"selector": _date_cell_selector(date_iso), "timeout": 8000}},
         {"execute": {"script": _date_click_script(date_iso)}},
+        # the search is only sent with both dates set, a click the calendar did not take must fail here
+        {"wait_for_selector": {"selector": field, "timeout": 5000}},
     ]
 
 
@@ -133,12 +171,14 @@ def _build_search_scenario(
     scenario += _fill_airport("Arrival", destination)
 
     if return_date:
-        scenario += _select_date(departure_date, "#startDate")
+        scenario += _select_date(departure_date, "#startDate:not([value=''])", "#startDate")
         # after the departure date the calendar moves on to the return date by itself,
         # so the return day is picked without clicking the return field
-        scenario += _select_date(return_date)
+        scenario += _select_date(return_date, "#endDate:not([value=''])")
     else:
-        scenario += _select_date(departure_date, "#date-input0, #startDate")
+        scenario += _select_date(
+            departure_date, "#date-input0:not([value='']), #startDate:not([value=''])", "#date-input0, #startDate"
+        )
 
     scenario += [
         {"click": {"selector": "button.rsw-submit-button", "timeout": 10000}},
@@ -186,7 +226,13 @@ def parse_branded_fares(response: ScrapeApiResponse) -> dict:
                 f"emirates.com answered the branded-fares search results with status {status} instead of flight data"
             )
         return json.loads(xhr["response"]["body"])
-    raise ValueError("branded-fares xhr call not found")
+    # no flight results were loaded, say whether the browser got to the results page at all
+    page_url = response.scrape_result.get("url") or ""
+    if "/search-results" not in page_url:
+        raise ValueError(f"emirates.com did not open the search results page, the browser ended on {page_url}")
+    raise ValueError(
+        "emirates.com opened the search results page but the flight results (branded-fares) were not loaded"
+    )
 
 
 def parse_lowest_fare(data: dict) -> FarePrice:
