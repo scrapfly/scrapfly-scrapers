@@ -4,7 +4,7 @@
     python3 .github/scripts/ci_status.py --repo owner/name --run-id <id> --out <checkout of the ci-status branch>
 
 Reads the run's jobs through `gh api` (GH_TOKEN) and writes, in --out:
-- badges/<scraper dir>.svg    one badge image per scraper, embedded by the README status column:
+- badges/<scraper dir>.svg    one "tests" badge image per scraper, embedded by the README status column:
                               "passing" (every test of the scraper passed), "failing", "N/M passing", or
                               "not run" for a scraper that has no job in the run. Self-contained, no third party.
 - status.json                 every test job of the run with its conclusion, plus the run id and date.
@@ -99,7 +99,9 @@ def main() -> None:
         old.unlink()
     for scraper in scrapers:
         message, color = status([j["conclusion"] for j in jobs if j["dir"] == scraper])
-        (badges / f"{scraper}.svg").write_text(badge_svg(scraper.removesuffix("-scraper"), message, color))
+        # the same short label on every badge: the README row already names the scraper, and badges of the same
+        # width are drawn at the same size in the narrow status column
+        (badges / f"{scraper}.svg").write_text(badge_svg("tests", message, color))
 
     (args.out / "status.json").write_text(
         json.dumps(
