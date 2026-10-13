@@ -1,0 +1,366 @@
+# Scrapfly Scrapers
+
+> Example web scrapers for 81 popular websites (Amazon, eBay, Zillow, Booking.com and more), written in Python with the Scrapfly SDK, one folder per website. Each scraper is a short module of async functions that return JSON-ready data, with an example script (`run.py`), live tests (`test.py`) and sample output (`results/`).
+
+These scrapers are educational examples that accompany the Scrapfly scrape guides: copy one and adapt it, they are not an installable library. Every request goes through the Scrapfly API, so a Scrapfly API key is needed (https://scrapfly.io/register, then https://scrapfly.io/dashboard).
+
+## When an agent should use this repository
+
+- The user wants data from one of the websites listed under "Scrapers": start from that folder instead of writing a scraper from scratch.
+- The user wants to scrape a similar website: copy the scraper of the closest website (same kind of pages: search results, product, property, profile, reviews) and adapt its URLs, parsing and tests.
+- The user wants to learn how a website is scraped: most folders link a step-by-step guide.
+
+## Use a scraper
+
+```bash
+git clone https://github.com/scrapfly/scrapfly-scrapers.git
+cd scrapfly-scrapers/amazon-scraper        # any <name>-scraper folder
+export SCRAPFLY_KEY="your API key"         # from https://scrapfly.io/dashboard
+poetry install --no-root                   # Python 3.10+
+poetry run python run.py                   # example scrape, writes results/*.json
+poetry run pytest test.py -k test_search   # live tests, one test at a time with -k
+```
+
+From Python, inside the scraper folder:
+
+```python
+import asyncio
+import amazon  # the module has the name of the folder without "-scraper"
+
+results = asyncio.run(amazon.scrape_search("https://www.amazon.com/s?k=kindle", max_pages=1))
+```
+
+- The module reads `SCRAPFLY_KEY` from the environment when it is imported.
+- In most modules `BASE_CONFIG` holds the Scrapfly settings sent with every request (anti-bot bypass, country, ...); change an entry there (for example `BASE_CONFIG["cache"] = True`) rather than every request.
+- The functions return plain dicts and lists; `results/` holds the output `run.py` produced with them.
+- `run.py` and the tests scrape the live websites, so they use Scrapfly credits and fail when a website changes.
+
+## Scrapers
+
+Each entry: the folder, its scrape guide, its sample output and its public functions (`async`, run them with `asyncio.run` or `await`).
+
+- **Air France** (`airfrance-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/airfrance-scraper) | guide: [How to Scrape Air France Flights with Python (2026)](https://scrapfly.io/blog/posts/how-to-scrape-air-france-flights) | sample output: [Roundtrip](https://github.com/scrapfly/scrapfly-scrapers/blob/main/airfrance-scraper/results/roundtrip.json)
+  - `scrape_flights(origin, destination, departure_date, return_date, max_retries=3)`: (not async) Scrape flight offers from Air France search GraphQL XHR.
+- **Airbnb.com** (`airbnb-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/airbnb-scraper) | guide: [How to Scrape Airbnb Listings and Prices (2026)](https://scrapfly.io/blog/posts/how-to-scrape-airbnb) | sample output: [Property](https://github.com/scrapfly/scrapfly-scrapers/blob/main/airbnb-scraper/results/property.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/airbnb-scraper/results/search.json)
+  - `scrape_listings(query, check_in=None, check_out=None, adults=1, max_pages=3)`: scrape Airbnb search results for a location
+  - `scrape_properties(urls, check_in=None, check_out=None, adults=1)`: scrape Airbnb property pages
+- **Aliexpress.com** (`aliexpress-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/aliexpress-scraper) | guide: [How to Scrape Aliexpress.com (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-aliexpress) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/aliexpress-scraper/results/product.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/aliexpress-scraper/results/search.json), [Product reviews](https://github.com/scrapfly/scrapfly-scrapers/blob/main/aliexpress-scraper/results/reviews.json), [Category products](https://github.com/scrapfly/scrapfly-scrapers/blob/main/aliexpress-scraper/results/category_products.json)
+  - `scrape_search(url, max_pages=60)`: Scrape all search results and return parsed search result data
+  - `scrape_product(url)`: scrape aliexpress products by id
+  - `scrape_product_reviews(product_id, max_scrape_pages=None)`: scrape all reviews of aliexpress product
+- **Allegro.pl** (`allegro-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/allegro-scraper) | guide: [How to Scrape Allegro.pl in 2026 (Without Getting Blocked)](https://scrapfly.io/blog/posts/how-to-scrape-allegro) | sample output: [Product](https://github.com/scrapfly/scrapfly-scrapers/blob/main/allegro-scraper/results/product.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/allegro-scraper/results/search.json)
+  - `scrape_search(query, max_pages=3, scrape_all_pages=False)`: Scrape Allegro search pages for product listings
+  - `scrape_product(urls)`: scrape a single Allegro product
+- **Amazon.com** (`amazon-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/amazon-scraper) | guide: [How to Scrape Amazon.com Product Data and Reviews](https://scrapfly.io/blog/posts/how-to-scrape-amazon) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/amazon-scraper/results/product.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/amazon-scraper/results/search.json), [Product reviews](https://github.com/scrapfly/scrapfly-scrapers/blob/main/amazon-scraper/results/reviews.json)
+  - `scrape_search(url, max_pages=None)`: Scrape amazon search pages product previews
+  - `scrape_reviews(url)`: scrape product reviews of a given URL of an amazon product
+  - `scrape_product(url)`: scrape Amazon.com product
+- **App Store** (`app-store-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/app-store-scraper) | sample output: [App metadata](https://github.com/scrapfly/scrapfly-scrapers/blob/main/app-store-scraper/results/app_metadata.json), [Reviews](https://github.com/scrapfly/scrapfly-scrapers/blob/main/app-store-scraper/results/reviews.json)
+  - `scrape_app_metadata(app_id, country='us')`: scrape app metadata via the iTunes lookup API, falling back to the apps.apple.com page
+  - `scrape_reviews(app_id, country='us', max_pages=None)`: scrape app reviews via the iTunes customer reviews RSS feed
+- **AutoScout24.com** (`autoscout24-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/autoscout24-scraper) | guide: [How to Scrape AutoScout24 in 2026](https://scrapfly.io/blog/posts/how-to-scrape-autoscout24) | sample output: [Car details](https://github.com/scrapfly/scrapfly-scrapers/blob/main/autoscout24-scraper/results/car_details.json), [Listings](https://github.com/scrapfly/scrapfly-scrapers/blob/main/autoscout24-scraper/results/listings.json)
+  - `scrape_listings(url, max_pages=3)`: Scrape car listings from AutoScout24 search/category page (with pagination)
+  - `scrape_car_details(urls)`: Scrape detailed car information from car page
+- **BestBuy.com** (`bestbuy-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/bestbuy-scraper) | guide: [How to Scrape BestBuy Product, Offer and Review Data](https://scrapfly.io/blog/posts/how-to-scrape-bestbuy-product-offer-and-review-data) | sample output: [Sitemap pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bestbuy-scraper/results/promos.json), [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bestbuy-scraper/results/products.json), [Review pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bestbuy-scraper/results/reviews.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bestbuy-scraper/results/search.json)
+  - `scrape_sitemaps(url)`: scrape link data from bestbuy sitemap
+  - `scrape_products(urls, max_review_pages=1)`: scrapy product data from bestbuy product pages
+  - `scrape_search(search_query, sort=None, max_pages=None)`: scrape search data from bestbuy search
+  - `scrape_reviews(skuid, max_pages=None)`: scrape review data from the reviews API
+- **Bing.com** (`bing-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/bing-scraper) | guide: [How to Scrape Bing Search with Python](https://scrapfly.io/blog/posts/how-to-scrape-bing-search-using-python) | sample output: [SERP data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bing-scraper/results/serps.json), [Keyword data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bing-scraper/results/keywords.json)
+  - `scrape_search(query, max_pages=None)`: scrape bing search pages
+  - `scrape_keywords(query)`: scrape bing search pages for keyword data
+- **Booking.com** (`bookingcom-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/bookingcom-scraper) | guide: [How to Scrape Booking.com (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-bookingcom) | sample output: [Hotel pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bookingcom-scraper/results/hotel.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bookingcom-scraper/results/search.json), [Hotel review](https://github.com/scrapfly/scrapfly-scrapers/blob/main/bookingcom-scraper/results/hotel_review.json)
+  - `scrape_search(query, checkin='', checkout='', number_of_rooms=1, max_pages=None)`: Scrape booking.com search
+  - `scrape_hotel(url, checkin, price_n_days=61)`: Scrape Booking.com hotel data and pricing information.
+  - `scrape_hotel_reviews(url, max_pages=None)`: scrape hotel review data
+- **Capterra.com** (`capterra-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/capterra-scraper) | guide: [How to Scrape Capterra Software Reviews and Listings (2026)](https://scrapfly.io/blog/posts/how-to-scrape-capterra) | sample output: [Category](https://github.com/scrapfly/scrapfly-scrapers/blob/main/capterra-scraper/results/category.json), [Reviews](https://github.com/scrapfly/scrapfly-scrapers/blob/main/capterra-scraper/results/reviews.json)
+  - `scrape_category(category, max_pages)`: Scrape category listings with pagination. Pass max_pages=0 to scrape all pages.
+  - `scrape_reviews(url, max_review_pages)`: Scrape paginated product reviews. Pass max_review_pages=0 to scrape all pages.
+- **ChatGPT.com** (`chatgpt-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/chatgpt-scraper) | guide: [How to Scrape ChatGPT in 2026](https://scrapfly.io/blog/posts/how-to-scrape-chatgpt) | sample output: [Conversations](https://github.com/scrapfly/scrapfly-scrapers/blob/main/chatgpt-scraper/results/conversations.json)
+  - `scrape_conversation(prompt)`
+- **Crunchbase.com** (`crunchbase-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/crunchbase-scraper) | guide: [How to Scrape Crunchbase in 2025](https://scrapfly.io/blog/posts/how-to-scrape-crunchbase) | sample output: [Company pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/crunchbase-scraper/results/company.json), [Investor pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/crunchbase-scraper/results/person.json)
+  - `scrape_company(url, _retries=0)`: scrape crunchbase company page for organization and employee data
+  - `scrape_person(url, _retries=0)`
+- **DHL** (`dhl-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/dhl-scraper) | guide: [How to Scrape DHL Parcel Tracking Data in 2026](https://scrapfly.io/blog/posts/how-to-scrape-dhl) | sample output: [Tracking](https://github.com/scrapfly/scrapfly-scrapers/blob/main/dhl-scraper/results/tracking.json)
+  - `scrape_tracking(tracking_number)`
+- **DigiKey.com** (`digikey-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/digikey-scraper) | guide: [How to Scrape DigiKey Pricing, Stock, and Specs in 2026](https://scrapfly.io/blog/posts/how-to-scrape-digikey) | sample output: [Category](https://github.com/scrapfly/scrapfly-scrapers/blob/main/digikey-scraper/results/category.json), [Products](https://github.com/scrapfly/scrapfly-scrapers/blob/main/digikey-scraper/results/products.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/digikey-scraper/results/search.json)
+  - `scrape_products(urls)`
+  - `scrape_category(url, max_pages=3)`
+  - `scrape_search(keywords)`
+- **Domain.com.au** (`domaincom-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/domaincom-scraper) | guide: [How to Scrape Domain.com.au Real Estate Property Data](https://scrapfly.io/blog/posts/how-to-scrape-domain-com-au-real-estate-property-data) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/domaincom-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/domaincom-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape listing data from property pages
+  - `scrape_search(url, max_scrape_pages=None)`: scrape property listings from search pages
+- **Ebay.com** (`ebay-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/ebay-scraper) | guide: [How to Scrape Ebay Using Python (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-ebay) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/ebay-scraper/results/product.json), [Product pages with variant](https://github.com/scrapfly/scrapfly-scrapers/blob/main/ebay-scraper/results/product-with-variants.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/ebay-scraper/results/search.json)
+  - `scrape_product(url)`: Scrape ebay.com product listing page for product data
+  - `scrape_product_variants(url)`: Scrape ebay.com product listing page for variant data (price, stock, quantity, images)
+  - `scrape_search(url, max_pages=None)`: Scrape Ebay's search for product preview data for given
+- **Emirates** (`emirates-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/emirates-scraper) | guide: [How to Scrape Emirates Flights with Python (2026)](https://scrapfly.io/blog/posts/how-to-scrape-emirates-flights) | sample output: [Oneway](https://github.com/scrapfly/scrapfly-scrapers/blob/main/emirates-scraper/results/oneway.json), [Roundtrip](https://github.com/scrapfly/scrapfly-scrapers/blob/main/emirates-scraper/results/roundtrip.json)
+  - `scrape_flights(origin, destination, departure_date, return_date=None, locale='us/english')`: Scrape flights from emirates.com
+- **Etsy.com** (`etsy-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/etsy-scraper) | guide: [How to Scrape Etsy.com Product, Shop and Search Data](https://scrapfly.io/blog/posts/how-to-scrape-etsy-com-product-review-data) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/etsy-scraper/results/products.json), [Shop pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/etsy-scraper/results/shops.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/etsy-scraper/results/search.json)
+  - `scrape_search(url, max_pages=None)`: scrape product listing data from Etsy search pages
+  - `scrape_product(urls)`: scrape trustpilot company pages
+  - `scrape_shop(urls)`
+- **Expedia.com** (`expedia-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/expedia-scraper) | sample output: [Flights](https://github.com/scrapfly/scrapfly-scrapers/blob/main/expedia-scraper/results/flights.json), [Hotels](https://github.com/scrapfly/scrapfly-scrapers/blob/main/expedia-scraper/results/hotels.json)
+  - `scrape_hotel_search(destination, check_in, check_out, adults=2, max_pages=3)`
+  - `scrape_flight_search(origin, destination, departure_date, return_date=None, adults=1, cabin_class='economy', max_pages=3)`
+- **Facebook.com** (`facebook-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/facebook-scraper) | guide: [How to Scrape Facebook in 2026](https://scrapfly.io/blog/posts/how-to-scrape-facebook) | sample output: [Events](https://github.com/scrapfly/scrapfly-scrapers/blob/main/facebook-scraper/results/events.json), [Group posts](https://github.com/scrapfly/scrapfly-scrapers/blob/main/facebook-scraper/results/group_posts.json), [Marketplace](https://github.com/scrapfly/scrapfly-scrapers/blob/main/facebook-scraper/results/marketplace.json), [Pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/facebook-scraper/results/pages.json)
+  - `scrape_facebook_events(event_name='New York, NY')`
+  - `scrape_marketplace_listings(query='electronics')`: Scrape Facebook Marketplace listings for a specific query
+  - `scrape_facebook_page(page_urls)`: Scrape a Facebook page and return a FacebookPage
+  - `scrape_group_posts(group_urls)`: Scrape posts from one or more public Facebook groups
+- **Fashionphile.com** (`fashionphile-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/fashionphile-scraper) | guide: [How to Scrape Fashionphile for Second Hand Fashion Data](https://scrapfly.io/blog/posts/how-to-scrape-fashionphile) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/fashionphile-scraper/results/products.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/fashionphile-scraper/results/search.json)
+  - `scrape_products(urls)`: Scrape product data from Fashionphile product pages using the product API.
+  - `scrape_search(url, max_pages=10)`
+- **G2.com** (`g2-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/g2-scraper) | guide: [How to Scrape G2 Company Data and Reviews](https://scrapfly.io/blog/posts/how-to-scrape-g2-company-data-and-reviews) | sample output: [Review pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/g2-scraper/results/reviews.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/g2-scraper/results/search.json), [Alternatives pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/g2-scraper/results/alternatives.json)
+  - `scrape_search(url, max_scrape_pages=None)`: scrape company listings from search pages
+  - `scrape_reviews(url, max_review_pages=None)`: scrape company reviews from G2 review pages
+  - `scrape_alternatives(product, alternatives='')`: scrape product alternatives from G2 alternative pages
+- **Glassdoor.com** (`glassdoor-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/glassdoor-scraper) | guide: [How to Scrape Glassdoor (2025 update)](https://scrapfly.io/blog/posts/how-to-scrape-glassdoor) | sample output: [Job pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/glassdoor-scraper/results/jobs.json), [Review pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/glassdoor-scraper/results/reviews.json), [Salary pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/glassdoor-scraper/results/salaries.json), [Companies](https://github.com/scrapfly/scrapfly-scrapers/blob/main/glassdoor-scraper/results/companies.json)
+  - `scrape_jobs(url, max_pages=None)`: Scrape Glassdoor job listing page for job listings (with pagination)
+  - `scrape_reviews(url, max_pages=None)`: Scrape Glassdoor reviews listings from reviews page (with pagination)
+  - `scrape_salaries(url, max_pages=None)`: Scrape Glassdoor Salary page for salary listing data (with pagination)
+- **Goat.com** (`goat-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/goat-scraper) | guide: [How to Scrape Goat.com for Fashion Apparel Data in Python](https://scrapfly.io/blog/posts/how-to-scrape-goat-com-fashion-apparel) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goat-scraper/results/products.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goat-scraper/results/search.json)
+  - `scrape_products(urls)`: scrape goat.com product pages for product data
+  - `scrape_search(query, max_pages=10)`: Scrape goat.com search pages for product listings using the new web-api.
+- **Goibibo** (`goibibo-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/goibibo-scraper) | guide: [How to Scrape Goibibo Prices in 2026](https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices) | sample output: [Flight search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goibibo-scraper/results/flight_search.json), [Hotel search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goibibo-scraper/results/hotel_search.json)
+  - `scrape_hotel_search(search_text, locus_id, checkin, checkout, adults=2, children=0, rooms=1, max_pages=5)`: Scrape goibibo hotel search; capture the listing API from the search page then paginate until max_pages (copy locus_id from a hotel-listing URL).
+  - `scrape_flight_search(origin, destination, departure_date, adults=1, children=0, infants=0, return_date=None)`: Scrape flight search results and return parsed flight data.
+- **Goodreads.com** (`goodreads-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/goodreads-scraper) | guide: [How to Scrape Goodreads for Book Data, Ratings, and Reviews](https://scrapfly.io/blog/posts/how-to-scrape-goodreads) | sample output: [Book pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goodreads-scraper/results/book.json), [Review pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goodreads-scraper/results/reviews.json), [List pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goodreads-scraper/results/list.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/goodreads-scraper/results/search.json)
+  - `scrape_book(url)`: scrape a single book page and return parsed book data
+  - `scrape_list(url, enrich=False)`: scrape a book list page and return book stubs found on it. if enrich=True, additionally scrape each book's page for full details.
+  - `scrape_reviews(url)`: scrape the review sample a Goodreads book page ships with
+  - `scrape_search(query, max_pages=2)`: scrape book stubs from Goodreads search results
+- **Google Flights** (`google-flights-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/google-flights-scraper) | guide: [How to Scrape Google Flights Data in 2026](https://scrapfly.io/blog/posts/how-to-scrape-google-flights) | sample output: [Oneway](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-flights-scraper/results/oneway.json), [Price insights](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-flights-scraper/results/price_insights.json), [Roundtrip](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-flights-scraper/results/roundtrip.json)
+  - `scrape_flights(origin, destination, depart, ret=None, currency='USD')`: Scrape Google Flights results for a route and date(s).
+  - `scrape_price_insights(origin, destination, depart, ret=None, currency='USD')`: Scrape the Price insights panel for a Google Flights route.
+- **Google Jobs** (`google-jobs-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/google-jobs-scraper) | guide: [How to Scrape Google Jobs in 2026](https://scrapfly.io/blog/posts/how-to-scrape-google-jobs) | sample output: [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-jobs-scraper/results/search.json)
+  - `scrape_jobs(query, location, language='en', country_code='us', date_filter=None)`: Scrape Google Jobs for the given query and location.
+- **Google Play** (`google-play-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/google-play-scraper) | guide: [How to Scrape Google Play App Reviews and Data](https://scrapfly.io/blog/posts/how-to-scrape-google-play-app-reviews-and-data) | sample output: [App](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-play-scraper/results/app.json), [Reviews](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-play-scraper/results/reviews.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-play-scraper/results/search.json)
+  - `scrape_apps(app_ids, lang='en', country='us')`: scrape Google Play app detail pages
+  - `scrape_reviews(app_id, lang='en', country='us', sort=Sort.NEWEST, max_reviews=100, filter_score_with=None)`: scrape app reviews via the Play Store batchexecute endpoint
+  - `scrape_search(query, lang='en', country='us')`: scrape Google Play search results
+- **Google.com** (`google-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/google-scraper) | guide: [How to Scrape Google Search Results](https://scrapfly.io/blog/posts/how-to-scrape-google), [How to Scrape Google Maps](https://scrapfly.io/blog/posts/how-to-scrape-google-maps) | sample output: [SERP data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-scraper/results/serp.json), [Keyword data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-scraper/results/keywords.json), [Google Maps place URLs](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-scraper/results/google_map_places_urls.json), [Google Maps place data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-scraper/results/google_map_places.json), [Ai mode](https://github.com/scrapfly/scrapfly-scrapers/blob/main/google-scraper/results/ai_mode.json)
+  - `scrape_google_map_places(urls)`: scrape google map place pages
+  - `scrape_keywords(query)`: request google search page for keyword data
+  - `scrape_serp(query, max_pages=None, resolve_goto_urls=True)`: query google search for serp results
+  - `scrape_ai_mode(query, hl='en', gl='US')`: scrape Google AI Mode (udm=50) search results
+- **Homegate.ch** (`homegate-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/homegate-scraper) | guide: [How to Scrape Homegate.ch Real Estate Property Data](https://scrapfly.io/blog/posts/how-to-scrape-homegate-ch-real-estate-property-data) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/homegate-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/homegate-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape listing data from homegate proeprty pages
+  - `scrape_search(url, scrape_all_pages, max_scrape_pages=10)`: scrape listing data from homegate search pages
+- **Idealista.com** (`idealista-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/idealista-scraper) | guide: [How to Scrape Idealista.com in Python - Real Estate Property Data](https://scrapfly.io/blog/posts/how-to-scrape-idealista) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealista-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealista-scraper/results/search_data.json), [Provinces pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealista-scraper/results/search_URLs.json), [Crawl](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealista-scraper/results/crawl.json)
+  - `scrape_provinces(urls)`: Scrape province pages like: https://www.idealista.com/en/venta-viviendas/balears-illes/con-chalets/municipios for search page urls like: https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/
+  - `scrape_properties(urls)`: Scrape Idealista.com properties
+  - `scrape_search(url, max_scrape_pages=None)`: scrape Idealista search results
+- **Idealo.de** (`idealo-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/idealo-scraper) | sample output: [Manufacturer](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealo-scraper/results/manufacturer.json), [Price history](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealo-scraper/results/price_history.json), [Products](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealo-scraper/results/products.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/idealo-scraper/results/search.json)
+  - `scrape_with_retry(config, _retries=0)`: scrape a config and retry on any failure - idealo blocks requests intermittently
+  - `scrape_products(urls)`: scrape product pages from idealo.de
+  - `scrape_search(query, max_pages=3)`: scrape search listings from idealo.de
+  - `scrape_manufacturer(url)`: scrape a manufacturer listing page from idealo.de
+  - `scrape_price_history(id, period, site_id=1)`: scrape price history from idealo.de
+- **IMDb.com** (`imdb-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/imdb-scraper) | guide: [How to Scrape IMDb Data, Ratings, and Featured Reviews](https://scrapfly.io/blog/posts/how-to-scrape-imdb) | sample output: [Chart](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imdb-scraper/results/chart.json), [Person](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imdb-scraper/results/person.json), [Reviews](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imdb-scraper/results/reviews.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imdb-scraper/results/search.json), [Title](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imdb-scraper/results/title.json)
+  - `scrape_titles(urls)`: scrape IMDb title pages for metadata and aggregate ratings
+  - `scrape_reviews(title_id)`: scrape user reviews from the title reviews page hidden dataset
+  - `scrape_search(query)`: scrape IMDb title search results for a query
+  - `scrape_chart(chart_type='top')`: scrape an IMDb chart (e.g. 'top' for Top 250)
+  - `scrape_person(person_id)`: scrape an IMDb person page for biography and filmography
+- **Immobilienscout24.de** (`immobilienscout24-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/immobilienscout24-scraper) | guide: [How to Scrape Immobilienscout24.de Real Estate Data](https://scrapfly.io/blog/posts/how-to-scrape-immobilienscout24) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/immobilienscout24-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/immobilienscout24-scraper/results/search.json)
+  - `scrape_search(url, scrape_all_pages, max_scrape_pages=10)`: scrape immobilienscout24 search pages
+  - `scrape_properties(urls)`: scrape listing data from immoscout24 proeprty pages
+- **Immoscout24.ch** (`immoscout24-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/immoscout24-scraper) | guide: [How to Scrape Immoscout24.ch Real Estate Property Data](https://scrapfly.io/blog/posts/how-to-scrape-immoscout24-ch-real-estate-property-data) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/immoscout24-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/immoscout24-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape listing data from immoscout24 proeprty pages
+  - `scrape_search(url, scrape_all_pages, max_scrape_pages=10)`: scrape listing data from immoscout24 search pages
+- **Immowelt.de** (`immowelt-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/immowelt-scraper) | guide: [How to Scrape Immowelt.de Real Estate Data](https://scrapfly.io/blog/posts/how-to-scrape-immowelt-de-real-estate-properties) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/immowelt-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/immowelt-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape listings data from property pages
+  - `scrape_search(url, max_scrape_pages=None)`: scrape search pages from XHR call responses
+- **ImovelWeb.com.br** (`imovelweb-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/imovelweb-scraper) | guide: [How to Scrape Imovelweb Without Getting Blocked in 2026](https://scrapfly.io/blog/posts/how-to-scrape-imovelweb) | sample output: [Property](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imovelweb-scraper/results/property.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/imovelweb-scraper/results/search.json)
+  - `scrape_properties(urls)`: Scrape detailed property data from imovelweb.com.br property pages.
+  - `scrape_search(location='sao-paulo-sp', property_type='imoveis', for_sale=False, max_pages=3)`: Scrape imovelweb.com.br search pages.
+- **Indeed.com** (`indeed-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/indeed-scraper) | guide: [How to Scrape Indeed.com (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-indeedcom) | sample output: [Job pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/indeed-scraper/results/jobs.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/indeed-scraper/results/search.json)
+  - `scrape_search(url, max_results=1000)`: Scrape Indeed.com search for job listing previews
+  - `scrape_jobs(job_keys)`: scrape job page
+- **Instagram.com** (`instagram-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/instagram-scraper) | guide: [How to Scrape Instagram in 2025](https://scrapfly.io/blog/posts/how-to-scrape-instagram) | sample output: [User data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/instagram-scraper/results/user.json), [All user posts](https://github.com/scrapfly/scrapfly-scrapers/blob/main/instagram-scraper/results/all-user-posts.json), [Multi image post](https://github.com/scrapfly/scrapfly-scrapers/blob/main/instagram-scraper/results/multi-image-post.json), [Video Post](https://github.com/scrapfly/scrapfly-scrapers/blob/main/instagram-scraper/results/video-post.json), [Post comments](https://github.com/scrapfly/scrapfly-scrapers/blob/main/instagram-scraper/results/post-comments.json)
+  - `scrape_user(username)`: Scrape instagram user's data
+  - `scrape_post(url_or_shortcode)`: Scrape single Instagram post data by parsing the HTML page
+  - `scrape_user_posts(username, page_size=12, max_pages=None)`: Scrape all posts of an instagram user of given the username
+  - `scrape_post_comments(url)`: Scrape comments from an Instagram post
+- **Kayak** (`kayak-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/kayak-scraper) | guide: [How to Scrape Kayak Flight Prices in 2026](https://scrapfly.io/blog/posts/how-to-scrape-kayak) | sample output: [Oneway](https://github.com/scrapfly/scrapfly-scrapers/blob/main/kayak-scraper/results/oneway.json), [Roundtrip](https://github.com/scrapfly/scrapfly-scrapers/blob/main/kayak-scraper/results/roundtrip.json)
+  - `scrape_flights(origin, destination, departure_date, return_date=None, sort='bestflight_a', max_pages=10)`
+- **Leboncoin.fr** (`leboncoin-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/leboncoin-scraper) | guide: [How to Web Scrape Leboncoin.fr using Python](https://scrapfly.io/blog/posts/how-to-scrape-leboncoin-marketplace-real-estate) | sample output: [Ad pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/leboncoin-scraper/results/ads.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/leboncoin-scraper/results/search.json)
+  - `scrape_search(url, scrape_all_pages, max_pages=10)`: scrape leboncoin search
+  - `scrape_ad(url, _retries=0)`: scrape ad page
+- **Linkedin.com** (`linkedin-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/linkedin-scraper) | guide: [How to Scrape LinkedIn in 2025](https://scrapfly.io/blog/posts/how-to-scrape-linkedin) | sample output: [Profile pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/linkedin-scraper/results/profile.json), [Company pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/linkedin-scraper/results/company.json), [Job search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/linkedin-scraper/results/job_search.json), [Job pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/linkedin-scraper/results/jobs.json), [Article pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/linkedin-scraper/results/articles.json)
+  - `scrape_profile(urls)`: scrape public linkedin profile pages
+  - `scrape_company(urls)`: scrape prublic linkedin company pages
+  - `scrape_job_search(keyword, location, max_pages=None)`: scrape Linkedin job search
+  - `scrape_jobs(urls)`: scrape Linkedin job pages
+  - `scrape_articles(urls)`: scrape Linkedin articles
+- **LoopNet.com** (`loopnet-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/loopnet-scraper) | sample output: [Listings](https://github.com/scrapfly/scrapfly-scrapers/blob/main/loopnet-scraper/results/listings.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/loopnet-scraper/results/search.json)
+  - `scrape_listings(urls)`
+  - `scrape_search(search_url, max_pages=3)`
+- **Lowes.com** (`lowes-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/lowes-scraper) | guide: [How to Scrape Lowe's Product and Pricing Data in 2026](https://scrapfly.io/blog/posts/how-to-scrape-lowe) | sample output: [Products](https://github.com/scrapfly/scrapfly-scrapers/blob/main/lowes-scraper/results/products.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/lowes-scraper/results/search.json), [Store locations](https://github.com/scrapfly/scrapfly-scrapers/blob/main/lowes-scraper/results/store_locations.json)
+  - `scrape_products(urls)`: scrape product data from lowes product pages
+  - `scrape_search(query, max_pages=3)`: scrape Lowe's search results
+  - `scrape_store_locations(zip_code, max_results=10)`: scrape Lowe's store locations nearest to a zip code
+- **Maersk** (`maersk-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/maersk-scraper) | guide: [How to Scrape Maersk Shipping Data in 2026](https://scrapfly.io/blog/posts/how-to-scrape-maersk) | sample output: [Schedule](https://github.com/scrapfly/scrapfly-scrapers/blob/main/maersk-scraper/results/schedule.json), [Tracking](https://github.com/scrapfly/scrapfly-scrapers/blob/main/maersk-scraper/results/tracking.json)
+  - `scrape_schedule_search(from_location, to_location, from_rkst_code, to_rkst_code, departure_date)`: Search maersk.com Point-to-Point schedules
+  - `scrape_tracking(tracking_number)`: Scrape a container/BL/booking number from maersk.com's tracking widget.
+- **Marriott.com** (`marriott-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/marriott-scraper) | guide: [Scraping Marriott Hotel Prices and Availability (2026)](https://scrapfly.io/blog/posts/how-to-scrape-marriott) | sample output: [Hotel](https://github.com/scrapfly/scrapfly-scrapers/blob/main/marriott-scraper/results/hotel.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/marriott-scraper/results/search.json)
+  - `scrape_search(city, from_date, to_date, num_rooms=1, num_adults=2)`: Scrape Marriott city search for the property list.
+  - `scrape_hotels(property_ids)`: Scrape hotel details for the given Marriott property ids.
+- **Mouser.com** (`mouser-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/mouser-scraper) | guide: [How to Scrape Mouser.com in 2026](https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026) | sample output: [Product](https://github.com/scrapfly/scrapfly-scrapers/blob/main/mouser-scraper/results/product.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/mouser-scraper/results/search.json)
+  - `scrape_product(urls)`: Scrape Mouser product pages
+  - `scrape_search(query, max_pages=3, scrape_all_pages=False)`: Scrape Mouser search pages for product listings Args: query: Search query string max_pages: Maximum number of pages to scrape (default: 3) scrape_all_pages: If True, scrape all available pages (overrides max_pages)
+- **Naver.com** (`naver-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/naver-scraper) | guide: [How to Scrape Naver.com: 2026 Python Guide](https://scrapfly.io/blog/posts/how-to-scrape-naver) | sample output: [Blog post](https://github.com/scrapfly/scrapfly-scrapers/blob/main/naver-scraper/results/blog_post.json), [Image search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/naver-scraper/results/image_search.json), [News article](https://github.com/scrapfly/scrapfly-scrapers/blob/main/naver-scraper/results/news_article.json), [Web search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/naver-scraper/results/web_search.json)
+  - `scrape_web_search(query, max_pages=3, sort=None, period=None, scrape_all_pages=False)`: Scrape Naver web search with pagination.
+  - `scrape_image_search(query, max_pages=3, sort=None, period=None, scrape_all_pages=False)`: Scrape Naver image search with pagination. Note: Naver image search doesn't have pagination info it uses scroll to load more results but we can still scraping by using start parameter in re.
+  - `scrape_blog_post(urls)`: Scrape Naver blog posts concurrently.
+  - `scrape_news_article(urls)`: Scrape Naver news articles concurrently.
+- **Nordstorm.com** (`nordstorm-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/nordstorm-scraper) | guide: [How to Scrape Nordstrom Fashion Product Data](https://scrapfly.io/blog/posts/how-to-scrape-nordstrom) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/nordstorm-scraper/results/products.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/nordstorm-scraper/results/search.json)
+  - `scrape_products(urls)`: scrape nordstorm product pages for product data
+  - `scrape_search(url, max_pages=10)`: Scrape nordstom search pages for product listings
+- **Perplexity.ai** (`perplexity-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/perplexity-scraper) | guide: [How to Scrape Perplexity AI in 2026](https://scrapfly.io/blog/posts/how-to-scrape-perplexity) | sample output: [Answer](https://github.com/scrapfly/scrapfly-scrapers/blob/main/perplexity-scraper/results/answer.json)
+  - `scrape_answer(prompt)`: Single-turn: submit one prompt to the perplexity answer API and parse the answer
+- **Pinterest.com** (`pinterest-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/pinterest-scraper) | guide: [How to Scrape Pinterest in 2026](https://scrapfly.io/blog/posts/how-to-scrape-pinterest) | sample output: [Board](https://github.com/scrapfly/scrapfly-scrapers/blob/main/pinterest-scraper/results/board.json), [Downloads](https://github.com/scrapfly/scrapfly-scrapers/blob/main/pinterest-scraper/results/downloads.json), [Pin](https://github.com/scrapfly/scrapfly-scrapers/blob/main/pinterest-scraper/results/pin.json), [Profile](https://github.com/scrapfly/scrapfly-scrapers/blob/main/pinterest-scraper/results/profile.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/pinterest-scraper/results/search.json)
+  - `scrape_search(query, max_pages=3)`: Scrape Pinterest search results and return parsed pin data.
+  - `scrape_board(board_url, max_pages=3)`: scrape a Pinterest board's metadata and pins
+  - `scrape_profile(username, max_pages=3)`: scrape a Pinterest user's profile metadata and their pins
+  - `scrape_pin(pin_url)`: scrape a single Pinterest pin's details
+- **Realestate.com.au** (`realestatecom-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/realestatecom-scraper) | guide: [How to Scrape Realestate.com.au Property Listing Data](https://scrapfly.io/blog/posts/how-to-scrape-realestate-com-au-property-listing-data) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/realestatecom-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/realestatecom-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape listing data from property pages
+  - `scrape_search(url, max_scrape_pages=None)`: scrape property listings from search pages
+- **Realtor.com** (`realtorcom-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/realtorcom-scraper) | guide: [How to Scrape Realtor.com - Real Estate Property Data](https://scrapfly.io/blog/posts/how-to-scrape-realtorcom) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/realtorcom-scraper/results/property.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/realtorcom-scraper/results/search.json), [Feed pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/realtorcom-scraper/results/feed.json)
+  - `scrape_property(url)`: scrape realtor.com's property page for property data
+  - `scrape_search(state, city, max_pages=None)`: scrape realtor.com's search and find properties for given query. Paginate to max pages if provided
+  - `scrape_feed(url)`: scrapes atom RSS feed and returns all entries in "url:publish date" format
+- **Reddit.com** (`reddit-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/reddit-scraper) | guide: [How to Scrape Reddit Posts, Subreddits and Profiles](https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data) | sample output: [Post pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/reddit-scraper/results/post.json), [Subreddit pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/reddit-scraper/results/subreddit.json), [User comment pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/reddit-scraper/results/user_comments.json), [User post pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/reddit-scraper/results/user_posts.json)
+  - `scrape_paginated(url, parse, wait_for_selector=None, max_pages=None)`: scrape a first page then follow faceplate-partial pagination
+  - `scrape_subreddit(subreddit_id, max_pages=None)`: scrape posts from a subreddit
+  - `scrape_post_comments(subreddit, post_id, sort)`: fetch and parse one sort's worth of comments via the shreddit comments endpoint
+  - `scrape_post(url, sort)`: scrape subreddit post and comment data
+  - `scrape_user_posts(username, sort, max_pages=None)`: scrape user posts
+  - `scrape_user_comments(username, sort, max_pages=None)`: scrape user comments
+- **Redfin.com** (`redfin-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/redfin-scraper) | guide: [How to Scrape Redfin Real Estate Property Data in Python](https://scrapfly.io/blog/posts/how-to-scrape-redfin) | sample output: [Property pages for sale](https://github.com/scrapfly/scrapfly-scrapers/blob/main/redfin-scraper/results/properties_for_sale.json), [Property pages for rent](https://github.com/scrapfly/scrapfly-scrapers/blob/main/redfin-scraper/results/properties_for_rent.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/redfin-scraper/results/search.json)
+  - `scrape_search(url)`: scrape search data from the searh API
+  - `scrape_property_for_sale(urls)`: scrape properties for sale data from HTML
+  - `scrape_property_for_rent(urls)`: scrape properties for rent from the API
+- **Rightmove.com** (`rightmove-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/rightmove-scraper) | guide: [How to Scrape RightMove Real Estate Property Data with Python](https://scrapfly.io/blog/posts/how-to-scrape-rightmove) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/rightmove-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/rightmove-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape Rightmove property listings for property data
+  - `scrape_search(location_name, location_id, scrape_all_properties, max_properties=1000)`: scrape properties data from rightmove's search api
+- **Rs-online.com** (`rs-online-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/rs-online-scraper) | guide: [How to Scrape RS-Online (rs-online.com) in 2026](https://scrapfly.io/blog/posts/how-to-scrape-rs-online) | sample output: [Category](https://github.com/scrapfly/scrapfly-scrapers/blob/main/rs-online-scraper/results/category.json), [Products](https://github.com/scrapfly/scrapfly-scrapers/blob/main/rs-online-scraper/results/products.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/rs-online-scraper/results/search.json)
+  - `scrape_products(urls)`
+  - `scrape_category(url, max_pages=3)`
+  - `scrape_search(query, max_pages=3)`
+- **Seloger.com** (`seloger-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/seloger-scraper) | guide: [How to Scrape Seloger.com - Real Estate Listing Data](https://scrapfly.io/blog/posts/how-to-scrape-seloger-com-listing-real-estate-ads) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/seloger-scraper/results/property.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/seloger-scraper/results/search.json)
+  - `scrape_search(url, max_pages=10)`: scrape seloger search pages, which supports pagination by adding a LISTING-LISTpg parameter at the end of the URL https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=Apartment&locations=AD08FR13100&page=page_number
+  - `scrape_property(urls)`: scrape seloger property pages
+- **Shopify stores** (`shopify-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/shopify-scraper) | guide: [How to Scrape Shopify Stores for Products, Prices, and Variants](https://scrapfly.io/blog/posts/how-to-scrape-shopify-stores) | sample output: [Storefront preflight](https://github.com/scrapfly/scrapfly-scrapers/blob/main/shopify-scraper/results/preflight.json), [Catalog products.json](https://github.com/scrapfly/scrapfly-scrapers/blob/main/shopify-scraper/results/catalog.json), [Collection products](https://github.com/scrapfly/scrapfly-scrapers/blob/main/shopify-scraper/results/collection.json), [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/shopify-scraper/results/product_pages.json), [Sitemap product urls](https://github.com/scrapfly/scrapfly-scrapers/blob/main/shopify-scraper/results/product_urls.json)
+  - `scrape_catalog(store_url, max_pages=2, limit=CATALOG_PAGE_SIZE, collection=None)`: scrape products from a Shopify storefront products.json route
+  - `scrape_collection(store_url, collection, max_pages=2, limit=CATALOG_PAGE_SIZE)`: scrape products of a single Shopify collection, keeping the merchandising context
+  - `scrape_product_pages(urls)`: scrape Shopify product pages, the fallback when the catalog JSON route is unusable
+  - `scrape_product_urls(store_url, max_sitemaps=1)`: discover product URLs from the Shopify sitemap index
+- **Similarweb.com** (`similarweb-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/similarweb-scraper) | guide: [How to Scrape SimilarWeb Website Traffic Analytics](https://scrapfly.io/blog/posts/how-to-scrape-similarweb) | sample output: [Website pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/similarweb-scraper/results/websites.json), [Website compare pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/similarweb-scraper/results/websites_compare.json), [Trend pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/similarweb-scraper/results/trends.json), [Sitemaps](https://github.com/scrapfly/scrapfly-scrapers/blob/main/similarweb-scraper/results/sitemap_urls.json)
+  - `scrape_website(domains)`: scrape website inights from website pages
+  - `scrape_website_compare(first_domain, second_domain)`: parse website comparing data from similarweb comparing pages
+  - `scrape_sitemaps(url)`: scrape link data from bestbuy sitemap
+  - `scrape_trendings(urls)`: parse trending websites data
+- **Skyscanner** (`skyscanner-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/skyscanner-scraper) | guide: [How to Scrape Skyscanner Flight Prices in Python (2026)](https://scrapfly.io/blog/posts/how-to-scrape-skyscanner) | sample output: [Oneway](https://github.com/scrapfly/scrapfly-scrapers/blob/main/skyscanner-scraper/results/oneway.json), [Roundtrip](https://github.com/scrapfly/scrapfly-scrapers/blob/main/skyscanner-scraper/results/roundtrip.json)
+  - `scrape_flights(origin, destination, departure_date, adults=1, cabin_class='economy', return_date=None, market_country='US')`: Scrape Skyscanner one-way or round-trip flight results via XHR interception.
+- **Stockx.com** (`stockx-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/stockx-scraper) | guide: [How to Scrape StockX e-commerce Data with Python](https://scrapfly.io/blog/posts/how-to-scrape-stockx) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/stockx-scraper/results/product.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/stockx-scraper/results/search.json)
+  - `scrape_product(url)`: scrape a single stockx product page for product data
+  - `scrape_search(url, max_pages=25)`: Scrape StockX search
+- **Target.com** (`target-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/target-scraper) | guide: [How to Scrape Target.com Product and Pricing Data](https://scrapfly.io/blog/posts/how-to-scrape-target-com) | sample output: [Availability](https://github.com/scrapfly/scrapfly-scrapers/blob/main/target-scraper/results/availability.json), [Product](https://github.com/scrapfly/scrapfly-scrapers/blob/main/target-scraper/results/product.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/target-scraper/results/search.json), [Store locations](https://github.com/scrapfly/scrapfly-scrapers/blob/main/target-scraper/results/store_locations.json), [Stores](https://github.com/scrapfly/scrapfly-scrapers/blob/main/target-scraper/results/stores.json)
+  - `scrape_product(url)`: scrape a Target product page and return parsed product data
+  - `scrape_availability(tcins, store_id, zip_code)`: scrape product availability and fulfillment data from product_summary_with_fulfillment_v1
+  - `scrape_store_locations_sitemap(url)`: scrape store location URLs from the Target store sitemap
+  - `scrape_store_locations(store_ids)`: scrape store location details from store_location_v1 for a list of store IDs
+  - `scrape_search(keyword, max_pages=None)`: scrape search results and paginate through all result pages
+- **Threads.net** (`threads-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/threads-scraper) | guide: [How to scrape Threads by Meta using Python (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-threads) | sample output: [Profile pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/threads-scraper/results/profile.json), [Thread pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/threads-scraper/results/thread.json)
+  - `scrape_thread(url)`: Scrape a single thread page: https://www.threads.net/t/CuVdfsNtmvh/ Return parent thread and reply threads
+  - `scrape_profile(url)`: Scrapes Twitter user profile page e.g.: https://www.threads.net/@zuck returns user data and latest tweets
+- **Ticketmaster.com** (`ticketmaster-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/ticketmaster-scraper) | guide: [How to Scrape Ticketmaster in 2026](https://scrapfly.io/blog/posts/how-to-scrape-ticketmaster) | sample output: [Artist](https://github.com/scrapfly/scrapfly-scrapers/blob/main/ticketmaster-scraper/results/artist.json), [Discovery](https://github.com/scrapfly/scrapfly-scrapers/blob/main/ticketmaster-scraper/results/discovery.json)
+  - `scrape_artist(urls)`: Scrape Ticketmaster artist pages for artist and event data
+  - `scrape_discovery(base_url)`: Scrape Ticketmaster discovery API for event listings
+- **TikTok.com** (`tiktok-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/tiktok-scraper) | guide: [How To Scrape TikTok in 2025](https://scrapfly.io/blog/posts/how-to-scrape-tiktok-python-json) | sample output: [Comment data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tiktok-scraper/results/comments.json), [Post data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tiktok-scraper/results/posts.json), [Profile data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tiktok-scraper/results/profiles.json), [Channel data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tiktok-scraper/results/channel.json), [Search data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tiktok-scraper/results/search.json)
+  - `scrape_posts(urls)`: scrape tiktok posts data from their URLs
+  - `scrape_comments(post_url)`: scrape comments from tiktok posts from xhr call parsing
+  - `scrape_profiles(urls)`: scrape tiktok profiles data from their URLs
+  - `scrape_search(keyword)`: scrape tiktok search data by scrolling the search page
+  - `scrape_channel(url)`: scrape video data from a channel (profile with videos)
+- **Tripadvisor.com** (`tripadvisor-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/tripadvisor-scraper) | guide: [How to Scrape TripAdvisor.com (2025 Updated)](https://scrapfly.io/blog/posts/how-to-scrape-tripadvisor) | sample output: [Hotel pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tripadvisor-scraper/results/hotels.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tripadvisor-scraper/results/search.json), [Location pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/tripadvisor-scraper/results/location.json)
+  - `scrape_location_data(query)`: scrape search location data from a given query. e.g. "New York" will return us TripAdvisor's location details for this query
+  - `scrape_search(search_url, max_pages=None)`: scrape search results of a search query
+  - `scrape_hotel(url, max_review_pages=None)`: Scrape hotel data and reviews
+- **Trustpilot.com** (`trustpilot-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/trustpilot-scraper) | guide: [How to Scrape Trustpilot.com Reviews and Company Data](https://scrapfly.io/blog/posts/how-to-scrape-trustpilot-com-reviews) | sample output: [Company pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/trustpilot-scraper/results/companies.json), [Reviews pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/trustpilot-scraper/results/reviews.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/trustpilot-scraper/results/search.json)
+  - `scrape_company(urls)`: scrape trustpilot company pages
+  - `scrape_search(url, max_pages=None)`: scrape trustpilot search pages
+  - `scrape_reviews(url, max_pages=None)`: parse review data from the API
+- **Twitter(X).com** (`twitter-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/twitter-scraper) | guide: [How to Scrape X.com (Twitter) using Python (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-twitter) | sample output: [Profile pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/twitter-scraper/results/profile.json), [Tweet pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/twitter-scraper/results/tweet.json)
+  - `scrape_tweet(url)`: scrape a tweet page
+  - `scrape_profile(url)`: scrape a profile page
+- **VestiaireCollective.com** (`vestiairecollective-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/vestiairecollective-scraper) | guide: [How to Scrape Vestiaire Collective for Fashion Product Data](https://scrapfly.io/blog/posts/how-to-scrape-vestiairecollective) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/vestiairecollective-scraper/results/products.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/vestiairecollective-scraper/results/search.json)
+  - `scrape_products(urls)`: scrape vestiairecollective.com product pages for product data
+  - `scrape_search(url, max_pages=10)`
+- **Walmart.com** (`walmart-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/walmart-scraper) | guide: [How to Scrape Walmart.com Product Data (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-walmartcom) | sample output: [Product pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/walmart-scraper/results/products.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/walmart-scraper/results/search.json)
+  - `scrape_products(urls)`: Scrape product data from product pages with a JS rendering fallback.
+  - `scrape_search(query='', sort='best_match', max_pages=None)`: scrape single walmart search page
+- **Wellfound.com** (`wellfound-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/wellfound-scraper) | guide: [How to Scrape Wellfound Company Data and Job Listings](https://scrapfly.io/blog/posts/how-to-scrape-wellfound-aka-angellist) | sample output: [Company pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/wellfound-scraper/results/companies.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/wellfound-scraper/results/search.json)
+  - `scrape_search(role='', location='', max_pages=None)`: scrape wellfound.com search
+  - `scrape_companies(urls)`: scrape wellfound.com companies
+- **Yellowpages.com** (`yellowpages-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/yellowpages-scraper) | guide: [How to Scrape YellowPages.com in 2025](https://scrapfly.io/blog/posts/how-to-scrape-yellowpages) | sample output: [Business pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/yellowpages-scraper/results/business_pages.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/yellowpages-scraper/results/search.json)
+  - `scrape_search(query, location=None, max_pages=None)`: scrape yellowpages.com for listings
+  - `scrape_pages(urls)`: scrape yellowpages business pages
+- **Yelp.com** (`yelp-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/yelp-scraper) | guide: [How to Web Scrape Yelp.com (2025 update)](https://scrapfly.io/blog/posts/how-to-scrape-yelpcom) | sample output: [Business pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/yelp-scraper/results/business_pages.json), [Review pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/yelp-scraper/results/reviews.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/yelp-scraper/results/search.json)
+  - `scrape_pages(urls)`: scrape yelp business pages
+  - `scrape_reviews(url, max_reviews=None)`
+  - `scrape_search(keyword, location, max_pages=None)`: scrape single page of yelp search
+- **YouTube.com** (`youtube-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/youtube-scraper) | guide: [How to Scrape YouTube in 2025](https://scrapfly.io/blog/posts/how-to-scrape-youtube) | sample output: [Channel videos](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/channel_videos.json), [Channel metadata](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/channels.json), [Video metadata](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/videos.json), [Video comments](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/comments.json), [Shorts' metadata](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/shorts.json), [Search](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/search.json), [Transcripts](https://github.com/scrapfly/scrapfly-scrapers/blob/main/youtube-scraper/results/transcripts.json)
+  - `scrape_video(ids)`: scrape video metadata from YouTube videos
+  - `scrape_comments(video_id, max_scrape_pages=None)`: scraper comments from a YouTube video
+  - `scrape_channel(channel_ids)`: scrape channel metadata from YouTube channel pages
+  - `scrape_channel_videos(channel_id, sort_by='Latest', max_scrape_pages=None)`: scrape video metadata from YouTube channel page
+  - `scrape_search(search_query, max_scrape_pages=None, search_params=None)`: scrape search results from YouTube search query
+  - `scrape_shorts(ids)`: scrape metadata from YouTube shorts
+  - `scrape_transcript(video_ids)`: scrape transcript segments (start and end time in milliseconds and text) of YouTube videos
+- **Zillow.com** (`zillow-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/zillow-scraper) | guide: [How to Scrape Zillow Real Estate Property Data in Python](https://scrapfly.io/blog/posts/how-to-scrape-zillow) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zillow-scraper/results/property.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zillow-scraper/results/search.json)
+  - `scrape_search(url, max_scrape_pages=None)`: base search function which is used by sale and rent search functions
+  - `scrape_properties(urls)`: scrape zillow property pages for property data
+- **Zoominfo.com** (`zoominfo-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/zoominfo-scraper) | guide: [How to Scrape Zoominfo Company Data (2025 Update)](https://scrapfly.io/blog/posts/how-to-scrape-zoominfo) | sample output: [Company pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoominfo-scraper/results/companies.json), [Directory pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoominfo-scraper/results/directory.json), [FAQs data](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoominfo-scraper/results/faqs.json)
+  - `scrape_comapnies(urls)`: scrape company data from zoominfo company pages
+  - `scrape_directory(url, scrape_pagination=True)`: scrape zoominfo directory pages for company page URLs
+  - `scrape_faqs(url)`: scrape faqs from Zoominfo company pages
+- **Zoopla.co.uk** (`zoopla-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/zoopla-scraper) | guide: [How to Scrape Zoopla Real Estate Property Data in Python](https://scrapfly.io/blog/posts/how-to-scrape-zoopla) | sample output: [Property pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoopla-scraper/results/properties.json), [Search pages](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoopla-scraper/results/search.json)
+  - `scrape_properties(urls)`: scrape zoopla property listings from property pages
+  - `scrape_search(scrape_all_pages, location_slug, max_scrape_pages=10, query_type='for-sale')`: scrape zoopla search pages for property listings
+- **Zoro.com** (`zoro-scraper/`): [code](https://github.com/scrapfly/scrapfly-scrapers/tree/main/zoro-scraper) | guide: [How to Scrape Zoro.com in 2026 (without getting blocked)](https://scrapfly.io/blog/posts/how-to-scrape-zoro-dot-com) | sample output: [Product](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoro-scraper/results/product.json), [Search listing](https://github.com/scrapfly/scrapfly-scrapers/blob/main/zoro-scraper/results/search_listing.json)
+  - `scrape_product(urls)`: Scrape Zoro product pages for product data
+  - `scrape_search_listing(query, max_pages=3, scrape_all_pages=False, sort_by=None, sort_order='asc', filters=None)`: Scrape Zoro search pages for product listings
+
+## Write a new scraper
+
+Follow the layout and style of the existing folders (the maintainers' rules):
+
+1. Create a `<name>-scraper/` folder with:
+   - `<name>.py`: all the scraper code;
+   - `run.py`: runs the scraper on example URLs and saves the output to `results/*.json`;
+   - `test.py`: pytest tests that check live output against a [cerberus](https://docs.python-cerberus.org/) schema;
+   - `results/`: the sample output written by `run.py`;
+   - `README.md`: a copy of another scraper's README with the website name changed;
+   - `pyproject.toml`: a Poetry project like the other folders (no `poetry.lock`, so users get the latest SDK).
+2. Code:
+   - top-level `async def scrape_*()` functions such as `scrape_search(url, max_pages=...)` and `scrape_products(urls)`, with small synchronous `parse_*()` helpers;
+   - one module-level `SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])` and a `BASE_CONFIG` dict spread into every `ScrapeConfig(url, **BASE_CONFIG)`;
+   - several URLs at once with `SCRAPFLY.concurrent_scrape()`, with the concurrency limit set to automatic;
+   - prefer the JSON data hidden in the page over HTML selectors, keep results flat, use type hints and short comments, keep it simple: the code is for learning;
+   - inputs are full URLs rather than values the scraper turns into URLs; use small defaults (pages, items).
+3. Tests: one schema per result type plus length checks (for example a search returns at least N items); mark them with `@pytest.mark.asyncio` and `@pytest.mark.flaky(reruns=3, reruns_delay=30)`, with `pytest-rerunfailures` in the dev dependencies.
+4. Nothing to add to the CI: the nightly run tests every `test_*` function of every `test.py` (tests that must not run are listed in `.github/test_matrix_exclude.txt`).
+5. Run `python .github/scripts/docs.py` to add the scraper to the README table and to this file; put its website name, guide and sample dataset labels in `.github/scrapers.json` when the defaults are not right.
+
+To start, copy the folder of a listed scraper for a similar website and keep its structure.
+
+## Links
+
+- Scrapfly for agents: https://scrapfly.io/llms.txt (every documentation page: https://scrapfly.io/docs/llms.txt)
+- Scrapfly Python SDK: https://github.com/scrapfly/python-scrapfly
+- Scrape guides: https://scrapfly.io/blog/tag/scrapeguide/
+- Repository: https://github.com/scrapfly/scrapfly-scrapers
