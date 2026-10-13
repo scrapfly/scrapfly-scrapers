@@ -83,3 +83,34 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  status:
+    # after the nightly: one badge file per scraper on the ci-status branch (the README status column reads them)
+    needs: test
+    # the nightly, or a manual run of the whole matrix (e.g. right after this job is first merged)
+    if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.scrapers == '' && inputs.tests == ''))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check out the ci-status branch (created on the first run)
+      run: |
+        git clone -q --depth 1 --branch ci-status "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-status \
+          || (mkdir ci-status && git -C ci-status init -q -b ci-status)
+
+    - name: Write the status files
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: python3 .github/scripts/ci_status.py --repo ${{ github.repository }} --run-id ${{ github.run_id }} --out ci-status
+
+    - name: Push the ci-status branch
+      run: |
+        cd ci-status
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -q -m "Scraper Tests run ${{ github.run_id }} ($(date -u +%F))"
+        git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:ci-status

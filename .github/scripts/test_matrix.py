@@ -52,7 +52,8 @@ def main() -> None:
     matrix = [
         {"project_dir": project_dir, "test": test}
         for project_dir, test in discover()
-        if project_dir not in skip and f"{project_dir}/{test}" not in skip
+        if project_dir not in skip
+        and f"{project_dir}/{test}" not in skip
         and (not scrapers or project_dir.removesuffix("-scraper") in scrapers)
         and (not tests or test in tests)
     ]
