@@ -7,7 +7,9 @@ Reads the run's jobs through `gh api` (GH_TOKEN) and writes, in --out:
 - badges/<scraper dir>.svg    one "tests" badge image per scraper, embedded by the README status column:
                               "passing" (every test of the scraper passed), "failing", "N/M passing", or
                               "not run" for a scraper that has no job in the run. Self-contained, no third party.
-- status.json                 every test job of the run with its conclusion, plus the run id and date.
+- status/<scraper dir>.md     one page per scraper, linked from its README badge: the tests of the last run with
+                              their result and job log, and the recent results of each test.
+- status.json                 every test job of the run with its conclusion and job log, plus the run id and date.
 - history.json                the last 60 results of every test (older entries are dropped).
 """
 import argparse
@@ -31,7 +33,7 @@ def run_jobs(repo: str, run_id: int) -> list:
             f"repos/{repo}/actions/runs/{run_id}/jobs?per_page=100",
             "--paginate",
             "--jq",
-            ".jobs[] | {name, conclusion}",
+            ".jobs[] | {name, conclusion, html_url}",
         ],
         check=True,
         capture_output=True,
@@ -42,7 +44,9 @@ def run_jobs(repo: str, run_id: int) -> list:
         job = json.loads(line)
         match = JOB_NAME.match(job["name"])
         if match:
-            jobs.append({"dir": match["dir"], "test": match["test"], "conclusion": job["conclusion"]})
+            jobs.append(
+                {"dir": match["dir"], "test": match["test"], "conclusion": job["conclusion"], "url": job["html_url"]}
+            )
     return jobs
 
 
@@ -80,6 +84,41 @@ def badge_svg(label: str, message: str, color: str) -> str:
     )
 
 
+def mark(conclusion: str) -> str:
+    return {"success": "✅", "failure": "❌"}.get(conclusion, "⚪")
+
+
+def status_page(scraper: str, jobs: list, history: dict, run_url: str, date: str) -> str:
+    """the page a README badge links to: the scraper's tests in the last run and their recent results"""
+    own = sorted((j for j in jobs if j["dir"] == scraper), key=lambda j: j["test"])
+    message, _ = status([j["conclusion"] for j in own])
+    lines = [f"# {scraper}: tests {message}", ""]
+    if own:
+        lines += [f"Last run: [{run_url.rsplit('/', 1)[1]}]({run_url}) on {date}.", "", "| test | result | job log |"]
+        lines += ["|---|---|---|"]
+        lines += [f"| `{j['test']}` | {mark(j['conclusion'])} {j['conclusion']} | [log]({j['url']}) |" for j in own]
+    else:
+        lines += [f"Not part of the last run ([{run_url.rsplit('/', 1)[1]}]({run_url}), {date})."]
+    recent = {
+        key.split("/", 1)[1]: entries for key, entries in sorted(history.items()) if key.startswith(scraper + "/")
+    }
+    if recent:
+        lines += [
+            "",
+            "## Recent results (oldest first, each links to its job log)",
+            "",
+            "| test | results |",
+            "|---|---|",
+        ]
+        for test, entries in recent.items():
+            marks = " ".join(
+                f"[{mark(e['conclusion'])}]({e['url']})" if e.get("url") else mark(e["conclusion"])
+                for e in entries[-15:]
+            )
+            lines.append(f"| `{test}` | {marks} |")
+    return "\n".join(lines) + "\n"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--repo", required=True, help="owner/name")
@@ -114,9 +153,17 @@ def main() -> None:
     history = json.loads(history_file.read_text()) if history_file.exists() else {}
     for job in jobs:
         entries = history.setdefault(f"{job['dir']}/{job['test']}", [])
-        entries.append({"date": date, "run": args.run_id, "conclusion": job["conclusion"]})
+        entries.append({"date": date, "run": args.run_id, "conclusion": job["conclusion"], "url": job["url"]})
         del entries[:-KEEP]
     history_file.write_text(json.dumps(history, indent=1) + "\n")
+
+    pages = args.out / "status"
+    pages.mkdir(parents=True, exist_ok=True)
+    for old in pages.iterdir():  # owned by this script too
+        old.unlink()
+    run_url = f"https://github.com/{args.repo}/actions/runs/{args.run_id}"
+    for scraper in scrapers:
+        (pages / f"{scraper}.md").write_text(status_page(scraper, jobs, history, run_url, date))
 
     failed = sum(1 for j in jobs if j["conclusion"] != "success")
     print(f"{len(jobs)} test jobs, {failed} not successful; {len(scrapers)} badges written to {badges}")
