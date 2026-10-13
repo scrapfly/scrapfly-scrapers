@@ -144,7 +144,9 @@ def _build_search_scenario(
         {"click": {"selector": "button.rsw-submit-button", "timeout": 10000}},
         {"wait": 3000},
         {"click": {"selector": ".bottom-block__continue button", "ignore": True, "ignore_if_not_visible": True, "timeout": 10000}},
-        {"wait": 2000},
+        # the flight list is shown once emirates answered the results request, wait for it instead of
+        # a fixed pause so a slow results page is still read; optional, the page may show no list
+        {"wait_for_selector": {"selector": ".flight-info__container", "timeout": 15000, "ignore": True}},
     ]
     return scenario
 
@@ -186,7 +188,13 @@ def parse_branded_fares(response: ScrapeApiResponse) -> dict:
                 f"emirates.com answered the branded-fares search results with status {status} instead of flight data"
             )
         return json.loads(xhr["response"]["body"])
-    raise ValueError("branded-fares xhr call not found")
+    # no flight results were loaded, say whether the browser got to the results page at all
+    page_url = response.scrape_result.get("url") or ""
+    if "/search-results" not in page_url:
+        raise ValueError(f"emirates.com did not open the search results page, the browser ended on {page_url}")
+    raise ValueError(
+        "emirates.com opened the search results page but the flight results (branded-fares) were not loaded"
+    )
 
 
 def parse_lowest_fare(data: dict) -> FarePrice:
