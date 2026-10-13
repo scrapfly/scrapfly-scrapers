@@ -13,7 +13,8 @@ Where each part comes from:
   "Hotel reviews");
 - sample datasets: every results/*.json file; functions (llms.txt): the scrape_* functions of the scraper code with
   the first paragraph of their docstring;
-- status: the nightly badge that .github/scripts/ci_status.py writes to the ci-status branch.
+- status: the nightly badge that .github/scripts/ci_status.py writes to the ci-status branch, linked to the
+  scraper's page of the last run there (each test with its job log).
 
 Standard library only.
 """
@@ -222,12 +223,14 @@ def readme_table(items: list, badge_repo: str) -> str:
             f'        <li><a href="./{s["dir"]}/results/{file}">{label}</a></li>' for file, label in s["datasets"]
         )
         badge = f"https://github.com/{badge_repo}/raw/ci-status/badges/{s['dir']}.svg"
+        # the badge links to the scraper's page of the last run (each test with its job log), also on ci-status
+        page = f"https://github.com/{badge_repo}/blob/ci-status/status/{s['dir']}.md"
         rows.append(
             "  <tr>\n"
             f'    <td><a href="./{s["dir"]}/">{s["name"]}</a></td>\n'
             f"    <td>{guide}</td>\n"
             f"    <td>\n    <ul>\n{datasets}\n    </ul>\n    </td>\n"
-            f'    <td><img src="{badge}" alt="{s["dir"]}-status"></td>\n'
+            f'    <td><a href="{page}"><img src="{badge}" alt="{s["dir"]}-status"></a></td>\n'
             "  </tr>\n"
         )
     header = (

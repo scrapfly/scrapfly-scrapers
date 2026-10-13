@@ -33,7 +33,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./airfrance-scraper/results/roundtrip.json">Roundtrip</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/airfrance-scraper.svg" alt="airfrance-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/airfrance-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/airfrance-scraper.svg" alt="airfrance-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -45,7 +45,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./airbnb-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/airbnb-scraper.svg" alt="airbnb-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/airbnb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/airbnb-scraper.svg" alt="airbnb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -59,7 +59,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./aliexpress-scraper/results/category_products.json">Category products</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -71,7 +71,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./allegro-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/allegro-scraper.svg" alt="allegro-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/allegro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/allegro-scraper.svg" alt="allegro-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -84,7 +84,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -96,7 +96,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./app-store-scraper/results/reviews.json">Reviews</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/app-store-scraper.svg" alt="app-store-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/app-store-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/app-store-scraper.svg" alt="app-store-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -108,7 +108,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./autoscout24-scraper/results/listings.json">Listings</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/autoscout24-scraper.svg" alt="autoscout24-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/autoscout24-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/autoscout24-scraper.svg" alt="autoscout24-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -122,7 +122,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./bestbuy-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bestbuy-scraper.svg" alt="bestbuy-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bestbuy-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bestbuy-scraper.svg" alt="bestbuy-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -134,7 +134,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./bing-scraper/results/keywords.json">Keyword data</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bing-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -147,7 +147,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -159,7 +159,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./capterra-scraper/results/reviews.json">Reviews</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/capterra-scraper.svg" alt="capterra-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/capterra-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/capterra-scraper.svg" alt="capterra-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -170,7 +170,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./chatgpt-scraper/results/conversations.json">Conversations</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/chatgpt-scraper.svg" alt="chatgpt-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/chatgpt-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/chatgpt-scraper.svg" alt="chatgpt-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -182,7 +182,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./crunchbase-scraper/results/person.json">Investor pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/crunchbase-scraper.svg" alt="crunchbase-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/crunchbase-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/crunchbase-scraper.svg" alt="crunchbase-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -193,7 +193,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./dhl-scraper/results/tracking.json">Tracking</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/dhl-scraper.svg" alt="dhl-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/dhl-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/dhl-scraper.svg" alt="dhl-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -206,7 +206,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./digikey-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/digikey-scraper.svg" alt="digikey-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/digikey-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/digikey-scraper.svg" alt="digikey-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -218,7 +218,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./domaincom-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/domaincom-scraper.svg" alt="domaincom-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/domaincom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/domaincom-scraper.svg" alt="domaincom-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -231,7 +231,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./ebay-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/ebay-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -243,7 +243,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./emirates-scraper/results/roundtrip.json">Roundtrip</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/emirates-scraper.svg" alt="emirates-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/emirates-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/emirates-scraper.svg" alt="emirates-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -256,7 +256,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./etsy-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/etsy-scraper.svg" alt="etsy-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/etsy-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/etsy-scraper.svg" alt="etsy-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -268,7 +268,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./expedia-scraper/results/hotels.json">Hotels</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/expedia-scraper.svg" alt="expedia-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/expedia-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/expedia-scraper.svg" alt="expedia-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -282,7 +282,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./facebook-scraper/results/pages.json">Pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/facebook-scraper.svg" alt="facebook-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/facebook-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/facebook-scraper.svg" alt="facebook-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -294,7 +294,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./fashionphile-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/fashionphile-scraper.svg" alt="fashionphile-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/fashionphile-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/fashionphile-scraper.svg" alt="fashionphile-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -307,7 +307,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./g2-scraper/results/alternatives.json">Alternatives pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/g2-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -321,7 +321,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./glassdoor-scraper/results/companies.json">Companies</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/glassdoor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -333,7 +333,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./goat-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goat-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -345,7 +345,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -359,7 +359,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./goodreads-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goodreads-scraper.svg" alt="goodreads-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goodreads-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goodreads-scraper.svg" alt="goodreads-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -372,7 +372,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./google-flights-scraper/results/roundtrip.json">Roundtrip</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-flights-scraper.svg" alt="google-flights-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-flights-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-flights-scraper.svg" alt="google-flights-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -383,7 +383,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./google-jobs-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-jobs-scraper.svg" alt="google-jobs-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-jobs-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-jobs-scraper.svg" alt="google-jobs-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -396,7 +396,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./google-play-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-play-scraper.svg" alt="google-play-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-play-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-play-scraper.svg" alt="google-play-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -411,7 +411,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./google-scraper/results/ai_mode.json">Ai mode</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-scraper.svg" alt="google-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-scraper.svg" alt="google-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -423,7 +423,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./homegate-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/homegate-scraper.svg" alt="homegate-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/homegate-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/homegate-scraper.svg" alt="homegate-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -437,7 +437,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./idealista-scraper/results/crawl.json">Crawl</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealista-scraper.svg" alt="idealista-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealista-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealista-scraper.svg" alt="idealista-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -451,7 +451,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./idealo-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -466,7 +466,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./imdb-scraper/results/title.json">Title</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imdb-scraper.svg" alt="imdb-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imdb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imdb-scraper.svg" alt="imdb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -478,7 +478,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./immobilienscout24-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immobilienscout24-scraper.svg" alt="immobilienscout24-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/immobilienscout24-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immobilienscout24-scraper.svg" alt="immobilienscout24-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -490,7 +490,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./immoscout24-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immoscout24-scraper.svg" alt="immoscout24-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/immoscout24-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immoscout24-scraper.svg" alt="immoscout24-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -502,7 +502,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./immowelt-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immowelt-scraper.svg" alt="immowelt-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/immowelt-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immowelt-scraper.svg" alt="immowelt-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -514,7 +514,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./imovelweb-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imovelweb-scraper.svg" alt="imovelweb-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imovelweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imovelweb-scraper.svg" alt="imovelweb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -526,7 +526,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./indeed-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -541,7 +541,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -553,7 +553,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./kayak-scraper/results/roundtrip.json">Roundtrip</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/kayak-scraper.svg" alt="kayak-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/kayak-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/kayak-scraper.svg" alt="kayak-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -565,7 +565,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./leboncoin-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/leboncoin-scraper.svg" alt="leboncoin-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/leboncoin-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/leboncoin-scraper.svg" alt="leboncoin-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -580,7 +580,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./linkedin-scraper/results/articles.json">Article pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/linkedin-scraper.svg" alt="linkedin-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/linkedin-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/linkedin-scraper.svg" alt="linkedin-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -592,7 +592,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./loopnet-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/loopnet-scraper.svg" alt="loopnet-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/loopnet-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/loopnet-scraper.svg" alt="loopnet-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -605,7 +605,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./lowes-scraper/results/store_locations.json">Store locations</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/lowes-scraper.svg" alt="lowes-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/lowes-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/lowes-scraper.svg" alt="lowes-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -617,7 +617,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./maersk-scraper/results/tracking.json">Tracking</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/maersk-scraper.svg" alt="maersk-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/maersk-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/maersk-scraper.svg" alt="maersk-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -629,7 +629,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./marriott-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/marriott-scraper.svg" alt="marriott-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/marriott-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/marriott-scraper.svg" alt="marriott-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -641,7 +641,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./mouser-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -655,7 +655,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -667,7 +667,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./nordstorm-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -678,7 +678,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./perplexity-scraper/results/answer.json">Answer</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -693,7 +693,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./pinterest-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/pinterest-scraper.svg" alt="pinterest-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/pinterest-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/pinterest-scraper.svg" alt="pinterest-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -705,7 +705,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./realestatecom-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realestatecom-scraper.svg" alt="realestatecom-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/realestatecom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realestatecom-scraper.svg" alt="realestatecom-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -718,7 +718,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./realtorcom-scraper/results/feed.json">Feed pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realtorcom-scraper.svg" alt="realtorcom-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/realtorcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realtorcom-scraper.svg" alt="realtorcom-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -732,7 +732,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./reddit-scraper/results/user_posts.json">User post pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -745,7 +745,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./redfin-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/redfin-scraper.svg" alt="redfin-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/redfin-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/redfin-scraper.svg" alt="redfin-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -757,7 +757,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./rightmove-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -770,7 +770,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./rs-online-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -782,7 +782,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./seloger-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/seloger-scraper.svg" alt="seloger-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/seloger-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/seloger-scraper.svg" alt="seloger-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -797,7 +797,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./shopify-scraper/results/product_urls.json">Sitemap product urls</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/shopify-scraper.svg" alt="shopify-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/shopify-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/shopify-scraper.svg" alt="shopify-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -811,7 +811,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./similarweb-scraper/results/sitemap_urls.json">Sitemaps</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -823,7 +823,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -835,7 +835,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./stockx-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/stockx-scraper.svg" alt="stockx-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/stockx-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/stockx-scraper.svg" alt="stockx-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -850,7 +850,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./target-scraper/results/stores.json">Stores</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -862,7 +862,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./threads-scraper/results/thread.json">Thread pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/threads-scraper.svg" alt="threads-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/threads-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/threads-scraper.svg" alt="threads-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -874,7 +874,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./ticketmaster-scraper/results/discovery.json">Discovery</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ticketmaster-scraper.svg" alt="ticketmaster-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/ticketmaster-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ticketmaster-scraper.svg" alt="ticketmaster-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -889,7 +889,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./tiktok-scraper/results/search.json">Search data</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tiktok-scraper.svg" alt="tiktok-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tiktok-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tiktok-scraper.svg" alt="tiktok-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -902,7 +902,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./tripadvisor-scraper/results/location.json">Location pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tripadvisor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -915,7 +915,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./trustpilot-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/trustpilot-scraper.svg" alt="trustpilot-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/trustpilot-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/trustpilot-scraper.svg" alt="trustpilot-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -927,7 +927,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./twitter-scraper/results/tweet.json">Tweet pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/twitter-scraper.svg" alt="twitter-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/twitter-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/twitter-scraper.svg" alt="twitter-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -939,7 +939,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./vestiairecollective-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/vestiairecollective-scraper.svg" alt="vestiairecollective-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/vestiairecollective-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/vestiairecollective-scraper.svg" alt="vestiairecollective-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -951,7 +951,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./walmart-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/walmart-scraper.svg" alt="walmart-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/walmart-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/walmart-scraper.svg" alt="walmart-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -963,7 +963,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./wellfound-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/wellfound-scraper.svg" alt="wellfound-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/wellfound-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/wellfound-scraper.svg" alt="wellfound-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -975,7 +975,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./yellowpages-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/yellowpages-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -988,7 +988,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./yelp-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yelp-scraper.svg" alt="yelp-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/yelp-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yelp-scraper.svg" alt="yelp-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1005,7 +1005,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./youtube-scraper/results/transcripts.json">Transcripts</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/youtube-scraper.svg" alt="youtube-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/youtube-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/youtube-scraper.svg" alt="youtube-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1017,7 +1017,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zillow-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zillow-scraper.svg" alt="zillow-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zillow-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zillow-scraper.svg" alt="zillow-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1030,7 +1030,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zoominfo-scraper/results/faqs.json">FAQs data</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoominfo-scraper.svg" alt="zoominfo-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoominfo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoominfo-scraper.svg" alt="zoominfo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1042,7 +1042,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zoopla-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoopla-scraper.svg" alt="zoopla-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoopla-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoopla-scraper.svg" alt="zoopla-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1054,7 +1054,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zoro-scraper/results/search_listing.json">Search listing</a></li>
     </ul>
     </td>
-    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></a></td>
   </tr>
 
 </table>
