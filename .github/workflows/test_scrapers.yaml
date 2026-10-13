@@ -1,439 +1,37 @@
 name: Scraper Tests
 on:
   workflow_dispatch:
+    inputs:
+      scrapers:
+        description: "Only these scrapers, comma-separated (e.g. airbnb,expedia). Empty runs all of them."
+        required: false
+        default: ""
+      tests:
+        description: "Only these test functions, comma-separated (e.g. test_search_scraping). Empty runs all of them."
+        required: false
+        default: ""
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
+  matrix:
+    # one job per test function found in the *-scraper/test.py files (see .github/scripts/test_matrix.py)
+    runs-on: ubuntu-latest
+    outputs:
+      include: ${{ steps.generate.outputs.include }}
+    steps:
+    - uses: actions/checkout@v4
+    - id: generate
+      run: python3 .github/scripts/test_matrix.py --scrapers "${{ inputs.scrapers }}" --tests "${{ inputs.tests }}" >> "$GITHUB_OUTPUT"
+
   test:
+    needs: matrix
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       fail-fast: false
       matrix:
-        include:
-          - project_dir: allegro-scraper
-            test: test_search_scraping
-          - project_dir: allegro-scraper
-            test: test_product_scraping          
-          - project_dir: tiktok-scraper
-            test: test_comment_scraping
-          - project_dir: tiktok-scraper
-            test: test_post_scraping
-          - project_dir: tiktok-scraper
-            test: test_profile_scraping
-          - project_dir: tiktok-scraper
-            test: test_search_scraping
-          - project_dir: tiktok-scraper
-            test: test_channel_scraping
-          - project_dir: fashionphile-scraper
-            test: test_search_scraping
-          - project_dir: fashionphile-scraper
-            test: test_product_scraping
-          - project_dir: walmart-scraper
-            test: test_search_scraping
-          - project_dir: walmart-scraper
-            test: test_product_scraping
-          - project_dir: domaincom-scraper
-            test: test_search_scraping
-          - project_dir: domaincom-scraper
-            test: test_properties_scraping
-          - project_dir: zoopla-scraper
-            test: test_search_scraping
-          - project_dir: zoopla-scraper
-            test: test_properties_scraping
-          - project_dir: reddit-scraper
-            test: test_subreddit_scraping
-          - project_dir: reddit-scraper
-            test: test_post_scraping
-          - project_dir: reddit-scraper
-            test: test_user_post_scraping
-          - project_dir: reddit-scraper
-            test: test_user_comment_scraping
-          - project_dir: ebay-scraper
-            test: test_search_scraping
-          - project_dir: ebay-scraper
-            test: test_product_scraping
-          - project_dir: ebay-scraper
-            test: test_product_variants_scraping
-          - project_dir: bookingcom-scraper
-            test: test_search_scraping
-          - project_dir: bookingcom-scraper
-            test: test_hotel_scraping
-          - project_dir: bookingcom-scraper
-            test: test_hotel_reviews_scraping
-          - project_dir: indeed-scraper
-            test: test_search_scraping
-          - project_dir: indeed-scraper
-            test: test_job_scraping
-          - project_dir: realtorcom-scraper
-            test: test_search_scraping
-          - project_dir: realtorcom-scraper
-            test: test_property_scraping
-          - project_dir: realtorcom-scraper
-            test: test_feed_scraping
-          - project_dir: immobilienscout24-scraper
-            test: test_search_scraping
-          - project_dir: immobilienscout24-scraper
-            test: test_properties_scraping
-          - project_dir: vestiairecollective-scraper
-            test: test_search_scraping
-          - project_dir: vestiairecollective-scraper
-            test: test_product_scraping
-          - project_dir: linkedin-scraper
-            test: test_profile_scraping
-          - project_dir: linkedin-scraper
-            test: test_company_scraping
-          - project_dir: linkedin-scraper
-            test: test_job_search_scraping
-          - project_dir: linkedin-scraper
-            test: test_job_page_scraping
-          - project_dir: linkedin-scraper
-            test: test_article_scraping            
-          - project_dir: wellfound-scraper
-            test: test_company_scraping
-          - project_dir: wellfound-scraper
-            test: test_search_scraping
-          - project_dir: similarweb-scraper
-            test: test_website_scraping
-          - project_dir: similarweb-scraper
-            test: test_website_compare_scraping
-          - project_dir: similarweb-scraper
-            test: test_trend_scraping
-          - project_dir: similarweb-scraper
-            test: test_sitemap_scraping
-          - project_dir: zillow-scraper
-            test: test_search_scraping
-          - project_dir: zillow-scraper
-            test: test_property_scraping
-          - project_dir: threads-scraper
-            test: test_thread_scraping
-          - project_dir: threads-scraper
-            test: test_user_scraping
-          - project_dir: crunchbase-scraper
-            test: test_company_scraping
-          - project_dir: crunchbase-scraper
-            test: test_person_scraping
-          - project_dir: redfin-scraper
-            test: test_properties_for_sale_scraping
-          - project_dir: redfin-scraper
-            test: test_properties_for_rent_scraping
-          - project_dir: redfin-scraper
-            test: test_search_scraping
-          - project_dir: bing-scraper
-            test: test_serp_scraping
-          - project_dir: bing-scraper
-            test: test_keyword_scraping
-          - project_dir: trustpilot-scraper
-            test: test_company_scraping
-          - project_dir: trustpilot-scraper
-            test: test_search_scraping
-          - project_dir: trustpilot-scraper
-            test: test_review_scraping
-          - project_dir: seloger-scraper
-            test: test_search_scraping
-          - project_dir: seloger-scraper
-            test: test_property_scraping
-          - project_dir: leboncoin-scraper
-            test: test_search_scraping
-          - project_dir: leboncoin-scraper
-            test: test_ad_scraping
-          - project_dir: immowelt-scraper
-            test: test_search_scraping
-          - project_dir: immowelt-scraper
-            test: test_properties_scraping
-          - project_dir: rightmove-scraper
-            test: test_search_scraping
-          - project_dir: rightmove-scraper
-            test: test_properties_scraping
-          - project_dir: bestbuy-scraper
-            test: test_product_scraping
-          - project_dir: bestbuy-scraper
-            test: test_review_scraping
-          - project_dir: bestbuy-scraper
-            test: test_search_scraping
-          - project_dir: goat-scraper
-            test: test_search_scraping
-          - project_dir: goat-scraper
-            test: test_product_scraping
-          - project_dir: google-scraper
-            test: test_serp_scraping
-          - project_dir: google-scraper
-            test: test_keyword_scraping
-          - project_dir: google-scraper
-            test: test_place_url_scraping
-          - project_dir: google-scraper
-            test: test_place_scraping
-          - project_dir: google-scraper
-            test: test_ai_mode_scraping            
-          - project_dir: yelp-scraper
-            test: test_review_scraping
-          - project_dir: yelp-scraper
-            test: test_page_scraping
-          - project_dir: yelp-scraper
-            test: test_search_scraping
-          - project_dir: youtube-scraper
-            test: test_video_scraping
-          - project_dir: youtube-scraper
-            test: test_comment_scraping
-          - project_dir: youtube-scraper
-            test: test_channel_scraping
-          - project_dir: youtube-scraper
-            test: test_channel_videos_scraping
-          - project_dir: youtube-scraper
-            test: test_search_scraping
-          - project_dir: youtube-scraper
-            test: test_shorts_scraping
-          - project_dir: youtube-scraper
-            test: test_transcript_scraping
-          - project_dir: immoscout24-scraper
-            test: test_search_scraping
-          - project_dir: immoscout24-scraper
-            test: test_properties_scraping
-          - project_dir: nordstorm-scraper
-            test: test_search_scraping
-          - project_dir: nordstorm-scraper
-            test: test_product_scraping
-          - project_dir: zoominfo-scraper
-            test: test_company_scraping
-          - project_dir: zoominfo-scraper
-            test: test_directory_scraping
-          - project_dir: zoominfo-scraper
-            test: test_faq_scraping
-          - project_dir: yellowpages-scraper
-            test: test_search_scraping
-          - project_dir: yellowpages-scraper
-            test: test_page_scraping
-          - project_dir: realestatecom-scraper
-            test: test_search_scraping
-          - project_dir: realestatecom-scraper
-            test: test_properties_scraping
-          - project_dir: instagram-scraper
-            test: test_user_scraping
-          - project_dir: instagram-scraper
-            test: test_post_scraping
-          - project_dir: instagram-scraper
-            test: test_user_post_scraping
-          - project_dir: homegate-scraper
-            test: test_search_scraping
-          - project_dir: homegate-scraper
-            test: test_properties_scraping
-          - project_dir: g2-scraper
-            test: test_review_scraping
-          - project_dir: g2-scraper
-            test: test_search_scraping
-          - project_dir: g2-scraper
-            test: test_alternative_scraping
-          - project_dir: etsy-scraper
-            test: test_search_scraping
-          - project_dir: etsy-scraper
-            test: test_product_scraping
-          - project_dir: etsy-scraper
-            test: test_shop_scraping
-          - project_dir: stockx-scraper
-            test: test_search_scraping
-          - project_dir: stockx-scraper
-            test: test_product_scraping
-          - project_dir: aliexpress-scraper
-            test: test_search_scraping
-          - project_dir: aliexpress-scraper
-            test: test_product_scraping
-          - project_dir: aliexpress-scraper
-            test: test_review_scraping
-          - project_dir: aliexpress-scraper
-            test: test_category_scraping
-          - project_dir: idealista-scraper
-            test: test_idealista_scraping
-          - project_dir: idealista-scraper
-            test: test_provinces_scraping
-          - project_dir: idealista-scraper
-            test: test_search_scraping
-          - project_dir: glassdoor-scraper
-            test: test_glassdoor_url
-          - project_dir: glassdoor-scraper
-            test: test_salary_range_parsing
-          - project_dir: glassdoor-scraper
-            test: test_find_companies
-          - project_dir: glassdoor-scraper
-            test: test_job_scraping
-          - project_dir: glassdoor-scraper
-            test: test_salary_scraping
-          - project_dir: glassdoor-scraper
-            test: test_review_scraping
-          - project_dir: tripadvisor-scraper
-            test: test_location_data_scraping
-          - project_dir: tripadvisor-scraper
-            test: test_search_scraping
-          - project_dir: tripadvisor-scraper
-            test: test_hotel_scraping
-          - project_dir: twitter-scraper
-            test: test_tweet_scraping
-          - project_dir: twitter-scraper
-            test: test_user_scraping
-          - project_dir: amazon-scraper
-            test: test_search_scraping
-          - project_dir: amazon-scraper
-            test: test_product_scraping
-          - project_dir: amazon-scraper
-            test: test_review_scraping
-          - project_dir: autoscout24-scraper
-            test: test_page_url
-          - project_dir: autoscout24-scraper
-            test: test_listings_scraping
-          - project_dir: autoscout24-scraper
-            test: test_car_details_scraping
-          - project_dir: ticketmaster-scraper
-            test: test_artist_scraping
-          - project_dir: ticketmaster-scraper
-            test: test_discovery_scraping
-          - project_dir: facebook-scraper
-            test: test_marketplace_scraping
-          - project_dir: facebook-scraper
-            test: test_events_scraping
-          - project_dir: facebook-scraper
-            test: test_page_scraping
-          - project_dir: facebook-scraper
-            test: test_group_posts_scraping            
-          - project_dir: instagram-scraper
-            test: test_post_comments_scraping
-          - project_dir: chatgpt-scraper
-            test: test_scrape_conversation
-          - project_dir: google-flights-scraper
-            test: test_scrape_flights
-          - project_dir: google-flights-scraper
-            test: test_scrape_price_insights
-          - project_dir: zoro-scraper
-            test: test_search_scraping
-          - project_dir: zoro-scraper
-            test: test_product_scraping
-          - project_dir: mouser-scraper
-            test: test_search_scraping
-          - project_dir: mouser-scraper
-            test: test_product_scraping
-          - project_dir: imovelweb-scraper
-            test: test_search_scraping
-          - project_dir: imovelweb-scraper
-            test: test_property_scraping
-          - project_dir: naver-scraper
-            test: test_web_search_scraping
-          - project_dir: naver-scraper
-            test: test_image_search_scraping
-          - project_dir: naver-scraper
-            test: test_blog_post_scraping
-          - project_dir: naver-scraper
-            test: test_news_article_scraping
-          - project_dir: perplexity-scraper
-            test: test_scrape_answer
-          - project_dir: google-jobs-scraper
-            test: test_search_scraping            
-          - project_dir: emirates-scraper
-            test: test_scrape_flights
-          - project_dir: skyscanner-scraper
-            test: test_scrape_flights_oneway            
-          - project_dir: kayak-scraper
-            test: test_scrape_roundtrip
-          - project_dir: airbnb-scraper
-            test: test_search_scraping
-          - project_dir: airbnb-scraper
-            test: test_property_scraping
-          - project_dir: pinterest-scraper
-            test: test_search_scraping            
-          - project_dir: target-scraper
-            test: test_product_scraping
-          - project_dir: target-scraper
-            test: test_search_scraping
-          - project_dir: target-scraper
-            test: test_availability_scraping
-          - project_dir: target-scraper
-            test: test_store_locations_sitemap
-          - project_dir: target-scraper
-            test: test_store_locations
-          - project_dir: capterra-scraper
-            test: test_category_scraping
-          - project_dir: capterra-scraper
-            test: test_review_scraping
-          - project_dir: rs-online-scraper
-            test: test_product_scraping  
-          - project_dir: rs-online-scraper
-            test: test_category_scraping
-          - project_dir: rs-online-scraper
-            test: test_search_scraping  
-          - project_dir: maersk-scraper
-            test: test_scrape_tracking  
-          - project_dir: maersk-scraper
-            test: test_scrape_schedule_search  
-          - project_dir: digikey-scraper
-            test: test_product_scraping
-          - project_dir: digikey-scraper
-            test: test_category_scraping
-          - project_dir: digikey-scraper
-            test: test_search_scraping
-          - project_dir: google-play-scraper
-            test: test_app_scraping
-          - project_dir: google-play-scraper
-            test: test_reviews_scraping
-          - project_dir: google-play-scraper
-            test: test_search_scraping
-          - project_dir: imdb-scraper
-            test: test_title_scraping
-          - project_dir: imdb-scraper
-            test: test_review_scraping
-          - project_dir: imdb-scraper
-            test: test_search_scraping
-          - project_dir: imdb-scraper
-            test: test_chart_scraping
-          - project_dir: imdb-scraper
-            test: test_person_scraping
-          - project_dir: lowes-scraper
-            test: test_product_scraping
-          - project_dir: lowes-scraper
-            test: test_search_scraping
-          - project_dir: lowes-scraper
-            test: test_store_locations_scraping
-          - project_dir: idealo-scraper
-            test: test_product_scraping
-          - project_dir: idealo-scraper
-            test: test_search_scraping
-          - project_dir: idealo-scraper
-            test: test_manufacturer_scraping
-          - project_dir: idealo-scraper
-            test: test_price_history_scraping
-          - project_dir: dhl-scraper
-            test: test_scrape_tracking
-          - project_dir: expedia-scraper
-            test: test_scrape_hotel_search
-          - project_dir: expedia-scraper
-            test: test_scrape_flight_search
-          - project_dir: shopify-scraper
-            test: test_preflight_scraping
-          - project_dir: shopify-scraper
-            test: test_catalog_scraping
-          - project_dir: shopify-scraper
-            test: test_collection_scraping
-          - project_dir: shopify-scraper
-            test: test_product_page_scraping
-          - project_dir: shopify-scraper
-            test: test_product_urls_scraping
-          - project_dir: app-store-scraper
-            test: test_app_scraping
-          - project_dir: app-store-scraper
-            test: test_reviews_scraping
-          - project_dir: goodreads-scraper
-            test: test_book_scraping
-          - project_dir: goodreads-scraper
-            test: test_review_scraping
-          - project_dir: goodreads-scraper
-            test: test_list_scraping
-          - project_dir: goodreads-scraper
-            test: test_search_scraping
-          - project_dir: loopnet-scraper
-            test: test_listing_scraping
-          - project_dir: loopnet-scraper
-            test: test_search_scraping
-          - project_dir: goibibo-scraper
-            test: test_hotel_search_scraping
-          - project_dir: goibibo-scraper
-            test: test_flight_search_scraping
+        include: ${{ fromJSON(needs.matrix.outputs.include) }}
     steps:
     - uses: actions/checkout@v4
 
@@ -470,7 +68,7 @@ jobs:
 
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
-      if: failure()
+      if: failure() && github.event_name == 'schedule'
       with:
         status: custom
         fields: workflowRun
@@ -485,3 +83,34 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  status:
+    # after the nightly: one badge file per scraper on the ci-status branch (the README status column reads them)
+    needs: test
+    # the nightly, or a manual run of the whole matrix (e.g. right after this job is first merged)
+    if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.scrapers == '' && inputs.tests == ''))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check out the ci-status branch (created on the first run)
+      run: |
+        git clone -q --depth 1 --branch ci-status "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-status \
+          || (mkdir ci-status && git -C ci-status init -q -b ci-status)
+
+    - name: Write the status files
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: python3 .github/scripts/ci_status.py --repo ${{ github.repository }} --run-id ${{ github.run_id }} --out ci-status
+
+    - name: Push the ci-status branch
+      run: |
+        cd ci-status
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -q -m "Scraper Tests run ${{ github.run_id }} ($(date -u +%F))"
+        git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:ci-status

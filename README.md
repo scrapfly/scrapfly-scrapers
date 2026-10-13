@@ -32,7 +32,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./aliexpress-scraper/results/reviews.json">Product reviews</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Aliexpress_scraper-success-brightgreen" alt="aliexpress-scraper-status"></td>    
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></td>    
   </tr>
 
   <tr>
@@ -45,7 +45,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Amazon_scraper-success-brightgreen" alt="amazon-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></td>
   </tr>
 
   <tr>
@@ -59,7 +59,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./bestbuy-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/BestBuy_scraper-success-brightgreen" alt="bestbuy-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bestbuy-scraper.svg" alt="bestbuy-scraper-status"></td>
   </tr>    
 
   <tr> 
@@ -72,7 +72,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./bing-scraper/results/rich_snippets.json">Rich snippet data</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Bing_scraper-success-brightgreen" alt="bing-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></td>
   </tr>    
 
   <tr>
@@ -84,7 +84,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Booking_scraper-success-brightgreen" alt="booking-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></td>
   </tr>    
 
 <tr>
@@ -96,7 +96,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./crunchbase-scraper/results/person.json">Investor pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Crunchbase_scraper-success-brightgreen" alt="crunchbase-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/crunchbase-scraper.svg" alt="crunchbase-scraper-status"></td>
 </tr>    
 
 <tr>
@@ -108,7 +108,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./domaincom-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Domain.com.au_scraper-success-brightgreen" alt="domaincom-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/domaincom-scraper.svg" alt="domaincom-scraper-status"></td>
 </tr>    
 
 <tr>
@@ -121,7 +121,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./ebay-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Ebay_scraper-success-brightgreen" alt="ebay-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></td>
 </tr>    
 
 <tr>
@@ -134,7 +134,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./etsy-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Etsy_scraper-success-brightgreen" alt="etsy-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/etsy-scraper.svg" alt="etsy-scraper-status"></td>
 </tr>    
 
 <tr>
@@ -146,7 +146,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./fashionphile-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Fashionphile_scraper-success-brightgreen" alt="fashionphile-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/fashionphile-scraper.svg" alt="fashionphile-scraper-status"></td>
 </tr>    
 
 <tr>
@@ -159,7 +159,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./glassdoor-scraper/results/salaries.json">Salary pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Glassdoor_scraper-success-brightgreen" alt="glassdoor-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></td>
 </tr>  
 
 <tr>
@@ -171,7 +171,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./goat-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Goat_scraper-success-brightgreen" alt="goat-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></td>
 </tr>
 
 <tr>
@@ -185,7 +185,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./goodreads-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Goodreads_scraper-success-brightgreen" alt="goodreads-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goodreads-scraper.svg" alt="goodreads-scraper-status"></td>
 </tr>
 
 <tr>
@@ -199,7 +199,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./google-scraper/results/google_map_places.json">Google Maps place data</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Google_scraper-success-brightgreen" alt="goat-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></td>
 </tr>
 
 <tr>
@@ -211,7 +211,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./homegate-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Homegate_scraper-success-brightgreen" alt="homegate-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/homegate-scraper.svg" alt="homegate-scraper-status"></td>
 </tr>
 
 <tr>
@@ -224,7 +224,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./idealista-scraper/results/search_URLs.json">Provinces pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Idealista_scraper-success-brightgreen" alt="idealista-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealista-scraper.svg" alt="idealista-scraper-status"></td>
 </tr>
 
 <tr>
@@ -236,7 +236,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./immobilienscout24-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Immobilienscout24_scraper-success-brightgreen" alt="immobilienscout24-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immobilienscout24-scraper.svg" alt="immobilienscout24-scraper-status"></td>
 </tr>
 
 <tr>
@@ -248,7 +248,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./immoscout24-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Immoscout24_scraper-success-brightgreen" alt="immoscout24-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immoscout24-scraper.svg" alt="immoscout24-scraper-status"></td>
 </tr>
 
 <tr>
@@ -260,7 +260,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./immowelt-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Immowelt_scraper-success-brightgreen" alt="immowelt-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immowelt-scraper.svg" alt="immowelt-scraper-status"></td>
 </tr>
 
 <tr>
@@ -272,7 +272,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./indeed-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Indeed_scraper-success-brightgreen" alt="indeed-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></td>
 </tr>
 
 <tr>
@@ -286,7 +286,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Instagram_scraper-success-brightgreen" alt="instagram-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></td>
 </tr>
 
 <tr>
@@ -298,7 +298,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./leboncoin-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Leboncoin_scraper-success-brightgreen" alt="leboncoin-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/leboncoin-scraper.svg" alt="leboncoin-scraper-status"></td>
 </tr>
 
 <tr>
@@ -310,7 +310,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./nordstorm-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Nordstorm_scraper-success-brightgreen" alt="nordstorm-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></td>
 </tr>
 
 <tr>
@@ -322,7 +322,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./realestatecom-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Realestate_scraper-success-brightgreen" alt="realestate-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realestatecom-scraper.svg" alt="realestatecom-scraper-status"></td>
 </tr>
 
 <tr>
@@ -335,7 +335,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./realtorcom-scraper/results/feed.json">Feed pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Realtor_scraper-success-brightgreen" alt="realtor-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realtorcom-scraper.svg" alt="realtorcom-scraper-status"></td>
 </tr>
 
 <tr>
@@ -350,7 +350,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./reddit-scraper/results/user_posts.json">User post pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Reddit_scraper-success-brightgreen" alt="Reddit-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></td>
 </tr>
 
 <tr>
@@ -364,7 +364,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./redfin-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Redfin_scraper-success-brightgreen" alt="redfin-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/redfin-scraper.svg" alt="redfin-scraper-status"></td>
 </tr>
 
 <tr>
@@ -376,7 +376,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./rightmove-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Rightmove_scraper-success-brightgreen" alt="Rightmove-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></td>
 </tr>
 
 <tr>
@@ -388,7 +388,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./seloger-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Seloger_scraper-success-brightgreen" alt="Seloger-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/seloger-scraper.svg" alt="seloger-scraper-status"></td>
 </tr>
 
 <tr>
@@ -403,7 +403,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./shopify-scraper/results/product_urls.json">Sitemap product urls</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Shopify_scraper-success-brightgreen" alt="Shopify-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/shopify-scraper.svg" alt="shopify-scraper-status"></td>
 </tr>
 
 <tr>
@@ -417,7 +417,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./similarweb-scraper/results/sitemap_urls.json">Sitemaps</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Similarweb_scraper-success-brightgreen" alt="Similarweb-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></td>
 </tr>
 
 <tr>
@@ -429,7 +429,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./stockx-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Stockx_scraper-success-brightgreen" alt="Stockx-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/stockx-scraper.svg" alt="stockx-scraper-status"></td>
 </tr>
 
 <tr>
@@ -441,7 +441,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./threads-scraper/results/thread.json">Thread pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Threads_scraper-success-brightgreen" alt="Threads-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/threads-scraper.svg" alt="threads-scraper-status"></td>
 </tr>
 
 <tr>
@@ -456,7 +456,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./tiktok-scraper/results/search.json">Search data</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/TikTok_scraper-success-brightgreen" alt="TikTok-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tiktok-scraper.svg" alt="tiktok-scraper-status"></td>
 </tr>
 
 <tr>
@@ -469,7 +469,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./tripadvisor-scraper/results/location.json">Location pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Tripadvisor_scraper-success-brightgreen" alt="Tripadvisor-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></td>
 </tr>
 
 <tr>
@@ -482,7 +482,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./trustpilot-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Trustpilot_scraper-success-brightgreen" alt="Trustpilot-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/trustpilot-scraper.svg" alt="trustpilot-scraper-status"></td>
 </tr>
 
 <tr>
@@ -494,7 +494,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./twitter-scraper/results/tweet.json">Tweet pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Twitter_scraper-success-brightgreen" alt="Twitter-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/twitter-scraper.svg" alt="twitter-scraper-status"></td>
 </tr>
 
 <tr>
@@ -506,7 +506,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./vestiairecollective-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Vestiaire_Collective_scraper-success-brightgreen" alt="Vestiaire-Collective-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/vestiairecollective-scraper.svg" alt="vestiairecollective-scraper-status"></td>
 </tr>
 
 <tr>
@@ -519,7 +519,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./g2-scraper/results/alternatives.json">Alternatives pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/G2_scraper-success-brightgreen" alt="G2-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></td>
 </tr>
 
 <tr>
@@ -531,7 +531,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./walmart-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Walmart_scraper-success-brightgreen" alt="Walmart-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/walmart-scraper.svg" alt="walmart-scraper-status"></td>
 </tr>
 
 <tr>
@@ -543,7 +543,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./wellfound-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Wellfound_scraper-success-brightgreen" alt="Wellfound-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/wellfound-scraper.svg" alt="wellfound-scraper-status"></td>
 </tr>
 
 <tr>
@@ -558,7 +558,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./linkedin-scraper/results/articles.json">Article pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/LinkedIn_scraper-success-brightgreen" alt="LinkedIn-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/linkedin-scraper.svg" alt="linkedin-scraper-status"></td>
 </tr>
 
 <tr>
@@ -570,7 +570,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./yellowpages-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Yellowpages_scraper-success-brightgreen" alt="Yellowpages-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></td>
 </tr>
 
 <tr>
@@ -583,7 +583,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./yelp-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Yelp_scraper-success-brightgreen" alt="Yelp-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yelp-scraper.svg" alt="yelp-scraper-status"></td>
 </tr>
 
 <tr>
@@ -599,7 +599,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./youtube-scraper/results/shorts.json">Shorts' metadata</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/YouTube_scraper-success-brightgreen" alt="YouTube-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/youtube-scraper.svg" alt="youtube-scraper-status"></td>
 </tr>
 
 
@@ -612,7 +612,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zillow-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Zillow_scraper-success-brightgreen" alt="Zillow-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zillow-scraper.svg" alt="zillow-scraper-status"></td>
 </tr>
 
 <tr>
@@ -625,7 +625,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zoominfo-scraper/results/faqs.json">FAQs data</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Zoominfo_scraper-success-brightgreen" alt="Zoominfo-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoominfo-scraper.svg" alt="zoominfo-scraper-status"></td>
 </tr>
 
 <tr>
@@ -637,7 +637,7 @@ Below is the list of available web scrapers for the supported domains along with
         <li><a href="./zoopla-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><img src="https://img.shields.io/badge/Zoopla_scraper-success-brightgreen" alt="Zoopla-scraper-status"></td>
+    <td><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoopla-scraper.svg" alt="zoopla-scraper-status"></td>
 </tr>
 </table>
 
