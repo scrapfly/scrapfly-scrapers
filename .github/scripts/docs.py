@@ -77,7 +77,7 @@ results = asyncio.run(amazon.scrape_search("https://www.amazon.com/s?k=kindle", 
 - The module reads `SCRAPFLY_KEY` from the environment when it is imported.
 - In most modules `BASE_CONFIG` holds the Scrapfly settings sent with every request (anti-bot bypass, country, \
 ...); change an entry there (for example `BASE_CONFIG["cache"] = True`) rather than every request.
-- The functions return plain dicts and lists; `results/` holds real output of each one.
+- The functions return plain dicts and lists; `results/` holds the output `run.py` produced with them.
 - `run.py` and the tests scrape the live websites, so they use Scrapfly credits and fail when a website changes.
 
 ## Scrapers
