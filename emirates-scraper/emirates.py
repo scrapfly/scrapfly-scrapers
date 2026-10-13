@@ -144,9 +144,7 @@ def _build_search_scenario(
         {"click": {"selector": "button.rsw-submit-button", "timeout": 10000}},
         {"wait": 3000},
         {"click": {"selector": ".bottom-block__continue button", "ignore": True, "ignore_if_not_visible": True, "timeout": 10000}},
-        # the flight list is shown once emirates answered the results request, wait for it instead of
-        # a fixed pause so a slow results page is still read; optional, the page may show no list
-        {"wait_for_selector": {"selector": ".flight-info__container", "timeout": 15000, "ignore": True}},
+        {"wait": 2000},
     ]
     return scenario
 
