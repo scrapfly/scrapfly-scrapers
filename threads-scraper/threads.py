@@ -188,7 +188,8 @@ async def scrape_thread(url: str) -> Dict:
         result = await SCRAPFLY.async_scrape(
             ScrapeConfig(url, session=session, **BASE_CONFIG)
         )
-        if '/accounts/login' not in result.context['url']:
+        # threads sends some visitors to its login page, now /login/ (earlier /accounts/login/)
+        if '/login' not in result.context['url']:
             break
     else:
         raise Exception('encountered endless login requirement redirect loop - does the post exist?')
@@ -229,7 +230,8 @@ async def scrape_profile(url: str) -> Dict:
         result = await SCRAPFLY.async_scrape(
             ScrapeConfig(url, auto_scroll=True, **BASE_CONFIG)
         )
-        if '/accounts/login' not in result.context['url']:
+        # threads sends some visitors to its login page, now /login/ (earlier /accounts/login/)
+        if '/login' not in result.context['url']:
             break
     else:
         raise Exception('encountered endless login requirement redirect loop - does the profile exist?')
