@@ -150,10 +150,10 @@ async def scrape_listings(urls: List[str]) -> List[LoopnetListing]:
 
 
 def _get_total_pages(response: ScrapeApiResponse) -> int:
+    # the page numbers are the data-page attributes of the pagination links (nav.pagination)
     pages = [
-        int(pg) for pg in response.selector.css(
-            'ol.page-links a[data-automation-id^="Page-Number-"]::attr(data-pg)'
-        ).getall()
+        int(pg)
+        for pg in response.selector.css("nav.pagination a.pagination__page::attr(data-page)").getall()
         if pg.isdigit()
     ]
     return max(pages) if pages else 1
@@ -162,25 +162,30 @@ def _get_total_pages(response: ScrapeApiResponse) -> int:
 def parse_search(response: ScrapeApiResponse) -> List[LoopnetSearchResult]:
     sel = response.selector
     results = []
-    for card in sel.css("article.placard"):
-        name = card.css("header h4 a::text").get()
-        street = card.css("header h6 a::text").get() or name
-        price = card.css('li[name="Price"]::text').get()
-        data_points = [dp.strip() for dp in card.css(".data-points-2c li::text").getall() if dp.strip()]
+    # every listing is an article.placard-card with the listing id in data-lk and the
+    # location and type details in its data-automation-* attributes
+    for card in sel.css("article.placard-card[data-lk]"):
+        name = card.css(".building-name::text").get()
+        street = card.css(".placard-address::text").get() or name
+        # the card details are rows of spans (type and price, then size and lots or year);
+        # the price is the span that starts with "$" (the others say e.g. "Price Upon Request")
+        data_points = [dp.strip() for dp in card.css(".placard-data .data-row span:not(.data-sep)::text").getall()]
+        data_points = [dp for dp in data_points if dp]
+        price = next((dp for dp in data_points if dp.startswith("$")), None)
 
         results.append(
             LoopnetSearchResult(
-                id=card.attrib.get("data-id"),
+                id=card.attrib.get("data-lk"),
                 name=name.strip() if name else None,
-                url=card.css("header h4 a::attr(href)").get(""),
+                url=card.css("a.placard-link::attr(href)").get(""),
                 address=street.strip() if street else None,
-                city=card.attrib.get("gtm-listing-city") or None,
-                state=card.attrib.get("gtm-listing-state") or None,
-                zip_code=card.attrib.get("gtm-listing-zip") or None,
-                price=price.strip() if price else None,
-                property_type=card.attrib.get("gtm-listing-property-type-name") or None,
-                listing_type=card.attrib.get("gtm-listing-type-name") or None,
-                image=card.css("img.image-hide::attr(src)").get(),
+                city=card.attrib.get("data-automation-city") or None,
+                state=card.attrib.get("data-automation-state") or None,
+                zip_code=card.attrib.get("data-automation-postal-code") or None,
+                price=price,
+                property_type=card.attrib.get("data-automation-property-type") or None,
+                listing_type=card.attrib.get("data-automation-listing-type") or None,
+                image=card.css("img.embla__slide__img::attr(src)").get(),
                 data_points=data_points,
             )
         )
@@ -191,6 +196,13 @@ def parse_search(response: ScrapeApiResponse) -> List[LoopnetSearchResult]:
 async def scrape_search(search_url: str, max_pages: int = 3) -> SearchResult:
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, **BASE_CONFIG))
     results = parse_search(first_page)
+    if not results and not first_page.selector.css(".search-placards-container"):
+        # neither a listing nor the results container: not a search results page, say what came back
+        title = (first_page.selector.css("title::text").get() or "").strip()
+        raise ValueError(
+            f"loopnet.com did not return a search results page for {search_url}: "
+            f"got '{title}' at {first_page.context['url']}"
+        )
     total_pages = _get_total_pages(first_page)
     pages_to_scrape = min(total_pages, max_pages)
 
