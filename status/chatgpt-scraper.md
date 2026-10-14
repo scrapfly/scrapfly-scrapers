@@ -1,3 +1,13 @@
-# chatgpt-scraper: tests not run
+# chatgpt-scraper: tests passing
 
-No nightly run yet: the first scheduled run of the Scraper Tests workflow writes this page.
+Last run: [38489467461](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461) on 2026-10-14.
+
+| test | result | job log |
+|---|---|---|
+| `test_scrape_conversation` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611024349) |
+
+## Recent results (oldest first, each links to its job log)
+
+| test | results |
+|---|---|
+| `test_scrape_conversation` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611024349) |
