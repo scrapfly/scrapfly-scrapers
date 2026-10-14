@@ -8,7 +8,7 @@ import os
 import json
 import re
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
-from typing import Dict, List
+from typing import Dict, List, Optional
 from pathlib import Path
 from loguru import logger as log
 
@@ -25,6 +25,21 @@ output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
 
 
+def _format_price_per_m2(value: float) -> str:
+    """format a price per m² like the search cards used to show it: whole euros, "3\u202f916\xa0€/m²" """
+    return f"{int(value + 0.5):,}".replace(",", "\u202f") + "\xa0€/m²"
+
+
+def _compute_price_per_m2(listing: Dict) -> Optional[str]:
+    """price / living space from the listing data, for listings whose data has no price per m²"""
+    hard_facts = listing.get("hardFacts") or {}
+    price = re.sub(r"[^\d,]", "", (hard_facts.get("price") or {}).get("value") or "").replace(",", ".")
+    surface = next((f.get("splitValue") for f in hard_facts.get("facts") or [] if f.get("type") == "livingSpace"), None)
+    if not price or not surface:
+        return None
+    return _format_price_per_m2(float(price) / float(surface.replace(",", ".")))
+
+
 def parse_search(result: ScrapeApiResponse):
     """parse property listing data from seloger search pages"""
     # select the script tag from the HTML
@@ -34,8 +49,13 @@ def parse_search(result: ScrapeApiResponse):
     fetcher_script = selector.xpath("//script[contains(text(), '__UFRN_FETCHER__')]/text()").get()
     if fetcher_script:
         fetcher_json = re.search(r'JSON\.parse\((".+")\)', fetcher_script, re.DOTALL).group(1)
-        serp_data = json.loads(json.loads(fetcher_json))["data"].get("classified-serp-init-data") or {}
-        classifieds = serp_data.get("pageProps", {}).get("classifiedsData") or {}
+        fetcher_data = json.loads(json.loads(fetcher_json))["data"]
+        # the listing data is under "classified-serp-data" (earlier pages: "classified-serp-init-data" -> pageProps)
+        serp_data = fetcher_data.get("classified-serp-data") or {}
+        serp_init_data = fetcher_data.get("classified-serp-init-data") or {}
+        classifieds = (
+            serp_data.get("classifiedsData") or serp_init_data.get("pageProps", {}).get("classifiedsData") or {}
+        )
     data = []
     for i in selector.xpath("//div[@data-testid='serp-core-classified-card-testid']"):
         # If the card doesn't have a main link, it's an empty placeholder, so we skip it.
@@ -45,12 +65,15 @@ def parse_search(result: ScrapeApiResponse):
         # the card no longer renders the price per m², read it from the listing data (card id: "classified-card-<id>")
         listing = classifieds.get(i.attrib.get("id", "").replace("classified-card-", ""), {})
         price_per_m2 = ((listing.get("hardFacts") or {}).get("price") or {}).get("additionalInformation")
-        if price_per_m2 and "," in price_per_m2:
+        if price_per_m2 and "€/m²" in price_per_m2:
             # round "3\u202f915,66\xa0€/m²" to the format the cards used to show: "3\u202f916\xa0€/m²"
-            number, unit = price_per_m2.split("\xa0", 1)
-            rounded = int(float(number.replace("\u202f", "").replace(",", ".")) + 0.5)
-            price_per_m2 = f"{rounded:,}".replace(",", "\u202f") + "\xa0" + unit
-        if not price_per_m2 or "m²" not in price_per_m2:
+            price_per_m2 = _format_price_per_m2(
+                float(price_per_m2.split("\xa0")[0].replace("\u202f", "").replace(",", "."))
+            )
+        else:
+            # no price per m² in the data (a life annuity shows "et 1\u202f982\xa0€/mois" there): price / living space
+            price_per_m2 = _compute_price_per_m2(listing)
+        if not price_per_m2:
             # fallback to html parsing
             price_per_m2 = i.xpath(
                 ".//div[contains(@data-testid, 'cardmfe-price')]//span[contains(text(),'m²')]/text()"
@@ -99,6 +122,12 @@ def parse_property_page(result: ScrapeApiResponse):
     json_str = json_str_escaped.encode("utf-8").decode("unicode_escape")
     listing_data = json.loads(json_str)
     listing_data = listing_data["app_cldp"]["data"]["classified"]
+    if "statusCode" in listing_data:
+        # a listing that is gone has a status object ({"statusCode": 410, "message": "classified not available..."}) here
+        raise ValueError(
+            f"seloger.com answered {listing_data['statusCode']} ({listing_data.get('message')}) for {result.context['url']}"
+            " instead of the listing data"
+        )
     return listing_data
 
 
