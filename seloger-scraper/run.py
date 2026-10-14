@@ -31,8 +31,8 @@ async def run():
     property_data = await seloger.scrape_property(
         urls=[
             "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/193612259.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/255197845.htm",
-            "https://www.seloger.com/annonces/achat/appartement/bordeaux-33/saint-jean-belcier-carle-vernet-albert-1er/251248753.htm"
+            "https://www.seloger.com/annonce/achat/nouvelle-aquitaine/gironde-33/bordeaux-33000/267XYAI8HI5K",
+            "https://www.seloger.com/annonce/achat/nouvelle-aquitaine/gironde-33/bordeaux-33000/2678R57E48KZ"
         ]
     )
     with open(output.joinpath("property.json"), "w", encoding="utf-8") as file:
