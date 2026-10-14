@@ -18,8 +18,9 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "US",
+    "proxy_pool": "public_residential_pool",
     "render_js": True,
     "rendering_wait": 5000,
 
@@ -182,7 +183,16 @@ def _get_xhr_data(response: ScrapeApiResponse, url_pattern: str) -> Dict:
     call = next((c for c in xhr_calls if url_pattern in c.get("url", "")), None)
     if not call:
         raise RuntimeError(f"XHR call matching '{url_pattern}' not found — try increasing rendering_wait")
-    return json.loads(call["response"]["body"])
+    # the call is sometimes answered with an HTML error page instead of JSON: report that clearly
+    status = call["response"].get("status")
+    body = call["response"].get("body") or ""
+    if status != 200 or not body.lstrip().startswith(("{", "[")):
+        title = re.search(r"<title>(.*?)</title>", body, re.IGNORECASE | re.DOTALL)
+        raise ValueError(
+            f"maersk.com answered the {url_pattern} request with HTTP {status}"
+            f" ({title.group(1).strip() if title else 'not JSON'}) instead of JSON"
+        )
+    return json.loads(body)
 
 
 def parse_schedule_search(
