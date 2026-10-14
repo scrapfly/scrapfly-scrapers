@@ -1,11 +1,15 @@
 """
 Generate the scraper table of README.md and llms.txt from the scraper folders, so neither is edited by hand.
 
-    python .github/scripts/docs.py           # rewrite the README table and llms.txt
-    python .github/scripts/docs.py --check   # exit 1 when one of them is out of date
+    python .github/scripts/docs.py                        # rewrite the README table and llms.txt
+    python .github/scripts/docs.py --check                # exit 1 when one of them is out of date
+    python .github/scripts/docs.py --status status.json   # also order the README rows by the last nightly run
 
 Where each part comes from:
-- one README row and one llms.txt entry for every <name>-scraper folder, sorted by website name;
+- one README row and one llms.txt entry for every <name>-scraper folder; llms.txt is sorted by website name, the
+  README rows keep the order they have (new folders go last) unless --status is given the status.json that
+  .github/scripts/ci_status.py writes to the ci-status branch: then they are ordered by the last nightly run,
+  passing scrapers first, then partly passing, failing and not run ones (the nightly's status job does this);
 - .github/scrapers.json (optional for each folder): website name, scrape guides (link and title), sample dataset
   labels;
 - without an entry there: the website name of the folder README title ("# Airbnb.com Scraper"), the first
@@ -215,6 +219,29 @@ def scrapers() -> list:
     return sorted(items, key=lambda item: item["name"].lower())
 
 
+def status_rank(results: list) -> int:
+    """README order from the conclusions of a scraper's test jobs, like the badge of ci_status.py: every test passed,
+    some passed, none passed, not run"""
+    if not results:
+        return 3
+    passed = sum(1 for r in results if r == "success")
+    return 0 if passed == len(results) else 1 if passed else 2
+
+
+def readme_order(items: list, readme: str, status_file: Path = None) -> list:
+    """the README rows: by the results of the last nightly run when its status.json is given (passing scrapers
+    first, then partly passing, failing and not run), else in the order they already have; scrapers without a row
+    come last, by website name"""
+    if status_file:
+        results = {}
+        for job in json.loads(status_file.read_text(encoding="utf-8"))["tests"]:
+            results.setdefault(job["dir"], []).append(job["conclusion"])
+        return sorted(items, key=lambda s: (status_rank(results.get(s["dir"], [])), s["name"].lower()))
+    start, end = table_span(readme)
+    position = {d: i for i, d in enumerate(re.findall(r'<td><a href="\./([^/"]+)/">', readme[start:end]))}
+    return sorted(items, key=lambda s: (position.get(s["dir"], len(position)), s["name"].lower()))
+
+
 def readme_table(items: list, badge_repo: str) -> str:
     rows = []
     for s in items:
@@ -244,14 +271,20 @@ def readme_table(items: list, badge_repo: str) -> str:
     return f"{TABLE_NOTE}\n<table>\n\n{header}\n" + "\n".join(rows) + "\n</table>"
 
 
-def replace_table(readme: str, table: str) -> str:
-    """put the table in place of the generated one (or of the first table under "List of Scrapers")"""
+def table_span(readme: str) -> tuple:
+    """where the generated table (or the first table under "List of Scrapers") starts and ends in the README"""
     start = readme.find(TABLE_NOTE)
     if start < 0:
         start = readme.find("<table>", readme.find("## List of Scrapers"))
     end = readme.find("</table>", start) + len("</table>")
     if start < 0 or end < len("</table>"):
         sys.exit("docs.py: no scraper table found in README.md")
+    return start, end
+
+
+def replace_table(readme: str, table: str) -> str:
+    """put the table in place of the current one"""
+    start, end = table_span(readme)
     return readme[:start] + table + readme[end:]
 
 
@@ -276,11 +309,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--check", action="store_true", help="exit 1 when the README table or llms.txt is out of date")
     parser.add_argument("--badge-repo", default=REPO, help="repository of the ci-status badges (for test copies)")
+    parser.add_argument(
+        "--status", type=Path, help="status.json of the ci-status branch: order the README rows by that nightly run"
+    )
     args = parser.parse_args()
     items = scrapers()
     readme_path, llms_path = ROOT / "README.md", ROOT / "llms.txt"
+    readme = readme_path.read_text(encoding="utf-8")
     outputs = {
-        readme_path: replace_table(readme_path.read_text(encoding="utf-8"), readme_table(items, args.badge_repo)),
+        readme_path: replace_table(readme, readme_table(readme_order(items, readme, args.status), args.badge_repo)),
         llms_path: llms_txt(items),
     }
     stale = [p.name for p, text in outputs.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
