@@ -15,7 +15,7 @@ from loguru import logger as log
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "fr",
     "proxy_pool": "public_residential_pool",
     "render_js": True,
