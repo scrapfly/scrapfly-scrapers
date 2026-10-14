@@ -85,7 +85,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   status:
-    # after the nightly: one badge file per scraper on the ci-status branch (the README status column reads them)
+    # after the nightly: one badge file per scraper on the ci-status branch (the README status column reads them),
+    # and the README table ordered by the results (passing scrapers first, failing and not run ones last)
     needs: test
     # the nightly, or a manual run of the whole matrix (e.g. right after this job is first merged)
     if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.scrapers == '' && inputs.tests == ''))
@@ -95,6 +96,8 @@ jobs:
       actions: read
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}  # the branch as it is now, so the README commit below goes on top of it
 
     - name: Check out the ci-status branch (created on the first run)
       run: |
@@ -114,3 +117,13 @@ jobs:
         git add -A
         git commit -q -m "Scraper Tests run ${{ github.run_id }} ($(date -u +%F))"
         git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:ci-status
+
+    - name: Order the README table by the results
+      # a commit on the branch only when the order changed (a push with the workflow token starts no other workflow)
+      run: |
+        python3 .github/scripts/docs.py --status ci-status/status.json
+        git diff --quiet README.md && exit 0
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit -q -m "Scraper Tests run ${{ github.run_id }}: order the README table by the results" README.md
+        git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:${{ github.ref_name }}
