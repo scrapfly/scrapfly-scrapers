@@ -74,7 +74,8 @@ async def scrape_product(url: str) -> Dict:
     products = nested_lookup("product", data)
     # find the current product dataset
     try:
-        product = next(p for p in products if p.get("urlKey") in result.context["url"])
+        # the page cache also holds partial copies of the product without a urlKey: skip those
+        product = next(p for p in products if p.get("urlKey") and p["urlKey"] in result.context["url"])
         product["pricing"] = parse_pricing(result, product["id"])
     except StopIteration:
         raise ValueError("Could not find product dataset in page cache", result.context)
