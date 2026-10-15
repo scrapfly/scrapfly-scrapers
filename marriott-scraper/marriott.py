@@ -178,7 +178,9 @@ def parse_search(data: Dict) -> List[MarriottProperty]:
             image = f"https:{image}"
         elif image and image.startswith("/"):
             image = f"https://cache.marriott.com{image}"
-        amount = (rates[0]["rateModes"]["lowestAverageRate"].get("amount") or {}) if rates else {}
+        # a hotel can be listed without a lowest rate (rateModes or lowestAverageRate null): no lead price then
+        rate_modes = (rates[0].get("rateModes") or {}) if rates else {}
+        amount = (rate_modes.get("lowestAverageRate") or {}).get("amount") or {}
         lead_price = (
             f"{amount['amount'] / (10 ** amount.get('decimalPoint', 2)):.2f}"
             if amount.get("amount") is not None else None
