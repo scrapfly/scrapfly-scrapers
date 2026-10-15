@@ -1,15 +1,15 @@
 # zoro-scraper: tests passing
 
-Last run: [38489467461](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461) on 2026-10-14.
+Last run: [38659323411](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411) on 2026-10-15.
 
 | test | result | job log |
 |---|---|---|
-| `test_product_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611054877) |
-| `test_search_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611054901) |
+| `test_product_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176650300) |
+| `test_search_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176650557) |
 
 ## Recent results (oldest first, each links to its job log)
 
 | test | results |
 |---|---|
-| `test_product_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611054877) |
-| `test_search_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611054901) |
+| `test_product_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611054877) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176650300) |
+| `test_search_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611054901) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176650557) |
