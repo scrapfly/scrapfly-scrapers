@@ -112,7 +112,7 @@ def fill_station(page, origin: str, destination: str) -> None:
         picker = page.locator(
             f"[data-testid='bwsfe-connection-picker__station-picker--{role}']"
         )
-        field = picker.locator("[data-testid='bwsfe-station-picker__input']").first
+        field = picker.locator("[data-testid='bwc-station-picker__input']").first
         field.scroll_into_view_if_needed()
         field.click(force=True)
         page.wait_for_timeout(800)
@@ -139,7 +139,7 @@ def pick_date(page, date: str, return_date: str) -> None:
     page.click(return_sel)
     page.wait_for_timeout(500)
 
-    page.click('[data-testid="bwc-calendar__confirm"]')
+    page.click('[data-testid="bwc-calendar__confirm-button"]')
 
 
 def _is_search_button_loading(page) -> bool:
