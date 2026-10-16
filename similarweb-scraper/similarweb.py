@@ -113,6 +113,13 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
             # plain-text XML sitemap (not gzipped)
             xml = content.decode('utf-8') if isinstance(content, bytes) else content
 
+    # an HTML page (challenge or error page) instead of the sitemap would silently parse to no urls
+    if "<urlset" not in xml:
+        raise ValueError(
+            f"similarweb.com answered the sitemap request with {response.scrape_result.get('content_type')} "
+            f"(HTTP {response.scrape_result.get('status_code')}) instead of a sitemap xml"
+        )
+
     # sitemaps declare a default xmlns: parse as XML and select url/loc in that namespace
     selector = Selector(text=xml, type="xml")
     namespaces = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -126,7 +133,10 @@ async def scrape_sitemaps(url: str) -> List[str]:
     """scrape link data from bestbuy sitemap"""
     promo_urls = None
     try:
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, proxy_pool="public_residential_pool", country="us" ))
+        # plain requests get an HTML challenge page instead of the sitemap: asp (the unblocker) passes it
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(url, asp=True, proxy_pool="public_residential_pool", country="us")
+        )
         promo_urls = parse_sitemaps(response)
         log.success(f"scraped {len(promo_urls)} urls from sitemaps")
     except Exception as e:
