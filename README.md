@@ -27,6 +27,17 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./airfrance-scraper/">Air France</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-air-france-flights">How to Scrape Air France Flights with Python (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="./airfrance-scraper/results/roundtrip.json">Roundtrip</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/airfrance-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/airfrance-scraper.svg" alt="airfrance-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./airbnb-scraper/">Airbnb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-airbnb">How to Scrape Airbnb Listings and Prices (2026)</a></td>
     <td>
@@ -611,6 +622,18 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./marriott-scraper/">Marriott.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-marriott">Scraping Marriott Hotel Prices and Availability (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="./marriott-scraper/results/hotel.json">Hotel</a></li>
+        <li><a href="./marriott-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/marriott-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/marriott-scraper.svg" alt="marriott-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./mouser-scraper/">Mouser.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
     <td>
@@ -620,20 +643,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./naver-scraper/">Naver.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
-    <td>
-    <ul>
-        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
-        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
-        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
-        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -768,20 +777,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./similarweb-scraper/">Similarweb.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-similarweb">How to Scrape SimilarWeb Website Traffic Analytics</a></td>
-    <td>
-    <ul>
-        <li><a href="./similarweb-scraper/results/websites.json">Website pages</a></li>
-        <li><a href="./similarweb-scraper/results/websites_compare.json">Website compare pages</a></li>
-        <li><a href="./similarweb-scraper/results/trends.json">Trend pages</a></li>
-        <li><a href="./similarweb-scraper/results/sitemap_urls.json">Sitemaps</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./skyscanner-scraper/">Skyscanner</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
     <td>
@@ -791,6 +786,18 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./stockx-scraper/">Stockx.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-stockx">How to Scrape StockX e-commerce Data with Python</a></td>
+    <td>
+    <ul>
+        <li><a href="./stockx-scraper/results/product.json">Product pages</a></li>
+        <li><a href="./stockx-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/stockx-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/stockx-scraper.svg" alt="stockx-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -880,6 +887,18 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/vestiairecollective-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/vestiairecollective-scraper.svg" alt="vestiairecollective-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./walmart-scraper/">Walmart.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-walmartcom">How to Scrape Walmart.com Product Data (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./walmart-scraper/results/products.json">Product pages</a></li>
+        <li><a href="./walmart-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/walmart-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/walmart-scraper.svg" alt="walmart-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -986,27 +1005,31 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./marriott-scraper/">Marriott.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-marriott">Scraping Marriott Hotel Prices and Availability (2026)</a></td>
+    <td><a href="./naver-scraper/">Naver.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
     <td>
     <ul>
-        <li><a href="./marriott-scraper/results/hotel.json">Hotel</a></li>
-        <li><a href="./marriott-scraper/results/search.json">Search</a></li>
+        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
+        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
+        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
+        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/marriott-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/marriott-scraper.svg" alt="marriott-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
   </tr>
 
   <tr>
-    <td><a href="./stockx-scraper/">Stockx.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-stockx">How to Scrape StockX e-commerce Data with Python</a></td>
+    <td><a href="./similarweb-scraper/">Similarweb.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-similarweb">How to Scrape SimilarWeb Website Traffic Analytics</a></td>
     <td>
     <ul>
-        <li><a href="./stockx-scraper/results/product.json">Product pages</a></li>
-        <li><a href="./stockx-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./similarweb-scraper/results/websites.json">Website pages</a></li>
+        <li><a href="./similarweb-scraper/results/websites_compare.json">Website compare pages</a></li>
+        <li><a href="./similarweb-scraper/results/trends.json">Trend pages</a></li>
+        <li><a href="./similarweb-scraper/results/sitemap_urls.json">Sitemaps</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/stockx-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/stockx-scraper.svg" alt="stockx-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1025,18 +1048,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./walmart-scraper/">Walmart.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-walmartcom">How to Scrape Walmart.com Product Data (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="./walmart-scraper/results/products.json">Product pages</a></li>
-        <li><a href="./walmart-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/walmart-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/walmart-scraper.svg" alt="walmart-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./perplexity-scraper/">Perplexity.ai</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
     <td>
@@ -1045,17 +1056,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./airfrance-scraper/">Air France</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-air-france-flights">How to Scrape Air France Flights with Python (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="./airfrance-scraper/results/roundtrip.json">Roundtrip</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/airfrance-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/airfrance-scraper.svg" alt="airfrance-scraper-status"></a></td>
   </tr>
 
 </table>
