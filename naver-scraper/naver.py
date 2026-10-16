@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Naver.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "country": "kr", # match the domain's country
     "proxy_pool": "public_residential_pool",
@@ -98,8 +98,10 @@ def _build_search_url(
     }
 
     type_configs = {
+        # the web documents are listed with the other integrated results; where=web returns the same page
+        # for every start value, so the pages are read from the integrated results list instead
         "web": {
-            "where": "web",
+            "ssc": "tab.ur.all",
         },
         "image": {
             "where": "image",
@@ -253,50 +255,45 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     selector = result.selector
     results: List[SearchWebResult] = []
 
-    pattern = r"entry\.bootstrap\([^,]+,\s*\{"
-    match = re.search(pattern, content)
-
-    if match:
+    # the page is built from many `entry.bootstrap(document.getElementById("fdr-..."), {...})` calls,
+    # one per content block; the web documents are the blocks whose container is tagged data-meta-ssuid="web"
+    web_block_ids = set(selector.css('[data-meta-ssuid="web"]::attr(id)').getall())
+    pattern = r'entry\.bootstrap\(document\.getElementById\("([^"]+)"\),\s*\{'
+    for match in re.finditer(pattern, content):
+        if match.group(1) not in web_block_ids:
+            continue
         json_start = content.index("{", match.end() - 1)
         json_str = _extract_json_from_html(content, json_start)
-
+        if not json_str:
+            continue
         try:
-            if json_str:
-                data = json.loads(json_str)
-            else:
-                return {"results": [], "max_pages": None, "num_of_displayed_results": 0}
-            items = data.get("body", {}).get("props", {}).get("children", [])
+            data = json.loads(json_str)
+            items = data.get("data", {}).get("state", {}).get("items", [])
+            for item in items:
+                props = item if isinstance(item, dict) else {}
+                title = props.get("title", "").replace("<mark>", "").replace("</mark>", "")
+                url = props.get("href", "")
 
-            if items and "props" in items[0]:
-                for idx, item in enumerate(items[0]["props"].get("children", []), 1):
-                    if item.get("templateId") != "webItem":
-                        continue
+                if not title or not url:
+                    continue
 
-                    props = item.get("props", {})
-                    title = props.get("title", "").replace("<mark>", "").replace("</mark>", "")
-                    url = props.get("href", "")
+                source = None
+                subtexts = props.get("profile", {}).get("subTexts", [])
+                if subtexts:
+                    source = subtexts[0].get("text", "") if isinstance(subtexts[0], dict) else str(subtexts[0])
 
-                    if not title or not url:
-                        continue
+                click_log = props.get("clickLog", {})
+                rank = click_log.get("title", {}).get("r") or click_log.get("profile", {}).get("r") or len(results) + 1
 
-                    source = None
-                    subtexts = props.get("profile", {}).get("subTexts", [])
-                    if subtexts:
-                        source = subtexts[0].get("text", "") if isinstance(subtexts[0], dict) else str(subtexts[0])
-                    source = source
-
-                    click_log = props.get("clickLog", {})
-                    rank = click_log.get("title", {}).get("r") or click_log.get("profile", {}).get("r") or idx
-
-                    results.append(
-                        {
-                            "title": title,
-                            "url": url,
-                            "snippet": props.get("bodyText", "").replace("<mark>", "").replace("</mark>", ""),
-                            "source": source,
-                            "rank": rank,
-                        }
-                    )
+                results.append(
+                    {
+                        "title": title,
+                        "url": url,
+                        "snippet": props.get("bodyText", "").replace("<mark>", "").replace("</mark>", ""),
+                        "source": source,
+                        "rank": rank,
+                    }
+                )
         except (json.JSONDecodeError, KeyError, TypeError) as e:
             log.debug(f"JSON parsing error: {e}")
 
@@ -429,7 +426,6 @@ async def scrape_web_search(
     first_page_result = parse_web_search(first_page)
     total_pages = first_page_result["max_pages"]
     results = first_page_result["results"]
-    displayed_results = first_page_result["num_of_displayed_results"]
 
     if scrape_all_pages:
         pages_to_scrape = total_pages
@@ -441,8 +437,9 @@ async def scrape_web_search(
     scraped_pages = 1
     if pages_to_scrape > 1:
         other_pages = [
+            # the integrated results list holds 20 items per page, the web documents are some of them
             ScrapeConfig(
-                _build_search_url(query, page=page, sort=sort, display=displayed_results, period=period),
+                _build_search_url(query, page=page, sort=sort, display=20, period=period),
                 **BASE_CONFIG,
             )
             for page in range(2, pages_to_scrape + 1)
