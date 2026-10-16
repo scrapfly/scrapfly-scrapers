@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass bestbuy.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     "render_js": True,
@@ -133,9 +133,9 @@ async def scrape_sitemaps(url: str) -> List[str]:
     """scrape link data from bestbuy sitemap"""
     promo_urls = None
     try:
-        # plain requests get an HTML challenge page instead of the sitemap: asp (the unblocker) passes it
+        # plain requests get an HTML challenge page instead of the sitemap: the unblocker passes it
         response = await SCRAPFLY.async_scrape(
-            ScrapeConfig(url, asp=True, proxy_pool="public_residential_pool", country="us")
+            ScrapeConfig(url, unblocker=True, proxy_pool="public_residential_pool", country="us")
         )
         promo_urls = parse_sitemaps(response)
         log.success(f"scraped {len(promo_urls)} urls from sitemaps")
