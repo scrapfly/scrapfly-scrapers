@@ -139,19 +139,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./bookingcom-scraper/">Booking.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
-        <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
-        <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./capterra-scraper/">Capterra.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-capterra">How to Scrape Capterra Software Reviews and Listings (2026)</a></td>
     <td>
@@ -646,6 +633,20 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./naver-scraper/">Naver.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
+    <td>
+    <ul>
+        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
+        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
+        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
+        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./nordstorm-scraper/">Nordstorm.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-nordstrom">How to Scrape Nordstrom Fashion Product Data</a></td>
     <td>
@@ -774,6 +775,20 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/shopify-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/shopify-scraper.svg" alt="shopify-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./similarweb-scraper/">Similarweb.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-similarweb">How to Scrape SimilarWeb Website Traffic Analytics</a></td>
+    <td>
+    <ul>
+        <li><a href="./similarweb-scraper/results/websites.json">Website pages</a></li>
+        <li><a href="./similarweb-scraper/results/websites_compare.json">Website compare pages</a></li>
+        <li><a href="./similarweb-scraper/results/trends.json">Trend pages</a></li>
+        <li><a href="./similarweb-scraper/results/sitemap_urls.json">Sitemaps</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1005,31 +1020,16 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./naver-scraper/">Naver.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
+    <td><a href="./bookingcom-scraper/">Booking.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
     <td>
     <ul>
-        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
-        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
-        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
-        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
+        <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
+        <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./similarweb-scraper/">Similarweb.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-similarweb">How to Scrape SimilarWeb Website Traffic Analytics</a></td>
-    <td>
-    <ul>
-        <li><a href="./similarweb-scraper/results/websites.json">Website pages</a></li>
-        <li><a href="./similarweb-scraper/results/websites_compare.json">Website compare pages</a></li>
-        <li><a href="./similarweb-scraper/results/trends.json">Trend pages</a></li>
-        <li><a href="./similarweb-scraper/results/sitemap_urls.json">Sitemaps</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
   </tr>
 
   <tr>
