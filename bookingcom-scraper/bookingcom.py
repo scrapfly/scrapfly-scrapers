@@ -57,20 +57,51 @@ class LocationSuggestions(TypedDict):
 
 async def search_location_suggestions(query: str) -> LocationSuggestions:
     """scrape booking.com location suggestions to find location details for search scraping"""
+    # booking.com's search box asks its graphql api for suggestions (the old autocomplete.json endpoint answers 403),
+    # so type the query into the search box and read the page's own AutoComplete request
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://accommodations.booking.com/autocomplete.json",
-            method="POST",
-            headers={
-                "Origin": "https://www.booking.com",
-                "Referer": "https://www.booking.com/",
-                "Content-Type": "text/plain;charset=UTF-8",
-            },
-            body=f'{{"query":"{query}","pageview_id":"","aid":800210,"language":"en-us","size":5}}',
+            "https://www.booking.com/",
+            render_js=True,
+            js_scenario=[
+                {"wait_for_selector": {"selector": "input[name='ss']", "timeout": 10000}},
+                {"click": {"selector": "input[name='ss']", "ignore_if_not_visible": True}},
+                {"fill": {"selector": "input[name='ss']", "value": query}},
+                {"wait": 4000},
+            ],
+            **BASE_CONFIG,
         )
     )
-    data = json.loads(result.content)
-    return data
+    suggestions = None
+    for xhr in result.scrape_result["browser_data"].get("xhr_call") or []:
+        # the box asks once per typed letter: keep the answer for the full query
+        if '"AutoComplete"' in str(xhr.get("body")) and json.dumps(query, ensure_ascii=False) in str(xhr.get("body")):
+            suggestions = json.loads(xhr["response"]["body"])["data"]["autoCompleteSuggestions"]["results"]
+    if suggestions is None:
+        raise ValueError(f"booking.com did not load location suggestions for {query!r}")
+    # map the graphql suggestions to the fields of the old autocomplete.json results
+    results = []
+    for suggestion in suggestions:
+        destination = suggestion.get("destination") or {}
+        display, meta = suggestion.get("displayInfo") or {}, suggestion.get("metaData") or {}
+        results.append(
+            {
+                "b_show_entire_homes_checkbox": display.get("showEntireHomesCheckbox"),
+                "cc1": destination.get("countryCode"),
+                "dest_id": destination.get("destId"),
+                "dest_type": (destination.get("destType") or "").lower(),
+                "label": display.get("label"),
+                "label1": display.get("title"),
+                "label2": display.get("subTitle"),
+                "latitude": destination.get("latitude"),
+                "lc": meta.get("langCode"),
+                "longitude": destination.get("longitude"),
+                "photo_uri": display.get("imageUrl"),
+                "roundtrip": meta.get("roundTrip"),
+                "value": display.get("label"),
+            }
+        )
+    return {"results": results}
 
 
 def retrieve_graphql_body(result: ScrapeApiResponse) -> List[Dict]:
