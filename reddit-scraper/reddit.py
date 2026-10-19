@@ -15,7 +15,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # enable the anti scraping protection
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     # bypassing reddit requires enabling JavaScript and using the residential proxy pool
