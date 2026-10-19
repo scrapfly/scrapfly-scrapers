@@ -22,7 +22,7 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Booking.com requires Anti Scraping Protection bypass feature:
-    "asp": True,
+    "unblocker": True,
     "country": "US",
 }
 
