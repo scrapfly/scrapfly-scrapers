@@ -67,7 +67,15 @@ async def search_location_suggestions(query: str) -> LocationSuggestions:
                 {"wait_for_selector": {"selector": "input[name='ss']", "timeout": 10000}},
                 {"click": {"selector": "input[name='ss']", "ignore_if_not_visible": True}},
                 {"fill": {"selector": "input[name='ss']", "value": query}},
-                {"wait": 4000},
+                # wait for the suggestions dropdown (skipped when it does not show), then for the last answer to land
+                {
+                    "wait_for_selector": {
+                        "selector": "#autocomplete-results li[role='option']",
+                        "timeout": 10000,
+                        "ignore": True,
+                    }
+                },
+                {"wait": 2000},
             ],
             **BASE_CONFIG,
         )
@@ -78,7 +86,8 @@ async def search_location_suggestions(query: str) -> LocationSuggestions:
         if '"AutoComplete"' in str(xhr.get("body")) and json.dumps(query, ensure_ascii=False) in str(xhr.get("body")):
             suggestions = json.loads(xhr["response"]["body"])["data"]["autoCompleteSuggestions"]["results"]
     if suggestions is None:
-        raise ValueError(f"booking.com did not load location suggestions for {query!r}")
+        title = result.selector.xpath("//title/text()").get("").strip()
+        raise ValueError(f"booking.com did not load location suggestions for {query!r} (page title: {title!r})")
     # map the graphql suggestions to the fields of the old autocomplete.json results
     results = []
     for suggestion in suggestions:
@@ -201,8 +210,13 @@ async def scrape_search(
     session = uuid4().hex
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, session=session, **BASE_CONFIG))
     # booking.com sometimes answers with an AWS WAF challenge page: 200, but without the apollo data
-    if not first_page.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get():
+    apollo_data = first_page.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get()
+    if not apollo_data:
         raise Exception("booking.com returned an anti-bot challenge page instead of search results")
+    # and sometimes with a results page without results ("0 properties are available ..."), which has no search data
+    if '"searchQueries"' not in apollo_data:
+        heading = " ".join(first_page.selector.xpath("//h1//text()").getall()).strip()
+        raise ValueError(f"booking.com returned a results page without search results for {query!r}: {heading!r}")
     search_data = retrieve_search_data(first_page)
     # the first page size varies (15, 20 or 25 results), while the graphql api accepts any page size,
     # so request pages with a fixed size of 25 results. Offsets must be a multiple of the page size,
