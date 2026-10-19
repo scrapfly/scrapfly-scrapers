@@ -699,20 +699,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./reddit-scraper/">Reddit.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data">How to Scrape Reddit Posts, Subreddits and Profiles</a></td>
-    <td>
-    <ul>
-        <li><a href="./reddit-scraper/results/post.json">Post pages</a></li>
-        <li><a href="./reddit-scraper/results/subreddit.json">Subreddit pages</a></li>
-        <li><a href="./reddit-scraper/results/user_comments.json">User comment pages</a></li>
-        <li><a href="./reddit-scraper/results/user_posts.json">User post pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./redfin-scraper/">Redfin.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-redfin">How to Scrape Redfin Real Estate Property Data in Python</a></td>
     <td>
@@ -735,19 +721,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./rs-online-scraper/">Rs-online.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./rs-online-scraper/results/category.json">Category</a></li>
-        <li><a href="./rs-online-scraper/results/products.json">Products</a></li>
-        <li><a href="./rs-online-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1030,6 +1003,33 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./reddit-scraper/">Reddit.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data">How to Scrape Reddit Posts, Subreddits and Profiles</a></td>
+    <td>
+    <ul>
+        <li><a href="./reddit-scraper/results/post.json">Post pages</a></li>
+        <li><a href="./reddit-scraper/results/subreddit.json">Subreddit pages</a></li>
+        <li><a href="./reddit-scraper/results/user_comments.json">User comment pages</a></li>
+        <li><a href="./reddit-scraper/results/user_posts.json">User post pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./rs-online-scraper/">Rs-online.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./rs-online-scraper/results/category.json">Category</a></li>
+        <li><a href="./rs-online-scraper/results/products.json">Products</a></li>
+        <li><a href="./rs-online-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
