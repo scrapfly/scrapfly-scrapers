@@ -22,7 +22,7 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Booking.com requires Anti Scraping Protection bypass feature:
-    "asp": True,
+    "unblocker": True,
     "country": "US",
 }
 
@@ -57,20 +57,60 @@ class LocationSuggestions(TypedDict):
 
 async def search_location_suggestions(query: str) -> LocationSuggestions:
     """scrape booking.com location suggestions to find location details for search scraping"""
+    # booking.com's search box asks its graphql api for suggestions (the old autocomplete.json endpoint answers 403),
+    # so type the query into the search box and read the page's own AutoComplete request
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://accommodations.booking.com/autocomplete.json",
-            method="POST",
-            headers={
-                "Origin": "https://www.booking.com",
-                "Referer": "https://www.booking.com/",
-                "Content-Type": "text/plain;charset=UTF-8",
-            },
-            body=f'{{"query":"{query}","pageview_id":"","aid":800210,"language":"en-us","size":5}}',
+            "https://www.booking.com/",
+            render_js=True,
+            js_scenario=[
+                {"wait_for_selector": {"selector": "input[name='ss']", "timeout": 10000}},
+                {"click": {"selector": "input[name='ss']", "ignore_if_not_visible": True}},
+                {"fill": {"selector": "input[name='ss']", "value": query}},
+                # wait for the suggestions dropdown (skipped when it does not show), then for the last answer to land
+                {
+                    "wait_for_selector": {
+                        "selector": "#autocomplete-results li[role='option']",
+                        "timeout": 10000,
+                        "ignore": True,
+                    }
+                },
+                {"wait": 2000},
+            ],
+            **BASE_CONFIG,
         )
     )
-    data = json.loads(result.content)
-    return data
+    suggestions = None
+    for xhr in result.scrape_result["browser_data"].get("xhr_call") or []:
+        # the box asks once per typed letter: keep the answer for the full query
+        if '"AutoComplete"' in str(xhr.get("body")) and json.dumps(query, ensure_ascii=False) in str(xhr.get("body")):
+            suggestions = json.loads(xhr["response"]["body"])["data"]["autoCompleteSuggestions"]["results"]
+    if suggestions is None:
+        title = result.selector.xpath("//title/text()").get("").strip()
+        raise ValueError(f"booking.com did not load location suggestions for {query!r} (page title: {title!r})")
+    # map the graphql suggestions to the fields of the old autocomplete.json results
+    results = []
+    for suggestion in suggestions:
+        destination = suggestion.get("destination") or {}
+        display, meta = suggestion.get("displayInfo") or {}, suggestion.get("metaData") or {}
+        results.append(
+            {
+                "b_show_entire_homes_checkbox": display.get("showEntireHomesCheckbox"),
+                "cc1": destination.get("countryCode"),
+                "dest_id": destination.get("destId"),
+                "dest_type": (destination.get("destType") or "").lower(),
+                "label": display.get("label"),
+                "label1": display.get("title"),
+                "label2": display.get("subTitle"),
+                "latitude": destination.get("latitude"),
+                "lc": meta.get("langCode"),
+                "longitude": destination.get("longitude"),
+                "photo_uri": display.get("imageUrl"),
+                "roundtrip": meta.get("roundTrip"),
+                "value": display.get("label"),
+            }
+        )
+    return {"results": results}
 
 
 def retrieve_graphql_body(result: ScrapeApiResponse) -> List[Dict]:
@@ -170,8 +210,13 @@ async def scrape_search(
     session = uuid4().hex
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(search_url, session=session, **BASE_CONFIG))
     # booking.com sometimes answers with an AWS WAF challenge page: 200, but without the apollo data
-    if not first_page.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get():
+    apollo_data = first_page.selector.xpath("//script[@data-capla-store-data='apollo']/text()").get()
+    if not apollo_data:
         raise Exception("booking.com returned an anti-bot challenge page instead of search results")
+    # and sometimes with a results page without results ("0 properties are available ..."), which has no search data
+    if '"searchQueries"' not in apollo_data:
+        heading = " ".join(first_page.selector.xpath("//h1//text()").getall()).strip()
+        raise ValueError(f"booking.com returned a results page without search results for {query!r}: {heading!r}")
     search_data = retrieve_search_data(first_page)
     # the first page size varies (15, 20 or 25 results), while the graphql api accepts any page size,
     # so request pages with a fixed size of 25 results. Offsets must be a multiple of the page size,
