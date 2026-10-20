@@ -153,7 +153,8 @@ def _parse_int(text: Optional[str]) -> Optional[int]:
 
 def _parse_listing_item(card) -> IdealoListingItem:
     href = card.css('a[href*="OffersOfProduct"]::attr(href)').get()
-    name = card.css('[class*="sr-productSummary__title"]::text').get()
+    # cards come in two markups: the older `sr-*` classes and the newer `data-testid` attributes
+    name = card.css('[class*="sr-productSummary__title"]::text, [data-testid="product-summary-title"]::text').get()
     shop_name = card.css('[class*="sr-singleOffer__shopName"] span::text').get()
     wishlist_raw = card.css("[data-wishlist-heart]::attr(data-wishlist-heart)").get()
     wishlist = json.loads(wishlist_raw) if wishlist_raw else {}
@@ -167,10 +168,23 @@ def _parse_listing_item(card) -> IdealoListingItem:
         product_id=product_id,
         name=name.strip() if name else None,
         url=urljoin(BASE_URL, href) if href else None,
-        image=card.css('[class*="sr-resultItemTile__image"]::attr(src)').get(),
-        price=_parse_price("".join(card.css('[class*="sr-detailedPriceInfo__price"] ::text').getall())),
+        image=card.css(
+            '[class*="sr-resultItemTile__image"]::attr(src), [data-testid="result-item-image"]::attr(src)'
+        ).get(),
+        price=_parse_price(
+            "".join(
+                card.css(
+                    '[class*="sr-detailedPriceInfo__price"] ::text, [data-testid="detailed-price-info-price"] ::text'
+                ).getall()
+            )
+        ),
         currency="EUR",
-        offer_count=_parse_int(card.css('[class*="sr-detailedPriceInfo__offerCount"]::text').get()),
+        offer_count=_parse_int(
+            card.css(
+                '[class*="sr-detailedPriceInfo__offerCount"]::text, '
+                '[data-testid="detailed-price-info"] > div:first-child::text'
+            ).get()
+        ),
         shop_name=shop_name.strip() if shop_name else None,
     )
 
@@ -202,8 +216,12 @@ def parse_manufacturer(response: ScrapeApiResponse) -> IdealoManufacturer:
         name=name.strip() if name else None,
         description=sel.css('meta[name="description"]::attr(content)').get(),
         url=response.context["url"],
-        result_count=_parse_int(sel.css('[class*="sr-resultTitle__resultCount"]::text').get()),
-        products=[_parse_listing_item(card) for card in sel.css('[class*="sr-resultList__item"]')],
+        result_count=_parse_int(
+            sel.css('[class*="sr-resultTitle__resultCount"]::text, [data-testid="result-count"]::text').get()
+        ),
+        products=[
+            _parse_listing_item(card) for card in sel.css('[class*="sr-resultList__item"], [data-testid="result-item"]')
+        ],
     )
 
 
@@ -329,8 +347,9 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
 async def scrape_manufacturer(url: str) -> IdealoManufacturer:
     """scrape a manufacturer listing page from idealo.de"""
     log.info(f"scraping manufacturer page {url}")
+    # manufacturer pages now use the `data-testid` markup, search pages still the `sr-*` one
     response = await scrape_with_retry(
-        ScrapeConfig(url, wait_for_selector='[class*="sr-resultList"]', **BASE_CONFIG)
+        ScrapeConfig(url, wait_for_selector='[class*="sr-resultList"], [data-testid="result-list"]', **BASE_CONFIG)
     )
     manufacturer = parse_manufacturer(response)
     log.success(f"scraped manufacturer {manufacturer['name']} with {len(manufacturer['products'])} products")
