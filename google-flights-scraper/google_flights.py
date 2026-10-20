@@ -54,8 +54,9 @@ _SHOW_MORE_SCENARIO = [
     },
     {"wait": 3000},
     {
+        # the page also renders a hidden copy of the list (other sort tab): expand only the visible flights
         "execute": {
-            "script": "document.querySelectorAll('button[aria-label^=\"Flight details\"]').forEach(b => b.click())",
+            "script": "document.querySelectorAll('button[aria-label^=\"Flight details\"]').forEach(b => b.offsetParent && b.click())",
             "timeout": 15000,
         }
     },
@@ -411,14 +412,16 @@ def parse_price_insights(response: ScrapeApiResponse) -> Optional[PriceInsights]
     """Parse the Price insights panel from a Google Flights search response"""
     sel = response.selector
     booking_window = sel.css("div.frOi8.BgYkof[jsname='VgMll'] span.yLndKe::text").get()
-    current_level = sel.css("div.frOi8.BgYkof.fVSoi span.gOatQ.OkZdeb::text").get()
+    # the level span's second class is its color (high, typical or low), so match on gOatQ only
+    current_level = sel.css("div.frOi8.BgYkof.fVSoi span.gOatQ::text").get()
     low = _parse_price_amount(sel.css("div.s2lHq div.OLEkCe.XYlWVb::text").get() or "")
     high = _parse_price_amount(sel.css("div.s2lHq div.JBTUR.XYlWVb::text").get() or "")
     savings = sel.css("div.ohJ41d.Px6wAd.eoY5cb span.pug83b::text").get()
 
     calendar_grid_entries: List[CalendarPriceEntry] = []
     for xhr in response.scrape_result.get("browser_data", {}).get("xhr_call", []):
-        body = xhr.get("response", {}).get("body", "").strip()
+        # some background calls are recorded without a body (None)
+        body = ((xhr.get("response") or {}).get("body") or "").strip()
         if body and "GetCalendarGrid" in xhr.get("url", ""):
             calendar_grid_entries.extend(_parse_calendar_response(body))
 
