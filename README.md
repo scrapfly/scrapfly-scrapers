@@ -139,6 +139,19 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./bookingcom-scraper/">Booking.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
+        <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./capterra-scraper/">Capterra.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-capterra">How to Scrape Capterra Software Reviews and Listings (2026)</a></td>
     <td>
@@ -351,19 +364,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./google-flights-scraper/">Google Flights</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google-flights">How to Scrape Google Flights Data in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./google-flights-scraper/results/oneway.json">Oneway</a></li>
-        <li><a href="./google-flights-scraper/results/price_insights.json">Price insights</a></li>
-        <li><a href="./google-flights-scraper/results/roundtrip.json">Roundtrip</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-flights-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-flights-scraper.svg" alt="google-flights-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./google-jobs-scraper/">Google Jobs</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google-jobs">How to Scrape Google Jobs in 2026</a></td>
     <td>
@@ -426,20 +426,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealista-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealista-scraper.svg" alt="idealista-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./idealo-scraper/">Idealo.de</a></td>
-    <td>-</td>
-    <td>
-    <ul>
-        <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="./idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="./idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="./idealo-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -724,6 +710,19 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./rs-online-scraper/">Rs-online.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./rs-online-scraper/results/category.json">Category</a></li>
+        <li><a href="./rs-online-scraper/results/products.json">Products</a></li>
+        <li><a href="./rs-online-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./seloger-scraper/">Seloger.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-seloger-com-listing-real-estate-ads">How to Scrape Seloger.com - Real Estate Listing Data</a></td>
     <td>
@@ -993,16 +992,30 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./bookingcom-scraper/">Booking.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
+    <td><a href="./google-flights-scraper/">Google Flights</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google-flights">How to Scrape Google Flights Data in 2026</a></td>
     <td>
     <ul>
-        <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
-        <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
-        <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
+        <li><a href="./google-flights-scraper/results/oneway.json">Oneway</a></li>
+        <li><a href="./google-flights-scraper/results/price_insights.json">Price insights</a></li>
+        <li><a href="./google-flights-scraper/results/roundtrip.json">Roundtrip</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-flights-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-flights-scraper.svg" alt="google-flights-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./idealo-scraper/">Idealo.de</a></td>
+    <td>-</td>
+    <td>
+    <ul>
+        <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="./idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="./idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="./idealo-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1017,19 +1030,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./rs-online-scraper/">Rs-online.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./rs-online-scraper/results/category.json">Category</a></li>
-        <li><a href="./rs-online-scraper/results/products.json">Products</a></li>
-        <li><a href="./rs-online-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
