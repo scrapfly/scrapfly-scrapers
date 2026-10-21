@@ -1,15 +1,15 @@
 # ticketmaster-scraper: tests passing
 
-Last run: [39346953458](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458) on 2026-10-20.
+Last run: [39520552658](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39520552658) on 2026-10-21.
 
 | test | result | job log |
 |---|---|---|
-| `test_artist_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458/job/118381819666) |
-| `test_discovery_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458/job/118381819502) |
+| `test_artist_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39520552658/job/118963156543) |
+| `test_discovery_scraping` | ✅ success | [log](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39520552658/job/118963156718) |
 
 ## Recent results (oldest first, each links to its job log)
 
 | test | results |
 |---|---|
-| `test_artist_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611047282) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176644409) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38828685843/job/116742150517) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38985791412/job/117256884429) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39082429255/job/117542006089) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39180417060/job/117831826187) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458/job/118381819666) |
-| `test_discovery_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611047711) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176644481) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38828685843/job/116742150705) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38985791412/job/117256884417) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39082429255/job/117542006115) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39180417060/job/117831826517) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458/job/118381819502) |
+| `test_artist_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611047282) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176644409) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38828685843/job/116742150517) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38985791412/job/117256884429) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39082429255/job/117542006089) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39180417060/job/117831826187) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458/job/118381819666) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39520552658/job/118963156543) |
+| `test_discovery_scraping` | [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38489467461/job/115611047711) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38659323411/job/116176644481) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38828685843/job/116742150705) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/38985791412/job/117256884417) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39082429255/job/117542006115) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39180417060/job/117831826517) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39346953458/job/118381819502) [✅](https://github.com/scrapfly/scrapfly-scrapers/actions/runs/39520552658/job/118963156718) |
