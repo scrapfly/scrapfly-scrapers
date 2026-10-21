@@ -56,9 +56,9 @@ keywords_schema = {
 map_place_schema = {
     "name": {"type": "string"},
     "category": {"type": "string"},
-    "address": {"type": "string"},
-    "website": {"type": "string"},
-    "phone": {"type": "string"},
+    "address": {"type": "string", "nullable": True},
+    "website": {"type": "string", "nullable": True},
+    "phone": {"type": "string", "nullable": True},
     "review_count": {"type": "string"},
     "stars": {"type": "string"},
     "5_stars": {"type": "string"},
