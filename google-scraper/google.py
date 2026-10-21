@@ -9,10 +9,10 @@ import os
 import re
 import operator
 from datetime import datetime, timezone
-from urllib.parse import quote, urlparse
+from urllib.parse import quote, urljoin, urlparse
 from loguru import logger as log
 from typing import Dict, List, TypedDict
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -45,9 +45,9 @@ def parse_place(response: ScrapeApiResponse) -> Dict:
         return selector.css(f"*[aria-label*='{label}']::attr(aria-label)")
 
     def aria_no_label(label):
-        """gets aria element as text with label stripped off"""
+        """gets aria element as text with label stripped off (None when the place has no such label, e.g. no phone)"""
         text = aria_with_label(label).get("")
-        return text.split(label, 1)[1].strip()
+        return text.split(label, 1)[1].strip() if label in text else None
 
     selector = response.selector
     result = {
@@ -88,6 +88,10 @@ async def scrape_google_map_places(urls: List[str]) -> List[Dict]:
     ]
     log.info(f"scraping {len(to_scrape)} google map place pages")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        # a failed request comes back as an error object: log it and skip the page
+        if isinstance(response, ScrapflyError):
+            log.error(f"failed to scrape a google map place page: {response}")
+            continue
         data.append(parse_place(response))
     return data
 
@@ -123,6 +127,8 @@ async def find_google_map_places(query: str) -> List[Dict]:
         )
     )
     urls = response.scrape_result["browser_data"]["javascript_evaluation_result"]
+    # keep only place links and make relative ones absolute: the Scrapfly API rejects URLs without http(s)
+    urls = [urljoin("https://www.google.com", url) for url in urls if url and "/maps/place/" in url]
     return urls
 
 
