@@ -12,7 +12,6 @@ from urllib.parse import urljoin, urlencode
 from typing import List, Literal, Optional, TypedDict
 
 from loguru import logger as log
-import uuid
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -380,19 +379,13 @@ def parse_price_history(response: ScrapeApiResponse, product_id: str, period: Pe
 
 async def scrape_price_history(id: str, period: PeriodType, site_id=1) -> IdealoPriceHistory:
     """scrape price history from idealo.de"""
+    # the product page is only used as the referer: the price history API answers on its own
     url = f"{BASE_URL}/preisvergleich/OffersOfProduct/{id}.html"
-    log.info(f"scraping price history page {url}")
-    session = f"idealo-price-history-{uuid.uuid4()}"
-    page = await scrape_with_retry(
-        ScrapeConfig(url, wait_for_selector='[class*="price-chart"]', session=session, **BASE_CONFIG)
-    )
-
     history_url = f"{BASE_URL}/price-chart/sites/{site_id}/products/{id}/history?period={period}"
     log.info(f"scraping price history API {history_url}")
     response = await scrape_with_retry(
         ScrapeConfig(
             history_url,
-            session=session,
             headers={"accept": "application/json", "referer": url},
             **{**BASE_CONFIG, "render_js": False},
         )
