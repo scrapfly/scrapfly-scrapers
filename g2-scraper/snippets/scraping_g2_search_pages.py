@@ -10,7 +10,7 @@ from typing import Dict, List, Literal
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "render_js" : True,
     "proxy_pool": "public_residential_pool"
 }

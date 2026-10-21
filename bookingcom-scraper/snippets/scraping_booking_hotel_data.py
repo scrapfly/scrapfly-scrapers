@@ -11,7 +11,7 @@ from typing import Dict, List
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "country": "US",
 }
 

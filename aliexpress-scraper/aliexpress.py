@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Aliexpress.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "country": "US",
     # aliexpress returns differnt results based on localization settings
     # apply localization settings from the browser and then copy the aep_usuc_f cookie from devtools

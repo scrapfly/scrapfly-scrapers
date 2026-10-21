@@ -7,7 +7,7 @@ from typing import Dict, List
 from scrapfly import ScrapeConfig, ScrapflyClient
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "country": "US",
     "render_js": True,
 }

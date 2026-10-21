@@ -9,7 +9,7 @@ from typing import Dict, List
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "country": "US",
     # Us locale, apply localization settings from the browser and then copy the aep_usuc_f cookie from devtools
     "headers": {

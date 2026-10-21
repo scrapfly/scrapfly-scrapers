@@ -11,7 +11,7 @@ from typing import Dict, List, Optional, TypedDict
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "country": "US",
 }
 
@@ -53,7 +53,7 @@ def generate_graphql_request(url_params: str, body: Dict, offset: int):
             },
         data=body,
         method="POST",
-        asp=True
+        unblocker=True  # previously asp=True, still accepted as an alias
     )
 
 
