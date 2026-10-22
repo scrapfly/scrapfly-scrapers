@@ -40,13 +40,14 @@ def parse_property(result: ScrapeApiResponse) -> Dict:
         return
     data = json.loads(data)
     raw_data = data["props"]["pageProps"]["initialReduxState"]
+    # the page lists the home tags as "ranked_tags" (earlier pages used "tags_for_display")
     reduced = jmespath.search(
         """{
         id: propertyDetails.listing_id,
         slug: slug,
         url: propertyDetails.href,
         status: propertyDetails.status,
-        tags: propertyDetails.tags_for_display[].label,
+        tags: (propertyDetails.tags_for_display || propertyDetails.ranked_tags)[].label,
         sold_date: propertyDetails.last_sold_date,
         sold_price: propertyDetails.last_sold_price,
         list_date: propertyDetails.list_date,
