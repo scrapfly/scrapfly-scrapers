@@ -16,7 +16,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass web scraping blocking
-    "asp": True,
+    "unblocker": True,
     "proxy_pool": "public_residential_pool",
     "render_js": True
 }
@@ -75,7 +75,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
 async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int = 10) -> List[Dict]:
     """scrape listing data from homegate search pages"""
     # scrape the first search page first
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, asp=True))
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(url, unblocker=True))
     log.info("scraping search page {}", url)
     data = parse_next_data(first_page)["resultList"]["search"]["fullSearch"]["result"]
     search_data = data["listings"]
@@ -89,7 +89,7 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
     log.info("scraping search {} pagination ({} more pages)", url, total_pages - 1)
     # add the remaining search pages in a scraping list
     other_pages = [
-        ScrapeConfig(first_page.context["url"] + f"?ep={page}", asp=True)
+        ScrapeConfig(first_page.context["url"] + f"?ep={page}", unblocker=True)
         for page in range(2, total_pages + 1)
     ]
     # scrape the remaining search pages concurrently
