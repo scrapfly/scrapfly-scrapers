@@ -67,17 +67,21 @@ def unpack_node_references(node, graph, debug=False):
     {'field': {'foo': 'bar'}}
     """
     def flatten(value):
-        try:
-            if value["type"] != "id":
-                return value
-        except (KeyError, TypeError):
+        # a reference is {"__ref": "Startup:123"} (current pages) or {"id": "Startup:123", "type": "id"} (older pages)
+        if not isinstance(value, dict):
             return value
-        data = deepcopy(graph[value["id"]])
+        if "__ref" in value:
+            reference = value["__ref"]
+        elif value.get("type") == "id":
+            reference = value["id"]
+        else:
+            return value
+        data = deepcopy(graph[reference])
         # flatten nodes too:
         if data.get("node"):
             data = flatten(data["node"])
         if debug:
-            data["__reference"] = value["id"]
+            data["__reference"] = reference
         return data
 
     node = flatten(node)
