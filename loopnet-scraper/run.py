@@ -22,7 +22,7 @@ async def run():
 
     listings = await loopnet.scrape_listings(
         urls=[
-            "https://www.loopnet.com/Listing/611-W-Oglethorpe-Ave-Savannah-GA/39001150/",
+            "https://www.loopnet.com/Listing/2312-Abercorn-St-Savannah-GA/41217887/",
             "https://www.loopnet.com/Listing/1410-Dean-Forest-Rd-Savannah-GA/41166496/",
         ]
     )
