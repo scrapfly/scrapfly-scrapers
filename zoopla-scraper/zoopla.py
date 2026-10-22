@@ -17,7 +17,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
-BASE_CONFIG = {"asp": True, "country": "GB"}
+BASE_CONFIG = {"unblocker": True, "country": "GB"}
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
