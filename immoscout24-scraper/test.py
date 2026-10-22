@@ -19,137 +19,139 @@ def validate_or_fail(item, validator):
 
 
 property_schema = {
-    "schema": {
+    "lister": {
         "type": "dict",
         "schema": {
-            "lister": {
+            "legalName": {"type": "string", "nullable": True},
+            "website": {
                 "type": "dict",
                 "schema": {
-                    "legalName": {"type": "string"},
-                    "website": {
-                        "type": "dict",
-                        "schema": {
-                            "value": {"type": "string"}
-                        }
-                    },
-                    "address": {
-                        "type": "dict",
-                        "schema": {
-                            "locality": {"type": "string"},
-                            "country": {"type": "string"},
-                            "street": {"type": "string"},
-                            "postalCode": {"type": "string"},
-                        }
-                    }
-                }
+                    "value": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
             },
-            "characteristics": {
+            "address": {
                 "type": "dict",
                 "schema": {
-                    "numberOfRooms": {"type": "integer"},
-                    "yearBuilt": {"type": "integer"},
-                    "floor": {"type": "integer"},
-                    "livingSpace": {"type": "integer"},
-                }
-            }
+                    "locality": {"type": "string", "nullable": True},
+                    "country": {"type": "string", "nullable": True},
+                    "street": {"type": "string", "nullable": True},
+                    "postalCode": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
         },
+        "nullable": True,
+    },
+    "characteristics": {
+        "type": "dict",
+        "schema": {
+            "numberOfRooms": {"type": "float", "nullable": True},
+            "yearBuilt": {"type": "integer", "nullable": True},
+            "floor": {"type": "integer", "nullable": True},
+            "livingSpace": {"type": "integer", "nullable": True},
+        },
+        "nullable": True,
     },
 }
 
 
 search_schema = {
-    "schema": {
+    "id": {"type": "string", "minlength": 1},
+    "accountId": {"type": "integer", "nullable": True},
+    "companyId": {"type": "integer", "nullable": True},
+    "memberPackageId": {"type": "integer", "nullable": True},
+    "agency": {
         "type": "dict",
         "schema": {
-            "id": {"type": "integer"},
-            "accountId": {"type": "integer"},
-            "companyId": {"type": "integer"},
-            "memberPackageId": {"type": "integer"},
-            "agency": {
-                "type": "dict",
-                "schema": {
-                    "companyCity": {"type": "string"},
-                    "companyName1": {"type": "string"},
-                    "companyPhoneBusiness": {"type": "string"},
-                    "companyStreet": {"type": "string"},
-                    "companyZip": {"type": "string"},
-                    "firstName": {"type": "string"},
-                    "gender": {"type": "string"},
-                    "gendshowLogoOnSerper": {"type": "boolean"},
-                    "lastName": {"type": "string"},
-                    "logoUrl": {"type": "string"},
-                    "logoUrlDetailPage": {"type": "string"},
-                    "nameFormatted": {"type": "string"},
-                },
-            },
-            "availableFrom": {"type": "string"},
-            "availableFromFormatted": {"type": "string"},
-            "cityId": {"type": "integer"},
-            "cityName": {"type": "string"},
-            "commuteTimes": {
-                "type": "dict",
-                "schema": {
-                    "defaultPois": {
-                        "type": "list",
-                        "schema": {
-                            "type": "dict",
-                            "schema": {
-                                "defaultPoiId": {"type": "integer"},
-                                "label": {"type": "string"},
-                                "transportations": {
-                                    "type": "list",
-                                    "schema": {
-                                        "type": "dict",
-                                        "schema": {
-                                            "transportationTypeId": {"type": "integer"},
-                                            "travelTime": {"type": "integer"},
-                                            "isReachable": {"type": "boolean"},
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                    }
-                },
-            },
-            "countryId": {"type": "integer"},
-            "extraPrice": {"type": "integer"},
-            "geoAccuracy": {"type": "integer"},
-            "grossPrice": {"type": "integer"},
-            "hasNewBuildingProject": {"type": "boolean"},
-            "hasVirtualTour": {"type": "boolean"},
-            "isHighlighted": {"type": "boolean"},
-            "isNeubauLite": {"type": "boolean"},
-            "isNeubauLitePremium": {"type": "boolean"},
-            "isHgCrosslisting": {"type": "boolean"},
-            "latitude": {"type": "integer"},
-            "longitude": {"type": "integer"},
-            "netPrice": {"type": "integer"},
-            "numberOfRooms": {"type": "integer"},
-            "price": {"type": "integer"},
-            "propertyUrl": {"type": "string"},
-            "propertyCategoryId": {"type": "integer"},
-            "propertyTypeId": {"type": "integer"},
-            "state": {"type": "string"},
-            "street": {"type": "string"},
-            "surfaceLiving": {"type": "integer"},
-            "images": {
+            "companyCity": {"type": "string", "nullable": True},
+            "companyName1": {"type": "string", "nullable": True},
+            "companyPhoneBusiness": {"type": "string", "nullable": True},
+            "companyStreet": {"type": "string", "nullable": True},
+            "companyZip": {"type": "string", "nullable": True},
+            "firstName": {"type": "string", "nullable": True},
+            "gender": {"type": "string", "nullable": True},
+            "gendshowLogoOnSerper": {"type": "boolean", "nullable": True},
+            "lastName": {"type": "string", "nullable": True},
+            "logoUrl": {"type": "string", "nullable": True},
+            "logoUrlDetailPage": {"type": "string", "nullable": True},
+            "nameFormatted": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "availableFrom": {"type": "string", "nullable": True},
+    "availableFromFormatted": {"type": "string", "nullable": True},
+    "cityId": {"type": "integer", "nullable": True},
+    "cityName": {"type": "string", "nullable": True},
+    "commuteTimes": {
+        "type": "dict",
+        "schema": {
+            "defaultPois": {
                 "type": "list",
                 "schema": {
                     "type": "dict",
                     "schema": {
-                        "url": {"type": "string"},
-                        "originalWidth": {"type": "integer"},
-                        "originalHeight": {"type": "integer"},
-                        "id": {"type": "integer"},
+                        "defaultPoiId": {"type": "integer", "nullable": True},
+                        "label": {"type": "string", "nullable": True},
+                        "transportations": {
+                            "type": "list",
+                            "schema": {
+                                "type": "dict",
+                                "schema": {
+                                    "transportationTypeId": {"type": "integer", "nullable": True},
+                                    "travelTime": {"type": "integer", "nullable": True},
+                                    "isReachable": {"type": "boolean", "nullable": True},
+                                },
+                                "nullable": True,
+                            },
+                            "nullable": True,
+                        },
                     },
+                    "nullable": True,
                 },
+                "nullable": True,
             },
-            "lastPublished": {"type": "string"},
-            "sortalgoScore": {"type": "integer"},
-            "sortalgoScore2": {"type": "integer"},
         },
-    }
+        "nullable": True,
+    },
+    "countryId": {"type": "integer", "nullable": True},
+    "extraPrice": {"type": "integer", "nullable": True},
+    "geoAccuracy": {"type": "integer", "nullable": True},
+    "grossPrice": {"type": "integer", "nullable": True},
+    "hasNewBuildingProject": {"type": "boolean", "nullable": True},
+    "hasVirtualTour": {"type": "boolean", "nullable": True},
+    "isHighlighted": {"type": "boolean", "nullable": True},
+    "isNeubauLite": {"type": "boolean", "nullable": True},
+    "isNeubauLitePremium": {"type": "boolean", "nullable": True},
+    "isHgCrosslisting": {"type": "boolean", "nullable": True},
+    "latitude": {"type": "integer", "nullable": True},
+    "longitude": {"type": "integer", "nullable": True},
+    "netPrice": {"type": "integer", "nullable": True},
+    "numberOfRooms": {"type": "integer", "nullable": True},
+    "price": {"type": "integer", "nullable": True},
+    "propertyUrl": {"type": "string", "minlength": 1},
+    "propertyCategoryId": {"type": "integer", "nullable": True},
+    "propertyTypeId": {"type": "integer", "nullable": True},
+    "state": {"type": "string", "nullable": True},
+    "street": {"type": "string", "nullable": True},
+    "surfaceLiving": {"type": "integer", "nullable": True},
+    "images": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "url": {"type": "string", "nullable": True},
+                "originalWidth": {"type": "integer", "nullable": True},
+                "originalHeight": {"type": "integer", "nullable": True},
+                "id": {"type": "integer", "nullable": True},
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
+    "lastPublished": {"type": "string", "nullable": True},
+    "sortalgoScore": {"type": "integer", "nullable": True},
+    "sortalgoScore2": {"type": "integer", "nullable": True},
 }
 
 
