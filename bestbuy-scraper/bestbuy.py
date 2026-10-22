@@ -34,6 +34,8 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     bytes_data = content.read() if hasattr(content, "read") else content.encode("latin1")
     xml = str(gzip.decompress(bytes_data), "utf-8")
     selector = Selector(xml)
+    # the sitemap namespace would hide its tags from the xpath
+    selector.remove_namespaces()
     data = []
     for url in selector.xpath("//url/loc/text()"):
         data.append(url.get())

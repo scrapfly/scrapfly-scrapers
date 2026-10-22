@@ -2,7 +2,6 @@
 # One entry per line: a scraper directory (all of its tests) or <directory>/<test function>.
 # These were not in the hand-written matrix when it became generated from the test files
 # (2026-10-12). Remove a line to add that scraper or test to the nightly run.
-bestbuy-scraper/test_sitemap_scraping
 pinterest-scraper/test_board_scraping
 pinterest-scraper/test_download_images
 pinterest-scraper/test_pin_scraping
