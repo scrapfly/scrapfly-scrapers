@@ -17,134 +17,120 @@ def validate_or_fail(item, validator):
 
 
 property_sale_schema = {
-    "schema": {
+    "address": {"type": "string", "minlength": 1},
+    "description": {"type": "string", "nullable": True},
+    "price": {"type": "string", "regex": r"\$[\d,]+"},
+    "estimatedMonthlyPrice": {"type": "string"},
+    "propertyUrl": {"type": "string", "minlength": 1},
+    "attachments": {"type": "list", "schema": {"type": "string"}, "minlength": 1},
+    "details": {"type": "list", "schema": {"type": "string"}, "minlength": 1},
+    "features": {
         "type": "dict",
+        "minlength": 1,
         "schema": {
-            "address": {"type": "string"},
-            "description": {"type": "string"},
-            "price": {"type": "string"},
-            "estimatedMonthlyPrice": {"type": "string"},
-            "propertyUrl": {"type": "string"},
-            "attachments": {"type": "list", "schema": {"type": "string"}},
-            "details": {"type": "list", "schema": {"type": "string"}},
-            "features": {
-                "type": "dict",
-                "schema": {
-                    "Parking Information": {
-                        "type": "list",
-                        "schema": {"type": "string"},
-                    }
-                },
-            },
+            "Parking Information": {
+                "type": "list",
+                "schema": {"type": "string"},
+            }
         },
-    }
+    },
 }
 
 property_rent_schema = {
-    "schema": {
-        "type": "dict",
+    "rentalId": {"type": "string"},
+    "unitTypesByBedroom": {
+        "type": "list",
         "schema": {
-            "rentalId": {"type": "string"},
-            "unitTypesByBedroom": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
+            "type": "dict",
+            "schema": {
+                "bedroomTitle": {"type": "string"},
+                "availableUnitTypes": {
+                    "type": "list",
                     "schema": {
-                        "bedroomTitle": {"type": "string"},
-                        "availableUnitTypes": {
-                            "type": "list",
-                            "schema": {
-                                "type": "dict",
+                        "type": "dict",
+                        "schema": {
+                            "unitTypeId": {"type": "string"},
+                            "units": {
+                                "type": "list",
                                 "schema": {
-                                    "unitTypeId": {"type": "string"},
-                                    "units": {
-                                        "type": "list",
-                                        "schema": {
-                                            "type": "dict",
-                                            "schema": {
-                                                "unitId": {"type": "string"},
-                                                "bedrooms": {"type": "integer"},
-                                                "depositCurrency": {"type": "string"},
-                                                "fullBaths": {"type": "integer"},
-                                                "halfBaths": {"type": "integer"},
-                                                "name": {"type": "string"},
-                                                "rentCurrency": {"type": "string"},
-                                                "rentPrice": {"type": "integer"},
-                                                "sqft": {"type": "string"},
-                                                "status": {"type": "string"},
-                                            },
-                                        },
+                                    "type": "dict",
+                                    "schema": {
+                                        "unitId": {"type": "string"},
+                                        "bedrooms": {"type": "integer"},
+                                        "depositCurrency": {"type": "string"},
+                                        "fullBaths": {"type": "integer"},
+                                        "halfBaths": {"type": "integer"},
+                                        "name": {"type": "string"},
+                                        "rentCurrency": {"type": "string"},
+                                        "rentPrice": {"type": "integer"},
+                                        "sqft": {"type": "integer"},
+                                        "status": {"type": "string"},
                                     },
-                                    "availableUnits": {"type": "integer"},
-                                    "bedrooms": {"type": "integer"},
-                                    "fullBaths": {"type": "integer"},
-                                    "halfBaths": {"type": "integer"},
-                                    "name": {"type": "string"},
-                                    "rentPriceMax": {"type": "integer"},
-                                    "rentPriceMin": {"type": "integer"},
-                                    "sqftMax": {"type": "integer"},
-                                    "sqftMin": {"type": "integer"},
-                                    "status": {"type": "string"},
-                                    "style": {"type": "string"},
-                                    "totalUnits": {"type": "integer"},
                                 },
                             },
+                            "availableUnits": {"type": "integer"},
+                            "bedrooms": {"type": "integer"},
+                            "fullBaths": {"type": "integer"},
+                            "halfBaths": {"type": "integer"},
+                            "name": {"type": "string"},
+                            "rentPriceMax": {"type": "integer"},
+                            "rentPriceMin": {"type": "integer"},
+                            "sqftMax": {"type": "integer"},
+                            "sqftMin": {"type": "integer"},
+                            "status": {"type": "string"},
+                            "style": {"type": "string"},
+                            "totalUnits": {"type": "integer"},
                         },
                     },
                 },
             },
         },
-    }
+    },
 }
 
 search_schema = {
-    "schema": {
+    "mlsId": {
         "type": "dict",
         "schema": {
-            "mlsId": {
-                "type": "dict",
-                "schema": {
-                    "label": {"type": "string"},
-                    "value": {"type": "string"},
-                },
-            },
-            "price": {
-                "type": "dict",
-                "schema": {
-                    "value": {"type": "integer"},
-                    "level": {"type": "integer"},
-                },
-            },
-            "beds": {"type": "integer"},
-            "baths": {"type": "integer"},
-            "fullBaths": {"type": "integer"},
-            "location": {
-                "type": "dict",
-                "schema": {
-                    "value": {"type": "string"},
-                    "level": {"type": "integer"},
-                },
-            },
-            "streetLine": {
-                "type": "dict",
-                "schema": {
-                    "value": {"type": "string"},
-                    "level": {"type": "integer"},
-                },
-            },
-            "countryCode": {"type": "string"},
-            "showAddressOnMap": {"type": "boolean"},
-            "soldDate": {"type": "integer"},
-            "searchStatus": {"type": "integer"},
-            "propertyType": {"type": "integer"},
-            "uiPropertyType": {"type": "integer"},
-            "listingType": {"type": "integer"},
-            "propertyId": {"type": "integer"},
-            "listingId": {"type": "integer"},
-            "dataSourceId": {"type": "integer"},
-            "marketId": {"type": "integer"},
+            "label": {"type": "string"},
+            "value": {"type": "string"},
         },
-    }
+    },
+    "price": {
+        "type": "dict",
+        "schema": {
+            "value": {"type": "integer"},
+            "level": {"type": "integer"},
+        },
+    },
+    "beds": {"type": "integer"},
+    "baths": {"type": "float"},
+    "fullBaths": {"type": "integer", "nullable": True},
+    "location": {
+        "type": "dict",
+        "schema": {
+            "value": {"type": "string"},
+            "level": {"type": "integer"},
+        },
+    },
+    "streetLine": {
+        "type": "dict",
+        "schema": {
+            "value": {"type": "string"},
+            "level": {"type": "integer"},
+        },
+    },
+    "countryCode": {"type": "string"},
+    "showAddressOnMap": {"type": "boolean"},
+    "soldDate": {"type": "integer", "nullable": True},
+    "searchStatus": {"type": "integer"},
+    "propertyType": {"type": "integer"},
+    "uiPropertyType": {"type": "integer"},
+    "listingType": {"type": "integer"},
+    "propertyId": {"type": "integer"},
+    "listingId": {"type": "integer"},
+    "dataSourceId": {"type": "integer"},
+    "marketId": {"type": "integer"},
 }
 
 
