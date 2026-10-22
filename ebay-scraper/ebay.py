@@ -146,7 +146,7 @@ def parse_product(result: ScrapeApiResponse):
     item = {}
     item["url"] = css('link[rel="canonical"]::attr(href)')
     item["id"] = item["url"].split("/itm/")[1].split("?")[0]  # we can take ID from the URL
-    item["price_original"] = css(".x-price-primary>span::text")
+    item["price_original"] = css(".x-price-primary .ux-textspans::text")  # the price text sits in a nested span now
     item["price_converted"] = css(".x-price-approx__price ::text")  # ebay automatically converts price for some regions
 
     item["name"] = css_join("h1 span::text")
