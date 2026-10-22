@@ -121,6 +121,14 @@ def parse_artist_page(result: ScrapeApiResponse) -> TicketmasterArtist:
         except json.JSONDecodeError:
             continue
 
+    # the event image is sometimes a list (the image URL plus a map ImageObject): keep the first URL as before
+    for event in events_data:
+        if isinstance(event.get("image"), list):
+            images = [
+                i if isinstance(i, str) else (i.get("url") if isinstance(i, dict) else None) for i in event["image"]
+            ]
+            event["image"] = next((i for i in images if i), None)
+
     artist_name = ""
     if artist_data and artist_data.get("name"):
         artist_name = artist_data.get("name")
