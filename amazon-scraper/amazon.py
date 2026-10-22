@@ -13,14 +13,14 @@ from typing import Dict, List, TypedDict, Optional
 from urllib.parse import urljoin, urlparse, parse_qsl, urlencode, urlunparse
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # Amazon.com requires Anti Scraping Protection bypass feature.
     # for more: https://SCRAPFLY.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     # to change region see change the country code
     "country": "US",
 }
@@ -62,8 +62,8 @@ def parse_search(result: ScrapeApiResponse) -> List[ProductPreview]:
                 "title": box.css("div>a>h2::attr(aria-label)").get(),
                 # big price text is discounted price
                 "price": box.css(".a-price[data-a-size=xl] .a-offscreen::text").get(),
-                # small price text is "real" price
-                "real_price": box.xpath("//div[@data-cy='secondary-offer-recipe']//span[contains(@class, 'a-color-base') and contains(text(), '$')]/text()").get(),
+                # the struck-through list price next to it is the "real" price
+                "real_price": box.css(".a-price.a-text-price .a-offscreen::text").get(),
                 "rating": float(rating) if rating else None,
                 "rating_count": int(rating_count.replace(',','').replace(" ratings", "")) if rating_count else None,
             }
@@ -217,17 +217,39 @@ def parse_product(result) -> Product:
     return parsed
 
 
+NOTICE_TEXT = "Continued access by an unauthorized AI agent"
+
+
+def _page_summary(result: ScrapeApiResponse) -> str:
+    """describe the page amazon returned instead of the product: its notice page, or the page title and heading"""
+    if NOTICE_TEXT in result.content:
+        return 'its "unauthorized AI agent" notice page'
+    title = result.selector.css("title::text").get("").strip()
+    heading = result.selector.css("h1::text, h4::text").get("").strip()
+    return f"a page without product data ({title!r} {heading!r})"
+
+
 async def scrape_product(url: str) -> List[Product]:
     """scrape Amazon.com product"""
     url = url.split("/ref=")[0]
     asin = url.split("/dp/")[-1]
     log.info(f"scraping product {url}")
-    product_result = await SCRAPFLY.async_scrape(ScrapeConfig(
-        url, 
-        **BASE_CONFIG, 
-        render_js=True, 
-        wait_for_selector="#productTitle",
-    ))
+    try:
+        product_result = await SCRAPFLY.async_scrape(
+            ScrapeConfig(
+                url,
+                **BASE_CONFIG,
+                render_js=True,
+                wait_for_selector="#productTitle",
+            )
+        )
+    except ScrapflyScrapeError as e:
+        # amazon sometimes answers with a short page without product data (e.g. a notice) instead of the product
+        if e.code != "ERR::SCRAPE::DOM_SELECTOR_NOT_FOUND" or not e.api_response:
+            raise
+        raise ValueError(
+            f"amazon.com returned {_page_summary(e.api_response)} instead of the product page {url}"
+        ) from e
     variants = [parse_product(product_result)]
 
     # if product has variants - we want to scrape all of them
@@ -237,5 +259,9 @@ async def scrape_product(url: str) -> List[Product]:
         log.info(f"scraping {len(variant_asins)} variants: {variant_asins}")
         _to_scrape = [ScrapeConfig(f"https://www.amazon.com/dp/{asin}", **BASE_CONFIG) for asin in variant_asins]
         async for result in SCRAPFLY.concurrent_scrape(_to_scrape):
+            # skip variant pages that came back as the notice page (or any page without product data)
+            if not result.selector.css("#productTitle"):
+                log.warning(f"skipping variant {result.context['url']}: amazon.com returned {_page_summary(result)}")
+                continue
             variants.append(parse_product(result))
     return variants

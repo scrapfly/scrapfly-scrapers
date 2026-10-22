@@ -15,7 +15,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflySc
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "us",
     "proxy_pool": "public_residential_pool",
     "rendering_wait": 5000
@@ -109,8 +109,11 @@ def parse_product(response: ScrapeApiResponse) -> RSProduct:
     if not availability and stock_match:
         availability = stock_match.group(1)
 
-    min_order_match = re.search(r'"minSaleQty":\s*(\d+)', html)
-    qty_increment_match = re.search(r'"qtyIncrements":\s*(\d+)', html)
+    # the order quantities come from the page's quantity input (min and step attributes);
+    # earlier pages carried them as "minSaleQty" / "qtyIncrements" in a script
+    qty_input = sel.css("input#qty").attrib
+    min_order_match = re.search(r'"minSaleQty":\s*(\d+)', html) or re.match(r"(\d+)", qty_input.get("min", ""))
+    qty_increment_match = re.search(r'"qtyIncrements":\s*(\d+)', html) or re.match(r"(\d+)", qty_input.get("step", ""))
 
     tiered_pricing = None
     tier_raw = sel.css("#base-tier-pricing::attr(data-basetierprices)").get()

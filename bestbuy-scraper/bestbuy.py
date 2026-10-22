@@ -19,7 +19,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass bestbuy.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     "proxy_pool":"public_residential_pool",
@@ -34,6 +34,8 @@ def parse_sitemaps(response: ScrapeApiResponse) -> List[str]:
     bytes_data = content.read() if hasattr(content, "read") else content.encode("latin1")
     xml = str(gzip.decompress(bytes_data), "utf-8")
     selector = Selector(xml)
+    # the sitemap namespace would hide its tags from the xpath
+    selector.remove_namespaces()
     data = []
     for url in selector.xpath("//url/loc/text()"):
         data.append(url.get())
@@ -258,6 +260,11 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
     data = parse_search(first_page)
     search_data = data["data"]
     total_pages = data["total_pages"]
+    # the site sometimes answers a search with its "no results" layout (a recommendations carousel instead of the grid)
+    if not search_data and first_page.selector.css("[class*='product-flexbox-noresults']"):
+        raise ValueError(
+            f"bestbuy.com answered the search for {search_query!r} with its no-results page instead of the product list"
+        )
 
     # get the number of total search pages to scrape
     if max_pages and max_pages < total_pages:

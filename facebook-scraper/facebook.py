@@ -54,6 +54,7 @@ def parse_page(response: ScrapeApiResponse) -> Dict:
 
     desc = og("description") or ""
     m_likes = re.search(r"([\d,]+)\s*likes", desc)
+    m_followers = re.search(r"([\d,]+)\s*followers", desc)  # the description now counts followers instead of likes
     m_talking = re.search(r"([\d,]+)\s*talking about", desc)
     m_here = re.search(r"([\d,]+)\s*were here", desc)
 
@@ -70,7 +71,7 @@ def parse_page(response: ScrapeApiResponse) -> Dict:
     price_m = re.search(r"Price Range\s*[\xb7·]\s*(\S+)", price_raw or "")
 
     rating_raw = card_text("INTRO_CARD_RATING")
-    rating_m = re.search(r"(\d+)%\s*recommend\s*\(([0-9,]+)\s*Reviews?\)", rating_raw or "")
+    rating_m = re.search(r"(\d+)%\s*recommend\s*\(([0-9,]+)\s*reviews?\)", rating_raw or "", re.I)
 
     map_url_m = re.search(r'"INTRO_CARD_ADDRESS"', html)
     map_url = None
@@ -96,6 +97,7 @@ def parse_page(response: ScrapeApiResponse) -> Dict:
         "category": delegate.group(2).replace("\\/", "/") if delegate else None,
         "intro": intro_m.group(1) if intro_m else None,
         "likes": num(m_likes.group(1)) if m_likes else None,
+        "followers": num(m_followers.group(1)) if m_followers else None,
         "talking_about": num(m_talking.group(1)) if m_talking else None,
         "were_here": num(m_here.group(1)) if m_here else None,
         "phone": card_text("INTRO_CARD_PROFILE_PHONE"),
@@ -144,7 +146,9 @@ def parse_marketplace_listing(response: ScrapeApiResponse) -> List[Dict]:
         parsed_listing = {
             "id": listing.get("id"),
             "title": listing.get("marketplace_listing_title"),
-            "price": listing.get("formatted_price", {}).get("text", "N/A"),
+            # the price moved from formatted_price.text to listing_price.formatted_amount
+            "price": (listing.get("formatted_price") or {}).get("text")
+            or (listing.get("listing_price") or {}).get("formatted_amount", "N/A"),
             "location": location,
             "is_sold": listing.get("is_sold", False),
             "is_pending": listing.get("is_pending", False),
@@ -314,6 +318,14 @@ def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
         res = [obj] if obj.get("__typename") == typename else []
         return res + [r for v in obj.values() for r in find(v, typename, depth + 1)]
 
+    def find_posts(obj, depth=0):
+        if depth > 60 or not isinstance(obj, (dict, list)):
+            return []
+        if isinstance(obj, list):
+            return [r for el in obj for r in find_posts(el, depth + 1)]
+        is_post = obj.get("__typename") == "Story" or (obj.get("post_id") and obj.get("comet_sections"))
+        return ([obj] if is_post else []) + [r for v in obj.values() for r in find_posts(v, depth + 1)]
+
     def find_comments(obj, depth=0):
         """Find comment nodes that have both preferred_body and an author renderer."""
         if depth > 60 or not isinstance(obj, (dict, list)):
@@ -331,9 +343,11 @@ def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
         except (json.JSONDecodeError, Exception):
             continue
 
-        for s in find(data, "Story"):
-            if (pid := s.get("post_id")) and pid not in stories:
-                stories[pid] = s
+        # posts are "Story" nodes, or untyped nodes carrying post_id + comet_sections (most posts on current pages);
+        # the same post appears several times with different fields, so keep the union per post_id
+        for s in find_posts(data):
+            if pid := s.get("post_id"):
+                stories.setdefault(pid, []).append(s)
 
         for r in find(data, "UnauthenticatedUCometUFISummaryAndActionsRenderer"):
             fb = r.get("feedback") or {}
@@ -350,17 +364,26 @@ def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
                 "text": (node.get("preferred_body") or {}).get("text"),
             })
 
+    def message_of(node):
+        """the post text: under content.story on "Story" nodes, one level up on untyped nodes"""
+        for path in (("content", "story", "comet_sections", "message", "story", "message"), ("message", "story", "message")):
+            m = node.get("comet_sections") or {}
+            for key in path:
+                m = (m.get(key) or {}) if isinstance(m, dict) else {}
+            if m.get("text"):
+                return m.get("text"), m.get("ranges") or []
+        return None, []
+
     results = []
-    for post_id, story in stories.items():
+    for post_id, nodes in stories.items():
+        # the same post appears in several nodes with different fields: take each field from the first node that has it
+        story = {}
+        for node in nodes:
+            story.update({k: v for k, v in node.items() if v is not None and k not in story})
         actors = story.get("actors") or []
         ct = story.get("creation_time")
 
-        msg, msg_ranges = None, []
-        try:
-            m = story["comet_sections"]["content"]["story"]["comet_sections"]["message"]["story"]["message"]
-            msg, msg_ranges = m.get("text"), m.get("ranges") or []
-        except (KeyError, TypeError):
-            pass
+        msg, msg_ranges = next(((t, r) for t, r in map(message_of, nodes) if t), (None, []))
 
         fb = feedback.get(str(post_id)) or {}
         
@@ -379,7 +402,7 @@ def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
                 link_title, link_url = ad["title"]["text"], ad.get("url")
 
         results.append({
-            "post_url": story.get("permalink_url"),
+            "post_url": story.get("permalink_url") or story.get("url"),
             "group": group_name,
             "group_url": group_url,
             "posted_at": datetime.datetime.fromtimestamp(ct, datetime.timezone.utc).isoformat().replace("+00:00", "Z") if ct else None,

@@ -17,7 +17,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass G2 web scraping blocking
-    "asp": True,
+    "unblocker": True,
     "render_js"  : True,
     "proxy_pool" : "public_residential_pool"
 }
@@ -113,7 +113,7 @@ def parse_review_page(response: ScrapeApiResponse):
 
     total_reviews_text = selector.xpath("//a[contains(@href, '/reviews#reviews') and contains(text(), 'reviews')]/text()").get()
     if total_reviews_text:
-        total_reviews = int(total_reviews_text.split()[2])
+        total_reviews = int(total_reviews_text.split()[2].replace(",", ""))  # "See all 13,880 Notion reviews"
         # Updated: The page now shows 10 reviews, not 25
         _review_page_size = 10
         total_pages = math.ceil(total_reviews / _review_page_size)
@@ -122,8 +122,9 @@ def parse_review_page(response: ScrapeApiResponse):
         total_pages = 0
 
     data = []
-    # main review container selector, scoped to the reviews section's article cards
-    for review in selector.xpath("//section[@id='reviews']//article"):
+    # main review container selector, scoped to the reviews section's article cards;
+    # the reviews_and_filters fragment (pages 2+) has the same article cards without the section
+    for review in selector.xpath("//section[@id='reviews']//article") or selector.xpath("//article"):
         author_container = review.xpath(".//div[contains(@class, 'avatar')]/parent::a/following-sibling::div[1]")
         author_name = author_container.xpath(
             ".//div[contains(@class, 'elv-text-base') and contains(@class, 'elv-font-bold')]/text()"
@@ -201,10 +202,11 @@ async def scrape_reviews(url: str, max_review_pages: int = None) -> List[Dict]:
     if max_review_pages and max_review_pages < total_pages:
         total_pages = max_review_pages
 
-    # scrape the remaining review pages
+    # scrape the remaining review pages: the site answers "?page=N" on the page URL with the first page again,
+    # so the following pages are read from the reviews fragment the page itself loads (no rendering needed)
     log.info(f"scraping reviews pagination, remaining ({total_pages - 1}) more pages")
-    remaining_urls = [url + f"?page={page_number}" for page_number in range(2, total_pages + 1)]
-    to_scrape = [ScrapeConfig(url, **enhanced_config) for url in remaining_urls]
+    remaining_urls = [url.rstrip("/") + f"_and_filters?page={page_number}" for page_number in range(2, total_pages + 1)]
+    to_scrape = [ScrapeConfig(url, **{**BASE_CONFIG, "render_js": False}) for url in remaining_urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             data = parse_review_page(response)

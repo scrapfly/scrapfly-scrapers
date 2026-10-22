@@ -17,7 +17,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
-BASE_CONFIG = {"asp": True, "country": "GB"}
+BASE_CONFIG = {"unblocker": True, "country": "GB"}
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
@@ -62,6 +62,7 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
     baths = selector.xpath("//p[contains(text(),'bath')]/text()").get()
     beds = selector.xpath("//p[contains(text(),'bed')]/text()").get()
     gmap_source = selector.xpath("(//section[@aria-labelledby='local-area']//picture/source/@srcset)[last()]").get()
+    # the map image path is "/static/{longitude},{latitude},{zoom}/..."
     coordinates = gmap_source.split("/static/")[1].split("/")[0] if gmap_source else None
     agent_path = selector.xpath("//section[@aria-label='Contact agent']//a/@href").get()
 
@@ -95,7 +96,8 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
         "title": selector.xpath("//title/text()").get(),
         "address": selector.xpath("//address/text()").get(),
         "price": {
-            "amount": int(price.replace("£", "").replace(",", "")) if price else None,
+            # "£925,000" on sale pages, "£1,500 pcm" on rental pages
+            "amount": int(price.split(" ")[0].replace("£", "").replace(",", "")) if price else None,
             "currency": "£",
         },
         "gallery": selector.xpath("//li[contains(@data-key,'gallery')]/picture/source[last()]/@srcset").getall(),
@@ -109,8 +111,8 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
         "propertyDescription": selector.xpath("//section[@aria-labelledby='about']/ul/li/p/span/text()").getall(),
         "coordinates": {
             "googleMapeSource": gmap_source,
-            "latitude": float(coordinates.split(",")[0]) if coordinates else None,
-            "longitude": float(coordinates.split(",")[1]) if coordinates else None,
+            "latitude": float(coordinates.split(",")[1]) if coordinates else None,
+            "longitude": float(coordinates.split(",")[0]) if coordinates else None,
         },
         "nearby": nearby,
         "agent": {

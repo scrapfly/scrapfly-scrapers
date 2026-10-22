@@ -21,250 +21,286 @@ def validate_or_fail(item, validator):
 
 
 property_schema = {
-    "schema": {
+    "localization": {
         "type": "dict",
         "schema": {
+            "de": {
+                "type": "dict",
+                "schema": {
+                    "text": {
+                        "type": "dict",
+                        "schema": {
+                            "title": {"type": "string", "nullable": True},
+                            "description": {"type": "string", "nullable": True},
+                        },
+                        "nullable": True,
+                    },
+                    "attachments": {
+                        "type": "list",
+                        "schema": {
+                            "type": "dict",
+                            "schema": {
+                                "type": {"type": "string", "nullable": True},
+                                "url": {"type": "string", "nullable": True},
+                                "file": {"type": "string", "nullable": True},
+                            },
+                            "nullable": True,
+                        },
+                        "nullable": True,
+                    },
+                },
+                "nullable": True,
+            },
+            "primary": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "lister": {
+        "type": "dict",
+        "schema": {
+            "primary": {"type": "string", "nullable": True},
+            "website": {
+                "type": "dict",
+                "schema": {
+                    "value": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "id": {"type": "string", "nullable": True},
+            "allowToContact": {"type": "boolean", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "characteristics": {
+        "type": "dict",
+        "schema": {
+            "livingSpace": {"type": "integer", "nullable": True},
+            "numberOfRooms": {"type": "float", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "address": {
+        "type": "dict",
+        "schema": {
+            "country": {"type": "string", "nullable": True},
+            "geoDistances": {
+                "type": "list",
+                "schema": {
+                    "type": "dict",
+                    "schema": {
+                        "distance": {"type": "integer", "nullable": True},
+                        "geoTag": {"type": "string", "nullable": True},
+                    },
+                    "nullable": True,
+                },
+                "nullable": True,
+            },
+            "geoTags": {
+                "type": "list",
+                "schema": {"type": "string", "nullable": True},
+                "nullable": True,
+            },
+            "street": {"type": "string", "nullable": True},
+            "postalCode": {"type": "string", "nullable": True},
+            "locality": {"type": "string", "nullable": True},
+            "geoCoordinates": {
+                "type": "dict",
+                "schema": {
+                    "accuracy": {"type": "string", "nullable": True},
+                    "manual": {"type": "boolean", "nullable": True},
+                    "latitude": {"type": "float", "nullable": True},
+                    "longitude": {"type": "float", "nullable": True},
+                },
+                "nullable": True,
+            },
+        },
+        "nullable": True,
+    },
+    "externalIds": {
+        "type": "dict",
+        "schema": {
+            "internalReferenceId": {"type": "string", "nullable": True},
+            "displayReferenceId": {"type": "string", "nullable": True},
+            "refObject": {"type": "string", "nullable": True},
+            "displayPropertyReferenceId": {"type": "string", "nullable": True},
+            "propertyReferenceId": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "contactForm": {
+        "type": "dict",
+        "schema": {
+            "size": {"type": "string", "nullable": True},
+            "deliveryFormat": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "version": {"type": "string", "nullable": True},
+    "platform": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "offerType": {"type": "string", "nullable": True},
+    "meta": {
+        "type": "dict",
+        "schema": {
+            "createdAt": {"type": "string", "nullable": True},
+            "updatedAt": {"type": "string", "nullable": True},
+            "source": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "id": {"type": "string", "minlength": 1},
+    "categories": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "prices": {
+        "type": "dict",
+        "schema": {
+            "rent": {
+                "type": "dict",
+                "schema": {
+                    "area": {"type": "string", "nullable": True},
+                    "interval": {"type": "string", "nullable": True},
+                    "net": {"type": "integer", "nullable": True},
+                    "gross": {"type": "integer", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "currency": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "valueAddedServices": {
+        "type": "dict",
+        "schema": {
+            "isTenantPlusListing": {"type": "boolean", "nullable": True},
+        },
+        "nullable": True,
+    },
+}
+
+search_schema = {
+    "listingType": {
+        "type": "dict",
+        "schema": {
+            "type": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "listing": {
+        "type": "dict",
+        "schema": {
+            "address": {
+                "type": "dict",
+                "schema": {
+                    "geoCoordinates": {
+                        "type": "dict",
+                        "schema": {
+                            "accuracy": {"type": "string", "nullable": True},
+                            "manual": {"type": "boolean", "nullable": True},
+                            "latitude": {"type": "float", "nullable": True},
+                            "longitude": {"type": "float", "nullable": True},
+                        },
+                        "nullable": True,
+                    },
+                    "locality": {"type": "string", "nullable": True},
+                    "postalCode": {"type": "string", "nullable": True},
+                    "street": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "categories": {
+                "type": "list",
+                "schema": {"type": "string", "nullable": True},
+                "nullable": True,
+            },
+            "characteristics": {
+                "type": "dict",
+                "schema": {
+                    "hasNiceView": {"type": "boolean", "nullable": True},
+                    "hasBalcony": {"type": "boolean", "nullable": True},
+                    "hasElevator": {"type": "boolean", "nullable": True},
+                    "livingSpace": {"type": "integer", "nullable": True},
+                    "numberOfRooms": {"type": "float", "nullable": True},
+                    "floor": {"type": "integer", "nullable": True},
+                    "isQuiet": {"type": "boolean", "nullable": True},
+                    "yearBuilt": {"type": "integer", "nullable": True},
+                    "hasGarage": {"type": "boolean", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "id": {"type": "string", "nullable": True},
             "localization": {
                 "type": "dict",
                 "schema": {
                     "de": {
-                        "type": "dict",
                         "schema": {
                             "text": {
                                 "type": "dict",
                                 "schema": {
-                                    "title": {"type": "string"},
-                                    "description": {"type": "string"},
+                                    "title": {"type": "string", "nullable": True},
+                                    "description": {"type": "string", "nullable": True},
                                 },
+                                "nullable": True,
                             },
                             "attachments": {
                                 "type": "list",
                                 "schema": {
                                     "type": "dict",
                                     "schema": {
-                                        "type": {"type": "string"},
-                                        "url": {"type": "string"},
-                                        "file": {"type": "string"},
+                                        "type": {"type": "string", "nullable": True},
+                                        "url": {"type": "string", "nullable": True},
+                                        "file": {"type": "string", "nullable": True},
                                     },
+                                    "nullable": True,
                                 },
+                                "nullable": True,
                             },
                         },
                     },
-                    "primary": {"type": "string"},
+                    "primary": {"type": "string", "nullable": True},
                 },
+                "nullable": True,
             },
-            "lister": {
-                "type": "dict",
-                "schema": {
-                    "primary": {"type": "string"},
-                    "website": {
-                        "type": "dict",
-                        "schema": {"value": {"type": "string"}},
-                    },
-                    "id": {"type": "string"},
-                    "allowToContact": {"type": "boolean", "nullable": True},
-                },
-            },
-            "characteristics": {
-                "type": "dict",
-                "schema": {
-                    "livingSpace": {"type": "integer"},
-                    "numberOfRooms": {"type": "integer"},
-                },
-            },
-            "address": {
-                "type": "dict",
-                "schema": {
-                    "country": {"type": "string"},
-                    "geoDistances": {
-                        "type": "list",
-                        "schema": {
-                            "type": "dict",
-                            "schema": {
-                                "distance": {"type": "integer"},
-                                "geoTag": {"type": "string"},
-                            },
-                        },
-                    },
-                    "geoTags": {
-                        "type": "list",
-                        "schema": {"type": "string"},
-                    },
-                    "street": {"type": "string"},
-                    "postalCode": {"type": "string"},
-                    "locality": {"type": "string"},
-                    "geoCoordinates": {
-                        "schema": {
-                            "type": "dict",
-                            "schema": {
-                                "accuracy": {"type": "string"},
-                                "manual": {"type": "boolean"},
-                                "latitude": {"type": "integer", "nullable": True},
-                                "longitude": {"type": "integer", "nullable": True},
-                            },
-                        }
-                    },
-                },
-            },
-            "externalIds": {
-                "type": "dict",
-                "schema": {
-                    "internalReferenceId": {"type": "string"},
-                    "displayReferenceId": {"type": "string"},
-                    "refObject": {"type": "string"},
-                    "displayPropertyReferenceId": {"type": "string"},
-                    "propertyReferenceId": {"type": "string"},
-                },
-            },
-            "contactForm": {
-                "type": "dict",
-                "schema": {
-                    "size": {"type": "string"},
-                    "deliveryFormat": {"type": "string"},
-                },
-            },
-            "version": {"type": "string"},
-            "platform": {"type": "list", "schema": {"type": "string"}},
-            "offerType": {"type": "string"},
             "meta": {
                 "type": "dict",
                 "schema": {
-                    "createdAt": {"type": "string"},
-                    "updatedAt": {"type": "string"},
-                    "source": {"type": "string"},
+                    "createdAt": {"type": "string", "nullable": True},
                 },
+                "nullable": True,
             },
-            "id": {"type": "string"},
-            "categories": {"type": "list", "schema": {"type": "string"}},
+            "offerType": {"type": "string", "nullable": True},
+            "platforms": {"type": "list", "nullable": True},
             "prices": {
                 "type": "dict",
                 "schema": {
                     "rent": {
                         "type": "dict",
                         "schema": {
-                            "area": {"type": "string"},
-                            "interval": {"type": "string"},
-                            "net": {"type": "integer"},
-                            "gross": {"type": "integer"},
+                            "interval": {"type": "string", "nullable": True},
+                            "gross": {"type": "integer", "nullable": True},
                         },
+                        "nullable": True,
                     },
-                    "currency": {"type": "string"},
+                    "currency": {"type": "string", "nullable": True},
                 },
-            },
-            "valueAddedServices": {
-                "type": "dict",
-                "schema": {"isTenantPlusListing": {"type": "boolean"}},
+                "nullable": True,
             },
         },
+        "nullable": True,
     },
-}
-
-search_schema = {
-    "schema": {
+    "listingCard": {
         "type": "dict",
         "schema": {
-            "listingType": {
-                "type": "dict",
-                "schema": {
-                    "type": {"type": "string"},
-                },
-            },
-            "listing": {
-                "type": "dict",
-                "schema": {
-                    "address": {
-                        "type": "dict",
-                        "schema": {
-                            "geoCoordinates": {
-                                "type": "dict",
-                                "schema": {
-                                    "accuracy": {"type": "string"},
-                                    "manual": {"type": "boolean"},
-                                    "latitude": {"type": "integer", "nullable": True},
-                                    "longitude": {"type": "integer", "nullable": True},
-                                },
-                            },
-                            "locality": {"type": "string"},
-                            "postalCode": {"type": "string"},
-                            "street": {"type": "string"},
-                        },
-                    },
-                    "categories": {"type": "list", "schema": {"type": "string"}},
-                    "characteristics": {
-                        "type": "dict",
-                        "schema": {
-                            "hasNiceView": {"type": "boolean"},
-                            "hasBalcony": {"type": "boolean"},
-                            "hasElevator": {"type": "boolean"},
-                            "livingSpace": {"type": "integer"},
-                            "numberOfRooms": {"type": "integer"},
-                            "floor": {"type": "integer"},
-                            "isQuiet": {"type": "boolean"},
-                            "yearBuilt": {"type": "integer"},
-                            "hasGarage": {"type": "boolean"},
-                        },
-                    },
-                    "id": {"type": "string"},
-                    "localization": {
-                        "type": "dict",
-                        "schema": {
-                            "de": {
-                                "schema": {
-                                    "text": {
-                                        "type": "dict",
-                                        "schema": {
-                                            "title": {"type": "string"},
-                                            "description": {"type": "string"},
-                                        },
-                                    },
-                                    "attachments": {
-                                        "type": "list",
-                                        "schema": {
-                                            "type": "dict",
-                                            "schema": {
-                                                "type": {"type": "string"},
-                                                "url": {"type": "string"},
-                                                "file": {"type": "string"},
-                                            },
-                                        },
-                                    },
-                                }
-                            },
-                            "primary": {"type": "string"},
-                        },
-                    },
-                    "meta": {
-                        "type": "dict",
-                        "schema": {
-                            "createdAt": {"type": "string"},
-                        },
-                    },
-                    "offerType": {"type": "string"},
-                    "platforms": {"type": "string"},
-                    "prices": {
-                        "type": "dict",
-                        "schema": {
-                            "rent": {
-                                "type": "dict",
-                                "schema": {
-                                    "interval": {"type": "string"},
-                                    "gross": {"type": "integer"},
-                                },
-                            },
-                            "currency": {"type": "integer"},
-                        },
-                    },
-                },
-            },
-            "listingCard": {
-                "type": "dict",
-                "schema": {
-                    "size": {"type": "string"},
-                },
-            },
-            "id": {"type": "string"},
+            "size": {"type": "string", "nullable": True},
         },
-    }
+        "nullable": True,
+    },
+    "id": {"type": "string", "minlength": 1},
 }
 
 
