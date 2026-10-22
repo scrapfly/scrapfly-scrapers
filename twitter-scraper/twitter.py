@@ -139,6 +139,14 @@ def twitter_date(ms: Optional[str]) -> Optional[str]:
     return dt.strftime("%a %b %d %H:%M:%S +0000 %Y")
 
 
+def published_date(iso: Optional[str]) -> Optional[str]:
+    """format the page's article:published_time meta (e.g. 2024-12-25T22:33:15.000Z) like twitter_date"""
+    if not iso:
+        return None
+    dt = datetime.datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(datetime.timezone.utc)
+    return dt.strftime("%a %b %d %H:%M:%S +0000 %Y")
+
+
 def user_gid(rest_id: Optional[str]) -> Optional[str]:
     return base64.b64encode(f"User:{rest_id}".encode()).decode() if rest_id else None
 
@@ -167,7 +175,9 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
         "conversation_id": tweet_id,
         "url": url,
         "text": text,
-        "created_at": twitter_date(tweet_timestamp(html, tweet_id)) if tweet_id else None,
+        # some pages have no timestamp next to the permalink; the published_time meta carries the same instant
+        "created_at": (twitter_date(tweet_timestamp(html, tweet_id)) if tweet_id else None)
+        or published_date(meta(sel, prop="article:published_time")),
         "language": sel.xpath("//html/@lang").get(),
         "attached_urls": unique(r"https://t\.co/\w+", text or ""),
         "attached_media": [unescape(u) for u in media] or None,
