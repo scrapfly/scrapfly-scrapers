@@ -18,187 +18,212 @@ def validate_or_fail(item, validator):
 
 
 search_schema = {
-    "schema": {
+    "id": {"type": "integer", "nullable": True},
+    "bedrooms": {"type": "integer", "nullable": True},
+    "bathrooms": {"type": "integer", "nullable": True},
+    "numberOfImages": {"type": "integer", "nullable": True},
+    "numberOfFloorplans": {"type": "integer", "nullable": True},
+    "numberOfVirtualTours": {"type": "integer", "nullable": True},
+    "summary": {"type": "string", "nullable": True},
+    "displayAddress": {"type": "string", "minlength": 1},
+    "countryCode": {"type": "string", "nullable": True},
+    "location": {
         "type": "dict",
         "schema": {
-            "id": {"type": "integer"},
-            "bedrooms": {"type": "integer"},
-            "bathrooms": {"type": "integer"},
-            "numberOfImages": {"type": "integer"},
-            "numberOfFloorplans": {"type": "integer", "nullable": True},
-            "numberOfVirtualTours": {"type": "integer", "nullable": True},
-            "summary": {"type": "string"},
-            "displayAddress": {"type": "string"},
-            "countryCode": {"type": "string"},
-            "location": {
-                "type": "dict",
-                "schema": {
-                    "latitude": {"type": "integer", "nullable": True},
-                    "longitude": {"type": "integer", "nullable": True},
-                },
-            },
-            "propertyImages": {
+            "latitude": {"type": "float", "nullable": True},
+            "longitude": {"type": "float", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "propertyImages": {
+        "type": "dict",
+        "schema": {
+            "images": {
                 "type": "list",
                 "schema": {
-                    "images": {
-                        "type": "dict",
-                        "schema": {
-                            "srcUrl": {"type": "string"},
-                            "url": {"type": "string"},
-                            "caption": {"type": "integer"},
-                        },
+                    "type": "dict",
+                    "schema": {
+                        "srcUrl": {"type": "string", "nullable": True},
+                        "url": {"type": "string", "nullable": True},
+                        "caption": {"type": "string", "nullable": True},
                     },
-                    "mainImageSrc": {"type": "string"},
-                    "mainMapImageSrc": {"type": "string"},
+                    "nullable": True,
                 },
+                "nullable": True,
             },
-            "propertySubType": {"type": "string"},
-            "listingUpdate": {
-                "type": "dict",
-                "schema": {
-                    "listingUpdateReason": {"type": "string"},
-                    "listingUpdateDate": {"type": "string"},
-                },
-            },
-            "premiumListing": {"type": "boolean"},
-            "featuredProperty": {"type": "boolean"},
-            "price": {
-                "type": "dict",
-                "schema": {
-                    "amount": {"type": "integer"},
-                    "frequency": {"type": "string"},
-                    "currencyCode": {"type": "string"},
-                },
-            },
-            "customer": {
-                "type": "dict",
-                "schema": {
-                    "amount": {"type": "integer"},
-                    "brandPlusLogoURI": {"type": "string"},
-                    "contactTelephone": {"type": "string"},
-                    "branchDisplayName": {"type": "string"},
-                    "branchName": {"type": "string"},
-                    "brandTradingName": {"type": "string"},
-                    "branchLandingPageUrl": {"type": "string"},
-                    "development": {"type": "boolean"},
-                    "showReducedProperties": {"type": "boolean"},
-                    "commercial": {"type": "boolean"},
-                    "showOnMap": {"type": "boolean"},
-                    "enhancedListing": {"type": "boolean", "nullable": True},
-                    "developmentContent": {"type": "boolean", "nullable": True},
-                    "buildToRent": {"type": "boolean", "nullable": True},
-                },
-            },
-            "commercial": {"type": "boolean"},
-            "development": {"type": "boolean"},
-            "residential": {"type": "boolean"},
-            "students": {"type": "boolean"},
-            "auction": {"type": "boolean"},
-            "feesApply": {"type": "boolean"},
-            "feesApplyText": {"type": "boolean", "nullable": True},
-            "propertyUrl": {"type": "string"},
-            "contactUrl": {"type": "string"},
-            "hasBrandPlus": {"type": "boolean"},
-            "displayStatus": {"type": "string"},
-            "addedOrReduced": {"type": "string"},
-            "formattedBranchName": {"type": "string"},
-            "propertyTypeFullDescription": {"type": "string"},
-            "heading": {"type": "string"},
-            "isRecent": {"type": "boolean"},
+            "mainImageSrc": {"type": "string", "nullable": True},
+            "mainMapImageSrc": {"type": "string", "nullable": True},
         },
-    }
+        "nullable": True,
+    },
+    "propertySubType": {"type": "string", "nullable": True},
+    "listingUpdate": {
+        "type": "dict",
+        "schema": {
+            "listingUpdateReason": {"type": "string", "nullable": True},
+            "listingUpdateDate": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "premiumListing": {"type": "boolean", "nullable": True},
+    "featuredProperty": {"type": "boolean", "nullable": True},
+    "price": {
+        "type": "dict",
+        "schema": {
+            "amount": {"type": "integer", "nullable": True},
+            "frequency": {"type": "string", "nullable": True},
+            "currencyCode": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "customer": {
+        "type": "dict",
+        "schema": {
+            "amount": {"type": "integer", "nullable": True},
+            "brandPlusLogoURI": {"type": "string", "nullable": True},
+            "contactTelephone": {"type": "string", "nullable": True},
+            "branchDisplayName": {"type": "string", "nullable": True},
+            "branchName": {"type": "string", "nullable": True},
+            "brandTradingName": {"type": "string", "nullable": True},
+            "branchLandingPageUrl": {"type": "string", "nullable": True},
+            "development": {"type": "boolean", "nullable": True},
+            "showReducedProperties": {"type": "boolean", "nullable": True},
+            "commercial": {"type": "boolean", "nullable": True},
+            "showOnMap": {"type": "boolean", "nullable": True},
+            "enhancedListing": {"type": "boolean", "nullable": True},
+            "developmentContent": {"type": "dict", "nullable": True},
+            "buildToRent": {"type": "boolean", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "commercial": {"type": "boolean", "nullable": True},
+    "development": {"type": "boolean", "nullable": True},
+    "residential": {"type": "boolean", "nullable": True},
+    "students": {"type": "boolean", "nullable": True},
+    "auction": {"type": "boolean", "nullable": True},
+    "feesApply": {"type": "boolean", "nullable": True},
+    "feesApplyText": {"type": "boolean", "nullable": True},
+    "propertyUrl": {"type": "string", "minlength": 1},
+    "contactUrl": {"type": "string", "nullable": True},
+    "hasBrandPlus": {"type": "boolean", "nullable": True},
+    "displayStatus": {"type": "string", "nullable": True},
+    "addedOrReduced": {"type": "string", "nullable": True},
+    "formattedBranchName": {"type": "string", "nullable": True},
+    "propertyTypeFullDescription": {"type": "string", "nullable": True},
+    "heading": {"type": "string", "nullable": True},
+    "isRecent": {"type": "boolean", "nullable": True},
 }
 
 
 properties_schema = {
-    "schema": {
+    "id": {"type": "string", "minlength": 1},
+    "available": {"type": "boolean", "nullable": True},
+    "archived": {"type": "boolean", "nullable": True},
+    "phone": {"type": "string", "nullable": True},
+    "bedrooms": {"type": "integer", "nullable": True},
+    "bathrooms": {"type": "integer", "nullable": True},
+    "type": {"type": "string", "nullable": True},
+    "property_type": {"type": "string", "nullable": True},
+    "tags": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "description": {"type": "string", "nullable": True},
+    "title": {"type": "string", "minlength": 1},
+    "subtitle": {"type": "string", "nullable": True},
+    "price": {"type": "string", "nullable": True},
+    "address": {
         "type": "dict",
         "schema": {
-            "id": {"type": "string"},
-            "available": {"type": "boolean"},
-            "archived": {"type": "boolean"},
-            "phone": {"type": "string"},
-            "bedrooms": {"type": "integer"},
-            "bathrooms": {"type": "integer"},
-            "type": {"type": "string"},
-            "property_type": {"type": "string"},
-            "tags": {"type": "dict", "schema": {"type": "string"}},
-            "description": {"type": "string"},
-            "title": {"type": "string"},
-            "subtitle": {"type": "string"},
-            "price": {"type": "string"},
-            "address": {
-                "type": "dict",
-                "schema": {
-                    "displayAddress": {"type": "string"},
-                    "countryCode": {"type": "string"},
-                    "ukCountry": {"type": "string"},
-                    "outcode": {"type": "string"},
-                    "incode": {"type": "string"},
-                },
-            },
-            "latitude": {"type": "string", "nullable": True},
-            "longitude": {"type": "string", "nullable": True},
-            "features": {"type": "list", "schema": {"type": "string"}},
-            "history": {
-                "type": "dict",
-                "schema": {"listingUpdateReason": {"type": "string"}},
-            },
-            "photos": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "url": {"type": "string"},
-                        "caption": {"type": "string"},
-                    },
-                },
-            },
-            "floorplans": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "url": {"type": "string"},
-                        "caption": {"type": "string"},
-                    },
-                },
-            },
-            "agency": {
-                "type": "dict",
-                "schema": {
-                    "id": {"type": "integer"},
-                    "branch": {"type": "string"},
-                    "company": {"type": "string"},
-                    "address": {"type": "string"},
-                    "commercial": {"type": "boolean"},
-                    "buildToRent": {"type": "boolean"},
-                    "isNew": {"type": "boolean"},
-                },
-            },
-            "industryAffiliations": {"type": "list", "schema": {"type": "string"}},
-            "nearest_stations": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "name": {"type": "string"},
-                        "distance": {"type": "integer"},
-                    },
-                },
-            },
-            "brochures": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "url": {"type": "string"},
-                        "caption": {"type": "integer"},
-                    },
-                },
-            },
+            "displayAddress": {"type": "string", "nullable": True},
+            "countryCode": {"type": "string", "nullable": True},
+            "ukCountry": {"type": "string", "nullable": True},
+            "outcode": {"type": "string", "nullable": True},
+            "incode": {"type": "string", "nullable": True},
         },
-    }
+        "nullable": True,
+    },
+    "latitude": {"type": "float", "nullable": True},
+    "longitude": {"type": "float", "nullable": True},
+    "features": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "history": {
+        "type": "dict",
+        "schema": {
+            "listingUpdateReason": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "photos": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "url": {"type": "string", "nullable": True},
+                "caption": {"type": "string", "nullable": True},
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
+    "floorplans": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "url": {"type": "string", "nullable": True},
+                "caption": {"type": "string", "nullable": True},
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
+    "agency": {
+        "type": "dict",
+        "schema": {
+            "id": {"type": "integer", "nullable": True},
+            "branch": {"type": "string", "nullable": True},
+            "company": {"type": "string", "nullable": True},
+            "address": {"type": "string", "nullable": True},
+            "commercial": {"type": "boolean", "nullable": True},
+            "buildToRent": {"type": "boolean", "nullable": True},
+            "isNew": {"type": "boolean", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "industryAffiliations": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "nearest_stations": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "name": {"type": "string", "nullable": True},
+                "distance": {"type": "float", "nullable": True},
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
+    "brochures": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "url": {"type": "string", "nullable": True},
+                "caption": {"type": "string", "nullable": True},
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
 }
 
 
