@@ -76,6 +76,19 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./amazon-scraper/">Amazon.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-amazon">How to Scrape Amazon.com Product Data and Reviews</a></td>
+    <td>
+    <ul>
+        <li><a href="./amazon-scraper/results/product.json">Product pages</a></li>
+        <li><a href="./amazon-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./app-store-scraper/">App Store</a></td>
     <td>-</td>
     <td>
@@ -299,20 +312,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./glassdoor-scraper/">Glassdoor.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-glassdoor">How to Scrape Glassdoor (2025 update)</a></td>
-    <td>
-    <ul>
-        <li><a href="./glassdoor-scraper/results/jobs.json">Job pages</a></li>
-        <li><a href="./glassdoor-scraper/results/reviews.json">Review pages</a></li>
-        <li><a href="./glassdoor-scraper/results/salaries.json">Salary pages</a></li>
-        <li><a href="./glassdoor-scraper/results/companies.json">Companies</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/glassdoor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./goat-scraper/">Goat.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goat-com-fashion-apparel">How to Scrape Goat.com for Fashion Apparel Data in Python</a></td>
     <td>
@@ -388,6 +387,21 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./google-scraper/">Google.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google">How to Scrape Google Search Results</a> - <a href="https://scrapfly.io/blog/posts/how-to-scrape-google-maps">How to Scrape Google Maps</a></td>
+    <td>
+    <ul>
+        <li><a href="./google-scraper/results/serp.json">SERP data</a></li>
+        <li><a href="./google-scraper/results/keywords.json">Keyword data</a></li>
+        <li><a href="./google-scraper/results/google_map_places_urls.json">Google Maps place URLs</a></li>
+        <li><a href="./google-scraper/results/google_map_places.json">Google Maps place data</a></li>
+        <li><a href="./google-scraper/results/ai_mode.json">Ai mode</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-scraper.svg" alt="google-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./homegate-scraper/">Homegate.ch</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-homegate-ch-real-estate-property-data">How to Scrape Homegate.ch Real Estate Property Data</a></td>
     <td>
@@ -411,6 +425,20 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealista-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealista-scraper.svg" alt="idealista-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./idealo-scraper/">Idealo.de</a></td>
+    <td>-</td>
+    <td>
+    <ul>
+        <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="./idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="./idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="./idealo-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -486,6 +514,21 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -652,20 +695,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/realtorcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realtorcom-scraper.svg" alt="realtorcom-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./reddit-scraper/">Reddit.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data">How to Scrape Reddit Posts, Subreddits and Profiles</a></td>
-    <td>
-    <ul>
-        <li><a href="./reddit-scraper/results/post.json">Post pages</a></li>
-        <li><a href="./reddit-scraper/results/subreddit.json">Subreddit pages</a></li>
-        <li><a href="./reddit-scraper/results/user_comments.json">User comment pages</a></li>
-        <li><a href="./reddit-scraper/results/user_posts.json">User post pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -964,60 +993,29 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./amazon-scraper/">Amazon.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-amazon">How to Scrape Amazon.com Product Data and Reviews</a></td>
+    <td><a href="./zoro-scraper/">Zoro.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zoro-dot-com">How to Scrape Zoro.com in 2026 (without getting blocked)</a></td>
     <td>
     <ul>
-        <li><a href="./amazon-scraper/results/product.json">Product pages</a></li>
-        <li><a href="./amazon-scraper/results/search.json">Search pages</a></li>
-        <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
+        <li><a href="./zoro-scraper/results/product.json">Product</a></li>
+        <li><a href="./zoro-scraper/results/search_listing.json">Search listing</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></a></td>
   </tr>
 
   <tr>
-    <td><a href="./google-scraper/">Google.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google">How to Scrape Google Search Results</a> - <a href="https://scrapfly.io/blog/posts/how-to-scrape-google-maps">How to Scrape Google Maps</a></td>
+    <td><a href="./glassdoor-scraper/">Glassdoor.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-glassdoor">How to Scrape Glassdoor (2025 update)</a></td>
     <td>
     <ul>
-        <li><a href="./google-scraper/results/serp.json">SERP data</a></li>
-        <li><a href="./google-scraper/results/keywords.json">Keyword data</a></li>
-        <li><a href="./google-scraper/results/google_map_places_urls.json">Google Maps place URLs</a></li>
-        <li><a href="./google-scraper/results/google_map_places.json">Google Maps place data</a></li>
-        <li><a href="./google-scraper/results/ai_mode.json">Ai mode</a></li>
+        <li><a href="./glassdoor-scraper/results/jobs.json">Job pages</a></li>
+        <li><a href="./glassdoor-scraper/results/reviews.json">Review pages</a></li>
+        <li><a href="./glassdoor-scraper/results/salaries.json">Salary pages</a></li>
+        <li><a href="./glassdoor-scraper/results/companies.json">Companies</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-scraper.svg" alt="google-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./idealo-scraper/">Idealo.de</a></td>
-    <td>-</td>
-    <td>
-    <ul>
-        <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="./idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="./idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="./idealo-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/glassdoor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1036,18 +1034,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./zoro-scraper/">Zoro.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zoro-dot-com">How to Scrape Zoro.com in 2026 (without getting blocked)</a></td>
-    <td>
-    <ul>
-        <li><a href="./zoro-scraper/results/product.json">Product</a></li>
-        <li><a href="./zoro-scraper/results/search_listing.json">Search listing</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./perplexity-scraper/">Perplexity.ai</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
     <td>
@@ -1056,6 +1042,20 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./reddit-scraper/">Reddit.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data">How to Scrape Reddit Posts, Subreddits and Profiles</a></td>
+    <td>
+    <ul>
+        <li><a href="./reddit-scraper/results/post.json">Post pages</a></li>
+        <li><a href="./reddit-scraper/results/subreddit.json">Subreddit pages</a></li>
+        <li><a href="./reddit-scraper/results/user_comments.json">User comment pages</a></li>
+        <li><a href="./reddit-scraper/results/user_posts.json">User post pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
   </tr>
 
 </table>
