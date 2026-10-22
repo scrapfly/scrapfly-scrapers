@@ -121,7 +121,15 @@ def parse_property_page(result: ScrapeApiResponse):
     json_str_escaped = match.group(1)
     json_str = json_str_escaped.encode("utf-8").decode("unicode_escape")
     listing_data = json.loads(json_str)
-    listing_data = listing_data["app_cldp"]["data"]["classified"]
+    app_data = listing_data["app_cldp"]["data"]
+    listing_data = app_data["classified"]
+    if listing_data is None:
+        # a 404 page has no classified, only an error object ({"code": 404, "status": "broken link"})
+        error = app_data.get("error") or {}
+        raise ValueError(
+            f"seloger.com answered {error.get('code')} ({error.get('status')}) for {result.context['url']}"
+            " instead of the listing data"
+        )
     if "statusCode" in listing_data:
         # a listing that is gone has a status object ({"statusCode": 410, "message": "classified not available..."}) here
         raise ValueError(
