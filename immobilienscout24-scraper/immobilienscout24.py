@@ -50,9 +50,13 @@ def parse_property_page(response: ScrapeApiResponse):
     """parse property listing data from property pages"""
     selector = response.selector
     property_link = selector.xpath("//link[@rel='canonical']").attrib["href"]
-    title = strip_text(selector.xpath("//h1[@id='expose-title']/text()").get())
+    title_xpath = "//h1[@id='expose-title' or @data-qa='expose-title']/text()"
+    title = strip_text(selector.xpath(title_xpath).get())
     description = selector.xpath("//meta[@name='description']").attrib["content"]
     address = selector.xpath("//div[@class='address-block']/div/span[2]/text()").get()
+    if not address:  # the address block of the current page layout
+        texts = selector.xpath("//div[@data-qa='is24-expose-address']//text()").getall()
+        address = " ".join(" ".join(texts).split()) or None
     floors_number = strip_text(selector.xpath("//dd[contains(@class, 'etage')]/text()").get())
     living_space = strip_text(selector.xpath("//dd[contains(@class, 'wohnflaeche')]/text()").get())
     vacant_from = strip_text(selector.xpath("//dd[contains(@class, 'bezugsfrei')]/text()").get())
