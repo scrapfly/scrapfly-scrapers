@@ -22,111 +22,109 @@ def validate_or_fail(item, validator):
 
 
 property_schema = {
-    "schema": {
+    "listingId": {"type": "integer", "nullable": True},
+    "listingUrl": {"type": "string", "minlength": 1},
+    "unitNumber": {"type": "string", "nullable": True},
+    "street": {"type": "string", "nullable": True},
+    "suburb": {
+        "type": [
+            "dict",
+            "string",
+        ],
+        "nullable": True,
+    },
+    "postcode": {"type": "string", "nullable": True},
+    "createdOn": {"type": "string", "nullable": True},
+    "propertyType": {"type": "string", "nullable": True},
+    "beds": {"type": "integer", "nullable": True},
+    "phone": {"type": "string", "nullable": True},
+    "agencyName": {"type": "string", "nullable": True},
+    "propertyDeveloperName": {"type": "string", "nullable": True},
+    "agencyProfileUrl": {"type": "string", "nullable": True},
+    "propertyDeveloperUrl": {"type": "string", "nullable": True},
+    "description": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "listingSummary": {
         "type": "dict",
         "schema": {
-            "listingId": {"type": "integer"},
-            "listingUrl": {"type": "string"},
-            "unitNumber": {"type": "string"},
-            "street": {"type": "string"},
-            "suburb": {"type": "string"},
-            "postcode": {"type": "string"},
-            "createdOn": {"type": "string"},
-            "propertyType": {"type": "string"},
-            "beds": {"type": "integer"},
-            "phone": {"type": "string"},
-            "agencyName": {"type": "string"},
-            "propertyDeveloperName": {"type": "string"},
-            "agencyProfileUrl": {"type": "string"},
-            "propertyDeveloperUrl": {"type": "string"},
-            "description": {
-                "type": "list",
-                "schema": {
-                    "type": "string"
-                }
+            "beds": {"type": "integer", "nullable": True},
+            "baths": {"type": "integer", "nullable": True},
+            "parking": {"type": "integer", "nullable": True},
+            "title": {"type": "string", "nullable": True},
+            "price": {"type": "string", "nullable": True},
+            "address": {"type": "string", "nullable": True},
+            "listingType": {"type": "string", "nullable": True},
+            "propertyType": {"type": "string", "nullable": True},
+            "status": {"type": "string", "nullable": True},
+            "mode": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "agents": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "name": {"type": "string", "nullable": True},
+                "photo": {"type": "string", "nullable": True},
+                "phone": {"type": "string", "nullable": True},
+                "mobile": {"type": "string", "nullable": True},
+                "agentProfileUrl": {"type": "string", "nullable": True},
             },
-            "listingSummary": {
-                "type": "dict",
-                "schema": {
-                    "beds": {"type": "integer"},
-                    "baths": {"type": "integer"},
-                    "parking": {"type": "integer"},
-                    "title": {"type": "string"},
-                    "price": {"type": "string"},
-                    "address": {"type": "string"},
-                    "listingType": {"type": "string"},
-                    "propertyType": {"type": "string"},
-                    "status": {"type": "string"},
-                    "mode": {"type": "string"},
-                }
-            },
-            "agents": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "name": {"type": "string"},
-                        "photo": {"type": "string"},
-                        "phone": {"type": "string", "nullable": True},
-                        "mobile": {"type": "string", "nullable": True},
-                        "agentProfileUrl": {"type": "string"},
-                    }
-                }
-            }
-        }
-    }
+            "nullable": True,
+        },
+        "nullable": True,
+    },
 }
 
 
 search_schema = {
-    "schmea": {
+    "id": {"type": "integer", "nullable": True},
+    "listingType": {"type": "string", "minlength": 1},
+    "listingModel": {
         "type": "dict",
         "schema": {
-            "id": {"type": "integer"},
-            "listingType": {"type": "string"},
-            "listingModel": {
+            "promoType": {"type": "string", "nullable": True},
+            "url": {"type": "string", "nullable": True},
+            "projectName": {"type": "string", "nullable": True},
+            "displayAddress": {"type": "string", "nullable": True},
+            "images": {
+                "type": "list",
+                "schema": {"type": "string", "nullable": True},
+                "nullable": True,
+            },
+            "branding": {
                 "type": "dict",
                 "schema": {
-                    "promoType": {"type": "string"},
-                    "url": {"type": "string"},
-                    "projectName": {"type": "string"},
-                    "displayAddress": {"type": "string"},
-                    "images": {
-                        "type": "list",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    "branding": {
-                        "type": "dict",
-                        "schema": {
-                            "agencyId": {"type": "string"},
-                            "agentNames": {"type": "string"},
-                            "brandName": {"type": "string"}
-                        }
-                    },
-                    "childListingIds": {
-                        "type": "list",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    "address": {
-                        "type": "dict",
-                        "schema": {
-                            "street": {"type": "string"},
-                            "suburb": {"type": "string"},
-                            "state": {"type": "string"},
-                            "postcode": {"type": "string"},
-                            "lat": {"type": "integer"},
-                            "lng": {"type": "integer"},
-                        }
-                    }
-                }
-            }
-
-        }
-    }
+                    "agencyId": {"type": "integer", "nullable": True},
+                    "agentNames": {"type": "string", "nullable": True},
+                    "brandName": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "childListingIds": {
+                "type": "list",
+                "schema": {"type": "integer", "nullable": True},
+                "nullable": True,
+            },
+            "address": {
+                "type": "dict",
+                "schema": {
+                    "street": {"type": "string", "nullable": True},
+                    "suburb": {"type": "string", "nullable": True},
+                    "state": {"type": "string", "nullable": True},
+                    "postcode": {"type": "string", "nullable": True},
+                    "lat": {"type": "float", "nullable": True},
+                    "lng": {"type": "float", "nullable": True},
+                },
+                "nullable": True,
+            },
+        },
+        "nullable": True,
+    },
 }
 
 
