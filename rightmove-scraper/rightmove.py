@@ -17,7 +17,7 @@ from urllib.parse import urlencode
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "GB",
 }
 
