@@ -18,99 +18,128 @@ def validate_or_fail(item, validator):
 
 
 property_schema = {
-    "schema": {
+    "type": {"type": "string", "nullable": True},
+    "propertyType": {"type": "string", "nullable": True},
+    "description": {"type": "string", "nullable": True},
+    "propertyLink": {"type": "string", "minlength": 1},
+    "address": {
         "type": "dict",
         "schema": {
-            "type": {"type": "string"},
-            "propertyType": {"type": "string"},
-            "description": {"type": "string"},
-            "propertyLink": {"type": "string"},
-            "address": {
+            "suburb": {"type": "string", "nullable": True},
+            "state": {"type": "string", "nullable": True},
+            "postcode": {"type": "string", "nullable": True},
+            "display": {
                 "type": "dict",
                 "schema": {
-                    "suburb": {"type": "string"},
-                    "state": {"type": "string"},
-                    "postcode": {"type": "string"},
-                    "display": {
+                    "shortAddress": {"type": "string", "nullable": True},
+                    "fullAddress": {"type": "string", "nullable": True},
+                    "geocode": {
                         "type": "dict",
                         "schema": {
-                            "shortAddress": {"type": "string"},
-                            "fullAddress": {"type": "string"},
-                            "geocode": {
-                                "type": "dict",
-                                "schema": {
-                                    "latitude": {"type": "integer"},
-                                    "longitude": {"type": "integer"},
-                                },
-                            },
+                            "latitude": {"type": "float", "nullable": True},
+                            "longitude": {"type": "float", "nullable": True},
                         },
+                        "nullable": True,
                     },
                 },
-            },
-            "propertySizes": {
-                "type": "dict",
-                "schema": {
-                    "land": {
-                        "type": "dict",
-                        "schema": {"displayValue": {"type": "string"}},
-                    },
-                    "preferred": {
-                        "type": "dict",
-                        "schema": {"sizeType": {"type": "string"}},
-                    },
-                },
-            },
-            "generalFeatures": {
-                "type": "dict",
-                "schema": {
-                    "bedrooms": {
-                        "type": "dict",
-                        "schema": {"value": {"type": "integer"}},
-                    },
-                    "bathrooms": {
-                        "type": "dict",
-                        "schema": {"value": {"type": "integer"}},
-                    },
-                    "parkingSpaces": {
-                        "type": "dict",
-                        "schema": {"value": {"type": "integer"}},
-                    },
-                },
-            },
-            "propertyFeatures": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {"featureName": {"type": "string"}},
-                },
-            },
-            "images": {"type": "list", "schema": {"type": "string"}},
-            "listingCompany": {
-                "type": "dict",
-                "schema": {
-                    "name": {"type": "string"},
-                    "id": {"type": "string"},
-                    "companyLink": {"type": "string"},
-                    "phoneNumber": {"type": "string"},
-                    "address": {"type": "string"},
-                },
-            },
-            "listers": {
-                "type": "list",
-                "schema": {
-                    "type": "dict",
-                    "schema": {
-                        "id": {"type": "string"},
-                        "name": {"type": "string"},
-                        "phoneNumber": {
-                            "type": "dict",
-                            "schema": {"display": {"type": "string"}},
-                        },
-                    },
-                },
+                "nullable": True,
             },
         },
-    }
+        "nullable": True,
+    },
+    "propertySizes": {
+        "type": "dict",
+        "schema": {
+            "land": {
+                "type": "dict",
+                "schema": {
+                    "displayValue": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "preferred": {
+                "type": "dict",
+                "schema": {
+                    "sizeType": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
+        },
+        "nullable": True,
+    },
+    "generalFeatures": {
+        "type": "dict",
+        "schema": {
+            "bedrooms": {
+                "type": "dict",
+                "schema": {
+                    "value": {"type": "integer", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "bathrooms": {
+                "type": "dict",
+                "schema": {
+                    "value": {"type": "integer", "nullable": True},
+                },
+                "nullable": True,
+            },
+            "parkingSpaces": {
+                "type": "dict",
+                "schema": {
+                    "value": {"type": "integer", "nullable": True},
+                },
+                "nullable": True,
+            },
+        },
+        "nullable": True,
+    },
+    "propertyFeatures": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "featureName": {"type": "string", "nullable": True},
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
+    "images": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
+    "listingCompany": {
+        "type": "dict",
+        "schema": {
+            "name": {"type": "string", "nullable": True},
+            "id": {"type": "string", "nullable": True},
+            "companyLink": {"type": "string", "nullable": True},
+            "phoneNumber": {"type": "string", "nullable": True},
+            "address": {"type": "string", "nullable": True},
+        },
+        "nullable": True,
+    },
+    "listers": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "id": {"type": "string", "nullable": True},
+                "name": {"type": "string", "nullable": True},
+                "phoneNumber": {
+                    "type": "dict",
+                    "schema": {
+                        "display": {"type": "string", "nullable": True},
+                    },
+                    "nullable": True,
+                },
+            },
+            "nullable": True,
+        },
+        "nullable": True,
+    },
 }
 
 
