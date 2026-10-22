@@ -20,7 +20,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Amazon.com requires Anti Scraping Protection bypass feature.
     # for more: https://SCRAPFLY.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     # to change region see change the country code
     "country": "US",
 }
