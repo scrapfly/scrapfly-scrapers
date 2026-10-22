@@ -85,7 +85,7 @@ async def test_product_scraping():
     validator = Validator(product_schema, allow_unknown=True)
     for item in products_data:
         validate_or_fail(item, validator)
-        assert len(product_schema) >= 1
+    assert len(products_data) >= 1
 
 
 @pytest.mark.asyncio
