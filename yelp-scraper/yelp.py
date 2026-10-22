@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass yelp.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     # set the proxy pool to residential
@@ -239,7 +239,12 @@ async def request_reviews_api(url: str, start_index: int, business_id):
     }
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.yelp.com/gql/batch", headers=headers, body=payload, method="POST", asp=True, country="US"
+            url="https://www.yelp.com/gql/batch",
+            headers=headers,
+            body=payload,
+            method="POST",
+            unblocker=True,
+            country="US",
         )
     )
     return response
