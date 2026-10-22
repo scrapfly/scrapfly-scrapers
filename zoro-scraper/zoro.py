@@ -177,11 +177,12 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     rating = rating_data.get("ratingValue") if rating_data else None
     review_count = rating_data.get("reviewCount", 0) if rating_data else 0
 
-    # Extract specifications from product-specifications div (attribute-group elements)
+    # Extract specifications from product-specifications div (attribute-group elements:
+    # a <dt class="attribute-name"> + <dd> pair; earlier pages used two <div>s)
     specifications = {}
     for group in sel.css("div.product-specifications div.attribute-group"):
-        label_nodes = group.xpath('./div[contains(@class, "attribute-name")]')
-        value_nodes = group.xpath('./div[not(contains(@class, "attribute-name"))]')
+        label_nodes = group.xpath('./*[contains(@class, "attribute-name")]')
+        value_nodes = group.xpath('./*[not(contains(@class, "attribute-name"))]')
         if not label_nodes or not value_nodes:
             continue
         label = " ".join(label_nodes[0].xpath(".//text()").getall()).strip()
