@@ -114,7 +114,7 @@ async def test_review_scraping():
     validator = Validator(review_schema, allow_unknown=True)
     for item in reviews_data:
         validate_or_fail(item, validator)
-        assert len(reviews_data) >= 10
+    assert len(reviews_data) >= 10
 
 
 @pytest.mark.asyncio
@@ -130,7 +130,7 @@ async def test_page_scraping():
     validator = Validator(page_schema, allow_unknown=True)
     for item in business_data:
         validate_or_fail(item, validator)
-        assert len(business_data) >= 1
+    assert len(business_data) >= 1
 
 
 @pytest.mark.asyncio
@@ -142,4 +142,4 @@ async def test_search_scraping():
     validator = Validator(search_schema, allow_unknown=True)
     for item in search_data:
         validate_or_fail(item, validator)
-        assert len(search_data) >= 10
+    assert len(search_data) >= 10

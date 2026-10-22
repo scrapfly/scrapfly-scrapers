@@ -11,8 +11,9 @@ import json
 import math
 import base64
 import jmespath
+from html import unescape
 from typing import Dict, List, TypedDict
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlencode, urlparse
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -20,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass yelp.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     # set the proxy pool to residential
@@ -92,20 +93,87 @@ def parse_review_data(response: ScrapeApiResponse):
     return {"reviews": parsed_reviews, "total_reviews": total_reviews}
 
 
+def parse_apollo_businesses(response: ScrapeApiResponse) -> Dict[str, Dict]:
+    """parse the businesses of a search page from its apollo cache (<script data-apollo-state>), by business id"""
+    script = response.selector.xpath("//script[@data-apollo-state]/text()").get() or ""
+    # the cache is HTML-escaped JSON inside an HTML comment
+    script = unescape(script).strip().removeprefix("<!--").removesuffix("-->")
+    cache = json.loads(script) if script else {}
+
+    def resolve(value):
+        """apollo stores nested objects as {"__ref": "Type:id"} references to other cache entries"""
+        if isinstance(value, dict):
+            if "__ref" in value:
+                return resolve(cache.get(value["__ref"], {}))
+            return {key: resolve(val) for key, val in value.items()}
+        if isinstance(value, list):
+            return [resolve(val) for val in value]
+        return value
+
+    return {key.split(":", 1)[1]: resolve(value) for key, value in cache.items() if key.startswith("Business:")}
+
+
+def business_summary(business: Dict, result: Dict, location: str) -> Dict:
+    """the searchResultBusiness fields of a search result, from its apollo cache business entry"""
+    address = (business.get("location") or {}).get("address") or {}
+    service_area = (business.get("serviceArea") or {}).get("primaryLocation") or {}
+    return {
+        "alias": business.get("alias"),
+        "alternateNames": business.get("alternateNames") or [],
+        "businessUrl": result.get("businessUrl"),
+        "categories": [
+            {
+                "title": category["title"],
+                "url": "/search?" + urlencode({"find_desc": category["title"], "find_loc": location}),
+            }
+            for category in business.get("categories") or []
+        ],
+        "formattedAddress": address.get("addressLine1") or "",
+        "isAd": result.get("isAd", False),
+        "name": business.get("name"),
+        "neighborhoods": (business.get("location") or {}).get("neighborhoods") or [],
+        "parentBusiness": business.get("containerBusiness"),
+        "phone": "",  # not in the cache
+        "priceRange": business.get("priceRange") or "",
+        "ranking": result.get("ranking"),
+        "rating": business.get("rating"),
+        "renderAdInfo": result.get("renderAdInfo", False),
+        "reviewCount": business.get("reviewCount"),
+        "serviceArea": service_area.get("formatted"),
+        "serviceOfferingsCount": None,
+    }
+
+
 def parse_search(response: ScrapeApiResponse):
-    """parse listing data from the search XHR data"""
+    """parse listing data from the search page's hidden JSON data"""
     search_data = []
-    total_results = 0
     selector = response.selector
     script = selector.xpath("//script[@data-id='react-root-props']/text()").get()
     data = json.loads(script.split("react_root_props = ")[-1].rsplit(";", 1)[0])
     search_page_props = data.get("legacyProps", {}).get("searchAppProps", {}).get("searchPageProps", {})
-    if search_page_props:
-        total_results = search_page_props.get("paginationInfo", {}).get("totalResults", 0)
-    main_content = search_page_props.get("mainContentComponentsListProps", [])
-    for item in main_content:
-        if item.get("bizId") and item.get("searchResultBusiness") is not None:
-            search_data.append(item)
+    total_results = (
+        search_page_props.get("paginationInfo", {}).get("totalResults")
+        or search_page_props.get("searchContext", {}).get("totalResults")
+        or 0
+    )
+    # organic results come without their business data (searchResultBusiness is null):
+    # it is in the page's apollo cache, keyed by business id
+    businesses = parse_apollo_businesses(response)
+    location = parse_qs(urlparse(response.context["url"]).query).get("find_loc", [""])[0]
+    for component in search_page_props.get("mainContentComponentsListProps", []):
+        if component.get("type") == "themedAds":  # ad carousels repeating the ads listed above them
+            continue
+        # the result cards are in the sections' props.searchResults (or were the components themselves)
+        results = (component.get("props") or {}).get("searchResults") or ([component] if component.get("bizId") else [])
+        for result in results:
+            if not result.get("bizId"):
+                continue
+            if result.get("searchResultBusiness") is None and result["bizId"] in businesses:
+                result["searchResultBusiness"] = business_summary(businesses[result["bizId"]], result, location)
+            if result.get("searchResultBusiness") is None:
+                log.warning(f"search result {result['bizId']} has no business data, skipping it")
+                continue
+            search_data.append(result)
     return {"search_data": search_data, "total_results": total_results}
 
 
@@ -171,7 +239,12 @@ async def request_reviews_api(url: str, start_index: int, business_id):
     }
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.yelp.com/gql/batch", headers=headers, body=payload, method="POST", asp=True, country="US"
+            url="https://www.yelp.com/gql/batch",
+            headers=headers,
+            body=payload,
+            method="POST",
+            unblocker=True,
+            country="US",
         )
     )
     return response
