@@ -11,7 +11,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to Spain
     "country": "ES",
     "cache": True
@@ -40,39 +40,40 @@ def validate_or_fail(item, validator):
 
 
 property_schema = {
-    "schema": {
+    "url": {"type": "string", "minlength": 1},
+    "title": {"type": "string", "minlength": 1},
+    "location": {"type": "string", "nullable": True},
+    "currency": {"type": "string", "nullable": True},
+    "price": {"type": "integer", "nullable": True},
+    "description": {"type": "string", "nullable": True},
+    "updated": {"type": "string", "nullable": True},
+    "features": {
         "type": "dict",
         "schema": {
-            "url": {"type": "string"},
-            "title": {"type": "string"},
-            "location": {"type": "string"},
-            "currency": {"type": "string"},
-            "price": {"type": "integer"},
-            "description": {"type": "string"},
-            "updated": {"type": "string"},
-            "features": {
-                "type": "dict",
-                "schema": {
-                    "Basic features": {"type": "list", "schema": {"type": "string"}},
-                    "Amenities": {"type": "list", "schema": {"type": "string"}},
-                    "Energy performance certificate": {
-                        "type": "list",
-                        "schema": {"type": "string"},
-                    },
-                },
+            "Basic features": {
+                "type": "list",
+                "schema": {"type": "string", "nullable": True},
+                "nullable": True,
             },
-            "images": {
-                "type": "dict",
-                "schema": {
-                    "Living room": {"type": "list", "schema": {"type": "string"}},
-                    "Kitchen": {"type": "list", "schema": {"type": "string"}},
-                    "Bathroom": {"type": "list", "schema": {"type": "string"}},
-                    "Bedroom": {"type": "list", "schema": {"type": "string"}},
-                },
+            "Amenities": {
+                "type": "list",
+                "schema": {"type": "string", "nullable": True},
+                "nullable": True,
             },
-            "plans": {"type": "list", "schema": {"type": "string"}},
+            "Energy performance certificate": {
+                "type": "list",
+                "schema": {"type": "string", "nullable": True},
+                "nullable": True,
+            },
         },
-    }
+        "nullable": True,
+    },
+    "images": {"type": "dict", "nullable": True},  # rooms vary per listing; the scraper returns a defaultdict
+    "plans": {
+        "type": "list",
+        "schema": {"type": "string", "nullable": True},
+        "nullable": True,
+    },
 }
 
 search_schema = {
@@ -96,13 +97,13 @@ async def test_idealista_scraping():
     first_page = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url="https://www.idealista.com/en/venta-viviendas/marbella-malaga/con-chalets/",
-            asp=True,
+            unblocker=True,
             country="ES",
         )
     )
     property_urls = idealista.parse_search(first_page)
     to_scrape = [
-        ScrapeConfig(first_page.context["url"] + f"pagina-{page}.htm", asp=True, country="ES") for page in range(2, 3)
+        ScrapeConfig(first_page.context["url"] + f"pagina-{page}.htm", unblocker=True, country="ES") for page in range(2, 3)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         property_urls.extend(idealista.parse_search(response))

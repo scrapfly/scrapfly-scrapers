@@ -17,84 +17,88 @@ def validate_or_fail(item, validator):
 
 
 proeprty_schema = {
-    "schema": {
+    "brand": {"type": "string", "nullable": True},
+    "id": {"type": "string", "minlength": 1},
+    "title": {"type": "string", "minlength": 1},
+    "sections": {
         "type": "dict",
         "schema": {
-            "brand": {"type": "string"},
-            "id": {"type": "string"},
-            "title": {"type": "string"},
-            "sections": {
-                "type": "dict",
-                "schema": {
-                    "location": {
-                        "type": "dict",
-                        "schema": {
-                            "address": {
-                                "type": "dict",
-                                "schema": {
-                                    "country": {"type": "string"},
-                                    "city": {"type": "string"},
-                                    "zipCode": {"type": "string"},
-                                    "street": {"type": "string"},
-                                    "district": {"type": "string"},
-                                },
-                            }
-                        },
-                    },
-                    "features": {
-                        "type": "dict",
-                        "schema": {
-                            "preview": {
-                                "type": "list",
-                                "schema": {
-                                    "type": "dict",
-                                    "schema": {
-                                        "icon": {"type": "string"},
-                                        "value": {"type": "string"},
-                                    },
-                                },
-                            }
-                        },
-                    },
-                },
-            },
-        },
-    }
-}
-
-search_schema = {
-    "schema": {
-        "type": "dict",
-        "schema": {
-            "brand": {"type": "string"},
-            "id": {"type": "string"},
-            "status": {"type": "string"},
             "location": {
                 "type": "dict",
                 "schema": {
                     "address": {
                         "type": "dict",
                         "schema": {
-                            "country": {"type": "string"},
-                            "city": {"type": "string"},
-                            "zipCode": {"type": "string"},
+                            "country": {"type": "string", "nullable": True},
+                            "city": {"type": "string", "nullable": True},
+                            "zipCode": {"type": "string", "nullable": True},
+                            "street": {"type": "string", "nullable": True},
+                            "district": {"type": "string", "nullable": True},
                         },
-                    }
+                        "nullable": True,
+                    },
                 },
+                "nullable": True,
             },
-            "hardFacts": {
+            "features": {
                 "type": "dict",
-                "schema": {"title": {"type": "string"}},
-                "allow_unknown": True,
+                "schema": {
+                    "preview": {
+                        "type": "list",
+                        "schema": {
+                            "type": "dict",
+                            "schema": {
+                                "icon": {"type": "string", "nullable": True},
+                                "value": {"type": "string", "nullable": True},
+                            },
+                            "nullable": True,
+                        },
+                        "nullable": True,
+                    },
+                },
+                "nullable": True,
             },
-            "mainDescription": {
-                "type": "dict",
-                "schema": {"headline": {"type": "string"}},
-                "allow_unknown": True,
-            },
-            "url": {"type": "string"},
         },
-    }
+        "nullable": True,
+    },
+}
+
+search_schema = {
+    "brand": {"type": "string", "nullable": True},
+    "id": {"type": "string", "minlength": 1},
+    "status": {"type": "string", "nullable": True},
+    "location": {
+        "type": "dict",
+        "schema": {
+            "address": {
+                "type": "dict",
+                "schema": {
+                    "country": {"type": "string", "nullable": True},
+                    "city": {"type": "string", "nullable": True},
+                    "zipCode": {"type": "string", "nullable": True},
+                },
+                "nullable": True,
+            },
+        },
+        "nullable": True,
+    },
+    "hardFacts": {
+        "type": "dict",
+        "schema": {
+            "title": {"type": "string", "nullable": True},
+        },
+        "allow_unknown": True,
+        "nullable": True,
+    },
+    "mainDescription": {
+        "type": "dict",
+        "schema": {
+            "headline": {"type": "string", "nullable": True},
+        },
+        "allow_unknown": True,
+        "nullable": True,
+    },
+    "url": {"type": "string", "minlength": 1},
 }
 
 

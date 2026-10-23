@@ -18,7 +18,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass walmart.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     "proxy_pool": "public_residential_pool",
