@@ -2,10 +2,31 @@
   {
     "__typename": "Startup",
     "id": "8281817",
+    "name": "Moxion Power",
+    "jobPreamble": "Moxion is looking to hire a diverse team across several disciplines, currently focusing on engineering and production.",
+    "currentUserCanRecruit": false,
+    "currentUserCanRecruitForStartup": false,
     "slug": "moxion-power-co",
+    "talentBanned": false,
+    "isShell": true,
+    "isIncubator": false,
+    "currentUserHasJobAlert": false,
+    "jobListingsConnection({\"after\":\"MA==\",\"filters\":{\"acceptedRemoteLocationIds\":[],\"jobSourceIds\":[],\"jobTypes\":[],\"locationIds\":[],\"roleIds\":[]},\"first\":20})": {
+      "__typename": "JobListingConnection",
+      "totalPageCount": 1,
+      "pageSize": 0,
+      "edges": []
+    },
+    "jobListingCounts": {
+      "__typename": "Counts",
+      "roles": [],
+      "locations": [],
+      "acceptedRemoteLocations": [],
+      "jobTypes": [],
+      "jobSources": []
+    },
     "completenessScore": 92,
     "currentUserCanEditProfile": false,
-    "currentUserCanRecruitForStartup": false,
     "hiddenSections": [
       "SALARIES"
     ],
@@ -18,9 +39,9 @@
         "description": "Find out if Moxion Power is the right fit for your future career! Explore jobs, salary, equity, and funding information. Read about work-life balance, perks, benefits, and the company culture!",
         "image": "https://photos.wellfound.com/startups/i/8281817-91faf535f176a41dc39259fc232d1b4e-thumb_jpg.jpg?buster=1619536432",
         "ogUrl": "https://wellfound.com/company/moxion-power-co",
-        "robots": "",
+        "robots": "noindex",
         "structuredData": null,
-        "title": "Moxion Power Careers",
+        "title": "Moxion Power Careers - Insights and Opportunities",
         "type": null
       },
       "people": {
@@ -29,107 +50,91 @@
         "description": "View founders and team members of Moxion Power on AngelList. Explore jobs, salary, equity, and funding information. Read about work-life balance, perks, benefits, and the company culture!",
         "image": "https://photos.wellfound.com/startups/i/8281817-91faf535f176a41dc39259fc232d1b4e-thumb_jpg.jpg?buster=1619536432",
         "ogUrl": "https://wellfound.com/company/moxion-power-co/people",
-        "robots": "",
+        "robots": "noindex",
         "structuredData": null,
-        "title": "Moxion Power People",
+        "title": "Moxion Power: Founder, Leadership & Team",
         "type": null
       },
       "culture": {
         "__typename": "MetaTags",
         "canonicalUrl": "https://wellfound.com/company/moxion-power-co/culture_and_benefits",
-        "description": "View information about the Moxion Power company culture at AngelList! Read about work-life balance, perks, employee benefits, and other options from Moxion Power.",
+        "description": "View information about the Moxion Power company culture at Wellfound! Read about work-life balance, perks, employee benefits, and other options from Moxion Power.",
         "image": "https://photos.wellfound.com/startups/i/8281817-91faf535f176a41dc39259fc232d1b4e-thumb_jpg.jpg?buster=1619536432",
         "ogUrl": "https://wellfound.com/company/moxion-power-co/culture_and_benefits",
-        "robots": "",
+        "robots": "noindex",
         "structuredData": null,
-        "title": "Culture and benefits at Moxion Power",
+        "title": "Culture & Employee Benefits at Moxion Power",
         "type": null
       },
       "funding": {
         "__typename": "MetaTags",
         "canonicalUrl": "https://wellfound.com/company/moxion-power-co/funding",
-        "description": "View information about the Moxion Power funding at AngelList! Find out about the total amount raised, the number of rounds, and other funding information from Moxion Power.",
+        "description": "View information about the Moxion Power funding at Wellfound! Find out about the total amount raised, the number of rounds, and other funding information from Moxion Power.",
         "image": "https://photos.wellfound.com/startups/i/8281817-91faf535f176a41dc39259fc232d1b4e-thumb_jpg.jpg?buster=1619536432",
         "ogUrl": "https://wellfound.com/company/moxion-power-co/funding",
-        "robots": "",
+        "robots": "noindex",
         "structuredData": null,
-        "title": "Moxion Power Funding Information",
+        "title": "Moxion Power Funding Rounds, Valuation & Investors",
         "type": null
       },
       "jobs": {
         "__typename": "MetaTags",
         "canonicalUrl": "https://wellfound.com/company/moxion-power-co/jobs",
-        "description": "Moxion Power is hiring! See 36 jobs in November 2023! Apply to the latest jobs with a single profile and get in touch with hiring managers directly. Learn about salary, equity, work-life balance, perks, benefits, and company culture!",
+        "description": "Get notified when Moxion Power posts jobs. Moxion is looking to hire a diverse team across several disciplines, currently focusing on engineering and production.",
         "image": "https://photos.wellfound.com/startups/i/8281817-91faf535f176a41dc39259fc232d1b4e-thumb_jpg.jpg?buster=1619536432",
         "ogUrl": "https://wellfound.com/company/moxion-power-co/jobs",
-        "robots": "",
+        "robots": "noindex",
         "structuredData": null,
-        "title": "Moxion Power Jobs",
+        "title": "Jobs at Moxion Power: Explore current Opportunities",
         "type": null
       }
     },
-    "jobListingCounts": {
-      "__typename": "Counts",
-      "roles": [
-        {
-          "__typename": "ListCount",
-          "optionId": "751460",
-          "name": "Engineering",
-          "count": 4
-        },
-        {
-          "__typename": "ListCount",
-          "optionId": "129175",
-          "name": "Operations",
-          "count": 4
-        },
-        {
-          "__typename": "ListCount",
-          "optionId": "387776",
-          "name": "Other",
-          "count": 13
-        },
-        {
-          "__typename": "ListCount",
-          "optionId": "154701",
-          "name": "Other Engineering",
-          "count": 8
-        },
-        {
-          "__typename": "ListCount",
-          "optionId": "751461",
-          "name": "Product",
-          "count": 1
-        },
-        {
-          "__typename": "ListCount",
-          "optionId": "80488",
-          "name": "Sales",
-          "count": 3
-        }
-      ],
-      "locations": [
-        {
-          "__typename": "ListCount",
-          "optionId": "2425",
-          "name": "Richmond",
-          "count": 34
-        }
-      ],
-      "jobTypes": [
-        {
-          "__typename": "ListCount",
-          "optionId": "full-time",
-          "name": "full-time",
-          "count": 36
-        }
-      ]
-    },
-    "name": "Moxion Power",
     "logoUrl": "https://photos.wellfound.com/startups/i/8281817-91faf535f176a41dc39259fc232d1b4e-medium_jpg.jpg?buster=1619536432",
     "highConcept": "Zero-Emissions Temporary Power as a Service",
-    "hiring": true,
+    "hiring": false,
     "isOperating": null,
+    "badges": [
+      {
+        "__typename": "Badge",
+        "id": "B2B-8281817",
+        "name": "B2B_BADGE",
+        "label": "B2B",
+        "tooltip": null,
+        "avatarUrl": null,
+        "rating": null,
+        "data": null
+      },
+      {
+        "__typename": "Badge",
+        "id": "COMPANY_STAGE-8281817",
+        "name": "COMPANY_STAGE_BADGE",
+        "label": "Scale Stage",
+        "tooltip": "Rapidly increasing operations",
+        "avatarUrl": null,
+        "rating": null,
+        "data": "scale_stage"
+      },
+      {
+        "__typename": "Badge",
+        "id": "TOP_INVESTORS-8281817",
+        "name": "TOP_INVESTORS_BADGE",
+        "label": "Top Investors",
+        "tooltip": "This company has received a significant amount of investment from top investors",
+        "avatarUrl": null,
+        "rating": null,
+        "data": null
+      },
+      {
+        "__typename": "Badge",
+        "id": "YC-8281817",
+        "name": "YC_BADGE",
+        "label": "YC Funded",
+        "tooltip": "Startup funded by Y Combinator",
+        "avatarUrl": null,
+        "rating": null,
+        "data": null
+      }
+    ],
     "companySize": "SIZE_51_200",
     "totalRaisedAmount": 113225000,
     "companyUrl": "https://www.moxionpower.com/",
@@ -140,42 +145,75 @@
     "productHuntUrl": "",
     "marketTaggings": [
       {
-        "__ref": "NewTag:22"
+        "__typename": "NewTag",
+        "id": "22",
+        "name": "energy",
+        "slug": "energy-1",
+        "displayName": "Energy",
+        "marketTagNoindex": false
       },
       {
-        "__ref": "NewTag:27"
+        "__typename": "NewTag",
+        "id": "27",
+        "name": "clean energy",
+        "slug": "clean-energy",
+        "displayName": "Clean Energy",
+        "marketTagNoindex": false
       },
       {
-        "__ref": "NewTag:142"
+        "__typename": "NewTag",
+        "id": "142",
+        "name": "batteries",
+        "slug": "batteries",
+        "displayName": "Batteries",
+        "marketTagNoindex": false
       },
       {
-        "__ref": "NewTag:155"
+        "__typename": "NewTag",
+        "id": "155",
+        "name": "energy storage",
+        "slug": "energy-storage",
+        "displayName": "Energy Storage",
+        "marketTagNoindex": false
       },
       {
-        "__ref": "NewTag:1948"
+        "__typename": "NewTag",
+        "id": "1948",
+        "name": "sustainability",
+        "slug": "sustainability",
+        "displayName": "Sustainability",
+        "marketTagNoindex": false
       }
     ],
     "locationTaggings": [
       {
-        "__ref": "NewTag:1624"
+        "__typename": "NewTag",
+        "id": "1624",
+        "name": "california",
+        "slug": "california",
+        "displayName": "California",
+        "locationTagNoindex": false
       },
       {
-        "__ref": "NewTag:1692"
+        "__typename": "NewTag",
+        "id": "1692",
+        "name": "san francisco",
+        "slug": "san-francisco",
+        "displayName": "San Francisco",
+        "locationTagNoindex": false
       }
     ],
     "companyTypeTaggings": [
       {
-        "__ref": "NewTag:147583"
+        "__typename": "NewTag",
+        "id": "147583",
+        "name": "manufacturing",
+        "slug": "manufacturing-5",
+        "displayName": "Manufacturing"
       }
     ],
     "currentUserFollowsStartup": false,
-    "currentUserHasJobAlert": false,
-    "talentBanned": false,
-    "jobListingsConnection": {
-      "__typename": "JobListingConnection",
-      "totalCount": 36
-    },
-    "currentUserCanRecruit": false,
+    "liveJobListingsCount": 0,
     "hasPremiumJobs": false,
     "recommendedStartups({\"first\":20})": {
       "__typename": "StartupConnection",
@@ -185,136 +223,368 @@
     "public": true,
     "published": true,
     "quarantined": false,
-    "isShell": false,
-    "isIncubator": false,
     "currentUserCanUpdateInvestors": false,
-    "jobPreamble": "Moxion is looking to hire a diverse team across several disciplines, currently focusing on engineering and production.",
-    "jobListingsConnection({\"after\":\"MA==\",\"filters\":{\"jobTypes\":[],\"locationIds\":[],\"roleIds\":[]},\"first\":20})": {
-      "__typename": "JobListingConnection",
-      "totalPageCount": 2,
-      "pageSize": 20,
-      "edges": [
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2838832"
-          }
+    "relatedJobListings({\"limit\":20})": [
+      {
+        "__typename": "JobListing",
+        "id": "4830147",
+        "slug": "it-support-specialist",
+        "title": "IT Support Specialist",
+        "compensation": "$73k – $103k",
+        "locationNames": [
+          "San Francisco"
+        ],
+        "liveStartAt": 1791830005,
+        "remote": true,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "engineer-1"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2843982"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "332168",
+          "name": "6sense",
+          "logoUrl": "https://photos.wellfound.com/startups/i/332168-8a05c769d3f6d02b66fffc93164bc28d-medium_jpg.jpg?buster=1589650734",
+          "slug": "6sense"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2843983"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4832785",
+        "slug": "electronics-engineer-diagnostics-and-data-acquisition",
+        "title": "Electronics Engineer, Diagnostics and Data Acquisition",
+        "compensation": "$140k – $170k",
+        "locationNames": [
+          "Vancouver"
+        ],
+        "liveStartAt": 1791588684,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "hardware_engineer"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2848261"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "43783",
+          "name": "General Fusion",
+          "logoUrl": "https://photos.wellfound.com/startups/i/43783-a1857de76b691d4e474cbf34004e0632-medium_jpg.jpg?buster=1326852090",
+          "slug": "general-fusion"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2827407"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4821944",
+        "slug": "ai-enablement-specialist",
+        "title": "AI Enablement Specialist",
+        "compensation": "$80k – $90k",
+        "locationNames": [
+          "Old Toronto"
+        ],
+        "liveStartAt": 1791365046,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "business-analyst-2"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2847496"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "102468",
+          "name": "Simon Kucher & Partners",
+          "logoUrl": "https://photos.wellfound.com/startups/i/102468-ace6ecdb048fee913419389933a5a4e6-medium_jpg.jpg?buster=1642275148",
+          "slug": "simon-kucher-partners"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2745252"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4811588",
+        "slug": "project-finance-analyst",
+        "title": "Project Finance Analyst",
+        "compensation": "",
+        "locationNames": [
+          "Houston"
+        ],
+        "liveStartAt": 1791207881,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "data-analyst-2"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2798500"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "39320",
+          "name": "NET Power",
+          "logoUrl": "https://photos.wellfound.com/startups/i/39320-240c71c85eddb09825d716d1486c7f99-medium_jpg.jpg?buster=1366398002",
+          "slug": "net-power"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2860376"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4806562",
+        "slug": "data-engineer",
+        "title": "Data Engineer",
+        "compensation": "$105k – $131k",
+        "locationNames": [
+          "Dublin"
+        ],
+        "liveStartAt": 1791011556,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "data-engineer"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2860375"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "139407",
+          "name": "Patelco Credit Union",
+          "logoUrl": "https://photos.wellfound.com/startups/i/139407-b2d4a33becd06c054e8bf0b2b20d8286-medium_jpg.jpg?buster=1673527163",
+          "slug": "patelco-credit-union"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2846334"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4813701",
+        "slug": "senior-utilities-engineer-specialist-jc-534262",
+        "title": "Senior Utilities Engineer (Specialist) (JC-534262)",
+        "compensation": "$11k – $14k",
+        "locationNames": [
+          "California"
+        ],
+        "liveStartAt": 1790990755,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "engineer-1"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2852085"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "164593",
+          "name": "California Public Utilities Commission",
+          "logoUrl": "https://photos.wellfound.com/startups/i/164593-966f6a37e33a5a7778c21fc4526be7f0-medium_jpg.jpg?buster=1573517547",
+          "slug": "californiapuc"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2786990"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4773160",
+        "slug": "director-technology-alliance-partnerships",
+        "title": "Director, Technology Alliance Partnerships",
+        "compensation": "$170k – $180k",
+        "locationNames": [
+          "Boston"
+        ],
+        "liveStartAt": 1790358231,
+        "remote": true,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "management-2"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2846333"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "19888",
+          "name": "Acquia",
+          "logoUrl": "https://photos.wellfound.com/startups/i/19888-1d9139ffc41fd12b544ea79bb1ff5498-medium_jpg.jpg?buster=1589638090",
+          "slug": "acquia"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2850865"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4845368",
+        "slug": "data-scientist",
+        "title": "Data Scientist",
+        "compensation": "",
+        "locationNames": [
+          "Montreal"
+        ],
+        "liveStartAt": 1790208000,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "data-scientist-1"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2820583"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "226586",
+          "name": "GHGSat",
+          "logoUrl": "https://photos.wellfound.com/startups/i/226586-250354282de8d06b4d63c0e8694480f1-medium_jpg.jpg?buster=1372103974",
+          "slug": "ghgsat"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2853357"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4766248",
+        "slug": "staff-systems-architect-crm-systems",
+        "title": "Staff Systems Architect (CRM Systems)",
+        "compensation": "",
+        "locationNames": [
+          "Pleasanton"
+        ],
+        "liveStartAt": 1790200758,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "engineer-1"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2837733"
-          }
+        "startup": {
+          "__typename": "Startup",
+          "id": "58667",
+          "name": "10x Genomics",
+          "logoUrl": "https://photos.wellfound.com/startups/i/58667-d2beb5a87d09d8857bbb43aaf74c8165-medium_jpg.jpg?buster=1589575386",
+          "slug": "10x-genomics"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2854134"
-          }
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4765561",
+        "slug": "sr-rotating-equipment-engineer",
+        "title": "Sr. Rotating Equipment Engineer",
+        "compensation": "",
+        "locationNames": [
+          "Port Arthur"
+        ],
+        "liveStartAt": 1790183612,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "engineer-1"
         },
-        {
-          "__typename": "JobListingEdge",
-          "node": {
-            "__ref": "JobListing:2846332"
-          }
-        }
-      ]
-    }
+        "startup": {
+          "__typename": "Startup",
+          "id": "209920",
+          "name": "Valero Energy Crop.",
+          "logoUrl": "https://photos.wellfound.com/startups/i/209920-e32403d345d13a70d4dec982bcdb851b-medium_jpg.jpg?buster=1408030883",
+          "slug": "valero-energy-crop"
+        },
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4757936",
+        "slug": "senior-manager-technical-accounting",
+        "title": "Senior Manager Technical Accounting",
+        "compensation": "$107k – $198k",
+        "locationNames": [
+          "Los Angeles"
+        ],
+        "liveStartAt": 1790128136,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "finance-3"
+        },
+        "startup": {
+          "__typename": "Startup",
+          "id": "215666",
+          "name": "Activision",
+          "logoUrl": "https://photos.wellfound.com/startups/i/215666-27f612bca3518cf118dcfcf030c5fce9-medium_jpg.jpg?buster=1685943045",
+          "slug": "activision"
+        },
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4755067",
+        "slug": "senior-technical-product-manager-ai",
+        "title": "Senior Technical Product Manager, AI",
+        "compensation": "",
+        "locationNames": [
+          "Austin"
+        ],
+        "liveStartAt": 1790091927,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "product_manager"
+        },
+        "startup": {
+          "__typename": "Startup",
+          "id": "37869",
+          "name": "2K",
+          "logoUrl": "https://photos.wellfound.com/startups/i/37869-1ad0c5e2f3c5f879406d62bdec8688c8-medium_jpg.jpg?buster=1599814613",
+          "slug": "2k-games"
+        },
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4759646",
+        "slug": "account-representative-medicare-sales-los-angeles-ca-fully-bilingual-spanish",
+        "title": "Account Representative, Medicare Sales-Los Angeles, CA-Fully Bilingual-Spanish",
+        "compensation": "$73k – $92k",
+        "locationNames": [
+          "Los Angeles"
+        ],
+        "liveStartAt": 1790051123,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "account-executive-2"
+        },
+        "startup": {
+          "__typename": "Startup",
+          "id": "269633",
+          "name": "Molina Healthcare",
+          "logoUrl": "https://photos.wellfound.com/startups/i/269633-efa1312731a8cfb61ad339730a7cc367-medium_jpg.jpg?buster=1736222565",
+          "slug": "molina-healthcare"
+        },
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4757148",
+        "slug": "senior-analytics-engineer",
+        "title": "Senior Analytics Engineer",
+        "compensation": "",
+        "locationNames": [
+          "Seattle"
+        ],
+        "liveStartAt": 1790035200,
+        "remote": false,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "data-analyst-2"
+        },
+        "startup": {
+          "__typename": "Startup",
+          "id": "241926",
+          "name": "Seeq",
+          "logoUrl": "https://photos.wellfound.com/startups/i/241926-61b8f77bfc4316e3496e139a9c324a69-medium_jpg.jpg?buster=1424805223",
+          "slug": "seeq"
+        },
+        "isBookmarked": false
+      },
+      {
+        "__typename": "JobListing",
+        "id": "4755268",
+        "slug": "business-development-underwriter-dallas-metro-region",
+        "title": "Business Development Underwriter - Dallas Metro Region",
+        "compensation": "$90k – $152k",
+        "locationNames": [
+          "San Diego"
+        ],
+        "liveStartAt": 1790035200,
+        "remote": true,
+        "primaryRole": {
+          "__typename": "Role",
+          "slug": "business-development-4"
+        },
+        "startup": {
+          "__typename": "Startup",
+          "id": "70735",
+          "name": "ICW Group",
+          "logoUrl": "https://photos.wellfound.com/startups/i/70735-05fb095ab1e13c689f0f85ea82c387bf-medium_jpg.jpg?buster=1597336344",
+          "slug": "icw-group"
+        },
+        "isBookmarked": false
+      }
+    ]
   }
 ]
