@@ -161,31 +161,70 @@ async def scrape_products(urls: List[str], max_review_pages: int = 1) -> List[Di
     return data
 
 
+def search_products_data(response: ScrapeApiResponse):
+    """product data the page loaded for its search cards, by sku, and the number of results found: the search answer
+    embedded in the page (full data for the first cards only) and the page's own item requests (one per card as it
+    renders, with name, url, price and rating), for the cards the page had not finished rendering"""
+    products, total_found = {}, None
+    for script_text in response.selector.xpath("//script[contains(text(),'numFound')]/text()").getall():
+        json_data = extract_json(script_text) or {}
+        for event in json_data.get("events", []):
+            search = _extract_nested(event, ["value", "data", "search"])
+            if not search:
+                continue
+            total_found = total_found or search.get("numFound")
+            for placement in (search.get("withBestMedia") or {}).get("placements") or []:
+                for document in (placement.get("documentsGridView") or {}).get("sponsoredDocuments") or []:
+                    product = document.get("product") or {}
+                    if product.get("skuId") and product.get("price"):
+                        products.setdefault(product["skuId"], product)
+    for call in (response.scrape_result.get("browser_data") or {}).get("xhr_call") or []:
+        if "PlpView_ProductListItem_Init" not in str(call.get("body")) or not (call.get("response") or {}).get("body"):
+            continue
+        try:
+            product = json.loads(call["response"]["body"])["data"]["productBySkuId"] or {}
+        except (json.JSONDecodeError, KeyError, TypeError):
+            continue
+        if product.get("skuId") and product.get("price"):
+            products.setdefault(product["skuId"], product)
+    return products, total_found
+
+
 def parse_search(response: ScrapeApiResponse):
     """parse search data from search pages"""
     selector = response.selector
     data = []
+    # the cards render in stages (shell, then name, then price) and some are still bare when the page is captured:
+    # complete them from the product data the page itself loaded for them
+    products, total_found = search_products_data(response)
 
     for item in selector.css(".product-grid-view-container li"):
         if item.css(".a-skeleton-shimmer").get():
             continue
-        name = item.css(".product-title::attr(title)").get()
-
-        link = item.css("a.product-list-item-link::attr(href)").get()
-
         sku = item.xpath("@data-testid").get()
+        product = products.get(sku) or {}
+        product_price = product.get("price") or {}
+
+        name = item.css(".product-title::attr(title)").get() or (product.get("name") or {}).get("short")
+
+        link = item.css("a.product-list-item-link::attr(href)").get() or (product.get("url") or {}).get("pdp")
 
         price = None
         price_element = item.css('[data-testid="price-block-customer-price"] span::text').get()
         if price_element:
             price = re.sub(r'[^\d.]', '', price_element) or None
+        if not price and product_price.get("customerPrice") is not None:
+            price = f"{product_price['customerPrice']:.2f}"
         original_price = None
         original_price_elements = item.css('[data-testid="price-block-regular-price"] span::text').getall()
         for elem in original_price_elements:
             if '$' in elem:
                 original_price = re.sub(r'[^\d.]', '', elem) or None
                 break
-        
+        regular_price = product_price.get("displayableRegularPrice")
+        if not original_price and regular_price and regular_price != product_price.get("customerPrice"):
+            original_price = f"{regular_price:.2f}"
+
         rating = None
         rating_count = 0
         rating_text = item.css('div.c-ratings-reviews p.visually-hidden::text').get()
@@ -194,9 +233,13 @@ def parse_search(response: ScrapeApiResponse):
             if m:
                 rating = m.group(1)
                 rating_count = int(m.group(2).replace(',', ''))
-        
+        review_info = product.get("reviewInfo") or {}
+        if rating is None and review_info.get("averageRating") is not None:
+            rating = str(review_info["averageRating"])
+            rating_count = review_info.get("reviewCount") or 0
+
         images = item.css("img[data-testid='product-image']::attr(srcset)").getall()
-        
+
         if name and sku and price:
             data.append({
                 "name": name,
@@ -210,7 +253,8 @@ def parse_search(response: ScrapeApiResponse):
             })
 
     total_pages = 1
-    if selector.css(".product-grid-view-container li"):
+    cards = selector.css(".product-grid-view-container li")
+    if cards:
         try:
             count_text = selector.css(".show-more-count-text::text").get()
             if count_text:
@@ -220,6 +264,9 @@ def parse_search(response: ScrapeApiResponse):
                     total_count = int(count_matches[0][1].replace(',', ''))
                     if page_size:
                         total_pages = (total_count + page_size - 1) // page_size
+            elif total_found:
+                # the count text renders with the cards: before that, the embedded search answer has the total
+                total_pages = (total_found + len(cards) - 1) // len(cards)
         except Exception as e:
             log.warning(f"Could not parse total pages: {e}")
             total_pages = 1
@@ -264,6 +311,12 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
     if not search_data and first_page.selector.css("[class*='product-flexbox-noresults']"):
         raise ValueError(
             f"bestbuy.com answered the search for {search_query!r} with its no-results page instead of the product list"
+        )
+    # or with its error page ("We're unable to display products at the moment")
+    error_text = first_page.selector.css("[data-component-name='ProductList'] .no-results-found h3::text").get()
+    if not search_data and error_text:
+        raise ValueError(
+            f"bestbuy.com answered the search for {search_query!r} with its error page: {error_text.strip()!r}"
         )
 
     # get the number of total search pages to scrape
