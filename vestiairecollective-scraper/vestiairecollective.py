@@ -10,7 +10,7 @@ import json
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -37,11 +37,14 @@ def find_hidden_data(result: ScrapeApiResponse) -> dict:
 def parse_xhr_call(result: ScrapeApiResponse) -> List[Dict]:
     """extract JSON data from xhr_calls"""
     _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    try:
-        # extract the search xhr call
-        search_call = [call for call in _xhr_calls if "search" in call["url"]][0]
-    except:
-        log.warning("couldn't find the search xhr call - is the search URL t a valid search page?")
+    # extract the search xhr call (the one that already has its answer)
+    search_calls = [call for call in _xhr_calls if "search" in call["url"] and (call.get("response") or {}).get("body")]
+    if not search_calls:
+        # the page was captured before it asked its search API, or the URL is not a search page
+        raise ValueError(
+            f"vestiairecollective.com search page did not load its product search results: {result.context['url']}"
+        )
+    search_call = search_calls[0]
     # extract the product listings data from the first search page
     data = json.loads(search_call["response"]["body"])
     result = {
@@ -82,13 +85,14 @@ async def scrape_products(urls: List[str]) -> dict:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a product page that could not be scraped: {response}")
+            continue
         try:
             data = find_hidden_data(response)
-            product = data["props"]["pageProps"]["product"]
+            products.append(data["props"]["pageProps"]["product"])
         except Exception as e:
             log.error(f"An error occurred while parsing the product page. Is the listing expired?: {e}")
-            pass
-        products.append(product)
     log.success(f"scraped {len(products)} product listings from product pages")
     return products
 
@@ -97,7 +101,22 @@ async def retry_failure(url: str, _retries: int = 0):
     max_retries = 3
     try:
         response = await SCRAPFLY.async_scrape(
-            ScrapeConfig(url, **BASE_CONFIG, render_js=True, proxy_pool="public_residential_pool")
+            ScrapeConfig(
+                url,
+                **BASE_CONFIG,
+                render_js=True,
+                proxy_pool="public_residential_pool",
+                # the products come from the page's own search request: give it up to 15 s to show the first product card
+                js_scenario=[
+                    {
+                        "wait_for_selector": {
+                            "selector": "[data-cy='productCard__productLink']",
+                            "timeout": 15000,
+                            "ignore": True,
+                        }
+                    }
+                ],
+            )
         )
         if response.status_code != 200:
             if _retries < max_retries:
