@@ -148,7 +148,13 @@ def parse_flight_stream_call(response: ScrapeApiResponse):
         if SEARCH_STREAM_DT in call["url"] and (call.get("response") or {}).get("body")
     ]
     if not calls:
-        raise RuntimeError("flight search-stream-dt API call not found in captured browser data")
+        url = response.context["url"]
+        # the page sometimes comes as its shell only: search bar filled in, SEARCH button disabled, no results loaded
+        if response.selector.css("[data-cy='submit'][disabled]"):
+            raise RuntimeError(
+                f"goibibo.com answered the flight search with its page shell, the search never started: {url}"
+            )
+        raise RuntimeError(f"flight search-stream-dt API call not found in captured browser data for {url}")
 
     call = calls[-1]
     body = call["response"]["body"]
