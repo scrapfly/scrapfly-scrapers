@@ -129,6 +129,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
     properties_data = await domaincom.scrape_properties(
         urls = [
@@ -146,6 +147,7 @@ async def test_properties_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await domaincom.scrape_search(
         url="https://www.domain.com.au/sale/melbourne-vic-3000", max_scrape_pages=1
