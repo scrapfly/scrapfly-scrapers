@@ -34,6 +34,8 @@ def parse_hidden_data(response: ScrapeApiResponse):
     """parse json data from script tags"""
     selector = response.selector
     script = selector.xpath("//script[@id='__NEXT_DATA__']/text()").get()
+    if not script:  # the page can come back without its data script (HTTP 200, cards rendered, no data)
+        raise ValueError(f"domain.com.au answered without its listing data for {response.context['url']}")
     data = json.loads(script)
     return data["props"]["pageProps"]["componentProps"]
 
@@ -42,6 +44,8 @@ def parse_repoerty_data(response: ScrapeApiResponse):
     """parse json data from script tags"""
     selector = response.selector
     script = selector.xpath("//script[@id='__NEXT_DATA__']/text()").get()
+    if not script:  # the page can come back without its data script (HTTP 200, no data)
+        raise ValueError(f"domain.com.au answered without its listing data for {response.context['url']}")
     json_data = json.loads(script)
     # property pages data are found in different structures
     try:  # listed property
