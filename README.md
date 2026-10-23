@@ -139,19 +139,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./bookingcom-scraper/">Booking.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
-        <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
-        <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./capterra-scraper/">Capterra.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-capterra">How to Scrape Capterra Software Reviews and Listings (2026)</a></td>
     <td>
@@ -208,18 +195,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/digikey-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/digikey-scraper.svg" alt="digikey-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./domaincom-scraper/">Domain.com.au</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-domain-com-au-real-estate-property-data">How to Scrape Domain.com.au Real Estate Property Data</a></td>
-    <td>
-    <ul>
-        <li><a href="./domaincom-scraper/results/properties.json">Property pages</a></li>
-        <li><a href="./domaincom-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/domaincom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/domaincom-scraper.svg" alt="domaincom-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -321,18 +296,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goat-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./goibibo-scraper/">Goibibo</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
-        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -517,21 +480,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./kayak-scraper/">Kayak</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-kayak">How to Scrape Kayak Flight Prices in 2026</a></td>
     <td>
@@ -620,18 +568,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./mouser-scraper/">Mouser.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./mouser-scraper/results/product.json">Product</a></li>
-        <li><a href="./mouser-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./naver-scraper/">Naver.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
     <td>
@@ -695,19 +631,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/realtorcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/realtorcom-scraper.svg" alt="realtorcom-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./redfin-scraper/">Redfin.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-redfin">How to Scrape Redfin Real Estate Property Data in Python</a></td>
-    <td>
-    <ul>
-        <li><a href="./redfin-scraper/results/properties_for_sale.json">Property pages for sale</a></li>
-        <li><a href="./redfin-scraper/results/properties_for_rent.json">Property pages for rent</a></li>
-        <li><a href="./redfin-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/redfin-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/redfin-scraper.svg" alt="redfin-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -878,18 +801,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./vestiairecollective-scraper/">VestiaireCollective.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-vestiairecollective">How to Scrape Vestiaire Collective for Fashion Product Data</a></td>
-    <td>
-    <ul>
-        <li><a href="./vestiairecollective-scraper/results/products.json">Product pages</a></li>
-        <li><a href="./vestiairecollective-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/vestiairecollective-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/vestiairecollective-scraper.svg" alt="vestiairecollective-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./walmart-scraper/">Walmart.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-walmartcom">How to Scrape Walmart.com Product Data (2025 Update)</a></td>
     <td>
@@ -1005,6 +916,31 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./bookingcom-scraper/">Booking.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./bookingcom-scraper/results/hotel.json">Hotel pages</a></li>
+        <li><a href="./bookingcom-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./bookingcom-scraper/results/hotel_review.json">Hotel review</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bookingcom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bookingcom-scraper.svg" alt="bookingcom-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./domaincom-scraper/">Domain.com.au</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-domain-com-au-real-estate-property-data">How to Scrape Domain.com.au Real Estate Property Data</a></td>
+    <td>
+    <ul>
+        <li><a href="./domaincom-scraper/results/properties.json">Property pages</a></li>
+        <li><a href="./domaincom-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/domaincom-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/domaincom-scraper.svg" alt="domaincom-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./glassdoor-scraper/">Glassdoor.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-glassdoor">How to Scrape Glassdoor (2025 update)</a></td>
     <td>
@@ -1016,6 +952,46 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/glassdoor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./goibibo-scraper/">Goibibo</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
+        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./redfin-scraper/">Redfin.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-redfin">How to Scrape Redfin Real Estate Property Data in Python</a></td>
+    <td>
+    <ul>
+        <li><a href="./redfin-scraper/results/properties_for_sale.json">Property pages for sale</a></li>
+        <li><a href="./redfin-scraper/results/properties_for_rent.json">Property pages for rent</a></li>
+        <li><a href="./redfin-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/redfin-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/redfin-scraper.svg" alt="redfin-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1031,6 +1007,30 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./vestiairecollective-scraper/">VestiaireCollective.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-vestiairecollective">How to Scrape Vestiaire Collective for Fashion Product Data</a></td>
+    <td>
+    <ul>
+        <li><a href="./vestiairecollective-scraper/results/products.json">Product pages</a></li>
+        <li><a href="./vestiairecollective-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/vestiairecollective-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/vestiairecollective-scraper.svg" alt="vestiairecollective-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./mouser-scraper/">Mouser.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./mouser-scraper/results/product.json">Product</a></li>
+        <li><a href="./mouser-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
   </tr>
 
   <tr>
