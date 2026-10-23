@@ -55,6 +55,22 @@ class LocationSuggestions(TypedDict):
 
 
 
+SUGGESTION_OPTION = "#autocomplete-results li[role='option']"  # an entry of the search box's suggestions list
+
+
+def _retype_query_script(query: str) -> str:
+    """enter the query again when no suggestion showed up: letters typed before the page's script took over the
+    search box ask nothing, so set the value the way the box's own handling expects it (native setter + input event)"""
+    value = json.dumps(query)
+    return (
+        f'if(!document.querySelector("{SUGGESTION_OPTION}")){{'
+        "var field=document.querySelector(\"input[name='ss']\");"
+        "var set=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set;"
+        "if(field){set.call(field,'');field.dispatchEvent(new Event('input',{bubbles:true}));"
+        f"set.call(field,{value});field.dispatchEvent(new Event('input',{{bubbles:true}}));}}}}"
+    )
+
+
 async def search_location_suggestions(query: str) -> LocationSuggestions:
     """scrape booking.com location suggestions to find location details for search scraping"""
     # booking.com's search box asks its graphql api for suggestions (the old autocomplete.json endpoint answers 403),
@@ -68,26 +84,31 @@ async def search_location_suggestions(query: str) -> LocationSuggestions:
                 {"click": {"selector": "input[name='ss']", "ignore_if_not_visible": True}},
                 {"fill": {"selector": "input[name='ss']", "value": query}},
                 # wait for the suggestions dropdown (skipped when it does not show), then for the last answer to land
-                {
-                    "wait_for_selector": {
-                        "selector": "#autocomplete-results li[role='option']",
-                        "timeout": 10000,
-                        "ignore": True,
-                    }
-                },
+                {"wait_for_selector": {"selector": SUGGESTION_OPTION, "timeout": 10000, "ignore": True}},
+                {"wait": 2000},
+                # no suggestion yet: the query was typed before the box was live, enter it again and wait once more
+                {"execute": {"script": _retype_query_script(query)}},
+                {"wait_for_selector": {"selector": SUGGESTION_OPTION, "timeout": 10000, "ignore": True}},
                 {"wait": 2000},
             ],
             **BASE_CONFIG,
         )
     )
-    suggestions = None
+    suggestions, answers = None, []
     for xhr in result.scrape_result["browser_data"].get("xhr_call") or []:
         # the box asks once per typed letter: keep the answer for the full query
         if '"AutoComplete"' in str(xhr.get("body")) and json.dumps(query, ensure_ascii=False) in str(xhr.get("body")):
-            suggestions = json.loads(xhr["response"]["body"])["data"]["autoCompleteSuggestions"]["results"]
+            answer = xhr.get("response") or {}
+            answers.append(answer.get("status"))
+            # a challenge answer (202, no content) is not a list of suggestions
+            if answer.get("status") == 200 and answer.get("body"):
+                suggestions = json.loads(answer["body"])["data"]["autoCompleteSuggestions"]["results"]
     if suggestions is None:
         title = result.selector.xpath("//title/text()").get("").strip()
-        raise ValueError(f"booking.com did not load location suggestions for {query!r} (page title: {title!r})")
+        raise ValueError(
+            f"booking.com did not load location suggestions for {query!r} "
+            f"(page title: {title!r}, suggestion request answers: {answers})"
+        )
     # map the graphql suggestions to the fields of the old autocomplete.json results
     results = []
     for suggestion in suggestions:
@@ -223,6 +244,11 @@ async def scrape_search(
     # otherwise the graphql api returns truncated pages.
     _page_size = 25
     _total_results = int(search_data["pagination"]["nbResultsTotal"])
+    if not _total_results and search_data.get("results"):
+        # the page sometimes embeds results with a total of 0: read the count from its heading ("Malta: 321 properties found")
+        heading = " ".join(first_page.selector.xpath("//h1//text()").getall())
+        found = re.search(r"([\d,]+)\s+propert", heading)
+        _total_results = int(found.group(1).replace(",", "")) if found else len(search_data["results"])
     if max_pages and max_pages * _page_size < _total_results:
         _total_results = max_pages * _page_size
 
