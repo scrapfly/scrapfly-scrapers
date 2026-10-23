@@ -35,7 +35,7 @@ def parse_data_cache(response: ScrapeApiResponse) -> Dict[str, Dict]:
     marker = "root.__reactServerState.InitialContext = "
     if marker not in html:
         title = response.selector.xpath("//title/text()").get("").strip()
-        raise ValueError(f"redfin.com page has no property data: {title!r}")
+        raise ValueError(f"redfin.com page has no property data: {title!r} ({len(html):,} characters)")
     start = html.index(marker) + len(marker)
     state, _ = json.JSONDecoder().raw_decode(html, start)
     cache = {}

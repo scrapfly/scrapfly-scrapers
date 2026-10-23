@@ -8,6 +8,13 @@ redfin.BASE_CONFIG["cache"] = True
 pp = pprint.PrettyPrinter(indent=4)
 
 
+@pytest.fixture(autouse=True)
+def fresh_pages_on_rerun(request):
+    """a cached page is replayed for 24 hours, so a rerun fetches fresh pages and replaces the cached ones"""
+    # pytest-rerunfailures counts the tries in execution_count: 1 on the first try, 2 and up on reruns
+    redfin.BASE_CONFIG["cache_clear"] = getattr(request.node, "execution_count", 1) > 1
+
+
 def validate_or_fail(item, validator):
     if not validator.validate(item):
         pp.pformat(item)
