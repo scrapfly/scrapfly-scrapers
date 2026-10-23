@@ -25,9 +25,9 @@ async def run():
 
     products_data = await vestiairecollective.scrape_products(
         urls=[
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/blue-yellow-gold-ellipse-patek-philippe-watch-61234257.shtml",
-            "https://us.vestiairecollective.com/men-accessories/watches/patek-philippe/gold-yellow-gold-patek-philippe-watch-51820408.shtml",
+            "https://www.vestiairecollective.com/men-clothing/polo-shirts/louis-vuitton/blue-cotton-louis-vuitton-polo-shirt-72570253.shtml",
+            "https://www.vestiairecollective.com/men-clothing/knitwear-sweatshirts/louis-vuitton/black-wool-louis-vuitton-knitwear-sweatshirt-72612965.shtml",
+            "https://www.vestiairecollective.com/women-clothing/dresses/louis-vuitton/multicolour-cotton-louis-vuitton-dress-72644779.shtml",
         ]
     )
     with open(output.joinpath("products.json"), "w", encoding="utf-8") as file:
