@@ -83,7 +83,7 @@ async def test_company_scraping():
     validator = Validator(company_schema, allow_unknown=True)
     for item in companies_data:
         validate_or_fail(item, validator)
-        assert len(companies_data) == 1
+    assert len(companies_data) == 1
 
 
 @pytest.mark.asyncio

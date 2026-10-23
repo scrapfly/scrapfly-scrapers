@@ -17,7 +17,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass wellfound.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
 }
@@ -60,51 +60,63 @@ def extract_apollo_state(result: ScrapeApiResponse):
     return graph
 
 
-def unpack_node_references(node, graph, debug=False):
+def unpack_node_references(node, graph, debug=False, _path=()):
     """
     unpacks references in a graph node to a flat node structure:
     >>> unpack_node_references({"field": {"id": "reference1", "type": "id"}}, graph={"reference1": {"foo": "bar"}})
     {'field': {'foo': 'bar'}}
     """
-    def flatten(value):
+
+    def reference_of(value):
         # a reference is {"__ref": "Startup:123"} (current pages) or {"id": "Startup:123", "type": "id"} (older pages)
-        if not isinstance(value, dict):
+        if isinstance(value, dict):
+            if "__ref" in value:
+                return value["__ref"]
+            if value.get("type") == "id":
+                return value["id"]
+        return None
+
+    def flatten(value):
+        """replace a reference by the referenced node, with the references inside it unpacked too"""
+        reference = reference_of(value)
+        if reference is None:
             return value
-        if "__ref" in value:
-            reference = value["__ref"]
-        elif value.get("type") == "id":
-            reference = value["id"]
-        else:
-            return value
+        if reference in _path:
+            # it points back at a node being unpacked (a job listing's startup is the company itself): keep its plain fields
+            return {k: v for k, v in graph[reference].items() if not isinstance(v, (dict, list))}
         data = deepcopy(graph[reference])
         # flatten nodes too:
         if data.get("node"):
             data = flatten(data["node"])
         if debug:
             data["__reference"] = reference
-        return data
+        return unpack_node_references(data, graph, debug, _path + (reference,))
 
-    node = flatten(node)
-
+    if reference_of(node) is not None:
+        return flatten(node)
     for key, value in node.items():
         if isinstance(value, list):
-            node[key] = [flatten(v) for v in value]
+            # list items hold references too (the startup of a related job listing, the node of a job listing edge)
+            node[key] = [unpack_node_references(v, graph, debug, _path) if isinstance(v, dict) else v for v in value]
         elif isinstance(value, dict):
-            node[key] = unpack_node_references(value, graph)
+            node[key] = unpack_node_references(value, graph, debug, _path)
     return node
 
 
 def parse_company(result: ScrapeApiResponse) -> CompanyData:
     """parse company data from wellfound.com company page"""
     graph = extract_apollo_state(result)
-    company = None
-    for key in graph:
-        if key.startswith("Startup:"):
-            company = graph[key]
-            break
-    else:
+    # the page's company is the root query's startup entry (the graph also holds the startups of related job listings)
+    root = graph.get("ROOT_QUERY") or {}
+    reference = next(
+        (v["__ref"] for k, v in root.items() if k.startswith("startup(") and isinstance(v, dict) and v.get("__ref")),
+        None,
+    )
+    if reference is None:
+        reference = next((key for key in graph if key.startswith("Startup:")), None)
+    if reference is None:
         raise ValueError("no embedded company data could be found")
-    return unpack_node_references(company, graph)
+    return unpack_node_references({"__ref": reference}, graph)
 
 
 async def retry_failure(url: str, _retries: int = 0):
