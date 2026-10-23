@@ -337,12 +337,8 @@ def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
 
     stories, feedback, comments = {}, {}, {}
 
-    for script in re.findall(r'<script type="application/json"[^>]*>(.*?)</script>', html, re.DOTALL):
-        try:
-            data = json.loads(script)
-        except (json.JSONDecodeError, Exception):
-            continue
-
+    def collect(data):
+        """keep the posts, feedback and comments found in one embedded JSON document"""
         # posts are "Story" nodes, or untyped nodes carrying post_id + comet_sections (most posts on current pages);
         # the same post appears several times with different fields, so keep the union per post_id
         for s in find_posts(data):
@@ -364,9 +360,32 @@ def parse_group_posts(response: ScrapeApiResponse) -> List[Dict]:
                 "text": (node.get("preferred_body") or {}).get("text"),
             })
 
+    for script in re.findall(r'<script type="application/json"[^>]*>(.*?)</script>', html, re.DOTALL):
+        try:
+            data = json.loads(script)
+        except (json.JSONDecodeError, Exception):
+            continue
+        collect(data)
+
+    # the page embeds its first posts only and asks the feed for more while it scrolls: read those answers too
+    # (each answer is several JSON documents, one per line)
+    for call in (response.scrape_result.get("browser_data") or {}).get("xhr_call") or []:
+        if "GroupsCometFeedRegularStoriesPaginationQuery" not in f"{call.get('headers')}{call.get('body')}":
+            continue
+        for line in ((call.get("response") or {}).get("body") or "").splitlines():
+            try:
+                collect(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+
     def message_of(node):
         """the post text: under content.story on "Story" nodes, one level up on untyped nodes"""
-        for path in (("content", "story", "comet_sections", "message", "story", "message"), ("message", "story", "message")):
+        for path in (
+            ("content", "story", "comet_sections", "message", "story", "message"),
+            ("content", "story", "comet_sections", "message_container", "story", "message"),  # rich-text posts
+            ("message", "story", "message"),
+            ("message_container", "story", "message"),
+        ):
             m = node.get("comet_sections") or {}
             for key in path:
                 m = (m.get(key) or {}) if isinstance(m, dict) else {}
