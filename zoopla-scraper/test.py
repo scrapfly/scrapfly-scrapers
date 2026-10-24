@@ -138,7 +138,7 @@ async def test_properties_scraping():
     properties_data = await zoopla.scrape_properties(
         urls=[
             "https://www.zoopla.co.uk/new-homes/details/73204716/",
-            "https://www.zoopla.co.uk/new-homes/details/71411815/",
+            "https://www.zoopla.co.uk/new-homes/details/72496890/",
             "https://www.zoopla.co.uk/new-homes/details/72527128/"
         ]
     )
