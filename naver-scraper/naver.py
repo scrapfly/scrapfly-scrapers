@@ -14,7 +14,7 @@ from urllib.parse import urlencode
 from loguru import logger as log
 from typing import List, Dict, TypedDict, Optional, Literal, Any
 
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -598,6 +598,9 @@ async def scrape_blog_post(urls: List[str]) -> List[BlogPost]:
     configs = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     results: List[BlogPost] = []
     async for result in SCRAPFLY.concurrent_scrape(configs):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a blog post that could not be scraped: {result}")
+            continue
         url = str(result.config["url"])
         results.append(_parse_blog(result, url))
 
@@ -611,6 +614,9 @@ async def scrape_news_article(urls: List[str]) -> List[NewsArticle]:
     configs = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     results: List[NewsArticle] = []
     async for result in SCRAPFLY.concurrent_scrape(configs):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a news article that could not be scraped: {result}")
+            continue
         results.append(_parse_news_article(result))
 
     log.success(f"scraped {len(results)} news articles from Naver")
