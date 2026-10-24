@@ -106,7 +106,9 @@ def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
         "numOfReceptions": int(receptions.split(" ")[0]) if receptions else None,
         "numOfBathrooms": int(baths.split(" ")[0]) if baths else None,
         "numOfBedrooms": int(beds.split(" ")[0]) if beds else None,
-        "propertyTags": selector.xpath("(//section/ul)[1]/li/p/text()").getall(),
+        # the badges next to the price ("New home", "Leasehold", ...); the older markup had them as the first list
+        "propertyTags": selector.xpath("//ul[contains(@class, 'Tags_tagsList')]/li//text()").getall()
+        or selector.xpath("(//section/ul)[1]/li/p/text()").getall(),
         "propertyInfo": info,
         "propertyDescription": selector.xpath("//section[@aria-labelledby='about']/ul/li/p/span/text()").getall(),
         "coordinates": {
