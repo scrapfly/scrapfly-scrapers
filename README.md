@@ -324,18 +324,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./goibibo-scraper/">Goibibo</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
-        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./goodreads-scraper/">Goodreads.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goodreads">How to Scrape Goodreads for Book Data, Ratings, and Reviews</a></td>
     <td>
@@ -614,6 +602,20 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./naver-scraper/">Naver.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
+    <td>
+    <ul>
+        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
+        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
+        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
+        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -966,6 +968,18 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./zoopla-scraper/">Zoopla.co.uk</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zoopla">How to Scrape Zoopla Real Estate Property Data in Python</a></td>
+    <td>
+    <ul>
+        <li><a href="./zoopla-scraper/results/properties.json">Property pages</a></li>
+        <li><a href="./zoopla-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoopla-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoopla-scraper.svg" alt="zoopla-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./zoro-scraper/">Zoro.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zoro-dot-com">How to Scrape Zoro.com in 2026 (without getting blocked)</a></td>
     <td>
@@ -992,6 +1006,18 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./goibibo-scraper/">Goibibo</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
+        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./instagram-scraper/">Instagram.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
     <td>
@@ -1007,20 +1033,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./naver-scraper/">Naver.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
-    <td>
-    <ul>
-        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
-        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
-        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
-        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./target-scraper/">Target.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-target-com">How to Scrape Target.com Product and Pricing Data</a></td>
     <td>
@@ -1033,18 +1045,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./zoopla-scraper/">Zoopla.co.uk</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zoopla">How to Scrape Zoopla Real Estate Property Data in Python</a></td>
-    <td>
-    <ul>
-        <li><a href="./zoopla-scraper/results/properties.json">Property pages</a></li>
-        <li><a href="./zoopla-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoopla-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoopla-scraper.svg" alt="zoopla-scraper-status"></a></td>
   </tr>
 
   <tr>
