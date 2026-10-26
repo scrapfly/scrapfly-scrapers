@@ -59,20 +59,35 @@ def inline_icons(html: str) -> str:
     return re.sub(r'<use href="#([^"]+)"', add_name, html)
 
 
-def icon_count(html: str, icon: str) -> Optional[int]:
-    """read a count next to a stable icon (locale-independent)"""
-    start = html.find(f'data-icon="icon-{icon}"')
+def marked_count(html: str, marker: str, stop: str) -> Optional[int]:
+    """read the last number shown between a marker attribute and the next attribute of its kind (locale-independent)"""
+    start = html.find(marker)
     if start == -1:
         return None
-    end = html.find('data-icon="icon-', start + 1)
-    chunk = html[start: end if end != -1 else start + 2000]
+    end = html.find(stop, start + 1)
+    chunk = html[start : end if end != -1 else start + 2000]
     nums = [t.strip() for t in re.findall(r">([^<>]+)<", chunk) if re.match(r"^\d", t.strip())]
     return parse_count(nums[-1]) if nums else None
 
 
+def icon_count(html: str, icon: str) -> Optional[int]:
+    """read a count next to a stable icon"""
+    return marked_count(html, f'data-icon="icon-{icon}"', 'data-icon="icon-')
+
+
+def action_count(html: str, action: str, icon: str) -> Optional[int]:
+    """read the count of an engagement button from its data-engagement-action container (reply, retweet, like,
+    bookmark; x.com renames the icons now and then) or, on older pages, next to its icon"""
+    count = marked_count(html, f'data-engagement-action="{action}"', 'data-engagement-action="')
+    return count if count is not None else icon_count(html, icon)
+
+
 def icon_text(html: str, icon: str) -> Optional[str]:
-    """read text shown after a stable icon (location, etc.)"""
-    match = re.search(rf'data-icon="icon-{icon}".{{0,2000}}?<div class="[^"]*font-normal[^"]*">([^<]+)</div>', html, re.S)
+    """read text shown after a stable icon (location, etc.); the icon name is matched as a prefix because x.com renames
+    the variant now and then (icon-location-stroke became icon-location-pin)"""
+    match = re.search(
+        rf'data-icon="icon-{icon}[^"]*".{{0,2000}}?<div class="[^"]*font-normal[^"]*">([^<]+)</div>', html, re.S
+    )
     return unescape(match.group(1)) if match else None
 
 
@@ -183,10 +198,10 @@ def parse_tweet(response: ScrapeApiResponse) -> Dict:
         "attached_media": [unescape(u) for u in media] or None,
         "tagged_users": unique(r"@(\w+)", text or ""),
         "tagged_hashtags": unique(r"#(\w+)", text or ""),
-        "reply_count": icon_count(html, "reply-stroke"),
-        "retweet_count": icon_count(html, "retweet-stroke"),
-        "favorite_count": icon_count(html, "heart-stroke"),
-        "bookmark_count": icon_count(html, "bookmark-stroke"),
+        "reply_count": action_count(html, "reply", "reply-stroke"),
+        "retweet_count": action_count(html, "retweet", "retweet-stroke"),
+        "favorite_count": action_count(html, "like", "heart-stroke"),
+        "bookmark_count": action_count(html, "bookmark", "bookmark-stroke"),
         "views": str(views) if views is not None else None,
         "user": {
             "name": name,
@@ -217,7 +232,7 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
         "screen_name": (meta(sel, name="twitter:creator") or "").lstrip("@") or None,
         "verified": verified_badge(html, name),
         "description": description,
-        "location": icon_text(html, "location-stroke"),
+        "location": icon_text(html, "location"),
         "joined": meta(sel, name="twitter:data2") if meta(sel, name="twitter:label2") == "Joined" else None,
         "url": website,
         "profile_image_url": meta(sel, prop="og:image"),
