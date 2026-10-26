@@ -5,10 +5,10 @@
         --test <test function> --pytest-log <scraper dir>/pytest.log >> "$GITHUB_OUTPUT"
 
 Prints two step outputs for the Slack step of .github/workflows/test_scrapers.yaml:
-- text      Slack mrkdwn: "Scrapers" linked to the whole run, the scraper linked to this job's log (opened at the failed step, at pytest's FAILED line),
-            the test linked to its function in test.py, and how the test did on the previous nights (history.json of
-            the ci-status branch); on a second line pytest's error
-- fallback  the first line as plain text (Slack shows it in notifications)
+- text      one line of Slack mrkdwn like the original message: "Scraper Tests" linked to the whole run, the scraper
+            linked to this job's log (opened at the failed step, at pytest's FAILED line), the test linked to its
+            function in test.py, and how the test did on the previous nights (history.json of the ci-status branch)
+- fallback  the same line as plain text (Slack shows it in notifications)
 
 Every lookup has a fallback, so a message is sent even when the job list, the log or the history cannot be read.
 """
@@ -26,7 +26,6 @@ ROOT = Path(__file__).resolve().parents[2]
 # from setup-python, SCRAPFLY_KEY) and "##[endgroup]". Update it when that step or its env changes.
 STEP_HEADER_LINES = 10
 SUMMARY = re.compile(r"^(FAILED|ERROR) \S")  # pytest's "short test summary info" lines (not "ERROR    logger:...")
-ERROR_LENGTH = 200  # characters of the error shown in the message
 
 
 def read_lines(log: Path) -> list:
@@ -42,25 +41,6 @@ def failed_line(log: Path) -> int:
     # captured log output above the summary can start with "ERROR" too
     start = next((n for n, line in enumerate(lines, 1) if "short test summary info" in line), 0)
     return next((n for n, line in enumerate(lines, 1) if n > start and SUMMARY.match(line)), 0)
-
-
-def error_text(log: Path) -> str:
-    """the error of pytest's FAILED line ("" without one); for a schema check the fields that failed instead of the
-    start of the item"""
-    lines = read_lines(log)
-    n = failed_line(log)
-    if not n:
-        return ""
-    error = lines[n - 1].split(" - ", 1)[1] if " - " in lines[n - 1] else ""
-    if error.startswith("Failed: Validation failed"):
-        fields = next((m.group(1) for m in map(re.compile(r"^E\s+Errors: (.+)").match, lines) if m), None)
-        error = f"Validation failed: {fields}" if fields else error
-    return error if len(error) <= ERROR_LENGTH else error[: ERROR_LENGTH - 1] + "…"
-
-
-def mrkdwn(text: str) -> str:
-    """plain text safe inside a Slack code span"""
-    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("`", "'")
 
 
 def job_url(repo: str, run_id: int, scraper: str, test: str, pytest_log: Path) -> str:
@@ -141,13 +121,9 @@ def main() -> None:
     code = test_url(args.repo, args.sha, args.dir, args.test)
     nights = previous_nights(args.repo, args.run_id, args.dir, args.test)
     tail = f"  -  {nights}" if nights else ""
-    error = error_text(args.pytest_log)
     run = f"https://github.com/{args.repo}/actions/runs/{args.run_id}"
-    text = f":red_circle: <{run}|Scrapers> › <{log}|{args.dir}> › <{code}|{args.test}>{tail}" + (
-        f"\n`{mrkdwn(error)}`" if error else ""
-    )
-    print(f"text<<SLACK_TEXT_END\n{text}\nSLACK_TEXT_END")  # GITHUB_OUTPUT's form for a value of several lines
-    print(f"fallback=Scrapers › {args.dir} › {args.test}{tail}")
+    print(f"text=<{run}|Scraper Tests> <{log}|{args.dir}>: <{code}|{args.test}>{tail}")
+    print(f"fallback=Scraper Tests {args.dir}: {args.test}{tail}")
 
 
 if __name__ == "__main__":
