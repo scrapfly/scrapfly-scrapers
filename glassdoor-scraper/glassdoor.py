@@ -12,6 +12,7 @@ import os
 import re
 from typing import Dict, List, Optional, Tuple, TypedDict
 from urllib.parse import quote_plus, urljoin
+from uuid import uuid4
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
@@ -22,6 +23,8 @@ BASE_CONFIG = {
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
     "asp": True,
     "country": "US",
+    # the site answers 403 to datacenter addresses now and then; residential ones get the pages
+    "proxy_pool": "public_residential_pool",
     "render_js": True,
 }
 
@@ -98,6 +101,9 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
 
     # the reviews API no longer returns a page count, so the page size is used to derive it
     page_size = 5
+    # one Scrapfly session for the reviews page and the API calls: the API only answers a call that carries the
+    # cookies the page load collected, so page and calls travel together
+    session = uuid4().hex
 
     def generate_api_request_config(employer_id: int, dynamic_profile_id: int, page_number: int) -> ScrapeConfig:
         return ScrapeConfig(
@@ -105,6 +111,8 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
             method='POST',
             asp=True,
             country="US",
+            proxy_pool="public_residential_pool",
+            session=session,
             headers={
                 "content-type": "application/json",
             },
@@ -135,7 +143,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
     review_data = []
     log.info("scraping reviews api requirements from {}", url)
 
-    first_page_html = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, **BASE_CONFIG))
+    first_page_html = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, session=session, **BASE_CONFIG))
     employer_metadata = parse_reviews_api_metadata(first_page_html)
 
     first_api_page = await SCRAPFLY.async_scrape(
@@ -304,6 +312,7 @@ async def find_companies(query: str) -> List[FoundCompany]:
             # the autocomplete endpoint answers with json, so there is nothing to render
             asp=True,
             country="US",
+            proxy_pool="public_residential_pool",
         )
     )
     data = json.loads(result.content)
