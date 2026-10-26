@@ -289,23 +289,51 @@ async def scrape_store_locations(store_ids: List[str]) -> List[Dict]:
 def parse_search(response: ScrapeApiResponse) -> List[Dict]:
     """parse product listing data from a search results page"""
     products = []
-    for card in response.selector.css('[data-test="@web/site-top-of-funnel/ProductCardWrapper"]'):
+    # older layout: ProductCardWrapper cards; current layout: ListingPageProductListing cards
+    cards = response.selector.css(
+        '[data-test="@web/site-top-of-funnel/ProductCardWrapper"], [data-test="ListingPageProductListing"]'
+    )
+    for card in cards:
         link = card.css('a[href*="/A-"]::attr(href)').get()
         if not link:
             continue
         match = re.search(r'/A-(\d+)', link)
         if not match:
             continue
+        # current layout: the image link's label is the full title (" Sponsored" added on ads), the heading starts
+        # with the brand, the first "$" text block is the price, followed by " reg " and the regular price on sale
+        heading = card.css('h3[data-test="text-quill"]')
+        label = card.css('a[data-test="product-listing-gallery-desktop-image-link"]::attr(aria-label)').get()
+        price_block = next(
+            (
+                block
+                for block in card.css('[data-test="text-quill"]')
+                if (block.css('[data-test="text-quill-insert-0"]::text').get() or "").startswith("$")
+            ),
+            None,
+        )
+        price_parts = price_block.css("span::text").getall() if price_block else []
         products.append({
             "tcin": match.group(1),
             "url": "https://www.target.com" + link.split("#")[0],
             "title": (
                 card.css('[data-test="@web/ProductCard/title"] ::text').get()
                 or card.css('[data-test="@web/ProductCard/title"]::attr(aria-label)').get()
+                or (label.removesuffix(" Sponsored") if label else None)
             ),
-            "brand": card.css('[data-test="@web/ProductCard/ProductCardBrandAndRibbonMessage/brand"] ::text').get(),
-            "price": card.css('[data-test="current-price"] span ::text').get(),
-            "reg_price": card.css('[data-test="comparison-price"] span ::text').get(),
+            "brand": (
+                card.css('[data-test="@web/ProductCard/ProductCardBrandAndRibbonMessage/brand"] ::text').get()
+                or (heading.css('[data-test="text-quill-insert-0"]::text').get() or "").strip()
+                or None
+            ),
+            "price": (
+                card.css('[data-test="current-price"] span ::text').get()
+                or (price_parts[0] if price_parts else None)
+            ),
+            "reg_price": (
+                card.css('[data-test="comparison-price"] span ::text').get()
+                or (price_parts[2] if len(price_parts) > 2 and price_parts[1].strip() == "reg" else None)
+            ),
         })
     return products
 
@@ -321,6 +349,15 @@ async def scrape_search(
         if page > 0:
             params["Nao"] = page * 24
         url = "https://www.target.com/s?" + urlencode(params)
-        response = await SCRAPFLY.async_scrape(ScrapeConfig(url, render_js=True, **BASE_CONFIG))
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(
+                url,
+                render_js=True,
+                # wait for the product cards (current and older layout); XPath because the old name contains "/"
+                wait_for_selector='//*[@data-test="ListingPageProductListing" '
+                'or @data-test="@web/site-top-of-funnel/ProductCardWrapper"]',
+                **BASE_CONFIG,
+            )
+        )
         results.extend(parse_search(response))
     return results
