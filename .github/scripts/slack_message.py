@@ -5,7 +5,7 @@
         --test <test function> --pytest-log <scraper dir>/pytest.log >> "$GITHUB_OUTPUT"
 
 Prints two step outputs for the Slack step of .github/workflows/test_scrapers.yaml:
-- text      Slack mrkdwn: the scraper linked to this job's log (opened at the failed step, at pytest's FAILED line),
+- text      Slack mrkdwn: "Scrapers" linked to the whole run, the scraper linked to this job's log (opened at the failed step, at pytest's FAILED line),
             the test linked to its function in test.py, and how the test did on the previous nights (history.json of
             the ci-status branch); on a second line pytest's error
 - fallback  the first line as plain text (Slack shows it in notifications)
@@ -142,9 +142,12 @@ def main() -> None:
     nights = previous_nights(args.repo, args.run_id, args.dir, args.test)
     tail = f"  -  {nights}" if nights else ""
     error = error_text(args.pytest_log)
-    text = f":red_circle: <{log}|{args.dir}> › <{code}|{args.test}>{tail}" + (f"\n`{mrkdwn(error)}`" if error else "")
+    run = f"https://github.com/{args.repo}/actions/runs/{args.run_id}"
+    text = f":red_circle: <{run}|Scrapers> › <{log}|{args.dir}> › <{code}|{args.test}>{tail}" + (
+        f"\n`{mrkdwn(error)}`" if error else ""
+    )
     print(f"text<<SLACK_TEXT_END\n{text}\nSLACK_TEXT_END")  # GITHUB_OUTPUT's form for a value of several lines
-    print(f"fallback={args.dir} › {args.test}{tail}")
+    print(f"fallback=Scrapers › {args.dir} › {args.test}{tail}")
 
 
 if __name__ == "__main__":
