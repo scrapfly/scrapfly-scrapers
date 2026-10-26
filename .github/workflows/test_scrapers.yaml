@@ -27,6 +27,9 @@ jobs:
   test:
     needs: matrix
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read  # the Slack message links to the job's own log (its id comes from the API)
     strategy:
       max-parallel: 4
       fail-fast: false
@@ -62,9 +65,23 @@ jobs:
     - name: Run test
       env:
         SCRAPFLY_KEY: ${{ secrets.SCRAPFLY_KEY }}
+      # 3 script lines: slack_message.py counts them to link the Slack message to pytest's FAILED line of this log
       run: |
         cd ${{ matrix.project_dir }}
-        poetry run pytest test.py -k ${{ matrix.test }}
+        set -o pipefail  # the step fails with pytest, not with tee
+        poetry run pytest test.py -k ${{ matrix.test }} 2>&1 | tee pytest.log
+
+    - name: Compose the Slack message
+      # one line: the scraper linked to this job's log at the failure, the test linked to its code, and how the test
+      # did on the previous nights (see .github/scripts/slack_message.py)
+      id: slack
+      if: failure() && github.event_name == 'schedule'
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: >-
+        python3 .github/scripts/slack_message.py --repo ${{ github.repository }} --run-id ${{ github.run_id }}
+        --sha ${{ github.sha }} --dir ${{ matrix.project_dir }} --test ${{ matrix.test }}
+        --pytest-log ${{ matrix.project_dir }}/pytest.log >> "$GITHUB_OUTPUT"
 
     - name: Send Slack notification
       uses: 8398a7/action-slack@v3
@@ -77,12 +94,16 @@ jobs:
             text: "",
             attachments: [{
               color: "danger",
-              text: `${process.env.AS_WORKFLOW_RUN} ${{ matrix.project_dir }}: ${{ matrix.test }}`,
+              mrkdwn_in: ["text"],
+              fallback: process.env.SLACK_FALLBACK || `${{ matrix.project_dir }}: ${{ matrix.test }} failed`,
+              text: process.env.SLACK_TEXT || `${process.env.AS_WORKFLOW_RUN} ${{ matrix.project_dir }}: ${{ matrix.test }}`,
             }]
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_TEXT: ${{ steps.slack.outputs.text }}
+        SLACK_FALLBACK: ${{ steps.slack.outputs.fallback }}
 
   status:
     # after the nightly: one badge file per scraper on the ci-status branch (the README status column reads them),
