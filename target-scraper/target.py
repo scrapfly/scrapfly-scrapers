@@ -237,6 +237,13 @@ async def scrape_store_locations_sitemap(url: str) -> List[Dict]:
 
 def parse_store_locations(response: ScrapeApiResponse) -> Dict:
     """parse store location data from a store_location_v1 response"""
+    if not response.content.lstrip().startswith("{"):
+        # target.com sometimes answers this request with an HTML "Access to this page has been denied" page (HTTP 435)
+        title = response.selector.css("title::text").get()
+        raise ValueError(
+            f"target.com answered the store location request with HTTP {response.upstream_status_code} "
+            f"({title}) instead of JSON: {response.context['url']}"
+        )
     data = json.loads(response.content)
     store = data.get("data", {}).get("store")
     if store is None:
