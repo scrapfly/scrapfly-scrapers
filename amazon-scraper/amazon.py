@@ -132,6 +132,7 @@ async def scrape_reviews(url: str) -> List[Review]:
     # pagination is not publically available, so we can't scrape more than one page
     log.info(f"scraping review page: {url}")
     config = {**BASE_CONFIG, "cache": False}
+    sign_in_prompt = False
     for attempt in range(1, 6 + 1):
         api_response = await SCRAPFLY.async_scrape(
             ScrapeConfig(url, render_js=True, auto_scroll=True, rendering_wait=8000, **config)
@@ -140,7 +141,13 @@ async def scrape_reviews(url: str) -> List[Review]:
         if reviews:
             log.info(f"scraped {len(reviews)} reviews")
             return reviews
+        # an Amazon store can replace the review list with "Sign in to see customer reviews." (amazon.com since 2026-10)
+        sign_in_prompt = bool(api_response.selector.css("[data-csa-c-slot-id='cm-cr-dp-sign-in-prompt']"))
         log.debug(f"review widget was not rendered, retrying ({attempt}/6)")
+    if sign_in_prompt:
+        raise ValueError(
+            f"{urlparse(url).netloc} asks visitors to sign in to see customer reviews, the page lists none: {url}"
+        )
     log.warning(f"failed to scrape reviews of {url}: Amazon kept gating the review widget")
     return []
 

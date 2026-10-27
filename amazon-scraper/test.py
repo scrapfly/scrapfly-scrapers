@@ -90,7 +90,8 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
-    url = "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/"
+    # amazon.com asks visitors to sign in to see reviews, amazon.es still lists them on the product page
+    url = "https://www.amazon.es/HP-305XL-Original-Magenta-Amarillo/dp/B08K81325J"
     result = await amazon.scrape_reviews(url)
     assert len(result) != 0
     schema = {
