@@ -139,12 +139,12 @@ jobs:
         git commit -q -m "Scraper Tests run ${{ github.run_id }} ($(date -u +%F))"
         git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:ci-status
 
-    - name: Order the README table by the results
+    - name: Order the README tables by the results
       # a commit on the branch only when the order changed (a push with the workflow token starts no other workflow)
       run: |
         python3 .github/scripts/docs.py --status ci-status/status.json
-        git diff --quiet README.md && exit 0
+        git diff --quiet README.md docs/ && exit 0
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git commit -q -m "Scraper Tests run ${{ github.run_id }}: order the README table by the results" README.md
+        git commit -q -m "Scraper Tests run ${{ github.run_id }}: order the README table by the results" README.md docs/
         git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:${{ github.ref_name }}
