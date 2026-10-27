@@ -5,85 +5,29 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
+import asyncio
+import base64
 import os
 import json
-import uuid
 from pathlib import Path
 from typing import List, TypedDict
 from urllib.parse import urlparse
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient
+from playwright.async_api import async_playwright
+from scrapfly import BrowserConfig, ScrapflyClient
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
-
+# perplexity answers anonymous questions asked from a real browser on a residential connection; questions sent
+# straight to its answer API get the sign-up wall. The question is asked in Scrapfly's cloud browser like a visitor.
 BASE_CONFIG = {
-    # the answer API is called directly, so no browser rendering is needed, and with asp
-    # perplexity answers with its sign-up wall more often
-    "asp": False,
+    "proxy_pool": "residential",
     "country": "US",
+    "os": "macos",
+    "cache": True,  # cache static resources (scripts, styles) between sessions
 }
 
 output = Path(__file__).parent / "results"
 output.mkdir(exist_ok=True)
-
-# the same parameters the web app sends when a question is asked from the home page
-ASK_PARAMS = {
-    "attachments": [],
-    "language": "en-US",
-    "timezone": "America/New_York",
-    "search_focus": "internet",
-    "sources": ["web"],
-    "mode": "copilot",
-    "model_preference": "turbo",
-    "is_related_query": False,
-    "is_sponsored": False,
-    "prompt_source": "autosuggest",
-    "query_source": "autosuggest",
-    "is_incognito": False,
-    "local_search_enabled": False,
-    "use_schematized_api": True,
-    "send_back_text_in_streaming_api": False,
-    "supported_block_use_cases": [
-        "answer_modes",
-        "media_items",
-        "inline_entity_cards",
-        "place_widgets",
-        "finance_widgets",
-        "sports_widgets",
-        "news_widgets",
-        "shopping_widgets",
-        "jobs_widgets",
-        "search_result_widgets",
-        "inline_images",
-        "inline_assets",
-        "placeholder_cards",
-        "diff_blocks",
-        "entity_group_v2",
-        "refinement_filters",
-        "canvas_mode",
-        "maps_preview",
-        "answer_tabs",
-        "price_comparison_widgets",
-        "preserve_latex",
-        "generic_onboarding_widgets",
-        "in_context_suggestions",
-        "pending_followups",
-        "inline_claims",
-        "unified_assets",
-        "workflow_steps",
-        "workflow_widgets",
-        "navigation_results",
-        "background_agents",
-    ],
-    "client_coordinates": None,
-    "mentions": [],
-    "skip_search_enabled": True,
-    "is_nav_suggestions_disabled": False,
-    "source": "default",
-    "always_search_override": False,
-    "override_no_search": False,
-    "version": "2.18",
-}
 
 
 class PerplexityAnswer(TypedDict):
@@ -130,26 +74,63 @@ def parse_answer(content: str) -> PerplexityAnswer:
 
 
 async def scrape_answer(prompt: str) -> PerplexityAnswer:
-    """Single-turn: submit one prompt to the perplexity answer API and parse the answer"""
-    # the prompt goes in the POST body, the answer comes back as a server-sent event stream
-    url = "https://www.perplexity.ai/rest/sse/perplexity_ask"
-    params = {**ASK_PARAMS, "frontend_uuid": str(uuid.uuid4()), "frontend_context_uuid": str(uuid.uuid4())}
-    response = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            url,
-            method="POST",
-            body=json.dumps({"params": params, "query_str": prompt}),
-            headers={"content-type": "application/json"},
-            render_js=False,
-            **BASE_CONFIG,
-        )
-    )
-    content = response.scrape_result["content"]
-    # perplexity answers some anonymous requests with a sign-up wall instead of the answer
-    if "Sign up and repeat your request." in content:
-        raise ValueError(f"perplexity.ai returned its sign-up wall instead of an answer for the prompt: {prompt}")
-    data = parse_answer(content)
-    if not data["answer_markdown"]:
-        raise ValueError(f"perplexity.ai returned no answer text (see log: {response.scrape_result.get('log_url')})")
-    log.success(f"scraped perplexity answer for the prompt: {prompt}")
-    return data
+    """Single-turn: ask one prompt on perplexity.ai in Scrapfly's cloud browser and parse the answer"""
+    config = BrowserConfig(**BASE_CONFIG, target_url="https://www.perplexity.ai/")
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.connect_over_cdp(SCRAPFLY.cloud_browser(config), timeout=120_000)
+        try:
+            context = browser.contexts[0]
+            page = context.pages[0] if context.pages else await context.new_page()
+            # the page asks its answer API itself; its answer is a server-sent event stream that stays open after
+            # the final event, so the stream is read from the browser's network events while it arrives
+            stream = {"request_id": None, "chunks": []}
+            cdp = await context.new_cdp_session(page)
+            await cdp.send("Network.enable")
+
+            def request_sent(event):
+                if "/rest/sse/perplexity_ask" in event["request"]["url"] and stream["request_id"] is None:
+                    stream["request_id"] = event["requestId"]
+
+            async def read_stream(event):
+                if event["requestId"] == stream["request_id"]:
+                    result = await cdp.send("Network.streamResourceContent", {"requestId": event["requestId"]})
+                    stream["chunks"].append(base64.b64decode(result.get("bufferedData", "")).decode("utf-8", "replace"))
+
+            def data_received(event):
+                if event["requestId"] == stream["request_id"] and event.get("data"):
+                    stream["chunks"].append(base64.b64decode(event["data"]).decode("utf-8", "replace"))
+
+            cdp.on("Network.requestWillBeSent", request_sent)
+            cdp.on("Network.responseReceived", lambda event: asyncio.ensure_future(read_stream(event)))
+            cdp.on("Network.dataReceived", data_received)
+
+            log.info(f"asking perplexity: {prompt}")
+            await page.goto("https://www.perplexity.ai/", wait_until="domcontentloaded", timeout=120_000)
+            ask_input = page.locator("#ask-input")
+            await ask_input.wait_for(timeout=30_000)
+            try:
+                await ask_input.click(timeout=10_000)
+            except Exception:  # a dialog in front of the page: focus the input instead
+                await ask_input.focus()
+            await page.keyboard.type(prompt, delay=50)
+            await page.keyboard.press("Enter")
+
+            content = ""
+            for _ in range(90):  # the answer usually arrives within 15 seconds
+                content = "".join(stream["chunks"])
+                # perplexity answers some anonymous visitors with a sign-up wall instead of the answer
+                if "Sign up and repeat your request." in content:
+                    raise ValueError(
+                        f"perplexity.ai returned its sign-up wall instead of an answer for the prompt: {prompt}"
+                    )
+                try:
+                    data = parse_answer(content)
+                except ValueError:  # no final event yet
+                    data = None
+                if data and data["answer_markdown"]:
+                    log.success(f"scraped perplexity answer for the prompt: {prompt}")
+                    return data
+                await page.wait_for_timeout(1000)
+            raise ValueError(f"perplexity.ai sent no answer within 90 seconds for the prompt: {prompt}")
+        finally:
+            await browser.close()
