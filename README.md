@@ -76,19 +76,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./amazon-scraper/">Amazon.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-amazon">How to Scrape Amazon.com Product Data and Reviews</a></td>
-    <td>
-    <ul>
-        <li><a href="./amazon-scraper/results/product.json">Product pages</a></li>
-        <li><a href="./amazon-scraper/results/search.json">Search pages</a></li>
-        <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./app-store-scraper/">App Store</a></td>
     <td>-</td>
     <td>
@@ -312,6 +299,20 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./glassdoor-scraper/">Glassdoor.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-glassdoor">How to Scrape Glassdoor (2025 update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./glassdoor-scraper/results/jobs.json">Job pages</a></li>
+        <li><a href="./glassdoor-scraper/results/reviews.json">Review pages</a></li>
+        <li><a href="./glassdoor-scraper/results/salaries.json">Salary pages</a></li>
+        <li><a href="./glassdoor-scraper/results/companies.json">Companies</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/glassdoor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./goat-scraper/">Goat.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goat-com-fashion-apparel">How to Scrape Goat.com for Fashion Apparel Data in Python</a></td>
     <td>
@@ -321,18 +322,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goat-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./goibibo-scraper/">Goibibo</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
-        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -865,6 +854,18 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./twitter-scraper/">Twitter(X).com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-twitter">How to Scrape X.com (Twitter) using Python (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./twitter-scraper/results/profile.json">Profile pages</a></li>
+        <li><a href="./twitter-scraper/results/tweet.json">Tweet pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/twitter-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/twitter-scraper.svg" alt="twitter-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./vestiairecollective-scraper/">VestiaireCollective.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-vestiairecollective">How to Scrape Vestiaire Collective for Fashion Product Data</a></td>
     <td>
@@ -992,17 +993,28 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./glassdoor-scraper/">Glassdoor.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-glassdoor">How to Scrape Glassdoor (2025 update)</a></td>
+    <td><a href="./amazon-scraper/">Amazon.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-amazon">How to Scrape Amazon.com Product Data and Reviews</a></td>
     <td>
     <ul>
-        <li><a href="./glassdoor-scraper/results/jobs.json">Job pages</a></li>
-        <li><a href="./glassdoor-scraper/results/reviews.json">Review pages</a></li>
-        <li><a href="./glassdoor-scraper/results/salaries.json">Salary pages</a></li>
-        <li><a href="./glassdoor-scraper/results/companies.json">Companies</a></li>
+        <li><a href="./amazon-scraper/results/product.json">Product pages</a></li>
+        <li><a href="./amazon-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/glassdoor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/glassdoor-scraper.svg" alt="glassdoor-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./goibibo-scraper/">Goibibo</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
+        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1033,18 +1045,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./twitter-scraper/">Twitter(X).com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-twitter">How to Scrape X.com (Twitter) using Python (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="./twitter-scraper/results/profile.json">Profile pages</a></li>
-        <li><a href="./twitter-scraper/results/tweet.json">Tweet pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/twitter-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/twitter-scraper.svg" alt="twitter-scraper-status"></a></td>
   </tr>
 
   <tr>
