@@ -1,6 +1,6 @@
 # ScrapFly Scrapers 🕷️
 
-[English](../README.md) · [简体中文](README.zh-CN.md) · **日本語** · [Español](README.es.md)
+[English](../README.md) · [简体中文](README.zh-CN.md) · **日本語** · [Español](README.es.md) · [Русский](README.ru.md)
 
 このリポジトリには、[ScrapFly](https://scrapfly.io) のウェブスクレイピング API と Python を使って人気サイトをスクレイピングする、学習用のサンプルスクレイパーが含まれています。  
 ほとんどのスクレイパーはシンプルな構成で作られています：

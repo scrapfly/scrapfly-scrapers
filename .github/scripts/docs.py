@@ -40,6 +40,7 @@ TRANSLATIONS = {
     "zh-CN": ("网站", "指南", "示例数据", "状态"),
     "ja": ("サイト", "ガイド", "サンプルデータ", "ステータス"),
     "es": ("Dominio", "Guía", "Datos de ejemplo", "Estado"),
+    "ru": ("Сайт", "Руководство", "Примеры данных", "Статус"),
 }
 HEADERS = ("Domain", "Guide", "Sample Datasets", "Status")
 TABLE_NOTE = (
