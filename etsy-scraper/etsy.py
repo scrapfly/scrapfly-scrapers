@@ -16,7 +16,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass Etsy.com web scraping blocking
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     # set the poxy location to US
     "country": "US",
 }

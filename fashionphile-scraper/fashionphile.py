@@ -17,7 +17,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass fashionphile.com web scraping blocking
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     # set the proxy country to US
     "country": "US",
     "render_js": True,

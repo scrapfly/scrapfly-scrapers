@@ -9,7 +9,7 @@ from urllib.parse import urlencode
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     "country": "GB",
     "proxy_pool": "public_residential_pool",
     "debug":True,

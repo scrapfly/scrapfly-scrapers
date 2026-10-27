@@ -12,7 +12,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
 BASE_CONFIG = {
     # bypass bestbuy.com web scraping blocking
-    "asp": True,
+    "unblocker": True,  # previously "asp", still accepted as an alias
     # set the proxy country to US
     "country": "US",
     "proxy_pool":"public_residential_pool",

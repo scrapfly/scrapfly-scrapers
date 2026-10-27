@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape hotel data from booking.com. 
 
-Booking.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Anti Scraping Protection Bypass](https://scrapfly.io/docs/scrape-api/anti-scraping-protection) feature.
+Booking.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature (previously Anti Scraping Protection).
 
 Full tutorial: <https://scrapfly.io/blog/how-to-scrape-bookingcom/>
 
