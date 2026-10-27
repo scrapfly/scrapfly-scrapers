@@ -72,8 +72,8 @@ jobs:
         poetry run pytest test.py -k ${{ matrix.test }} 2>&1 | tee pytest.log
 
     - name: Compose the Slack message
-      # one line: the scraper linked to this job's log at the failure, the test linked to its code, and how the test
-      # did on the previous nights (see .github/scripts/slack_message.py)
+      # "Scraper Tests" linked to the run, the scraper linked to this job's log at the failure, the test linked to its
+      # code, and the status (see .github/scripts/slack_message.py)
       id: slack
       if: failure() && github.event_name == 'schedule'
       env:
