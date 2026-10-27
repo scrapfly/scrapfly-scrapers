@@ -1,6 +1,6 @@
 # ScrapFly Scrapers 🕷️
 
-[English](../README.md) · **简体中文** · [日本語](README.ja.md) · [Español](README.es.md)
+[English](../README.md) · **简体中文** · [日本語](README.ja.md) · [Español](README.es.md) · [Русский](README.ru.md)
 
 本仓库收录了一系列教学用的示例爬虫，演示如何使用 [ScrapFly](https://scrapfly.io) 网页抓取 API 和 Python 抓取热门网站。  
 大多数爬虫使用一套简单的技术栈：
