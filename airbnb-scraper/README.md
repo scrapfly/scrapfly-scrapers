@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape rental listing data from Airbnb.com.
 
-Airbnb can be difficult to scrape because of scraper blocking and heavy JavaScript rendering, so this scraper uses Scrapfly's [Anti Scraping Protection Bypass](https://scrapfly.io/docs/scrape-api/anti-scraping-protection) feature with JavaScript rendering and residential proxies.
+Airbnb can be difficult to scrape because of scraper blocking and heavy JavaScript rendering, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature with JavaScript rendering and residential proxies.
 
 The scraping code is located in the `airbnb.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 

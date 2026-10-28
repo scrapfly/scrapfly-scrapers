@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape container tracking and schedule data from maersk.com.
 
-Maersk.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Anti Scraping Protection Bypass](https://scrapfly.io/docs/scrape-api/anti-scraping-protection) feature and browser rendering to capture the tracking and routings API responses.
+Maersk.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature and browser rendering to capture the tracking and routings API responses.
 
 The scraping code is located in the `maersk.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 

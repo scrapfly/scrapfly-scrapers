@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape shipment tracking data from dhl.com.
 
-DHL can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Anti Scraping Protection Bypass](https://scrapfly.io/docs/scrape-api/anti-scraping-protection) feature with JavaScript rendering and residential proxies.
+DHL can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature with JavaScript rendering and residential proxies.
 
 The scraping code is located in the `dhl.py` file. Example usage can be found in `run.py`.
 
