@@ -5,6 +5,19 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-airbnb",
         "title": "How to Scrape Airbnb Listings and Prices (2026)"
       }
+    ],
+    "name": "Airbnb.com",
+    "summary": "rental listing data from Airbnb.com",
+    "scrapes": [
+      "- Airbnb search for finding rental listings from location queries",
+      "- Airbnb property listing pages for:",
+      "    - listing info: title, description, room type, overview, amenities, images",
+      "    - host details and location coordinates",
+      "    - pricing, ratings, and review counts",
+      "    - guest review data"
+    ],
+    "notes": [
+      "Airbnb can be difficult to scrape because of scraper blocking and heavy JavaScript rendering, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature with JavaScript rendering and residential proxies."
     ]
   },
   "airfrance-scraper": {
@@ -13,6 +26,13 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-air-france-flights",
         "title": "How to Scrape Air France Flights with Python (2026)"
       }
+    ],
+    "name": "Air France",
+    "summary": "round-trip flight offers from airfrance.fr",
+    "scrapes": [
+      "- Air France round-trip search results",
+      "- Flight price, airline, departure/arrival times, stops, duration, layovers, and CO2 data",
+      "- Plane model, seats available, and promo flags"
     ]
   },
   "aliexpress-scraper": {
@@ -27,7 +47,13 @@
       "product.json": "Product pages",
       "search.json": "Search pages",
       "reviews.json": "Product reviews"
-    }
+    },
+    "summary": "product listing data from Aliexpress.com",
+    "scrapes": [
+      "- Aliexpress product data",
+      "- Aliexpress product review data",
+      "- Aliexpress product search"
+    ]
   },
   "allegro-scraper": {
     "guides": [
@@ -35,6 +61,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-allegro",
         "title": "How to Scrape Allegro.pl in 2026 (Without Getting Blocked)"
       }
+    ],
+    "name": "Allegro.pl",
+    "summary": "product data from Allegro.pl",
+    "scrapes": [
+      "- Allegro product pages for product listing data",
+      "- Allegro product search"
     ]
   },
   "amazon-scraper": {
@@ -49,7 +81,21 @@
       "product.json": "Product pages",
       "search.json": "Search pages",
       "reviews.json": "Product reviews"
-    }
+    },
+    "summary": "product listing data from Amazon.com",
+    "scrapes": [
+      "- Amazon product data",
+      "- Amazon product review data",
+      "- Amazon product search"
+    ]
+  },
+  "app-store-scraper": {
+    "name": "App Store",
+    "summary": "app data from apps.apple.com and itunes.apple.com (Apple App Store)",
+    "scrapes": [
+      "- App metadata (iTunes lookup API, with apps.apple.com fallback)",
+      "- App reviews (iTunes customer reviews RSS feed)"
+    ]
   },
   "autoscout24-scraper": {
     "guides": [
@@ -57,6 +103,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-autoscout24",
         "title": "How to Scrape AutoScout24 in 2026"
       }
+    ],
+    "name": "AutoScout24.com",
+    "summary": "car listings and car details from AutoScout24.com",
+    "scrapes": [
+      "- AutoScout24 car listings from search pages",
+      "- AutoScout24 car detail pages with specifications, features, and seller information"
     ]
   },
   "bestbuy-scraper": {
@@ -72,7 +124,14 @@
       "products.json": "Product pages",
       "reviews.json": "Review pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from BestBuy.com",
+    "scrapes": [
+      "- BestBuy sitemaps for URLs.",
+      "- BestBuy product pages for product data.",
+      "- BestBuy search pages for product data on search pages.",
+      "- BestBuy review pages for review data"
+    ]
   },
   "bing-scraper": {
     "name": "Bing.com",
@@ -85,7 +144,12 @@
     "datasets": {
       "serps.json": "SERP data",
       "keywords.json": "Keyword data"
-    }
+    },
+    "summary": "product listing data from Bing.com",
+    "scrapes": [
+      "- Bing search pages for search results data",
+      "- Bing search pages for keyword data"
+    ]
   },
   "bookingcom-scraper": {
     "name": "Booking.com",
@@ -98,7 +162,18 @@
     "datasets": {
       "hotel.json": "Hotel pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "hotel data from booking.com",
+    "scrapes": [
+      "- Booking.com search for finding hotels from search queries.",
+      "- Booking.com hotel listing details:",
+      "    - hotel info: description, rating, features etc.",
+      "    - prices",
+      "- Booking.com hotel review data"
+    ],
+    "notes": [
+      "Booking.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature (previously Anti Scraping Protection)."
+    ]
   },
   "capterra-scraper": {
     "guides": [
@@ -106,6 +181,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-capterra",
         "title": "How to Scrape Capterra Software Reviews and Listings (2026)"
       }
+    ],
+    "name": "Capterra.com",
+    "summary": "product listing and review data from Capterra.com",
+    "scrapes": [
+      "- Capterra category pages",
+      "- Capterra product review pages"
     ]
   },
   "chatgpt-scraper": {
@@ -114,6 +195,11 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-chatgpt",
         "title": "How to Scrape ChatGPT in 2026"
       }
+    ],
+    "name": "ChatGPT.com",
+    "summary": "anonymous conversation data from ChatGPT.com",
+    "scrapes": [
+      "- ChatGPT single prompt responses as markdown"
     ]
   },
   "crunchbase-scraper": {
@@ -127,7 +213,12 @@
     "datasets": {
       "company.json": "Company pages",
       "person.json": "Investor pages"
-    }
+    },
+    "summary": "company and public person datasets from Crunchbase.com",
+    "scrapes": [
+      "- Crunchbase.com company data including employees and all cards.",
+      "- Crunchbase.com public person data."
+    ]
   },
   "dhl-scraper": {
     "guides": [
@@ -135,6 +226,14 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-dhl",
         "title": "How to Scrape DHL Parcel Tracking Data in 2026"
       }
+    ],
+    "name": "DHL",
+    "summary": "shipment tracking data from dhl.com",
+    "scrapes": [
+      "- DHL shipment tracking by tracking number"
+    ],
+    "notes": [
+      "DHL can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature with JavaScript rendering and residential proxies."
     ]
   },
   "digikey-scraper": {
@@ -143,6 +242,13 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-digikey",
         "title": "How to Scrape DigiKey Pricing, Stock, and Specs in 2026"
       }
+    ],
+    "name": "DigiKey.com",
+    "summary": "product and listing data from DigiKey.com",
+    "scrapes": [
+      "- DigiKey product pages for product data, pricing, stock, specifications and compliance info",
+      "- DigiKey category/filter pages for product listing data",
+      "- DigiKey keyword search pages for listing data"
     ]
   },
   "domaincom-scraper": {
@@ -156,7 +262,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Domain.com.au",
+    "scrapes": [
+      "- Domain.com.au property search for finding property listings",
+      "- Domain.com.au property pages for property listing data"
+    ]
   },
   "ebay-scraper": {
     "name": "Ebay.com",
@@ -170,7 +281,13 @@
       "product.json": "Product pages",
       "product-with-variants.json": "Product pages with variant",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Ebay.com",
+    "scrapes": [
+      "- Ebay.com product search.",
+      "- Ebay.com product data.",
+      "- Ebay.com product variant data."
+    ]
   },
   "emirates-scraper": {
     "guides": [
@@ -178,6 +295,17 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-emirates-flights",
         "title": "How to Scrape Emirates Flights with Python (2026)"
       }
+    ],
+    "name": "Emirates",
+    "summary": "flight data from emirates.com",
+    "scrapes": [
+      "- Emirates.com flight search results (round-trip and one-way)",
+      "- Branded fare options per flight (SAVER, FLEX, etc.)",
+      "- Flight price, airline, departure/arrival times, stops, duration, layovers, cabin class, and seat availability",
+      "- Search-wide lowest fare"
+    ],
+    "notes": [
+      "Emirates.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature and browser rendering to capture the branded-fares API response."
     ]
   },
   "etsy-scraper": {
@@ -192,7 +320,25 @@
       "products.json": "Product pages",
       "shops.json": "Shop pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Etsy.com",
+    "scrapes": [
+      "- Etsy search pages for listing data",
+      "- Etsy product pages for product data",
+      "- Etsy shop pages for shop data"
+    ]
+  },
+  "expedia-scraper": {
+    "name": "Expedia.com",
+    "summary": "hotel and flight data from expedia.com",
+    "scrapes": [
+      "- Expedia.com hotel search results",
+      "- Hotel name, URL, prices, star rating, review score/count, and location",
+      "- Expedia.com flight search results (one-way and round-trip)"
+    ],
+    "notes": [
+      "Expedia.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature and browser rendering to capture Expedia's internal GraphQL API responses."
+    ]
   },
   "facebook-scraper": {
     "guides": [
@@ -200,6 +346,15 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-facebook",
         "title": "How to Scrape Facebook in 2026"
       }
+    ],
+    "name": "Facebook.com",
+    "summary": "data from Facebook.com",
+    "scrapes": [
+      "- Facebook Marketplace listings with product details, prices, seller info, and locations",
+      "- Facebook Events with event details, dates, locations, and hosts"
+    ],
+    "notes": [
+      "Note: This scraper is only scraping public Facebook data that doesn't require a login to access."
     ]
   },
   "fashionphile-scraper": {
@@ -213,7 +368,12 @@
     "datasets": {
       "products.json": "Product pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Fashionphile.com",
+    "scrapes": [
+      "- Fashionphile product pages",
+      "- Fashionphile search pages"
+    ]
   },
   "g2-scraper": {
     "name": "G2.com",
@@ -227,7 +387,13 @@
       "reviews.json": "Review pages",
       "search.json": "Search pages",
       "alternatives.json": "Alternatives pages"
-    }
+    },
+    "summary": "product listing data from G2.com",
+    "scrapes": [
+      "- G2 search pages for company listing data",
+      "- G2 review pages for company reviews data",
+      "- G2 alternative pages for company alternatives data"
+    ]
   },
   "glassdoor-scraper": {
     "name": "Glassdoor.com",
@@ -241,7 +407,13 @@
       "jobs.json": "Job pages",
       "reviews.json": "Review pages",
       "salaries.json": "Salary pages"
-    }
+    },
+    "summary": "job listing data from Glassdoor.com",
+    "scrapes": [
+      "- Glassdoor company salary data",
+      "- Glassdoor company review data",
+      "- Glassdoor company job listing data"
+    ]
   },
   "goat-scraper": {
     "name": "Goat.com",
@@ -254,7 +426,12 @@
     "datasets": {
       "products.json": "Product pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Goat.com",
+    "scrapes": [
+      "- Goat product pages",
+      "- Goat search pages"
+    ]
   },
   "goibibo-scraper": {
     "guides": [
@@ -262,6 +439,17 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices",
         "title": "How to Scrape Goibibo Prices in 2026"
       }
+    ],
+    "name": "Goibibo",
+    "summary": "hotel and flight search data from goibibo.com",
+    "scrapes": [
+      "- Goibibo hotel search results, with pagination",
+      "- Hotel name, price, rating, amenities, location, and images",
+      "- Goibibo flight search results (one-way and round-trip)",
+      "- Flight number, airline, fare, duration, stops, and leg details"
+    ],
+    "notes": [
+      "Goibibo.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature, browser rendering, and session-based requests to capture and paginate Goibibo's internal listing and flight search-stream APIs."
     ]
   },
   "goodreads-scraper": {
@@ -277,7 +465,14 @@
       "reviews.json": "Review pages",
       "list.json": "List pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "book data, ratings and reviews from Goodreads.com",
+    "scrapes": [
+      "- Goodreads book pages, from their JSON-LD `Book` block and the page markup",
+      "- Goodreads book reviews, the review sample a book page ships with, from its `__NEXT_DATA__` Apollo records",
+      "- Goodreads list pages, which turn a public list into book stubs and book URLs",
+      "- Goodreads book search results, from the `Book` records in the page's Next.js flight data"
+    ]
   },
   "google-flights-scraper": {
     "guides": [
@@ -285,6 +480,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-google-flights",
         "title": "How to Scrape Google Flights Data in 2026"
       }
+    ],
+    "name": "Google Flights",
+    "summary": "flight data from Google Flights",
+    "scrapes": [
+      "- Google Flights search results (round-trip and one-way)",
+      "- Price insights: best booking window, typical price range, current price level, savings vs typical, and a departure/return date price calendar grid"
     ]
   },
   "google-jobs-scraper": {
@@ -293,6 +494,13 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-google-jobs",
         "title": "How to Scrape Google Jobs in 2026"
       }
+    ],
+    "name": "Google Jobs",
+    "summary": "job listing data from Google Jobs (the `udm=8` vertical on Google Search)",
+    "scrapes": [
+      "- Google Jobs search results for a given query and location",
+      "- Job title, company, location, posted date, schedule type, and salary range",
+      "- Job description, qualifications, source board, application URL, and job ID"
     ]
   },
   "google-play-scraper": {
@@ -301,6 +509,13 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-google-play-app-reviews-and-data",
         "title": "How to Scrape Google Play App Reviews and Data"
       }
+    ],
+    "name": "Google Play",
+    "summary": "app data from play.google.com (Google Play Store)",
+    "scrapes": [
+      "- Google Play app detail pages for app data",
+      "- Google Play app reviews",
+      "- Google Play search pages for app listing data"
     ]
   },
   "google-scraper": {
@@ -320,7 +535,14 @@
       "keywords.json": "Keyword data",
       "google_map_places_urls.json": "Google Maps place URLs",
       "google_map_places.json": "Google Maps place data"
-    }
+    },
+    "summary": "product listing data from Google.com",
+    "scrapes": [
+      "- Google search pages for serp and rankings data",
+      "- Google search pages for SEO keyword data",
+      "- Google Maps for places' URLs",
+      "- Google Maps palce pages for places' data"
+    ]
   },
   "homegate-scraper": {
     "name": "Homegate.ch",
@@ -333,7 +555,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Homegate.ch",
+    "scrapes": [
+      "- Homegate property search for finding property listings",
+      "- Homagete property pages for property listing data"
+    ]
   },
   "idealista-scraper": {
     "name": "Idealista.com",
@@ -347,7 +574,22 @@
       "properties.json": "Property pages",
       "search_data.json": "Search pages",
       "search_URLs.json": "Provinces pages"
-    }
+    },
+    "summary": "property listing data from idealista.com",
+    "scrapes": [
+      "- Idealista property search for finding property listings",
+      "- Idealista property pages for property listing data",
+      "- Idealista province pages for property URLs"
+    ]
+  },
+  "idealo-scraper": {
+    "name": "Idealo.de",
+    "summary": "product data from Idealo.de",
+    "scrapes": [
+      "- Idealo product pages for product and offer data",
+      "- Idealo search pages for listing data",
+      "- Idealo manufacturer pages for brand listings"
+    ]
   },
   "imdb-scraper": {
     "guides": [
@@ -355,6 +597,15 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-imdb",
         "title": "How to Scrape IMDb Data, Ratings, and Featured Reviews"
       }
+    ],
+    "name": "IMDb.com",
+    "summary": "data from IMDb.com",
+    "scrapes": [
+      "- IMDb title pages for movie/TV metadata",
+      "- IMDb review pages for user reviews",
+      "- IMDb search pages for title search results",
+      "- IMDb chart pages (e.g. Top 250)",
+      "- IMDb person pages for biography and filmography"
     ]
   },
   "immobilienscout24-scraper": {
@@ -368,7 +619,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Immobilienscout24.de",
+    "scrapes": [
+      "- Immobilienscout24 property search for finding property listings",
+      "- Immobilienscout24 property pages for property listing data"
+    ]
   },
   "immoscout24-scraper": {
     "name": "Immoscout24.ch",
@@ -381,7 +637,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Immoscout24.ch",
+    "scrapes": [
+      "- Immoscout24 property search for finding property listings",
+      "- Immoscout24 property pages for property listing data"
+    ]
   },
   "immowelt-scraper": {
     "name": "Immowelt.de",
@@ -394,7 +655,16 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Immowelt.de",
+    "scrapes": [
+      "- Immowelt property pages for property listing data",
+      "- Immowelt property search for finding property listings"
+    ],
+    "notes": [
+      "In the property search scraper, you need to add `location_ids` to the API request body, which represents the search location. To get these ids, follow these steps:  \n1. Search for properties in a specific location on immowelt.de  \n2. Open developer tools and select the `Network` tab then filter by `Fetch/XHR` requests  \n3. Click on the next search page button to load more data  \n4. You will see the request made to the search API, which is named `searches`  \n5. Grab the `location_ids` from the request `Payload`:",
+      "<img src=\"https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809\" align=\"center\" height=\"400\" width=\"600\">  \n<br/><br/>"
+    ]
   },
   "imovelweb-scraper": {
     "guides": [
@@ -402,6 +672,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-imovelweb",
         "title": "How to Scrape Imovelweb Without Getting Blocked in 2026"
       }
+    ],
+    "name": "ImovelWeb.com.br",
+    "summary": "property listing data from ImovelWeb.com.br",
+    "scrapes": [
+      "- ImovelWeb property search results",
+      "- ImovelWeb individual property pages"
     ]
   },
   "indeed-scraper": {
@@ -415,7 +691,12 @@
     "datasets": {
       "jobs.json": "Job pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "job listing data from Indeed.com",
+    "scrapes": [
+      "- Indeed job search for finding job listings",
+      "- Indeed job pages for job listing datasets"
+    ]
   },
   "instagram-scraper": {
     "name": "Instagram.com",
@@ -430,7 +711,15 @@
       "all-user-posts.json": "All user posts",
       "multi-image-post.json": "Multi image post",
       "video-post.json": "Video Post"
-    }
+    },
+    "summary": "user and user post datasets from Instagram.com",
+    "scrapes": [
+      "- Instagram.com user information",
+      "- Instagram.com user posts"
+    ],
+    "notes": [
+      "Note: This scraper is only scraping public Instagram data that doesn't require a login to access."
+    ]
   },
   "kayak-scraper": {
     "guides": [
@@ -438,6 +727,16 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-kayak",
         "title": "How to Scrape Kayak Flight Prices in 2026"
       }
+    ],
+    "name": "Kayak",
+    "summary": "flight data from kayak.com",
+    "scrapes": [
+      "- Kayak flight search results (round-trip and one-way)",
+      "- Flight price, airline code, departure/arrival times, and booking options",
+      "- Search metadata (search ID, filtered/total counts, pages scraped)"
+    ],
+    "notes": [
+      "Kayak.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature, browser rendering, and session-based requests to capture and paginate Kayak's internal flights poll API."
     ]
   },
   "leboncoin-scraper": {
@@ -451,7 +750,12 @@
     "datasets": {
       "ads.json": "Ad pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property data from leboncoin.fr",
+    "scrapes": [
+      "- Leboncoin search for finding ad listings",
+      "- Leboncoin ad pages for ads data"
+    ]
   },
   "linkedin-scraper": {
     "name": "Linkedin.com",
@@ -467,7 +771,23 @@
       "job_search.json": "Job search pages",
       "jobs.json": "Job pages",
       "articles.json": "Article pages"
-    }
+    },
+    "summary": "data from linkedin.com",
+    "scrapes": [
+      "- Linkedin public profile pages for profile data",
+      "- Linkedin company pages for company data",
+      "- Linkedin job search pages for job data",
+      "- Linkedin job pages for detailed job data",
+      "- Linkedin article pages for article data"
+    ]
+  },
+  "loopnet-scraper": {
+    "name": "LoopNet.com",
+    "summary": "commercial real estate listing data from LoopNet.com",
+    "scrapes": [
+      "- LoopNet search pages for finding commercial property listings",
+      "- LoopNet listing pages for property details, broker info, and images"
+    ]
   },
   "lowes-scraper": {
     "guides": [
@@ -475,6 +795,13 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-lowe",
         "title": "How to Scrape Lowe's Product and Pricing Data in 2026"
       }
+    ],
+    "name": "Lowes.com",
+    "summary": "data from Lowes.com",
+    "scrapes": [
+      "- Lowes product pages",
+      "- Lowes search pages",
+      "- Lowes store locations"
     ]
   },
   "maersk-scraper": {
@@ -483,6 +810,15 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-maersk",
         "title": "How to Scrape Maersk Shipping Data in 2026"
       }
+    ],
+    "name": "Maersk",
+    "summary": "container tracking and schedule data from maersk.com",
+    "scrapes": [
+      "- Maersk.com container, BL, and booking tracking",
+      "- Point-to-point schedule routes with vessels, voyages, transit times, and port calls"
+    ],
+    "notes": [
+      "Maersk.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature and browser rendering to capture the tracking and routings API responses."
     ]
   },
   "marriott-scraper": {
@@ -492,6 +828,16 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-marriott",
         "title": "Scraping Marriott Hotel Prices and Availability (2026)"
       }
+    ],
+    "summary": "hotel data from Marriott.com",
+    "scrapes": [
+      "- Marriott hotel search for finding hotels in a destination for given dates:",
+      "    - hotel name, brand, location, distance, rating and review count, thumbnail, lowest price",
+      "- Marriott hotel details for:",
+      "    - address, phone, description, check-in and check-out times, pet and smoking policies"
+    ],
+    "notes": [
+      "Marriott.com can be difficult to scrape because of scraper blocking and heavy JavaScript rendering, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature with JavaScript rendering and residential proxies."
     ]
   },
   "mouser-scraper": {
@@ -500,6 +846,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026",
         "title": "How to Scrape Mouser.com in 2026"
       }
+    ],
+    "name": "Mouser.com",
+    "summary": "product data from Mouser.com",
+    "scrapes": [
+      "- Mouser product pages",
+      "- Mouser product search"
     ]
   },
   "naver-scraper": {
@@ -508,6 +860,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-naver",
         "title": "How to Scrape Naver.com: 2026 Python Guide"
       }
+    ],
+    "name": "Naver.com",
+    "summary": "search results, news articles, and blog content from Naver.com",
+    "scrapes": [
+      "- Naver web search results",
+      "- Naver image search reesults"
     ]
   },
   "nordstorm-scraper": {
@@ -521,7 +879,12 @@
     "datasets": {
       "products.json": "Product pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Nordstorm.com",
+    "scrapes": [
+      "- Nordstorm product pages",
+      "- Nordstorm search pages"
+    ]
   },
   "perplexity-scraper": {
     "guides": [
@@ -529,6 +892,11 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-perplexity",
         "title": "How to Scrape Perplexity AI in 2026"
       }
+    ],
+    "name": "Perplexity.ai",
+    "summary": "data from perplexity.ai",
+    "scrapes": [
+      "- Answer pages: query, answer markdown, cited domains, source count, follow-up suggestions"
     ]
   },
   "pinterest-scraper": {
@@ -537,6 +905,18 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-pinterest",
         "title": "How to Scrape Pinterest in 2026"
       }
+    ],
+    "name": "Pinterest.com",
+    "summary": "data from Pinterest.com",
+    "scrapes": [
+      "- Pinterest.com search results for pin data including titles, descriptions, images, videos, destination links, board names, and owner usernames",
+      "- Pinterest.com boards (`/<user>/<board>/`) for board metadata and their pins",
+      "- Pinterest.com profiles (`/<user>/`) for profile metadata and the user's pins",
+      "- Pinterest.com pin detail pages (`/pin/<id>/`) for full pin data",
+      "- Bulk pin image downloads"
+    ],
+    "notes": [
+      "### How It Works\n\nPinterest's board and profile pages server-render a resource cache (embedded in\nthe page's `__PWS_INITIAL_PROPS__` script tag) describing which internal\n`/resource/<Name>/get/` feed backs the page. Every page of pins — including the\nfirst — is then fetched from that API, authorized with the `csrftoken` cookie\nand `x-app-version` header captured from the same browser session. No login is\nrequired, since this is all public data.\n\nThose feeds are *gated* by default: the request Pinterest's own front end makes\n(and the copy cached in the page) returns image-only pin stubs with no title,\ndescription, board or owner. Each call therefore forces `\"gated\": false` in the\nresource options to get the full pin objects back, and the scraper raises if a\npage comes back as stubs anyway rather than silently emitting empty pins.\n\nPin detail pages render client side and expose no resource cache at all, so\n`scrape_pin` reads the pin from the `PinResource` API using the same session.\nDeleted or private pins quietly redirect to `/ideas/` instead of returning a\n404, which `scrape_pin` detects and reports."
     ]
   },
   "realestatecom-scraper": {
@@ -550,7 +930,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Realestate.com.au",
+    "scrapes": [
+      "- Realestate.com.au property search for finding property listings",
+      "- Realestate.com.au property pages for property listing data"
+    ]
   },
   "realtorcom-scraper": {
     "name": "Realtor.com",
@@ -564,7 +949,13 @@
       "property.json": "Property pages",
       "search.json": "Search pages",
       "feed.json": "Feed pages"
-    }
+    },
+    "summary": "property listing data from Realtor.com",
+    "scrapes": [
+      "- Realtor.com property listing data",
+      "- Realtor.com search results",
+      "- Realtor.com property change feeds (RSS)"
+    ]
   },
   "reddit-scraper": {
     "name": "Reddit.com",
@@ -579,7 +970,14 @@
       "subreddit.json": "Subreddit pages",
       "user_comments.json": "User comment pages",
       "user_posts.json": "User post pages"
-    }
+    },
+    "summary": "data from reddit.com",
+    "scrapes": [
+      "- Reddit subreddit pages for subbreddit and post data.",
+      "- Reddit post pages for post and comment data.",
+      "- Reddit user profile pages for post data.",
+      "- Reddit user profile pages for comment data."
+    ]
   },
   "redfin-scraper": {
     "name": "Redfin.com",
@@ -593,7 +991,12 @@
       "properties_for_sale.json": "Property pages for sale",
       "properties_for_rent.json": "Property pages for rent",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Redfin.com",
+    "scrapes": [
+      "- Redfin's property search for finding property listings",
+      "- Redfin's property pages for property for rent/sale listing data"
+    ]
   },
   "rightmove-scraper": {
     "name": "Rightmove.com",
@@ -606,7 +1009,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Rightmove.com",
+    "scrapes": [
+      "- Rightmove property search for finding property listings",
+      "- Rightmove property pages for property listing data"
+    ]
   },
   "rs-online-scraper": {
     "guides": [
@@ -614,6 +1022,13 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-rs-online",
         "title": "How to Scrape RS-Online (rs-online.com) in 2026"
       }
+    ],
+    "name": "Rs-online.com",
+    "summary": "product and listing data from Rs-online.com",
+    "scrapes": [
+      "- RS Online product pages for product data, pricing, stock, specifications and compliance info",
+      "- RS Online category pages for product listing data",
+      "- RS Online keyword search pages for product listing data"
     ]
   },
   "seloger-scraper": {
@@ -627,7 +1042,12 @@
     "datasets": {
       "property.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "real estate data from seloger.com",
+    "scrapes": [
+      "- Seloger search for finding property listings",
+      "- Seloger propery pages for property data"
+    ]
   },
   "shopify-scraper": {
     "name": "Shopify stores",
@@ -643,7 +1063,18 @@
       "collection.json": "Collection products",
       "product_pages.json": "Product pages",
       "product_urls.json": "Sitemap product urls"
-    }
+    },
+    "summary": "product data from Shopify storefronts",
+    "scrapes": [
+      "- Shopify storefront preflight, which classifies the `/products.json` response of a store",
+      "- Shopify catalog pages from `/products.json`, with products, prices and nested variants",
+      "- Shopify collection products from `/collections/<handle>/products.json`",
+      "- Shopify product pages through their JSON-LD `Product` and `ProductGroup` data",
+      "- Shopify product URLs from the store sitemap index"
+    ],
+    "notes": [
+      "Every route is store dependent, so run the preflight before assuming a store serves catalog JSON."
+    ]
   },
   "similarweb-scraper": {
     "name": "Similarweb.com",
@@ -658,7 +1089,14 @@
       "websites_compare.json": "Website compare pages",
       "trends.json": "Trend pages",
       "sitemap_urls.json": "Sitemaps"
-    }
+    },
+    "summary": "property listing data from Similarweb.com",
+    "scrapes": [
+      "- Similarweb.com website pages for website traffic inisghts",
+      "- Similarweb.com website comparing pages for comparing insights",
+      "- Similarweb.com website trend pages for trending websites data",
+      "- Similarweb.com sitemaps for urls"
+    ]
   },
   "skyscanner-scraper": {
     "guides": [
@@ -666,6 +1104,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-skyscanner",
         "title": "How to Scrape Skyscanner Flight Prices in Python (2026)"
       }
+    ],
+    "name": "Skyscanner",
+    "summary": "flight data from Skyscanner",
+    "scrapes": [
+      "- Skyscanner flight search results (one-way and round-trip)",
+      "- Carrier, departure/arrival times, duration, stops, price, and provider deal count"
     ]
   },
   "stockx-scraper": {
@@ -679,7 +1123,12 @@
     "datasets": {
       "product.json": "Product pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from StockX.com",
+    "scrapes": [
+      "- StockX product data",
+      "- StockX product search"
+    ]
   },
   "target-scraper": {
     "guides": [
@@ -687,6 +1136,15 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-target-com",
         "title": "How to Scrape Target.com Product and Pricing Data"
       }
+    ],
+    "name": "Target.com",
+    "summary": "product and store data from Target.com",
+    "scrapes": [
+      "- Target product pages for product data, variants, pricing, and stock status",
+      "- Target search pages for product listing data",
+      "- Target RedSky API for product availability and fulfillment by store and zip code",
+      "- Target store sitemap for store location URLs",
+      "- Target RedSky API for store location details by store ID"
     ]
   },
   "threads-scraper": {
@@ -700,7 +1158,15 @@
     "datasets": {
       "profile.json": "Profile pages",
       "thread.json": "Thread pages"
-    }
+    },
+    "summary": "Threads.net post and profile data",
+    "scrapes": [
+      "- Threads.net Thread (aka post) data",
+      "- Threads.net Profile data"
+    ],
+    "notes": [
+      "Note: This scraper is only scraping public Threads data that doesn't require a login to access."
+    ]
   },
   "ticketmaster-scraper": {
     "guides": [
@@ -708,6 +1174,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-ticketmaster",
         "title": "How to Scrape Ticketmaster in 2026"
       }
+    ],
+    "name": "Ticketmaster.com",
+    "summary": "artist and event data from Ticketmaster.com",
+    "scrapes": [
+      "- Ticketmaster artist pages for artist data, ratings, reviews, and events",
+      "- Ticketmaster discovery/search pages for event listings with filters"
     ]
   },
   "tiktok-scraper": {
@@ -724,7 +1196,15 @@
       "profiles.json": "Profile data",
       "channel.json": "Channel data",
       "search.json": "Search data"
-    }
+    },
+    "summary": "data from tiktok.com",
+    "scrapes": [
+      "- TikTok post pages for post/video data.",
+      "- TikTok comments for comment data on a specific post/video.",
+      "- TikTok profile pages for profile data.",
+      "- TikTok channel pages for video data.",
+      "- TikTok search pages for video data on search results. It can scrape profiles as well."
+    ]
   },
   "tripadvisor-scraper": {
     "name": "Tripadvisor.com",
@@ -738,7 +1218,17 @@
       "hotels.json": "Hotel pages",
       "search.json": "Search pages",
       "location.json": "Location pages"
-    }
+    },
+    "summary": "data from tripadvisor.com",
+    "scrapes": [
+      "- TripAdvisor search for finding hotels from search queries.",
+      "  e.g. <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+      "- TripAdvisor hotel listing details:",
+      "  e.g. <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+      "    - hotel info: description, rating, features etc.",
+      "    - prices",
+      "    - reviews"
+    ]
   },
   "trustpilot-scraper": {
     "name": "Trustpilot.com",
@@ -752,7 +1242,13 @@
       "companies.json": "Company pages",
       "reviews.json": "Reviews pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Trustpilot.com",
+    "scrapes": [
+      "- Trustpilot company pages for company data",
+      "- Trustpilot search pages for company listing data",
+      "- Trustpilot review pages for company reviews"
+    ]
   },
   "twitter-scraper": {
     "name": "Twitter(X).com",
@@ -765,7 +1261,17 @@
     "datasets": {
       "profile.json": "Profile pages",
       "tweet.json": "Tweet pages"
-    }
+    },
+    "summary": "public X.com (formerly Twitter) posts and user data",
+    "scrapes": [
+      "- X.com post data",
+      "- X.com user profile data"
+    ],
+    "notes": [
+      "What is NOT possible to scrape without login through X.com website:",
+      "- Post replies\n- Post search",
+      "Note: This scraper is only scraping public Twitter data that doesn't require a login to access."
+    ]
   },
   "vestiairecollective-scraper": {
     "name": "VestiaireCollective.com",
@@ -778,7 +1284,12 @@
     "datasets": {
       "products.json": "Product pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Vestiairecollective.com",
+    "scrapes": [
+      "- Vestiairecollective product pages",
+      "- Vestiairecollective search pages"
+    ]
   },
   "walmart-scraper": {
     "name": "Walmart.com",
@@ -791,7 +1302,12 @@
     "datasets": {
       "products.json": "Product pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Walmart.com",
+    "scrapes": [
+      "- Walmart Product pages",
+      "- Walmart search pages"
+    ]
   },
   "wellfound-scraper": {
     "name": "Wellfound.com",
@@ -804,7 +1320,12 @@
     "datasets": {
       "companies.json": "Company pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Wellfound.com",
+    "scrapes": [
+      "- Wellfound company pages",
+      "- Wellfound search pages"
+    ]
   },
   "yellowpages-scraper": {
     "name": "Yellowpages.com",
@@ -817,7 +1338,12 @@
     "datasets": {
       "business_pages.json": "Business pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Yellowpages.com",
+    "scrapes": [
+      "- Yellowpages business pages",
+      "- Yellowpages search pages"
+    ]
   },
   "yelp-scraper": {
     "name": "Yelp.com",
@@ -831,7 +1357,13 @@
       "business_pages.json": "Business pages",
       "reviews.json": "Review pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "product listing data from Yelp.com",
+    "scrapes": [
+      "- Yelp business pages",
+      "- Yelp search pages",
+      "- Yelp review pages"
+    ]
   },
   "youtube-scraper": {
     "name": "YouTube.com",
@@ -847,7 +1379,16 @@
       "videos.json": "Video metadata",
       "comments.json": "Video comments",
       "shorts.json": "Shorts' metadata"
-    }
+    },
+    "summary": "public YouTube.com video, channel, comments, search, and short videos",
+    "scrapes": [
+      "- YouTube video metadata",
+      "- YouTube video comments",
+      "- YouTube channel metadata",
+      "- YouTube channel videos",
+      "- YouTube search",
+      "- YouTube shorts metadata"
+    ]
   },
   "zillow-scraper": {
     "name": "Zillow.com",
@@ -860,7 +1401,12 @@
     "datasets": {
       "property.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property data from Zillow.com",
+    "scrapes": [
+      "- Zillow search for finding property listings",
+      "- Zillow property pages for property datasets"
+    ]
   },
   "zoominfo-scraper": {
     "name": "Zoominfo.com",
@@ -874,7 +1420,12 @@
       "companies.json": "Company pages",
       "directory.json": "Directory pages",
       "faqs.json": "FAQs data"
-    }
+    },
+    "summary": "product listing data from Zoominfo.com",
+    "scrapes": [
+      "- Zoominfo company pages",
+      "- Zoominfo directory pages"
+    ]
   },
   "zoopla-scraper": {
     "name": "Zoopla.co.uk",
@@ -887,7 +1438,12 @@
     "datasets": {
       "properties.json": "Property pages",
       "search.json": "Search pages"
-    }
+    },
+    "summary": "property listing data from Zoopla.com",
+    "scrapes": [
+      "- Zoopla property search for finding property listings",
+      "- Zoopla property pages for property listing data"
+    ]
   },
   "zoro-scraper": {
     "guides": [
@@ -895,6 +1451,12 @@
         "url": "https://scrapfly.io/blog/posts/how-to-scrape-zoro-dot-com",
         "title": "How to Scrape Zoro.com in 2026 (without getting blocked)"
       }
+    ],
+    "name": "Zoro.com",
+    "summary": "product and search listing data from Zoro.com",
+    "scrapes": [
+      "- Zoro.com product pages for detailed product data, specifications, images, ratings, and reviews",
+      "- Zoro.com search listing pages for product listings with metadata"
     ]
   }
 }
