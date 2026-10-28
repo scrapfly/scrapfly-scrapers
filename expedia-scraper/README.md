@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape hotel and flight data from expedia.com.
 
-Expedia.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Anti Scraping Protection Bypass](https://scrapfly.io/docs/scrape-api/anti-scraping-protection) feature and browser rendering to capture Expedia's internal GraphQL API responses.
+Expedia.com can be difficult to scrape because of scraper blocking so this scraper is using Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature and browser rendering to capture Expedia's internal GraphQL API responses.
 
 The scraping code is located in the `expedia.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 

@@ -2,7 +2,7 @@
 
 This scraper is using [scrapfly.io](https://scrapfly.io/) and Python to scrape flight data from kayak.com.
 
-Kayak.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Anti Scraping Protection Bypass](https://scrapfly.io/docs/scrape-api/anti-scraping-protection) feature, browser rendering, and session-based requests to capture and paginate Kayak's internal flights poll API.
+Kayak.com can be difficult to scrape because of scraper blocking, so this scraper uses Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) feature, browser rendering, and session-based requests to capture and paginate Kayak's internal flights poll API.
 
 The scraping code is located in the `kayak.py` file. It's fully documented and simplified for educational purposes and the example scraper run code can be found in `run.py` file.
 
