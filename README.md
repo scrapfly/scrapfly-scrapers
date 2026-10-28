@@ -78,6 +78,19 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./amazon-scraper/">Amazon.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-amazon">How to Scrape Amazon.com Product Data and Reviews</a></td>
+    <td>
+    <ul>
+        <li><a href="./amazon-scraper/results/product.json">Product pages</a></li>
+        <li><a href="./amazon-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./app-store-scraper/">App Store</a></td>
     <td>-</td>
     <td>
@@ -324,6 +337,18 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goat-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goat-scraper.svg" alt="goat-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./goibibo-scraper/">Goibibo</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
+        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -634,6 +659,17 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
+    <td><a href="./perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./pinterest-scraper/">Pinterest.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-pinterest">How to Scrape Pinterest in 2026</a></td>
     <td>
@@ -788,6 +824,21 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/stockx-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/stockx-scraper.svg" alt="stockx-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./target-scraper/">Target.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-target-com">How to Scrape Target.com Product and Pricing Data</a></td>
+    <td>
+    <ul>
+        <li><a href="./target-scraper/results/availability.json">Availability</a></li>
+        <li><a href="./target-scraper/results/product.json">Product</a></li>
+        <li><a href="./target-scraper/results/search.json">Search</a></li>
+        <li><a href="./target-scraper/results/store_locations.json">Store locations</a></li>
+        <li><a href="./target-scraper/results/stores.json">Stores</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -995,31 +1046,6 @@ The status comes from the nightly test run, which also orders the table: scraper
   </tr>
 
   <tr>
-    <td><a href="./amazon-scraper/">Amazon.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-amazon">How to Scrape Amazon.com Product Data and Reviews</a></td>
-    <td>
-    <ul>
-        <li><a href="./amazon-scraper/results/product.json">Product pages</a></li>
-        <li><a href="./amazon-scraper/results/search.json">Search pages</a></li>
-        <li><a href="./amazon-scraper/results/reviews.json">Product reviews</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/amazon-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/amazon-scraper.svg" alt="amazon-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./goibibo-scraper/">Goibibo</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
-        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./instagram-scraper/">Instagram.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
     <td>
@@ -1032,32 +1058,6 @@ The status comes from the nightly test run, which also orders the table: scraper
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./target-scraper/">Target.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-target-com">How to Scrape Target.com Product and Pricing Data</a></td>
-    <td>
-    <ul>
-        <li><a href="./target-scraper/results/availability.json">Availability</a></li>
-        <li><a href="./target-scraper/results/product.json">Product</a></li>
-        <li><a href="./target-scraper/results/search.json">Search</a></li>
-        <li><a href="./target-scraper/results/store_locations.json">Store locations</a></li>
-        <li><a href="./target-scraper/results/stores.json">Stores</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
 </table>
