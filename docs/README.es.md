@@ -22,7 +22,7 @@ Cada scraper vive en su propia carpeta y funciona por separado (Python 3.10+ y [
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
 cd scrapfly-scrapers/airbnb-scraper       # cualquier carpeta de la lista de abajo
 export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"   # desde https://scrapfly.io/dashboard
-poetry install
+poetry install --no-root
 poetry run python run.py                  # scraping de ejemplo, guarda su salida en ./results
 poetry run pytest test.py                 # los tests del scraper
 ```

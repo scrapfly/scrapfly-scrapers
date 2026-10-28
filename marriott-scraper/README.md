@@ -31,7 +31,7 @@ This Marriott scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/
     ```shell
     $ git clone https://github.com/scrapfly/scrapfly-scrapers.git
     $ cd scrapfly-scrapers/marriott-scraper
-    $ poetry install
+    $ poetry install --no-root
     ```
 3. Run example scrape:
     ```shell
@@ -39,7 +39,7 @@ This Marriott scraper uses __Python 3.10__ with [scrapfly-sdk](https://pypi.org/
     ```
 4. Run tests:
     ```shell
-    $ poetry install --with dev
+    $ poetry install --no-root
     $ poetry run pytest test.py
     # or specific scraping areas
     $ poetry run pytest test.py -k test_search_scraping

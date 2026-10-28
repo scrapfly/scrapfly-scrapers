@@ -22,7 +22,7 @@ AI エージェントや LLM ツール向けには、[llms.txt](../llms.txt) に
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
 cd scrapfly-scrapers/airbnb-scraper       # 下の一覧にある任意のフォルダー
 export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"   # 取得先: https://scrapfly.io/dashboard
-poetry install
+poetry install --no-root
 poetry run python run.py                  # サンプルのスクレイピング、結果は ./results に保存
 poetry run pytest test.py                 # スクレイパーのテスト
 ```

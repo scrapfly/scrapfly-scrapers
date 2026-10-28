@@ -22,7 +22,7 @@
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
 cd scrapfly-scrapers/airbnb-scraper       # 下方列表中的任意文件夹
 export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"   # 获取地址： https://scrapfly.io/dashboard
-poetry install
+poetry install --no-root
 poetry run python run.py                  # 示例抓取，结果保存在 ./results
 poetry run pytest test.py                 # 运行该爬虫的测试
 ```

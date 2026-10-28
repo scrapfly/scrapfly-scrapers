@@ -22,7 +22,7 @@
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
 cd scrapfly-scrapers/airbnb-scraper       # любая папка из списка ниже
 export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"   # ключ с https://scrapfly.io/dashboard
-poetry install
+poetry install --no-root
 poetry run python run.py                  # пример скрапинга, результат сохраняется в ./results
 poetry run pytest test.py                 # тесты скрапера
 ```
