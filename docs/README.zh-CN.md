@@ -27,7 +27,7 @@ poetry run python run.py                  # 示例抓取，结果保存在 ./res
 poetry run pytest test.py                 # 运行该爬虫的测试
 ```
 
-每个文件夹的 README 说明了该爬虫抓取哪些数据。发现某个爬虫无法使用？请[提交 issue](https://github.com/scrapfly/scrapfly-scrapers/issues/new?template=scraper-bug.md)。
+每个文件夹的 README 说明了该爬虫抓取哪些数据。
 
 ## 爬虫列表
 下表列出了各个支持网站的爬虫，以及对应的抓取指南、示例数据集和状态。👇  

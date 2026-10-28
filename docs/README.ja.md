@@ -27,7 +27,7 @@ poetry run python run.py                  # サンプルのスクレイピング
 poetry run pytest test.py                 # スクレイパーのテスト
 ```
 
-各フォルダーの README に、そのスクレイパーが取得するデータが記載されています。動かなくなったスクレイパーを見つけたら [Issue を作成してください](https://github.com/scrapfly/scrapfly-scrapers/issues/new?template=scraper-bug.md)。
+各フォルダーの README に、そのスクレイパーが取得するデータが記載されています。
 
 ## スクレイパー一覧
 対応している各サイトのスクレイパーと、そのスクレイピングガイド、サンプルデータセット、ステータスの一覧です。👇  

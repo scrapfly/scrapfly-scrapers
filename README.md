@@ -27,7 +27,7 @@ poetry run python run.py                  # example scrape, saves its output in 
 poetry run pytest test.py                 # the scraper's tests
 ```
 
-Each scraper folder's README lists what it scrapes. Found a scraper that no longer works? [Open an issue](https://github.com/scrapfly/scrapfly-scrapers/issues/new?template=scraper-bug.md).
+Each scraper folder's README lists what it scrapes.
 
 ## List of Scrapers
 Below is the list of available web scrapers for the supported domains along with their scrape guide, sample datasets, and status. 👇  

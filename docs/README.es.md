@@ -27,7 +27,7 @@ poetry run python run.py                  # scraping de ejemplo, guarda su salid
 poetry run pytest test.py                 # los tests del scraper
 ```
 
-El README de cada carpeta indica qué datos extrae ese scraper. ¿Un scraper ya no funciona? [Abre un issue](https://github.com/scrapfly/scrapfly-scrapers/issues/new?template=scraper-bug.md).
+El README de cada carpeta indica qué datos extrae ese scraper.
 
 ## Lista de scrapers
 Esta es la lista de scrapers disponibles para los sitios soportados, con su guía de scraping, los datos de ejemplo y su estado. 👇  
