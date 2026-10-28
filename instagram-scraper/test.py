@@ -86,17 +86,14 @@ async def test_user_post_scraping():
     schema = {
         "id": {"type": "string"},
         "shortcode": {"type": "string"},
-        "caption": {
-            "type": "dict",
-            "schema": {
-                "created_at": {"type": "integer"},
-                "text": {"type": "string"},
-                "pk": {"type": "string"}
-            },
-        },
-        "taken_at": {"type": "integer"},
-        "comment_count": {"type": "integer"},
-        "like_count": {"type": "integer"}
+        "url": {"type": "string"},
+        "media_type": {"type": "integer"},
+        "product_type": {"type": "string"},
+        "caption": {"type": "string", "nullable": True},
+        "src": {"type": "string"},
+        "owner": {"type": "string"},
+        "owner_id": {"type": "string"},
+        "carousel_media_count": {"type": "integer", "nullable": True},
     }
 
     posts_all = []

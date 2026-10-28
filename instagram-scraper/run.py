@@ -17,7 +17,7 @@ output.mkdir(exist_ok=True)
 
 async def run():
     # enable scrapfly cache?
-    instagram.BASE_CONFIG["cache"] = True
+    instagram.BASE_CONFIG["cache"] = False
     instagram.BASE_CONFIG["debug"] = True
 
     print("running Instagram scrape and saving results to ./results directory")

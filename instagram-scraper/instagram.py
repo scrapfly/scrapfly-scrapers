@@ -8,12 +8,12 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import os
 from typing import Dict, Optional
-from urllib.parse import quote, urlencode
+from urllib.parse import urlencode
 import jmespath
 import re
 from nested_lookup import nested_lookup
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -24,8 +24,9 @@ BASE_CONFIG = {
     "country": "CA",  # change country for relevant results
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
-INSTAGRAM_DOCUMENT_ID = "8845758582119845" # constant id for post documents instagram.com
-INSTAGRAM_ACCOUNT_DOCUMENT_ID = "9310670392322965"
+POSTS_FRIENDLY_NAME = "PolarisLoggedOutDesktopWWWProfilePostsTabContentQuery_connection"  # name of the posts pagination query
+POSTS_DOCUMENT_ID = "28904005159232689"  # id of that query, rotates: re-capture from DevTools if pagination returns no posts
+INSTAGRAM_ASBD_ID = "359341"  # public web client id, sent as the x-asbd-id header of the pagination POST
 
 # scroll down the comments section to load them
 COMMENTS_JS_SCENARIO = [
@@ -224,91 +225,105 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
 
 
 
-def parse_user_posts(data: Dict) -> Dict:
-    """Reduce users posts' dataset to the most important fields"""
-    result = jmespath.search(
-        """{
-        id: id,
-        shortcode: code,
-        caption: caption,
-        taken_at: taken_at,
-        video_versions: video_versions,
-        image_versions2: image_versions2,
-        original_height: original_height,
-        original_width: original_width,
-        link: link,
-        title: title,
-        comment_count: comment_count,
-        top_likers: top_likers,
-        like_count: like_count,
-        usertags: usertags,
-        clips_metadata: clips_metadata,
-        comments: comments
-    }""",
-        data,
-    )
 
-    return result
+
+def parse_user_posts(data: Dict) -> Dict:
+    """Reduce a timeline node (from the profile page or from the paginated query) to the most important fields"""
+    return {
+        "id": str(data.get("pk") or data.get("id") or ""),
+        "shortcode": data.get("code"),
+        "url": f"https://www.instagram.com/p/{data.get('code')}/",
+        "media_type": data.get("media_type"),
+        "product_type": data.get("product_type"),
+        "caption": (data.get("caption") or {}).get("text"),
+        "src": data.get("display_uri") or jmespath.search("image_versions2.candidates[0].url", data),
+        "owner": (data.get("user") or {}).get("username"),
+        "owner_id": (data.get("user") or {}).get("id"),
+        "carousel_media_count": data.get("carousel_media_count"),
+    }
+
+
+def _jazoest(lsd: str) -> str:
+    return "2" + str(sum(ord(c) for c in lsd))
+
+
+def _get_xhr_request_header(response: ScrapeApiResponse, name: str) -> Optional[str]:
+    """Get a request header value the browser sent in one of its XHR calls"""
+    xhr_calls = response.scrape_result.get("browser_data", {}).get("xhr_call") or []
+    for call in xhr_calls:
+        for key, value in (call.get("headers") or {}).items():
+            if key.lower() == name:
+                return value
+    return None
 
 
 async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int] = None):
-    """Scrape all posts of an instagram user of given the username"""
-    base_url = "https://www.instagram.com/graphql/query/"
-    variables = {
-        "after": None,
-        "before": None,
-        "data": {
-            "count": page_size,
-            "include_reel_media_seen_timestamp": True,
-            "include_relationship_info": True,
-            "latest_besties_reel_media": True,
-            "latest_reel_media": True
-        },
-        "first": page_size,
-        "last": None,
-        "username": f"{username}",
-        "__relay_internal__pv__PolarisIsLoggedInrelayprovider": True,
-        "__relay_internal__pv__PolarisShareSheetV3relayprovider": True
+    """Scrape the posts of an instagram user (logged out) of given the username"""
+    session = f"instagram-{username}"
+    profile_url = f"https://www.instagram.com/{username}/"
+    result = await SCRAPFLY.async_scrape(ScrapeConfig(profile_url, session=session, render_js=True, rendering_wait=3000, **BASE_CONFIG))
+    lsd = _get_xhr_request_header(result, "x-fb-lsd")
+    csrf = _get_xhr_request_header(result, "x-csrftoken")
+    user, connection = None, None
+    # the user id and the first posts (with the next cursor) are only embedded in the page html
+    for blob in result.selector.css('script[type="application/json"][data-sjs]::text').getall():
+        if "polaris_ordered_timeline_connection" in blob or "xig_user_by_username" in blob:
+            blob = json.loads(blob)
+            user = user or next(iter(nested_lookup("xig_user_by_username", blob)), None)
+            connection = connection or next(iter(nested_lookup("polaris_ordered_timeline_connection", blob)), None)
+    if not (lsd and csrf and user and connection):
+        raise ValueError(f"Could not find user data, lsd or csrftoken in page: {username}")
+
+    for edge in connection.get("edges") or []:
+        yield parse_user_posts(edge["node"])
+    page_info = connection.get("page_info") or {}
+    log.info("scraping posts page 1 of {} has_next_page={}", username, page_info.get("has_next_page"))
+
+    headers = {
+        "content-type": "application/x-www-form-urlencoded",
+        "x-fb-friendly-name": POSTS_FRIENDLY_NAME,
+        "x-fb-lsd": lsd,
+        "x-csrftoken": csrf,
+        "x-ig-app-id": INSTAGRAM_APP_ID,
+        "x-asbd-id": INSTAGRAM_ASBD_ID,
+        "origin": "https://www.instagram.com",
+        "referer": profile_url,
     }
-
-    prev_cursor = None
-    _page_number = 1
-
-    while True:
-        body = f"variables={json.dumps(variables, separators=(',', ':'))}&doc_id={INSTAGRAM_ACCOUNT_DOCUMENT_ID}"
-        params = {
-            "doc_id": INSTAGRAM_ACCOUNT_DOCUMENT_ID,  # e.g., "7950326061742207"
-            "variables": json.dumps(variables, separators=(",", ":"))
+    page = 1
+    while page_info.get("has_next_page") and page_info.get("end_cursor") and (not max_pages or page < max_pages):
+        variables = {
+            "after": page_info["end_cursor"],
+            "first": page_size,
+            "id": user["id"],
+            "__relay_internal__pv__PolarisSEOIsCrawlerrelayprovider": False,
         }
-
-        # Build the final URL by appending the query string to the base URL
-        final_url = f"{base_url}?{urlencode(params)}"
-        result = await SCRAPFLY.async_scrape(ScrapeConfig(
-            final_url, **BASE_CONFIG, method="GET",
-            headers={"content-type": "application/x-www-form-urlencoded"},
+        body = urlencode({
+            "av": "0", "__d": "www", "__user": "0", "__a": "1", "__comet_req": "7",
+            "lsd": lsd, "jazoest": _jazoest(lsd),
+            "fb_api_caller_class": "RelayModern",
+            "fb_api_req_friendly_name": POSTS_FRIENDLY_NAME,
+            "server_timestamps": "true",
+            "variables": json.dumps(variables, separators=(",", ":")),
+            "doc_id": POSTS_DOCUMENT_ID,
+        })
+        response = await SCRAPFLY.async_scrape(ScrapeConfig(
+            "https://www.instagram.com/api/graphql", method="POST", body=body,
+            session=session, headers=headers, **BASE_CONFIG,
         ))
-
-        data = json.loads(result.content)
-        
-        posts = data["data"]["xdt_api__v1__feed__user_timeline_graphql_connection"]
-        for post in posts["edges"]:
-            yield parse_user_posts(post["node"])
-
-        page_info = posts["page_info"]
-        if not page_info["has_next_page"]:
-            log.info(f"scraping posts page {_page_number}")
+        try:
+            connection = jmespath.search("data.node.polaris_ordered_timeline_connection", json.loads(response.content))
+        except json.JSONDecodeError:
+            log.warning("non JSON response for {} (blocked or rate limited), stopping", username)
             break
-
-        if page_info["end_cursor"] == prev_cursor:
-            log.warning("found no new posts, breaking")
+        if not connection or not connection.get("edges"):
+            log.warning("no posts returned for {} (stale doc_id or end of public posts), stopping", username)
             break
+        for edge in connection["edges"]:
+            yield parse_user_posts(edge["node"])
+        page_info = connection.get("page_info") or {}
+        page += 1
+        log.info("scraping posts page {} of {} has_next_page={}", page, username, page_info.get("has_next_page"))
 
-        prev_cursor = page_info["end_cursor"] 
-        variables["after"] = page_info["end_cursor"]
-        _page_number += 1
-
-        if max_pages and _page_number > max_pages:
-            break
 
 def parse_post_comment(data: Dict) -> Dict:
     """refine the comment dataset"""
