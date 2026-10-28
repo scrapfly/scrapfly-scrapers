@@ -19,7 +19,7 @@ Example scraper that collects user and user post datasets from Instagram.com, wr
 
 - `scrape_user(username)` → `Dict`: Scrape instagram user's data
 - `scrape_post(url_or_shortcode)` → `Dict`: Scrape single Instagram post data by parsing the HTML page
-- `scrape_user_posts(username, page_size=12, max_pages=None)`: Scrape all posts of an instagram user of given the username
+- `scrape_user_posts(username, page_size=12, max_pages=None)`: Scrape the posts of an instagram user (logged out) of given the username
 - `scrape_post_comments(url)`: Scrape comments from an Instagram post
 
 The functions are `async`: run them with `asyncio.run(...)` or `await` them.
@@ -48,7 +48,7 @@ asyncio.run(main())
 The functions return plain dictionaries and lists. Fields of the sample output (top-level keys of the first item):
 
 - [`results/user.json`](results/user.json): `name`, `username`, `id`, `bio`, `bio_links`, `followers`, `follows`, `facebook_id`, `is_private`, `is_verified`, `is_memorialized`, `pronouns`, `account_badges`, `threads_handle`, `profile_image`, `highlights`
-- [`results/all-user-posts.json`](results/all-user-posts.json): `id`, `shortcode`, `caption`, `taken_at`, `video_versions`, `image_versions2`, `original_height`, `original_width`, `link`, `title`, `comment_count`, `top_likers`, `like_count`, `usertags`, `clips_metadata`, `comments`
+- [`results/all-user-posts.json`](results/all-user-posts.json): `id`, `shortcode`, `url`, `media_type`, `product_type`, `caption`, `src`, `owner`, `owner_id`, `carousel_media_count`
 - [`results/multi-image-post.json`](results/multi-image-post.json): `id`, `shortcode`, `src`, `src_attached`, `likes`, `taken_at`, `location`, `captions`, `comments_count`, `comments`
 - [`results/video-post.json`](results/video-post.json): `id`, `shortcode`, `dimensions`, `src`, `thumbnail_src`, `media_preview`, `video_url`, `views`, `likes`, `location`, `taken_at`, `related`, `type`, `video_duration`, `music`, `is_video`, `tagged_users`, `captions`, `related_profiles`, `comments_count`, `comments_disabled`, `comments_next_page`, `comments`
 - [`results/post-comments.json`](results/post-comments.json): `id`, `text`, `created_at`, `owner`, `owner_id`, `owner_verified`, `owner_profile_pic`, `likes`
