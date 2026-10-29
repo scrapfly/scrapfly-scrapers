@@ -241,19 +241,6 @@ poetry run pytest test.py                 # тесты скрапера
   </tr>
 
   <tr>
-    <td><a href="../ebay-scraper/">Ebay.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-ebay">How to Scrape Ebay Using Python (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="../ebay-scraper/results/product.json">Product pages</a></li>
-        <li><a href="../ebay-scraper/results/product-with-variants.json">Product pages with variant</a></li>
-        <li><a href="../ebay-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/ebay-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../emirates-scraper/">Emirates</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-emirates-flights">How to Scrape Emirates Flights with Python (2026)</a></td>
     <td>
@@ -546,6 +533,21 @@ poetry run pytest test.py                 # тесты скрапера
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1062,18 +1064,16 @@ poetry run pytest test.py                 # тесты скрапера
   </tr>
 
   <tr>
-    <td><a href="../instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td><a href="../ebay-scraper/">Ebay.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-ebay">How to Scrape Ebay Using Python (2025 Update)</a></td>
     <td>
     <ul>
-        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
+        <li><a href="../ebay-scraper/results/product.json">Product pages</a></li>
+        <li><a href="../ebay-scraper/results/product-with-variants.json">Product pages with variant</a></li>
+        <li><a href="../ebay-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/ebay-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></a></td>
   </tr>
 
 </table>
