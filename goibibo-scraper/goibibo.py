@@ -35,7 +35,7 @@ LISTING_API = "clientbackend-gi/cg/listing/DESKTOP/"
 FLIGHT_SEARCH_API = "https://flights-cb.goibibo.com/api/search-stream-dt"
 # the website's data requests sometimes fail at the network level (and the page stays an empty shell) and pass again
 # minutes later, so a search is asked again, from a fresh session, up to this many times
-SEARCH_ATTEMPTS = 5
+SEARCH_ATTEMPTS = 8
 T = TypeVar("T")
 
 
