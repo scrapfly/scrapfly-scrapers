@@ -23,7 +23,7 @@ flight_schema = {
     "origin_code": {"type": "string", "nullable": True},
     "destination_code": {"type": "string", "nullable": True},
     "fare": {"type": "number", "nullable": True},
-    "legs": {"type": "list"},
+    "legs": {"type": "list", "minlength": 1},
 }
 
 
@@ -33,7 +33,7 @@ def validate_or_fail(item, validator):
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_hotel_search_scraping():
     result = await goibibo.scrape_hotel_search(
         search_text="Delhi",
@@ -49,7 +49,7 @@ async def test_hotel_search_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_flight_search_scraping():
     result = await goibibo.scrape_flight_search(
         origin="DEL",
