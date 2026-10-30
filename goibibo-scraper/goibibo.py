@@ -35,7 +35,7 @@ LISTING_API = "clientbackend-gi/cg/listing/DESKTOP/"
 FLIGHT_SEARCH_API = "https://flights-cb.goibibo.com/api/search-stream-dt"
 # the website's data requests sometimes fail at the network level (and the page stays an empty shell) and pass again
 # minutes later, so a search is asked again, from a fresh session, up to this many times
-SEARCH_ATTEMPTS = 3
+SEARCH_ATTEMPTS = 5
 T = TypeVar("T")
 
 
@@ -512,8 +512,9 @@ async def scrape_flight_search(
             origin, destination, departure_date, adults, children, infants, return_date
         )
         headers = build_flight_api_headers(token[1], device_id=str(uuid4()))
+        # retry off: a failed data request is quicker to give up on here than inside Scrapfly, a new attempt follows
         response = await SCRAPFLY.async_scrape(
-            ScrapeConfig(api_url, session=session, headers=headers, **_plain_config())
+            ScrapeConfig(api_url, session=session, headers=headers, retry=False, **_plain_config())
         )
         return parse_flight_stream(response.content)
 
