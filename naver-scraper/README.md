@@ -34,7 +34,7 @@ import naver
 
 
 async def main():
-    web_search = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
+    web_search = await naver.scrape_web_search(query="파이썬", max_pages=3)
     image_search = await naver.scrape_image_search(query="파이썬", max_pages=3, period="6m")
     blog_post = await naver.scrape_blog_post(
         [

@@ -77,7 +77,8 @@ NEWS_ARTICLE_SCHEMA = {
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_web_search_scraping():
-    results = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
+    # no period filter: naver lists no web documents for a 6 month or 1 year period, only blog and cafe posts
+    results = await naver.scrape_web_search(query="파이썬", max_pages=3)
 
     # Validate each search result
     result_validator = Validator(SEARCH_WEB_SCHEMA)
