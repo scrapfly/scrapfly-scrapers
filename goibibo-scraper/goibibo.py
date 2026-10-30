@@ -13,7 +13,7 @@ import os
 import re
 from copy import deepcopy
 from datetime import datetime
-from typing import Dict, List, Optional, TypedDict
+from typing import Any, Callable, Dict, List, Optional, TypedDict
 from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 from uuid import uuid4
 
@@ -31,6 +31,9 @@ BASE_CONFIG = {
 }
 
 LISTING_API = "clientbackend-gi/cg/listing/DESKTOP/"
+# the page's own data request sometimes fails at the network level and the page stays an empty shell (it passes again
+# minutes later), so a search is asked again, with a fresh browser, up to this many times
+SEARCH_ATTEMPTS = 3
 SEARCH_STREAM_DT = "search-stream-dt"
 
 
@@ -138,6 +141,18 @@ def build_flight_search_url(
         "cabinClass": "E",
     }
     return f"https://www.goibibo.com/flight/search?{urlencode(params, safe='/')}"
+
+
+async def _scrape_and_parse(make_config: Callable[[], ScrapeConfig], parse: Callable[[ScrapeApiResponse], Any]):
+    """scrape a search page and parse the data call the page made, asking again when the page did not load its data"""
+    for attempt in range(1, SEARCH_ATTEMPTS + 1):
+        page = await SCRAPFLY.async_scrape(make_config())
+        try:
+            return page, parse(page)
+        except RuntimeError as error:
+            if attempt == SEARCH_ATTEMPTS:
+                raise
+            log.warning(f"{error}, asking again ({attempt}/{SEARCH_ATTEMPTS})")
 
 
 def parse_flight_stream_call(response: ScrapeApiResponse):
@@ -361,13 +376,18 @@ async def scrape_hotel_search(
 ) -> List[Hotel]:
     """Scrape goibibo hotel search; capture the listing API from the search page then paginate until max_pages (copy locus_id from a hotel-listing URL)."""
     url = build_search_url(search_text, locus_id, checkin, checkout, adults, children, rooms)
-    session = uuid4().hex
     log.info(f"scraping goibibo hotels for {search_text}: {url}")
 
-    page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(url, rendering_wait=10000, wait_for_selector=f"xhr:{LISTING_API}", session=session, **BASE_CONFIG)
-    )
-    call, data, payload = parse_listing_call(page)
+    session = ""
+
+    def first_page_config() -> ScrapeConfig:
+        nonlocal session
+        session = uuid4().hex  # a new browser for every attempt, the next pages go through the session that worked
+        return ScrapeConfig(
+            url, rendering_wait=10000, wait_for_selector=f"xhr:{LISTING_API}", session=session, **BASE_CONFIG
+        )
+
+    _, (call, data, payload) = await _scrape_and_parse(first_page_config, parse_listing_call)
     headers = call["headers"]
     api_url = call["url"]
 
@@ -431,15 +451,10 @@ async def scrape_flight_search(
         {"click": {"selector": "[data-testid='cta-wrapper'] button"}},
         {"wait": 10000},
     ]
-    page = await SCRAPFLY.async_scrape(
-        ScrapeConfig(
-            url,
-            rendering_wait=5000,
-            js_scenario=js_scenario,
-            **BASE_CONFIG,
-        )
+    _, data = await _scrape_and_parse(
+        lambda: ScrapeConfig(url, rendering_wait=5000, js_scenario=js_scenario, **BASE_CONFIG),
+        parse_flight_stream_call,
     )
-    data = parse_flight_stream_call(page)
     flights = parse_flights(data)
     log.success(f"scraped {len(flights)} flights for {origin}-{destination}")
     return flights
