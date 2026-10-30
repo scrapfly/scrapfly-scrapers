@@ -12,13 +12,14 @@ import json
 import os
 import re
 from copy import deepcopy
+import time
 from datetime import datetime
-from typing import Any, Callable, Dict, List, Optional, TypedDict
+from typing import Awaitable, Callable, Dict, List, Optional, TypedDict, TypeVar
 from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 from uuid import uuid4
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -31,10 +32,11 @@ BASE_CONFIG = {
 }
 
 LISTING_API = "clientbackend-gi/cg/listing/DESKTOP/"
-# the page's own data request sometimes fails at the network level and the page stays an empty shell (it passes again
-# minutes later), so a search is asked again, with a fresh browser, up to this many times
+FLIGHT_SEARCH_API = "https://flights-cb.goibibo.com/api/search-stream-dt"
+# the website's data requests sometimes fail at the network level (and the page stays an empty shell) and pass again
+# minutes later, so a search is asked again, from a fresh session, up to this many times
 SEARCH_ATTEMPTS = 3
-SEARCH_STREAM_DT = "search-stream-dt"
+T = TypeVar("T")
 
 
 class Hotel(TypedDict):
@@ -143,36 +145,94 @@ def build_flight_search_url(
     return f"https://www.goibibo.com/flight/search?{urlencode(params, safe='/')}"
 
 
-async def _scrape_and_parse(make_config: Callable[[], ScrapeConfig], parse: Callable[[ScrapeApiResponse], Any]):
-    """scrape a search page and parse the data call the page made, asking again when the page did not load its data"""
+async def _with_attempts(search: Callable[[], Awaitable[T]]) -> T:
+    """run a search, asking again when the website's data did not load"""
     for attempt in range(1, SEARCH_ATTEMPTS + 1):
-        page = await SCRAPFLY.async_scrape(make_config())
         try:
-            return page, parse(page)
-        except RuntimeError as error:
+            return await search()
+        except (RuntimeError, ScrapflyScrapeError) as error:
             if attempt == SEARCH_ATTEMPTS:
                 raise
             log.warning(f"{error}, asking again ({attempt}/{SEARCH_ATTEMPTS})")
 
 
-def parse_flight_stream_call(response: ScrapeApiResponse):
-    """extract the search-stream-dt API call captured by the browser"""
-    calls = [
-        call
-        for call in response.scrape_result["browser_data"]["xhr_call"]
-        if SEARCH_STREAM_DT in call["url"] and (call.get("response") or {}).get("body")
-    ]
-    if not calls:
-        url = response.context["url"]
-        # the page sometimes comes as its shell only: search bar filled in, SEARCH button disabled, no results loaded
-        if response.selector.css("[data-cy='submit'][disabled]"):
-            raise RuntimeError(
-                f"goibibo.com answered the flight search with its page shell, the search never started: {url}"
-            )
-        raise RuntimeError(f"flight search-stream-dt API call not found in captured browser data for {url}")
+def _plain_config() -> Dict:
+    """the settings of a request without a browser: BASE_CONFIG without rendering"""
+    config = {key: value for key, value in BASE_CONFIG.items() if key not in ("render_js", "auto_scroll")}
+    return {**config, "render_js": False}
 
-    call = calls[-1]
-    body = call["response"]["body"]
+
+def build_flight_search_api_url(
+    origin: str,
+    destination: str,
+    departure_date: str,
+    adults: int = 1,
+    children: int = 0,
+    infants: int = 0,
+    return_date: Optional[str] = None,
+) -> str:
+    """the search-stream-dt request the results page sends for these search inputs"""
+
+    def api_date(date: str) -> str:
+        return datetime.strptime(date, "%Y-%m-%d" if "-" in date else "%Y%m%d").strftime("%Y%m%d")
+
+    origin, destination = origin.upper(), destination.upper()
+    itinerary = f"{origin}-{destination}-{api_date(departure_date)}"
+    if return_date:  # the request joins the two legs with a dollar sign
+        itinerary += f"${destination}-{origin}-{api_date(return_date)}"
+    params = {
+        "apiCallTimestamp": int(time.time() * 1000),
+        "cc": "E",  # cabin class: economy
+        "cmpId": "",
+        "crId": str(uuid4()),  # a new id for every search
+        "creditShellInfo": "",
+        "cur": "INR",
+        "currency": "INR",
+        "dfs": "0",
+        "forwardFlowRequired": "true",
+        "it": itinerary,
+        "language": "eng",
+        "pax": f"A-{adults}_C-{children}_I-{infants}",
+        "pfm": "DESKTOP",
+        "region": "in",
+        "shd": "true",
+        "sortBy": "rhino",
+        "src": "",
+    }
+    return f"{FLIGHT_SEARCH_API}?{urlencode(params)}"
+
+
+def build_flight_api_headers(token: str, device_id: str) -> Dict[str, str]:
+    """the headers the results page sends with its data request; the token comes from the page's HTML"""
+    return {
+        "accept": "text/event-stream",
+        "app-ver": "1.0.0",
+        "auuid": "",
+        "cmp-id": "",
+        "currency": "INR",
+        "User-Currency": "INR",
+        "device-id": device_id,  # a random id the page makes up
+        "mcid": device_id,
+        "domain": "in",
+        "flow": "",
+        "language": "eng",
+        "mmt-auth": "",
+        "os": "Windows",
+        "pfm": "DESKTOP",
+        "profile-type": "PERSONAL",
+        "region": "in",
+        "source": "null",
+        "src": "gi",
+        "x-user-cc": "IN",
+        "Cache-Control": "no-cache",
+        "X-Cb-Preauth": token,
+        "origin": "https://www.goibibo.com",
+        "referer": "https://www.goibibo.com/",
+    }
+
+
+def parse_flight_stream(body: str) -> Dict:
+    """parse the flight data out of a search-stream-dt answer (server-sent events, gzip + base64 payloads)"""
     data = {}
     for block in body.split("\n\n"):
         lines = block.split("\n")
@@ -187,7 +247,7 @@ def parse_flight_stream_call(response: ScrapeApiResponse):
             data = json.loads(gzip.decompress(base64.b64decode(raw)))
 
     if not data:
-        raise RuntimeError("no response event in search-stream-dt SSE body")
+        raise RuntimeError("no response event in the search-stream-dt answer")
     return data
 
 
@@ -378,16 +438,16 @@ async def scrape_hotel_search(
     url = build_search_url(search_text, locus_id, checkin, checkout, adults, children, rooms)
     log.info(f"scraping goibibo hotels for {search_text}: {url}")
 
-    session = ""
-
-    def first_page_config() -> ScrapeConfig:
-        nonlocal session
+    async def first_page():
         session = uuid4().hex  # a new browser for every attempt, the next pages go through the session that worked
-        return ScrapeConfig(
-            url, rendering_wait=10000, wait_for_selector=f"xhr:{LISTING_API}", session=session, **BASE_CONFIG
+        page = await SCRAPFLY.async_scrape(
+            ScrapeConfig(
+                url, rendering_wait=10000, wait_for_selector=f"xhr:{LISTING_API}", session=session, **BASE_CONFIG
+            )
         )
+        return (session, *parse_listing_call(page))
 
-    _, (call, data, payload) = await _scrape_and_parse(first_page_config, parse_listing_call)
+    session, call, data, payload = await _with_attempts(first_page)
     headers = call["headers"]
     api_url = call["url"]
 
@@ -437,24 +497,27 @@ async def scrape_flight_search(
     return_date: Optional[str] = None,
 ) -> List[Flight]:
     """Scrape flight search results and return parsed flight data."""
-    url = build_flight_search_url(origin, destination, departure_date, adults, children, infants, return_date)
-    log.info(f"scraping flight search: {url}")
-    js_scenario = [
-        {"wait": 5000},
-        {
-            "condition": {
-                "selector": "[data-testid='cta-wrapper'] button",
-                "selector_state": "not_existing",
-                "action": "exit_success",
-            }
-        },
-        {"click": {"selector": "[data-testid='cta-wrapper'] button"}},
-        {"wait": 10000},
-    ]
-    _, data = await _scrape_and_parse(
-        lambda: ScrapeConfig(url, rendering_wait=5000, js_scenario=js_scenario, **BASE_CONFIG),
-        parse_flight_stream_call,
-    )
+    page_url = build_flight_search_url(origin, destination, departure_date, adults, children, infants, return_date)
+    log.info(f"scraping flight search: {page_url}")
+
+    async def search() -> Dict:
+        # no browser needed: the search page (in a session) gives the pre-auth token and the cookies, and the data
+        # request the page would send is then sent with them
+        session = uuid4().hex
+        page = await SCRAPFLY.async_scrape(ScrapeConfig(page_url, session=session, **_plain_config()))
+        token = re.search(r'__PRE_AUTH__\s*=\s*"([0-9a-f]+)"', page.content)
+        if not token:
+            raise RuntimeError(f"no pre-auth token in the goibibo.com flight search page: {page_url}")
+        api_url = build_flight_search_api_url(
+            origin, destination, departure_date, adults, children, infants, return_date
+        )
+        headers = build_flight_api_headers(token[1], device_id=str(uuid4()))
+        response = await SCRAPFLY.async_scrape(
+            ScrapeConfig(api_url, session=session, headers=headers, **_plain_config())
+        )
+        return parse_flight_stream(response.content)
+
+    data = await _with_attempts(search)
     flights = parse_flights(data)
     log.success(f"scraped {len(flights)} flights for {origin}-{destination}")
     return flights
