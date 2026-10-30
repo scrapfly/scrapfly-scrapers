@@ -64,7 +64,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_product_scraping():
     products = await rs_online.scrape_products(
         urls=[
@@ -85,7 +85,7 @@ async def test_product_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_category_scraping():
     results = await rs_online.scrape_category(
         url="https://us.rs-online.com/connectors/d-sub-connectors-contacts-accessories/d-sub-connectors/",
@@ -100,7 +100,7 @@ async def test_category_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_search_scraping():
     results = await rs_online.scrape_search(query="resistor", max_pages=1)
     validator = Validator(search_schema, allow_unknown=True)

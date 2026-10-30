@@ -123,7 +123,7 @@ async def test_manufacturer_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_price_history_scraping():
     data = await idealo.scrape_price_history(id="207643424", period="3M")
     validator = Validator(price_history_schema, allow_unknown=True)

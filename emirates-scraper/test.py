@@ -47,7 +47,7 @@ flight_result_schema = {
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_scrape_flights():
     result = await emirates.scrape_flights(
         origin="JFK",

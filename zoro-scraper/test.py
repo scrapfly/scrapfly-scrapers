@@ -119,7 +119,7 @@ async def test_product_scraping():
     assert len(products_data) >= 1
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_search_scraping():
     search_listing_data = await zoro.scrape_search_listing("Gloves", max_pages=3)
     
