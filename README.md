@@ -241,6 +241,19 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
+    <td><a href="./ebay-scraper/">Ebay.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-ebay">How to Scrape Ebay Using Python (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./ebay-scraper/results/product.json">Product pages</a></li>
+        <li><a href="./ebay-scraper/results/product-with-variants.json">Product pages with variant</a></li>
+        <li><a href="./ebay-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/ebay-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./emirates-scraper/">Emirates</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-emirates-flights">How to Scrape Emirates Flights with Python (2026)</a></td>
     <td>
@@ -343,18 +356,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
-    <td><a href="./goibibo-scraper/">Goibibo</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
-        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./goodreads-scraper/">Goodreads.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goodreads">How to Scrape Goodreads for Book Data, Ratings, and Reviews</a></td>
     <td>
@@ -447,20 +448,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
-    <td><a href="./idealo-scraper/">Idealo.de</a></td>
-    <td>-</td>
-    <td>
-    <ul>
-        <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="./idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="./idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="./idealo-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./imdb-scraper/">IMDb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
@@ -533,21 +520,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -648,20 +620,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./naver-scraper/">Naver.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
-    <td>
-    <ul>
-        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
-        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
-        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
-        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1064,16 +1022,58 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
-    <td><a href="./ebay-scraper/">Ebay.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-ebay">How to Scrape Ebay Using Python (2025 Update)</a></td>
+    <td><a href="./idealo-scraper/">Idealo.de</a></td>
+    <td>-</td>
     <td>
     <ul>
-        <li><a href="./ebay-scraper/results/product.json">Product pages</a></li>
-        <li><a href="./ebay-scraper/results/product-with-variants.json">Product pages with variant</a></li>
-        <li><a href="./ebay-scraper/results/search.json">Search pages</a></li>
+        <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="./idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="./idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="./idealo-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/ebay-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/ebay-scraper.svg" alt="ebay-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./naver-scraper/">Naver.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
+    <td>
+    <ul>
+        <li><a href="./naver-scraper/results/blog_post.json">Blog post</a></li>
+        <li><a href="./naver-scraper/results/image_search.json">Image search</a></li>
+        <li><a href="./naver-scraper/results/news_article.json">News article</a></li>
+        <li><a href="./naver-scraper/results/web_search.json">Web search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./goibibo-scraper/">Goibibo</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-goibibo-hotel-and-flight-prices">How to Scrape Goibibo Prices in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="./goibibo-scraper/results/flight_search.json">Flight search</a></li>
+        <li><a href="./goibibo-scraper/results/hotel_search.json">Hotel search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/goibibo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/goibibo-scraper.svg" alt="goibibo-scraper-status"></a></td>
   </tr>
 
 </table>
