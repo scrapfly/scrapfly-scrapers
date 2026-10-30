@@ -22,7 +22,7 @@ async def run():
     print("running Naver scrape and saving results to ./results directory")
 
     # Scrape web search results
-    search_data = await naver.scrape_web_search(query="파이썬", max_pages=3, period="6m")
+    search_data = await naver.scrape_web_search(query="파이썬", max_pages=3)
     with open(output.joinpath("web_search.json"), "w", encoding="utf-8") as file:
         json.dump(search_data, file, indent=2, ensure_ascii=False)
     
