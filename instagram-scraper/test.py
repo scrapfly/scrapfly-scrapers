@@ -17,7 +17,7 @@ def validate_or_fail(item, validator):
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_user_scraping():
     result = await instagram.scrape_user("google")
     schema = {
@@ -81,7 +81,7 @@ async def test_post_scraping():
 
 
 @pytest.mark.asyncio
-@pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=120)
 async def test_user_post_scraping():
     schema = {
         "id": {"type": "string"},
