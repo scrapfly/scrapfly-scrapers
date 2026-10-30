@@ -19,7 +19,7 @@ from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 from uuid import uuid4
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyAspError, ScrapflyClient, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -150,7 +150,7 @@ async def _with_attempts(search: Callable[[], Awaitable[T]]) -> T:
     for attempt in range(1, SEARCH_ATTEMPTS + 1):
         try:
             return await search()
-        except (RuntimeError, ScrapflyScrapeError) as error:
+        except (RuntimeError, ScrapflyScrapeError, ScrapflyAspError) as error:
             if attempt == SEARCH_ATTEMPTS:
                 raise
             log.warning(f"{error}, asking again ({attempt}/{SEARCH_ATTEMPTS})")
