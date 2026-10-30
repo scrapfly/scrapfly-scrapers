@@ -23,7 +23,7 @@ flight_schema = {
     "origin_code": {"type": "string", "nullable": True},
     "destination_code": {"type": "string", "nullable": True},
     "fare": {"type": "number", "nullable": True},
-    "legs": {"type": "list"},
+    "legs": {"type": "list", "minlength": 1},
 }
 
 

@@ -176,6 +176,43 @@ def parse_flight_stream_call(response: ScrapeApiResponse):
     return data
 
 
+def parse_flight_leg(leg: Dict) -> FlightLeg:
+    """parse one leg of a journey: the page used to send `legList` (flight number, airline and aircraft as fields) and now
+    sends `legListV2` (airline info as text like "AI 423 (Boeing 777)", airports in the city names)"""
+
+    def _strip(html: Optional[str]) -> Optional[str]:
+        return re.sub(r"<[^>]+>", "", html).strip() if html else html
+
+    def _city(point: str) -> Optional[str]:
+        city = (leg.get(point) or {}).get("city")
+        # the city comes with its airport: "New Delhi(Indira Gandhi International Airport, Terminal T3)"
+        return re.sub(r"\s*\(.*$", "", city).strip() if city else city
+
+    info = leg.get("airlineInfo")
+    if info:  # legListV2
+        number = info.get("airlineNumber") or ""
+        code = re.match(r"\s*([A-Z0-9]{2})\s*-?\s*(\d+)", number)
+        aircraft = re.search(r"\(([^)]*)\)", number)
+        return FlightLeg(
+            flight_number=f"{code[1]}-{code[2]}" if code else number.split("(")[0].strip() or None,
+            airline=info.get("airlineName"),
+            aircraft=aircraft[1].strip() if aircraft else None,
+            departure_city=_city("depart"),
+            departure_time=(leg.get("depart") or {}).get("time"),
+            arrival_city=_city("arrival"),
+            arrival_time=(leg.get("arrival") or {}).get("time"),
+        )
+    return FlightLeg(  # legList
+        flight_number=leg.get("legID"),
+        airline=leg.get("airlinename"),
+        aircraft=_strip((leg.get("aircraft") or {}).get("text")),
+        departure_city=_city("depart"),
+        departure_time=(leg.get("depart") or {}).get("time"),
+        arrival_city=_city("arrival"),
+        arrival_time=(leg.get("arrival") or {}).get("time"),
+    )
+
+
 def parse_flights(data: Dict) -> List[Flight]:
     """parse flight cards from a search-stream-dt response"""
     currency = ((data.get("meta") or {}).get("locale") or {}).get("currCode")
@@ -186,16 +223,12 @@ def parse_flights(data: Dict) -> List[Flight]:
         for card in group:
             key = (card.get("journeyKeys") or [None])[0]
             journey = journey_map.get(key) or {}
-            legs = ((journey.get("flightDetail") or {}).get("legList")) or []
-            first_leg = legs[0] if legs else {}
-            last_leg = legs[-1] if legs else {}
+            detail = journey.get("flightDetail") or {}
+            legs = detail.get("legList") or detail.get("legListV2") or []
             layover = journey.get("layover") or {}
 
             def _strip(html: Optional[str]) -> Optional[str]:
                 return re.sub(r"<[^>]+>", "", html).strip() if html else html
-
-            def _city(leg: Dict, point: str) -> Optional[str]:
-                return (leg.get(point) or {}).get("city")
 
             flights.append(
                 Flight(
@@ -213,18 +246,7 @@ def parse_flights(data: Dict) -> List[Flight]:
                     duration=journey.get("duration") and f"{journey['duration']['h']}h {journey['duration']['m']}m",
                     stops=journey.get("stops"),
                     layover_cities=[c.get("cd") for c in layover.get("layoverCityList") or []],
-                    legs=[
-                        FlightLeg(
-                            flight_number=leg.get("legID"),
-                            airline=leg.get("airlinename"),
-                            aircraft=_strip((leg.get("aircraft") or {}).get("text")),
-                            departure_city=_city(leg, "depart"),
-                            departure_time=(leg.get("depart") or {}).get("time"),
-                            arrival_city=_city(leg, "arrival"),
-                            arrival_time=(leg.get("arrival") or {}).get("time"),
-                        )
-                        for leg in legs
-                    ],
+                    legs=[parse_flight_leg(leg) for leg in legs],
                     fare=card.get("fare"),
                     currency=currency,
                 )
