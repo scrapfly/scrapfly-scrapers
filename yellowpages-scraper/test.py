@@ -60,6 +60,7 @@ search_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_page_scraping():
     pages_data = await yellowpages.scrape_pages(
         urls=[
@@ -79,6 +80,7 @@ async def test_page_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     search_data = await yellowpages.scrape_search(
         query="chinese restaurants", location="San Francisco, CA", max_pages=3

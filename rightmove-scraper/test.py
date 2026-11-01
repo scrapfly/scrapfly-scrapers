@@ -228,6 +228,7 @@ properties_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():
     cornwall_id = (await rightmove.find_locations("cornwall"))[0]
     search_data = await rightmove.scrape_search(
@@ -240,6 +241,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
     cornwall_id = (await rightmove.find_locations("cornwall"))[0]
     search_data = await rightmove.scrape_search(
