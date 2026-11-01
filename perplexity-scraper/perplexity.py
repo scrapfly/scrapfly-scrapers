@@ -106,7 +106,8 @@ async def scrape_answer(prompt: str) -> PerplexityAnswer:
 
             log.info(f"asking perplexity: {prompt}")
             await page.goto("https://www.perplexity.ai/", wait_until="domcontentloaded", timeout=120_000)
-            ask_input = page.locator("#ask-input")
+            # the question box is `#ask-input` on the old home page, a contenteditable `textbox` on the redesigned one
+            ask_input = page.locator("#ask-input, div[role='textbox'][contenteditable='true']").first
             await ask_input.wait_for(timeout=30_000)
             try:
                 await ask_input.click(timeout=10_000)
