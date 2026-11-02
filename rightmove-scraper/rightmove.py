@@ -143,7 +143,11 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
     # scrape all page URLs concurrently
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
         log.info("scraping property page {}", result.context["url"])
-        properties.append(parse_property(extract_property(result)))
+        data = extract_property(result)
+        if not isinstance(data, dict) or not data.get("id"):
+            # sometimes the page comes back without the property inside its data
+            raise ValueError(f"rightmove.co.uk returned a property page without property data: {result.context['url']}")
+        properties.append(parse_property(data))
     return properties
 
 
