@@ -241,6 +241,10 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
     log.info(f"Scraping base url {base_url}")
     
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(base_url, **BASE_CONFIG))
+    final_url = first_page.context["url"]
+    if "q=" not in final_url:
+        # sometimes the search is sent to the home page of another store, without the search results
+        raise ValueError(f"mouser.com sent the search to {final_url} instead of the results: {base_url}")
 
     first_page_data = parse_search(first_page)
     search_results = first_page_data["products"]
