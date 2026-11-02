@@ -110,6 +110,9 @@ def _parse_count(text):
 def parse_product(result: ScrapeApiResponse) -> Product:
     """parse product HTML page for product data"""
     selector = result.selector
+    if not selector.xpath("//h1[@data-pl]"):
+        # sometimes only the image gallery of the page is drawn and the rest of the product stays empty
+        raise ValueError(f"aliexpress.com returned a product page without product data: {result.context['url']}")
     reviews = selector.xpath("//a[contains(@class,'reviewer--reviews')]/text()").get()
     rate = selector.xpath("//div[contains(@class,'rating--wrap')]/div").getall()
     sold_count = selector.xpath("//a[contains(@class, 'reviewer--sliderItem')]//span[contains(text(), 'sold')]/text()").get()
