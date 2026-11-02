@@ -155,6 +155,7 @@ async def test_sitemap_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     review_data = await bestbuy.scrape_reviews(
         skuid="6565065",

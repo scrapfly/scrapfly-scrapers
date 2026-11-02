@@ -97,6 +97,7 @@ review_schema = {
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_company_scraping():
     companies_data = await trustpilot.scrape_company(
         urls=[
@@ -112,6 +113,7 @@ async def test_company_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_search_scraping():   
     search_data = await trustpilot.scrape_search(
         url="https://www.trustpilot.com/categories/electronics_technology", max_pages=3
@@ -123,6 +125,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_review_scraping():
     reviews_data = await trustpilot.scrape_reviews(
         url="https://www.trustpilot.com/review/www.bhphotovideo.com",

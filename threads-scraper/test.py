@@ -61,6 +61,7 @@ def require_min_presence(items, key, min_perc=0.1):
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_thread_scraping():
     urls = [
         "https://www.threads.net/t/C8H5FiCtESk/",  # example with media
@@ -85,6 +86,7 @@ async def test_thread_scraping():
 
 
 @pytest.mark.asyncio
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_user_scraping():
     urls = [
         "https://www.threads.net/@natgeo",

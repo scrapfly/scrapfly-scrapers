@@ -133,7 +133,7 @@ async def test_search_scraping():
 
 
 @pytest.mark.asyncio
-# @pytest.mark.flaky(reruns=3, reruns_delay=30)
+@pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_properties_scraping():
     properties_data = await zoopla.scrape_properties(
         urls=[
