@@ -521,6 +521,21 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
+    <td><a href="./instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./kayak-scraper/">Kayak</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-kayak">How to Scrape Kayak Flight Prices in 2026</a></td>
     <td>
@@ -606,18 +621,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/marriott-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/marriott-scraper.svg" alt="marriott-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./mouser-scraper/">Mouser.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="./mouser-scraper/results/product.json">Product</a></li>
-        <li><a href="./mouser-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -714,18 +717,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
-    <td><a href="./rightmove-scraper/">Rightmove.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rightmove">How to Scrape RightMove Real Estate Property Data with Python</a></td>
-    <td>
-    <ul>
-        <li><a href="./rightmove-scraper/results/properties.json">Property pages</a></li>
-        <li><a href="./rightmove-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="./seloger-scraper/">Seloger.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-seloger-com-listing-real-estate-ads">How to Scrape Seloger.com - Real Estate Listing Data</a></td>
     <td>
@@ -803,6 +794,18 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/target-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/target-scraper.svg" alt="target-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="./threads-scraper/">Threads.net</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-threads">How to scrape Threads by Meta using Python (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="./threads-scraper/results/profile.json">Profile pages</a></li>
+        <li><a href="./threads-scraper/results/thread.json">Thread pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/threads-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/threads-scraper.svg" alt="threads-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1026,30 +1029,27 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
-    <td><a href="./instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td><a href="./mouser-scraper/">Mouser.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
     <td>
     <ul>
-        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
+        <li><a href="./mouser-scraper/results/product.json">Product</a></li>
+        <li><a href="./mouser-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
   </tr>
 
   <tr>
-    <td><a href="./threads-scraper/">Threads.net</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-threads">How to scrape Threads by Meta using Python (2025 Update)</a></td>
+    <td><a href="./rightmove-scraper/">Rightmove.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rightmove">How to Scrape RightMove Real Estate Property Data with Python</a></td>
     <td>
     <ul>
-        <li><a href="./threads-scraper/results/profile.json">Profile pages</a></li>
-        <li><a href="./threads-scraper/results/thread.json">Thread pages</a></li>
+        <li><a href="./rightmove-scraper/results/properties.json">Property pages</a></li>
+        <li><a href="./rightmove-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/threads-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/threads-scraper.svg" alt="threads-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
   </tr>
 
   <tr>
