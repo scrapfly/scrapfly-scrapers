@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 from typing import Dict, List, Optional, TypedDict
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -211,8 +211,8 @@ async def scrape_products(urls: List[str]) -> List[RSProduct]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(response, ScrapflyScrapeError):
-            log.error(f"failed to scrape product: {response.error}")
+        if isinstance(response, ScrapflyError):
+            log.error(f"failed to scrape product: {response.message}")
             continue
         try:
             log.info("scraping product {}", response.context["url"])
@@ -235,8 +235,8 @@ async def scrape_category(url: str, max_pages: int = 3) -> List[RSSearchResult]:
             for page in range(2, total_pages + 1)
         ]
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-            if isinstance(response, ScrapflyScrapeError):
-                log.error(f"failed to scrape category page: {response.error}")
+            if isinstance(response, ScrapflyError):
+                log.error(f"failed to scrape category page: {response.message}")
                 continue
             try:
                 results.extend(parse_search(response)["results"])
@@ -261,8 +261,8 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[RSSearchResult]:
             for page in range(2, total_pages + 1)
         ]
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-            if isinstance(response, ScrapflyScrapeError):
-                log.error(f"failed to scrape search page: {response.error}")
+            if isinstance(response, ScrapflyError):
+                log.error(f"failed to scrape search page: {response.message}")
                 continue
             try:
                 results.extend(parse_search(response)["results"])
