@@ -68,6 +68,20 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
+        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
+        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../allegro-scraper/">Allegro.pl</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-allegro">How to Scrape Allegro.pl in 2026 (Without Getting Blocked)</a></td>
     <td>
@@ -446,6 +460,20 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../idealo-scraper/">Idealo.de</a></td>
+    <td>-</td>
+    <td>
+    <ul>
+        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../imdb-scraper/">IMDb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
@@ -518,21 +546,6 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -624,6 +637,18 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../mouser-scraper/">Mouser.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../mouser-scraper/results/product.json">Product</a></li>
+        <li><a href="../mouser-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../naver-scraper/">Naver.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
     <td>
@@ -647,6 +672,17 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -714,6 +750,18 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/redfin-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/redfin-scraper.svg" alt="redfin-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../rightmove-scraper/">Rightmove.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rightmove">How to Scrape RightMove Real Estate Property Data with Python</a></td>
+    <td>
+    <ul>
+        <li><a href="../rightmove-scraper/results/properties.json">Property pages</a></li>
+        <li><a href="../rightmove-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1001,66 +1049,18 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
-    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td><a href="../instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
     <td>
     <ul>
-        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
-        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
-        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../idealo-scraper/">Idealo.de</a></td>
-    <td>-</td>
-    <td>
-    <ul>
-        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../mouser-scraper/">Mouser.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../mouser-scraper/results/product.json">Product</a></li>
-        <li><a href="../mouser-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../rightmove-scraper/">Rightmove.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rightmove">How to Scrape RightMove Real Estate Property Data with Python</a></td>
-    <td>
-    <ul>
-        <li><a href="../rightmove-scraper/results/properties.json">Property pages</a></li>
-        <li><a href="../rightmove-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
