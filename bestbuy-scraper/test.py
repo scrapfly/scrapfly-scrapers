@@ -61,8 +61,10 @@ product_schema = {
             }
         }
     },
+    # a product that cannot be bought right now (sold out, coming soon) has no buying options
     "buying-options": {
         "type": "list",
+        "nullable": True,
         "schema": {
             "type": "dict",
             "schema": {
