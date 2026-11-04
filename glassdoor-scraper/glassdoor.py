@@ -15,7 +15,7 @@ from urllib.parse import quote_plus, urljoin
 from uuid import uuid4
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -73,7 +73,7 @@ async def scrape_jobs(url: str, max_pages: Optional[int] = None) -> List[Dict]:
     log.info("scraped first page of jobs of {}, scraping remaining {} pages", url, len(other_page_urls))
     other_pages = [ScrapeConfig(page_url, **BASE_CONFIG) for page_url in other_page_urls]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             jobs.extend(parse_jobs(result)[0])
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
@@ -165,7 +165,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
-        if isinstance(result, ScrapflyScrapeError):
+        if isinstance(result, ScrapflyError):
             log.error(f"failed to scrape a reviews API page, got: {result.message}")
             continue
         page_data = json.loads(result.content)
@@ -285,7 +285,7 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
         for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             salaries["results"].extend(parse_salaries(result)["results"])
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")

@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from loguru import logger as log
 from parsel import Selector
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -264,6 +264,9 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
 
     log.info("scraping {} property search pages for {}, {}", len(to_scrape), city, state)
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         parsed = parse_search(result)
         results.extend(parsed["properties"])
     log.info(f"scraped search of {len(results)} results for {city}, {state}")

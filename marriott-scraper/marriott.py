@@ -12,7 +12,7 @@ from typing import Dict, List, Optional, TypedDict
 from urllib.parse import urlencode
 
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -304,6 +304,9 @@ async def scrape_hotels(property_ids: List[str]) -> List[MarriottHotel]:
     ]
     results = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         results.append(parse_hotel(json.loads(response.content)))
     log.success("scraped {} hotel details", len(results))
     return results

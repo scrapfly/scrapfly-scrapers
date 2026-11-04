@@ -11,7 +11,7 @@ import jmespath
 from typing import Dict, List
 from urllib.parse import quote
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -51,6 +51,9 @@ async def scrape_posts(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         post_data = parse_post(response)
         data.append(post_data)
     log.success(f"scraped {len(data)} posts from post pages")
@@ -160,6 +163,9 @@ async def scrape_profiles(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True, wait_for_selector="#__UNIVERSAL_DATA_FOR_REHYDRATION__") for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         profile_data = parse_profile(response)
         data.append(profile_data)
     log.success(f"scraped {len(data)} profiles from profile pages")

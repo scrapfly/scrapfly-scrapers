@@ -13,7 +13,7 @@ import urllib.parse
 from pathlib import Path
 from loguru import logger as log
 from typing import List, Dict
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -118,7 +118,7 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
         
         log.info(f"Scraping {len(other_pages)} additional pages")
         async for result in SCRAPFLY.concurrent_scrape(other_pages):
-            if isinstance(result, ScrapflyScrapeError):
+            if isinstance(result, ScrapflyError):
                 log.error("ASP protection failed - skipping page")
                 continue
             try:

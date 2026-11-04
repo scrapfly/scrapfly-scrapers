@@ -12,7 +12,7 @@ from typing import Dict, List, Union
 from parsel import Selector
 from urllib.parse import urlencode, quote_plus
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -301,6 +301,9 @@ async def scrape_search(search_query: str, sort: Union["-bestsellingsort", "-Bes
         for page_number in range(2, total_pages + 1)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_search(response)["data"]
         search_data.extend(data)
 
@@ -342,6 +345,9 @@ async def scrape_reviews(skuid: int, max_pages: int = None) -> List[Dict]:
         for page_number in range(2, total_count + 1)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_reviews(response)["data"]
         review_data.extend(data)
 

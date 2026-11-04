@@ -11,7 +11,7 @@ from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
 import re
-from scrapfly import ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -44,6 +44,9 @@ async def scrape_products(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         # Extract just the product data from the JSON content
         content = response.result['result']['content']
         product_data = json.loads(content)['product']

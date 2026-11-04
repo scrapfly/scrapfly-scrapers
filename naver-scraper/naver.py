@@ -445,6 +445,9 @@ async def scrape_web_search(
             for page in range(2, pages_to_scrape + 1)
         ]
         async for result in SCRAPFLY.concurrent_scrape(other_pages):
+            if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {result}")
+                continue
             results.extend(parse_web_search(result)["results"])
             scraped_pages += 1
 
@@ -519,6 +522,9 @@ async def scrape_image_search(
                 for page in range(2, max_pages + 1)
             ]
             async for result in SCRAPFLY.concurrent_scrape(other_pages):
+                if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                    log.error(f"skipping a page that could not be scraped: {result}")
+                    continue
                 scraped_pages += 1
                 page_data = parse_image_search(result)
                 current_displayed_results = page_data["num_of_displayed_results"]

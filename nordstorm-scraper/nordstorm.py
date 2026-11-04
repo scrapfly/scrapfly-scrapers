@@ -12,7 +12,7 @@ from typing import Dict, List
 from urllib.parse import urlencode, parse_qs, urlparse
 from nested_lookup import nested_lookup
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -97,6 +97,9 @@ async def scrape_products(urls: List[str]):
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = find_hidden_data(response)
         entities = data["productDisplay"]["productDisplaysById"]["entities"]
         products.append(parse_product(list(entities.values())[0]))
@@ -124,6 +127,9 @@ async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
         ScrapeConfig(update_url_parameter(url, page=page), **BASE_CONFIG) for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         data = find_hidden_data(result)
         data = nested_lookup("productResults", data)[0]
         products.extend(list(data["productsById"].values()))

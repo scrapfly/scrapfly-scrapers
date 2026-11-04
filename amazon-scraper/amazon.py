@@ -13,7 +13,7 @@ from typing import Dict, List, TypedDict, Optional
 from urllib.parse import urljoin, urlparse, parse_qsl, urlencode, urlunparse
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -96,6 +96,9 @@ async def scrape_search(url: str, max_pages: Optional[int] = None) -> List[Produ
         for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         results.extend(parse_search(result))
 
     log.info(f"{url}: found total of {len(results)} product previews")
@@ -266,6 +269,9 @@ async def scrape_product(url: str) -> List[Product]:
         log.info(f"scraping {len(variant_asins)} variants: {variant_asins}")
         _to_scrape = [ScrapeConfig(f"https://www.amazon.com/dp/{asin}", **BASE_CONFIG) for asin in variant_asins]
         async for result in SCRAPFLY.concurrent_scrape(_to_scrape):
+            if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {result}")
+                continue
             # skip variant pages that came back as the notice page (or any page without product data)
             if not result.selector.css("#productTitle"):
                 log.warning(f"skipping variant {result.context['url']}: amazon.com returned {_page_summary(result)}")

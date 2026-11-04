@@ -7,7 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import json
 import jmespath
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import List
 from pathlib import Path
 from loguru import logger as log
@@ -142,6 +142,9 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
     properties = []
     # scrape all page URLs concurrently
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         log.info("scraping property page {}", result.context["url"])
         data = extract_property(result)
         if not isinstance(data, dict) or not data.get("id"):
@@ -215,6 +218,9 @@ async def scrape_search(
     )
     # scrape the remaining search pages concurrently
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         data = json.loads(result.content)
         results.extend(data["properties"])
     log.info("scraped {} proprties from the location id {}", len(results), location_id)

@@ -11,7 +11,7 @@ import re
 from html import unescape
 from typing import List, Dict
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -127,6 +127,9 @@ async def scrape_property_for_sale(urls: List[str]) -> List[Dict]:
     properties = []
     # scrape all property pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_property_for_sale(response)
         properties.append(data)
     log.success(f"scraped {len(properties)} property listings for sale")
@@ -147,6 +150,9 @@ async def scrape_property_for_rent(urls: List[str]) -> list[Dict]:
     # add the property pages API URLs to a scraping list
     to_scrape = [ScrapeConfig(url, country="US") for url in api_urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         properties.append(json.loads(response.content))
     log.success(f"scraped {len(properties)} property listings for rent")
     return properties

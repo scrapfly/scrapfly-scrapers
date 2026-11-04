@@ -14,7 +14,7 @@ from html import unescape
 from typing import Dict, List, TypedDict
 from urllib.parse import parse_qs, urlencode, urlparse
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -182,6 +182,9 @@ async def scrape_pages(urls: List[str]) -> List[Dict]:
     result = []
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         result.append(parse_page(response))
     log.success(f"scraped {len(result)} business pages")
     return result

@@ -12,7 +12,7 @@ from loguru import logger as log
 from urllib.parse import urlparse
 from typing import List, Dict, Literal, TypedDict, Optional
 
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -230,6 +230,9 @@ async def scrape_search(
     # scrape the remaining search page concurrently
     try:
         async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+            if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {result}")
+                continue
             page_data = parse_search(result)["search_data"]
             search_data.extend(page_data)
     except Exception as e:

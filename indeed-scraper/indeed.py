@@ -12,7 +12,7 @@ from typing import Dict, List
 import urllib
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -71,7 +71,7 @@ async def scrape_search(url: str, max_results: int = 1000) -> List[Dict]:
     log.info(f"scraping remaining {remaining_pages} pages")
 
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             data = parse_search_page(result)
             results.extend(data["results"])
         else:
@@ -101,5 +101,8 @@ async def scrape_jobs(job_keys: List[str]):
     urls = [f"https://www.indeed.com/viewjob?jk={job_key}" for job_key in job_keys]
     to_scrape = [ScrapeConfig(url, render_js=True, **BASE_CONFIG) for url in urls]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         results.append(parse_job_page(result))
     return results

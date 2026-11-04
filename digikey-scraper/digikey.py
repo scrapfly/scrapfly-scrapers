@@ -10,7 +10,7 @@ from typing import Dict, List, Optional, TypedDict
 from urllib.parse import quote
 from loguru import logger as log
 from lzstring import LZString
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 _LZSTRING = LZString()
@@ -272,8 +272,8 @@ async def scrape_products(urls: List[str]) -> List[DigikeyProduct]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(response, ScrapflyScrapeError):
-            log.error("failed to scrape product: {}", response.error)
+        if isinstance(response, ScrapflyError):
+            log.error("failed to scrape product: {}", response.message)
             continue
         try:
             log.info("scraping product {}", response.context["url"])
@@ -298,8 +298,8 @@ async def scrape_category(url: str, max_pages: int = 3) -> List[DigikeyCategoryR
             sep = "&" if "?" in url else "?"
             to_scrape.append(ScrapeConfig(f"{url}{sep}s={cursor}", **BASE_CONFIG))
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-            if isinstance(response, ScrapflyScrapeError):
-                log.error("failed to scrape category page: {}", response.error)
+            if isinstance(response, ScrapflyError):
+                log.error("failed to scrape category page: {}", response.message)
                 continue
             try:
                 results.extend(parse_category(response))

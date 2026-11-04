@@ -6,7 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import os
 import json
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
@@ -174,6 +174,9 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
         for page in range(2, max_scrape_pages + 1)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         search_data.extend(parse_search(response)["search_data"])
 
     print(f"scraped {len(search_data)} proprties from {url}")

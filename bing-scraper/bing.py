@@ -6,7 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import re
 import os
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from urllib.parse import urlencode, urlparse, parse_qs
 from loguru import logger as log
@@ -81,6 +81,9 @@ async def scrape_search(query: str, max_pages: int = None):
 
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_serps(response)
         serp_data.extend(data)
     log.success(f"scraped {len(serp_data)} search results from Bing search")

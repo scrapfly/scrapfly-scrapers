@@ -6,7 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import os
 import json
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
@@ -68,6 +68,9 @@ async def scrape_search(
     ]
     # scrape the remaining pages concurrently
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         ads_data = parse_search(result)
         search_data.extend(ads_data)
     log.info("scraped {} ads from {}", len(search_data), url)
@@ -85,7 +88,8 @@ async def scrape_ad(url: str, _retries: int = 0) -> Dict:
         if _retries < 2:
             # requests get blocked and redirected to homepage
             log.debug("retrying failed request")
-            result = await scrape_ad(url, _retries=_retries + 1)
+            # the retried ad is the result, not the empty first try
+            ad_data = await scrape_ad(url, _retries=_retries + 1)
         else:
             return None
     return ad_data

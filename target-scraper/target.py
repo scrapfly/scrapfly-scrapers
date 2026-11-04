@@ -13,7 +13,8 @@ from typing import Dict, List, Optional, TypedDict
 from urllib.parse import parse_qs, urlencode, urlparse
 from uuid import uuid4
 from parsel import Selector
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from loguru import logger as log
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -288,6 +289,9 @@ async def scrape_store_locations(store_ids: List[str]) -> List[Dict]:
 
     stores = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         stores.append(parse_store_locations(response))
     return stores
 

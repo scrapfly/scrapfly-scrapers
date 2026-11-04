@@ -15,7 +15,7 @@ from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 from nested_lookup import nested_lookup
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -251,7 +251,7 @@ async def scrape_search(url: str, max_pages: Optional[int] = None) -> List[Dict]
     ]
     log.info("Scraping search pagination of {} total pages for {}", len(other_pages), url)
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             try:
                 results.extend(parse_search(result))
             except Exception as e:

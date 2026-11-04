@@ -7,7 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import json
 import re
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List, Optional
 from pathlib import Path
 from loguru import logger as log
@@ -167,6 +167,9 @@ async def scrape_search(
     ]
     # scrape the remaining pages concurrently
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         page_data = parse_search(result)["results"]
         search_data.extend(page_data)
     log.info("scraped {} proprties from {}", len(search_data), url)
@@ -178,6 +181,9 @@ async def scrape_property(urls: List[str]) -> List[Dict]:
     data = []
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         property_data = parse_property_page(result)
         data.append(property_data)
     log.success(f"scraped {len(data)} properties from Seloger property pages")

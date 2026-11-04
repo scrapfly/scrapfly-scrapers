@@ -12,7 +12,7 @@ from html import unescape
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -202,8 +202,8 @@ async def scrape_apps(app_ids: List[str], lang: str = "en", country: str = "us")
     ]
     apps = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(response, ScrapflyScrapeError):
-            log.error("failed to scrape app: {}", response.error)
+        if isinstance(response, ScrapflyError):
+            log.error("failed to scrape app: {}", response.message)
             continue
         try:
             apps.append(parse_app(response))
