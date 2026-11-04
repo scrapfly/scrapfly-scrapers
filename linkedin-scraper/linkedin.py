@@ -10,7 +10,6 @@ import json
 import jmespath
 from typing import Dict, List
 from urllib.parse import urlencode, quote_plus
-from parsel import Selector
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -57,7 +56,7 @@ async def scrape_profile(urls: List[str]) -> List[Dict]:
             profile_data = parse_profile(response)
             data.append(profile_data)
         except Exception as e:
-            log.error("An occured while scraping profile pages", e)
+            log.error("An error occurred while scraping profile pages: {}", e)
             pass
     log.success(f"scraped {len(data)} profiles from Linkedin")
     return data
@@ -143,7 +142,7 @@ async def scrape_company(urls: List[str]) -> List[Dict]:
             life = parse_company_life(life_page_response)
             data.append({"overview": overview, "life": life})
         except Exception as e:
-            log.error("An occured while scraping company pages", e)
+            log.error("An error occurred while scraping company pages: {}", e)
             pass
 
     log.success(f"scraped {len(data)} companies from Linkedin")
@@ -203,7 +202,7 @@ async def scrape_job_search(keyword: str, location: str, max_pages: int = None) 
             page_data = parse_job_search(response)["data"]
             data.extend(page_data)
         except Exception as e:
-            log.error("An occured while scraping search pagination", e)
+            log.error("An error occurred while scraping search pagination: {}", e)
             pass
 
     log.success(f"scraped {len(data)} jobs from Linkedin job search")
@@ -258,7 +257,7 @@ async def scrape_articles(urls: List[str]) -> List[Dict]:
         try:
             data.append(parse_article_page(response))
         except Exception as e:
-            log.error("An error occured while scraping article pages", e)
+            log.error("An error occurred while scraping article pages: {}", e)
             pass
     log.success(f"scraped {len(data)} articles from Linkedin")
     return data

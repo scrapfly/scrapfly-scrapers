@@ -48,7 +48,6 @@ def parse_directory(response: ScrapeApiResponse) -> dict:
         companies = [company.get("companyUrl") for company in companies_data if company.get("companyUrl")]
         # For aiSearchResults, derive pagination from metadata
         total_results = ai_search_results.get("totalResults", 0)
-        page_num = data.get("pageNum", 1)
         base_url = data.get("baseUrl", "")
         # Calculate pagination (assuming results per page based on current data length)
         results_per_page = len(companies_data) if companies_data else 10

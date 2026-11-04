@@ -6,7 +6,6 @@ To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import json
-import math
 import os
 import re
 from typing import Dict, List

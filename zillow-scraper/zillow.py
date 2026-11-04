@@ -8,9 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import json
 import os
 import random
-import re
 from typing import List
-from urllib.parse import quote, urlencode
 
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyError

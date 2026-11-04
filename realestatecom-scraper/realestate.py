@@ -94,7 +94,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
             data = parse_property_data(data)
             properties.append(data)
         except Exception as e:
-            log.error(f"An error occurred while scraping property pages", e)
+            log.error("An error occurred while scraping property pages: {}", e)
             pass        
     log.success(f"scraped {len(properties)} property listings")
     return properties
@@ -131,7 +131,7 @@ async def scrape_search(url: str, max_scrape_pages: int = None):
             data = parse_hidden_data(response)
             search_data.extend(parse_search_data(data)["search_data"])
         except Exception as e:
-            log.error(f"An error occurred while scraping search pages", e)
+            log.error("An error occurred while scraping search pages: {}", e)
             pass        
     log.success(f"scraped ({len(search_data)}) from {url}")
     return search_data

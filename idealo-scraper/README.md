@@ -35,6 +35,16 @@ import idealo
 
 
 async def main():
+    products = await idealo.scrape_products(
+        urls=[
+            "https://www.idealo.de/preisvergleich/OffersOfProduct/207643424.html",
+            "https://www.idealo.de/preisvergleich/OffersOfProduct/207644441.html",
+        ],
+    )
+    search = await idealo.scrape_search(query="sonnenfinsternis brillen")
+    manufacturer = await idealo.scrape_manufacturer(
+        url="https://www.idealo.de/preisvergleich/Hersteller/1274.html",
+    )
     price_history = await idealo.scrape_price_history(id="207643424", period="3M")
 
 

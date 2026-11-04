@@ -1,5 +1,4 @@
 """Tests for Zoro.com scraper"""
-import os
 from cerberus import Validator as _Validator
 import zoro
 import pytest

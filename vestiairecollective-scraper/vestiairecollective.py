@@ -125,7 +125,7 @@ async def retry_failure(url: str, _retries: int = 0):
             else:
                 raise Exception("Unable to scrape first search page, max retries exceeded")
         return response            
-    except Exception as e:
+    except Exception:
         if _retries < max_retries:
             log.debug("Retrying failed request")
             return await retry_failure(url, _retries=_retries + 1)

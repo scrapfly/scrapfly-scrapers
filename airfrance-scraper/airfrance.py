@@ -9,7 +9,6 @@ import os
 from scrapfly import ScrapflyClient, BrowserConfig
 from playwright.sync_api import sync_playwright
 from loguru import logger as log
-import uuid
 from datetime import datetime
 from typing import List, Optional, TypedDict
 

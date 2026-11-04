@@ -10,7 +10,6 @@ import asyncio
 from datetime import datetime, timedelta
 import json
 from pathlib import Path
-from scrapfly import ScrapeConfig
 
 import airbnb
 

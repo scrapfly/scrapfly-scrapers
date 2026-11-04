@@ -8,7 +8,6 @@ import re
 import os
 import gzip
 import json
-import jmespath
 from typing import Dict, List, Union
 from parsel import Selector
 from urllib.parse import urlencode, quote_plus
@@ -23,7 +22,6 @@ BASE_CONFIG = {
     # set the proxy country to US
     "country": "US",
     "proxy_pool":"public_residential_pool",
-    # "headers": {"cookie": "intl_splash=false"},
 }
 
 
@@ -48,40 +46,6 @@ async def scrape_sitemaps(url: str) -> List[str]:
     promo_urls = parse_sitemaps(response)
     log.success(f"scraped {len(promo_urls)} urls from sitemaps")
     return promo_urls
-
-
-def refine_product(data: Dict) -> Dict:
-    """refine the JSON product data"""
-    parsed_product = {}
-    specifications = data["shop-specifications"]["specifications"]["categories"]
-    pricing = data["pricing"]["app"]["data"]["skuPriceDomain"]
-    ratings = jmespath.search(
-        """{
-        featureRatings: aggregateSecondaryRatings,
-        positiveFeatures: distillation.positiveFeatures[].{name: name, score: representativeQuote.score, totalReviewCount: totalReviewCount},
-        negativeFeatures: distillation.negativeFeatures[].{name: name, score: representativeQuote.score, totalReviewCount: totalReviewCount}
-        }""",
-        data["reviews"]["app"],
-    )
-    faqs = []
-    for item in data["faqs"]["app"]["questions"]["results"]:
-        result = jmespath.search(
-            """{
-            sku: sku,
-            questionTitle: questionTitle,
-            answersForQuestion: answersForQuestion[].answerText
-            }""",
-            item,
-        )
-        faqs.append(result)
-
-    # define the final parsed product
-    parsed_product["specifications"] = specifications
-    parsed_product["pricing"] = pricing
-    parsed_product["ratings"] = ratings
-    parsed_product["faqs"] = faqs
-
-    return parsed_product
 
 
 def extract_json(script: str) -> Dict:

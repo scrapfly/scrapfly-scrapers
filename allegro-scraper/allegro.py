@@ -12,7 +12,7 @@ import re
 import urllib.parse
 from pathlib import Path
 from loguru import logger as log
-from typing import List, Dict, TypedDict
+from typing import List, Dict
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])

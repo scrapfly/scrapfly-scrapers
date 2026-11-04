@@ -309,7 +309,6 @@ def parse_hotel(result: ScrapeApiResponse) -> Hotel:
             features[header] = feats
 
     css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
-    xpath = lambda selector, sep="": sep.join(sel.xpath(selector).getall()).strip()
     lat, lng = sel.xpath("//div[@data-testid='PropertyHeaderAddressDesktop-wrapper']//a/@data-atlas-latlng").get().split(",")
     id = re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)
     data = {

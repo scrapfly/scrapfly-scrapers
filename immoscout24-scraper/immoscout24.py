@@ -4,7 +4,6 @@ This is an example web scraper for immoscout24.ch.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
-import re
 import os
 import json
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
@@ -83,7 +82,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
         try:
             properties.append(parse_property_page(response))
         except Exception as e:
-            log.info("expired property page", e)
+            log.info("expired property page: {}", e)
             pass
     log.info(f"scraped {len(properties)} property listings")
     return properties

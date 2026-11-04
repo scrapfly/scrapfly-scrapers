@@ -17,7 +17,6 @@ from scrapfly import (
     ScrapeConfig,
     ScrapflyClient,
     ScrapeApiResponse,
-    ScrapflyScrapeError,
 )
 
 

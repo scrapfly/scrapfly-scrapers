@@ -30,8 +30,6 @@ output.mkdir(exist_ok=True)
 
 def parse_property_pages(response: ScrapeApiResponse) -> Dict:
     """parse lsiting data from property page"""
-    # get the property id from the page URL
-    # proeprty_id = str(response.context["url"]).split("expose/")[-1]
     selector = response.selector
     # extract the data from the script tag
     data_script = selector.xpath("//script[contains(text(),'UFRN_LIFECYCLE_SERVERREQUEST')]/text()").get()
@@ -82,21 +80,6 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
             log.warning("expired property page: {}", e)
     log.success(f"scraped {len(properties)} property listings")
     return properties
-
-
-def find_json_objects(text: str, decoder=json.JSONDecoder()):
-    """Find JSON objects in text, and generate decoded JSON data"""
-    pos = 0
-    while True:
-        match = text.find("{", pos)
-        if match == -1:
-            break
-        try:
-            result, index = decoder.raw_decode(text[match:])
-            yield result
-            pos = match + index
-        except ValueError:
-            pos = match + 1
 
 
 def parse_search_pages(response: ScrapeApiResponse) -> Dict:

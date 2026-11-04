@@ -1,6 +1,5 @@
 """Test the naver scraper"""
 
-import os
 from cerberus import Validator as _Validator
 import naver
 import pytest

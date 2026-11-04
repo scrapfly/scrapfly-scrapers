@@ -111,11 +111,6 @@ def parse_page_cursors(response: ScrapeApiResponse) -> List[str]:
     return []
 
 
-def parse_total_pages(response: ScrapeApiResponse) -> int:
-    """parse the number of available search pages"""
-    return len(parse_page_cursors(response)) or 1
-
-
 def parse_search(response: ScrapeApiResponse) -> List[AirbnbSearchResult]:
     """parse search results from an Airbnb search page"""
     results = []

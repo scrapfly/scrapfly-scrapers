@@ -160,4 +160,5 @@ async def test_category_scraping():
         }
     }
     validator = Validator(schema, allow_unknown=True)
-    assert len(result) > 100
+    for item in result:
+        validate_or_fail(item, validator)

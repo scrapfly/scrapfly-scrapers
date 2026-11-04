@@ -6,7 +6,6 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
-import uuid
 import json
 import math
 import base64
@@ -274,7 +273,7 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
             new_review_data = parse_review_data(response)["reviews"]
             reviews.extend(new_review_data)
         except Exception as e:
-            log.error(f"An error occurred while scraping search pages", e)
+            log.error("An error occurred while scraping search pages: {}", e)
             pass
     log.success(f"scraped {len(reviews)} reviews from review pages")
     return reviews
@@ -311,7 +310,7 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
         try:
             search_data.extend(parse_search(response)["search_data"])
         except Exception as e:
-            log.error(f"An error occurred while scraping search pages", e)
+            log.error("An error occurred while scraping search pages: {}", e)
             pass
     log.success(f"scraped {len(search_data)} listings from search pages")
     return search_data

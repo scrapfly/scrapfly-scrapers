@@ -6,13 +6,10 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
-import datetime
-import secrets
 import json
-import uuid
 import jmespath
 from typing import Dict, List
-from urllib.parse import urlencode, quote, urlparse, parse_qs
+from urllib.parse import quote
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
