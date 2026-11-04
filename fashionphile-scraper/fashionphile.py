@@ -161,6 +161,9 @@ async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
         
         # Scrape concurrently
         async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+            if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {result}")
+                continue
             product_cards = result.selector.css('.fp-algolia-product-card')
             
             for card in product_cards:
