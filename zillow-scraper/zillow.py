@@ -18,7 +18,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyError
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Zillow.com requires Anti Scraping Protection bypass feature:
-    "asp": True,
+    "unblocker": True,
     "country": "US",
 }
 

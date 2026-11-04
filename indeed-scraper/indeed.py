@@ -18,7 +18,7 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflySc
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Indeed.com requires Anti Scraping Protection bypass feature.
-    "asp": True,
+    "unblocker": True,
     "country": "US",
 }
 

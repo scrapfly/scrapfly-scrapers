@@ -49,7 +49,7 @@ The functions return plain dictionaries and lists. Fields of the sample output (
 
 `BASE_CONFIG` in [`app_store.py`](app_store.py) holds the default settings of the requests, see the [Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):
 
-- `asp` = `True`: Anti Scraping Protection, the earlier name of the [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)
+- `unblocker` = `True`: Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker), its anti-bot bypass
 - `country` = `"US"`: country of the proxy
 
 ## Quick start

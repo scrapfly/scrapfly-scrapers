@@ -25,7 +25,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Ticketmaster.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "render_js": True
 }
 

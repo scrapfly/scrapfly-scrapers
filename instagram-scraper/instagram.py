@@ -20,7 +20,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Instagram.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "country": "CA",  # change country for relevant results
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com

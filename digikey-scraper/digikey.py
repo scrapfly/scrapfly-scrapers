@@ -16,7 +16,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 _LZSTRING = LZString()
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "country": "us",
 }

@@ -20,7 +20,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass tiktok.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     "country": "AU",
     "proxy_pool": "public_residential_pool",
 }
@@ -221,7 +221,7 @@ async def scrape_search(keyword: str) -> List[Dict]:
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
-            asp=True,
+            unblocker=True,
             proxy_pool="public_residential_pool",
             country="AU",
             wait_for_selector="//div[@data-e2e='search_top-item']",
@@ -284,7 +284,7 @@ async def scrape_channel(url: str) -> List[Dict]:
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
-            asp=True,
+            unblocker=True,
             country="AU",
             proxy_pool="public_residential_pool",
             rendering_wait=15000,

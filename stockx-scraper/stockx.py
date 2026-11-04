@@ -18,7 +18,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # StockX.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "proxy_pool": "public_residential_pool",
     "auto_scroll": True,

@@ -15,7 +15,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass zoominfo.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to CA
     "country": "CA",
 }

@@ -19,7 +19,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass Google web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the poxy location to US
     "country": "US",
     "render_js": True,

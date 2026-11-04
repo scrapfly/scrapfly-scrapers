@@ -24,7 +24,7 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyAspError, Scrapfly
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "IN",
     "render_js": True,
     "proxy_pool": "public_residential_pool",
@@ -469,7 +469,7 @@ async def scrape_hotel_search(
                 body=json.dumps(body),
                 session=session,
                 render_js=False,
-                asp=True,
+                unblocker=True,
                 country="IN",
             )
         )

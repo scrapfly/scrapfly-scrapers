@@ -19,7 +19,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Allegro.pl requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "proxy_pool": "public_residential_pool",
     "render_js":True,
     "retry": True,

@@ -22,7 +22,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Threads.net might require Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "country": "US",  # set country here NOTE: Threads is not available in Europe yet
 }
 THREADS_APP_ID = "238260118697367"  # ssr_qpl_app_id embedded in every page

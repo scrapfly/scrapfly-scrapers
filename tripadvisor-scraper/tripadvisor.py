@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # Tripadvisor.com requires Anti Scraping Protection bypass feature:
-    "asp": True,
+    "unblocker": True,
     # set the proxy location to US
     "country": "US",
 }

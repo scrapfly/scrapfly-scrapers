@@ -17,7 +17,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass vestiairecollective.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
 }
@@ -68,7 +68,7 @@ async def send_api_request(headers, payload, offset) -> List[Dict]:
             body=json.dumps(payload),
             country="US",
             method="POST",
-            asp=True,
+            unblocker=True,
         )
     )
     return response

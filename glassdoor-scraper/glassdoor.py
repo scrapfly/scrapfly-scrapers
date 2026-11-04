@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Glassdoor.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "country": "US",
     # the site answers 403 to datacenter addresses now and then; residential ones get the pages
     "proxy_pool": "public_residential_pool",
@@ -109,7 +109,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
         return ScrapeConfig(
             url='https://www.glassdoor.com/bff/employer-profile-mono/employer-reviews',
             method='POST',
-            asp=True,
+            unblocker=True,
             country="US",
             proxy_pool="public_residential_pool",
             session=session,
@@ -310,7 +310,7 @@ async def find_companies(query: str) -> List[FoundCompany]:
         ScrapeConfig(
             url=f"https://www.glassdoor.com/autocomplete/employers?term={quote_plus(query)}",
             # the autocomplete endpoint answers with json, so there is nothing to render
-            asp=True,
+            unblocker=True,
             country="US",
             proxy_pool="public_residential_pool",
         )

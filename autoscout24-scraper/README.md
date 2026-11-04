@@ -51,7 +51,7 @@ A field marked `?` can be `null`.
 
 `BASE_CONFIG` in [`autoscout24.py`](autoscout24.py) holds the default settings of the requests, see the [Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):
 
-- `asp` = `True`: Anti Scraping Protection, the earlier name of the [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)
+- `unblocker` = `True`: Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker), its anti-bot bypass
 
 ## Quick start
 

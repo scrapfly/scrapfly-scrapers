@@ -18,7 +18,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass linkedin.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     "headers": {
@@ -251,7 +251,7 @@ def parse_article_page(response: ScrapeApiResponse) -> Dict:
 
 async def scrape_articles(urls: List[str]) -> List[Dict]:
     """scrape Linkedin articles"""
-    to_scrape = [ScrapeConfig(url, asp=True, country="us") for url in urls]
+    to_scrape = [ScrapeConfig(url, unblocker=True, country="us") for url in urls]
     data = []
     # scrape the URLs concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):

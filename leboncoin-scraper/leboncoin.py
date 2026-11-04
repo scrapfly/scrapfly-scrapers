@@ -13,7 +13,7 @@ from loguru import logger as log
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "fr",
 }
 

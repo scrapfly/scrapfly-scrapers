@@ -17,7 +17,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "country": "US",
     "proxy_pool": "public_residential_pool",
@@ -153,7 +153,7 @@ async def _get_operation_signature(operation: str) -> str:
         log.info("fetching operation signatures from {}", url)
 
         response = await SCRAPFLY.async_scrape(
-            ScrapeConfig(url, asp=True, country="US", proxy_pool="public_residential_pool")
+            ScrapeConfig(url, unblocker=True, country="US", proxy_pool="public_residential_pool")
         )
         _OPERATION_SIGNATURES.update(_parse_operation_signatures(response.content))
 
@@ -296,7 +296,7 @@ async def scrape_hotels(property_ids: List[str]) -> List[MarriottHotel]:
                 "query": _HQV_QUERY,
                 "variables": {"propertyId": pid, "filter": "PHONE", "descriptionsFilter": ["LOCATION"]},
             }),
-            asp=True,
+            unblocker=True,
             country="US",
             proxy_pool="public_residential_pool",
         )

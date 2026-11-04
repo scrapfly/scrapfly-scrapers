@@ -21,7 +21,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass goat.com web scraping blocking(cloudflare)
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
 }

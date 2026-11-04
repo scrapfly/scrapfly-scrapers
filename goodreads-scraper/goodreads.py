@@ -18,7 +18,7 @@ from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # goodreads.com requires Anti Scraping Protection bypass feature.
-    "asp": True,
+    "unblocker": True,
 }
 
 # Goodreads timestamps are epoch milliseconds, and go negative for pre 1970 publications
