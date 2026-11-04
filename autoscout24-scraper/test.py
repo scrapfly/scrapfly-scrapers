@@ -48,7 +48,7 @@ listing_schema = {
         "schema": {
             "make": {"type": "string"},
             "model": {"type": "string", "nullable": True},
-            "modelGroup": {"type": "string"},
+            "modelGroup": {"type": "string", "nullable": True},
             "transmission": {"type": "string"},
             "fuel": {"type": "string"},
             "mileageInKm": {"type": "string"},
