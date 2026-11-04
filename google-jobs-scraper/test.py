@@ -1,6 +1,4 @@
-import json
 import os
-from pathlib import Path
 from cerberus import Validator as _Validator
 import pytest
 import google_jobs

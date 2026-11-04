@@ -10,7 +10,6 @@ import json
 import jmespath
 from typing import Dict, List
 from urllib.parse import urlencode, quote_plus
-from parsel import Selector
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
 
@@ -18,7 +17,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass linkedin.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
     "headers": {
@@ -57,7 +56,7 @@ async def scrape_profile(urls: List[str]) -> List[Dict]:
             profile_data = parse_profile(response)
             data.append(profile_data)
         except Exception as e:
-            log.error("An occured while scraping profile pages", e)
+            log.error("An error occurred while scraping profile pages: {}", e)
             pass
     log.success(f"scraped {len(data)} profiles from Linkedin")
     return data
@@ -143,7 +142,7 @@ async def scrape_company(urls: List[str]) -> List[Dict]:
             life = parse_company_life(life_page_response)
             data.append({"overview": overview, "life": life})
         except Exception as e:
-            log.error("An occured while scraping company pages", e)
+            log.error("An error occurred while scraping company pages: {}", e)
             pass
 
     log.success(f"scraped {len(data)} companies from Linkedin")
@@ -203,7 +202,7 @@ async def scrape_job_search(keyword: str, location: str, max_pages: int = None) 
             page_data = parse_job_search(response)["data"]
             data.extend(page_data)
         except Exception as e:
-            log.error("An occured while scraping search pagination", e)
+            log.error("An error occurred while scraping search pagination: {}", e)
             pass
 
     log.success(f"scraped {len(data)} jobs from Linkedin job search")
@@ -251,14 +250,14 @@ def parse_article_page(response: ScrapeApiResponse) -> Dict:
 
 async def scrape_articles(urls: List[str]) -> List[Dict]:
     """scrape Linkedin articles"""
-    to_scrape = [ScrapeConfig(url, asp=True, country="us") for url in urls]
+    to_scrape = [ScrapeConfig(url, unblocker=True, country="us") for url in urls]
     data = []
     # scrape the URLs concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
             data.append(parse_article_page(response))
         except Exception as e:
-            log.error("An error occured while scraping article pages", e)
+            log.error("An error occurred while scraping article pages: {}", e)
             pass
     log.success(f"scraped {len(data)} articles from Linkedin")
     return data

@@ -1,7 +1,5 @@
 import asyncio
-import os
 import json
-import re
 from pathlib import Path
 import imovelweb
 from loguru import logger as log

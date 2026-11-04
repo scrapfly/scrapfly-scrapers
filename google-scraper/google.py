@@ -19,7 +19,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass Google web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the poxy location to US
     "country": "US",
     "render_js": True,
@@ -352,8 +352,8 @@ async def scrape_serp(query: str, max_pages: int = None, resolve_goto_urls: bool
         try:
             data = parse_serp(response)
             results.extend(data)
-        except NoResults as e:  # catch any exception
-            log.warning(f"Encouterned search page without results")
+        except NoResults:  # catch any exception
+            log.warning("Encouterned search page without results")
             continue
         except Exception as e:
             log.error(f"Error occured: {e}")

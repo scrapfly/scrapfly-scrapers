@@ -12,12 +12,12 @@ from typing import Dict, List, Optional, TypedDict
 from urllib.parse import urlencode
 
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "country": "US",
     "proxy_pool": "public_residential_pool",
@@ -153,7 +153,7 @@ async def _get_operation_signature(operation: str) -> str:
         log.info("fetching operation signatures from {}", url)
 
         response = await SCRAPFLY.async_scrape(
-            ScrapeConfig(url, asp=True, country="US", proxy_pool="public_residential_pool")
+            ScrapeConfig(url, unblocker=True, country="US", proxy_pool="public_residential_pool")
         )
         _OPERATION_SIGNATURES.update(_parse_operation_signatures(response.content))
 
@@ -296,7 +296,7 @@ async def scrape_hotels(property_ids: List[str]) -> List[MarriottHotel]:
                 "query": _HQV_QUERY,
                 "variables": {"propertyId": pid, "filter": "PHONE", "descriptionsFilter": ["LOCATION"]},
             }),
-            asp=True,
+            unblocker=True,
             country="US",
             proxy_pool="public_residential_pool",
         )
@@ -304,6 +304,9 @@ async def scrape_hotels(property_ids: List[str]) -> List[MarriottHotel]:
     ]
     results = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         results.append(parse_hotel(json.loads(response.content)))
     log.success("scraped {} hotel details", len(results))
     return results

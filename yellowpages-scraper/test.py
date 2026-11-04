@@ -1,4 +1,3 @@
-import asyncio
 from cerberus import Validator as _Validator
 import pytest
 import yellowpages

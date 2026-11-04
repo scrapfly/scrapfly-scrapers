@@ -15,13 +15,13 @@ from urllib.parse import quote_plus, urljoin
 from uuid import uuid4
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Glassdoor.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "country": "US",
     # the site answers 403 to datacenter addresses now and then; residential ones get the pages
     "proxy_pool": "public_residential_pool",
@@ -73,7 +73,7 @@ async def scrape_jobs(url: str, max_pages: Optional[int] = None) -> List[Dict]:
     log.info("scraped first page of jobs of {}, scraping remaining {} pages", url, len(other_page_urls))
     other_pages = [ScrapeConfig(page_url, **BASE_CONFIG) for page_url in other_page_urls]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             jobs.extend(parse_jobs(result)[0])
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
@@ -109,7 +109,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
         return ScrapeConfig(
             url='https://www.glassdoor.com/bff/employer-profile-mono/employer-reviews',
             method='POST',
-            asp=True,
+            unblocker=True,
             country="US",
             proxy_pool="public_residential_pool",
             session=session,
@@ -165,7 +165,7 @@ async def scrape_reviews(url: str, max_pages: Optional[int] = None) -> List[Dict
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
-        if isinstance(result, ScrapflyScrapeError):
+        if isinstance(result, ScrapflyError):
             log.error(f"failed to scrape a reviews API page, got: {result.message}")
             continue
         page_data = json.loads(result.content)
@@ -285,7 +285,7 @@ async def scrape_salaries(url: str, max_pages: Optional[int] = None) -> Dict:
         for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             salaries["results"].extend(parse_salaries(result)["results"])
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
@@ -310,7 +310,7 @@ async def find_companies(query: str) -> List[FoundCompany]:
         ScrapeConfig(
             url=f"https://www.glassdoor.com/autocomplete/employers?term={quote_plus(query)}",
             # the autocomplete endpoint answers with json, so there is nothing to render
-            asp=True,
+            unblocker=True,
             country="US",
             proxy_pool="public_residential_pool",
         )

@@ -9,7 +9,7 @@ import os
 import json
 import re
 import math
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from typing_extensions import TypedDict
 from collections import defaultdict
@@ -111,6 +111,9 @@ async def scrape_provinces(urls: List[str]) -> List[str]:
     
     for _ in range(3):  # retry falied requests
         async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+            if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {response}")
+                continue
             parsed_urls = parse_province(response)
             if parsed_urls:
                 search_urls.extend(parsed_urls)
@@ -168,6 +171,9 @@ async def scrape_properties(urls: List[str]) -> List[PropertyResult]:
     # add all property pages to a scraping list
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         # skip invalid property pages
         if response.upstream_status_code != 200:
             log.warning(f"can't scrape property: {response.context['url']}")
@@ -205,6 +211,9 @@ async def crawl_search(url: str, max_scrape_pages: int = None) -> List[str]:
         for page in range(2, total_pages + 1)
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         property_urls.extend(parse_search(response))
 
     max_properties = max_scrape_pages * 20 if max_scrape_pages else len(property_urls)
@@ -237,6 +246,9 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
     log.info(f"scraping search pagination, {max_pages - 1} pages remaining")
 
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         # skip invalid property pages
         search_data.extend(parse_search_data(response)["search_data"])
     log.success(f"scraped {len(search_data)} property listings from search pages")

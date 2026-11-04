@@ -16,8 +16,6 @@ output.mkdir(exist_ok=True)
 
 async def run():
 
-    # print("running Capterra scrape and saving results to ./results directory")
-
     category_data = await capterra.scrape_category(
         category="project-management-software",
         max_pages=3,

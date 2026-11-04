@@ -7,13 +7,12 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 
 import os
 import json
-import jmespath
 from pathlib import Path
 from loguru import logger as log
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse
 from typing import List, Dict, Literal, TypedDict, Optional
 
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -40,13 +39,6 @@ class PropertyResult(TypedDict):
     photos: List[dict]
     details: dict
     agency: dict
-
-
-def parse_next_data(result: ScrapeApiResponse) -> Dict:
-    """parse hidden data from script tags"""
-    next_data = result.selector.css("script#__NEXT_DATA__::text").get()
-    next_data_json = json.loads(next_data)["props"]["pageProps"] if next_data else None
-    return next_data_json
 
 
 def parse_property(response: ScrapeApiResponse) -> Optional[PropertyResult]:
@@ -238,10 +230,13 @@ async def scrape_search(
     # scrape the remaining search page concurrently
     try:
         async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+            if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {result}")
+                continue
             page_data = parse_search(result)["search_data"]
             search_data.extend(page_data)
     except Exception as e:
-        log.error(f"An error occurred while scraping search pages", e)
+        log.error("An error occurred while scraping search pages: {}", e)
         pass
 
     log.info(

@@ -8,7 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import math
 import json
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from loguru import logger as log
 
@@ -156,6 +156,9 @@ async def scrape_product(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     # scrape all the product pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_product_page(response)
         products.append(data)
     log.success(f"scraped {len(products)} product listings from product pages")
@@ -168,6 +171,9 @@ async def scrape_shop(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     # scrape all the shop pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_shop_page(response)
         data["url"] = response.context["url"]
         shops.append(data)

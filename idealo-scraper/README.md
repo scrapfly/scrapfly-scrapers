@@ -35,6 +35,16 @@ import idealo
 
 
 async def main():
+    products = await idealo.scrape_products(
+        urls=[
+            "https://www.idealo.de/preisvergleich/OffersOfProduct/207643424.html",
+            "https://www.idealo.de/preisvergleich/OffersOfProduct/207644441.html",
+        ],
+    )
+    search = await idealo.scrape_search(query="sonnenfinsternis brillen")
+    manufacturer = await idealo.scrape_manufacturer(
+        url="https://www.idealo.de/preisvergleich/Hersteller/1274.html",
+    )
     price_history = await idealo.scrape_price_history(id="207643424", period="3M")
 
 
@@ -58,7 +68,7 @@ A field marked `?` can be `null`.
 
 `BASE_CONFIG` in [`idealo.py`](idealo.py) holds the default settings of the requests, see the [Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):
 
-- `asp` = `True`: Anti Scraping Protection, the earlier name of the [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)
+- `unblocker` = `True`: Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker), its anti-bot bypass
 - `country` = `"DE"`: country of the proxy
 - `render_js` = `True`: render the page in a real browser
 - `proxy_pool` = `"public_residential_pool"`: proxy pool (datacenter or residential)

@@ -17,7 +17,7 @@ from urllib.parse import urlencode
 from uuid import uuid4
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -309,7 +309,6 @@ def parse_hotel(result: ScrapeApiResponse) -> Hotel:
             features[header] = feats
 
     css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
-    xpath = lambda selector, sep="": sep.join(sel.xpath(selector).getall()).strip()
     lat, lng = sel.xpath("//div[@data-testid='PropertyHeaderAddressDesktop-wrapper']//a/@data-atlas-latlng").get().split(",")
     id = re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)
     data = {
@@ -554,6 +553,9 @@ async def scrape_hotel_reviews(url: str, max_pages: Optional[int] = None) -> Lis
     ]
 
     async for response in SCRAPFLY.concurrent_scrape(remaining_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         reviews_data.extend(json.loads(response.content)["data"]["reviewListFrontend"]["reviewCard"])
 
     log.success(f"scraped {len(reviews_data)} reviews from the hotel reviews api for the url {url}")

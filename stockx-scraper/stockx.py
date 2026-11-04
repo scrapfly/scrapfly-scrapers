@@ -12,13 +12,13 @@ from nested_lookup import nested_lookup
 from typing import Dict, List
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # StockX.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "proxy_pool": "public_residential_pool",
     "auto_scroll": True,
@@ -103,6 +103,9 @@ async def scrape_search(url: str, max_pages: int = 25) -> List[Dict]:
         for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(_other_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         data = parse_nextjs(result)
         _page_results = nested_lookup("results", data)[0]
         product_previews.extend([edge["node"] for edge in _page_results["edges"]])

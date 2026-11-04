@@ -20,7 +20,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Instagram.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "country": "CA",  # change country for relevant results
 }
 INSTAGRAM_APP_ID = "936619743392459"  # this is the public app id for instagram.com
@@ -100,46 +100,6 @@ async def scrape_user(username: str) -> Dict:
         raise ValueError(f"Could not find user data in page: {username}")
     data = nested_lookup("xig_user_by_username", json.loads(user_hidden_data[0]))[0]
     return parse_user(data)
-
-def parse_comments(data: Dict) -> Dict:
-    """Parse the comments data from the post dataset"""
-    if "edge_media_to_comment" in data:
-        return jmespath.search(
-            """{
-                comments_count: edge_media_to_comment.count,
-                comments_disabled: comments_disabled,
-                comments_next_page: edge_media_to_comment.page_info.end_cursor,
-                comments: edge_media_to_comment.edges[].node.{
-                    id: id,
-                    text: text,
-                    created_at: created_at,
-                    owner_id: owner.id,
-                    owner: owner.username,
-                    owner_verified: owner.is_verified,
-                    viewer_has_liked: viewer_has_liked
-                }
-            }""",
-            data,
-        )
-    else:
-        return jmespath.search(
-            """{
-                comments_count: edge_media_to_parent_comment.count,
-                comments_disabled: comments_disabled,
-                comments_next_page: edge_media_to_parent_comment.page_info.end_cursor,
-                comments: edge_media_to_parent_comment.edges[].node.{
-                    id: id,
-                    text: text,
-                    created_at: created_at,
-                    owner: owner.username,
-                    owner_verified: owner.is_verified,
-                    viewer_has_liked: viewer_has_liked,
-                    likes: edge_liked_by.count
-                }
-            }""",
-            data,
-        )
-
 
 def _extract_xig_polaris_media(html: str) -> Optional[Dict]:
     scripts = re.findall(

@@ -5,16 +5,14 @@ https://scrapfly.io/blog/how-to-scrape-aliexpress/
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
-import uuid
 import json
 import math
 import os
-import re
 
 from loguru import logger as log
 from typing import Dict, List, TypedDict
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -74,7 +72,7 @@ async def scrape_search(url, max_pages: int = 60):
         for page in range(2, total_pages + 1)
     ]
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             product_previews.extend(parse_search(result))
         else:
             log.error(f"failed to scrape {result.api_response.config['url']}, got: {result.message}")
@@ -202,6 +200,9 @@ async def scrape_product_reviews(product_id: str, max_scrape_pages: int = None):
     log.info(f"scraping reviews pagination of product {product_id}, {max_pages - 1} pages remaining")
     to_scrape = [scrape_config_for_page(page) for page in range(2, max_pages + 1)]
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         data["reviews"].extend(parse_review_page(result)["reviews"])
     log.success(f"scraped {len(data['reviews'])} from review pages")
     data.pop("max_pages")
@@ -242,6 +243,9 @@ async def find_aliexpress_products(url: str, max_pages: int) -> List[Dict]:
     ]
 
     async for result in SCRAPFLY.concurrent_scrape(remaining_pages):
+        if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {result}")
+            continue
         product_data = parse_category_page(result)['product_data']
         all_product_data.extend(product_data)
     

@@ -12,11 +12,11 @@ import base64
 from urllib.parse import urlencode, quote
 from typing import Dict, List, Optional, TypedDict
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "country": "US",
     "proxy_pool": "public_residential_pool",
     "render_js": True,
@@ -109,11 +109,6 @@ def parse_page_cursors(response: ScrapeApiResponse) -> List[str]:
         if cursors:
             return cursors
     return []
-
-
-def parse_total_pages(response: ScrapeApiResponse) -> int:
-    """parse the number of available search pages"""
-    return len(parse_page_cursors(response)) or 1
 
 
 def parse_search(response: ScrapeApiResponse) -> List[AirbnbSearchResult]:
@@ -349,6 +344,9 @@ async def scrape_listings(
         for cursor in cursors
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         # Airbnb reshuffles results between requests so pages can overlap
         page_results = [item for item in parse_search(response) if item["id"] not in seen]
         seen.update(item["id"] for item in page_results)

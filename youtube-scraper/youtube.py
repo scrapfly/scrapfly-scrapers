@@ -6,14 +6,12 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
-import datetime
-import secrets
 import json
 import jmespath
 
 from jsonpath_ng.ext import parse
 from typing import Dict, List, Literal
-from urllib.parse import urlencode, quote, urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
@@ -291,7 +289,7 @@ async def scrape_comments(video_id: str, max_scrape_pages=None) -> List[Dict]:
     """scraper comments from a YouTube video"""
     comments = []
     cursor = 0
-    log.info(f"scraping video page for the comments continuation token")
+    log.info("scraping video page for the comments continuation token")
     video_data = await scrape_video([video_id])
     continuation_token = video_data[0].get("commentContinuationToken")
 
@@ -384,6 +382,9 @@ async def scrape_channel(channel_ids: List[str]) -> List[Dict]:
     data = []
     log.info(f"scraping {len(to_scrape)} channels")
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         channel_data = parse_channel(response)
         data.append(channel_data)
     log.success(f"scraped {len(data)} cahnnel info")

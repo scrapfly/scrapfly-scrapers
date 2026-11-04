@@ -14,7 +14,7 @@ from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
 scrapfly_client = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
-    "asp": True,
+    "unblocker": True,
     "proxy_pool": "public_residential_pool",
     "render_js": True,
 }

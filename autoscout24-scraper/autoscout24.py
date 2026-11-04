@@ -19,7 +19,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # AutoScout24 requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     # no render_js: the listing and offer data is in the server rendered __NEXT_DATA__ payload,
     # so rendering only adds cost and a browser page load to wait on
 }

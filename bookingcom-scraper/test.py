@@ -8,8 +8,6 @@ from cerberus import Validator
 
 import bookingcom
 
-# enable cache?
-# bookingcom.BASE_CONFIG["cache"] = True
 NOW = datetime.now().strftime('%Y-%m-%d')
 TODAY = datetime.now().strftime('%Y-%m-%d')
 WEEK_FROM_NOW = (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')

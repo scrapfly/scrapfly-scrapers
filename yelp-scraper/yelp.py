@@ -6,7 +6,6 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
-import uuid
 import json
 import math
 import base64
@@ -15,7 +14,7 @@ from html import unescape
 from typing import Dict, List, TypedDict
 from urllib.parse import parse_qs, urlencode, urlparse
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -183,6 +182,9 @@ async def scrape_pages(urls: List[str]) -> List[Dict]:
     result = []
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         result.append(parse_page(response))
     log.success(f"scraped {len(result)} business pages")
     return result
@@ -274,7 +276,7 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
             new_review_data = parse_review_data(response)["reviews"]
             reviews.extend(new_review_data)
         except Exception as e:
-            log.error(f"An error occurred while scraping search pages", e)
+            log.error("An error occurred while scraping search pages: {}", e)
             pass
     log.success(f"scraped {len(reviews)} reviews from review pages")
     return reviews
@@ -311,7 +313,7 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
         try:
             search_data.extend(parse_search(response)["search_data"])
         except Exception as e:
-            log.error(f"An error occurred while scraping search pages", e)
+            log.error("An error occurred while scraping search pages: {}", e)
             pass
     log.success(f"scraped {len(search_data)} listings from search pages")
     return search_data

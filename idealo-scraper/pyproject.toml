@@ -7,7 +7,8 @@ license = "NPOS-3.0"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-scrapfly-sdk = {extras = ["all"], version = "^0.8.5"}
+scrapfly-sdk = "^0.12.0"
+parsel = "^1.8.1"
 loguru = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]

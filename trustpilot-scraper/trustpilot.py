@@ -6,7 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import os
 import json
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from loguru import logger as log
 
@@ -14,7 +14,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass trustpilot web scraping blocking
-    "asp": True,
+    "unblocker": True,
     # set the poxy location to US
     "country": "US",
 }
@@ -45,6 +45,9 @@ async def scrape_company(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     # scrape all the company pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_hidden_data(response)
         data = parse_company_data(data)
         companies.append(data)
@@ -73,6 +76,9 @@ async def scrape_search(url: str, max_pages: int = None) -> List[Dict]:
     ]
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_hidden_data(response)["props"]["pageProps"]["businessUnits"]["businesses"]
         search_data.extend(data)
     log.success(f"scraped {len(search_data)} company listings from search")
@@ -115,6 +121,9 @@ async def scrape_reviews(url: str, max_pages: int = None) -> List[Dict]:
     ]
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = json.loads(response.scrape_result["content"])["pageProps"]["reviews"]
         reviews_data.extend(data)
     log.success(f"scraped {len(reviews_data)} company reviews")

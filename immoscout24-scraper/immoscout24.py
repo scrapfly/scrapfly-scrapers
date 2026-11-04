@@ -4,10 +4,9 @@ This is an example web scraper for immoscout24.ch.
 To run this scraper set env variable $SCRAPFLY_KEY with your scrapfly API key:
 $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
-import re
 import os
 import json
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
@@ -83,7 +82,7 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
         try:
             properties.append(parse_property_page(response))
         except Exception as e:
-            log.info("expired property page", e)
+            log.info("expired property page: {}", e)
             pass
     log.info(f"scraped {len(properties)} property listings")
     return properties
@@ -111,6 +110,9 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
     ]
     # scrape the remaining search pages concurrently
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = parse_next_data(response)
         search_data.extend(data["resultList"]["search"]["fullSearch"]["result"]["listings"])
     log.info("scraped {} proprties from {}", len(search_data), url)

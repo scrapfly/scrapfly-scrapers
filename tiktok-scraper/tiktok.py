@@ -6,21 +6,18 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 import os
-import datetime
-import secrets
 import json
-import uuid
 import jmespath
 from typing import Dict, List
-from urllib.parse import urlencode, quote, urlparse, parse_qs
+from urllib.parse import quote
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass tiktok.com web scraping blocking
-    "asp": True,
+    "unblocker": True,
     "country": "AU",
     "proxy_pool": "public_residential_pool",
 }
@@ -54,6 +51,9 @@ async def scrape_posts(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         post_data = parse_post(response)
         data.append(post_data)
     log.success(f"scraped {len(data)} posts from post pages")
@@ -163,6 +163,9 @@ async def scrape_profiles(urls: List[str]) -> List[Dict]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG, render_js=True, wait_for_selector="#__UNIVERSAL_DATA_FOR_REHYDRATION__") for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         profile_data = parse_profile(response)
         data.append(profile_data)
     log.success(f"scraped {len(data)} profiles from profile pages")
@@ -221,7 +224,7 @@ async def scrape_search(keyword: str) -> List[Dict]:
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
-            asp=True,
+            unblocker=True,
             proxy_pool="public_residential_pool",
             country="AU",
             wait_for_selector="//div[@data-e2e='search_top-item']",
@@ -284,7 +287,7 @@ async def scrape_channel(url: str) -> List[Dict]:
     response = await SCRAPFLY.async_scrape(
         ScrapeConfig(
             url,
-            asp=True,
+            unblocker=True,
             country="AU",
             proxy_pool="public_residential_pool",
             rendering_wait=15000,

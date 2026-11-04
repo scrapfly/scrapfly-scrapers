@@ -9,7 +9,7 @@ import json
 import re
 from typing import Dict, List, Optional, TypedDict
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyScrapeError
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -136,7 +136,7 @@ async def scrape_listings(urls: List[str]) -> List[LoopnetListing]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     listings = []
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(result, ScrapflyScrapeError):
+        if isinstance(result, ScrapflyError):
             log.error("scrape failed, skipping")
             continue
         try:
@@ -210,7 +210,7 @@ async def scrape_search(search_url: str, max_pages: int = 3) -> SearchResult:
     to_scrape = [ScrapeConfig(f"{base_url}/{page}/", **BASE_CONFIG) for page in range(2, pages_to_scrape + 1)]
 
     async for result in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(result, ScrapflyScrapeError):
+        if isinstance(result, ScrapflyError):
             log.error("scrape failed, skipping page")
             continue
         try:

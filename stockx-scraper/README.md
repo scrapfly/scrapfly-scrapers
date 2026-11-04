@@ -50,7 +50,7 @@ The functions return plain dictionaries and lists. Fields of the sample output (
 
 `BASE_CONFIG` in [`stockx.py`](stockx.py) holds the default settings of the requests, see the [Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):
 
-- `asp` = `True`: Anti Scraping Protection, the earlier name of the [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)
+- `unblocker` = `True`: Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker), its anti-bot bypass
 - `render_js` = `True`: render the page in a real browser
 - `proxy_pool` = `"public_residential_pool"`: proxy pool (datacenter or residential)
 - `auto_scroll` = `True`: scroll the page to load lazy content

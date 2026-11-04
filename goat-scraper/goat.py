@@ -8,20 +8,18 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import json
 import math
-from datetime import datetime
-from uuid import uuid4
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
-from urllib.parse import quote, urlencode
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from urllib.parse import urlencode
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
 BASE_CONFIG = {
     # bypass goat.com web scraping blocking(cloudflare)
-    "asp": True,
+    "unblocker": True,
     # set the proxy country to US
     "country": "US",
 }
@@ -42,6 +40,9 @@ async def scrape_products(urls: List[str]) -> dict:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     products = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         data = find_hidden_data(response)
         product = data["props"]["pageProps"]["productTemplate"]
         if data["props"]["pageProps"]["offers"]:
@@ -80,6 +81,9 @@ async def scrape_search(query: str, max_pages: int = 10) -> List[Dict]:
         log.info(f"Scraping search pagination ({total_pages-1} more pages)")
         to_scrape = [ScrapeConfig(make_page_url(page=page), **BASE_CONFIG) for page in range(2, total_pages + 1)]
         async for result in SCRAPFLY.concurrent_scrape(to_scrape):
+            if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
+                log.error(f"skipping a page that could not be scraped: {result}")
+                continue
             data = json.loads(result.content).get("data", {})
             items = data.get("productsList", [])
             results.extend(items)

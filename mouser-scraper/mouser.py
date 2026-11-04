@@ -16,7 +16,7 @@ from scrapfly import (
     ScrapeConfig,
     ScrapflyClient,
     ScrapeApiResponse,
-    ScrapflyScrapeError,
+    ScrapflyError,
 )
 
 
@@ -24,7 +24,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     # Mouser.com requires Anti Scraping Protection bypass feature.
     # for more: https://scrapfly.io/docs/scrape-api/anti-scraping-protection
-    "asp": True,
+    "unblocker": True,
     "render_js": True,
     "retry": True,
 }
@@ -151,8 +151,8 @@ async def scrape_product(urls: list[str]) -> List[MouserProduct]:
     to_scrape = [ScrapeConfig(url, **BASE_CONFIG) for url in urls]
     data = []
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
-        if isinstance(response, ScrapflyScrapeError):
-            log.error(f"Error scraping product: {response.error}")
+        if isinstance(response, ScrapflyError):
+            log.error(f"Error scraping product: {response.message}")
             continue
         try:
             data.append(parse_product(response))
@@ -266,7 +266,7 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
 
         log.info(f"Scraping {len(other_pages)} additional pages")
         async for result in SCRAPFLY.concurrent_scrape(other_pages):
-            if isinstance(result, ScrapflyScrapeError):
+            if isinstance(result, ScrapflyError):
                 log.error("ASP protection failed - skipping page")
                 continue
             try:

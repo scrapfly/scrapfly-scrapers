@@ -12,7 +12,7 @@ import re
 from typing import Dict, List
 from pathlib import Path
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from lzstring import LZString
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
@@ -30,8 +30,6 @@ output.mkdir(exist_ok=True)
 
 def parse_property_pages(response: ScrapeApiResponse) -> Dict:
     """parse lsiting data from property page"""
-    # get the property id from the page URL
-    # proeprty_id = str(response.context["url"]).split("expose/")[-1]
     selector = response.selector
     # extract the data from the script tag
     data_script = selector.xpath("//script[contains(text(),'UFRN_LIFECYCLE_SERVERREQUEST')]/text()").get()
@@ -84,21 +82,6 @@ async def scrape_properties(urls: List[str]) -> List[Dict]:
     return properties
 
 
-def find_json_objects(text: str, decoder=json.JSONDecoder()):
-    """Find JSON objects in text, and generate decoded JSON data"""
-    pos = 0
-    while True:
-        match = text.find("{", pos)
-        if match == -1:
-            break
-        try:
-            result, index = decoder.raw_decode(text[match:])
-            yield result
-            pos = match + index
-        except ValueError:
-            pos = match + 1
-
-
 def parse_search_pages(response: ScrapeApiResponse) -> Dict:
     """Parse search data from script tags using LZ-String decompression."""
     selector = response.selector
@@ -132,6 +115,9 @@ async def scrape_search(url: str, max_scrape_pages: int = None) -> List[Dict]:
     # scrape the remaining search pages concurrently
     to_scrape = [ScrapeConfig(url + f"&page={page}", **BASE_CONFIG) for page in range(2, max_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         search_data.extend(parse_search_pages(response)["search_data"])
     log.success(f"scraped {len(search_data)} properties from search")
     return search_data

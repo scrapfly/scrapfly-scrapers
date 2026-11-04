@@ -12,7 +12,7 @@ import asyncio
 from typing import Dict, List, TypedDict, Any
 from urllib.parse import urlencode
 from loguru import logger as log
-from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -138,6 +138,9 @@ async def scrape_search(
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
     other_pages = [ScrapeConfig(make_search_url(page), **BASE_CONFIG) for page in range(2, total_pages + 1)]
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a page that could not be scraped: {response}")
+            continue
         search_data.extend(parse_search(response)["results"])
     log.success(f"scraped {len(search_data)} product listings from search pages")
     return search_data

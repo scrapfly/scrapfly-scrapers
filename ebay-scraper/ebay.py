@@ -10,14 +10,12 @@ import json
 import math
 import os
 import re
-from collections import defaultdict
 from typing import Dict, List, Optional
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
-import dateutil
 from nested_lookup import nested_lookup
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
@@ -186,9 +184,6 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
 
     for box in result.selector.css("ul.srp-results li"):
         css = lambda css: box.css(css).get("").strip() or None
-        css_all = lambda css: box.css(css).getall()
-        css_re = lambda css, pattern: box.css(css).re_first(pattern, default="").strip()
-        css_float = lambda css: float(box.css(css).re_first(r"(\d+\.*\d*)", default="0.0")) if box.css(css) else None
         location = box.xpath(".//*[contains(text(),'Located')]/text()").get()
         price = css(".s-card__price::text") or css(".s-item__price::text")
         url = css("a.s-card__link::attr(href)") or css("a.su-link::attr(href)")
@@ -256,7 +251,7 @@ async def scrape_search(url: str, max_pages: Optional[int] = None) -> List[Dict]
     ]
     log.info("Scraping search pagination of {} total pages for {}", len(other_pages), url)
     async for result in SCRAPFLY.concurrent_scrape(other_pages):
-        if not isinstance(result, ScrapflyScrapeError):
+        if not isinstance(result, ScrapflyError):
             try:
                 results.extend(parse_search(result))
             except Exception as e:
