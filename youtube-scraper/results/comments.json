@@ -2,27 +2,27 @@
   {
     "comment": {
       "id": "UgxdoHZn3pilg4Sa9Pp4AaABAg",
-      "text": "NOTE 1: The StatQuest PCA Study Guide is available! https://app.gumroad.com/statquest\nNOTE 2: A lot of people ask about how, in 3-D, the 3rd PC can be perpendicular to both PC1 and PC2. Regardless of the number of dimensions, all principal components are perpendicular to each other. If that sounds insane, consider a 2-d graph, the x and y axes are perpendicular to each other. Now consider a 3-d graph, the x, y and z axes are all perpendicular to each other. Now consider a 4-d graph..... etc.\nNOTE 3: A lot of people ask about the covariance matrix. There are two ways to do PCA: 1) The old way, which applies eigen-decomposition to the covariance matrix and 2) The new way, which applies singular value decomposition to the raw data. This video describes the new way, which is preferred because, from a computational stand point, it is more stable.\nNOTE 4: A lot of people ask how fitting this line is different from Linear Regression. In Linear Regression we are trying to maintain a relationship between a value on the x-axis, and the value it would predict on the y-axis. In other words, the x-axis is used to predict values on the y-axis. This is why we use the vertical distance to measure error - because that tells us how far off our prediction is for the true value. In PCA, no such relationship exists, so we minimize the perpendicular distances between the data and the line.\nNOTE 5: A lot of people wonder why we divide the sums of the squares by n-1 instead of n. To be honest, in this context, you can probably use 'n' or 'n-1'. 'n-1' is traditionally used because it prevents us from underestimating the variance - in other words, it's related to how statistics are calculated. If you want to learn more, see: https://youtu.be/vikkiwjQqfU https://youtu.be/SzZ6GpcfoQY and https://youtu.be/sHRBg6BhKjI (the last video specifically addresses the 'n' vs 'n-1' thing, but the first two give background that you need to understand first).\n\nSupport StatQuest by buying my book The StatQuest Illustrated Guide to Machine Learning or a Study Guide or Merch!!! https://statquest.org/statquest-store/",
-      "publishedTime": "4 years ago (edited)"
+      "text": "NOTE 1: The StatQuest PCA Study Guide is available! https://app.gumroad.com/statquest\nNOTE 2: A lot of people ask about how, in 3-D, the 3rd PC can be perpendicular to both PC1 and PC2. Regardless of the number of dimensions, all principal components are perpendicular to each other. If that sounds insane, consider a 2-d graph, the x and y axes are perpendicular to each other. Now consider a 3-d graph, the x, y and z axes are all perpendicular to each other. Now consider a 4-d graph..... etc.\nNOTE 3: A lot of people ask about the covariance matrix. There are two ways to do PCA: 1) The old way, which applies eigen-decomposition to the covariance matrix and 2) The new way, which applies singular value decomposition to the raw data. This video describes the new way, which is preferred because, from a computational stand point, it is more stable.\nNOTE 4: A lot of people ask how fitting this line is different from Linear Regression. In Linear Regression we are trying to maintain a relationship between a value on the x-axis, and the value it would predict on the y-axis. In other words, the x-axis is used to predict values on the y-axis. This is why we use the vertical distance to measure error - because that tells us how far off our prediction is for the true value. In PCA, no such relationship exists, so we minimize the perpendicular distances between the data and the line.\nNOTE 5: A lot of people wonder why we divide the sums of the squares by n-1 instead of n. To be honest, in this context, you can probably use 'n' or 'n-1'. 'n-1' is traditionally used because it prevents us from underestimating the variance - in other words, it's related to how statistics are calculated. If you want to learn more, see: https://youtu.be/vikkiwjQqfU https://youtu.be/SzZ6GpcfoQY and https://youtu.be/sHRBg6BhKjI (the last video specifically addresses the 'n' vs 'n-1' thing, but the first two give background that you need to understand first).\n\nSupport StatQuest by buying my books The StatQuest Illustrated Guide to Machine Learning, The StatQuest Illustrated Guide to Neural Networks and AI, or a Study Guide or Merch!!! https://statquest.org/statquest-store/",
+      "publishedTime": "6 years ago (edited)"
     },
     "author": {
       "id": "UCtYLUTtgS3k1Fg4y5tAhLbw",
       "displayName": "@statquest",
-      "avatarThumbnail": "https://yt3.ggpht.com/cwJBNZUHoJL8HvoIfkULt2IgNu1LF7AL9cYDqSCTGWvG5lASV_y8LiHkMyVUm5Kqt03TLFUCSw=s88-c-k-c0x00ffffff-no-rj",
+      "avatarThumbnail": "https://yt3.ggpht.com/Lzc9YzCKTkcA1My5A5pbsqaEtOoGc0ncWpCJiOQs2-0win3Tjf5XxmDFEYUiVM9jOTuhMjGs=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": true,
       "isCurrentUser": true,
       "isCreator": true
     },
     "stats": {
-      "likeCount": "119",
-      "replyCount": "8"
+      "likeCount": "194",
+      "replyCount": "14"
     }
   },
   {
     "comment": {
       "id": "UgxXqXdDj8wAqk4zSa94AaABAg",
       "text": "For someone who is trying to be a data scientist, this channel is the best thing on the internet. You're better than any other teacher that I've ever had.  THANK YOU.",
-      "publishedTime": "4 years ago"
+      "publishedTime": "5 years ago"
     },
     "author": {
       "id": "UCv1-JKakyogxdmMxt_hj0ag",
@@ -33,15 +33,34 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "1.7K",
-      "replyCount": "21"
+      "likeCount": "2.2K",
+      "replyCount": "24"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgwjD7EaP7eK-wwNOgV4AaABAg",
+      "text": "\"Mathematicians call this recipe a linear combination\". I would have called it a Gene tonic!",
+      "publishedTime": "5 years ago"
+    },
+    "author": {
+      "id": "UCtY0PkddEXAnWx4pv9QFjcA",
+      "displayName": "@FranFerioli",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l1SYf3kexO87Hkx8i0LIZx9HYLtCBniuZXUIINbc0=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "186",
+      "replyCount": "2"
     }
   },
   {
     "comment": {
       "id": "UgyBvvjPPKSGIAGgYwh4AaABAg",
       "text": "Dr. Starmer - I really really wish I had you as my stats teacher during my student days. I can't put in words how much I appreciate your videos and how to go about explaining core concepts. Thank you very much!",
-      "publishedTime": "2 years ago"
+      "publishedTime": "4 years ago"
     },
     "author": {
       "id": "UC0DfQh2b_Ao40JpWsv76Osw",
@@ -52,34 +71,15 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "484",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugx4-WF1gqpfk02tn114AaABAg",
-      "text": "I am a data scientist and have performed PCA using advanced statistical softwares . I have even taken company sponsored  expensive MVA courses. THIS is the best explanation of PCA I have seen and cleared my fundamental doubts and missing links. THANK YOU.",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCPckOoayShOdhuQsUMsLJqQ",
-      "displayName": "@kushnigam2000",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lPAlhnZ6pjKLTwN4pUQIsISiiggD6aRKbGBt2zbjLsbPM_=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "429",
-      "replyCount": "3"
+      "likeCount": "697",
+      "replyCount": "2"
     }
   },
   {
     "comment": {
       "id": "UgwQl1ilQpXwzaBT_TZ4AaABAg",
       "text": "6 years into my phd and I finally understand how a PCA plot actually works. Thank you!",
-      "publishedTime": "3 years ago"
+      "publishedTime": "5 years ago"
     },
     "author": {
       "id": "UCZ2K2BTxR0cijspQ-GxQerg",
@@ -90,26 +90,83 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "662",
-      "replyCount": "7"
+      "likeCount": "876",
+      "replyCount": "11"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugx4-WF1gqpfk02tn114AaABAg",
+      "text": "I am a data scientist and have performed PCA using advanced statistical softwares . I have even taken company sponsored  expensive MVA courses. THIS is the best explanation of PCA I have seen and cleared my fundamental doubts and missing links. THANK YOU.",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCPckOoayShOdhuQsUMsLJqQ",
+      "displayName": "@kushnigam2000",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lPAlhnZ6pjKLTwN4pUQIsISiiggD6aRKbGBt2zbjLsbPM_=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "535",
+      "replyCount": "3"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugxb6tjl3QIRlqGdxCR4AaABAg",
+      "text": "I can say without a shadow of doubt that you are one of the world's best teachers. Mr. Starmer I can never thank you enough.",
+      "publishedTime": "3 years ago (edited)"
+    },
+    "author": {
+      "id": "UC_WphfXr2AhX0Dt73PmZwdA",
+      "displayName": "@aizazkhan5439",
+      "avatarThumbnail": "https://yt3.ggpht.com/h_kEzq7-TdNMW6Z7GY-7W-YELu5ZpkVtbD2iXq-SFR0KD_woMM_sxsk9CYTkSiyGkPzq-ANI=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "117",
+      "replyCount": "1"
     }
   },
   {
     "comment": {
       "id": "Ugw2WkXaeYdXHlYlMlR4AaABAg",
       "text": "uni student day 14 of self-quarantine: the first thing to do in the morning is to watch StatQuest.\nThank you Josh. Your videos help me surviving thru my uni in the time of covid19",
-      "publishedTime": "4 years ago"
+      "publishedTime": "6 years ago"
     },
     "author": {
       "id": "UCMmjksg20LkTCJuS0UTd_8w",
       "displayName": "@stephaniechen5536",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kSUKKda3syLpT6wQoQ4mJU_ETySehdqyFfefL09V4=s88-c-k-c0x00ffffff-no-rj",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nBlSr1z4FM75fwbdEWdb6zfSl3aMWZ-StxZPLf5OHerWM=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "332",
+      "likeCount": "373",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugx-Gs9ktqDmG1Qx7ip4AaABAg",
+      "text": "This is the most helpful video on PCA I have ever seen. I'm a neuro PhD student and I was struggling to understand this concept for a year. This video is a life saver!",
+      "publishedTime": "3 years ago"
+    },
+    "author": {
+      "id": "UCTrN9tMHG9Rd4TuYeIRIVVA",
+      "displayName": "@dicetellthetale",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nA7rjYJKWVeNje8iGwz1lIx7RQiifLBYShJD8iTdI57D-3QPA1j3m2uaZtW-QRFiVJY1I=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "55",
       "replyCount": "1"
     }
   },
@@ -117,7 +174,7 @@
     "comment": {
       "id": "UgxatMMgglAojBsjvlp4AaABAg",
       "text": "This is honestly the best explanation on PCA. connects lot of loose strings of ideas. thanks !!",
-      "publishedTime": "5 years ago"
+      "publishedTime": "7 years ago"
     },
     "author": {
       "id": "UCoMXMqGCsVIQwDwJ9Fbulzg",
@@ -128,115 +185,58 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "721",
+      "likeCount": "751",
       "replyCount": "5"
     }
   },
   {
     "comment": {
-      "id": "Ugxb6tjl3QIRlqGdxCR4AaABAg",
-      "text": "I can say without a shadow of doubt that you are one of the world's best teachers. Mr. Starmer I can never thank you enough.",
-      "publishedTime": "1 year ago (edited)"
+      "id": "Ugxwr90x72BPPZIR04B4AaABAg",
+      "text": "All i can say after watching the video is \"Double BAM\"😂",
+      "publishedTime": "7 years ago"
     },
     "author": {
-      "id": "UC_WphfXr2AhX0Dt73PmZwdA",
-      "displayName": "@aizazkhan5439",
-      "avatarThumbnail": "https://yt3.ggpht.com/kv0iyfYuAGFUsRhoTWWPTZcxJ6KAO6WBe3GCTHiAeGaYfomDyP4em7pCrIaNE3ec39iNYLt32w=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UC2W5ug8bpbpVjmih_o9_rlA",
+      "displayName": "@bechumathew8819",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kAUTuiA55f9axrghU5ZCCmSCB0DeX_xS219y_nlh8TMA=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "62",
+      "likeCount": "167",
+      "replyCount": ""
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugxz-BMM0J0ggyLtgn14AaABAg",
+      "text": "with sad voice \"Little bam...\"\nAwesome video. Thanks!",
+      "publishedTime": "8 years ago"
+    },
+    "author": {
+      "id": "UCvM9fx2dX3BEsO85u_rSlzw",
+      "displayName": "@noli-timere-crede-tantum",
+      "avatarThumbnail": "https://yt3.ggpht.com/Odgw6r5melxl6ePpFvpJ153RpFtUImYTd7fdNQ7DsNwtVXFIVY8iZ38VPjXPZy1mci1pkG7PWQ=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "145",
       "replyCount": "1"
     }
   },
   {
     "comment": {
-      "id": "Ugx-Gs9ktqDmG1Qx7ip4AaABAg",
-      "text": "This is the most helpful video on PCA I have ever seen. I'm a neuro PhD student and I was struggling to understand this concept for a year. This video is a life saver!",
-      "publishedTime": "1 year ago"
+      "id": "Ugy5n063X40_Ed7oJvt4AaABAg",
+      "text": "Words cannot describe the contrast in quality between this video and the teaching methods of my professor. Absolute life saver",
+      "publishedTime": "7 months ago"
     },
     "author": {
-      "id": "UCTrN9tMHG9Rd4TuYeIRIVVA",
-      "displayName": "@ap4558",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nA7rjYJKWVeNje8iGwz1lIx7RQiifLBYShJD8iTdI57D-3QPA1j3m2uaZtW-QRFiVJY1I=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "46",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxmB5rYp4L9QYh1K-R4AaABAg",
-      "text": "I'm studying for a final and this is way better explained than the entire semester.",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCjlXmwRJu_tNKf8FYNgEYrg",
-      "displayName": "@edchavez9960",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lCx8l58y4MV6bIQsFCc0F8f_S7iykep0_Nv5q_6khasd8=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "343",
-      "replyCount": "6"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugy_OPAKrxhGpyDSUPd4AaABAg",
-      "text": "I'm in my first semester of grad school for stats.. and you are single-handedly going to save me! I already knew of all of the concepts of eigenvalues/eigenvectors, loadings, etc. but you summarized the 60 pages of theorems/proofs my prof had us read, and helped my intuition immensely. Please never stop making videos!",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCxYISHMm8BMJk7UlnK4fJmA",
-      "displayName": "@josiahnielsen9972",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mISlDrI1vmecujix90RBTcx9FSoXr9cK7320P4j0Y=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "49",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxnWisDSyyse_lyt-B4AaABAg",
-      "text": "Your work, with 3Blue1Brown, and other online material like Dr.Gilbert Strang, has given me a whole new perspective about Maths, learning and machine learning.",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCfmYLFoRAuDWtk77Y2gdTTg",
-      "displayName": "@ajinkyaghadge3106",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nba6rfJ4OwJ117AIC89F4Q5nKX1RlHeAw11s0zPbgFloVU=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "76",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgzxdEkh1HVNuFx-iuB4AaABAg",
-      "text": "I have forgotten how much I love maths. You are such a good teacher.❤❤. Instead of wasting time on shorts or tiktok, I am gonna watch this, learn something and improve my life instead. Thanks.",
-      "publishedTime": "1 year ago"
-    },
-    "author": {
-      "id": "UCJ5Fpc7ulOQOGTNDD6noIsA",
-      "displayName": "@kidkaitou1412",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nygdJ5kJunh7UNFqTUBwjSLZqFdvl6SiQ0NgY-viY5xIM=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UCPuvl4uxQkz-X-B3GvKXOEg",
+      "displayName": "@Michael-DiMarzo",
+      "avatarThumbnail": "https://yt3.ggpht.com/eQzFf5qdkBDnRHbzLzuIR-inf6O7Qdzp4FU6HlQDvT5235GnW0dtRVetMhlhUUnAupGrL349wLg=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
@@ -248,28 +248,28 @@
   },
   {
     "comment": {
-      "id": "UgyLhGpi-De-8OGCwe94AaABAg",
-      "text": "I love how you explained \"linear combination is just basically this... no big deal\" when my lecturer makes it such a BIG DEAL! Thank you!!!",
-      "publishedTime": "4 years ago"
+      "id": "UgyIb2xzd89X_Sd2roJ4AaABAg",
+      "text": "I lost it at \"Little BAM!!!\"",
+      "publishedTime": "5 years ago"
     },
     "author": {
-      "id": "UCjvn8N109tdl_sICVFhPm_g",
-      "displayName": "@arianetalosig575",
-      "avatarThumbnail": "https://yt3.ggpht.com/5C-7__68dXtRsT4C78HJ1VxyQyHNbYyOECI2hrogdbG8PnOAS9UES4Nh6XeEVQluQ6D3KTsLrso=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UCCZKpRIfylYmyRRFEbZK8RA",
+      "displayName": "@endouyuu269",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_n-b7Tq3DJ3fo_Rtq7oTuAUF1nPUgnC-REfGmEXHns=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "13",
-      "replyCount": "1"
+      "likeCount": "196",
+      "replyCount": "3"
     }
   },
   {
     "comment": {
       "id": "Ugx3pvKPfKM1Q-PNGsB4AaABAg",
       "text": "I had to pause and let you know, that this is gold! The way you simply describe terrifying names, it just makes it look so easy. Thank you so much",
-      "publishedTime": "1 year ago"
+      "publishedTime": "3 years ago"
     },
     "author": {
       "id": "UCJjIE6OgAqr9mbvns51aSuA",
@@ -280,53 +280,243 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "15",
+      "likeCount": "38",
       "replyCount": "1"
     }
   },
   {
     "comment": {
-      "id": "UgyUgoOPsynNSe393iB4AaABAg",
-      "text": "This is simply amazing! Josh, you communicated this idea so incredibly clearly and simply. As a practitioner in the stats/data science world I'm so impressed by how you were able to describe PCA so intuitively and without using the word \"orthogonal.\" I've done the math behind PCA and I actually feel like I have a better understanding of it by watching your video. Thanks for demystifying stats for us all.",
-      "publishedTime": "5 years ago"
+      "id": "UgxgoOWXEfE3tVivxjF4AaABAg",
+      "text": "Your content  helped me so much during my interview process. I was able to get an offer from my dream company. Thank you so much!",
+      "publishedTime": "1 year ago"
     },
     "author": {
-      "id": "UCb9mXAl9Ll0sRzgBXASYjtw",
-      "displayName": "@ArcenisRojas",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mTL7Afp_1J2zBcMM3H59b5wAUYUFHI1adu9zs-nHyoD80=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UCNHlAA4RayqNOSMeuaCRcZg",
+      "displayName": "@wujustin1234",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_m3yH3CkDYbBlrEro0QnKb_ItobeFHLwKuQcGuP0f6Bn7OoKZ8W5OF5gGcuK2Gkd9LxEg=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "37",
+      "likeCount": "18",
       "replyCount": "1"
     }
   },
   {
     "comment": {
-      "id": "UgyMX5gEE97gXkWw6BJ4AaABAg",
-      "text": "You are a real godsend. Teaching such advanced concepts in such a simple manner and that too in just 20 mins is exceptional",
+      "id": "UgxjeosSZbjihfRGQLd4AaABAg",
+      "text": "The true definition of genius: teach other a very complex concept in a very simple way.",
       "publishedTime": "3 years ago"
     },
     "author": {
-      "id": "UC7RhlEuq7ovmPUr26bZJWNQ",
-      "displayName": "@kushagrachaturvedy2821",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lxRRF2JbhHbOT4DQmkdqoICq6FpZptSfxUHolAmKcIMrY=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UC7fPo3trkR9gGjP2J0Oex9g",
+      "displayName": "@buihung3704",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kxpQHVlhXiUZVfDcvqj3SuT-rd5kJH571JDesYtAMTSw=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "8",
+      "likeCount": "43",
       "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgyLhGpi-De-8OGCwe94AaABAg",
+      "text": "I love how you explained \"linear combination is just basically this... no big deal\" when my lecturer makes it such a BIG DEAL! Thank you!!!",
+      "publishedTime": "5 years ago"
+    },
+    "author": {
+      "id": "UCjvn8N109tdl_sICVFhPm_g",
+      "displayName": "@arianetalosig575",
+      "avatarThumbnail": "https://yt3.ggpht.com/S0ZOTjyyVH26D_a0LoLdI04pW6Trn5FMWTIN1hNaz5UwN9ZngRwH0-mupQ26yPJpf1HA7y49=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "24",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgzbLGv7IVAS4sPzvnl4AaABAg",
+      "text": "I honestly think you deserve a noble prize or something. You're amazing. Like, just amazing!",
+      "publishedTime": "7 years ago"
+    },
+    "author": {
+      "id": "UCaBcdaHHRQTNcGFKL2pyUrQ",
+      "displayName": "@princeebenezeradjei3008",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_k3kiQzRWc1szTHDW9sBj1lHBFxYLiHvSDnva9z4oGfBsk=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "36",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxnWisDSyyse_lyt-B4AaABAg",
+      "text": "Your work, with 3Blue1Brown, and other online material like Dr.Gilbert Strang, has given me a whole new perspective about Maths, learning and machine learning.",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCfmYLFoRAuDWtk77Y2gdTTg",
+      "displayName": "@ajinkyaghadge3106",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nba6rfJ4OwJ117AIC89F4Q5nKX1RlHeAw11s0zPbgFloVU=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "81",
+      "replyCount": "2"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgzOkLszQVWuFVSIQOZ4AaABAg",
+      "text": "As a 3rd year university student I have NEVER watched a 20+ minute educational video until the very end without being bored as hell. I watched this without even realizing 22 minutes passed. THANK YOU for this channel, it's the best thing EVER!!!!",
+      "publishedTime": "3 weeks ago"
+    },
+    "author": {
+      "id": "UCX8hwJbfEg4hMJ8qCfR-NzA",
+      "displayName": "@johannaszikszai977",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mEHQADqXbZF-HrDIcX2-S7Krjw_F3YpNLT8FUIpR1hGbU=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugy_OPAKrxhGpyDSUPd4AaABAg",
+      "text": "I'm in my first semester of grad school for stats.. and you are single-handedly going to save me! I already knew of all of the concepts of eigenvalues/eigenvectors, loadings, etc. but you summarized the 60 pages of theorems/proofs my prof had us read, and helped my intuition immensely. Please never stop making videos!",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCxYISHMm8BMJk7UlnK4fJmA",
+      "displayName": "@josiahnielsen9972",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mISlDrI1vmecujix90RBTcx9FSoXr9cK7320P4j0Y=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "55",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxXcbzuJ0RsVx7qEx94AaABAg",
+      "text": "Thanks dude. You are a godsend",
+      "publishedTime": "8 years ago"
+    },
+    "author": {
+      "id": "UC1yIOGXemZdQKtZ1l8aoqkQ",
+      "displayName": "@subbuktek",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lvG_T9E6maPZblW-XM9ev0fcAZ7GzOO0g8_RMcuow=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "473",
+      "replyCount": "4"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgzxdEkh1HVNuFx-iuB4AaABAg",
+      "text": "I have forgotten how much I love maths. You are such a good teacher.❤❤. Instead of wasting time on shorts or tiktok, I am gonna watch this, learn something and improve my life instead. Thanks.",
+      "publishedTime": "3 years ago"
+    },
+    "author": {
+      "id": "UCJ5Fpc7ulOQOGTNDD6noIsA",
+      "displayName": "@kidkaitou1412",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nygdJ5kJunh7UNFqTUBwjSLZqFdvl6SiQ0NgY-viY5xIM=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "14",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgyDVtAP0slo_JDDWOZ4AaABAg",
+      "text": "dont even have words to express my gratitude for this video.. our teacher just taught us to memorize the steps of the covariance matrix but this video made me understand what we are actually calculating.",
+      "publishedTime": "3 weeks ago"
+    },
+    "author": {
+      "id": "UCWrVD2kQfSTeg4HgxquKTxw",
+      "displayName": "@dhruv7243",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nq1ujPdQHIVfcTYvQJ8AXejYHLogvID_ajD0NgZ11puyy0975KTEngMVn1OBn_mEd1AA=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgyvfJZysu7-xpILEtx4AaABAg",
+      "text": "man was womp womping before womp womping was \"cool\"",
+      "publishedTime": "2 years ago"
+    },
+    "author": {
+      "id": "UCkpq9Wkg0EOBHA8trlZy68g",
+      "displayName": "@obi8061",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l9jaN2DSCtxDxrwsf0C9s7kZypukJ6RDO4hmBP0i96PKF4kMCghS8kcBN7rq3a0W9btg=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "56",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxwoPg4rM3CmpC4Fo14AaABAg",
+      "text": "Josh saying \"BAM\" is one of my favorite things in life",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UC8njuTBKVWttEJU08yPzopA",
+      "displayName": "@jaredgoodman6617",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_laTMollCw_hHukZrOxoh1YdKI9hTrE2-EW7ZLSH10=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "22",
+      "replyCount": "2"
     }
   },
   {
     "comment": {
       "id": "UgxLCf5-Cyuu23qBjMZ4AaABAg",
       "text": "I have seen no book explaining this topic better than you. Your skills and efforts are invaluable!",
-      "publishedTime": "4 years ago"
+      "publishedTime": "6 years ago"
     },
     "author": {
       "id": "UCmGZW5OCuEff5dQEKQp6m8A",
@@ -337,15 +527,53 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "15",
+      "likeCount": "17",
       "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugz8NOrBlE1r6UckEuF4AaABAg",
+      "text": "I used to study with your videos when i was a student and even now after working for 4 years in the industry as a ML engineer i still come back to your videos to understand things simply. Thank you for making all these videos. ❤",
+      "publishedTime": "5 months ago"
+    },
+    "author": {
+      "id": "UCxFeAhsnU5shs5xrGeWramA",
+      "displayName": "@amarpratapsingh4057",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_n0P3r2dt_xOW7IMpld2RrxGBWw0u14CCrewTD_k6rGgh-rAJJjEjQc9tcAQhDqX28vZA=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "4",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugx58vzYHQuEPqwS_Ip4AaABAg",
+      "text": "you took 10 minutes to blow my mind with your amazing explanation. Thanks!",
+      "publishedTime": "7 years ago"
+    },
+    "author": {
+      "id": "UCHWiHX49sD47suT9WpO2NQw",
+      "displayName": "@lucasparisi7394",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_ltJYGjUC0X_GVjhNCGdofREAWn1LRoUUmLWkCyLXx2ng2I=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "13",
+      "replyCount": ""
     }
   },
   {
     "comment": {
       "id": "UgxxZiO8rEdZsJ-ktVJ4AaABAg",
       "text": "I just took some other online course for hours only to struggle... this video helped me understand the concept, which that course couldn't! Even in way shorter time! And even with the minimum animation! Always grateful",
-      "publishedTime": "6 years ago"
+      "publishedTime": "8 years ago"
     },
     "author": {
       "id": "UCVcf4J3Zue3LFqrErNM7wow",
@@ -362,210 +590,20 @@
   },
   {
     "comment": {
-      "id": "UgyeoKrdDLRxgFNRBEx4AaABAg",
-      "text": "As a current high-ranked uni student may say this channel is a lifesaver for people who cannot understand something without guided decomposition of relatively more complex algorithm than OLS. Thank you Josh.",
-      "publishedTime": "4 years ago (edited)"
+      "id": "UgyUgoOPsynNSe393iB4AaABAg",
+      "text": "This is simply amazing! Josh, you communicated this idea so incredibly clearly and simply. As a practitioner in the stats/data science world I'm so impressed by how you were able to describe PCA so intuitively and without using the word \"orthogonal.\" I've done the math behind PCA and I actually feel like I have a better understanding of it by watching your video. Thanks for demystifying stats for us all.",
+      "publishedTime": "7 years ago"
     },
     "author": {
-      "id": "UCLSJ5VIzcwOHUA6x-qp3v4g",
-      "displayName": "@maximmazurov1102",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kNtLG6DxhNAmYKv6Um9QdSwW1zxY6Nrwb1LtFP6uiwPAc=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UCb9mXAl9Ll0sRzgBXASYjtw",
+      "displayName": "@ArcenisRojas",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_n6FOvFQiwW-xhC9AgHHtjA6Q4EAWxwosqRpTPoNHgIt7Z1=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "16",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxkCZ-iU6XdhMyeDax4AaABAg",
-      "text": "As a non-English speaker, I just like, I have no words, I don't no how to tell you how much I appreciate the way you put almost your \"lyrics\" or whatever you said on the videos that help me a lot. Many thanks to you, Josh!",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCRWLH2KVTebNutn3BSUwiaA",
-      "displayName": "@longnguyenhoang764",
-      "avatarThumbnail": "https://yt3.ggpht.com/0E_S3pjrecMxZrzcHLc0BLCESt6pZaomyJiHjAdYbZZBkZyDuWNWwzPE4R1fztF_ZINvIa6USM0=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "3",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgzbLGv7IVAS4sPzvnl4AaABAg",
-      "text": "I honestly think you deserve a noble prize or something. You're amazing. Like, just amazing!",
-      "publishedTime": "5 years ago"
-    },
-    "author": {
-      "id": "UCaBcdaHHRQTNcGFKL2pyUrQ",
-      "displayName": "@princeebenezeradjei3008",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_k3kiQzRWc1szTHDW9sBj1lHBFxYLiHvSDnva9z4oGfBsk=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "34",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgwlWQWHfPmqDNYedm54AaABAg",
-      "text": "Have a test on my Data Science course tomorrow,  I was so lost with how to visualise what we are doing in every step and this video helped me so much!",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCyalDnEL90xLX9ZYR0rFI1g",
-      "displayName": "@evebogomil2777",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kXIetExSy608Q00QjXMJTbqtsBtzaeVyQbYXD106D_g9k=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "19",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugz7Xw-_0k7PFjrNXnp4AaABAg",
-      "text": "This is the easiest way I understand PCA. I've been working with PCA algorithms for 2 years and two of my university professors provide lesson on PCA but couldn't make it clear. But, watching this 20 minutes video I understand in depth. Such a good lesson. Thank you so much!! ☺️ 😊",
-      "publishedTime": "5 years ago"
-    },
-    "author": {
-      "id": "UCJSdx9Ntw8vcG7Y_9y3tQ1w",
-      "displayName": "@Ananda110201",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l5H88sVnih9UxvzwXWKcYY8bJTfRMO1heCp1yMZV4K7Kc=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "5",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgyPtZNg2GaPiBeFp-54AaABAg",
-      "text": "The quality of this explanation is so much above than any other PCA class I've had. I am near to my midterm and the PCA class was about 100 slides full of formulas. You made my day!",
-      "publishedTime": "1 month ago"
-    },
-    "author": {
-      "id": "UC2wsAkEB8NUdyAHQjpOQSjw",
-      "displayName": "@MassielCCh",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mNkj4pW6jUvChG4gBzsrYlBtzdpsU-SuNMu6MPKVmDoCxY2_D05vAOfPJE2IATJUm0Sw=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "2",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugzc1aaNfqpTDxG094d4AaABAg",
-      "text": "You really made me feel the mathematics in PCA....... earlier I can solve the math in PCA but now I know what's the purpose of each step in finding PCA components.\nI'm a B.tech student of final year.\nThank you ❤️",
-      "publishedTime": "2 years ago"
-    },
-    "author": {
-      "id": "UC7graADPa43qoY_Ov-HfiTQ",
-      "displayName": "@AnkitYadav-sc2sm",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mPWo3zqt-eJne5vjd9lQzlSjUxKBxbH4FbqAHvC6ccdSQ=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "7",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgyUSWQ8OAK6n4Futnx4AaABAg",
-      "text": "one of best interpretation of PCA. It is like turning several math techniques into one idea.",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCbkqSFQ_2ZYOKmTki1C7IqA",
-      "displayName": "@BoZhaoengineering",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nPXAgcJ_QR7fYjNfynG_bxLbMI8XHiZvg4M3H_GuUBSJQ=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "6",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugy2x4YuEnb245ybe8J4AaABAg",
-      "text": "I have a cognitive science exam in one hour,  your explanation saved me lots of time, so I wanted to thank you so very much before going.",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCjoXBLN9rgikZ_6n0VzWctg",
-      "displayName": "@kiaruna",
-      "avatarThumbnail": "https://yt3.ggpht.com/dcX_hkbQaYZVmMSLTZk0ukOUcV3fq0YkMAChZJeDjAtn0PYMSHq67cshGr7V9Pg49FqfS2bo2w=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "4",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugym5HqqgH4JnVVVKJR4AaABAg",
-      "text": "Explained it so much better than a 2 hour lecture. The concept makes more sense now.",
-      "publishedTime": "1 year ago"
-    },
-    "author": {
-      "id": "UCzCrEZ_FdP81OVdfPw-zwXg",
-      "displayName": "@emmanuel3929",
-      "avatarThumbnail": "https://yt3.ggpht.com/-PH7ddvVsIxb8sqF7215O6g1dQhvN_fTrF9mabQEpb9l3YpLJhqMz23RJ_DbJ96JuM3cIPy7sg=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "3",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugxz-BMM0J0ggyLtgn14AaABAg",
-      "text": "with sad voice \"Little bam...\"\nAwesome video. Thanks!",
-      "publishedTime": "6 years ago"
-    },
-    "author": {
-      "id": "UCvM9fx2dX3BEsO85u_rSlzw",
-      "displayName": "@noli-timere-crede-tantum",
-      "avatarThumbnail": "https://yt3.ggpht.com/9awpRq9Jo1eZA0y8oJtFBJPmL_l0Sp33DKmOUMQXjY89y8vlVMqufNSeTOI_gkd8ll0imkQNVA=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "140",
+      "likeCount": "37",
       "replyCount": "1"
     }
   },
@@ -573,75 +611,18 @@
     "comment": {
       "id": "UgxdfUJd_v0O6iXMNc14AaABAg",
       "text": "Buddy you are an awesome guy. I wish one day I could give you a big hug of appreciation, but my honest thank you much has to be sufficient. I'd bet that there are people out there that would not be alive today without you. With your amount of views, there is probably at least one person who succeeded an important test that he would not have without you which may ended in a bad life. You're doing pure good with those videos.",
-      "publishedTime": "1 year ago"
+      "publishedTime": "3 years ago"
     },
     "author": {
       "id": "UCFOxND5-JEt4KvIxm2j7a3g",
       "displayName": "@Oliver-2103",
-      "avatarThumbnail": "https://yt3.ggpht.com/kdHLclRbNuE8v5ykByd70PDO5b5cL1-5HhepRBCZfn0S6z8ba_QCX9YkBx6dOpZjrHqSvuac2lg=s88-c-k-c0x00ffffff-no-rj",
+      "avatarThumbnail": "https://yt3.ggpht.com/9mXpLeahYjo4BgiNjU6IolIWzRFEBAU_MC2al7WuivDmYK6v5vqsw0WyK_fCQZalezW-Q6xGoA=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
       "likeCount": "8",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxIzUNHS0P-VEusiLp4AaABAg",
-      "text": "I've been watching quite a lot of your videos for the past few days to study for my finals and I'm so glad your videos exist! I'd be very desperate without them. Thank you so much for the amazing work! You have a natural talent of expressing complicated ideas so simply!",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCBWsq37725DkA6aax_kx8ww",
-      "displayName": "@klapaucius-dkopf",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l8L0TJqZB5vy_wSoWnPUp41hZqjFKi2vrB8iGXThNWdbedSaomLTqHOwXLKh-b_8ECSQ=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "8",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugzmf-W2gaTuEtyYeN94AaABAg",
-      "text": "It is unbelievable how Dr. Starmer makes such complex concepts so easily understandable!!! Thanks a lot!",
-      "publishedTime": "7 months ago"
-    },
-    "author": {
-      "id": "UCk6_CKIAT_zP79bgQTtq-7w",
-      "displayName": "@FabianoRodriguesPereira-je8su",
-      "avatarThumbnail": "https://yt3.ggpht.com/ipNuiOlSdC3CuhcbG4QeIfHFwR4W-NN0RGXJHI1NcXfIF-vsllKMDZGHgXPEFhGY06KEwrbdRQ=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "2",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgznZy2rh5prQmyBAr14AaABAg",
-      "text": "Very impressive! I searched a lot of websites and you are the only one that make the conceptions clear. Your graphs and explanations are vivid and easy to understand.",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCjvpLdKzIW9k7Xyc3tMgpFQ",
-      "displayName": "@李舟-f2d",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mzoqucSuuM19_-XBQLIq7Lxj0IPbqo3EOgQdsMAb8=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "4",
       "replyCount": "1"
     }
   },
@@ -649,7 +630,7 @@
     "comment": {
       "id": "UgzvZTAibkrwYYG00W54AaABAg",
       "text": "Thank you very much! Opening my textbook, I was frightened by the Zs, phi, and \"principal component directions\" everywhere but as always your videos enable me to see the logic and fearlessly read the jargon :P",
-      "publishedTime": "4 years ago (edited)"
+      "publishedTime": "6 years ago (edited)"
     },
     "author": {
       "id": "UCi6JXBEGEDncua9uuM2Yh3w",
@@ -666,47 +647,47 @@
   },
   {
     "comment": {
-      "id": "UgxwVSGbVh4V3jO4itd4AaABAg",
-      "text": "JUST WOW!! Never I had thought that Stats could be this efficiently & easily understandable!! I feel immensely lucky that the content of this quality is freely available on the internet!! Thanx a lotttt for this magnificent effort from the whole team of StatQuest😇",
-      "publishedTime": "1 year ago"
+      "id": "UgyMX5gEE97gXkWw6BJ4AaABAg",
+      "text": "You are a real godsend. Teaching such advanced concepts in such a simple manner and that too in just 20 mins is exceptional",
+      "publishedTime": "5 years ago"
     },
     "author": {
-      "id": "UCeufAAaBM1rD1Kzo1Vfm2XQ",
-      "displayName": "@mohitdeshpande6210",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nUiYUp7ka5QaxdfNy38U23NdnTpyOutdzJSDR9jerqS-U=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UC7RhlEuq7ovmPUr26bZJWNQ",
+      "displayName": "@kushagrachaturvedy2821",
+      "avatarThumbnail": "https://yt3.ggpht.com/27x22cDQVJ8N24txWuGi8v3_twDW8u2wtqp7NYSX6U4KIjQnNHcquGB9nP3YdPBmMiYn0hUXuLM=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "4",
-      "replyCount": "2"
+      "likeCount": "10",
+      "replyCount": "1"
     }
   },
   {
     "comment": {
-      "id": "UgxjeosSZbjihfRGQLd4AaABAg",
-      "text": "The true definition of genius: teach other a very complex concept in a very simple way.",
-      "publishedTime": "1 year ago"
+      "id": "UgxsI6lxJX0Bfd7LX7N4AaABAg",
+      "text": "that 'little BAM' killed me \nAwesome explanation!! Subscribed (hooray!)",
+      "publishedTime": "7 years ago"
     },
     "author": {
-      "id": "UC7fPo3trkR9gGjP2J0Oex9g",
-      "displayName": "@buihung3704",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kxpQHVlhXiUZVfDcvqj3SuT-rd5kJH571JDesYtAMTSw=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UC1L46zycknkA-vuORf8j59w",
+      "displayName": "@Toboe26",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mJ74TYqVsKH-oPDJdR_01JozReL6WrK6fFbVYv5jTJBcJ-=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
-      "likeCount": "3",
-      "replyCount": "1"
+      "likeCount": "9",
+      "replyCount": ""
     }
   },
   {
     "comment": {
       "id": "UgydJlMv6PmcN5YsNLB4AaABAg",
       "text": "This is such a complex topic and with the visualization you made it so simple, you really are magical in explaining the concepts, a million thanks for this Josh",
-      "publishedTime": "2 years ago"
+      "publishedTime": "4 years ago"
     },
     "author": {
       "id": "UCryxhMQRZZlvJE3Q6wEMyBg",
@@ -717,305 +698,20 @@
       "isCreator": false
     },
     "stats": {
-      "likeCount": "16",
+      "likeCount": "17",
       "replyCount": "1"
     }
   },
   {
     "comment": {
-      "id": "Ugw8Fo2Yt40TwjtgyOZ4AaABAg",
-      "text": "Congratulations! This is the best explanation of PCA without overcomplicating things with matrixes. In my opinion, everyone who explain PCA should start from an explanation like this... Thank you for the amazing video!",
-      "publishedTime": "2 years ago"
-    },
-    "author": {
-      "id": "UCea9_dOg1_J_eZhNQCIdBQg",
-      "displayName": "@Marcos61783",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lSQOFi4ZQuHe3o2NhLdTBFnBNVe-Q9ypqPnVM3MBU=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "6",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgwRM0ArQ5SRFUZE5Hx4AaABAg",
-      "text": "Hi Josh , I should say this that you make even the more complicated logic so simple for us to understand .  For people like us who are in learning phase , that means a lot .  Thank you very much .",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UC6rLlWV1Ei8kPURxhIKN96w",
-      "displayName": "@abhijithmnair",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lglw8AjR2kBqjk0TSZ26e2kAA9NZSTMsMqGyLFq8o=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "6",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgzcJgK7IvccosGT6D14AaABAg",
-      "text": "I am a cloud architect taking an MIT ADSP course. If I see things are overwhelming there, I come and watch Statquest. What I like the best about Statquest is how you explain terminology alerts in simple layman's terms. Your channel is something I am more than happy to support. Indeed this is a great service.",
-      "publishedTime": "9 months ago"
-    },
-    "author": {
-      "id": "UCvUOMIgWes3v8i_HswXjr2Q",
-      "displayName": "@VisweswaraSriadibhatla",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kDVsj9hLvoBQOLzjE2nL1bDBX9GW_KSmsdaKSmAdiuJmsO7Wk2UinkxnzouI6qS8O9Pg=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "3",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgybHYzP_bnojY7pXER4AaABAg",
-      "text": "I took a whole seminar on this thing complete with a mini project and I didn't understand a single thing. Then comes along this little video and makes it all crystal clear in just 20 min! Hats off to you sir.",
-      "publishedTime": "2 years ago"
-    },
-    "author": {
-      "id": "UCgZ4GH9rMvATJ93b4jraLeA",
-      "displayName": "@beshr1993",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lMAXK-Rm6ATpMzapQwAaha-zoCuvQ7fAj6f-ndN80mCl0=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "5",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgwW-Ivh4dq_swlUNNl4AaABAg",
-      "text": "This is the best PCA video ever, finally understand how PCs come out, Josh u r genius",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCEeQHT5Ldb37VKAg0cA296w",
-      "displayName": "@franciszhang1809",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l4e2gIwe_470nSRgeTpvSPtsiGP1t53vuoRhkqI2ikv0M=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "7",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxfqJ7MnTEnE6kL-iN4AaABAg",
-      "text": "simply amazing. I just hope u never stop teaching us those 'complex' topics in such friendly and clear way.",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCDjUf_-8iTawpz9WYJ8RNGg",
-      "displayName": "@BBBBBBAAAl",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lPGP2y4G2X7ftJlB327oBDdqNCFxph1fe3FL8X0Es=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "8",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgwEdADVUSWdL1ZXYUt4AaABAg",
-      "text": "Learning PCA was so daunting before watching this video. I have come back re-watching couple of times when every time I got myself stuck in reading other text books. The really amazing thing for me from your work is the development of intuitions on rather abstract concepts. I don't know about others but my limited brain just can not cope with things that are too abstract and lack of visual cues.... Thank you Mr. Starmer.",
-      "publishedTime": "2 years ago"
-    },
-    "author": {
-      "id": "UCS-PBqxs4m_4m8U1shRX0Lg",
-      "displayName": "@minweideng4595",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kOJ8xGNPmLJTtPjmFGlFAnabNxFSTnmW4Q37-Cr4E=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "3",
-      "replyCount": "3"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugx58vzYHQuEPqwS_Ip4AaABAg",
-      "text": "you took 10 minutes to blow my mind with your amazing explanation. Thanks!",
-      "publishedTime": "5 years ago"
-    },
-    "author": {
-      "id": "UCHWiHX49sD47suT9WpO2NQw",
-      "displayName": "@lucasparisi7394",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kOLfeaCKRdLaFFnfh6aI1nXDrDT8KBi3XWsXMyAYrrxTKs=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "13",
-      "replyCount": ""
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxzhaARGXumZIcS5jN4AaABAg",
-      "text": "Wow, we should all just start studying solely with yt. There simply is no better way to understand complex stuff than with a nice video like thise one. Thx <3",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCPQZt0g1mihcgHpEwRrKijg",
-      "displayName": "@tomjanson4004",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_leEu3TLYmWc2IcVRmulcoCudGuBVlaKs-L1_LUUek=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "4",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugy_8PoMSdduneUYZPJ4AaABAg",
-      "text": "No words to tell how this video helped me! Thanks a lot, Josh! Your way to explain is extremely simple and makes anything easy for us.",
-      "publishedTime": "4 years ago"
-    },
-    "author": {
-      "id": "UCVxSHY5slAJqTPgM4gzc9AA",
-      "displayName": "@raisaoliveira7",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lCupZ-Edfs27E4x3zBllRX-fk8bDiofOAty6TEETLdRX8=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "5",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxeqT1t8DFBNjpihYp4AaABAg",
-      "text": "Original \"explain to me like I am 5 year old\" guy. You are superb mate, thanks!",
-      "publishedTime": "4 days ago"
-    },
-    "author": {
-      "id": "UC6hKHQ2jQv1pIQOw4SqxNTw",
-      "displayName": "@Godvillainy",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_n2udBzeYBteVO94AOvACDKqyHN4sBTqV2YenVzO3Y2Ic5h7sd9c1UhQi-g7V9kvb_L3A=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "2",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgwjD7EaP7eK-wwNOgV4AaABAg",
-      "text": "\"Mathematicians call this recipe a linear combination\". I would have called it a Gene tonic!",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCtY0PkddEXAnWx4pv9QFjcA",
-      "displayName": "@FranFerioli",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l1SYf3kexO87Hkx8i0LIZx9HYLtCBniuZXUIINbc0=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "64",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxXcbzuJ0RsVx7qEx94AaABAg",
-      "text": "Thanks dude. You are a godsend",
+      "id": "UgxIzUNHS0P-VEusiLp4AaABAg",
+      "text": "I've been watching quite a lot of your videos for the past few days to study for my finals and I'm so glad your videos exist! I'd be very desperate without them. Thank you so much for the amazing work! You have a natural talent of expressing complicated ideas so simply!",
       "publishedTime": "6 years ago"
     },
     "author": {
-      "id": "UC1yIOGXemZdQKtZ1l8aoqkQ",
-      "displayName": "@subbuktek",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lvG_T9E6maPZblW-XM9ev0fcAZ7GzOO0g8_RMcuow=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "479",
-      "replyCount": "4"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgwT8oVTDVLsvzb4ztl4AaABAg",
-      "text": "I'm probably going to have to watch this video a couple more times to fully understand everything but this is really cool and very digestible.\nI was still able to understand the main concept from the first watch. \nThank you Josh!",
-      "publishedTime": "3 years ago"
-    },
-    "author": {
-      "id": "UCNmdy3nxMophMnnJWcU_EqA",
-      "displayName": "@Pmarmagne",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kCJOp6p0fIhchIVcQYj0PgWk56B6Lbkm5qKkpLXwkXaw=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "4",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgxZzTKxWCA5oYeCMRd4AaABAg",
-      "text": "Please never stop making videos. This is the only explanation of PCA I've seen that makes intuitive sense.",
-      "publishedTime": "2 years ago"
-    },
-    "author": {
-      "id": "UCUISG7l3CnvM3Xt8P7UmGPA",
-      "displayName": "@AC-wk6hh",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nqiTRxGeyuE_wSw7o7QMHlT55wbyoi0aNjGHKDHGqLybY=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "3",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugxm5eA1mn1eIZ5eeXt4AaABAg",
-      "text": "just amazing, how you clearly put across so complex concepts with ease..!",
-      "publishedTime": "5 years ago"
-    },
-    "author": {
-      "id": "UCTA6TL21VZqgb7Wibtl0-XA",
-      "displayName": "@gunjeet40",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mIjEIZMGkE-ZkNcVF4nGfPfgkhaniwGHmD2hDCmIa9Uv2r=s88-c-k-c0x00ffffff-no-rj",
+      "id": "UCBWsq37725DkA6aax_kx8ww",
+      "displayName": "@klapaucius-dkopf",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_l8L0TJqZB5vy_wSoWnPUp41hZqjFKi2vrB8iGXThNWdbedSaomLTqHOwXLKh-b_8ECSQ=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
@@ -1029,7 +725,7 @@
     "comment": {
       "id": "Ugwn6UJQe8MbxtDW7oZ4AaABAg",
       "text": "This video is really awesome !!!\nI wish I have a teacher like you ! Yours explanations are so clear !\nThank you very much for sharing your knowledge !!!",
-      "publishedTime": "5 years ago"
+      "publishedTime": "7 years ago"
     },
     "author": {
       "id": "UCT1kOQ8LOys_Vtb3-VmINwQ",
@@ -1046,9 +742,370 @@
   },
   {
     "comment": {
+      "id": "UgwW-Ivh4dq_swlUNNl4AaABAg",
+      "text": "This is the best PCA video ever, finally understand how PCs come out, Josh u r genius",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCEeQHT5Ldb37VKAg0cA296w",
+      "displayName": "@franciszhang1809",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lKXZlpqTS_g60DgCZD4KyTKGXGHaIes1bIx_31Rh9uUaQ=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "7",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxkHEymAm78egu0jQt4AaABAg",
+      "text": "Wish I had access to this channel in 1977, it would have saved me hours of hard work without seeing much advance. Thank you a lot.",
+      "publishedTime": "8 months ago"
+    },
+    "author": {
+      "id": "UCA0HOPHlSnvHADzmUl-feLg",
+      "displayName": "@yutub6928",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mMIhWCli4LS-_nOPUqGjth45vA93ss2D_3Oo9wcnsuRQ=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxOsCiBiOb4wsz9-DB4AaABAg",
+      "text": "You teach way better than so called professors who have phds post docs and years worth of teaching experience! Truly amazing!",
+      "publishedTime": "1 year ago"
+    },
+    "author": {
+      "id": "UCOxqdlSIg1321MxJERqQlWQ",
+      "displayName": "@ashwinsh",
+      "avatarThumbnail": "https://yt3.ggpht.com/uXFtXMmR36qlKfmV_0ltufH2TtApyds_3mXqv5sCSAB8jds0fkjFEvS5Oa6RxMmy7cWCPyvU=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "5",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgyUSWQ8OAK6n4Futnx4AaABAg",
+      "text": "one of best interpretation of PCA. It is like turning several math techniques into one idea.",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCbkqSFQ_2ZYOKmTki1C7IqA",
+      "displayName": "@BoZhaoengineering",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nPXAgcJ_QR7fYjNfynG_bxLbMI8XHiZvg4M3H_GuUBSJQ=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "6",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgzZ1zT-1qJ1g-Ny7bx4AaABAg",
+      "text": "Wow man thank you! Just had a moment of clarity, teachers like you are rare!",
+      "publishedTime": "7 years ago"
+    },
+    "author": {
+      "id": "UCK1xHXlOoFzSeSLRDjph3zw",
+      "displayName": "@sheanaynay8",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nVlLAch5-n_4Hp7KOGOlSotXK_iyjcxuHbO_vYXas=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "11",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgziEfvvd5mq-iAVrFZ4AaABAg",
+      "text": "this is literally the best PCA explanation I have ever seen, thank you!!",
+      "publishedTime": "2 months ago"
+    },
+    "author": {
+      "id": "UCxh8cL3nD4lrdvy5fPDF2ug",
+      "displayName": "@camiladias6756",
+      "avatarThumbnail": "https://yt3.ggpht.com/zsWwSqR9BSqDk3W60fq8frOVpDYJ8xlYzO-w-X1OG94SweS6oOFuW9at3TC6AyGxBrT8Ozag_Dc=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgwlWQWHfPmqDNYedm54AaABAg",
+      "text": "Have a test on my Data Science course tomorrow,  I was so lost with how to visualise what we are doing in every step and this video helped me so much!",
+      "publishedTime": "5 years ago"
+    },
+    "author": {
+      "id": "UCyalDnEL90xLX9ZYR0rFI1g",
+      "displayName": "@evebogomil2777",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kXIetExSy608Q00QjXMJTbqtsBtzaeVyQbYXD106D_g9k=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "19",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxENxA-d_hDl9aYAhV4AaABAg",
+      "text": "The idea is top notch This deserves recognition.",
+      "publishedTime": "2 months ago"
+    },
+    "author": {
+      "id": "UC65z0FAtAaTQnVcmJ2AjEqg",
+      "displayName": "@JijoKappani",
+      "avatarThumbnail": "https://yt3.ggpht.com/ZEH0qdT619iXr62v9R_cnVdO7YYeY5kRMatL0VHibkziGIuQiR81pzcfNA1qXJo9gt7tvpGvYbA=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "4",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxfqJ7MnTEnE6kL-iN4AaABAg",
+      "text": "simply amazing. I just hope u never stop teaching us those 'complex' topics in such friendly and clear way.",
+      "publishedTime": "5 years ago"
+    },
+    "author": {
+      "id": "UCDjUf_-8iTawpz9WYJ8RNGg",
+      "displayName": "@BBBBBBAAAl",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lPGP2y4G2X7ftJlB327oBDdqNCFxph1fe3FL8X0Es=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "8",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgzvuFUKKCgp7rBO4Nx4AaABAg",
+      "text": "its very amazing on how you actually turn a very complex topic into an understandable concept for beginners!",
+      "publishedTime": "3 months ago"
+    },
+    "author": {
+      "id": "UCrCf0aDM569NnCU8PRVn00Q",
+      "displayName": "@Tips-rb7dz",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lsaOlTVV0mv-3Zm6ETuO_8X20R6yjPRuK7vhIVF2Crug=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugw8Fo2Yt40TwjtgyOZ4AaABAg",
+      "text": "Congratulations! This is the best explanation of PCA without overcomplicating things with matrixes. In my opinion, everyone who explain PCA should start from an explanation like this... Thank you for the amazing video!",
+      "publishedTime": "4 years ago"
+    },
+    "author": {
+      "id": "UCea9_dOg1_J_eZhNQCIdBQg",
+      "displayName": "@Marcos61783",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lSQOFi4ZQuHe3o2NhLdTBFnBNVe-Q9ypqPnVM3MBU=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "6",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugxm5eA1mn1eIZ5eeXt4AaABAg",
+      "text": "just amazing, how you clearly put across so complex concepts with ease..!",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCTA6TL21VZqgb7Wibtl0-XA",
+      "displayName": "@gunjeet40",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mIjEIZMGkE-ZkNcVF4nGfPfgkhaniwGHmD2hDCmIa9Uv2r=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "7",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgyR7B0NTO-1EtwOAH54AaABAg",
+      "text": "I really enjoyed StatQuest videos and I just bought StatQuest DOUBLE BAM T-shirt :))",
+      "publishedTime": "6 years ago"
+    },
+    "author": {
+      "id": "UCTF3C19SLFS72YTswrRAYmw",
+      "displayName": "@leixiao169",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kgcNsSdYAq_e6djBNMnRUJ5bLdh3D6bH9okbORfW1_SAU=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "14",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugym5HqqgH4JnVVVKJR4AaABAg",
+      "text": "Explained it so much better than a 2 hour lecture. The concept makes more sense now.",
+      "publishedTime": "3 years ago"
+    },
+    "author": {
+      "id": "UCzCrEZ_FdP81OVdfPw-zwXg",
+      "displayName": "@emmanuel3929",
+      "avatarThumbnail": "https://yt3.ggpht.com/7hXxAKiGtOntiShuXAZqlFQGox3Spw_71Iz-dp_2coNd7M0kM8UrzsLzpFujgzHF50q_pUkyew=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgwRM0ArQ5SRFUZE5Hx4AaABAg",
+      "text": "Hi Josh , I should say this that you make even the more complicated logic so simple for us to understand .  For people like us who are in learning phase , that means a lot .  Thank you very much .",
+      "publishedTime": "5 years ago"
+    },
+    "author": {
+      "id": "UC6rLlWV1Ei8kPURxhIKN96w",
+      "displayName": "@abhijithmnair",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lglw8AjR2kBqjk0TSZ26e2kAA9NZSTMsMqGyLFq8o=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "6",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgzlBLF9nTZ4dr1rK6J4AaABAg",
+      "text": "Glad I found your channel this month! Looking forward in inhaling all of your content :D It's a very great addition to the very emotionless lectures of my prof..",
+      "publishedTime": "5 years ago"
+    },
+    "author": {
+      "id": "UCMsSPeibPjk84S68q2o7b3A",
+      "displayName": "@gesuchter",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_kKRf6PXw2sqA_CyJAwKfh_YiwgrIiPgbuXqoaX4UQ=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "7",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugxh6TwfHAMtJ3pLzxB4AaABAg",
+      "text": "Man, this work of yours is pure gold. can't thank you enough",
+      "publishedTime": "7 years ago"
+    },
+    "author": {
+      "id": "UCOCw2cngIbmZoG1YHBQIOXA",
+      "displayName": "@leandrovegadure9930",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lFd8FTNR8pUTUmo21xtm-3WK6GOLEBMDbSi_ZTTV-Axyp-=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "6",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "UgxZzTKxWCA5oYeCMRd4AaABAg",
+      "text": "Please never stop making videos. This is the only explanation of PCA I've seen that makes intuitive sense.",
+      "publishedTime": "4 years ago"
+    },
+    "author": {
+      "id": "UCUISG7l3CnvM3Xt8P7UmGPA",
+      "displayName": "@AC-wk6hh",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nqiTRxGeyuE_wSw7o7QMHlT55wbyoi0aNjGHKDHGqLybY=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "3",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
+      "id": "Ugzc1aaNfqpTDxG094d4AaABAg",
+      "text": "You really made me feel the mathematics in PCA....... earlier I can solve the math in PCA but now I know what's the purpose of each step in finding PCA components.\nI'm a B.tech student of final year.\nThank you ❤️",
+      "publishedTime": "4 years ago"
+    },
+    "author": {
+      "id": "UC7graADPa43qoY_Ov-HfiTQ",
+      "displayName": "@AnkitYadav-sc2sm",
+      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mPWo3zqt-eJne5vjd9lQzlSjUxKBxbH4FbqAHvC6ccdSQ=s88-c-k-c0x00ffffff-no-rj",
+      "isVerified": false,
+      "isCurrentUser": false,
+      "isCreator": false
+    },
+    "stats": {
+      "likeCount": "7",
+      "replyCount": "1"
+    }
+  },
+  {
+    "comment": {
       "id": "Ugz93-fVWT0d3n9yJ_54AaABAg",
       "text": "The best PCA explanation ever! Plus a linear algebra bonus!!! Thanks a lot!",
-      "publishedTime": "5 years ago"
+      "publishedTime": "7 years ago"
     },
     "author": {
       "id": "UCeuTsm6aUpjiqDzeAefJ89w",
@@ -1065,77 +1122,20 @@
   },
   {
     "comment": {
-      "id": "UgzZe60LfRiVTKWgR_V4AaABAg",
-      "text": "Great job. I've rewatched this countless times today until it became as easy to explain to others as it was to understand ! You're truly a gifted teacher ! Keep up the great work !\nCheers from France !",
-      "publishedTime": "9 months ago"
-    },
-    "author": {
-      "id": "UCSAEDl7Hv8mZPLnRQHJ-6uQ",
-      "displayName": "@pouetpouet704",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_mD_eCUYX5ddHDnVeswvtXizyMfylbo6tt-iF2TQBNqmA=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "2",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
       "id": "Ugx0GY_QsXEODeW075F4AaABAg",
       "text": "You saved my future!!! Oh my god, this is amazing! You are a talent who can transfer complex to simple.",
-      "publishedTime": "5 years ago"
+      "publishedTime": "7 years ago"
     },
     "author": {
       "id": "UC19N2Mb0-9oXnC_NSHlB0aw",
       "displayName": "@charlespendragon1742",
-      "avatarThumbnail": "https://yt3.ggpht.com/-hCRv3SGuHVRC5liB7iIYV7712jkh3rfGbpHqD_vby4IuCpTP_NS_r7biwmCk4pMHZ69ZUhoj8Y=s88-c-k-c0x00ffffff-no-rj",
+      "avatarThumbnail": "https://yt3.ggpht.com/cUQhj3m35NdVA61s5LvG0M2rHgiu-6pLOkT99BnO7PeuZAvQlWDzx3QmKDXQhPabFot6Ix6j=s88-c-k-c0x00ffffff-no-rj",
       "isVerified": false,
       "isCurrentUser": false,
       "isCreator": false
     },
     "stats": {
       "likeCount": "6",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "Ugxh6TwfHAMtJ3pLzxB4AaABAg",
-      "text": "Man, this work of yours is pure gold. can't thank you enough",
-      "publishedTime": "5 years ago"
-    },
-    "author": {
-      "id": "UCOCw2cngIbmZoG1YHBQIOXA",
-      "displayName": "@leandrovegadure9930",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_lKWVjHkfjEH9zc7eHRnRosDBM4xFjE68yLI4UyJNGrcYoT=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "6",
-      "replyCount": "1"
-    }
-  },
-  {
-    "comment": {
-      "id": "UgzZ1zT-1qJ1g-Ny7bx4AaABAg",
-      "text": "Wow man thank you! Just had a moment of clarity, teachers like you are rare!",
-      "publishedTime": "5 years ago"
-    },
-    "author": {
-      "id": "UCK1xHXlOoFzSeSLRDjph3zw",
-      "displayName": "@sheanaynay8",
-      "avatarThumbnail": "https://yt3.ggpht.com/ytc/AIdro_nVlLAch5-n_4Hp7KOGOlSotXK_iyjcxuHbO_vYXas=s88-c-k-c0x00ffffff-no-rj",
-      "isVerified": false,
-      "isCurrentUser": false,
-      "isCreator": false
-    },
-    "stats": {
-      "likeCount": "11",
       "replyCount": "1"
     }
   }
