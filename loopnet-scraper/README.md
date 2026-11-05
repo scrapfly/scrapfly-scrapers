@@ -6,6 +6,7 @@
 
 Example scraper that collects commercial real estate listing data from LoopNet.com, written in Python with the [Scrapfly](https://scrapfly.io/) web scraping API. Part of [scrapfly-scrapers](../README.md).
 
+- **Guide:** [How to Scrape LoopNet Commercial Real Estate Listings](https://scrapfly.io/blog/posts/how-to-scrape-loopnet)
 - **Code:** [`loopnet.py`](loopnet.py) · **Example run:** [`run.py`](run.py) · **Tests:** [`test.py`](test.py)
 - **Sample output:** [Listings](results/listings.json) · [Search](results/search.json)
 

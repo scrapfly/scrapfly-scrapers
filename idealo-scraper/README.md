@@ -6,6 +6,7 @@
 
 Example scraper that collects product data from Idealo.de, written in Python with the [Scrapfly](https://scrapfly.io/) web scraping API. Part of [scrapfly-scrapers](../README.md).
 
+- **Guide:** [How to Scrape idealo Price Comparison Data (2026)](https://scrapfly.io/blog/posts/how-to-scrape-idealo)
 - **Code:** [`idealo.py`](idealo.py) · **Example run:** [`run.py`](run.py) · **Tests:** [`test.py`](test.py)
 - **Sample output:** [Manufacturer](results/manufacturer.json) · [Price history](results/price_history.json) · [Products](results/products.json) · [Search](results/search.json)
 

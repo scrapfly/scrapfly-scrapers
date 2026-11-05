@@ -45,7 +45,7 @@ product_schema = {
     "specifications": {
         "type": "dict",
         "min_presence": 0,
-        "valueschema": {"type": "string"},
+        "valuesrules": {"type": "string"},
     },
     "images": {
         "type": "list",

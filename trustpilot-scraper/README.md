@@ -58,8 +58,8 @@ asyncio.run(main())
 The functions return plain dictionaries and lists. Fields of the sample output (top-level keys of the first item):
 
 - [`results/companies.json`](results/companies.json): `pageUrl`, `companyDetails`, `reviews`
-- [`results/reviews.json`](results/reviews.json): `id`, `filtered`, `pending`, `text`, `rating`, `labels`, `title`, `likes`, `dates`, `report`, `hasUnhandledReports`, `consumer`, `reply`, `consumersReviewCountOnSameDomain`, `consumersReviewCountOnSameLocation`, `productReviews`, `language`, `location`
-- [`results/search.json`](results/search.json): `businessUnitId`, `stars`, `identifyingName`, `displayName`, `logoUrl`, `numberOfReviews`, `trustScore`, `location`, `isRecommendedInCategories`, `contact`, `categories`
+- [`results/reviews.json`](results/reviews.json): `id`, `filtered`, `isPending`, `text`, `rating`, `labels`, `title`, `likes`, `source`, `dates`, `report`, `hasUnhandledReports`, `isCurrentlyUnderModeration`, `consumer`, `reply`, `consumersReviewCountOnSameDomain`, `consumersReviewCountOnSameLocation`, `productReviews`, `language`, `location`
+- [`results/search.json`](results/search.json): `businessUnitId`, `stars`, `identifyingName`, `displayName`, `logoUrl`, `numberOfReviews`, `trustScore`, `location`, `isRecommendedInCategories`, `contact`, `categories`, `consumerAlert`, `isGamblingRelated`
 
 ## Scrapfly settings
 

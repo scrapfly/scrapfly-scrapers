@@ -43,8 +43,8 @@ asyncio.run(main())
 
 The functions return plain dictionaries and lists. Fields of the sample output (top-level keys of the first item):
 
-- [`results/product.json`](results/product.json): `sizeDescriptor`, `urlKey`, `id`, `productCategory`, `primaryCategory`, `primaryTitle`, `secondaryTitle`, `brand`, `title`, `model`, `description`, `contentGroup`, `listingType`, `deleted`, `gender`, `browseVerticals`, `condition`, `styleId`, `editionType`, `sizeAllDescriptor`, `availableSizeConversions`, `defaultSizeConversion`, `media`, `hazardousMaterial`, `tags`, `traits`, `merchandising`, `variants`, `breadcrumbs`, `brands`, `categories`, `seo`, `pricing`
-- [`results/search.json`](results/search.json): `id`, `name`, `urlKey`, `title`, `brand`, `description`, `model`, `condition`, `productCategory`, `listingType`, `gender`, `browseVerticals`, `media`, `favorite`, `productTraits`, `variants`, `market`
+- [`results/product.json`](results/product.json): `sizeDescriptor`, `urlKey`, `id`, `productCategory`, `primaryCategory`, `primaryTitle`, `secondaryTitle`, `brand`, `title`, `model`, `description`, `contentGroup`, `listingType`, `deleted`, `gender`, `browseVerticals`, `categories`, `conditions`, `condition`, `styleId`, `editionType`, `sizeAllDescriptor`, `availableSizeConversions`, `defaultSizeConversion`, `media`, `hazardousMaterial`, `tags`, `traits`, `merchandising`, `variants`, `breadcrumbs`, `brands`, `seo`, `pricing`
+- [`results/search.json`](results/search.json): `__typename`, `id`, `title`, `name`, `urlKey`, `brand`, `gender`, `description`, `model`, `condition`, `productCategory`, `browseVerticals`, `listingType`, `primaryCategory`, `uuid`, `conditions`, `categories`, `favorite`, `variants`, `media`, `traits`, `market`
 
 ## Scrapfly settings
 

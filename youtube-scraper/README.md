@@ -69,7 +69,7 @@ The functions return plain dictionaries and lists. Fields of the sample output (
 - [`results/channels.json`](results/channels.json): `description`, `url`, `subscriberCount`, `videoCount`, `viewCount`, `joinedDate`, `country`, `links`
 - [`results/videos.json`](results/videos.json): `video`, `channel`, `commentContinuationToken`
 - [`results/comments.json`](results/comments.json): `comment`, `author`, `stats`
-- [`results/shorts.json`](results/shorts.json): `videoId`, `title`, `lengthSeconds`, `channelId`, `isOwnerViewing`, `shortDescription`, `isCrawlable`, `thumbnail`, `allowRatings`, `viewCount`, `author`, `isPrivate`, `isUnpluggedCorpus`, `isLiveContent`
+- [`results/shorts.json`](results/shorts.json): `videoId`, `title`, `lengthSeconds`, `channelId`, `isOwnerViewing`, `shortDescription`, `isCrawlable`, `thumbnail`, `allowRatings`, `viewCount`, `author`, `isPrivate`, `isUnpluggedCorpus`, `isLiveContent`, `isTvfilmVideo`
 - [`results/search.json`](results/search.json): `id`, `title`, `description`, `publishedTime`, `videoLength`, `viewCount`, `videoBadges`, `channelBadges`, `videoThumbnails`, `channelThumbnails`, `url`
 - [`results/transcripts.json`](results/transcripts.json): `videoId`, `startMs`, `endMs`, `text`
 

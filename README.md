@@ -461,7 +461,7 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
 
   <tr>
     <td><a href="./idealo-scraper/">Idealo.de</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
     <td>
     <ul>
         <li><a href="./idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
@@ -589,7 +589,7 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
 
   <tr>
     <td><a href="./loopnet-scraper/">LoopNet.com</a></td>
-    <td>-</td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-loopnet">How to Scrape LoopNet Commercial Real Estate Listings</a></td>
     <td>
     <ul>
         <li><a href="./loopnet-scraper/results/listings.json">Listings</a></li>

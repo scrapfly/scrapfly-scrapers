@@ -47,7 +47,7 @@ product_schema = {
     },
     "variants": {
         "type": "dict",
-        "valueschema": {
+        "valuesrules": {
             "type": "dict",
             "schema": {
                 "id": {"type": "string"},
