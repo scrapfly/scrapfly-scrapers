@@ -28,7 +28,7 @@ async def run():
 
     comparing_data = await similarweb.scrape_website_compare(
         first_domain="twitter.com",
-        second_domain="instagram.com"
+        second_domain="facebook.com"
     )
     with open(output.joinpath("websites_compare.json"), "w", encoding="utf-8") as file:
         json.dump(comparing_data, file, indent=2, ensure_ascii=False)    

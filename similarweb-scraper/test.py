@@ -101,6 +101,8 @@ trends_schema = {
         }
     }
 }
+# the second website of a compare page carries the same data
+website_compare_schema["facebook.com"] = website_compare_schema["twitter.com"]
 
 
 @pytest.mark.asyncio
@@ -120,11 +122,12 @@ async def test_website_scraping():
 async def test_website_compare_scraping():
     comparing_data = await similarweb.scrape_website_compare(
         first_domain="twitter.com",
-        second_domain="instagram.com"
+        second_domain="facebook.com"
     )
     validator = Validator(website_compare_schema, allow_unknown=True)
     validate_or_fail(comparing_data, validator)
     assert len(comparing_data["twitter.com"]["overview"]) >= 10
+    assert len(comparing_data["facebook.com"]["overview"]) >= 10
 
 
 @pytest.mark.asyncio

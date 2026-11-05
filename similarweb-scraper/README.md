@@ -39,7 +39,7 @@ async def main():
     website = await similarweb.scrape_website(domains=["google.com", "twitter.com"])
     website_compare = await similarweb.scrape_website_compare(
         first_domain="twitter.com",
-        second_domain="instagram.com",
+        second_domain="facebook.com",
     )
     sitemaps = await similarweb.scrape_sitemaps(url="https://www.similarweb.com/blog/post-sitemap2.xml")
 
@@ -52,7 +52,7 @@ asyncio.run(main())
 The functions return plain dictionaries and lists. Fields of the sample output (top-level keys of the first item):
 
 - [`results/websites.json`](results/websites.json): `interests`, `competitors`, `searchesSource`, `incomingReferrals`, `adsSource`, `socialNetworksSource`, `outgoingReferrals`, `compareCompetitor`, `technologies`, `recentAds`, `snapshotDate`, `domain`, `icon`, `previewDesktop`, `previewMobile`, `isInvalidTrafficData`, `domainGaStatus`, `isDataFromGaHighlyDiscrepant`, `isDataFromGa`, `categoryId`, `overview`, `traffic`, `trafficSources`, `ranking`, `demographics`, `geography`
-- [`results/websites_compare.json`](results/websites_compare.json): `twitter.com`, `instagram.com`
+- [`results/websites_compare.json`](results/websites_compare.json): `twitter.com`, `facebook.com`
 - [`results/trends.json`](results/trends.json): `name`, `url`, `list`
 
 ## Scrapfly settings

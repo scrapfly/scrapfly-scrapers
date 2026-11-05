@@ -82,6 +82,12 @@ def parse_website_compare(response: ScrapeApiResponse, first_domain: str, second
         return parsed_data
 
     script_data = parse_hidden_data(response)
+    if not script_data["layout"]["data"].get("compareCompetitor"):
+        # similarweb serves compare pages for some website pairs only, the others are sent to the first website's page
+        raise ValueError(
+            f"similarweb.com has no compare page for {first_domain} vs {second_domain}: "
+            f"it answered with {response.scrape_result['url']}"
+        )
     data = {}
     data[first_domain] = parse_domain_insights(data=script_data)
     data[second_domain] = parse_domain_insights(data=script_data, second_domain=True)
