@@ -10,8 +10,7 @@ import json
 import re
 import math
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
-from typing import Dict, List
-from typing_extensions import TypedDict
+from typing import Dict, List, TypedDict
 from collections import defaultdict
 from urllib.parse import urljoin
 from pathlib import Path
@@ -84,7 +83,7 @@ def parse_property(response: ScrapeApiResponse) -> PropertyResult:
     # Images
     # the images are tucked away in a javascript variable.
     # We can use regular expressions to find the variable and parse it as a dictionary:
-    image_data = re.findall("fullScreenGalleryPics\s*:\s*(\[.+?\]),", response.scrape_result["content"])[0]
+    image_data = re.findall(r"fullScreenGalleryPics\s*:\s*(\[.+?\]),", response.scrape_result["content"])[0]
     # we also need to replace unquoted keys to quoted keys (i.e. title -> "title"):
     images = json.loads(re.sub(r"(\w+?):([^/])", r'"\1":\2', image_data))
     data["images"] = defaultdict(list)

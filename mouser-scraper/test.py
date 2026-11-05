@@ -40,7 +40,7 @@ product_schema = {
     },
     "specifications": {
         "type": "dict",
-        "valueschema": {"type": "string"},
+        "valuesrules": {"type": "string"},
     },
     "datasheet_url": {"type": "string", "nullable": True},
     "url": {"type": "string"},
