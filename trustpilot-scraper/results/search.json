@@ -1,241 +1,43 @@
 [
   {
-    "businessUnitId": "4bdc9828000064000505dc60",
+    "businessUnitId": "5d2f4f05dc509f00010c9b44",
     "stars": 5,
-    "identifyingName": "www.flashbay.com",
-    "displayName": "Flashbay",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bdc9828000064000505dc60/198x149.png",
-    "numberOfReviews": 18602,
+    "identifyingName": "itrustcapital.com",
+    "displayName": "iTrustCapital",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5d2f4f05dc509f00010c9b44/198x149.png",
+    "numberOfReviews": 9968,
     "trustScore": 5,
     "location": {
-      "address": "Flashbay Inc. 569 Clyde Avenue, Unit 500, Mountain View, CA 94043",
-      "city": null,
-      "zipCode": null,
+      "address": "18575 Jamboree Road",
+      "city": "Irvine",
+      "zipCode": "92612",
       "country": "United States"
     },
-    "isRecommendedInCategories": true,
+    "isRecommendedInCategories": false,
     "contact": {
-      "website": "http://www.flashbay.com",
-      "email": "contact@flashbay.us",
-      "phone": null
+      "website": "https://itrustcapital.com",
+      "email": "info@iTrustCapital.com",
+      "phone": "866-308-7878"
     },
     "categories": [
-      {
-        "categoryId": "hobby_store",
-        "displayName": "Hobby Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "gift_shop",
-        "displayName": "Gift Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "business_to_business_service",
-        "displayName": "Business to Business Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "drives_and_storage_service",
-        "displayName": "Drives and Storage Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "promotional_items_store",
-        "displayName": "Promotional Item Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5c7e9f613db22600013064e6",
-    "stars": 5,
-    "identifyingName": "selllocked.com",
-    "displayName": "SellLocked.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5c7e9f613db22600013064e6/198x149.png",
-    "numberOfReviews": 2271,
-    "trustScore": 5,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://SellLocked.com",
-      "email": "support@selllocked.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "recycling_center",
-        "displayName": "Recycling Center",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5cf53562e0d5ad0001e78aed",
-    "stars": 5,
-    "identifyingName": "bloomaudio.com",
-    "displayName": "Bloom Audio",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5cf53562e0d5ad0001e78aed/198x149.png",
-    "numberOfReviews": 1658,
-    "trustScore": 5,
-    "location": {
-      "address": "59 N Lakeview Dr",
-      "city": "Gibbsboro",
-      "zipCode": "08026",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://bloomaudio.com",
-      "email": "hello@bloomaudio.com",
-      "phone": "8562000681"
-    },
-    "categories": [
-      {
-        "categoryId": "hi-fi_shop",
-        "displayName": "Hi-fi shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5bc46407a134af00019a2eb0",
-    "stars": 5,
-    "identifyingName": "www.scalahosting.com",
-    "displayName": "ScalaHosting",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5bc46407a134af00019a2eb0/198x149.png",
-    "numberOfReviews": 1533,
-    "trustScore": 5,
-    "location": {
-      "address": "1999 Bryan St #900",
-      "city": "Dallas",
-      "zipCode": "75201",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.scalahosting.com",
-      "email": "affiliate@scalahosting.com",
-      "phone": "+1 214 306 6818"
-    },
-    "categories": [
-      {
-        "categoryId": "cloud_computing_service",
-        "displayName": "Cloud Computing Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "e-commerce_solution_provider",
-        "displayName": "e-Commerce Solution Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "business_to_business_service",
-        "displayName": "Business to Business Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "dns_provider",
-        "displayName": "DNS Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "email_service_provider",
-        "displayName": "Email Service Provider",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5c393ab557c5e20001ebcf7d",
-    "stars": 5,
-    "identifyingName": "damnmodz.com",
-    "displayName": "DamnModz",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5c393ab557c5e20001ebcf7d/198x149.png",
-    "numberOfReviews": 1098,
-    "trustScore": 5,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://damnmodz.com",
-      "email": null,
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
-      },
       {
         "categoryId": "software_company",
         "displayName": "Software Company",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
-  },
-  {
-    "businessUnitId": "506b4d5900006400051c8957",
-    "stars": 5,
-    "identifyingName": "goroostr.com",
-    "displayName": "GoRoostr",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/506b4d5900006400051c8957/198x149.png",
-    "numberOfReviews": 896,
-    "trustScore": 5,
-    "location": {
-      "address": "700 Veterans Circle, Suite 400",
-      "city": "Warminster",
-      "zipCode": "18974",
-      "country": "United States"
+    ],
+    "consumerAlert": {
+      "content": null,
+      "languageVersions": {},
+      "predefinedType": "InfoHighRiskInvestment",
+      "startDate": "2023-09-13T00:00:00.000Z",
+      "endDate": "2028-09-13T23:59:59.999Z",
+      "authorityWarningLink": "",
+      "title": null,
+      "titleLanguageVersions": {}
     },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://goroostr.com",
-      "email": "info@goroostr.com",
-      "phone": "215-322-5709"
-    },
-    "categories": [
-      {
-        "categoryId": "computer_store",
-        "displayName": "Computer Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      }
-    ]
+    "isGamblingRelated": false
   },
   {
     "businessUnitId": "46fac7c8000064000501afed",
@@ -243,7 +45,7 @@
     "identifyingName": "www.bhphotovideo.com",
     "displayName": "B&H Photo-Video",
     "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/46fac7c8000064000501afed/198x149.png",
-    "numberOfReviews": 306224,
+    "numberOfReviews": 331710,
     "trustScore": 4.9,
     "location": {
       "address": "420 9th Ave",
@@ -253,30 +55,141 @@
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://bandh.com?BI=19550",
+      "website": "https://bandh.com?BI=19550",
       "email": "cs@bandh.com",
       "phone": "877-619-4907"
     },
     "categories": [
       {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      },
-      {
         "categoryId": "photo_shop",
         "displayName": "Photo Shop",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "electronics_store",
+        "displayName": "Electronics Store",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5daac6198b173d0001fbdd53",
+    "businessUnitId": "4bdc7fea000064000505ccdb",
     "stars": 5,
-    "identifyingName": "iggm.com",
-    "displayName": "IGGM",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5daac6198b173d0001fbdd53/198x149.png",
-    "numberOfReviews": 27721,
+    "identifyingName": "www.siteground.com",
+    "displayName": "SiteGround",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bdc7fea000064000505ccdb/198x149.png",
+    "numberOfReviews": 31524,
+    "trustScore": 4.9,
+    "location": {
+      "address": "700 N. Fairfax St, Suite 614",
+      "city": "Alexandria, VA",
+      "zipCode": "22314",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.siteground.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "website_designer",
+        "displayName": "Website Designer",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "business_to_business_service",
+        "displayName": "Business to Business Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_marketing_service",
+        "displayName": "Internet Marketing Service",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5ae853788050d70001019ac3",
+    "stars": 5,
+    "identifyingName": "porkbun.com",
+    "displayName": "Porkbun",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ae853788050d70001019ac3/198x149.png",
+    "numberOfReviews": 28756,
+    "trustScore": 4.9,
+    "location": {
+      "address": "11575 SW Pacific Hwy PMB 40649",
+      "city": "Tigard",
+      "zipCode": "97233",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://porkbun.com",
+      "email": "support@porkbun.com",
+      "phone": "855-767-5286"
+    },
+    "categories": [
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "e-commerce_solution_provider",
+        "displayName": "e-Commerce Solution Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "65e75d0a115e0f4bc5c9697f",
+    "stars": 5,
+    "identifyingName": "lifelock.norton.com",
+    "displayName": "LifeLock",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/65e75d0a115e0f4bc5c9697f/198x149.png",
+    "numberOfReviews": 17765,
     "trustScore": 4.9,
     "location": {
       "address": null,
@@ -286,37 +199,49 @@
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "https://www.iggm.com/",
-      "email": "support@iggm.com",
+      "website": "https://lifelock.norton.com",
+      "email": null,
       "phone": null
     },
     "categories": [
       {
-        "categoryId": "video_game_store",
-        "displayName": "Video Game Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "internet_shop",
-        "displayName": "Internet Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "game_store",
-        "displayName": "Game Store",
-        "isPredicted": false
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5b69dbf7cd00020001805f61",
+    "stars": 5,
+    "identifyingName": "www.gohighlevel.com",
+    "displayName": "HighLevel",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5b69dbf7cd00020001805f61/198x149.png",
+    "numberOfReviews": 15282,
+    "trustScore": 4.9,
+    "location": {
+      "address": "400 North Saint Paul St. Suite 920",
+      "city": "Dallas",
+      "zipCode": "75201",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://www.gohighlevel.com",
+      "email": "hello@gohighlevel.com",
+      "phone": "888 732 4197"
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
   },
   {
     "businessUnitId": "5a70963080a9d9000122f85c",
@@ -324,8 +249,8 @@
     "identifyingName": "swappa.com",
     "displayName": "Swappa",
     "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5a70963080a9d9000122f85c/198x149.png",
-    "numberOfReviews": 27032,
-    "trustScore": 4.9,
+    "numberOfReviews": 38853,
+    "trustScore": 4.8,
     "location": {
       "address": "6324 N Chatham Ave, #309",
       "city": "Kansas City",
@@ -340,1090 +265,73 @@
     },
     "categories": [
       {
-        "categoryId": "internet_shop",
-        "displayName": "Internet Shop",
-        "isPredicted": false
+        "categoryId": "cell_phone_store",
+        "displayName": "Cell Phone Store",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
         "categoryId": "computer_store",
         "displayName": "Computer Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "electronics_store",
+        "displayName": "Electronics Store",
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
         "categoryId": "used_computer_store",
         "displayName": "Used Computer Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_shop",
+        "displayName": "Internet Shop",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
         "categoryId": "online_marketplace",
         "displayName": "Online Marketplace",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "cell_phone_store",
-        "displayName": "Cell Phone Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "574d4e690000ff00058d9a36",
+    "businessUnitId": "583562180000ff000597f458",
     "stars": 5,
-    "identifyingName": "softwarekeep.com",
-    "displayName": "Softwarekeep",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/574d4e690000ff00058d9a36/198x149.png",
-    "numberOfReviews": 6838,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://softwarekeep.com",
-      "email": null,
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_software_store",
-        "displayName": "Computer Software Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "business_and_it_consulting_agency",
-        "displayName": "Business and IT Consulting Agency",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_service",
-        "displayName": "Computer Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "software_vendor",
-        "displayName": "Software Vendor",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5593df380000ff0005809ddf",
-    "stars": 5,
-    "identifyingName": "campbellmillertools.co.uk",
-    "displayName": "Campbell Miller Tools",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/5593df380000ff0005809ddf/198x149.png",
-    "numberOfReviews": 5565,
-    "trustScore": 4.9,
-    "location": {
-      "address": "20 Jordanvale Avenue",
-      "city": "Glasgow",
-      "zipCode": "G14 0QU",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://campbellmillertools.co.uk",
-      "email": "web@cmtl.co.uk",
-      "phone": "01419549557"
-    },
-    "categories": [
-      {
-        "categoryId": "plumber",
-        "displayName": "Plumber",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "storage_facility",
-        "displayName": "Storage Facility",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "construction_machine_dealer",
-        "displayName": "Construction Machine Dealer",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "battery_store",
-        "displayName": "Battery Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "tool_store",
-        "displayName": "Tool Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5cf6261e3d0cda00014a4222",
-    "stars": 5,
-    "identifyingName": "poecurrency.com",
-    "displayName": "Poecurrency",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5cf6261e3d0cda00014a4222/198x149.png",
-    "numberOfReviews": 5391,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.poecurrency.com/",
-      "email": null,
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "video_game_rental_service",
-        "displayName": "Video Game Rental Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "internet_shop",
-        "displayName": "Internet Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "video_game_store",
-        "displayName": "Video Game Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "game_store",
-        "displayName": "Game Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "50f6c1f3000064000520df74",
-    "stars": 5,
-    "identifyingName": "www.acitydiscount.com",
-    "displayName": "ACityDiscount",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/50f6c1f3000064000520df74/198x149.png",
-    "numberOfReviews": 4707,
-    "trustScore": 4.9,
-    "location": {
-      "address": "6286 Dawson Blvd. ",
-      "city": "Norcross, Georgia",
-      "zipCode": "30093",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.acitydiscount.com/",
-      "email": "support@acitydiscount.com",
-      "phone": "404-752-6715"
-    },
-    "categories": [
-      {
-        "categoryId": "furniture_store",
-        "displayName": "Furniture Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "grill_store",
-        "displayName": "Grill Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "kitchen_supply_store",
-        "displayName": "Kitchen Supply Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "wholesaler_household_appliances",
-        "displayName": "Wholesaler Household Appliances",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electrical_appliance_wholesaler",
-        "displayName": "Electrical Appliance Wholesaler",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "plumber",
-        "displayName": "Plumber",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "4f6445b8000064000513bf3a",
-    "stars": 5,
-    "identifyingName": "studentdiscounts.com",
-    "displayName": "StudentDiscounts.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4f6445b8000064000513bf3a/198x149.png",
-    "numberOfReviews": 3519,
-    "trustScore": 4.9,
-    "location": {
-      "address": "1461 W. Center Str.",
-      "city": "Orem",
-      "zipCode": "84057",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://studentdiscounts.com/",
-      "email": "service@studentdiscounts.com",
-      "phone": "8777627876"
-    },
-    "categories": [
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "4bedb20100006400050ba3d5",
-    "stars": 5,
-    "identifyingName": "www.headphones.com",
-    "displayName": "Headphones.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bedb20100006400050ba3d5/198x149.png",
-    "numberOfReviews": 3323,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": "Portland",
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.headphones.com",
-      "email": "info@headphones.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "hi-fi_shop",
-        "displayName": "Hi-fi shop",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "52029d380000640005764e04",
-    "stars": 5,
-    "identifyingName": "www.macs4u.com",
-    "displayName": "macs4u.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/52029d380000640005764e04/198x149.png",
-    "numberOfReviews": 3211,
-    "trustScore": 4.9,
-    "location": {
-      "address": "5950 Clearwater Drive, Suite 100",
-      "city": "Minnetonka",
-      "zipCode": "55343",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://macs4u.com",
-      "email": "customeradvocacy@macs4u.com",
-      "phone": "800 496 7920"
-    },
-    "categories": [
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_store",
-        "displayName": "Computer Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5a24f7b30000ff0005b25085",
-    "stars": 5,
-    "identifyingName": "asap-utilities.com",
-    "displayName": "ASAP Utilities",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/5a24f7b30000ff0005b25085/198x149.png",
-    "numberOfReviews": 2825,
-    "trustScore": 4.9,
-    "location": {
-      "address": "Molenweg 242",
-      "city": "Zwolle",
-      "zipCode": "8012 WT",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.asap-utilities.com",
-      "email": "support@asap-utilities.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5ff76448e04eac0001f75a53",
-    "stars": 5,
-    "identifyingName": "techcenterplus.com",
-    "displayName": "Tech Center Plus",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ff76448e04eac0001f75a53/198x149.png",
-    "numberOfReviews": 2037,
-    "trustScore": 4.9,
-    "location": {
-      "address": "244 Madison Avenue, #1136",
-      "city": "New York",
-      "zipCode": "10016",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://techcenterplus.com",
-      "email": "support@techcenterplus.com",
-      "phone": "1-315-517-1034"
-    },
-    "categories": [
-      {
-        "categoryId": "computer_service",
-        "displayName": "Computer Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_support_and_services",
-        "displayName": "Computer Support and Service Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5e258f4b56a75e000177930b",
-    "stars": 5,
-    "identifyingName": "tricky-photoshop.com",
-    "displayName": "TrickyPhotoshop",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5e258f4b56a75e000177930b/198x149.png",
-    "numberOfReviews": 1913,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://tricky-photoshop.com/services/photo-editing-service",
-      "email": "hello@tricky-photoshop.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "photography_service",
-        "displayName": "Photography Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "photo_shop",
-        "displayName": "Photo Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "photo_agency",
-        "displayName": "Photo Agency",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "photo_restoration_service",
-        "displayName": "Photo Restoration Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5a3c052cb894c902cc0eb014",
-    "stars": 5,
-    "identifyingName": "armadaboost.com",
-    "displayName": "ArmadaBoost | Gaming Marketplace",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/5a3c052cb894c902cc0eb014/198x149.png",
-    "numberOfReviews": 1887,
-    "trustScore": 4.9,
-    "location": {
-      "address": " Vyzantiou 5, Strovolos",
-      "city": "Nicosia",
-      "zipCode": "2064",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://armadaboost.com",
-      "email": "support@armadaboost.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "video_game_store",
-        "displayName": "Video Game Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "hobby_store",
-        "displayName": "Hobby Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "game_store",
-        "displayName": "Game Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_service",
-        "displayName": "Computer Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5dbb0a51b427940001d7ffdf",
-    "stars": 5,
-    "identifyingName": "buyfirealarmparts.com",
-    "displayName": "Buy Fire Alarm Parts",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5dbb0a51b427940001d7ffdf/198x149.png",
-    "numberOfReviews": 375,
-    "trustScore": 4.9,
-    "location": {
-      "address": "1716 North Commerce Parkway",
-      "city": "Weston",
-      "zipCode": "33326",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://buyfirealarmparts.com",
-      "email": "sales@buyfirealarmparts.com",
-      "phone": "8883032656"
-    },
-    "categories": [
-      {
-        "categoryId": "electronic_parts_supplier",
-        "displayName": "Electronic Parts Supplier",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_repair_shop",
-        "displayName": "Electronics Repair Shop",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5c8054aebbc0f20001f13f4a",
-    "stars": 5,
-    "identifyingName": "acratech.net",
-    "displayName": "Acratech",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/5c8054aebbc0f20001f13f4a/198x149.png",
-    "numberOfReviews": 366,
-    "trustScore": 4.9,
-    "location": {
-      "address": "2502 Supply St",
-      "city": "Pomona",
-      "zipCode": "91767",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://acratech.net",
-      "email": "info@acratech.net",
-      "phone": "9093927522"
-    },
-    "categories": [
-      {
-        "categoryId": "photo_shop",
-        "displayName": "Photo Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "61e3c13e93500ccedb5e8060",
-    "stars": 5,
-    "identifyingName": "estage.com",
-    "displayName": "ESTAGE",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/61e3c13e93500ccedb5e8060/198x149.png",
-    "numberOfReviews": 326,
-    "trustScore": 4.9,
-    "location": {
-      "address": "2522 W. 41st ST, STE 136",
-      "city": "Sioux Falls",
-      "zipCode": "57105",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://estage.com",
-      "email": "support@estage.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5e245bd18263f100017eb509",
-    "stars": 5,
-    "identifyingName": "bigskyrecycling.com",
-    "displayName": "Big Sky Recycling",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5e245bd18263f100017eb509/198x149.png",
-    "numberOfReviews": 310,
-    "trustScore": 4.9,
-    "location": {
-      "address": "3860 SE Naef Rd #68025 ",
-      "city": "Portland",
-      "zipCode": "97267",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://bigskyrecycling.com",
-      "email": "info@bigskyrecycling.com",
-      "phone": "971-373-6217"
-    },
-    "categories": [
-      {
-        "categoryId": "cell_phone_recycling_and_unlocking_service",
-        "displayName": "Cell Phone Recycling and Unlocking Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5e0a3b3bb7295100016e6a39",
-    "stars": 5,
-    "identifyingName": "www.coconstruct.com",
-    "displayName": "CoConstruct | Construction Management Software",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5e0a3b3bb7295100016e6a39/198x149.png",
-    "numberOfReviews": 299,
-    "trustScore": 4.9,
-    "location": {
-      "address": "1807 Seminole Tr, #200",
-      "city": "Charlottesville",
-      "zipCode": "22901",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.coconstruct.com",
-      "email": "support@coconstruct.com",
-      "phone": "800-213-3392"
-    },
-    "categories": [
-      {
-        "categoryId": "custom_home_builder",
-        "displayName": "Custom Home Builder",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "home_builder",
-        "displayName": "Home Builder",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "56b0ffde0000ff0005886a9c",
-    "stars": 5,
-    "identifyingName": "specialtyansweringservice.net",
-    "displayName": "Specialty Answering Service",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/56b0ffde0000ff0005886a9c/198x149.png",
-    "numberOfReviews": 286,
-    "trustScore": 4.9,
-    "location": {
-      "address": "1006 W 9th Ave #150",
-      "city": "King of Prussia",
-      "zipCode": "19406",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://specialtyansweringservice.net",
-      "email": "sales@specialtyansweringservice.net",
-      "phone": "888-532-4794"
-    },
-    "categories": [
-      {
-        "categoryId": "telephone_answering_service",
-        "displayName": "Telephone Answering Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "call_center",
-        "displayName": "Call Center",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "telecommunications_service_provider",
-        "displayName": "Telecommunications Service Provider",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "618d5417edda096589f48c95",
-    "stars": 5,
-    "identifyingName": "sellthatcell.com",
-    "displayName": "Sell That Cell",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/618d5417edda096589f48c95/198x149.png",
-    "numberOfReviews": 250,
-    "trustScore": 4.9,
-    "location": {
-      "address": "3900 Teleport Blvd #141183",
-      "city": "Irving",
-      "zipCode": "75014",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://sellthatcell.com",
-      "email": "contact@sellthatcell.com",
-      "phone": "866-826-2355"
-    },
-    "categories": [
-      {
-        "categoryId": "cell_phone_recycling_and_unlocking_service",
-        "displayName": "Cell Phone Recycling and Unlocking Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5eb05dae8b0e360001cf57f9",
-    "stars": 5,
-    "identifyingName": "qualitymacs.com",
-    "displayName": "Quality Macs",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5eb05dae8b0e360001cf57f9/198x149.png",
-    "numberOfReviews": 242,
-    "trustScore": 4.9,
-    "location": {
-      "address": "3944 Murphy Canyon Rd",
-      "city": "SAN DIEGO",
-      "zipCode": "92123",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://qualitymacs.com",
-      "email": "support@qualitymacs.com",
-      "phone": "1-877-500-5960"
-    },
-    "categories": [
-      {
-        "categoryId": "computer_store",
-        "displayName": "Computer Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5d102e5436e4c90001442e63",
-    "stars": 5,
-    "identifyingName": "mddhosting.com",
-    "displayName": "MDDHosting",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/5d102e5436e4c90001442e63/198x149.png",
-    "numberOfReviews": 161,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://mddhosting.com",
-      "email": null,
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "6499bbdba13a047eb4f1e8e1",
-    "stars": 5,
-    "identifyingName": "notarygeek.net",
-    "displayName": "Notary Geek",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/6499bbdba13a047eb4f1e8e1/198x149.png",
-    "numberOfReviews": 145,
-    "trustScore": 4.9,
-    "location": {
-      "address": "2101 Sunset Point Rd",
-      "city": "Clearwater",
-      "zipCode": "33765",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://NotaryGeek.net",
-      "email": "Greg@NotaryGeek.net",
-      "phone": "(727)210-5717"
-    },
-    "categories": [
-      {
-        "categoryId": "notaries_association",
-        "displayName": "Notaries Association",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "notary_public",
-        "displayName": "Notary Public",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_support_and_services",
-        "displayName": "Computer Support and Service Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "business_and_it_consulting_agency",
-        "displayName": "Business and IT Consulting Agency",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "fax_service",
-        "displayName": "Fax Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "6351afca0c7d0a15cf153a65",
-    "stars": 5,
-    "identifyingName": "www.steadystacksystem.com",
-    "displayName": "Steady Stack",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/6351afca0c7d0a15cf153a65/198x149.png",
-    "numberOfReviews": 141,
-    "trustScore": 4.9,
-    "location": {
-      "address": "11 Apex Dr Suite 300A Unit #249",
-      "city": "Marlborough",
-      "zipCode": "01752",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.steadystacksystem.com",
-      "email": "Zan@steadystack.com",
-      "phone": "4242573554"
-    },
-    "categories": [
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "62f85062c059d8db37eb16e2",
-    "stars": 5,
-    "identifyingName": "webtradein.com",
-    "displayName": "Web Trade-In LLC",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/62f85062c059d8db37eb16e2/198x149.png",
-    "numberOfReviews": 132,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.webtradein.com",
-      "email": "support@webtradein.com",
-      "phone": "888-668-9998"
-    },
-    "categories": [
-      {
-        "categoryId": "used_computer_store",
-        "displayName": "Used Computer Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "cell_phone_recycling_and_unlocking_service",
-        "displayName": "Cell Phone Recycling and Unlocking Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "cell_phone_store",
-        "displayName": "Cell Phone Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "64090ffda1a5464aeb0071e7",
-    "stars": 5,
-    "identifyingName": "cpidserver.com",
-    "displayName": "Cpid Server",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/64090ffda1a5464aeb0071e7/198x149.png",
-    "numberOfReviews": 100,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://cpidserver.com",
-      "email": "support@cpidserver.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "mobile_phone_repair_shop",
-        "displayName": "Mobile Phone Repair Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "phone_repair_service",
-        "displayName": "Phone Repair Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "cell_phone_unlocking_service",
-        "displayName": "Cell Phone Unlocking Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "61552e2778a1a8001de5a0a2",
-    "stars": 5,
-    "identifyingName": "goodleafdev.com",
-    "displayName": "GoodLeaf Hosting & Development LLC",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/61552e2778a1a8001de5a0a2/198x149.png",
-    "numberOfReviews": 83,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://goodleafdev.com",
-      "email": "general@goodleafdev.com",
-      "phone": "+1 (609) 445-4316"
-    },
-    "categories": [
-      {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "60103d66ba7c3600012452fa",
-    "stars": 5,
-    "identifyingName": "flagshiptech.com",
-    "displayName": "Flagship Technologies",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/60103d66ba7c3600012452fa/198x149.png",
-    "numberOfReviews": 74,
-    "trustScore": 4.9,
-    "location": {
-      "address": "3939 County Road 116",
-      "city": "Hamel",
-      "zipCode": "55340",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://flagshiptech.com",
-      "email": "fs-sales@flagshiptech.com",
-      "phone": "8004168900"
-    },
-    "categories": [
-      {
-        "categoryId": "electronic_parts_supplier",
-        "displayName": "Electronic Parts Supplier",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_consultant",
-        "displayName": "Computer Consultant",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronic_spare_parts_and_component_store",
-        "displayName": "Electronic Spare Parts and Components Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_store",
-        "displayName": "Computer Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "616043135f077b001d48ff20",
-    "stars": 5,
-    "identifyingName": "admincolumns.com",
-    "displayName": "Admin Columns",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/616043135f077b001d48ff20/198x149.png",
-    "numberOfReviews": 73,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.admincolumns.com",
-      "email": null,
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "578221c30000ff000592251a",
-    "stars": 5,
-    "identifyingName": "wowvendor.com",
-    "displayName": "WowVendor",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/578221c30000ff000592251a/198x149.png",
-    "numberOfReviews": 26484,
+    "identifyingName": "www.elegantthemes.com",
+    "displayName": "Elegant Themes",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/583562180000ff000597f458/198x149.png",
+    "numberOfReviews": 25064,
     "trustScore": 4.8,
     "location": {
-      "address": "444 Madison Ave",
-      "city": "New York",
-      "zipCode": "10022",
+      "address": "977 West Napa Street #1002",
+      "city": "Sonoma",
+      "zipCode": "95476",
       "country": "United States"
     },
-    "isRecommendedInCategories": true,
+    "isRecommendedInCategories": false,
     "contact": {
-      "website": "https://wowvendor.com",
-      "email": "support@wowvendor.com",
-      "phone": "Discord.gg/eDgd5z5"
+      "website": "https://www.elegantthemes.com",
+      "email": "support@elegantthemes.com",
+      "phone": null
     },
     "categories": [
       {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "video_game_store",
-        "displayName": "Video Game Store",
-        "isPredicted": false
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
     "businessUnitId": "46d2a39b0000640005009889",
@@ -1431,7 +339,7 @@
     "identifyingName": "www.crutchfield.com",
     "displayName": "Crutchfield",
     "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/46d2a39b0000640005009889/198x149.png",
-    "numberOfReviews": 18126,
+    "numberOfReviews": 23228,
     "trustScore": 4.8,
     "location": {
       "address": "1 Crutchfield Park",
@@ -1447,770 +355,1096 @@
     },
     "categories": [
       {
-        "categoryId": "stereo_store",
-        "displayName": "Home Audio Store",
-        "isPredicted": false
-      },
-      {
         "categoryId": "electronics_store",
         "displayName": "Electronics Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "hi-fi_shop",
-        "displayName": "Hi-fi shop",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
         "categoryId": "tv_store",
         "displayName": "TV store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "hi-fi_shop",
+        "displayName": "Hi-fi shop",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "stereo_store",
+        "displayName": "Home Audio Store",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
         "categoryId": "home_theater_store",
         "displayName": "Home Theater Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
         "categoryId": "camera_store",
         "displayName": "Camera Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "528beed60000640005775c32",
+    "businessUnitId": "5ea94af722b01b0001de563a",
     "stars": 5,
-    "identifyingName": "www.gamers-outlet.net",
-    "displayName": "Gamers-Outlet.net - CD Keys",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/528beed60000640005775c32/198x149.png",
-    "numberOfReviews": 17640,
+    "identifyingName": "rl.exchange",
+    "displayName": "RL Exchange",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ea94af722b01b0001de563a/198x149.png",
+    "numberOfReviews": 11689,
     "trustScore": 4.8,
     "location": {
-      "address": "1975 Massachusetts Avenue",
-      "city": "Cambridge",
-      "zipCode": "02140",
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://rl.exchange",
+      "email": "support@rl.exchange",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "internet_shop",
+        "displayName": "Internet Shop",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5da6e25d045cf9000135f914",
+    "stars": 4.5,
+    "identifyingName": "reebelo.com",
+    "displayName": "Reebelo",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5da6e25d045cf9000135f914/198x149.png",
+    "numberOfReviews": 99474,
+    "trustScore": 4.7,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://www.gamers-outlet.net",
-      "email": "support@gamers-outlet.net",
-      "phone": "+1-781-491-7971"
+      "website": "https://reebelo.com",
+      "email": "support@reebelo.com",
+      "phone": null
     },
     "categories": [
       {
-        "categoryId": "video_game_store",
-        "displayName": "Video Game Store",
-        "isPredicted": false
+        "categoryId": "internet_shop",
+        "displayName": "Internet Shop",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "electronics_store",
+        "displayName": "Electronics Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "computer_and_accessories",
+        "displayName": "Computer and Accessories Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "online_marketplace",
+        "displayName": "Online Marketplace",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_store",
+        "displayName": "Cell Phone Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_accessory_store",
+        "displayName": "Cell Phone Accessory Store",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "4b3b31520000640005053004",
+    "stars": 4.5,
+    "identifyingName": "www.norton.com",
+    "displayName": "Norton",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4b3b31520000640005053004/198x149.png",
+    "numberOfReviews": 92823,
+    "trustScore": 4.7,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.norton.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "computer_accessories_store",
+        "displayName": "Computer Accessories Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "67904fe64dd41776a4167df3",
+    "stars": 4.5,
+    "identifyingName": "files-editor.com",
+    "displayName": "Files Editor",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/67904fe64dd41776a4167df3/198x149.png",
+    "numberOfReviews": 75886,
+    "trustScore": 4.7,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://files-editor.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
         "categoryId": "software_vendor",
         "displayName": "Software Vendor",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_software_store",
-        "displayName": "Computer Software Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "consumerAlert": {
+      "content": null,
+      "languageVersions": {
+        "en-IE": "This company is breaching our&nbsp;<a href=\"https://corporate.trustpilot.com/legal/for-businesses/terms-of-use-and-sale-for-businesses/nov-2025\" target=\"_blank\" rel=\"noopener\">Terms of Use</a> by inviting people to review them using language that encourages positive reviews and by displaying Trustpilot content in a way that could be misleading.<br /><br />Inviting in a biased manner isn't allowed on Trustpilot, as invitations should use neutral and unbiased language for a variety of feedback. This can also lead to bias and compromise the reliability of reviews.<br /><br />Misuse of our Brand could look like showing an inaccurate star rating in sales materials, displaying reviews they're not permitted to use on their site, and more.",
+        "en-NZ": "This company is breaching our&nbsp;<a href=\"https://corporate.trustpilot.com/legal/for-businesses/terms-of-use-and-sale-for-businesses/nov-2025\" target=\"_blank\" rel=\"noopener\">Terms of Use</a> by inviting people to review them using language that encourages positive reviews and by displaying Trustpilot content in a way that could be misleading.<br /><br />Inviting in a biased manner isn't allowed on Trustpilot, as invitations should use neutral and unbiased language for a variety of feedback. This can also lead to bias and compromise the reliability of reviews.<br /><br />Misuse of our Brand could look like showing an inaccurate star rating in sales materials, displaying reviews they're not permitted to use on their site, and more.",
+        "en-US": "This company is breaching our&nbsp;<a href=\"https://corporate.trustpilot.com/legal/for-businesses/terms-of-use-and-sale-for-businesses/nov-2025\" target=\"_blank\" rel=\"noopener\">Terms of Use</a> by inviting people to review them using language that encourages positive reviews and by displaying Trustpilot content in a way that could be misleading.<br /><br />Inviting in a biased manner isn't allowed on Trustpilot, as invitations should use neutral and unbiased language for a variety of feedback. This can also lead to bias and compromise the reliability of reviews.<br /><br />Misuse of our Brand could look like showing an inaccurate star rating in sales materials, displaying reviews they're not permitted to use on their site, and more.",
+        "en-CA": "This company is breaching our&nbsp;<a href=\"https://corporate.trustpilot.com/legal/for-businesses/terms-of-use-and-sale-for-businesses/nov-2025\" target=\"_blank\" rel=\"noopener\">Terms of Use</a> by inviting people to review them using language that encourages positive reviews and by displaying Trustpilot content in a way that could be misleading.<br /><br />Inviting in a biased manner isn't allowed on Trustpilot, as invitations should use neutral and unbiased language for a variety of feedback. This can also lead to bias and compromise the reliability of reviews.<br /><br />Misuse of our Brand could look like showing an inaccurate star rating in sales materials, displaying reviews they're not permitted to use on their site, and more.",
+        "en-AU": "This company is breaching our&nbsp;<a href=\"https://corporate.trustpilot.com/legal/for-businesses/terms-of-use-and-sale-for-businesses/nov-2025\" target=\"_blank\" rel=\"noopener\">Terms of Use</a> by inviting people to review them using language that encourages positive reviews and by displaying Trustpilot content in a way that could be misleading.<br /><br />Inviting in a biased manner isn't allowed on Trustpilot, as invitations should use neutral and unbiased language for a variety of feedback. This can also lead to bias and compromise the reliability of reviews.<br /><br />Misuse of our Brand could look like showing an inaccurate star rating in sales materials, displaying reviews they're not permitted to use on their site, and more.",
+        "en-GB": "This company is breaching our&nbsp;<a href=\"https://corporate.trustpilot.com/legal/for-businesses/terms-of-use-and-sale-for-businesses/nov-2025\" target=\"_blank\" rel=\"noopener\">Terms of Use</a> by inviting people to review them using language that encourages positive reviews and by displaying Trustpilot content in a way that could be misleading.<br /><br />Inviting in a biased manner isn't allowed on Trustpilot, as invitations should use neutral and unbiased language for a variety of feedback. This can also lead to bias and compromise the reliability of reviews.<br /><br />Misuse of our Brand could look like showing an inaccurate star rating in sales materials, displaying reviews they're not permitted to use on their site, and more."
+      },
+      "predefinedType": "WarningIncentivesForReviews",
+      "startDate": "2026-03-30T00:00:00.000Z",
+      "endDate": "2027-03-30T23:59:59.999Z",
+      "authorityWarningLink": "",
+      "title": null,
+      "titleLanguageVersions": {
+        "en-IE": "Breach of guidelines",
+        "en-NZ": "Breach of guidelines",
+        "en-US": "Breach of guidelines",
+        "en-CA": "Breach of guidelines",
+        "en-AU": "Breach of guidelines",
+        "en-GB": "Breach of guidelines"
+      }
+    },
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "4bdc7fea000064000505ccdb",
-    "stars": 5,
-    "identifyingName": "www.siteground.com",
-    "displayName": "SiteGround",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bdc7fea000064000505ccdb/198x149.png",
-    "numberOfReviews": 14270,
-    "trustScore": 4.8,
+    "businessUnitId": "6601cfffc80091d789271888",
+    "stars": 4.5,
+    "identifyingName": "saily.com",
+    "displayName": "Saily",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/6601cfffc80091d789271888/198x149.png",
+    "numberOfReviews": 33088,
+    "trustScore": 4.7,
     "location": {
-      "address": "901 N. Pitt St, Suite 325",
-      "city": "Alexandria, VA",
-      "zipCode": "22314",
+      "address": "Delaware, County of Sussex",
+      "city": "Lewes",
+      "zipCode": "19958",
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "https://www.siteground.com",
-      "email": null,
-      "phone": "1 866 605 2484"
-    },
-    "categories": [
-      {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "business_to_business_service",
-        "displayName": "Business to Business Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "51936e7200006400052d12ee",
-    "stars": 5,
-    "identifyingName": "therapynotes.com",
-    "displayName": "TherapyNotes, LLC",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/51936e7200006400052d12ee/198x149.png",
-    "numberOfReviews": 1860,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": "Horsham, PA",
-      "zipCode": "19044",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.therapynotes.com",
-      "email": "sales@therapynotes.com",
-      "phone": "215-658-4550"
-    },
-    "categories": [
-      {
-        "categoryId": "pharmacy",
-        "displayName": "Pharmacy",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "cloud_computing_service",
-        "displayName": "Cloud Computing Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "business_to_business_service",
-        "displayName": "Business to Business Service",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "4bdc7d56000064000505cb54",
-    "stars": 5,
-    "identifyingName": "www.tadibrothers.com",
-    "displayName": "TadiBrothers",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bdc7d56000064000505cb54/198x149.png",
-    "numberOfReviews": 1838,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.tadibrothers.com",
-      "email": null,
+      "website": "https://saily.com",
+      "email": " support@saily.com",
       "phone": null
     },
     "categories": [
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "horsebox_specialist",
-        "displayName": "Horse Transport Supplier",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "auto_repair_shop",
-        "displayName": "Auto Repair Shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "truck_parts_supplier",
-        "displayName": "Truck Parts Supplier",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "auto_body_parts_supplier",
-        "displayName": "Auto Body Parts Supplier",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "578eb6740000ff00059285ec",
-    "stars": 5,
-    "identifyingName": "marcaria.com",
-    "displayName": "Marcaria.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/578eb6740000ff00059285ec/198x149.png",
-    "numberOfReviews": 1725,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.marcaria.com",
-      "email": "support@marcaria.com",
-      "phone": "1-347-897-0218"
-    },
-    "categories": [
-      {
-        "categoryId": "attorney_referral_service",
-        "displayName": "Attorney Referral Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "dns_provider",
-        "displayName": "DNS Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "4bdbbc70000064000505640e",
-    "stars": 5,
-    "identifyingName": "www.turtlebeach.com",
-    "displayName": "Turtle Beach",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bdbbc70000064000505640e/198x149.png",
-    "numberOfReviews": 1559,
-    "trustScore": 4.9,
-    "location": {
-      "address": "11011 Via Frontera",
-      "city": "San Diego",
-      "zipCode": "92127",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.turtlebeach.com",
-      "email": "support@turtlebeach.com ",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "gaming_service_provider",
-        "displayName": "Gaming service Provider",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5ac7cd86fb41d8000143ffc9",
-    "stars": 5,
-    "identifyingName": "optimustracker.com",
-    "displayName": "Optimus Tracker",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ac7cd86fb41d8000143ffc9/198x149.png",
-    "numberOfReviews": 1404,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://optimustracker.com",
-      "email": "sales@optimustracker.com",
-      "phone": "(855) 893-0707"
-    },
-    "categories": [
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "58a1c2b00000ff00059c9c46",
-    "stars": 5,
-    "identifyingName": "www.smtp2go.com",
-    "displayName": "SMTP2GO",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/58a1c2b00000ff00059c9c46/198x149.png",
-    "numberOfReviews": 1354,
-    "trustScore": 4.9,
-    "location": {
-      "address": "3501 Jack Northrop Ave Suite #AHX721 ",
-      "city": "Hawthorne",
-      "zipCode": "90250",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.smtp2go.com",
-      "email": "ticket@smtp2go.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "internet_service_provider",
-        "displayName": "Internet Service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "email_service_provider",
-        "displayName": "Email Service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5d229f5e5a6b390001febba7",
-    "stars": 5,
-    "identifyingName": "www.redragonshop.com",
-    "displayName": "Redragonshop",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5d229f5e5a6b390001febba7/198x149.png",
-    "numberOfReviews": 1213,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.redragonshop.com",
-      "email": "support@redragonshop.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5c2cf5a99a9d6b0001ec2ac8",
-    "stars": 5,
-    "identifyingName": "humblefax.com",
-    "displayName": "Humblefax",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/5c2cf5a99a9d6b0001ec2ac8/198x149.png",
-    "numberOfReviews": 1198,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://humblefax.com",
-      "email": "customercare@humblefax.com",
-      "phone": null
-    },
-    "categories": [
-      {
-        "categoryId": "internet_service_provider",
-        "displayName": "Internet Service Provider",
-        "isPredicted": false
-      },
       {
         "categoryId": "telecommunications_service_provider",
         "displayName": "Telecommunications Service Provider",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "fax_service",
-        "displayName": "Fax Service",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "481734b30000640005025c3a",
-    "stars": 5,
-    "identifyingName": "www.drivesolutions.com",
-    "displayName": "DriveSolutions.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/481734b30000640005025c3a/198x149.png",
-    "numberOfReviews": 1131,
-    "trustScore": 4.9,
+    "businessUnitId": "580cbf960000ff0005966f44",
+    "stars": 4.5,
+    "identifyingName": "hostinger.com",
+    "displayName": "Hostinger",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/580cbf960000ff0005966f44/198x149.png",
+    "numberOfReviews": 73727,
+    "trustScore": 4.6,
     "location": {
-      "address": "2815 Townsgate Road, Suite 210",
-      "city": "Westlake Village, CA",
-      "zipCode": "91362",
+      "address": "61 Lordou Vironos Street",
+      "city": "Larnaca",
+      "zipCode": "6023",
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "https://drivesolutions.com",
-      "email": "info@drivesolutions.com",
-      "phone": "818-707-8700"
-    },
-    "categories": [
-      {
-        "categoryId": "drives_and_storage_service",
-        "displayName": "Drives and Storage Service",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "computer_accessories_store",
-        "displayName": "Computer Accessories Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5b7de8733448bc00017ef8cc",
-    "stars": 5,
-    "identifyingName": "wpfixit.com",
-    "displayName": "WordPress Hosting and 24/7 Support WP FIX IT",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5b7de8733448bc00017ef8cc/198x149.png",
-    "numberOfReviews": 1089,
-    "trustScore": 4.9,
-    "location": {
-      "address": "120 Vantis",
-      "city": "Aliso Viejo",
-      "zipCode": "92656",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "https://www.wpfixit.com",
-      "email": "support@wpfixit.com",
+      "website": "https://www.hostinger.com/1?utm_source=trustpilot&utm_medium=web&utm_campaign=link",
+      "email": "support@hostinger.com",
       "phone": null
     },
     "categories": [
       {
-        "categoryId": "e_commerce_service",
-        "displayName": "e-Commerce Service",
-        "isPredicted": false
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
-        "categoryId": "website_designer",
-        "displayName": "Website Designer",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "web_designer",
-        "displayName": "Web designer",
-        "isPredicted": false
+        "categoryId": "business_to_business_service",
+        "displayName": "Business to Business Service",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
         "categoryId": "e-commerce_solution_provider",
         "displayName": "e-Commerce Solution Provider",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
-        "categoryId": "computer_support_and_services",
-        "displayName": "Computer Support and Service Company",
-        "isPredicted": false
+        "categoryId": "website_designer",
+        "displayName": "Website Designer",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
-        "categoryId": "web_hosting_service",
-        "displayName": "Web Hosting Company",
-        "isPredicted": false
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5418263300006400057a5b13",
-    "stars": 5,
-    "identifyingName": "llamarepublicadominicana.com",
-    "displayName": "LlamaRepublicaDominicana.com",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5418263300006400057a5b13/198x149.png",
-    "numberOfReviews": 1075,
-    "trustScore": 4.9,
+    "businessUnitId": "542d952d00006400057ab096",
+    "stars": 4.5,
+    "identifyingName": "ionos.com",
+    "displayName": "IONOS | ionos.com",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/542d952d00006400057ab096/198x149.png",
+    "numberOfReviews": 45727,
+    "trustScore": 4.6,
     "location": {
-      "address": "4780 Ashford Dunwoody Rd Suite A 236",
-      "city": "Atlanta GA",
-      "zipCode": "30338",
+      "address": null,
+      "city": null,
+      "zipCode": null,
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "https://LlamaRepublicaDominicana.com",
-      "email": "customerservice@llamarepublicadominicana.com",
-      "phone": "+1 678 528 0398"
+      "website": "https://www.ionos.com/",
+      "email": "support@ionos.com",
+      "phone": "1 484-424-7392"
+    },
+    "categories": [
+      {
+        "categoryId": "business_to_business_service",
+        "displayName": "Business to Business Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "e-commerce_solution_provider",
+        "displayName": "e-Commerce Solution Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "email_service_provider",
+        "displayName": "Email Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cloud_computing_service",
+        "displayName": "Cloud Computing Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5dcf9297c19a050001bc8ac6",
+    "stars": 4.5,
+    "identifyingName": "patriotmobile.com",
+    "displayName": "Patriot Mobile",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5dcf9297c19a050001bc8ac6/198x149.png",
+    "numberOfReviews": 25016,
+    "trustScore": 4.6,
+    "location": {
+      "address": "2150 W. Northwest Hwy, Suite 114 PMB 1004",
+      "city": "Grapevine",
+      "zipCode": "76051",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://patriotmobile.com",
+      "email": "support@patriotmobile.com",
+      "phone": "9727287468"
+    },
+    "categories": [
+      {
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "telecommunications_service_provider",
+        "displayName": "Telecommunications Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_store",
+        "displayName": "Cell Phone Store",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "56b91eea0000ff000588ac75",
+    "stars": 4.5,
+    "identifyingName": "notarize.com",
+    "displayName": "Notarize",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/56b91eea0000ff000588ac75/198x149.png",
+    "numberOfReviews": 24970,
+    "trustScore": 4.6,
+    "location": {
+      "address": "867 Boylston St, 5th Floor #1656",
+      "city": "Boston",
+      "zipCode": "02116",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://notarize.com",
+      "email": "support@notarize.com",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "notary_public",
+        "displayName": "Notary Public",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "legal_services",
+        "displayName": "Legal Services",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "521fbc7a0000640005768f5c",
+    "stars": 4.5,
+    "identifyingName": "hostgator.com",
+    "displayName": "HostGator",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/521fbc7a0000640005768f5c/198x149.png",
+    "numberOfReviews": 18049,
+    "trustScore": 4.6,
+    "location": {
+      "address": "5335 Gate Pkwy",
+      "city": "Jacksonville, FL",
+      "zipCode": "32256",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.hostgator.com",
+      "email": "reputation@newfold.com",
+      "phone": "1-(866)-964-2867"
+    },
+    "categories": [
+      {
+        "categoryId": "business_to_business_service",
+        "displayName": "Business to Business Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "website_designer",
+        "displayName": "Website Designer",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5fb3ff8ae28cd80001f22ee1",
+    "stars": 4.5,
+    "identifyingName": "www.mobisystems.com",
+    "displayName": "MobiOffice (formerly OfficeSuite)",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5fb3ff8ae28cd80001f22ee1/198x149.png",
+    "numberOfReviews": 15938,
+    "trustScore": 4.6,
+    "location": {
+      "address": "4501 Mission Bay Dr. Suite 3A",
+      "city": "San Diego",
+      "zipCode": "92109",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.mobisystems.com/mobioffice",
+      "email": "sales@mobisystems.com",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "68964a05fbb528ece8179e36",
+    "stars": 4.5,
+    "identifyingName": "aichatapp.ai",
+    "displayName": "Aichatapp",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/68964a05fbb528ece8179e36/198x149.png",
+    "numberOfReviews": 10819,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://aichatapp.ai",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "internet_marketing_service",
+        "displayName": "Internet Marketing Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "59550f8a0000ff0005a59c3f",
+    "stars": 5,
+    "identifyingName": "squadlocker.com",
+    "displayName": "SquadLocker",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/59550f8a0000ff0005a59c3f/198x149.png",
+    "numberOfReviews": 8876,
+    "trustScore": 4.9,
+    "location": {
+      "address": "240 Bald Hill Road",
+      "city": "Warwick",
+      "zipCode": "02886",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://squadlocker.com",
+      "email": "support@squadlocker.com",
+      "phone": "1-888-885-6253"
+    },
+    "categories": [
+      {
+        "categoryId": "custom_t_shirt_store",
+        "displayName": "Custom T-Shirt Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "sportswear_store",
+        "displayName": "Sportswear Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "activewear_store",
+        "displayName": "Activewear Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "printed_clothing_store",
+        "displayName": "Printed Clothing Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "uniform_store",
+        "displayName": "Uniform Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "4be82aff000064000509ff1a",
+    "stars": 4.5,
+    "identifyingName": "www.mediamarkt.nl",
+    "displayName": "MediaMarkt NL",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/4be82aff000064000509ff1a/198x149.png",
+    "numberOfReviews": 74161,
+    "trustScore": 4.3,
+    "location": {
+      "address": "Wilhelminakade 161",
+      "city": "Rotterdam",
+      "zipCode": "3072 AP",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://www.mediamarkt.nl",
+      "email": "contact@mediamarkt.nl",
+      "phone": "088 - 4640464"
+    },
+    "categories": [
+      {
+        "categoryId": "photo_shop",
+        "displayName": "Photo Shop",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "cell_phone_store",
+        "displayName": "Cell Phone Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "movie_rental_store",
+        "displayName": "Movie Rental Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "gaming_service_provider",
+        "displayName": "Gaming service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "electronic_spare_parts_and_component_store",
+        "displayName": "Electronic Spare Parts and Components Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "music_store",
+        "displayName": "Music Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_accessory_store",
+        "displayName": "Cell Phone Accessory Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "kitchen_supply_store",
+        "displayName": "Kitchen Supply Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cleaning_products_supplier",
+        "displayName": "Cleaning Products Supplier",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "600f96c5c397eb0001f2e74b",
+    "stars": 4.5,
+    "identifyingName": "genuinereplacementparts.com",
+    "displayName": "Genuine Replacement Parts",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/600f96c5c397eb0001f2e74b/198x149.png",
+    "numberOfReviews": 53619,
+    "trustScore": 4.3,
+    "location": {
+      "address": "210 West Hollywood Boulevard, #241",
+      "city": "Mary Esther",
+      "zipCode": "32569",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://genuinereplacementparts.com",
+      "email": "support@genuineparts.com",
+      "phone": "877 968 4335"
+    },
+    "categories": [
+      {
+        "categoryId": "appliance_parts_supplier",
+        "displayName": "Appliance Parts Supplier",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "698981ce2706dd2e7b440fad",
+    "stars": 4.5,
+    "identifyingName": "www.nomadesim.com",
+    "displayName": "Nomad eSIM",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/698981ce2706dd2e7b440fad/198x149.png",
+    "numberOfReviews": 47940,
+    "trustScore": 4.3,
+    "location": {
+      "address": "2880 Lakeside Drive, Suite 331",
+      "city": "Santa Clara",
+      "zipCode": "95054",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.nomadesim.com",
+      "email": "hello@getnomad.app",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "phone_and_internet_service",
+        "displayName": "Phone and Internet Service",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5d6bb2037eebf4000145f451",
+    "stars": 4.5,
+    "identifyingName": "www.getryoko.com",
+    "displayName": "Ryoko",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5d6bb2037eebf4000145f451/198x149.png",
+    "numberOfReviews": 27534,
+    "trustScore": 4.3,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.getryoko.com",
+      "email": "support@getryoko.com",
+      "phone": "+1 (443) 456-4433"
+    },
+    "categories": [
+      {
+        "categoryId": "electronics_store",
+        "displayName": "Electronics Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_provider",
+        "displayName": "Internet Provider",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "598b257c0000ff0005a87db1",
+    "stars": 4.5,
+    "identifyingName": "www.drivereasy.com",
+    "displayName": "Driver Easy",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/598b257c0000ff0005a87db1/198x149.png",
+    "numberOfReviews": 22300,
+    "trustScore": 4.3,
+    "location": {
+      "address": "30 Canton Road",
+      "city": "Hong Kong",
+      "zipCode": "2622",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.drivereasy.com",
+      "email": "support@drivereasy.com",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_vendor",
+        "displayName": "Software Vendor",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "592681d60000ff0005a326a5",
+    "stars": 4.5,
+    "identifyingName": "bossrevolution.com",
+    "displayName": "BOSS Revolution",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/592681d60000ff0005a326a5/198x149.png",
+    "numberOfReviews": 20920,
+    "trustScore": 4.3,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://bossrevolution.com/",
+      "email": null,
+      "phone": null
     },
     "categories": [
       {
         "categoryId": "telecommunications_service_provider",
         "displayName": "Telecommunications Service Provider",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
-        "categoryId": "internet_service_provider",
-        "displayName": "Internet Service Provider",
-        "isPredicted": false
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5ada4a3d85a17d00010d8a2b",
-    "stars": 5,
-    "identifyingName": "aperionaudio.com",
-    "displayName": "Aperion Audio",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ada4a3d85a17d00010d8a2b/198x149.png",
-    "numberOfReviews": 932,
-    "trustScore": 4.9,
+    "businessUnitId": "5db1b6e9b550b90001e2b43c",
+    "stars": 4.5,
+    "identifyingName": "webador.com",
+    "displayName": "Webador",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5db1b6e9b550b90001e2b43c/198x149.png",
+    "numberOfReviews": 20425,
+    "trustScore": 4.3,
     "location": {
-      "address": "25599 SW 95th Ave, Suite D",
-      "city": "Wilsonville",
-      "zipCode": "97070",
+      "address": "Torenallee 20",
+      "city": "Eindhoven",
+      "zipCode": "5617 BC",
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://aperionaudio.com",
-      "email": "customerservice@aperionaudio.com",
-      "phone": "888-880-8992"
-    },
-    "categories": [
-      {
-        "categoryId": "hi-fi_shop",
-        "displayName": "Hi-fi shop",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "electronics_store",
-        "displayName": "Electronics Store",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5f914f1d73751f000195e382",
-    "stars": 5,
-    "identifyingName": "www.motionvfx.com",
-    "displayName": "MotionVFX",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5f914f1d73751f000195e382/198x149.png",
-    "numberOfReviews": 760,
-    "trustScore": 4.9,
-    "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.motionvfx.com",
-      "email": "support@motionvfx.com",
+      "website": "https://www.webador.com",
+      "email": "support@webador.com",
       "phone": null
     },
     "categories": [
       {
-        "categoryId": "graphic_designer",
-        "displayName": "Graphic Designer",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "film_and_video_producer",
-        "displayName": "Film and Video Producer",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "64ff51affccad6f84ec4fb74",
-    "stars": 5,
-    "identifyingName": "qrcodekit.com",
-    "displayName": "QR Code KIT",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/64ff51affccad6f84ec4fb74/198x149.png",
-    "numberOfReviews": 754,
-    "trustScore": 4.9,
+    "businessUnitId": "46e27e2b0000640005014744",
+    "stars": 4.5,
+    "identifyingName": "www.networksolutions.com",
+    "displayName": "Network Solutions",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/46e27e2b0000640005014744/198x149.png",
+    "numberOfReviews": 17478,
+    "trustScore": 4.3,
     "location": {
-      "address": null,
-      "city": null,
-      "zipCode": null,
+      "address": "5335 Gate Pkwy",
+      "city": "Jacksonville, FL",
+      "zipCode": "32256",
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://qrcodekit.com/",
-      "email": "support@qrcodekit.com",
-      "phone": null
+      "website": "https://www.networksolutions.com",
+      "email": "reputation@newfold.com",
+      "phone": "1 (800) 333-7680"
     },
     "categories": [
       {
-        "categoryId": "software_company",
-        "displayName": "Software Company",
-        "isPredicted": false
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
-        "categoryId": "web_collaboration_platform",
-        "displayName": "Web Collaboration Platform",
-        "isPredicted": false
-      }
-    ]
-  },
-  {
-    "businessUnitId": "5c0aad580b068b0001e14acb",
-    "stars": 5,
-    "identifyingName": "jerseywatch.com",
-    "displayName": "Jersey Watch",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5c0aad580b068b0001e14acb/198x149.png",
-    "numberOfReviews": 748,
-    "trustScore": 4.9,
-    "location": {
-      "address": "1311 Vine Street",
-      "city": "Cincinnati",
-      "zipCode": "45202",
-      "country": "United States"
-    },
-    "isRecommendedInCategories": true,
-    "contact": {
-      "website": "http://www.jerseywatch.com",
-      "email": "help@jerseywatch.com",
-      "phone": null
-    },
-    "categories": [
-      {
         "categoryId": "software_company",
         "displayName": "Software Company",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
         "categoryId": "business_to_business_service",
         "displayName": "Business to Business Service",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "computer_security_service",
+        "displayName": "Computer Security Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5ee0f0598be2450001656f16",
-    "stars": 5,
-    "identifyingName": "bottlepos.com",
-    "displayName": "Bottle POS",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ee0f0598be2450001656f16/198x149.png",
-    "numberOfReviews": 584,
-    "trustScore": 4.9,
+    "businessUnitId": "5b3ac3323f82060001edec41",
+    "stars": 4.5,
+    "identifyingName": "www.eset.com/us",
+    "displayName": "ESET US",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5b3ac3323f82060001edec41/198x149.png",
+    "numberOfReviews": 14887,
+    "trustScore": 4.3,
     "location": {
-      "address": null,
-      "city": "Atlanta",
-      "zipCode": null,
+      "address": "610 W Ash St #1700",
+      "city": "San Diego",
+      "zipCode": "92101",
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "https://bottlepos.com/",
-      "email": "sales@bottlepos.com",
-      "phone": "877-381-4087"
+      "website": "https://www.eset.com/us/",
+      "email": null,
+      "phone": "(619) 876-5400"
     },
     "categories": [
       {
         "categoryId": "software_company",
         "displayName": "Software Company",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": true
       },
       {
-        "categoryId": "software_vendor",
-        "displayName": "Software Vendor",
-        "isPredicted": false
+        "categoryId": "computer_accessories_store",
+        "displayName": "Computer Accessories Store",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5fbd742a281b0100017181f4",
-    "stars": 5,
-    "identifyingName": "kb-3d.com",
-    "displayName": "KB3D LLC",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5fbd742a281b0100017181f4/198x149.png",
-    "numberOfReviews": 581,
-    "trustScore": 4.9,
+    "businessUnitId": "54104d5e00006400057a3dae",
+    "stars": 4.5,
+    "identifyingName": "mobilerecharge.com",
+    "displayName": "MobileRecharge.com",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/54104d5e00006400057a3dae/198x149.png",
+    "numberOfReviews": 10870,
+    "trustScore": 4.3,
     "location": {
-      "address": "2002 Midway Dr",
-      "city": "Twinsburg",
-      "zipCode": "44087",
+      "address": "107 Technology Parkway, Peachtree Corners Suite 401",
+      "city": "Atlanta",
+      "zipCode": "30092-2909",
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://kb-3d.com",
-      "email": "inquiry@kb-3d.com",
-      "phone": "(815) 860-5422"
+      "website": "https://MobileRecharge.com",
+      "email": "customerservice@mobilerecharge.com",
+      "phone": null
     },
     "categories": [
       {
-        "categoryId": "electronic_spare_parts_and_component_store",
-        "displayName": "Electronic Spare Parts and Components Store",
-        "isPredicted": false
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
-        "categoryId": "hardware_accessories_store",
-        "displayName": "Hardware Accessories Store",
-        "isPredicted": false
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "phone_and_internet_service",
+        "displayName": "Phone and Internet Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "telecommunications_service_provider",
+        "displayName": "Telecommunications Service Provider",
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5c7fffa9bbc0f20001f13c54",
-    "stars": 5,
-    "identifyingName": "cashforyourmac.com",
-    "displayName": "CashForYourMac",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5c7fffa9bbc0f20001f13c54/198x149.png",
-    "numberOfReviews": 578,
-    "trustScore": 4.9,
+    "businessUnitId": "58ba239c0000ff00059dc2d0",
+    "stars": 4.5,
+    "identifyingName": "plessers.com",
+    "displayName": "Plesser's Appliance",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/58ba239c0000ff00059dc2d0/198x149.png",
+    "numberOfReviews": 10853,
+    "trustScore": 4.3,
     "location": {
-      "address": " 3944 Murphy Canyon Road Suite C105",
-      "city": "San Diego",
-      "zipCode": "92123",
+      "address": "6 East Main Street",
+      "city": "Babylon",
+      "zipCode": "11702",
       "country": "United States"
     },
-    "isRecommendedInCategories": true,
+    "isRecommendedInCategories": false,
     "contact": {
-      "website": "http://cashforyourmac.com",
-      "email": "support@cashforyourmac.com",
-      "phone": "1.877.500.4439"
+      "website": "https://plessers.com",
+      "email": "marketing@plessers.com",
+      "phone": "1-877-957-5377"
     },
     "categories": [
       {
-        "categoryId": "computer_service",
-        "displayName": "Computer Service",
-        "isPredicted": false
+        "categoryId": "appliance_store",
+        "displayName": "Appliance Store",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "washer_and_dryer_store",
+        "displayName": "Washer and Dryer Store",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "60408fae5561860001783b43",
-    "stars": 5,
-    "identifyingName": "rkgamingstore.com",
-    "displayName": "RK ROYAL KLUDGE",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/60408fae5561860001783b43/198x149.png",
-    "numberOfReviews": 573,
-    "trustScore": 4.9,
+    "businessUnitId": "5fe919fbe2aa300001622e53",
+    "stars": 4.5,
+    "identifyingName": "ctsounds.com",
+    "displayName": "ctsounds.com",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5fe919fbe2aa300001622e53/198x149.png",
+    "numberOfReviews": 9152,
+    "trustScore": 4.6,
     "location": {
       "address": null,
       "city": null,
@@ -2219,69 +1453,1090 @@
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://rkgamingstore.com",
-      "email": "support@rkgaming.com",
+      "website": "https://ctsounds.com",
+      "email": "hello@ctsounds.com",
       "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "electronics_company",
+        "displayName": "Electronics Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "51abc000000064000538d348",
+    "stars": 4,
+    "identifyingName": "nordvpn.com",
+    "displayName": "NordVPN",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/51abc000000064000538d348/198x149.png",
+    "numberOfReviews": 51512,
+    "trustScore": 4.2,
+    "location": {
+      "address": "PH Venturi House, 49th Street, Bella Vista, Suite 1, Ground Floor, Panama City, Panama ",
+      "city": "Panama City",
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://nordvpn.com",
+      "email": "support@nordvpn.com",
+      "phone": "+44 131 463 6666"
+    },
+    "categories": [
+      {
+        "categoryId": "vpn_service",
+        "displayName": "VPN Service",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "4bdc2c5f00006400050595c3",
+    "stars": 4,
+    "identifyingName": "www.namecheap.com",
+    "displayName": "Namecheap",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4bdc2c5f00006400050595c3/198x149.png",
+    "numberOfReviews": 22144,
+    "trustScore": 4.2,
+    "location": {
+      "address": "4600 East Washington Street,  Suite 300",
+      "city": "Phoenix",
+      "zipCode": "AZ 85034",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.namecheap.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "vpn_service",
+        "displayName": "VPN Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "email_service_provider",
+        "displayName": "Email Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "599206d30000ff0005a8dbcd",
+    "stars": 4,
+    "identifyingName": "www.consumercellular.com",
+    "displayName": "Consumer Cellular",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/599206d30000ff0005a8dbcd/198x149.png",
+    "numberOfReviews": 18773,
+    "trustScore": 4.2,
+    "location": {
+      "address": "12447 SW 69th Ave.",
+      "city": "Portland",
+      "zipCode": "97223",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://www.consumercellular.com",
+      "email": null,
+      "phone": "(888) 345-5510 "
+    },
+    "categories": [
+      {
+        "categoryId": "telecommunications_service_provider",
+        "displayName": "Telecommunications Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_store",
+        "displayName": "Cell Phone Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_accessory_store",
+        "displayName": "Cell Phone Accessory Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "606edf1dfd6e0700019e40d6",
+    "stars": 4,
+    "identifyingName": "qr.io",
+    "displayName": "QR.io",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/606edf1dfd6e0700019e40d6/198x149.png",
+    "numberOfReviews": 14817,
+    "trustScore": 4.2,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://qr.io",
+      "email": "support@qr.io",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "4e77a1fa0000640005110b68",
+    "stars": 4,
+    "identifyingName": "pdfaid.com",
+    "displayName": "PDFAid",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4e77a1fa0000640005110b68/198x149.png",
+    "numberOfReviews": 12500,
+    "trustScore": 4.2,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://pdfaid.com",
+      "email": "support@pdfaid.com",
+      "phone": "(888) 857-5569"
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5e4de3a91f9693000191490a",
+    "stars": 4,
+    "identifyingName": "phobio.com",
+    "displayName": "Phobio",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5e4de3a91f9693000191490a/198x149.png",
+    "numberOfReviews": 11101,
+    "trustScore": 4.2,
+    "location": {
+      "address": "1201 Peachtree St NE",
+      "city": "Atlanta",
+      "zipCode": "30361",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://phobio.com",
+      "email": "info@phobio.com",
+      "phone": "1-855-PHOBIO-8"
+    },
+    "categories": [
+      {
+        "categoryId": "technical_service",
+        "displayName": "Technical Service",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "57a499ab0000ff00059323f5",
+    "stars": 4.5,
+    "identifyingName": "tello.com",
+    "displayName": "Tello.com",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/57a499ab0000ff00059323f5/198x149.png",
+    "numberOfReviews": 15793,
+    "trustScore": 4.6,
+    "location": {
+      "address": "107 Technology Parkway, Peachtree Corners Suite 401",
+      "city": "Atlanta",
+      "zipCode": "30092-2909",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://Tello.com",
+      "email": "customerservice@tello.com",
+      "phone": "+1-866-377-0294"
+    },
+    "categories": [
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5ae8df7f3a0c3500018d4479",
+    "stars": 4.5,
+    "identifyingName": "4kdownload.com",
+    "displayName": "4K Download",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ae8df7f3a0c3500018d4479/198x149.png",
+    "numberOfReviews": 13277,
+    "trustScore": 4.6,
+    "location": {
+      "address": "Garden Street 801",
+      "city": "Santa Barbara",
+      "zipCode": "93101",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.4kdownload.com",
+      "email": "contact@4kdownload.com",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_vendor",
+        "displayName": "Software Vendor",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "594e8fb40000ff0005a54140",
+    "stars": 4.5,
+    "identifyingName": "totalav.com",
+    "displayName": "TotalAV",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/594e8fb40000ff0005a54140/198x149.png",
+    "numberOfReviews": 140484,
+    "trustScore": 4.5,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.totalav.com/free-antivirus",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "vpn_service",
+        "displayName": "VPN Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_vendor",
+        "displayName": "Software Vendor",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "computer_service",
+        "displayName": "Computer Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "computer_software_store",
+        "displayName": "Computer Software Store",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "67477e16214c57486a2db27e",
+    "stars": 4.5,
+    "identifyingName": "location-tool.com",
+    "displayName": "Location Tool",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/67477e16214c57486a2db27e/198x149.png",
+    "numberOfReviews": 90740,
+    "trustScore": 4.5,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://location-tool.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "66042947129506f1cf9a4b66",
+    "stars": 4.5,
+    "identifyingName": "tracelo.com",
+    "displayName": "Tracelo",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshots/66042947129506f1cf9a4b66/198x149.png",
+    "numberOfReviews": 58844,
+    "trustScore": 4.5,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://tracelo.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "47d42afa000064000502201f",
+    "stars": 4.5,
+    "identifyingName": "www.bluehost.com",
+    "displayName": "Bluehost",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/47d42afa000064000502201f/198x149.png",
+    "numberOfReviews": 32147,
+    "trustScore": 4.5,
+    "location": {
+      "address": "5335 Gate Pkwy",
+      "city": "Jacksonville, FL",
+      "zipCode": "32256",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.bluehost.com",
+      "email": "reputation@newfold.com",
+      "phone": "888-401-4678"
+    },
+    "categories": [
+      {
+        "categoryId": "e-commerce_solution_provider",
+        "displayName": "e-Commerce Solution Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "website_designer",
+        "displayName": "Website Designer",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5b59c4940889b80001628f28",
+    "stars": 4.5,
+    "identifyingName": "www.backmarket.com",
+    "displayName": "Back Market - United States",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5b59c4940889b80001628f28/198x149.png",
+    "numberOfReviews": 20202,
+    "trustScore": 4.5,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://www.backmarket.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "computer_and_accessories",
+        "displayName": "Computer and Accessories Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "online_marketplace",
+        "displayName": "Online Marketplace",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "electronics_store",
+        "displayName": "Electronics Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_recycling_and_unlocking_service",
+        "displayName": "Cell Phone Recycling and Unlocking Service",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "627d0744030442d3ad107edc",
+    "stars": 4.5,
+    "identifyingName": "verifast.com",
+    "displayName": "Verifast",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/627d0744030442d3ad107edc/198x149.png",
+    "numberOfReviews": 19582,
+    "trustScore": 4.5,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://verifast.com",
+      "email": "sales@verifast.com",
+      "phone": "1-855-220-6709"
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "542c5ca400006400057aac39",
+    "stars": 4.5,
+    "identifyingName": "driversupport.com",
+    "displayName": "DriverSupport | ONE",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/542c5ca400006400057aac39/198x149.png",
+    "numberOfReviews": 17862,
+    "trustScore": 4.5,
+    "location": {
+      "address": "PO Box 2022",
+      "city": "Temple",
+      "zipCode": "76503-2022",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://www.driversupport.com",
+      "email": "support@driversupport.com",
+      "phone": "512-373-3518"
     },
     "categories": [
       {
         "categoryId": "computer_accessories_store",
         "displayName": "Computer Accessories Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "computer_repair_service",
+        "displayName": "Computer Repair Service",
+        "isPredicted": false,
+        "isPrimary": false
       }
-    ]
+    ],
+    "isGamblingRelated": false
   },
   {
-    "businessUnitId": "5dc248a9949f780001dd9283",
-    "stars": 5,
-    "identifyingName": "buyontrust.com",
-    "displayName": "BuyOnTrust",
-    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5dc248a9949f780001dd9283/198x149.png",
-    "numberOfReviews": 540,
-    "trustScore": 4.9,
+    "businessUnitId": "62ff7f5e30f4561ea51893b3",
+    "stars": 4.5,
+    "identifyingName": "maya.net",
+    "displayName": "Maya Mobile",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/62ff7f5e30f4561ea51893b3/198x149.png",
+    "numberOfReviews": 12905,
+    "trustScore": 4.5,
     "location": {
-      "address": "Spruce Street 1434",
-      "city": "Boulder",
-      "zipCode": "80302",
+      "address": null,
+      "city": null,
+      "zipCode": null,
       "country": "United States"
     },
     "isRecommendedInCategories": true,
     "contact": {
-      "website": "http://www.buyontrust.com",
-      "email": "info@buyontrust.com",
-      "phone": "(888) 274-7732"
+      "website": "https://maya.net",
+      "email": "support@maya.net",
+      "phone": null
     },
     "categories": [
       {
-        "categoryId": "furniture_store",
-        "displayName": "Furniture Store",
-        "isPredicted": false
+        "categoryId": "telecommunications_service_provider",
+        "displayName": "Telecommunications Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
-        "categoryId": "baby_store",
-        "displayName": "Baby Store",
-        "isPredicted": false
+        "categoryId": "travel_aggregator",
+        "displayName": "Travel Aggregator",
+        "isPredicted": false,
+        "isPrimary": false
       },
+      {
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5fcb3abac23121000127a2f3",
+    "stars": 4.5,
+    "identifyingName": "pcsalesonline.com",
+    "displayName": "PC Sales Online",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5fcb3abac23121000127a2f3/198x149.png",
+    "numberOfReviews": 10661,
+    "trustScore": 4.5,
+    "location": {
+      "address": "24 A Trolley Square 1189",
+      "city": "Wilmington",
+      "zipCode": "19806",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://pcsalesonline.com",
+      "email": "support@pcsalesonline.com",
+      "phone": "+1 888-505-4255 "
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "483fd2b90000640005029919",
+    "stars": 4.5,
+    "identifyingName": "www.godaddy.com",
+    "displayName": "GoDaddy",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/483fd2b90000640005029919/198x149.png",
+    "numberOfReviews": 145069,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.godaddy.com",
+      "email": null,
+      "phone": "(480) 505-8877"
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_hosting_service",
+        "displayName": "Web Hosting Company",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "website_designer",
+        "displayName": "Website Designer",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "e-commerce_solution_provider",
+        "displayName": "e-Commerce Solution Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "web_designer",
+        "displayName": "Web designer",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "484040040000640005029a31",
+    "stars": 4.5,
+    "identifyingName": "www.otterbox.com",
+    "displayName": "OtterBox",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/484040040000640005029a31/198x149.png",
+    "numberOfReviews": 114001,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.otterbox.com?utm_medium=company_profile&utm_source=trustpilot&utm_campaign=domain_click&utm_content=company-details",
+      "email": null,
+      "phone": "1-855-688-7269 "
+    },
+    "categories": [
       {
         "categoryId": "electronics_store",
         "displayName": "Electronics Store",
-        "isPredicted": false
+        "isPredicted": false,
+        "isPrimary": false
       },
       {
-        "categoryId": "fitness_equipment_store",
-        "displayName": "Fitness Equipment Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "appliance_store",
-        "displayName": "Appliance Store",
-        "isPredicted": false
-      },
-      {
-        "categoryId": "bags_and_luggage_store",
-        "displayName": "Bags and Luggage Store",
-        "isPredicted": false
+        "categoryId": "cell_phone_accessory_store",
+        "displayName": "Cell Phone Accessory Store",
+        "isPredicted": false,
+        "isPrimary": true
       }
-    ]
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "4f590cc80000640005137cef",
+    "stars": 4.5,
+    "identifyingName": "hughesnet.com",
+    "displayName": "Hughesnet",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4f590cc80000640005137cef/198x149.png",
+    "numberOfReviews": 90927,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.hughesnet.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_provider",
+        "displayName": "Internet Provider",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5ce6b0ab161a7e0001aa1df0",
+    "stars": 4.5,
+    "identifyingName": "standupwireless.com",
+    "displayName": "StandUp Wireless",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ce6b0ab161a7e0001aa1df0/198x149.png",
+    "numberOfReviews": 77359,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://standupwireless.com",
+      "email": "support@standupwireless.com",
+      "phone": "(800) 544-4441"
+    },
+    "categories": [
+      {
+        "categoryId": "telecommunications_service_provider",
+        "displayName": "Telecommunications Service Provider",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "mobile_network_operator",
+        "displayName": "Mobile Network Operator",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "phone_and_internet_service",
+        "displayName": "Phone and Internet Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "cell_phone_store",
+        "displayName": "Cell Phone Store",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "624421e38fa94c5e51dca985",
+    "stars": 4.5,
+    "identifyingName": "paidwork.com",
+    "displayName": "Paidwork",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/624421e38fa94c5e51dca985/198x149.png",
+    "numberOfReviews": 48476,
+    "trustScore": 4.4,
+    "location": {
+      "address": "3400 Cottage Way Ste G2 #27204",
+      "city": "Sacramento",
+      "zipCode": "95825",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": false,
+    "contact": {
+      "website": "https://paidwork.com",
+      "email": "support@paidwork.com",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "web_collaboration_platform",
+        "displayName": "Web Collaboration Platform",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "media_company",
+        "displayName": "Media Company",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "employment_agency",
+        "displayName": "Employment Agency",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "gaming_service_provider",
+        "displayName": "Gaming service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "consumerAlert": {
+      "content": null,
+      "languageVersions": {},
+      "predefinedType": "WarningFabricatedReviews",
+      "startDate": "2026-10-20T00:00:00.000Z",
+      "endDate": "2027-04-20T00:00:00.000Z",
+      "authorityWarningLink": null,
+      "title": null,
+      "titleLanguageVersions": {}
+    },
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "6021061fe8edca00013d47f1",
+    "stars": 4.5,
+    "identifyingName": "totaladblock.com",
+    "displayName": "Total Adblock",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/6021061fe8edca00013d47f1/198x149.png",
+    "numberOfReviews": 33151,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://totaladblock.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "software_vendor",
+        "displayName": "Software Vendor",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "computer_service",
+        "displayName": "Computer Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "phone_and_internet_service",
+        "displayName": "Phone and Internet Service",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "computer_support_and_services",
+        "displayName": "Computer Support and Service Company",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "627c1eea9c36a16dd3a5ac5e",
+    "stars": 4.5,
+    "identifyingName": "brightspeed.com",
+    "displayName": "Brightspeed",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/627c1eea9c36a16dd3a5ac5e/198x149.png",
+    "numberOfReviews": 32005,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://brightspeed.com",
+      "email": null,
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "telecommunications_service_provider",
+        "displayName": "Telecommunications Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "internet_provider",
+        "displayName": "Internet Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "4d31732f00006400050e64e2",
+    "stars": 4.5,
+    "identifyingName": "purevpn.com",
+    "displayName": "PureVPN",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/4d31732f00006400050e64e2/198x149.png",
+    "numberOfReviews": 17982,
+    "trustScore": 4.4,
+    "location": {
+      "address": null,
+      "city": null,
+      "zipCode": null,
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.purevpn.com",
+      "email": "feedback@purevpn.com",
+      "phone": null
+    },
+    "categories": [
+      {
+        "categoryId": "vpn_service",
+        "displayName": "VPN Service",
+        "isPredicted": false,
+        "isPrimary": true
+      },
+      {
+        "categoryId": "internet_service_provider",
+        "displayName": "Internet Service Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "dns_provider",
+        "displayName": "DNS Provider",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "software_company",
+        "displayName": "Software Company",
+        "isPredicted": false,
+        "isPrimary": false
+      }
+    ],
+    "isGamblingRelated": false
+  },
+  {
+    "businessUnitId": "5ae5e678f24678000156d8a2",
+    "stars": 4.5,
+    "identifyingName": "skaraudio.com",
+    "displayName": "Skar Audio",
+    "logoUrl": "//s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/5ae5e678f24678000156d8a2/198x149.png",
+    "numberOfReviews": 11277,
+    "trustScore": 4.4,
+    "location": {
+      "address": "4924 W Waters Ave",
+      "city": "Tampa",
+      "zipCode": "33634",
+      "country": "United States"
+    },
+    "isRecommendedInCategories": true,
+    "contact": {
+      "website": "https://www.skaraudio.com/",
+      "email": "support@skaraudio.com",
+      "phone": "(888) 501-7527"
+    },
+    "categories": [
+      {
+        "categoryId": "electronics_store",
+        "displayName": "Electronics Store",
+        "isPredicted": false,
+        "isPrimary": false
+      },
+      {
+        "categoryId": "hi-fi_shop",
+        "displayName": "Hi-fi shop",
+        "isPredicted": false,
+        "isPrimary": true
+      }
+    ],
+    "isGamblingRelated": false
   }
 ]

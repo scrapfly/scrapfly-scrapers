@@ -1,24 +1,305 @@
 [
   {
+    "id": "143556608",
+    "propertyType": "Townhouse",
+    "description": "Perfect for those entering the market, as well as young and growing families, this home's street-facing position and enough space for everyone offers broad appeal to buyers searching for convenience, and a desire for low maintenance living. <br/>Set behind a white picket fence, the home opens past a separate sitting room which is positioned to enjoy the greenery of the well-maintained front garden. Open plan living spaces flow from lounge to dining, overlooked by the ample kitchen with a corner pantry, and sliding doors from the dining area open to a covered area just perfect for enjoying the warmer weather.<br/>Upstairs, three spacious bedrooms (all with built-in robes) share the central bathroom which offers a separate shower and bathtub. Features throughout the home include ducted heating, split systems in the living and main bedroom, large under-stair storage, downstairs powder room, and gated private driveway to the lock up carport.<br/>Positioned a ten-minute stroll from West Street, with supermarket, eateries and specialty stores, central Glenroy is equally accessible with bus stops a short walk away. Primary and Secondary schools, the Northern Golf Course and beautiful reserves are all conveniently close by, and for the city commuters it's about a 14km drive.",
+    "propertyLink": "https://www.realestate.com.au/sold/property-townhouse-vic-glenroy-143556608",
+    "address": {
+      "display": {
+        "fullAddress": "1/56 Cosmos Street, Glenroy, Vic 3046",
+        "__typename": "AddressDisplay",
+        "shortAddress": "1/56 Cosmos Street",
+        "geocode": {
+          "latitude": -37.70220813,
+          "longitude": 144.93817235,
+          "__typename": "GeocodeDisplay"
+        }
+      },
+      "__typename": "Address",
+      "suburb": "Glenroy",
+      "postcode": "3046",
+      "state": "Vic"
+    },
+    "propertySizes": {
+      "building": null,
+      "land": null,
+      "preferred": null,
+      "__typename": "PropertySizes"
+    },
+    "generalFeatures": {
+      "bedrooms": {
+        "value": 3,
+        "__typename": "IntValue"
+      },
+      "bathrooms": {
+        "value": 1,
+        "__typename": "IntValue"
+      },
+      "parkingSpaces": {
+        "value": 2,
+        "__typename": "IntValue"
+      },
+      "studies": {
+        "value": 0,
+        "__typename": "IntValue"
+      },
+      "__typename": "GeneralFeatures"
+    },
+    "propertyFeatures": null,
+    "images": [
+      "https://i2.au.reastatic.net/{size}/1de72d73392b291322ff19bd22de631f41472649f3b69aedf710721dc3088a5b/image.jpg",
+      "https://i2.au.reastatic.net/{size}/a57ed6d9ba5b3efabf98e93524d9afddfcca7794410bafdb357a1d6f4fa12197/image.jpg",
+      "https://i2.au.reastatic.net/{size}/43b17c75e6f443015665d0754a0caa1b3153a22f52ee751e6454d1b944764431/image.jpg",
+      "https://i2.au.reastatic.net/{size}/dc5c3319dbcb5145eea665e47b57d546df1e64ea353a65c25a2bf3420007bf5e/image.jpg",
+      "https://i2.au.reastatic.net/{size}/dffdb92fccfeccd8ed2c580c5bb054008c2ef81f89aaac76c6b0685becf79d0a/image.jpg",
+      "https://i2.au.reastatic.net/{size}/e61251eb7679b514f9efa9e4d148022795a538c7b358a12352964761fad4f11e/image.jpg",
+      "https://i2.au.reastatic.net/{size}/3729861024d54976ab0b5df9f8b61ef7bf7e2162c306cacecd617ae9627606c3/image.jpg",
+      "https://i2.au.reastatic.net/{size}/73eec6c3261c0e1eb38e13ad887a287dc5496c7f683f60c14a8017b8b25d9247/image.jpg",
+      "https://i2.au.reastatic.net/{size}/43d74f3f562402ed7183c00ff8a06b147aeaed2e296ffaeba11835ac19dbfab9/image.jpg",
+      "https://i2.au.reastatic.net/{size}/7adf21957d526ea8c0d921af371e2aa02fd58b90e9e0fd33efb4812ac307984a/image.jpg"
+    ],
+    "videos": null,
+    "floorplans": null,
+    "listingCompany": {
+      "name": "Barry Plant - Glenroy",
+      "id": "XBPGLF",
+      "companyLink": "https://www.realestate.com.au/agency/barry-plant-glenroy-XBPGLF?cid={cid}",
+      "phoneNumber": null,
+      "address": "781 Pascoe Vale Rd, GLENROY, VIC 3046",
+      "ratingsReviews": {
+        "avgRating": 5,
+        "totalReviews": 1157,
+        "__typename": "AgencyRatingsReviews"
+      },
+      "description": null
+    },
+    "listers": [
+      {
+        "id": "324011",
+        "agentId": "4767c54e-5886-4504-9ce3-9362e58528d0",
+        "name": "Roy Khoder",
+        "jobTitle": "Director, OIEC, Auctioneer",
+        "photo": {
+          "templatedUrl": "https://i2.au.reastatic.net/{size}/f13ec2c428c8379024c6a5e8e4aafe73fddb07a4102f67e33019008acfbbcec3/main.jpg",
+          "__typename": "Image"
+        },
+        "_links": {
+          "canonical": {
+            "href": "https://www.realestate.com.au/agent/roy-khoder-324011?cid={cid}",
+            "__typename": "AbsoluteLinks"
+          },
+          "__typename": "ListerLinks"
+        },
+        "showInMediaViewer": true,
+        "__typename": "Lister",
+        "listerRatingsReviews": {
+          "avgRating": 5,
+          "totalReviews": 43,
+          "__typename": "ListerRatingsReviews"
+        }
+      },
+      {
+        "id": "3344904",
+        "agentId": "33268876-c4a5-4281-be80-9927da939ff6",
+        "name": "Alex Briggs",
+        "jobTitle": "Sales Executive",
+        "photo": {
+          "templatedUrl": "https://i2.au.reastatic.net/{size}/5c1fad1d5e3c4b4ede872dec5d3be74e819830781ca07d8dbd4d4805f19f943b/main.jpg",
+          "__typename": "Image"
+        },
+        "_links": {
+          "canonical": {
+            "href": "https://www.realestate.com.au/agent/alex-briggs-3344904?cid={cid}",
+            "__typename": "AbsoluteLinks"
+          },
+          "__typename": "ListerLinks"
+        },
+        "showInMediaViewer": true,
+        "__typename": "Lister",
+        "listerRatingsReviews": {
+          "avgRating": 5,
+          "totalReviews": 133,
+          "__typename": "ListerRatingsReviews"
+        }
+      }
+    ],
+    "auction": null
+  },
+  {
+    "id": "151765412",
+    "propertyType": "House",
+    "description": "Set within proximity to the lively heart of Doreen and its well-regarded family amenities, this striking double-storey residence offers an ideal fusion of space, style and functionality, perfectly suited to contemporary family living.<br/>The thoughtfully designed floorplan unfolds to reveal multiple living zones that cater equally to everyday comfort and effortless entertaining, with well-considered accommodation ensuring privacy and balance throughout the home.<br/>The centrepiece of the residence is a beautifully finished kitchen, featuring a generous island bench, quality appliances and a spacious walk-in pantry. Overlooking a sunlit open-plan living and dining area, this space seamlessly connects via sliding doors to a versatile alfresco zone combining covered and open areas-perfect for entertaining in every season. There is a guest bedroom that comes with an ensuite. A separate lounge adds flexibility, providing an inviting retreat for quiet relaxation.<br/>Upstairs, a further living area forms a central hub and accompanies a well-appointed two master bedrooms, one complete with a walk-in robe, balcony, dual-vanity ensuite and refined finishes. Two additional bedrooms, all fitted with built-in robes, are serviced by a stylish family bathroom.<br/>Complementing the home is a range of quality inclusions, such as ducted heating and cooling, NBN connectivity, a guest powder room, and a remote double garage with internal access.<br/>Ideally positioned near quality public and private schools, parklands, Mernda Station and an array of local shopping destinations including Mernda Town Centre, Laurimar Town Centre and Riverstone Village, this impressive home presents a superb opportunity to secure comfort, convenience and versatility for every stage of family life.<br/>",
+    "propertyLink": "https://www.realestate.com.au/property-house-vic-doreen-151765412",
+    "address": {
+      "suburb": "Doreen",
+      "state": "Vic",
+      "postcode": "3754",
+      "display": {
+        "shortAddress": "38 Lochran Road",
+        "__typename": "AddressDisplay",
+        "fullAddress": "38 Lochran Road, Doreen, Vic 3754",
+        "geocode": {
+          "latitude": -37.61014942,
+          "longitude": 145.11109195,
+          "__typename": "GeocodeDisplay"
+        }
+      },
+      "__typename": "Address"
+    },
+    "propertySizes": {
+      "building": {
+        "displayValue": "365",
+        "sizeUnit": {
+          "displayValue": "m²",
+          "__typename": "PropertySizeUnit"
+        },
+        "__typename": "PropertySize"
+      },
+      "land": {
+        "displayValue": "446",
+        "sizeUnit": {
+          "displayValue": "m²",
+          "__typename": "PropertySizeUnit"
+        },
+        "__typename": "PropertySize"
+      },
+      "preferred": {
+        "sizeType": "LAND",
+        "size": {
+          "displayValue": "446",
+          "sizeUnit": {
+            "displayValue": "m²",
+            "__typename": "PropertySizeUnit"
+          },
+          "__typename": "PropertySize"
+        },
+        "__typename": "PreferredPropertySize"
+      },
+      "__typename": "PropertySizes"
+    },
+    "generalFeatures": {
+      "bedrooms": {
+        "value": 5,
+        "__typename": "IntValue"
+      },
+      "bathrooms": {
+        "value": 4,
+        "__typename": "IntValue"
+      },
+      "parkingSpaces": {
+        "value": 4,
+        "__typename": "IntValue"
+      },
+      "studies": {
+        "value": 1,
+        "__typename": "IntValue"
+      },
+      "__typename": "GeneralFeatures"
+    },
+    "propertyFeatures": null,
+    "images": [
+      "https://i2.au.reastatic.net/{size}/89ad310d6835c982980388064c4685bc475cbd3ca6bd16246949a12f45db25ef/image.jpg",
+      "https://i2.au.reastatic.net/{size}/2c2df334a13cf28240cef2b66fe755d9acf042877df9f82cb1a9dc10b06be855/image.jpg",
+      "https://i2.au.reastatic.net/{size}/5458bda4423581b50832c4e4483a87634852da2e51bd82abfe062d040b58fed7/image.jpg",
+      "https://i2.au.reastatic.net/{size}/48909b0d2c647627b0e00cd256fe9a5dff855d0507c7690103a4b7aa1bf55906/image.jpg",
+      "https://i2.au.reastatic.net/{size}/d0bf26c0375818ee280d7929dc31fb39c790e52282cfb3d78a6bf3c1c8a85009/image.jpg",
+      "https://i2.au.reastatic.net/{size}/ad892441e42ddacc8c21bc6167b072104e209a90a6006b91b028551c0b099c9a/image.jpg",
+      "https://i2.au.reastatic.net/{size}/ce27a5e4a5d12a59d77934961a3fa3bdd73bad9b1167c2cecf60c56271b9967a/image.jpg",
+      "https://i2.au.reastatic.net/{size}/beabc27b981169454ba0a656080824e9cdacdeb7078245c44faf975955ee5201/image.jpg",
+      "https://i2.au.reastatic.net/{size}/cc724f6a9d3387ddf2ec72b5488f95975b68d4c69bd3aa4609853092b6e8faa6/image.jpg",
+      "https://i2.au.reastatic.net/{size}/208039da1765074f1b7f2c5dada0a16da45dcb455159b62780cdfbc5e9d27924/image.jpg",
+      "https://i2.au.reastatic.net/{size}/82e3aef6e4b605ea95c8fa0a498ebe029fbe6d01bfd3f2dea2f5761932e1d0e2/image.jpg",
+      "https://i2.au.reastatic.net/{size}/500c94178eb26742f48a348afc3deed21d3374066eda36e612dc87deb425887a/image.jpg",
+      "https://i2.au.reastatic.net/{size}/3e450727afc5145f1a3076fea92125b07d2dd4ac8c36c4528436aa0b4940da82/image.jpg",
+      "https://i2.au.reastatic.net/{size}/9cfb448ca55ef0cca7edf689dc53306654250ff256eb19b76a02a4ee2499d721/image.jpg"
+    ],
+    "videos": null,
+    "floorplans": null,
+    "listingCompany": {
+      "name": "Jubilee Realty",
+      "id": "DIIEYG",
+      "companyLink": "https://www.realestate.com.au/agency/jubilee-realty-DIIEYG?cid={cid}",
+      "phoneNumber": null,
+      "address": "Greenwood Business Park, LG, Building 1/301 Burwood Hwy, BURWOOD, VIC 3125",
+      "ratingsReviews": {
+        "avgRating": 5,
+        "totalReviews": 1,
+        "__typename": "AgencyRatingsReviews"
+      },
+      "description": null
+    },
+    "listers": [
+      {
+        "id": "3408328",
+        "agentId": null,
+        "name": "Will Wang",
+        "jobTitle": "Director",
+        "photo": {
+          "templatedUrl": "https://i2.au.reastatic.net/{size}/122fbc25ba13952aafb9cbd4358c925042bd514c86706cee1ae93fb870554b75/main.jpg",
+          "__typename": "Image"
+        },
+        "_links": {
+          "canonical": {
+            "href": "https://www.realestate.com.au/agent/will-wang-3408328?cid={cid}",
+            "__typename": "AbsoluteLinks"
+          },
+          "__typename": "ListerLinks"
+        },
+        "showInMediaViewer": false,
+        "__typename": "Lister",
+        "listerRatingsReviews": {
+          "avgRating": 5,
+          "totalReviews": 1,
+          "__typename": "ListerRatingsReviews"
+        }
+      },
+      {
+        "id": "3401624",
+        "agentId": null,
+        "name": "Lin Guo",
+        "jobTitle": "Sales Executive",
+        "photo": {
+          "templatedUrl": "https://i2.au.reastatic.net/{size}/2e6331d4cd260e10a584c3b128d70adb10814f03f1feea6a4920ea35f44e44b1/main.jpg",
+          "__typename": "Image"
+        },
+        "_links": {
+          "canonical": {
+            "href": "https://www.realestate.com.au/agent/lin-guo-3401624?cid={cid}",
+            "__typename": "AbsoluteLinks"
+          },
+          "__typename": "ListerLinks"
+        },
+        "showInMediaViewer": false,
+        "__typename": "Lister",
+        "listerRatingsReviews": {
+          "avgRating": null,
+          "totalReviews": 0,
+          "__typename": "ListerRatingsReviews"
+        }
+      }
+    ],
+    "auction": null
+  },
+  {
     "id": "143160680",
     "propertyType": "House",
     "description": "Renowned Real Estate proudly presents this sensational opportunity with a luxury house in Tarneit.<br/><br/>This beautiful low maintenance home is situated in the well-established suburb of Tarneit.<br/>Suitable for Various Buyers: This property is ideal for young families, downsizers, and investors.<br/>Convenience: It's conveniently located a short distance from the Tarneit west shopping center, local parks, public transport, and well-known primary and secondary schools, including the Islamic College of Melbourne.<br/><br/>Spacious Layout: The house features four generous-sized bedrooms, 1 lounge, and a dining area.<br/>Master Bedroom: The master bedroom includes an ensuite and a walk-in robe for added convenience.<br/>Contemporary Kitchen: The kitchen is modern and overlooks the low maintenance backyard and formal lounge.<br/>Stainless Steel Appliances: It is equipped with stainless steel appliances and ample storage space.<br/><br/>Additional Features:<br/>➡️Open plan living area.<br/>➡️Designated meals area connected with the kitchen and formal lounge.<br/>➡️Ducted heating .<br/>➡️Split system air conditioning in the formal lounge.<br/>➡️Low maintenance front and backyard.<br/><br/>Contact Information: For more information and to schedule an inspection, please contact Himraj at 0452060566",
-    "propertyLink": "https://www.realestate.com.au/property-house-vic-tarneit-143160680",
+    "propertyLink": "https://www.realestate.com.au/sold/property-house-vic-tarneit-143160680",
     "address": {
-      "suburb": "Tarneit",
-      "state": "Vic",
-      "postcode": "3029",
       "display": {
-        "shortAddress": "28 Chantelle Parade",
-        "__typename": "AddressDisplay",
         "fullAddress": "28 Chantelle Parade, Tarneit, Vic 3029",
+        "__typename": "AddressDisplay",
+        "shortAddress": "28 Chantelle Parade",
         "geocode": {
           "latitude": -37.85273078,
           "longitude": 144.66332821,
           "__typename": "GeocodeDisplay"
         }
       },
-      "__typename": "Address"
+      "__typename": "Address",
+      "suburb": "Tarneit",
+      "postcode": "3029",
+      "state": "Vic"
     },
     "propertySizes": {
       "building": null,
@@ -63,109 +344,32 @@
       },
       "__typename": "GeneralFeatures"
     },
-    "propertyFeatures": [
-      {
-        "featureName": "Built-in wardrobes",
-        "value": null
-      },
-      {
-        "featureName": "Dishwasher",
-        "value": null
-      },
-      {
-        "featureName": "Ducted heating",
-        "value": null
-      },
-      {
-        "featureName": "Ensuites",
-        "value": {
-          "__typename": "NumericFeatureValue",
-          "displayValue": "1"
-        }
-      },
-      {
-        "featureName": "Evaporative cooling",
-        "value": null
-      },
-      {
-        "featureName": "Floorboards",
-        "value": null
-      },
-      {
-        "featureName": "Fully fenced",
-        "value": null
-      },
-      {
-        "featureName": "Garage spaces",
-        "value": {
-          "__typename": "NumericFeatureValue",
-          "displayValue": "2"
-        }
-      },
-      {
-        "featureName": "Land size",
-        "value": {
-          "__typename": "MeasurementFeatureValue",
-          "displayValue": "336",
-          "sizeUnit": {
-            "id": "SQUARE_METRES",
-            "displayValue": "m²",
-            "__typename": "PropertySizeUnit"
-          }
-        }
-      },
-      {
-        "featureName": "Living areas",
-        "value": {
-          "__typename": "NumericFeatureValue",
-          "displayValue": "1"
-        }
-      },
-      {
-        "featureName": "Remote garage",
-        "value": null
-      },
-      {
-        "featureName": "Secure parking",
-        "value": null
-      },
-      {
-        "featureName": "Solar panels",
-        "value": null
-      },
-      {
-        "featureName": "Toilets",
-        "value": {
-          "__typename": "NumericFeatureValue",
-          "displayValue": "2"
-        }
-      }
-    ],
+    "propertyFeatures": null,
     "images": [
       "https://i2.au.reastatic.net/{size}/d8d3607342301e4e1b5b4cb84e3fc3d8cf48849a6311dd38e44bf3977fc593d8/image.jpg",
-      "https://i2.au.reastatic.net/{size}/7d26afd862a3d1d58501a724c3532493c4fa7cd2bd297b2ab334039fd40e6c9c/image.jpg",
-      "https://i2.au.reastatic.net/{size}/cbd580874f3f6aedbf263d77b6de3d0e5e2504925f72502b12838b8228cfdd45/image.jpg",
-      "https://i2.au.reastatic.net/{size}/12d8b6d3bb5eb40170647f1b81839156eb8526b4c05392158bdbcc6e362a60af/image.jpg",
-      "https://i2.au.reastatic.net/{size}/c4658347028f409f3e694de3c11d8c84644d5ee4229187cc418bccc26c93dfb7/image.jpg",
       "https://i2.au.reastatic.net/{size}/303f8e158603d35ea3c945c5839b437a1548cebec2b7a81eb9bad67593dcc603/image.jpg",
+      "https://i2.au.reastatic.net/{size}/7d26afd862a3d1d58501a724c3532493c4fa7cd2bd297b2ab334039fd40e6c9c/image.jpg",
       "https://i2.au.reastatic.net/{size}/520ad964d73b7e386c607fc052741ab5fc3b01a2b7b72dc326e614d09bc2d3a5/image.jpg",
+      "https://i2.au.reastatic.net/{size}/cbd580874f3f6aedbf263d77b6de3d0e5e2504925f72502b12838b8228cfdd45/image.jpg",
       "https://i2.au.reastatic.net/{size}/2ac18df655fa961410a2e80d239006ba3860732f1a26d0df4b1f5e51486662f2/image.jpg",
-      "https://i2.au.reastatic.net/{size}/f53337ce77b54ab95b1a5ea4f679550224defcacdf2344ae8652680382c424cb/image.jpg",
-      "https://i2.au.reastatic.net/{size}/5249ce376abccad84d0b4f3ce3254579761b4aaffc0ef09c587cf884e6008efc/image.jpg",
       "https://i2.au.reastatic.net/{size}/a740d6d1e484c3ae3c51b3670f02a967929ad61771383332998271f69050460c/image.jpg",
-      "https://i2.au.reastatic.net/{size}/cc1255b415aaee3c4ea82a12aaf653141614dc0297ffe434726a82aeed4b6f75/image.jpg"
+      "https://i2.au.reastatic.net/{size}/cc1255b415aaee3c4ea82a12aaf653141614dc0297ffe434726a82aeed4b6f75/image.jpg",
+      "https://i2.au.reastatic.net/{size}/f53337ce77b54ab95b1a5ea4f679550224defcacdf2344ae8652680382c424cb/image.jpg",
+      "https://i2.au.reastatic.net/{size}/c4658347028f409f3e694de3c11d8c84644d5ee4229187cc418bccc26c93dfb7/image.jpg",
+      "https://i2.au.reastatic.net/{size}/12d8b6d3bb5eb40170647f1b81839156eb8526b4c05392158bdbcc6e362a60af/image.jpg",
+      "https://i2.au.reastatic.net/{size}/5249ce376abccad84d0b4f3ce3254579761b4aaffc0ef09c587cf884e6008efc/image.jpg"
     ],
     "videos": null,
     "floorplans": null,
     "listingCompany": {
-      "name": "Renowned Real Estate - CRAIGIEBURN",
+      "name": "RENOWNED REAL ESTATE",
       "id": "PGCQAA",
-      "companyLink": "https://www.realestate.com.au/agency/renowned-real-estate-craigieburn-PGCQAA?cid={cid}",
-      "phoneNumber": "0452060566",
-      "address": "9 Gauja Street, CRAIGIEBURN, VIC 3064",
+      "companyLink": "https://www.realestate.com.au/agency/renowned-real-estate-PGCQAA?cid={cid}",
+      "phoneNumber": null,
+      "address": "14/785 Pascoe Vale Road, GLENROY, VIC 3046",
       "ratingsReviews": {
-        "avgRating": null,
-        "totalReviews": 0,
+        "avgRating": 5,
+        "totalReviews": 79,
         "__typename": "AgencyRatingsReviews"
       },
       "description": null
@@ -173,15 +377,12 @@
     "listers": [
       {
         "id": "3307736",
+        "agentId": null,
         "name": "Him Raj Parajuli",
+        "jobTitle": "OIEC/Director",
         "photo": {
-          "templatedUrl": "https://i2.au.reastatic.net/{size}/03527ad948f2ec46b10b220c44fa1007b0dc0eded8119733c9135b0be21547f8/main.jpg",
+          "templatedUrl": "https://i2.au.reastatic.net/{size}/e784bfa324d9fa84cf71f00864f3b995f5f4e769135d39491ffd352178b7112f/main.jpg",
           "__typename": "Image"
-        },
-        "phoneNumber": {
-          "display": "0452060566",
-          "showDisclaimer": false,
-          "__typename": "PhoneNumber"
         },
         "_links": {
           "canonical": {
@@ -190,27 +391,22 @@
           },
           "__typename": "ListerLinks"
         },
-        "__typename": "Lister",
-        "agentId": null,
-        "jobTitle": "OIEC/Director",
         "showInMediaViewer": false,
+        "__typename": "Lister",
         "listerRatingsReviews": {
-          "avgRating": null,
-          "totalReviews": 0,
+          "avgRating": 5,
+          "totalReviews": 39,
           "__typename": "ListerRatingsReviews"
         }
       },
       {
         "id": "3307760",
+        "agentId": null,
         "name": "Aman Pakhrin",
+        "jobTitle": "Sales | Marketing Director",
         "photo": {
-          "templatedUrl": "https://i2.au.reastatic.net/{size}/6b365a8a0ffa9ec976671759a15d136b796ba44f8b973a105b8aabac7ca857e9/main.jpg",
+          "templatedUrl": "https://i2.au.reastatic.net/{size}/bff642fbe079d96dee8b4f90217b743bb7f11011c39b49844dd3eaba7db1a7ab/main.jpg",
           "__typename": "Image"
-        },
-        "phoneNumber": {
-          "display": "0450939749",
-          "showDisclaimer": false,
-          "__typename": "PhoneNumber"
         },
         "_links": {
           "canonical": {
@@ -219,13 +415,11 @@
           },
           "__typename": "ListerLinks"
         },
-        "__typename": "Lister",
-        "agentId": null,
-        "jobTitle": "Sales Director",
         "showInMediaViewer": false,
+        "__typename": "Lister",
         "listerRatingsReviews": {
-          "avgRating": null,
-          "totalReviews": 0,
+          "avgRating": 5,
+          "totalReviews": 25,
           "__typename": "ListerRatingsReviews"
         }
       }

@@ -49,8 +49,8 @@ asyncio.run(main())
 The functions return plain dictionaries and lists. Fields of the sample output (top-level keys of the first item):
 
 - [`results/properties_for_sale.json`](results/properties_for_sale.json): `address`, `description`, `price`, `estimatedMonthlyPrice`, `propertyUrl`, `attachments`, `details`, `features`
-- [`results/properties_for_rent.json`](results/properties_for_rent.json): `rentalId`, `unitTypesByBedroom`, `totalUnitTypes`, `totalUnits`
-- [`results/search.json`](results/search.json): `mlsId`, `showMlsId`, `mlsStatus`, `showDatasourceLogo`, `price`, `hideSalePrice`, `hoa`, `isHoaFrequencyKnown`, `sqFt`, `pricePerSqFt`, `lotSize`, `beds`, `baths`, `fullBaths`, `location`, `stories`, `latLong`, `streetLine`, `unitNumber`, `city`, `state`, `zip`, `postalCode`, `countryCode`, `showAddressOnMap`, `soldDate`, `searchStatus`, `propertyType`, `uiPropertyType`, `listingType`, `propertyId`, `listingId`, `dataSourceId`, `marketId`, `yearBuilt`, `dom`, `timeOnRedfin`, `originalTimeOnRedfin`, `timeZone`, `primaryPhotoDisplayLevel`, … (24 more)
+- [`results/properties_for_rent.json`](results/properties_for_rent.json): `rentalId`, `unitTypesByBedroom`, `totalUnitTypes`, `totalUnits`, `priceDrop`, `mostPopularFloorPlanId`, `mostPopularFloorPlanClickCount`
+- [`results/search.json`](results/search.json): `mlsId`, `showMlsId`, `mlsStatus`, `showDatasourceLogo`, `price`, `hideSalePrice`, `hoa`, `isHoaFrequencyKnown`, `sqFt`, `pricePerSqFt`, `lotSize`, `beds`, `baths`, `location`, `latLong`, `streetLine`, `unitNumber`, `city`, `state`, `zip`, `postalCode`, `countryCode`, `showAddressOnMap`, `soldDate`, `searchStatus`, `propertyType`, `uiPropertyType`, `listingType`, `propertyId`, `listingId`, `dataSourceId`, `isEarlyAccess`, `earlyAccessType`, `marketId`, `yearBuilt`, `dom`, `timeOnRedfin`, `timeZone`, `primaryPhotoDisplayLevel`, `photos`, … (23 more)
 
 ## Scrapfly settings
 

@@ -18,6 +18,54 @@
     "accessories",
     "streetwear"
   ],
+  "categories": {
+    "default": [
+      {
+        "alias": "accessories",
+        "level": 1,
+        "value": "Accessories"
+      },
+      {
+        "alias": "headwear",
+        "level": 2,
+        "value": "Headwear"
+      },
+      {
+        "alias": "bucket-hats",
+        "level": 3,
+        "value": "Bucket Hats"
+      }
+    ]
+  },
+  "conditions": {
+    "available": [
+      {
+        "alias": "new-and-verified",
+        "value": "New & Verified",
+        "selectorValue": "New",
+        "selectorDescription": "Packaging and accessories included (if applicable). Will be sent to StockX for Verification.",
+        "description": "New condition, shows no signs of use, and is Verified by StockX or Xpress ship directly from a StockX Verified Seller. When applicable, original packaging and brand materials will be included."
+      },
+      {
+        "alias": "new-other",
+        "value": "New - Other",
+        "selectorValue": "New - Other",
+        "selectorDescription": "Unused, may have damaged packaging, no packaging, missing accessories, or product condition flaws.",
+        "description": "New condition and shows no signs of use. However, original packaging, brand materials, paperwork, and product condition flaws may or may not be present. Please refer to the photos to see the exact item you will receive."
+      },
+      {
+        "alias": "used",
+        "value": "Used",
+        "selectorValue": "Used",
+        "selectorDescription": "With or without packaging.",
+        "description": "Used and shows signs of wear. Please refer to the photos to see the exact item you will receive."
+      }
+    ],
+    "verified": {
+      "alias": "new-and-verified",
+      "value": "New & Verified"
+    }
+  },
   "condition": "New",
   "styleId": "",
   "editionType": null,
@@ -35,12 +83,12 @@
   "media": {
     "all360Images": [],
     "gallery": [
-      "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1658513167",
-      "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-2.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1658513168"
+      "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1738193358",
+      "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-2.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1738193358"
     ],
-    "smallImageUrl": "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=300&h=214&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1658513167",
-    "thumbUrl": "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=140&h=100&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1658513167",
-    "imageUrl": "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1658513167",
+    "smallImageUrl": "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=300&h=214&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1738193358",
+    "thumbUrl": "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=140&h=100&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1738193358",
+    "imageUrl": "https://images.stockx.com/images/Nike-x-Stussy-Bucket-Hat-Black-Product-1.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1738193358",
     "videos": null,
     "verticalImages": null
   },
@@ -74,6 +122,12 @@
       "value": "40",
       "visible": true,
       "format": "currency"
+    },
+    {
+      "name": "Color",
+      "value": "Black",
+      "visible": false,
+      "format": null
     },
     {
       "name": "Featured",
@@ -233,25 +287,6 @@
       "name": "Nike"
     }
   },
-  "categories": {
-    "default": [
-      {
-        "alias": "accessories",
-        "value": "Accessories",
-        "level": 1
-      },
-      {
-        "alias": "headwear",
-        "value": "Headwear",
-        "level": 2
-      },
-      {
-        "alias": "bucket-hats",
-        "value": "Bucket Hats",
-        "level": 3
-      }
-    ]
-  },
   "seo": {
     "meta": [
       {
@@ -260,7 +295,7 @@
       },
       {
         "name": "description",
-        "value": "Buy and sell StockX Verified Nike streetwear on StockX including the Nike x Stussy Bucket Hat Black from SS20."
+        "value": "Buy and sell Nike streetwear on StockX including the Nike x Stussy Bucket Hat Black from SS20. Every item is Verified by StockX or sent directly from a StockX Verified Seller."
       },
       {
         "name": "keywords",
@@ -268,50 +303,74 @@
       },
       {
         "name": "twitter:description",
-        "value": "Buy and sell StockX Verified Nike streetwear on StockX including the Nike x Stussy Bucket Hat Black and thousands of other streetwear clothing and accessories."
+        "value": "Buy and sell Nike streetwear on StockX including the Nike x Stussy Bucket Hat Black and thousands of other streetwear clothing and accessories. Every item is Verified by StockX or sent directly from a StockX Verified Seller."
       },
       {
         "name": "og:description",
-        "value": "Buy and sell StockX Verified Nike streetwear on StockX including the Nike x Stussy Bucket Hat Black and thousands of other streetwear clothing and accessories."
+        "value": "Buy and sell Nike streetwear on StockX including the Nike x Stussy Bucket Hat Black and thousands of other streetwear clothing and accessories. Every item is Verified by StockX or sent directly from a StockX Verified Seller."
       }
     ]
   },
   "pricing": {
-    "minimumBid": 25,
+    "minimumBid": 1,
     "market": {
       "state": {
         "lowestAsk": {
-          "amount": 166,
-          "chainId": "14478637789849703776"
+          "amount": 49,
+          "chainId": "15030447565938832241"
         },
         "highestBid": {
-          "amount": 80
+          "amount": 36
         },
         "askServiceLevels": {
+          "expressNextDay": {
+            "processingFee": null,
+            "count": 0,
+            "lowest": null,
+            "delivery": null
+          },
           "expressExpedited": {
+            "processingFee": null,
             "count": 0,
             "lowest": null,
             "delivery": null
           },
           "expressStandard": {
+            "processingFee": null,
             "count": 0,
             "lowest": null,
             "delivery": null
+          },
+          "standard": {
+            "processingFee": {
+              "enabled": true,
+              "amount": 55.95,
+              "roundedAmount": 56
+            },
+            "count": 5,
+            "lowest": {
+              "amount": 49,
+              "chainId": "15030447565938832241"
+            }
           }
         },
         "numberOfAsks": 5,
-        "numberOfBids": 14
+        "numberOfBids": 12
       },
       "salesInformation": {
-        "lastSale": 85,
+        "lastSale": 50,
         "salesLast72Hours": 0
       },
       "statistics": {
         "lastSale": {
-          "amount": 85,
-          "changePercentage": -0.1176,
-          "changeValue": -10,
+          "amount": 50,
+          "changePercentage": 0.3669,
+          "changeValue": 19,
           "sameFees": null
+        },
+        "last90Days": {
+          "averagePrice": 66,
+          "salesCount": 4
         }
       }
     },
@@ -322,33 +381,50 @@
           "state": {
             "lowestAsk": null,
             "highestBid": {
-              "amount": 26
+              "amount": 27
             },
             "askServiceLevels": {
+              "expressNextDay": {
+                "processingFee": null,
+                "count": 0,
+                "lowest": null,
+                "delivery": null
+              },
               "expressExpedited": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
               },
               "expressStandard": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
+              },
+              "standard": {
+                "processingFee": null,
+                "count": 0,
+                "lowest": null
               }
             },
             "numberOfAsks": 0,
-            "numberOfBids": 2
+            "numberOfBids": 4
           },
           "salesInformation": {
-            "lastSale": 65,
+            "lastSale": 69,
             "salesLast72Hours": 0
           },
           "statistics": {
             "lastSale": {
-              "amount": 63,
-              "changePercentage": -0.5798,
-              "changeValue": -36,
+              "amount": 69,
+              "changePercentage": -0.087,
+              "changeValue": -6,
               "sameFees": null
+            },
+            "last90Days": {
+              "averagePrice": 0,
+              "salesCount": 0
             }
           }
         }
@@ -358,37 +434,61 @@
         "market": {
           "state": {
             "lowestAsk": {
-              "amount": 169,
-              "chainId": "14437293106836972682"
+              "amount": 49,
+              "chainId": "15030447565938832241"
             },
             "highestBid": {
-              "amount": 44
+              "amount": 36
             },
             "askServiceLevels": {
+              "expressNextDay": {
+                "processingFee": null,
+                "count": 0,
+                "lowest": null,
+                "delivery": null
+              },
               "expressExpedited": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
               },
               "expressStandard": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
+              },
+              "standard": {
+                "processingFee": {
+                  "enabled": true,
+                  "amount": 55.95,
+                  "roundedAmount": 56
+                },
+                "count": 3,
+                "lowest": {
+                  "amount": 49,
+                  "chainId": "15030447565938832241"
+                }
               }
             },
-            "numberOfAsks": 1,
-            "numberOfBids": 5
+            "numberOfAsks": 3,
+            "numberOfBids": 2
           },
           "salesInformation": {
-            "lastSale": 95,
+            "lastSale": 50,
             "salesLast72Hours": 0
           },
           "statistics": {
             "lastSale": {
-              "amount": 95,
-              "changePercentage": -0.2211,
-              "changeValue": -21,
+              "amount": 50,
+              "changePercentage": 0.3669,
+              "changeValue": 19,
               "sameFees": null
+            },
+            "last90Days": {
+              "averagePrice": 66,
+              "salesCount": 4
             }
           }
         }
@@ -398,37 +498,61 @@
         "market": {
           "state": {
             "lowestAsk": {
-              "amount": 166,
-              "chainId": "14478637789849703776"
+              "amount": 202,
+              "chainId": "14741015288099213008"
             },
             "highestBid": {
-              "amount": 80
+              "amount": 29
             },
             "askServiceLevels": {
+              "expressNextDay": {
+                "processingFee": null,
+                "count": 0,
+                "lowest": null,
+                "delivery": null
+              },
               "expressExpedited": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
               },
               "expressStandard": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
+              },
+              "standard": {
+                "processingFee": {
+                  "enabled": true,
+                  "amount": 217.87,
+                  "roundedAmount": 218
+                },
+                "count": 2,
+                "lowest": {
+                  "amount": 202,
+                  "chainId": "14741015288099213008"
+                }
               }
             },
-            "numberOfAsks": 4,
-            "numberOfBids": 5
+            "numberOfAsks": 2,
+            "numberOfBids": 4
           },
           "salesInformation": {
-            "lastSale": 85,
+            "lastSale": 100,
             "salesLast72Hours": 0
           },
           "statistics": {
             "lastSale": {
-              "amount": 85,
-              "changePercentage": -0.5294,
-              "changeValue": -45,
+              "amount": 100,
+              "changePercentage": -0.5,
+              "changeValue": -50,
               "sameFees": null
+            },
+            "last90Days": {
+              "averagePrice": 0,
+              "salesCount": 0
             }
           }
         }
@@ -439,33 +563,50 @@
           "state": {
             "lowestAsk": null,
             "highestBid": {
-              "amount": 65
+              "amount": 17
             },
             "askServiceLevels": {
+              "expressNextDay": {
+                "processingFee": null,
+                "count": 0,
+                "lowest": null,
+                "delivery": null
+              },
               "expressExpedited": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
               },
               "expressStandard": {
+                "processingFee": null,
                 "count": 0,
                 "lowest": null,
                 "delivery": null
+              },
+              "standard": {
+                "processingFee": null,
+                "count": 0,
+                "lowest": null
               }
             },
             "numberOfAsks": 0,
             "numberOfBids": 2
           },
           "salesInformation": {
-            "lastSale": 328,
+            "lastSale": 109,
             "salesLast72Hours": 0
           },
           "statistics": {
             "lastSale": {
-              "amount": 328,
-              "changePercentage": 0.1631,
-              "changeValue": 54,
+              "amount": 79,
+              "changePercentage": 0,
+              "changeValue": 0,
               "sameFees": null
+            },
+            "last90Days": {
+              "averagePrice": 0,
+              "salesCount": 0
             }
           }
         }
