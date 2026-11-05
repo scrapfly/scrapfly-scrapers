@@ -119,6 +119,18 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../autoscout24-scraper/">AutoScout24.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-autoscout24">How to Scrape AutoScout24 in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../autoscout24-scraper/results/car_details.json">Car details</a></li>
+        <li><a href="../autoscout24-scraper/results/listings.json">Listings</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/autoscout24-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/autoscout24-scraper.svg" alt="autoscout24-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../bestbuy-scraper/">BestBuy.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bestbuy-product-offer-and-review-data">How to Scrape BestBuy Product, Offer and Review Data</a></td>
     <td>
@@ -1034,18 +1046,6 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../autoscout24-scraper/">AutoScout24.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-autoscout24">How to Scrape AutoScout24 in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../autoscout24-scraper/results/car_details.json">Car details</a></li>
-        <li><a href="../autoscout24-scraper/results/listings.json">Listings</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/autoscout24-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/autoscout24-scraper.svg" alt="autoscout24-scraper-status"></a></td>
   </tr>
 
   <tr>
