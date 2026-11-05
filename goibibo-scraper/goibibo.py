@@ -204,7 +204,7 @@ def build_flight_search_api_url(
 
 def build_flight_api_headers(token: str, device_id: str) -> Dict[str, str]:
     """the headers the results page sends with its data request; the token comes from the page's HTML"""
-    return {
+    headers = {
         "accept": "text/event-stream",
         "app-ver": "1.0.0",
         "auuid": "",
@@ -229,6 +229,9 @@ def build_flight_api_headers(token: str, device_id: str) -> Dict[str, str]:
         "origin": "https://www.goibibo.com",
         "referer": "https://www.goibibo.com/",
     }
+    if not token:
+        del headers["X-Cb-Preauth"]  # like the page: without a token in its HTML it sends no X-Cb-Preauth header
+    return headers
 
 
 def parse_flight_stream(body: str) -> Dict:
@@ -501,17 +504,15 @@ async def scrape_flight_search(
     log.info(f"scraping flight search: {page_url}")
 
     async def search() -> Dict:
-        # no browser needed: the search page (in a session) gives the pre-auth token and the cookies, and the data
-        # request the page would send is then sent with them
+        # no browser needed: the search page (in a session) gives the cookies and, when it has one, the pre-auth token,
+        # and the data request the page would send is then sent with them
         session = uuid4().hex
         page = await SCRAPFLY.async_scrape(ScrapeConfig(page_url, session=session, **_plain_config()))
         token = re.search(r'__PRE_AUTH__\s*=\s*"([0-9a-f]+)"', page.content)
-        if not token:
-            raise RuntimeError(f"no pre-auth token in the goibibo.com flight search page: {page_url}")
         api_url = build_flight_search_api_url(
             origin, destination, departure_date, adults, children, infants, return_date
         )
-        headers = build_flight_api_headers(token[1], device_id=str(uuid4()))
+        headers = build_flight_api_headers(token[1] if token else "", device_id=str(uuid4()))
         # retry off: a failed data request is quicker to give up on here than inside Scrapfly, a new attempt follows
         response = await SCRAPFLY.async_scrape(
             ScrapeConfig(api_url, session=session, headers=headers, retry=False, **_plain_config())
