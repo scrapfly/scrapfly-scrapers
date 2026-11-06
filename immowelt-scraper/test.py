@@ -107,8 +107,8 @@ search_schema = {
 async def test_properties_scraping():
     result = await immowelt.scrape_properties(
         urls=[
-            "https://www.immowelt.de/expose/86611a24-fcd7-4d11-9bb6-fbdd66581c0b",
-            "https://www.immowelt.de/expose/2fab259",
+            "https://www.immowelt.de/expose/bbe6fce3-1563-4db1-8c7c-61d3fecdb56c",
+            "https://www.immowelt.de/projekte/expose/25nc2g9yp2dm",
         ]
     )
     validator = Validator(proeprty_schema, allow_unknown=True)

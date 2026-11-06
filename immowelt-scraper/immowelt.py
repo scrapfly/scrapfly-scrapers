@@ -36,7 +36,8 @@ def parse_property_pages(response: ScrapeApiResponse) -> Dict:
     # find data in JSON.parse("<data>") pattern:
     _hidden_datasets = re.findall(r'JSON.parse\("(.*)"\)', data_script)
     # unescape escaped json characters like `\\"` to `"`
-    _property_datastring = _hidden_datasets[0].encode("utf-8").decode("unicode_escape")
+    # (latin-1 with backslashreplace keeps non-ASCII text such as "München" or "€" intact)
+    _property_datastring = _hidden_datasets[0].encode("latin-1", "backslashreplace").decode("unicode_escape")
     property_data = json.loads(_property_datastring)
     # the property page app was renamed from "app_cldp" to "app_demand_referral_cldp"
     page_data = property_data["app_demand_referral_cldp"]["data"]
