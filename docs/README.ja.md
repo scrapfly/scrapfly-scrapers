@@ -317,19 +317,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
-    <td><a href="../g2-scraper/">G2.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-g2-company-data-and-reviews">How to Scrape G2 Company Data and Reviews</a></td>
-    <td>
-    <ul>
-        <li><a href="../g2-scraper/results/reviews.json">Review pages</a></li>
-        <li><a href="../g2-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../g2-scraper/results/alternatives.json">Alternatives pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/g2-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../glassdoor-scraper/">Glassdoor.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-glassdoor">How to Scrape Glassdoor (2025 update)</a></td>
     <td>
@@ -510,18 +497,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/immoscout24-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immoscout24-scraper.svg" alt="immoscout24-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../immowelt-scraper/">Immowelt.de</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-immowelt-de-real-estate-properties">How to Scrape Immowelt.de Real Estate Data</a></td>
-    <td>
-    <ul>
-        <li><a href="../immowelt-scraper/results/properties.json">Property pages</a></li>
-        <li><a href="../immowelt-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/immowelt-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immowelt-scraper.svg" alt="immowelt-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -762,6 +737,19 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../rs-online-scraper/results/category.json">Category</a></li>
+        <li><a href="../rs-online-scraper/results/products.json">Products</a></li>
+        <li><a href="../rs-online-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1049,6 +1037,31 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
+    <td><a href="../g2-scraper/">G2.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-g2-company-data-and-reviews">How to Scrape G2 Company Data and Reviews</a></td>
+    <td>
+    <ul>
+        <li><a href="../g2-scraper/results/reviews.json">Review pages</a></li>
+        <li><a href="../g2-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../g2-scraper/results/alternatives.json">Alternatives pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/g2-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../immowelt-scraper/">Immowelt.de</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-immowelt-de-real-estate-properties">How to Scrape Immowelt.de Real Estate Data</a></td>
+    <td>
+    <ul>
+        <li><a href="../immowelt-scraper/results/properties.json">Property pages</a></li>
+        <li><a href="../immowelt-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/immowelt-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/immowelt-scraper.svg" alt="immowelt-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../instagram-scraper/">Instagram.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
     <td>
@@ -1061,19 +1074,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../rs-online-scraper/results/category.json">Category</a></li>
-        <li><a href="../rs-online-scraper/results/products.json">Products</a></li>
-        <li><a href="../rs-online-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
 </table>
