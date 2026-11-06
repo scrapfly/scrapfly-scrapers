@@ -126,6 +126,9 @@ def parse_review_page(response: ScrapeApiResponse):
     # the reviews_and_filters fragment (pages 2+) has the same article cards without the section
     for review in selector.xpath("//section[@id='reviews']//article") or selector.xpath("//article"):
         author_container = review.xpath(".//div[contains(@class, 'avatar')]/parent::a/following-sibling::div[1]")
+        if not author_container:
+            # anonymous reviewers ("Verified User in <industry>") have no profile link around the avatar
+            author_container = review.xpath(".//div[contains(@class, 'avatar')]/following-sibling::div[1]")
         author_name = author_container.xpath(
             ".//div[contains(@class, 'elv-text-base') and contains(@class, 'elv-font-bold')]/text()"
         ).get()
@@ -142,6 +145,13 @@ def parse_review_page(response: ScrapeApiResponse):
         ).getall()
 
         review_date = review.xpath(".//span[contains(@class, 'elv-status-badge')]/preceding-sibling::meta[1]/@content").get()
+        if not review_date:
+            # updated reviews show "Updated <date>" and "Originally submitted <date>" in the header, with two meta tags
+            # (update date, then original date): keep the original date, and the update date as a tag like before
+            date_block = review.xpath(".//div[div[contains(text(), 'Originally submitted')]]")
+            review_date = date_block.xpath("./meta[last()]/@content").get()
+            labels = date_block.xpath(".//label/text()").getall()
+            review_tags = [label.replace("Updated", "", 1).strip() for label in labels] + review_tags
         # selector for review rate using the star rating widget
         raw_review_rate = review.xpath(".//span[contains(@class, 'elv-star-wrapper__desc__rating')]/text()").get()
         review_rate = raw_review_rate.split("/")[0] if raw_review_rate else None
