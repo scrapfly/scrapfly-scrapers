@@ -81,6 +81,12 @@ def parse_user(data: Dict) -> Dict:
     return result
 
 
+def page_details(result: ScrapeApiResponse) -> str:
+    """what the site answered, for error messages: its status code, the final URL and the page title"""
+    title = result.selector.css("title::text").get()
+    return f"HTTP {result.upstream_status_code}, final URL {result.scrape_result['url']}, title {title!r}"
+
+
 async def scrape_user(username: str) -> Dict:
     """Scrape instagram user's data"""
     log.info("scraping instagram user {}", username)
@@ -97,7 +103,7 @@ async def scrape_user(username: str) -> Dict:
     hidden_datasets = result.selector.css('script[type="application/json"][data-sjs]::text').getall()
     user_hidden_data = [d for d in hidden_datasets if "xig_user_by_username" in d and "follower_count" in d]
     if not user_hidden_data:
-        raise ValueError(f"Could not find user data in page: {username}")
+        raise ValueError(f"Could not find user data in page: {username} ({page_details(result)})")
     data = nested_lookup("xig_user_by_username", json.loads(user_hidden_data[0]))[0]
     return parse_user(data)
 
@@ -180,7 +186,7 @@ async def scrape_post(url_or_shortcode: str) -> Dict:
     result = await SCRAPFLY.async_scrape(ScrapeConfig(url=url, **BASE_CONFIG))
     media = _extract_xig_polaris_media(result.content)
     if not media:
-        raise ValueError(f"Could not find post data in page: {url}")
+        raise ValueError(f"Could not find post data in page: {url} ({page_details(result)})")
     return parse_post(media)
 
 
@@ -232,7 +238,7 @@ async def scrape_user_posts(username: str, page_size=12, max_pages: Optional[int
             user = user or next(iter(nested_lookup("xig_user_by_username", blob)), None)
             connection = connection or next(iter(nested_lookup("polaris_ordered_timeline_connection", blob)), None)
     if not (lsd and csrf and user and connection):
-        raise ValueError(f"Could not find user data, lsd or csrftoken in page: {username}")
+        raise ValueError(f"Could not find user data, lsd or csrftoken in page: {username} ({page_details(result)})")
 
     for edge in connection.get("edges") or []:
         yield parse_user_posts(edge["node"])
