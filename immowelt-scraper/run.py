@@ -21,7 +21,10 @@ async def run():
     print("running Immowelt scrape and saving results to ./results directory")
 
     properties_data = await immowelt.scrape_properties(
-        urls=["https://www.immowelt.de/expose/k2ag632", "https://www.immowelt.de/expose/k2bw932"]
+        urls=[
+            "https://www.immowelt.de/expose/e4537468-f093-49e2-9267-65e9407051ef",
+            "https://www.immowelt.de/projekte/expose/24zwnz39d44h",
+        ]
     )
     with open(output.joinpath("properties.json"), "w", encoding="utf-8") as file:
         json.dump(properties_data, file, indent=2, ensure_ascii=False)

@@ -34,8 +34,8 @@ import immowelt
 async def main():
     properties = await immowelt.scrape_properties(
         urls=[
-            "https://www.immowelt.de/expose/k2ag632",
-            "https://www.immowelt.de/expose/k2bw932",
+            "https://www.immowelt.de/expose/e4537468-f093-49e2-9267-65e9407051ef",
+            "https://www.immowelt.de/projekte/expose/24zwnz39d44h",
         ],
     )
     search = await immowelt.scrape_search(
