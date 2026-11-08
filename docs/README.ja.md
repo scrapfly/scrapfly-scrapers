@@ -661,17 +661,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
-    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../pinterest-scraper/">Pinterest.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-pinterest">How to Scrape Pinterest in 2026</a></td>
     <td>
@@ -789,18 +778,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
-        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1064,6 +1041,17 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
+    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
     <td>
@@ -1074,6 +1062,18 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
+        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
 </table>
