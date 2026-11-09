@@ -1,0 +1,743 @@
+{
+  "headers": [
+    "サイト",
+    "ガイド",
+    "サンプルデータ",
+    "ステータス"
+  ],
+  "phrases": {
+    "title": "{name} スクレイパー",
+    "intro_summary": "{summary}を収集するサンプルスクレイパーです。Python と [Scrapfly](https://scrapfly.io/) のウェブスクレイピング API で書かれています。[scrapfly-scrapers]({main}) の一部です。",
+    "intro_name": "{name} をスクレイピングするサンプルスクレイパーです。Python と [Scrapfly](https://scrapfly.io/) のウェブスクレイピング API で書かれています。[scrapfly-scrapers]({main}) の一部です。",
+    "guide": "ガイド",
+    "code": "コード",
+    "example_run": "実行例",
+    "tests": "テスト",
+    "sample_output": "サンプル出力",
+    "what_it_scrapes": "取得できるデータ",
+    "functions": "関数",
+    "not_async": "（async ではありません）",
+    "async_note": "関数は `async` です。`asyncio.run(...)` で実行するか、`await` してください。",
+    "example": "使用例",
+    "example_note": "入力は [`run.py`](run.py) の例です（長いリストは省略しています）：",
+    "output": "出力",
+    "output_samples": "関数はプレーンな辞書とリストを返します。サンプル出力のフィールド（最初の項目のトップレベルのキー）：",
+    "output_types": "関数はプレーンな辞書とリストを返します。フィールド：",
+    "more_keys": "件省略",
+    "optional": "`?` が付いたフィールドは `null` になることがあります。",
+    "settings": "Scrapfly の設定",
+    "settings_note": "[`{module}.py`]({module}.py) の `BASE_CONFIG` にリクエストのデフォルト設定があります。詳しくは [Scrape API のドキュメント](https://scrapfly.io/docs/scrape-api/getting-started) をご覧ください：",
+    "notes": "注意事項",
+    "quick_start": "クイックスタート",
+    "requires": "Python 3.10 以上と [Poetry](https://python-poetry.org/docs/#installation) が必要です。",
+    "comment_key": "取得先: https://scrapfly.io/dashboard",
+    "comment_run": "サンプルのスクレイピング、結果は ./results に保存",
+    "comment_test": "このスクレイパーのテスト",
+    "test_list": "テスト：{tests}。1 つだけ実行するには `poetry run pytest test.py -k <test>` を使います。 ",
+    "credits": "`run.py` とテストは実際のウェブサイトをスクレイピングするため、Scrapfly のクレジットを消費します。",
+    "more": "関連：[すべてのスクレイパー]({main}) · AI エージェント向けの [llms.txt](../llms.txt)"
+  },
+  "settings": {
+    "unblocker": "Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)（ボット対策の回避機能）",
+    "asp": "Anti Scraping Protection（[Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) の旧称）",
+    "country": "プロキシの国",
+    "proxy_pool": "プロキシプール（データセンターまたはレジデンシャル）",
+    "render_js": "実際のブラウザでページをレンダリングする",
+    "rendering_wait": "ページのレンダリング後の待機時間（ミリ秒）",
+    "wait_for_selector": "ページを返す前にこの要素の表示を待つ",
+    "auto_scroll": "ページをスクロールして遅延読み込みのコンテンツを読み込む",
+    "cache": "Scrapfly のレスポンスキャッシュを使う",
+    "debug": "スクリーンショットと完全なログを Scrapfly のダッシュボードに保存する",
+    "lang": "ブラウザの言語",
+    "os": "ブラウザのオペレーティングシステム",
+    "session": "リクエスト間で同じプロキシとブラウザセッションを使い続ける",
+    "retry": "失敗したリクエストを再試行する",
+    "timeout": "リクエストのタイムアウト（ミリ秒）"
+  },
+  "scrapers": {
+    "airfrance-scraper": {
+      "summary": "airfrance.fr の往復航空券のオファー",
+      "scrapes": [
+        "- Air France の往復検索結果",
+        "- 航空券の価格、航空会社、出発・到着時刻、経由地、所要時間、乗り継ぎ、CO2 データ",
+        "- 機材、空席数、プロモーションのフラグ"
+      ]
+    },
+    "airbnb-scraper": {
+      "summary": "Airbnb.com の賃貸物件データ",
+      "scrapes": [
+        "- 地域名のクエリから賃貸物件を探す Airbnb 検索",
+        "- Airbnb の物件ページから取得するデータ：",
+        "    - 物件情報：タイトル、説明、部屋タイプ、概要、設備、画像",
+        "    - ホストの詳細と位置座標",
+        "    - 料金、評価、レビュー数",
+        "    - ゲストのレビューデータ"
+      ],
+      "notes": [
+        "Airbnb はスクレイパーのブロックや重い JavaScript レンダリングによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能と JavaScript レンダリング、レジデンシャルプロキシを使用しています。"
+      ]
+    },
+    "aliexpress-scraper": {
+      "summary": "Aliexpress.com の商品リストデータ",
+      "scrapes": [
+        "- Aliexpress の商品データ",
+        "- Aliexpress の商品レビューデータ",
+        "- Aliexpress の商品検索"
+      ]
+    },
+    "allegro-scraper": {
+      "summary": "Allegro.pl の商品データ",
+      "scrapes": [
+        "- 商品リストデータを取得する Allegro の商品ページ",
+        "- Allegro の商品検索"
+      ]
+    },
+    "amazon-scraper": {
+      "summary": "Amazon.com の商品リストデータ",
+      "scrapes": [
+        "- Amazon の商品データ",
+        "- Amazon の商品レビューデータ",
+        "- Amazon の商品検索"
+      ]
+    },
+    "app-store-scraper": {
+      "summary": "apps.apple.com と itunes.apple.com（Apple App Store）のアプリデータ",
+      "scrapes": [
+        "- アプリのメタデータ（iTunes lookup API、apps.apple.com へのフォールバックあり）",
+        "- アプリのレビュー（iTunes のカスタマーレビュー RSS フィード）"
+      ]
+    },
+    "autoscout24-scraper": {
+      "summary": "AutoScout24.com の車両リストと車両詳細",
+      "scrapes": [
+        "- 検索ページから取得する AutoScout24 の車両リスト",
+        "- 仕様、装備、販売者情報を含む AutoScout24 の車両詳細ページ"
+      ]
+    },
+    "bestbuy-scraper": {
+      "summary": "BestBuy.com の商品、レビュー、サイトマップのデータ",
+      "scrapes": [
+        "- URL を取得する BestBuy のサイトマップ。",
+        "- 商品データを取得する BestBuy の商品ページ。",
+        "- 検索ページの商品データを取得する BestBuy の検索ページ。",
+        "- レビューデータを取得する BestBuy のレビューページ"
+      ]
+    },
+    "bing-scraper": {
+      "summary": "Bing.com の検索結果とキーワードのデータ",
+      "scrapes": [
+        "- 検索結果データを取得する Bing の検索ページ",
+        "- キーワードデータを取得する Bing の検索ページ"
+      ]
+    },
+    "bookingcom-scraper": {
+      "summary": "booking.com のホテルデータ",
+      "scrapes": [
+        "- 検索クエリからホテルを探す Booking.com 検索。",
+        "- Booking.com のホテル詳細：",
+        "    - ホテル情報：説明、評価、特徴など",
+        "    - 料金",
+        "- Booking.com のホテルレビューデータ"
+      ],
+      "notes": [
+        "Booking.com はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能（旧称 Anti Scraping Protection）を使用しています。"
+      ]
+    },
+    "capterra-scraper": {
+      "summary": "Capterra.com の製品リストとレビューデータ",
+      "scrapes": [
+        "- Capterra のカテゴリページ",
+        "- Capterra の製品レビューページ"
+      ]
+    },
+    "chatgpt-scraper": {
+      "summary": "ChatGPT.com の匿名の会話データ",
+      "scrapes": [
+        "- ChatGPT の単一プロンプトへの応答（Markdown 形式）"
+      ]
+    },
+    "crunchbase-scraper": {
+      "summary": "Crunchbase.com の企業と公開人物のデータセット",
+      "scrapes": [
+        "- 従業員とすべてのカードを含む Crunchbase.com の企業データ。",
+        "- Crunchbase.com の公開人物データ。"
+      ]
+    },
+    "dhl-scraper": {
+      "summary": "dhl.com の配送追跡データ",
+      "scrapes": [
+        "- 追跡番号による DHL の配送追跡"
+      ],
+      "notes": [
+        "DHL はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能と JavaScript レンダリング、レジデンシャルプロキシを使用しています。"
+      ]
+    },
+    "digikey-scraper": {
+      "summary": "DigiKey.com の製品とリストデータ",
+      "scrapes": [
+        "- 製品データ、価格、在庫、仕様、コンプライアンス情報を取得する DigiKey の製品ページ",
+        "- 製品リストデータを取得する DigiKey のカテゴリ／フィルターページ",
+        "- リストデータを取得する DigiKey のキーワード検索ページ"
+      ]
+    },
+    "domaincom-scraper": {
+      "summary": "Domain.com.au の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Domain.com.au の物件検索",
+        "- 物件リストデータを取得する Domain.com.au の物件ページ"
+      ]
+    },
+    "ebay-scraper": {
+      "summary": "Ebay.com の商品リストデータ",
+      "scrapes": [
+        "- Ebay.com の商品検索。",
+        "- Ebay.com の商品データ。",
+        "- Ebay.com の商品バリエーションデータ。"
+      ]
+    },
+    "emirates-scraper": {
+      "summary": "emirates.com のフライトデータ",
+      "scrapes": [
+        "- Emirates.com のフライト検索結果（往復と片道）",
+        "- フライトごとのブランド運賃オプション（SAVER、FLEX など）",
+        "- 航空券の価格、航空会社、出発・到着時刻、経由地、所要時間、乗り継ぎ、客室クラス、空席状況",
+        "- 検索全体の最安運賃"
+      ],
+      "notes": [
+        "Emirates.com はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能とブラウザレンダリングを使用して、branded-fares API のレスポンスを取得しています。"
+      ]
+    },
+    "etsy-scraper": {
+      "summary": "Etsy.com の商品リストデータ",
+      "scrapes": [
+        "- リストデータを取得する Etsy の検索ページ",
+        "- 商品データを取得する Etsy の商品ページ",
+        "- ショップデータを取得する Etsy のショップページ"
+      ]
+    },
+    "expedia-scraper": {
+      "summary": "expedia.com のホテルとフライトのデータ",
+      "scrapes": [
+        "- Expedia.com のホテル検索結果",
+        "- ホテル名、URL、料金、星の数、レビューのスコアと件数、所在地",
+        "- Expedia.com のフライト検索結果（片道と往復）"
+      ],
+      "notes": [
+        "Expedia.com はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能とブラウザレンダリングを使用して、Expedia の内部 GraphQL API のレスポンスを取得しています。"
+      ]
+    },
+    "facebook-scraper": {
+      "summary": "Facebook.com のデータ",
+      "scrapes": [
+        "- 商品詳細、価格、販売者情報、所在地を含む Facebook Marketplace の出品",
+        "- イベント詳細、日時、場所、主催者を含む Facebook のイベント"
+      ],
+      "notes": [
+        "注：このスクレイパーは、ログインせずにアクセスできる公開 Facebook データのみをスクレイピングします。"
+      ]
+    },
+    "fashionphile-scraper": {
+      "summary": "Fashionphile.com の商品リストデータ",
+      "scrapes": [
+        "- Fashionphile の商品ページ",
+        "- Fashionphile の検索ページ"
+      ]
+    },
+    "g2-scraper": {
+      "summary": "G2.com の企業リスト、レビュー、代替製品のデータ",
+      "scrapes": [
+        "- 企業リストデータを取得する G2 の検索ページ",
+        "- 企業のレビューデータを取得する G2 のレビューページ",
+        "- 企業の代替製品データを取得する G2 の代替製品ページ"
+      ]
+    },
+    "glassdoor-scraper": {
+      "summary": "Glassdoor.com の求人データ",
+      "scrapes": [
+        "- Glassdoor の企業の給与データ",
+        "- Glassdoor の企業のレビューデータ",
+        "- Glassdoor の企業の求人データ"
+      ]
+    },
+    "goat-scraper": {
+      "summary": "Goat.com の商品リストデータ",
+      "scrapes": [
+        "- Goat の商品ページ",
+        "- Goat の検索ページ"
+      ]
+    },
+    "goibibo-scraper": {
+      "summary": "goibibo.com のホテルとフライトの検索データ",
+      "scrapes": [
+        "- Goibibo のホテル検索結果（ページ送りあり）",
+        "- ホテル名、料金、評価、設備、所在地、画像",
+        "- Goibibo のフライト検索結果（片道と往復）",
+        "- 便名、航空会社、運賃、所要時間、経由地、区間の詳細"
+      ],
+      "notes": [
+        "Goibibo.com はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能、ブラウザレンダリング、セッションベースのリクエストを使用して、Goibibo の内部のリスト API とフライトの search-stream API を取得し、ページ送りしています。"
+      ]
+    },
+    "goodreads-scraper": {
+      "summary": "Goodreads.com の書籍データ、評価、レビュー",
+      "scrapes": [
+        "- JSON-LD の `Book` ブロックとページのマークアップから取得する Goodreads の書籍ページ",
+        "- Goodreads の書籍レビュー（書籍ページに含まれるレビューのサンプル、`__NEXT_DATA__` の Apollo レコードから取得）",
+        "- 公開リストを書籍のスタブと書籍 URL に変換する Goodreads のリストページ",
+        "- ページの Next.js flight データ内の `Book` レコードから取得する Goodreads の書籍検索結果"
+      ]
+    },
+    "google-flights-scraper": {
+      "summary": "Google Flights のフライトデータ",
+      "scrapes": [
+        "- Google Flights の検索結果（往復と片道）",
+        "- 価格インサイト：最適な予約時期、通常の価格帯、現在の価格水準、通常価格との差額、出発日・帰着日の価格カレンダー"
+      ]
+    },
+    "google-jobs-scraper": {
+      "summary": "Google Jobs（Google 検索の `udm=8` 縦型検索）の求人データ",
+      "scrapes": [
+        "- 指定したクエリと地域に対する Google Jobs の検索結果",
+        "- 職種名、企業、勤務地、掲載日、勤務形態、給与範囲",
+        "- 職務内容、応募資格、掲載元の求人サイト、応募 URL、求人 ID"
+      ]
+    },
+    "google-play-scraper": {
+      "summary": "play.google.com（Google Play ストア）のアプリデータ",
+      "scrapes": [
+        "- アプリデータを取得する Google Play のアプリ詳細ページ",
+        "- Google Play のアプリレビュー",
+        "- アプリのリストデータを取得する Google Play の検索ページ"
+      ]
+    },
+    "google-scraper": {
+      "summary": "Google.com の検索結果、キーワード、Google マップのスポットのデータ",
+      "scrapes": [
+        "- SERP と順位のデータを取得する Google の検索ページ",
+        "- SEO キーワードデータを取得する Google の検索ページ",
+        "- スポットの URL を取得する Google マップ",
+        "- スポットのデータを取得する Google マップのスポットページ"
+      ]
+    },
+    "homegate-scraper": {
+      "summary": "Homegate.ch の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Homegate の物件検索",
+        "- 物件リストデータを取得する Homegate の物件ページ"
+      ]
+    },
+    "idealista-scraper": {
+      "summary": "idealista.com の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Idealista の物件検索",
+        "- 物件リストデータを取得する Idealista の物件ページ",
+        "- 物件の URL を取得する Idealista の県別ページ"
+      ]
+    },
+    "idealo-scraper": {
+      "summary": "Idealo.de の商品データ",
+      "scrapes": [
+        "- 商品とオファーのデータを取得する Idealo の商品ページ",
+        "- リストデータを取得する Idealo の検索ページ",
+        "- ブランドのリストを取得する Idealo のメーカーページ"
+      ]
+    },
+    "imdb-scraper": {
+      "summary": "IMDb.com のデータ",
+      "scrapes": [
+        "- 映画・テレビ番組のメタデータを取得する IMDb のタイトルページ",
+        "- ユーザーレビューを取得する IMDb のレビューページ",
+        "- タイトル検索の結果を取得する IMDb の検索ページ",
+        "- IMDb のチャートページ（例：Top 250）",
+        "- 経歴と出演・制作作品を取得する IMDb の人物ページ"
+      ]
+    },
+    "immobilienscout24-scraper": {
+      "summary": "Immobilienscout24.de の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Immobilienscout24 の物件検索",
+        "- 物件リストデータを取得する Immobilienscout24 の物件ページ"
+      ]
+    },
+    "immoscout24-scraper": {
+      "summary": "Immoscout24.ch の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Immoscout24 の物件検索",
+        "- 物件リストデータを取得する Immoscout24 の物件ページ"
+      ]
+    },
+    "immowelt-scraper": {
+      "summary": "Immowelt.de の物件リストデータ",
+      "scrapes": [
+        "- 物件リストデータを取得する Immowelt の物件ページ",
+        "- 物件リストを探す Immowelt の物件検索"
+      ],
+      "notes": [
+        "物件検索のスクレイパーでは、検索地域を表す `location_ids` を API リクエストのボディに追加する必要があります。この ID は次の手順で取得できます：  \n1. immowelt.de で特定の地域の物件を検索します  \n2. 開発者ツールを開いて `Network` タブを選び、`Fetch/XHR` リクエストで絞り込みます  \n3. 次の検索ページのボタンをクリックして、さらにデータを読み込みます  \n4. 検索 API へのリクエストが表示されます。名前は `searches` です  \n5. リクエストの `Payload` から `location_ids` を取得します：",
+        "<img src=\"https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809\" align=\"center\" height=\"400\" width=\"600\">  \n<br/><br/>"
+      ]
+    },
+    "imovelweb-scraper": {
+      "summary": "ImovelWeb.com.br の物件リストデータ",
+      "scrapes": [
+        "- ImovelWeb の物件検索結果",
+        "- ImovelWeb の個別の物件ページ"
+      ]
+    },
+    "indeed-scraper": {
+      "summary": "Indeed.com の求人データ",
+      "scrapes": [
+        "- 求人を探す Indeed の求人検索",
+        "- 求人データセットを取得する Indeed の求人ページ"
+      ]
+    },
+    "instagram-scraper": {
+      "summary": "Instagram.com のユーザーとユーザー投稿のデータセット",
+      "scrapes": [
+        "- Instagram.com のユーザー情報",
+        "- Instagram.com のユーザー投稿"
+      ],
+      "notes": [
+        "注：このスクレイパーは、ログインせずにアクセスできる公開 Instagram データのみをスクレイピングします。"
+      ]
+    },
+    "kayak-scraper": {
+      "summary": "kayak.com のフライトデータ",
+      "scrapes": [
+        "- Kayak のフライト検索結果（往復と片道）",
+        "- 航空券の価格、航空会社コード、出発・到着時刻、予約オプション",
+        "- 検索のメタデータ（検索 ID、絞り込み後と全体の件数、取得したページ数）"
+      ],
+      "notes": [
+        "Kayak.com はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能、ブラウザレンダリング、セッションベースのリクエストを使用して、Kayak の内部の flights poll API を取得し、ページ送りしています。"
+      ]
+    },
+    "leboncoin-scraper": {
+      "summary": "leboncoin.fr の個人売買広告のデータ",
+      "scrapes": [
+        "- 広告リストを探す Leboncoin 検索",
+        "- 広告データを取得する Leboncoin の広告ページ"
+      ]
+    },
+    "linkedin-scraper": {
+      "summary": "linkedin.com のデータ",
+      "scrapes": [
+        "- プロフィールデータを取得する Linkedin の公開プロフィールページ",
+        "- 企業データを取得する Linkedin の企業ページ",
+        "- 求人データを取得する Linkedin の求人検索ページ",
+        "- 詳細な求人データを取得する Linkedin の求人ページ",
+        "- 記事データを取得する Linkedin の記事ページ"
+      ]
+    },
+    "loopnet-scraper": {
+      "summary": "LoopNet.com の商業不動産リストデータ",
+      "scrapes": [
+        "- 商業物件のリストを探す LoopNet の検索ページ",
+        "- 物件の詳細、仲介業者の情報、画像を取得する LoopNet のリストページ"
+      ]
+    },
+    "lowes-scraper": {
+      "summary": "Lowes.com のデータ",
+      "scrapes": [
+        "- Lowes の商品ページ",
+        "- Lowes の検索ページ",
+        "- Lowes の店舗所在地"
+      ]
+    },
+    "maersk-scraper": {
+      "summary": "maersk.com のコンテナ追跡とスケジュールのデータ",
+      "scrapes": [
+        "- Maersk.com のコンテナ、B/L、ブッキングの追跡",
+        "- 本船、航海、輸送日数、寄港地を含む区間ごとのスケジュールルート"
+      ],
+      "notes": [
+        "Maersk.com はスクレイパーのブロックによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能とブラウザレンダリングを使用して、追跡とルーティングの API レスポンスを取得しています。"
+      ]
+    },
+    "marriott-scraper": {
+      "summary": "Marriott.com のホテルデータ",
+      "scrapes": [
+        "- 指定した日程で目的地のホテルを探す Marriott のホテル検索：",
+        "    - ホテル名、ブランド、所在地、距離、評価とレビュー数、サムネイル、最安料金",
+        "- Marriott のホテル詳細：",
+        "    - 住所、電話番号、説明、チェックイン・チェックアウト時刻、ペットと喫煙のポリシー"
+      ],
+      "notes": [
+        "Marriott.com はスクレイパーのブロックや重い JavaScript レンダリングによりスクレイピングが難しい場合があるため、このスクレイパーは Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 機能と JavaScript レンダリング、レジデンシャルプロキシを使用しています。"
+      ]
+    },
+    "mouser-scraper": {
+      "summary": "Mouser.com の製品データ",
+      "scrapes": [
+        "- Mouser の製品ページ",
+        "- Mouser の製品検索"
+      ]
+    },
+    "naver-scraper": {
+      "summary": "Naver.com の検索結果、ニュース記事、ブログのコンテンツ",
+      "scrapes": [
+        "- Naver のウェブ検索結果",
+        "- Naver の画像検索結果"
+      ]
+    },
+    "nordstorm-scraper": {
+      "summary": "Nordstorm.com の商品リストデータ",
+      "scrapes": [
+        "- Nordstorm の商品ページ",
+        "- Nordstorm の検索ページ"
+      ]
+    },
+    "perplexity-scraper": {
+      "summary": "perplexity.ai のデータ",
+      "scrapes": [
+        "- 回答ページ：クエリ、Markdown 形式の回答、引用元ドメイン、ソース数、フォローアップの提案"
+      ]
+    },
+    "pinterest-scraper": {
+      "summary": "Pinterest.com のデータ",
+      "scrapes": [
+        "- タイトル、説明、画像、動画、リンク先、ボード名、所有者のユーザー名を含むピンデータを取得する Pinterest.com の検索結果",
+        "- ボードのメタデータとそのピンを取得する Pinterest.com のボード（`/<user>/<board>/`）",
+        "- プロフィールのメタデータとユーザーのピンを取得する Pinterest.com のプロフィール（`/<user>/`）",
+        "- ピンの完全なデータを取得する Pinterest.com のピン詳細ページ（`/pin/<id>/`）",
+        "- ピン画像の一括ダウンロード"
+      ],
+      "notes": [
+        "### 仕組み\n\nPinterest のボードページとプロフィールページは、そのページの元になる内部の\n`/resource/<Name>/get/` フィードを示すリソースキャッシュ（ページの\n`__PWS_INITIAL_PROPS__` スクリプトタグに埋め込まれています）をサーバー側でレンダリングします。最初のページを含め、\nピンのすべてのページはその API から取得され、同じブラウザセッションで取得した `csrftoken` クッキーと\n`x-app-version` ヘッダーで認証されます。すべて公開データなので、\nログインは不要です。\n\nこれらのフィードはデフォルトで *制限* されています。Pinterest 自身のフロントエンドが送るリクエスト\n（およびページにキャッシュされたコピー）は、タイトル、説明、ボード、所有者のない画像だけのピンのスタブを返します。\nそのため、各呼び出しではリソースオプションで `\"gated\": false` を強制して完全なピンオブジェクトを取得し、\nそれでもスタブが返ってきたページについては、空のピンを黙って出力するのではなく、スクレイパーがエラーを発生させます。\n\nピン詳細ページはクライアント側でレンダリングされ、リソースキャッシュをまったく公開しないため、\n`scrape_pin` は同じセッションを使って `PinResource` API からピンを読み取ります。\n削除されたピンや非公開のピンは 404 を返さず、黙って `/ideas/` にリダイレクトされます。\n`scrape_pin` はこれを検出して報告します。"
+      ]
+    },
+    "realestatecom-scraper": {
+      "summary": "Realestate.com.au の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Realestate.com.au の物件検索",
+        "- 物件リストデータを取得する Realestate.com.au の物件ページ"
+      ]
+    },
+    "realtorcom-scraper": {
+      "summary": "Realtor.com の物件リストデータ",
+      "scrapes": [
+        "- Realtor.com の物件リストデータ",
+        "- Realtor.com の検索結果",
+        "- Realtor.com の物件変更フィード（RSS）"
+      ]
+    },
+    "reddit-scraper": {
+      "summary": "reddit.com のデータ",
+      "scrapes": [
+        "- サブレディットと投稿のデータを取得する Reddit のサブレディットページ。",
+        "- 投稿とコメントのデータを取得する Reddit の投稿ページ。",
+        "- 投稿データを取得する Reddit のユーザープロフィールページ。",
+        "- コメントデータを取得する Reddit のユーザープロフィールページ。"
+      ]
+    },
+    "redfin-scraper": {
+      "summary": "Redfin.com の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Redfin の物件検索",
+        "- 賃貸・売買物件のリストデータを取得する Redfin の物件ページ"
+      ]
+    },
+    "rightmove-scraper": {
+      "summary": "Rightmove.com の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Rightmove の物件検索",
+        "- 物件リストデータを取得する Rightmove の物件ページ"
+      ]
+    },
+    "rs-online-scraper": {
+      "summary": "Rs-online.com の製品とリストデータ",
+      "scrapes": [
+        "- 製品データ、価格、在庫、仕様、コンプライアンス情報を取得する RS Online の製品ページ",
+        "- 製品リストデータを取得する RS Online のカテゴリページ",
+        "- 製品リストデータを取得する RS Online のキーワード検索ページ"
+      ]
+    },
+    "seloger-scraper": {
+      "summary": "seloger.com の不動産データ",
+      "scrapes": [
+        "- 物件リストを探す Seloger 検索",
+        "- 物件データを取得する Seloger の物件ページ"
+      ]
+    },
+    "shopify-scraper": {
+      "summary": "Shopify ストアの商品データ",
+      "scrapes": [
+        "- ストアの `/products.json` のレスポンスを分類する Shopify ストアの事前チェック",
+        "- 商品、価格、入れ子のバリエーションを含む `/products.json` の Shopify カタログページ",
+        "- `/collections/<handle>/products.json` の Shopify コレクション商品",
+        "- JSON-LD の `Product` と `ProductGroup` データから取得する Shopify の商品ページ",
+        "- ストアのサイトマップインデックスから取得する Shopify の商品 URL"
+      ],
+      "notes": [
+        "どのルートもストアによって異なるため、ストアがカタログの JSON を返すと決めつける前に事前チェックを実行してください。"
+      ]
+    },
+    "similarweb-scraper": {
+      "summary": "Similarweb.com のウェブサイトのトラフィックデータ",
+      "scrapes": [
+        "- ウェブサイトのトラフィック分析を取得する Similarweb.com のウェブサイトページ",
+        "- 比較分析を取得する Similarweb.com のウェブサイト比較ページ",
+        "- トレンドのウェブサイトのデータを取得する Similarweb.com のトレンドページ",
+        "- URL を取得する Similarweb.com のサイトマップ"
+      ]
+    },
+    "skyscanner-scraper": {
+      "summary": "Skyscanner のフライトデータ",
+      "scrapes": [
+        "- Skyscanner のフライト検索結果（片道と往復）",
+        "- 航空会社、出発・到着時刻、所要時間、経由地、価格、販売サイトの件数"
+      ]
+    },
+    "stockx-scraper": {
+      "summary": "StockX.com の商品リストデータ",
+      "scrapes": [
+        "- StockX の商品データ",
+        "- StockX の商品検索"
+      ]
+    },
+    "target-scraper": {
+      "summary": "Target.com の商品と店舗のデータ",
+      "scrapes": [
+        "- 商品データ、バリエーション、価格、在庫状況を取得する Target の商品ページ",
+        "- 商品リストデータを取得する Target の検索ページ",
+        "- 店舗と郵便番号ごとの商品の在庫と受け取り方法を取得する Target RedSky API",
+        "- 店舗所在地の URL を取得する Target の店舗サイトマップ",
+        "- 店舗 ID ごとの店舗所在地の詳細を取得する Target RedSky API"
+      ]
+    },
+    "threads-scraper": {
+      "summary": "Threads.net の投稿とプロフィールのデータ",
+      "scrapes": [
+        "- Threads.net のスレッド（投稿）データ",
+        "- Threads.net のプロフィールデータ"
+      ],
+      "notes": [
+        "注：このスクレイパーは、ログインせずにアクセスできる公開 Threads データのみをスクレイピングします。"
+      ]
+    },
+    "ticketmaster-scraper": {
+      "summary": "Ticketmaster.com のアーティストとイベントのデータ",
+      "scrapes": [
+        "- アーティストデータ、評価、レビュー、イベントを取得する Ticketmaster のアーティストページ",
+        "- 絞り込み付きでイベントのリストを取得する Ticketmaster のディスカバリー／検索ページ"
+      ]
+    },
+    "tiktok-scraper": {
+      "summary": "tiktok.com のデータ",
+      "scrapes": [
+        "- 投稿・動画のデータを取得する TikTok の投稿ページ。",
+        "- 特定の投稿・動画のコメントデータを取得する TikTok のコメント。",
+        "- プロフィールデータを取得する TikTok のプロフィールページ。",
+        "- 動画データを取得する TikTok のチャンネルページ。",
+        "- 検索結果の動画データを取得する TikTok の検索ページ。プロフィールもスクレイピングできます。"
+      ]
+    },
+    "tripadvisor-scraper": {
+      "summary": "tripadvisor.com のデータ",
+      "scrapes": [
+        "- 検索クエリからホテルを探す TripAdvisor 検索。",
+        "  例：<https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "- TripAdvisor のホテル詳細：",
+        "  例：<https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "    - ホテル情報：説明、評価、特徴など",
+        "    - 料金",
+        "    - レビュー"
+      ]
+    },
+    "trustpilot-scraper": {
+      "summary": "Trustpilot.com の企業とレビューのデータ",
+      "scrapes": [
+        "- 企業データを取得する Trustpilot の企業ページ",
+        "- 企業リストデータを取得する Trustpilot の検索ページ",
+        "- 企業のレビューを取得する Trustpilot のレビューページ"
+      ]
+    },
+    "twitter-scraper": {
+      "summary": "X.com（旧 Twitter）の公開投稿とユーザーデータ",
+      "scrapes": [
+        "- X.com の投稿データ",
+        "- X.com のユーザープロフィールデータ"
+      ],
+      "notes": [
+        "X.com のウェブサイトからログインせずにスクレイピングできないもの：",
+        "- 投稿への返信\n- 投稿の検索",
+        "注：このスクレイパーは、ログインせずにアクセスできる公開 Twitter データのみをスクレイピングします。"
+      ]
+    },
+    "vestiairecollective-scraper": {
+      "summary": "Vestiairecollective.com の商品リストデータ",
+      "scrapes": [
+        "- Vestiairecollective の商品ページ",
+        "- Vestiairecollective の検索ページ"
+      ]
+    },
+    "walmart-scraper": {
+      "summary": "Walmart.com の商品リストデータ",
+      "scrapes": [
+        "- Walmart の商品ページ",
+        "- Walmart の検索ページ"
+      ]
+    },
+    "wellfound-scraper": {
+      "summary": "Wellfound.com の企業と求人リストのデータ",
+      "scrapes": [
+        "- Wellfound の企業ページ",
+        "- Wellfound の検索ページ"
+      ]
+    },
+    "yellowpages-scraper": {
+      "summary": "Yellowpages.com の事業者リストデータ",
+      "scrapes": [
+        "- Yellowpages の事業者ページ",
+        "- Yellowpages の検索ページ"
+      ]
+    },
+    "yelp-scraper": {
+      "summary": "Yelp.com の事業者リストとレビューのデータ",
+      "scrapes": [
+        "- Yelp の事業者ページ",
+        "- Yelp の検索ページ",
+        "- Yelp のレビューページ"
+      ]
+    },
+    "youtube-scraper": {
+      "summary": "YouTube.com の公開動画、チャンネル、コメント、検索、ショート動画",
+      "scrapes": [
+        "- YouTube の動画メタデータ",
+        "- YouTube の動画コメント",
+        "- YouTube のチャンネルメタデータ",
+        "- YouTube のチャンネル動画",
+        "- YouTube 検索",
+        "- YouTube ショートのメタデータ"
+      ]
+    },
+    "zillow-scraper": {
+      "summary": "Zillow.com の物件データ",
+      "scrapes": [
+        "- 物件リストを探す Zillow 検索",
+        "- 物件データセットを取得する Zillow の物件ページ"
+      ]
+    },
+    "zoominfo-scraper": {
+      "summary": "Zoominfo.com の企業データ",
+      "scrapes": [
+        "- Zoominfo の企業ページ",
+        "- Zoominfo のディレクトリページ"
+      ]
+    },
+    "zoopla-scraper": {
+      "summary": "Zoopla.com の物件リストデータ",
+      "scrapes": [
+        "- 物件リストを探す Zoopla の物件検索",
+        "- 物件リストデータを取得する Zoopla の物件ページ"
+      ]
+    },
+    "zoro-scraper": {
+      "summary": "Zoro.com の商品と検索リストのデータ",
+      "scrapes": [
+        "- 詳細な商品データ、仕様、画像、評価、レビューを取得する Zoro.com の商品ページ",
+        "- メタデータ付きの商品リストを取得する Zoro.com の検索リストページ"
+      ]
+    }
+  }
+}

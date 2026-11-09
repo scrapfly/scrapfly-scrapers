@@ -1,6 +1,6 @@
 # ScrapFly Scrapers 🕷️
 
-[English](../README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Español](README.es.md) · **Русский**
+[English](../README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Español](README.es.md) · **Русский** · [Deutsch](README.de.md) · [Français](README.fr.md) · [Português (Brasil)](README.pt-BR.md) · [한국어](README.ko.md)
 
 В этом репозитории собраны учебные примеры скраперов для популярных сайтов на Python с использованием API для веб-скрапинга [ScrapFly](https://scrapfly.io).  
 Большинство скраперов используют простой набор инструментов:

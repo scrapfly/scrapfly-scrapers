@@ -1,0 +1,743 @@
+{
+  "headers": [
+    "网站",
+    "指南",
+    "示例数据",
+    "状态"
+  ],
+  "phrases": {
+    "title": "{name} 爬虫",
+    "intro_summary": "示例爬虫，用于收集{summary}，使用 Python 和 [Scrapfly](https://scrapfly.io/) 网页抓取 API 编写。属于 [scrapfly-scrapers]({main}) 项目。",
+    "intro_name": "示例爬虫，用于抓取 {name}，使用 Python 和 [Scrapfly](https://scrapfly.io/) 网页抓取 API 编写。属于 [scrapfly-scrapers]({main}) 项目。",
+    "guide": "指南",
+    "code": "代码",
+    "example_run": "示例运行",
+    "tests": "测试",
+    "sample_output": "示例输出",
+    "what_it_scrapes": "抓取内容",
+    "functions": "函数",
+    "not_async": "（非异步）",
+    "async_note": "这些函数是 `async` 函数：请使用 `asyncio.run(...)` 运行，或使用 `await` 调用。",
+    "example": "示例",
+    "example_note": "输入参数取自 [`run.py`](run.py) 中的示例（较长的列表已截短）：",
+    "output": "输出",
+    "output_samples": "这些函数返回普通的字典和列表。示例输出的字段（第一项的顶层键）：",
+    "output_types": "这些函数返回普通的字典和列表。字段：",
+    "more_keys": "更多",
+    "optional": "标有 `?` 的字段可能为 `null`。",
+    "settings": "Scrapfly 设置",
+    "settings_note": "[`{module}.py`]({module}.py) 中的 `BASE_CONFIG` 保存请求的默认设置，参见 [Scrape API 文档](https://scrapfly.io/docs/scrape-api/getting-started)：",
+    "notes": "说明",
+    "quick_start": "快速开始",
+    "requires": "需要 Python 3.10 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)。",
+    "comment_key": "获取地址： https://scrapfly.io/dashboard",
+    "comment_run": "示例抓取，结果保存在 ./results",
+    "comment_test": "运行该爬虫的测试",
+    "test_list": "测试：{tests}；使用 `poetry run pytest test.py -k <test>` 运行单个测试。 ",
+    "credits": "`run.py` 和测试会抓取真实网站，因此会消耗 Scrapfly 积分。",
+    "more": "更多：[所有爬虫]({main}) · 面向 AI 代理的 [llms.txt](../llms.txt)"
+  },
+  "settings": {
+    "unblocker": "Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)，即其反机器人绕过功能",
+    "asp": "Anti Scraping Protection（反抓取保护），[Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 的旧名称",
+    "country": "代理所在国家",
+    "proxy_pool": "代理池（数据中心或住宅）",
+    "render_js": "在真实浏览器中渲染页面",
+    "rendering_wait": "页面渲染后的等待时间（毫秒）",
+    "wait_for_selector": "等待该元素出现后再返回页面",
+    "auto_scroll": "滚动页面以加载懒加载内容",
+    "cache": "使用 Scrapfly 的响应缓存",
+    "debug": "在 Scrapfly 控制台中保留截图和完整日志",
+    "lang": "浏览器语言",
+    "os": "浏览器的操作系统",
+    "session": "在请求之间保持相同的代理和浏览器会话",
+    "retry": "重试失败的请求",
+    "timeout": "请求超时时间（毫秒）"
+  },
+  "scrapers": {
+    "airfrance-scraper": {
+      "summary": "来自 airfrance.fr 的往返航班报价",
+      "scrapes": [
+        "- Air France 往返航班搜索结果",
+        "- 航班价格、航空公司、出发/到达时间、经停、时长、中转和 CO2 数据",
+        "- 机型、剩余座位和促销标记"
+      ]
+    },
+    "airbnb-scraper": {
+      "summary": "来自 Airbnb.com 的房源数据",
+      "scrapes": [
+        "- Airbnb 搜索，根据地点查询查找房源",
+        "- Airbnb 房源页面，包括：",
+        "    - 房源信息：标题、描述、房间类型、概览、设施、图片",
+        "    - 房东信息和位置坐标",
+        "    - 价格、评分和评价数量",
+        "    - 房客评价数据"
+      ],
+      "notes": [
+        "Airbnb 有反爬虫拦截且大量依赖 JavaScript 渲染，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能，并配合 JavaScript 渲染和住宅代理。"
+      ]
+    },
+    "aliexpress-scraper": {
+      "summary": "来自 Aliexpress.com 的商品列表数据",
+      "scrapes": [
+        "- Aliexpress 商品数据",
+        "- Aliexpress 商品评价数据",
+        "- Aliexpress 商品搜索"
+      ]
+    },
+    "allegro-scraper": {
+      "summary": "来自 Allegro.pl 的商品数据",
+      "scrapes": [
+        "- Allegro 商品页面，获取商品列表数据",
+        "- Allegro 商品搜索"
+      ]
+    },
+    "amazon-scraper": {
+      "summary": "来自 Amazon.com 的商品列表数据",
+      "scrapes": [
+        "- Amazon 商品数据",
+        "- Amazon 商品评价数据",
+        "- Amazon 商品搜索"
+      ]
+    },
+    "app-store-scraper": {
+      "summary": "来自 apps.apple.com 和 itunes.apple.com（Apple App Store）的应用数据",
+      "scrapes": [
+        "- 应用元数据（iTunes lookup API，以 apps.apple.com 作为备用）",
+        "- 应用评价（iTunes 用户评价 RSS 订阅源）"
+      ]
+    },
+    "autoscout24-scraper": {
+      "summary": "来自 AutoScout24.com 的汽车列表和汽车详情",
+      "scrapes": [
+        "- 从搜索页面获取 AutoScout24 汽车列表",
+        "- AutoScout24 汽车详情页面，包括规格参数、配置和卖家信息"
+      ]
+    },
+    "bestbuy-scraper": {
+      "summary": "来自 BestBuy.com 的商品、评价和站点地图数据",
+      "scrapes": [
+        "- BestBuy 站点地图，获取 URL。",
+        "- BestBuy 商品页面，获取商品数据。",
+        "- BestBuy 搜索页面，获取搜索页上的商品数据。",
+        "- BestBuy 评价页面，获取评价数据"
+      ]
+    },
+    "bing-scraper": {
+      "summary": "来自 Bing.com 的搜索结果和关键词数据",
+      "scrapes": [
+        "- Bing 搜索页面，获取搜索结果数据",
+        "- Bing 搜索页面，获取关键词数据"
+      ]
+    },
+    "bookingcom-scraper": {
+      "summary": "来自 booking.com 的酒店数据",
+      "scrapes": [
+        "- Booking.com 搜索，根据搜索查询查找酒店。",
+        "- Booking.com 酒店详情：",
+        "    - 酒店信息：描述、评分、设施等",
+        "    - 价格",
+        "- Booking.com 酒店评价数据"
+      ],
+      "notes": [
+        "Booking.com 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能（原名 Anti Scraping Protection）。"
+      ]
+    },
+    "capterra-scraper": {
+      "summary": "来自 Capterra.com 的产品列表和评价数据",
+      "scrapes": [
+        "- Capterra 分类页面",
+        "- Capterra 产品评价页面"
+      ]
+    },
+    "chatgpt-scraper": {
+      "summary": "来自 ChatGPT.com 的匿名对话数据",
+      "scrapes": [
+        "- ChatGPT 单条提示的回复，以 markdown 格式输出"
+      ]
+    },
+    "crunchbase-scraper": {
+      "summary": "来自 Crunchbase.com 的公司和公开人物数据集",
+      "scrapes": [
+        "- Crunchbase.com 公司数据，包括员工和所有卡片信息。",
+        "- Crunchbase.com 公开人物数据。"
+      ]
+    },
+    "dhl-scraper": {
+      "summary": "来自 dhl.com 的货件追踪数据",
+      "scrapes": [
+        "- 按追踪号码查询 DHL 货件"
+      ],
+      "notes": [
+        "DHL 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能，并配合 JavaScript 渲染和住宅代理。"
+      ]
+    },
+    "digikey-scraper": {
+      "summary": "来自 DigiKey.com 的商品和列表数据",
+      "scrapes": [
+        "- DigiKey 商品页面，获取商品数据、价格、库存、规格参数和合规信息",
+        "- DigiKey 分类/筛选页面，获取商品列表数据",
+        "- DigiKey 关键词搜索页面，获取列表数据"
+      ]
+    },
+    "domaincom-scraper": {
+      "summary": "来自 Domain.com.au 的房产列表数据",
+      "scrapes": [
+        "- Domain.com.au 房产搜索，查找房产列表",
+        "- Domain.com.au 房产页面，获取房产列表数据"
+      ]
+    },
+    "ebay-scraper": {
+      "summary": "来自 Ebay.com 的商品列表数据",
+      "scrapes": [
+        "- Ebay.com 商品搜索。",
+        "- Ebay.com 商品数据。",
+        "- Ebay.com 商品变体数据。"
+      ]
+    },
+    "emirates-scraper": {
+      "summary": "来自 emirates.com 的航班数据",
+      "scrapes": [
+        "- Emirates.com 航班搜索结果（往返和单程）",
+        "- 每个航班的品牌票价选项（SAVER、FLEX 等）",
+        "- 航班价格、航空公司、出发/到达时间、经停、时长、中转、舱位等级和座位情况",
+        "- 整个搜索的最低票价"
+      ],
+      "notes": [
+        "Emirates.com 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能并结合浏览器渲染，以捕获 branded-fares API 的响应。"
+      ]
+    },
+    "etsy-scraper": {
+      "summary": "来自 Etsy.com 的商品列表数据",
+      "scrapes": [
+        "- Etsy 搜索页面，获取列表数据",
+        "- Etsy 商品页面，获取商品数据",
+        "- Etsy 店铺页面，获取店铺数据"
+      ]
+    },
+    "expedia-scraper": {
+      "summary": "来自 expedia.com 的酒店和航班数据",
+      "scrapes": [
+        "- Expedia.com 酒店搜索结果",
+        "- 酒店名称、URL、价格、星级、评价分数/数量和位置",
+        "- Expedia.com 航班搜索结果（单程和往返）"
+      ],
+      "notes": [
+        "Expedia.com 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能并结合浏览器渲染，以捕获 Expedia 内部 GraphQL API 的响应。"
+      ]
+    },
+    "facebook-scraper": {
+      "summary": "来自 Facebook.com 的数据",
+      "scrapes": [
+        "- Facebook Marketplace 列表，包括商品详情、价格、卖家信息和位置",
+        "- Facebook Events，包括活动详情、日期、地点和主办方"
+      ],
+      "notes": [
+        "注意：本爬虫只抓取无需登录即可访问的 Facebook 公开数据。"
+      ]
+    },
+    "fashionphile-scraper": {
+      "summary": "来自 Fashionphile.com 的商品列表数据",
+      "scrapes": [
+        "- Fashionphile 商品页面",
+        "- Fashionphile 搜索页面"
+      ]
+    },
+    "g2-scraper": {
+      "summary": "来自 G2.com 的公司列表、评价和替代品数据",
+      "scrapes": [
+        "- G2 搜索页面，获取公司列表数据",
+        "- G2 评价页面，获取公司评价数据",
+        "- G2 替代品页面，获取公司替代品数据"
+      ]
+    },
+    "glassdoor-scraper": {
+      "summary": "来自 Glassdoor.com 的职位列表数据",
+      "scrapes": [
+        "- Glassdoor 公司薪资数据",
+        "- Glassdoor 公司评价数据",
+        "- Glassdoor 公司职位列表数据"
+      ]
+    },
+    "goat-scraper": {
+      "summary": "来自 Goat.com 的商品列表数据",
+      "scrapes": [
+        "- Goat 商品页面",
+        "- Goat 搜索页面"
+      ]
+    },
+    "goibibo-scraper": {
+      "summary": "来自 goibibo.com 的酒店和航班搜索数据",
+      "scrapes": [
+        "- Goibibo 酒店搜索结果，支持分页",
+        "- 酒店名称、价格、评分、设施、位置和图片",
+        "- Goibibo 航班搜索结果（单程和往返）",
+        "- 航班号、航空公司、票价、时长、经停和航段详情"
+      ],
+      "notes": [
+        "Goibibo.com 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能、浏览器渲染和基于会话的请求，以捕获 Goibibo 内部的列表 API 和航班 search-stream API 并进行分页。"
+      ]
+    },
+    "goodreads-scraper": {
+      "summary": "来自 Goodreads.com 的图书数据、评分和评价",
+      "scrapes": [
+        "- Goodreads 图书页面，数据来自页面的 JSON-LD `Book` 块和页面标记",
+        "- Goodreads 图书评价，即图书页面自带的评价样本，来自其 `__NEXT_DATA__` 中的 Apollo 记录",
+        "- Goodreads 书单页面，将公开书单转换为图书摘要和图书 URL",
+        "- Goodreads 图书搜索结果，来自页面 Next.js flight 数据中的 `Book` 记录"
+      ]
+    },
+    "google-flights-scraper": {
+      "summary": "来自 Google Flights 的航班数据",
+      "scrapes": [
+        "- Google Flights 搜索结果（往返和单程）",
+        "- 价格洞察：最佳预订时间、常见价格区间、当前价格水平、相对常见价格的节省金额，以及出发/返程日期价格日历网格"
+      ]
+    },
+    "google-jobs-scraper": {
+      "summary": "来自 Google Jobs（Google 搜索中的 `udm=8` 垂直频道）的职位列表数据",
+      "scrapes": [
+        "- 指定查询和地点的 Google Jobs 搜索结果",
+        "- 职位名称、公司、地点、发布日期、工作类型和薪资范围",
+        "- 职位描述、任职要求、来源招聘网站、申请 URL 和职位 ID"
+      ]
+    },
+    "google-play-scraper": {
+      "summary": "来自 play.google.com（Google Play 商店）的应用数据",
+      "scrapes": [
+        "- Google Play 应用详情页面，获取应用数据",
+        "- Google Play 应用评价",
+        "- Google Play 搜索页面，获取应用列表数据"
+      ]
+    },
+    "google-scraper": {
+      "summary": "来自 Google.com 的搜索结果、关键词和 Google Maps 地点数据",
+      "scrapes": [
+        "- Google 搜索页面，获取 SERP 和排名数据",
+        "- Google 搜索页面，获取 SEO 关键词数据",
+        "- Google Maps，获取地点 URL",
+        "- Google Maps 地点页面，获取地点数据"
+      ]
+    },
+    "homegate-scraper": {
+      "summary": "来自 Homegate.ch 的房产列表数据",
+      "scrapes": [
+        "- Homegate 房产搜索，查找房产列表",
+        "- Homegate 房产页面，获取房产列表数据"
+      ]
+    },
+    "idealista-scraper": {
+      "summary": "来自 idealista.com 的房产列表数据",
+      "scrapes": [
+        "- Idealista 房产搜索，查找房产列表",
+        "- Idealista 房产页面，获取房产列表数据",
+        "- Idealista 省份页面，获取房产 URL"
+      ]
+    },
+    "idealo-scraper": {
+      "summary": "来自 Idealo.de 的商品数据",
+      "scrapes": [
+        "- Idealo 商品页面，获取商品和报价数据",
+        "- Idealo 搜索页面，获取列表数据",
+        "- Idealo 制造商页面，获取品牌列表"
+      ]
+    },
+    "imdb-scraper": {
+      "summary": "来自 IMDb.com 的数据",
+      "scrapes": [
+        "- IMDb 作品页面，获取电影/电视剧元数据",
+        "- IMDb 评论页面，获取用户评论",
+        "- IMDb 搜索页面，获取作品搜索结果",
+        "- IMDb 榜单页面（例如 Top 250）",
+        "- IMDb 人物页面，获取简介和作品年表"
+      ]
+    },
+    "immobilienscout24-scraper": {
+      "summary": "来自 Immobilienscout24.de 的房产列表数据",
+      "scrapes": [
+        "- Immobilienscout24 房产搜索，查找房产列表",
+        "- Immobilienscout24 房产页面，获取房产列表数据"
+      ]
+    },
+    "immoscout24-scraper": {
+      "summary": "来自 Immoscout24.ch 的房产列表数据",
+      "scrapes": [
+        "- Immoscout24 房产搜索，查找房产列表",
+        "- Immoscout24 房产页面，获取房产列表数据"
+      ]
+    },
+    "immowelt-scraper": {
+      "summary": "来自 Immowelt.de 的房产列表数据",
+      "scrapes": [
+        "- Immowelt 房产页面，获取房产列表数据",
+        "- Immowelt 房产搜索，查找房产列表"
+      ],
+      "notes": [
+        "在房产搜索爬虫中，需要在 API 请求体中添加表示搜索地点的 `location_ids`。获取这些 ID 的步骤如下：  \n1. 在 immowelt.de 上搜索某个地点的房产  \n2. 打开开发者工具，选择 `Network` 标签页，然后筛选 `Fetch/XHR` 请求  \n3. 点击搜索结果的下一页按钮以加载更多数据  \n4. 你会看到发往搜索 API 的请求，名为 `searches`  \n5. 从请求的 `Payload` 中获取 `location_ids`：",
+        "<img src=\"https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809\" align=\"center\" height=\"400\" width=\"600\">  \n<br/><br/>"
+      ]
+    },
+    "imovelweb-scraper": {
+      "summary": "来自 ImovelWeb.com.br 的房产列表数据",
+      "scrapes": [
+        "- ImovelWeb 房产搜索结果",
+        "- ImovelWeb 单个房产页面"
+      ]
+    },
+    "indeed-scraper": {
+      "summary": "来自 Indeed.com 的职位列表数据",
+      "scrapes": [
+        "- Indeed 职位搜索，查找职位列表",
+        "- Indeed 职位页面，获取职位列表数据集"
+      ]
+    },
+    "instagram-scraper": {
+      "summary": "来自 Instagram.com 的用户和用户帖子数据集",
+      "scrapes": [
+        "- Instagram.com 用户信息",
+        "- Instagram.com 用户帖子"
+      ],
+      "notes": [
+        "注意：本爬虫只抓取无需登录即可访问的 Instagram 公开数据。"
+      ]
+    },
+    "kayak-scraper": {
+      "summary": "来自 kayak.com 的航班数据",
+      "scrapes": [
+        "- Kayak 航班搜索结果（往返和单程）",
+        "- 航班价格、航空公司代码、出发/到达时间和预订选项",
+        "- 搜索元数据（搜索 ID、筛选后/总数量、已抓取页数）"
+      ],
+      "notes": [
+        "Kayak.com 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能、浏览器渲染和基于会话的请求，以捕获 Kayak 内部的航班轮询 API 并进行分页。"
+      ]
+    },
+    "leboncoin-scraper": {
+      "summary": "来自 leboncoin.fr 的分类广告数据",
+      "scrapes": [
+        "- Leboncoin 搜索，查找广告列表",
+        "- Leboncoin 广告页面，获取广告数据"
+      ]
+    },
+    "linkedin-scraper": {
+      "summary": "来自 linkedin.com 的数据",
+      "scrapes": [
+        "- Linkedin 公开个人资料页面，获取个人资料数据",
+        "- Linkedin 公司页面，获取公司数据",
+        "- Linkedin 职位搜索页面，获取职位数据",
+        "- Linkedin 职位页面，获取详细职位数据",
+        "- Linkedin 文章页面，获取文章数据"
+      ]
+    },
+    "loopnet-scraper": {
+      "summary": "来自 LoopNet.com 的商业地产列表数据",
+      "scrapes": [
+        "- LoopNet 搜索页面，查找商业地产列表",
+        "- LoopNet 房源页面，获取房产详情、经纪人信息和图片"
+      ]
+    },
+    "lowes-scraper": {
+      "summary": "来自 Lowes.com 的数据",
+      "scrapes": [
+        "- Lowes 商品页面",
+        "- Lowes 搜索页面",
+        "- Lowes 门店位置"
+      ]
+    },
+    "maersk-scraper": {
+      "summary": "来自 maersk.com 的集装箱追踪和船期数据",
+      "scrapes": [
+        "- Maersk.com 集装箱、提单（BL）和订舱追踪",
+        "- 点到点船期航线，包括船舶、航次、运输时间和挂靠港口"
+      ],
+      "notes": [
+        "Maersk.com 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能并结合浏览器渲染，以捕获追踪和航线 API 的响应。"
+      ]
+    },
+    "marriott-scraper": {
+      "summary": "来自 Marriott.com 的酒店数据",
+      "scrapes": [
+        "- Marriott 酒店搜索，查找目的地在指定日期的酒店：",
+        "    - 酒店名称、品牌、位置、距离、评分和评价数量、缩略图、最低价格",
+        "- Marriott 酒店详情，包括：",
+        "    - 地址、电话、描述、入住和退房时间、宠物和吸烟政策"
+      ],
+      "notes": [
+        "Marriott.com 有反爬虫拦截且大量依赖 JavaScript 渲染，抓取难度较大，因此本爬虫使用 Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 功能，并配合 JavaScript 渲染和住宅代理。"
+      ]
+    },
+    "mouser-scraper": {
+      "summary": "来自 Mouser.com 的商品数据",
+      "scrapes": [
+        "- Mouser 商品页面",
+        "- Mouser 商品搜索"
+      ]
+    },
+    "naver-scraper": {
+      "summary": "来自 Naver.com 的搜索结果、新闻文章和博客内容",
+      "scrapes": [
+        "- Naver 网页搜索结果",
+        "- Naver 图片搜索结果"
+      ]
+    },
+    "nordstorm-scraper": {
+      "summary": "来自 Nordstorm.com 的商品列表数据",
+      "scrapes": [
+        "- Nordstorm 商品页面",
+        "- Nordstorm 搜索页面"
+      ]
+    },
+    "perplexity-scraper": {
+      "summary": "来自 perplexity.ai 的数据",
+      "scrapes": [
+        "- 回答页面：查询、markdown 格式的回答、引用的域名、来源数量、后续问题建议"
+      ]
+    },
+    "pinterest-scraper": {
+      "summary": "来自 Pinterest.com 的数据",
+      "scrapes": [
+        "- Pinterest.com 搜索结果，获取 Pin 数据，包括标题、描述、图片、视频、目标链接、图板名称和所有者用户名",
+        "- Pinterest.com 图板（`/<user>/<board>/`），获取图板元数据及其 Pin",
+        "- Pinterest.com 个人主页（`/<user>/`），获取个人主页元数据及该用户的 Pin",
+        "- Pinterest.com Pin 详情页面（`/pin/<id>/`），获取完整的 Pin 数据",
+        "- 批量下载 Pin 图片"
+      ],
+      "notes": [
+        "### 工作原理\n\nPinterest 的图板和个人主页页面会在服务端渲染一个资源缓存（嵌入在页面的\n`__PWS_INITIAL_PROPS__` script 标签中），说明该页面由哪个内部\n`/resource/<Name>/get/` 数据源提供。之后每一页 Pin（包括第一页）都从该 API 获取，\n并使用从同一浏览器会话中捕获的 `csrftoken` cookie 和 `x-app-version` 请求头进行授权。\n由于这些都是公开数据，无需登录。\n\n这些数据源默认是*受限*的：Pinterest 自己的前端发出的请求（以及页面中缓存的副本）\n只返回仅含图片的 Pin 摘要，没有标题、描述、图板或所有者。因此每次调用都会在资源选项中\n强制设置 `\"gated\": false` 以取回完整的 Pin 对象；如果某一页仍然只返回摘要，\n爬虫会抛出错误，而不是静默输出空的 Pin。\n\nPin 详情页面在客户端渲染，完全没有资源缓存，因此\n`scrape_pin` 使用同一会话从 `PinResource` API 读取 Pin。\n已删除或私密的 Pin 不会返回 404，而是静默重定向到 `/ideas/`，\n`scrape_pin` 会检测并报告这种情况。"
+      ]
+    },
+    "realestatecom-scraper": {
+      "summary": "来自 Realestate.com.au 的房产列表数据",
+      "scrapes": [
+        "- Realestate.com.au 房产搜索，查找房产列表",
+        "- Realestate.com.au 房产页面，获取房产列表数据"
+      ]
+    },
+    "realtorcom-scraper": {
+      "summary": "来自 Realtor.com 的房产列表数据",
+      "scrapes": [
+        "- Realtor.com 房产列表数据",
+        "- Realtor.com 搜索结果",
+        "- Realtor.com 房产变动订阅源（RSS）"
+      ]
+    },
+    "reddit-scraper": {
+      "summary": "来自 reddit.com 的数据",
+      "scrapes": [
+        "- Reddit 子版块页面，获取子版块和帖子数据。",
+        "- Reddit 帖子页面，获取帖子和评论数据。",
+        "- Reddit 用户主页，获取帖子数据。",
+        "- Reddit 用户主页，获取评论数据。"
+      ]
+    },
+    "redfin-scraper": {
+      "summary": "来自 Redfin.com 的房产列表数据",
+      "scrapes": [
+        "- Redfin 房产搜索，查找房产列表",
+        "- Redfin 房产页面，获取出租/出售房产列表数据"
+      ]
+    },
+    "rightmove-scraper": {
+      "summary": "来自 Rightmove.com 的房产列表数据",
+      "scrapes": [
+        "- Rightmove 房产搜索，查找房产列表",
+        "- Rightmove 房产页面，获取房产列表数据"
+      ]
+    },
+    "rs-online-scraper": {
+      "summary": "来自 Rs-online.com 的商品和列表数据",
+      "scrapes": [
+        "- RS Online 商品页面，获取商品数据、价格、库存、规格参数和合规信息",
+        "- RS Online 分类页面，获取商品列表数据",
+        "- RS Online 关键词搜索页面，获取商品列表数据"
+      ]
+    },
+    "seloger-scraper": {
+      "summary": "来自 seloger.com 的房地产数据",
+      "scrapes": [
+        "- Seloger 搜索，查找房产列表",
+        "- Seloger 房产页面，获取房产数据"
+      ]
+    },
+    "shopify-scraper": {
+      "summary": "来自 Shopify 店铺的商品数据",
+      "scrapes": [
+        "- Shopify 店铺预检，对店铺 `/products.json` 的响应进行分类",
+        "- 来自 `/products.json` 的 Shopify 商品目录页，包含商品、价格和嵌套的变体",
+        "- 来自 `/collections/<handle>/products.json` 的 Shopify 商品集合中的商品",
+        "- Shopify 商品页面，读取其 JSON-LD `Product` 和 `ProductGroup` 数据",
+        "- 从店铺站点地图索引获取 Shopify 商品 URL"
+      ],
+      "notes": [
+        "每个路由都取决于具体店铺，因此在假定某个店铺提供商品目录 JSON 之前，请先运行预检。"
+      ]
+    },
+    "similarweb-scraper": {
+      "summary": "来自 Similarweb.com 的网站流量数据",
+      "scrapes": [
+        "- Similarweb.com 网站页面，获取网站流量洞察",
+        "- Similarweb.com 网站对比页面，获取对比洞察",
+        "- Similarweb.com 网站趋势页面，获取热门网站数据",
+        "- Similarweb.com 站点地图，获取 URL"
+      ]
+    },
+    "skyscanner-scraper": {
+      "summary": "来自 Skyscanner 的航班数据",
+      "scrapes": [
+        "- Skyscanner 航班搜索结果（单程和往返）",
+        "- 承运航空公司、出发/到达时间、时长、经停、价格和供应商报价数量"
+      ]
+    },
+    "stockx-scraper": {
+      "summary": "来自 StockX.com 的商品列表数据",
+      "scrapes": [
+        "- StockX 商品数据",
+        "- StockX 商品搜索"
+      ]
+    },
+    "target-scraper": {
+      "summary": "来自 Target.com 的商品和门店数据",
+      "scrapes": [
+        "- Target 商品页面，获取商品数据、变体、价格和库存状态",
+        "- Target 搜索页面，获取商品列表数据",
+        "- Target RedSky API，按门店和邮政编码获取商品可售情况和配送方式",
+        "- Target 门店站点地图，获取门店位置 URL",
+        "- Target RedSky API，按门店 ID 获取门店位置详情"
+      ]
+    },
+    "threads-scraper": {
+      "summary": "Threads.net 的帖子和个人主页数据",
+      "scrapes": [
+        "- Threads.net Thread（即帖子）数据",
+        "- Threads.net 个人主页数据"
+      ],
+      "notes": [
+        "注意：本爬虫只抓取无需登录即可访问的 Threads 公开数据。"
+      ]
+    },
+    "ticketmaster-scraper": {
+      "summary": "来自 Ticketmaster.com 的艺人和活动数据",
+      "scrapes": [
+        "- Ticketmaster 艺人页面，获取艺人数据、评分、评价和活动",
+        "- Ticketmaster 发现/搜索页面，按筛选条件获取活动列表"
+      ]
+    },
+    "tiktok-scraper": {
+      "summary": "来自 tiktok.com 的数据",
+      "scrapes": [
+        "- TikTok 帖子页面，获取帖子/视频数据。",
+        "- TikTok 评论，获取指定帖子/视频的评论数据。",
+        "- TikTok 个人主页，获取个人主页数据。",
+        "- TikTok 频道页面，获取视频数据。",
+        "- TikTok 搜索页面，获取搜索结果中的视频数据。也可以抓取个人主页。"
+      ]
+    },
+    "tripadvisor-scraper": {
+      "summary": "来自 tripadvisor.com 的数据",
+      "scrapes": [
+        "- TripAdvisor 搜索，根据搜索查询查找酒店。",
+        "  例如 <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "- TripAdvisor 酒店详情：",
+        "  例如 <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "    - 酒店信息：描述、评分、设施等",
+        "    - 价格",
+        "    - 评价"
+      ]
+    },
+    "trustpilot-scraper": {
+      "summary": "来自 Trustpilot.com 的公司和评价数据",
+      "scrapes": [
+        "- Trustpilot 公司页面，获取公司数据",
+        "- Trustpilot 搜索页面，获取公司列表数据",
+        "- Trustpilot 评价页面，获取公司评价"
+      ]
+    },
+    "twitter-scraper": {
+      "summary": "X.com（原 Twitter）的公开帖子和用户数据",
+      "scrapes": [
+        "- X.com 帖子数据",
+        "- X.com 用户个人资料数据"
+      ],
+      "notes": [
+        "通过 X.com 网站在不登录的情况下无法抓取以下内容：",
+        "- 帖子回复\n- 帖子搜索",
+        "注意：本爬虫只抓取无需登录即可访问的 Twitter 公开数据。"
+      ]
+    },
+    "vestiairecollective-scraper": {
+      "summary": "来自 Vestiairecollective.com 的商品列表数据",
+      "scrapes": [
+        "- Vestiairecollective 商品页面",
+        "- Vestiairecollective 搜索页面"
+      ]
+    },
+    "walmart-scraper": {
+      "summary": "来自 Walmart.com 的商品列表数据",
+      "scrapes": [
+        "- Walmart 商品页面",
+        "- Walmart 搜索页面"
+      ]
+    },
+    "wellfound-scraper": {
+      "summary": "来自 Wellfound.com 的公司和职位列表数据",
+      "scrapes": [
+        "- Wellfound 公司页面",
+        "- Wellfound 搜索页面"
+      ]
+    },
+    "yellowpages-scraper": {
+      "summary": "来自 Yellowpages.com 的商家列表数据",
+      "scrapes": [
+        "- Yellowpages 商家页面",
+        "- Yellowpages 搜索页面"
+      ]
+    },
+    "yelp-scraper": {
+      "summary": "来自 Yelp.com 的商家列表和评价数据",
+      "scrapes": [
+        "- Yelp 商家页面",
+        "- Yelp 搜索页面",
+        "- Yelp 评价页面"
+      ]
+    },
+    "youtube-scraper": {
+      "summary": "YouTube.com 的公开视频、频道、评论、搜索和短视频数据",
+      "scrapes": [
+        "- YouTube 视频元数据",
+        "- YouTube 视频评论",
+        "- YouTube 频道元数据",
+        "- YouTube 频道视频",
+        "- YouTube 搜索",
+        "- YouTube Shorts 元数据"
+      ]
+    },
+    "zillow-scraper": {
+      "summary": "来自 Zillow.com 的房产数据",
+      "scrapes": [
+        "- Zillow 搜索，查找房产列表",
+        "- Zillow 房产页面，获取房产数据集"
+      ]
+    },
+    "zoominfo-scraper": {
+      "summary": "来自 Zoominfo.com 的公司数据",
+      "scrapes": [
+        "- Zoominfo 公司页面",
+        "- Zoominfo 目录页面"
+      ]
+    },
+    "zoopla-scraper": {
+      "summary": "来自 Zoopla.com 的房产列表数据",
+      "scrapes": [
+        "- Zoopla 房产搜索，查找房产列表",
+        "- Zoopla 房产页面，获取房产列表数据"
+      ]
+    },
+    "zoro-scraper": {
+      "summary": "来自 Zoro.com 的商品和搜索列表数据",
+      "scrapes": [
+        "- Zoro.com 商品页面，获取详细商品数据、规格参数、图片、评分和评价",
+        "- Zoro.com 搜索列表页面，获取带元数据的商品列表"
+      ]
+    }
+  }
+}

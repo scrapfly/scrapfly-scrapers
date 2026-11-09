@@ -1,0 +1,743 @@
+{
+  "headers": [
+    "Site",
+    "Guia",
+    "Dados de exemplo",
+    "Status"
+  ],
+  "phrases": {
+    "title": "Scraper de {name}",
+    "intro_summary": "Scraper de exemplo que coleta {summary}, escrito em Python com a API de web scraping do [Scrapfly](https://scrapfly.io/). Faz parte do [scrapfly-scrapers]({main}).",
+    "intro_name": "Scraper de exemplo que extrai dados de {name}, escrito em Python com a API de web scraping do [Scrapfly](https://scrapfly.io/). Faz parte do [scrapfly-scrapers]({main}).",
+    "guide": "Guia",
+    "code": "Código",
+    "example_run": "Execução de exemplo",
+    "tests": "Testes",
+    "sample_output": "Saída de exemplo",
+    "what_it_scrapes": "O que ele extrai",
+    "functions": "Funções",
+    "not_async": "(não assíncrona)",
+    "async_note": "As funções são `async`: execute-as com `asyncio.run(...)` ou use `await`.",
+    "example": "Exemplo",
+    "example_note": "As entradas são os exemplos de [`run.py`](run.py) (listas longas encurtadas):",
+    "output": "Saída",
+    "output_samples": "As funções retornam dicionários e listas simples. Campos da saída de exemplo (chaves de primeiro nível do primeiro item):",
+    "output_types": "As funções retornam dicionários e listas simples. Campos:",
+    "more_keys": "mais",
+    "optional": "Um campo marcado com `?` pode ser `null`.",
+    "settings": "Configurações do Scrapfly",
+    "settings_note": "`BASE_CONFIG` em [`{module}.py`]({module}.py) contém as configurações padrão das requisições; veja a [documentação da Scrape API](https://scrapfly.io/docs/scrape-api/getting-started):",
+    "notes": "Observações",
+    "quick_start": "Início rápido",
+    "requires": "Requer Python 3.10+ e [Poetry](https://python-poetry.org/docs/#installation).",
+    "comment_key": "em https://scrapfly.io/dashboard",
+    "comment_run": "scraping de exemplo, salva a saída em ./results",
+    "comment_test": "os testes deste scraper",
+    "test_list": "Testes: {tests}; para executar um, use `poetry run pytest test.py -k <test>`. ",
+    "credits": "`run.py` e os testes fazem scraping do site real, por isso consomem créditos do Scrapfly.",
+    "more": "Mais: [todos os scrapers]({main}) · [llms.txt](../llms.txt) para agentes de IA"
+  },
+  "settings": {
+    "unblocker": "o [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly, que contorna proteções anti-bot",
+    "asp": "Anti Scraping Protection, o nome anterior do [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)",
+    "country": "país do proxy",
+    "proxy_pool": "pool de proxies (datacenter ou residencial)",
+    "render_js": "renderiza a página em um navegador real",
+    "rendering_wait": "espera após a renderização da página, em milissegundos",
+    "wait_for_selector": "espera por este elemento antes de retornar a página",
+    "auto_scroll": "rola a página para carregar conteúdo sob demanda",
+    "cache": "usa o cache de respostas do Scrapfly",
+    "debug": "guarda uma captura de tela e o log completo no painel do Scrapfly",
+    "lang": "idioma do navegador",
+    "os": "sistema operacional do navegador",
+    "session": "mantém o mesmo proxy e a mesma sessão de navegador entre as requisições",
+    "retry": "tenta novamente uma requisição que falhou",
+    "timeout": "tempo limite da requisição, em milissegundos"
+  },
+  "scrapers": {
+    "airfrance-scraper": {
+      "summary": "ofertas de voos de ida e volta do airfrance.fr",
+      "scrapes": [
+        "- Resultados de busca de voos de ida e volta da Air France",
+        "- Preço do voo, companhia aérea, horários de partida/chegada, paradas, duração, conexões e dados de CO2",
+        "- Modelo do avião, assentos disponíveis e indicadores de promoção"
+      ]
+    },
+    "airbnb-scraper": {
+      "summary": "dados de anúncios de aluguel do Airbnb.com",
+      "scrapes": [
+        "- Busca do Airbnb para encontrar anúncios de aluguel a partir de consultas de localização",
+        "- Páginas de anúncios do Airbnb para:",
+        "    - informações do anúncio: título, descrição, tipo de quarto, visão geral, comodidades, imagens",
+        "    - dados do anfitrião e coordenadas de localização",
+        "    - preços, avaliações e número de avaliações",
+        "    - dados de avaliações de hóspedes"
+      ],
+      "notes": [
+        "O Airbnb pode ser difícil de raspar por causa do bloqueio de scrapers e da renderização pesada de JavaScript, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly com renderização de JavaScript e proxies residenciais."
+      ]
+    },
+    "aliexpress-scraper": {
+      "summary": "dados de anúncios de produtos do Aliexpress.com",
+      "scrapes": [
+        "- Dados de produtos do Aliexpress",
+        "- Dados de avaliações de produtos do Aliexpress",
+        "- Busca de produtos do Aliexpress"
+      ]
+    },
+    "allegro-scraper": {
+      "summary": "dados de produtos do Allegro.pl",
+      "scrapes": [
+        "- Páginas de produtos do Allegro para dados de anúncios de produtos",
+        "- Busca de produtos do Allegro"
+      ]
+    },
+    "amazon-scraper": {
+      "summary": "dados de anúncios de produtos da Amazon.com",
+      "scrapes": [
+        "- Dados de produtos da Amazon",
+        "- Dados de avaliações de produtos da Amazon",
+        "- Busca de produtos da Amazon"
+      ]
+    },
+    "app-store-scraper": {
+      "summary": "dados de apps do apps.apple.com e do itunes.apple.com (Apple App Store)",
+      "scrapes": [
+        "- Metadados de apps (API de lookup do iTunes, com apps.apple.com como alternativa)",
+        "- Avaliações de apps (feed RSS de avaliações de clientes do iTunes)"
+      ]
+    },
+    "autoscout24-scraper": {
+      "summary": "anúncios e detalhes de carros do AutoScout24.com",
+      "scrapes": [
+        "- Anúncios de carros do AutoScout24 a partir das páginas de busca",
+        "- Páginas de detalhes de carros do AutoScout24 com especificações, recursos e informações do vendedor"
+      ]
+    },
+    "bestbuy-scraper": {
+      "summary": "dados de produtos, avaliações e sitemaps do BestBuy.com",
+      "scrapes": [
+        "- Sitemaps do BestBuy para URLs.",
+        "- Páginas de produtos do BestBuy para dados de produtos.",
+        "- Páginas de busca do BestBuy para dados de produtos nas páginas de busca.",
+        "- Páginas de avaliações do BestBuy para dados de avaliações"
+      ]
+    },
+    "bing-scraper": {
+      "summary": "dados de resultados de busca e de palavras-chave do Bing.com",
+      "scrapes": [
+        "- Páginas de busca do Bing para dados de resultados de busca",
+        "- Páginas de busca do Bing para dados de palavras-chave"
+      ]
+    },
+    "bookingcom-scraper": {
+      "summary": "dados de hotéis do booking.com",
+      "scrapes": [
+        "- Busca do Booking.com para encontrar hotéis a partir de consultas de busca.",
+        "- Detalhes de anúncios de hotéis do Booking.com:",
+        "    - informações do hotel: descrição, avaliação, recursos etc.",
+        "    - preços",
+        "- Dados de avaliações de hotéis do Booking.com"
+      ],
+      "notes": [
+        "O Booking.com pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly (antes chamado Anti Scraping Protection)."
+      ]
+    },
+    "capterra-scraper": {
+      "summary": "dados de anúncios de produtos e avaliações do Capterra.com",
+      "scrapes": [
+        "- Páginas de categorias do Capterra",
+        "- Páginas de avaliações de produtos do Capterra"
+      ]
+    },
+    "chatgpt-scraper": {
+      "summary": "dados de conversas anônimas do ChatGPT.com",
+      "scrapes": [
+        "- Respostas do ChatGPT a um único prompt, em markdown"
+      ]
+    },
+    "crunchbase-scraper": {
+      "summary": "conjuntos de dados de empresas e de pessoas públicas do Crunchbase.com",
+      "scrapes": [
+        "- Dados de empresas do Crunchbase.com, incluindo funcionários e todos os cards.",
+        "- Dados de pessoas públicas do Crunchbase.com."
+      ]
+    },
+    "dhl-scraper": {
+      "summary": "dados de rastreamento de remessas do dhl.com",
+      "scrapes": [
+        "- Rastreamento de remessas da DHL pelo número de rastreamento"
+      ],
+      "notes": [
+        "A DHL pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly com renderização de JavaScript e proxies residenciais."
+      ]
+    },
+    "digikey-scraper": {
+      "summary": "dados de produtos e anúncios do DigiKey.com",
+      "scrapes": [
+        "- Páginas de produtos da DigiKey para dados de produto, preços, estoque, especificações e informações de conformidade",
+        "- Páginas de categorias/filtros da DigiKey para dados de anúncios de produtos",
+        "- Páginas de busca por palavra-chave da DigiKey para dados de anúncios"
+      ]
+    },
+    "domaincom-scraper": {
+      "summary": "dados de anúncios de imóveis do Domain.com.au",
+      "scrapes": [
+        "- Busca de imóveis do Domain.com.au para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Domain.com.au para dados de anúncios de imóveis"
+      ]
+    },
+    "ebay-scraper": {
+      "summary": "dados de anúncios de produtos do Ebay.com",
+      "scrapes": [
+        "- Busca de produtos do Ebay.com.",
+        "- Dados de produtos do Ebay.com.",
+        "- Dados de variantes de produtos do Ebay.com."
+      ]
+    },
+    "emirates-scraper": {
+      "summary": "dados de voos do emirates.com",
+      "scrapes": [
+        "- Resultados de busca de voos do Emirates.com (ida e volta e só ida)",
+        "- Opções de tarifas por voo (SAVER, FLEX etc.)",
+        "- Preço do voo, companhia aérea, horários de partida/chegada, paradas, duração, conexões, classe de cabine e disponibilidade de assentos",
+        "- Menor tarifa de toda a busca"
+      ],
+      "notes": [
+        "O Emirates.com pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly e renderização no navegador para capturar a resposta da API de tarifas (branded fares)."
+      ]
+    },
+    "etsy-scraper": {
+      "summary": "dados de anúncios de produtos do Etsy.com",
+      "scrapes": [
+        "- Páginas de busca do Etsy para dados de anúncios",
+        "- Páginas de produtos do Etsy para dados de produtos",
+        "- Páginas de lojas do Etsy para dados de lojas"
+      ]
+    },
+    "expedia-scraper": {
+      "summary": "dados de hotéis e voos do expedia.com",
+      "scrapes": [
+        "- Resultados de busca de hotéis do Expedia.com",
+        "- Nome do hotel, URL, preços, classificação por estrelas, nota/número de avaliações e localização",
+        "- Resultados de busca de voos do Expedia.com (só ida e ida e volta)"
+      ],
+      "notes": [
+        "O Expedia.com pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly e renderização no navegador para capturar as respostas da API GraphQL interna do Expedia."
+      ]
+    },
+    "facebook-scraper": {
+      "summary": "dados do Facebook.com",
+      "scrapes": [
+        "- Anúncios do Facebook Marketplace com detalhes do produto, preços, informações do vendedor e localização",
+        "- Eventos do Facebook com detalhes do evento, datas, locais e organizadores"
+      ],
+      "notes": [
+        "Observação: este scraper extrai apenas dados públicos do Facebook que não exigem login para acessar."
+      ]
+    },
+    "fashionphile-scraper": {
+      "summary": "dados de anúncios de produtos do Fashionphile.com",
+      "scrapes": [
+        "- Páginas de produtos do Fashionphile",
+        "- Páginas de busca do Fashionphile"
+      ]
+    },
+    "g2-scraper": {
+      "summary": "dados de listagens de empresas, avaliações e alternativas do G2.com",
+      "scrapes": [
+        "- Páginas de busca do G2 para dados de anúncios de empresas",
+        "- Páginas de avaliações do G2 para dados de avaliações de empresas",
+        "- Páginas de alternativas do G2 para dados de alternativas a empresas"
+      ]
+    },
+    "glassdoor-scraper": {
+      "summary": "dados de vagas de emprego do Glassdoor.com",
+      "scrapes": [
+        "- Dados de salários de empresas do Glassdoor",
+        "- Dados de avaliações de empresas do Glassdoor",
+        "- Dados de vagas de empresas do Glassdoor"
+      ]
+    },
+    "goat-scraper": {
+      "summary": "dados de anúncios de produtos do Goat.com",
+      "scrapes": [
+        "- Páginas de produtos do Goat",
+        "- Páginas de busca do Goat"
+      ]
+    },
+    "goibibo-scraper": {
+      "summary": "dados de busca de hotéis e voos do goibibo.com",
+      "scrapes": [
+        "- Resultados de busca de hotéis do Goibibo, com paginação",
+        "- Nome do hotel, preço, avaliação, comodidades, localização e imagens",
+        "- Resultados de busca de voos do Goibibo (só ida e ida e volta)",
+        "- Número do voo, companhia aérea, tarifa, duração, paradas e detalhes dos trechos"
+      ],
+      "notes": [
+        "O Goibibo.com pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly, renderização no navegador e requisições com sessão para capturar e paginar as APIs internas de listagem e de stream de busca de voos do Goibibo."
+      ]
+    },
+    "goodreads-scraper": {
+      "summary": "dados de livros, avaliações e resenhas do Goodreads.com",
+      "scrapes": [
+        "- Páginas de livros do Goodreads, a partir do bloco JSON-LD `Book` e do markup da página",
+        "- Resenhas de livros do Goodreads, a amostra de resenhas que vem com a página do livro, a partir dos registros Apollo em `__NEXT_DATA__`",
+        "- Páginas de listas do Goodreads, que transformam uma lista pública em resumos de livros e URLs de livros",
+        "- Resultados de busca de livros do Goodreads, a partir dos registros `Book` nos dados de flight do Next.js da página"
+      ]
+    },
+    "google-flights-scraper": {
+      "summary": "dados de voos do Google Flights",
+      "scrapes": [
+        "- Resultados de busca do Google Flights (ida e volta e só ida)",
+        "- Insights de preço: melhor período para reservar, faixa de preço típica, nível de preço atual, economia em relação ao típico e uma grade de calendário de preços por data de ida/volta"
+      ]
+    },
+    "google-jobs-scraper": {
+      "summary": "dados de vagas de emprego do Google Jobs (a vertical `udm=8` da Busca do Google)",
+      "scrapes": [
+        "- Resultados de busca do Google Jobs para uma consulta e localização",
+        "- Título da vaga, empresa, localização, data de publicação, tipo de jornada e faixa salarial",
+        "- Descrição da vaga, qualificações, site de origem, URL de candidatura e ID da vaga"
+      ]
+    },
+    "google-play-scraper": {
+      "summary": "dados de apps do play.google.com (Google Play Store)",
+      "scrapes": [
+        "- Páginas de detalhes de apps do Google Play para dados de apps",
+        "- Avaliações de apps do Google Play",
+        "- Páginas de busca do Google Play para dados de listagem de apps"
+      ]
+    },
+    "google-scraper": {
+      "summary": "dados de resultados de busca, de palavras-chave e de lugares do Google Maps do Google.com",
+      "scrapes": [
+        "- Páginas de busca do Google para dados de SERP e rankings",
+        "- Páginas de busca do Google para dados de palavras-chave de SEO",
+        "- Google Maps para URLs de lugares",
+        "- Páginas de lugares do Google Maps para dados de lugares"
+      ]
+    },
+    "homegate-scraper": {
+      "summary": "dados de anúncios de imóveis do Homegate.ch",
+      "scrapes": [
+        "- Busca de imóveis do Homegate para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Homegate para dados de anúncios de imóveis"
+      ]
+    },
+    "idealista-scraper": {
+      "summary": "dados de anúncios de imóveis do idealista.com",
+      "scrapes": [
+        "- Busca de imóveis do Idealista para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Idealista para dados de anúncios de imóveis",
+        "- Páginas de províncias do Idealista para URLs de imóveis"
+      ]
+    },
+    "idealo-scraper": {
+      "summary": "dados de produtos do Idealo.de",
+      "scrapes": [
+        "- Páginas de produtos do Idealo para dados de produtos e ofertas",
+        "- Páginas de busca do Idealo para dados de anúncios",
+        "- Páginas de fabricantes do Idealo para listagens por marca"
+      ]
+    },
+    "imdb-scraper": {
+      "summary": "dados do IMDb.com",
+      "scrapes": [
+        "- Páginas de títulos do IMDb para metadados de filmes/séries",
+        "- Páginas de avaliações do IMDb para avaliações de usuários",
+        "- Páginas de busca do IMDb para resultados de busca de títulos",
+        "- Páginas de rankings do IMDb (por exemplo, o Top 250)",
+        "- Páginas de pessoas do IMDb para biografia e filmografia"
+      ]
+    },
+    "immobilienscout24-scraper": {
+      "summary": "dados de anúncios de imóveis do Immobilienscout24.de",
+      "scrapes": [
+        "- Busca de imóveis do Immobilienscout24 para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Immobilienscout24 para dados de anúncios de imóveis"
+      ]
+    },
+    "immoscout24-scraper": {
+      "summary": "dados de anúncios de imóveis do Immoscout24.ch",
+      "scrapes": [
+        "- Busca de imóveis do Immoscout24 para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Immoscout24 para dados de anúncios de imóveis"
+      ]
+    },
+    "immowelt-scraper": {
+      "summary": "dados de anúncios de imóveis do Immowelt.de",
+      "scrapes": [
+        "- Páginas de imóveis do Immowelt para dados de anúncios de imóveis",
+        "- Busca de imóveis do Immowelt para encontrar anúncios de imóveis"
+      ],
+      "notes": [
+        "No scraper de busca de imóveis, é preciso adicionar `location_ids` ao corpo da requisição à API; eles representam a localização da busca. Para obter esses ids, siga estes passos:  \n1. Busque imóveis em uma localização específica no immowelt.de  \n2. Abra as ferramentas de desenvolvedor, selecione a aba `Network` e filtre pelas requisições `Fetch/XHR`  \n3. Clique no botão da próxima página da busca para carregar mais dados  \n4. Aparecerá a requisição feita à API de busca, chamada `searches`  \n5. Copie os `location_ids` do `Payload` da requisição:",
+        "<img src=\"https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809\" align=\"center\" height=\"400\" width=\"600\">  \n<br/><br/>"
+      ]
+    },
+    "imovelweb-scraper": {
+      "summary": "dados de anúncios de imóveis do ImovelWeb.com.br",
+      "scrapes": [
+        "- Resultados de busca de imóveis do ImovelWeb",
+        "- Páginas individuais de imóveis do ImovelWeb"
+      ]
+    },
+    "indeed-scraper": {
+      "summary": "dados de vagas de emprego do Indeed.com",
+      "scrapes": [
+        "- Busca de vagas do Indeed para encontrar vagas de emprego",
+        "- Páginas de vagas do Indeed para conjuntos de dados de vagas"
+      ]
+    },
+    "instagram-scraper": {
+      "summary": "conjuntos de dados de usuários e de posts de usuários do Instagram.com",
+      "scrapes": [
+        "- Informações de usuários do Instagram.com",
+        "- Posts de usuários do Instagram.com"
+      ],
+      "notes": [
+        "Observação: este scraper extrai apenas dados públicos do Instagram que não exigem login para acessar."
+      ]
+    },
+    "kayak-scraper": {
+      "summary": "dados de voos do kayak.com",
+      "scrapes": [
+        "- Resultados de busca de voos do Kayak (ida e volta e só ida)",
+        "- Preço do voo, código da companhia aérea, horários de partida/chegada e opções de reserva",
+        "- Metadados da busca (ID da busca, contagens filtrada/total, páginas extraídas)"
+      ],
+      "notes": [
+        "O Kayak.com pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly, renderização no navegador e requisições com sessão para capturar e paginar a API interna de polling de voos do Kayak."
+      ]
+    },
+    "leboncoin-scraper": {
+      "summary": "dados de anúncios classificados do leboncoin.fr",
+      "scrapes": [
+        "- Busca do Leboncoin para encontrar anúncios",
+        "- Páginas de anúncios do Leboncoin para dados de anúncios"
+      ]
+    },
+    "linkedin-scraper": {
+      "summary": "dados do linkedin.com",
+      "scrapes": [
+        "- Páginas de perfis públicos do Linkedin para dados de perfil",
+        "- Páginas de empresas do Linkedin para dados de empresas",
+        "- Páginas de busca de vagas do Linkedin para dados de vagas",
+        "- Páginas de vagas do Linkedin para dados detalhados de vagas",
+        "- Páginas de artigos do Linkedin para dados de artigos"
+      ]
+    },
+    "loopnet-scraper": {
+      "summary": "dados de anúncios de imóveis comerciais do LoopNet.com",
+      "scrapes": [
+        "- Páginas de busca do LoopNet para encontrar anúncios de imóveis comerciais",
+        "- Páginas de anúncios do LoopNet para detalhes do imóvel, informações do corretor e imagens"
+      ]
+    },
+    "lowes-scraper": {
+      "summary": "dados do Lowes.com",
+      "scrapes": [
+        "- Páginas de produtos da Lowes",
+        "- Páginas de busca da Lowes",
+        "- Localização das lojas da Lowes"
+      ]
+    },
+    "maersk-scraper": {
+      "summary": "dados de rastreamento de contêineres e de programação do maersk.com",
+      "scrapes": [
+        "- Rastreamento de contêineres, BL e reservas no Maersk.com",
+        "- Rotas de programação ponto a ponto com navios, viagens, tempos de trânsito e escalas em portos"
+      ],
+      "notes": [
+        "O Maersk.com pode ser difícil de raspar por causa do bloqueio de scrapers, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly e renderização no navegador para capturar as respostas das APIs de rastreamento e de rotas."
+      ]
+    },
+    "marriott-scraper": {
+      "summary": "dados de hotéis do Marriott.com",
+      "scrapes": [
+        "- Busca de hotéis do Marriott para encontrar hotéis em um destino nas datas indicadas:",
+        "    - nome do hotel, marca, localização, distância, avaliação e número de avaliações, miniatura, menor preço",
+        "- Detalhes de hotéis do Marriott para:",
+        "    - endereço, telefone, descrição, horários de check-in e check-out, políticas para animais e fumantes"
+      ],
+      "notes": [
+        "O Marriott.com pode ser difícil de raspar por causa do bloqueio de scrapers e da renderização pesada de JavaScript, por isso este scraper usa o recurso [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) do Scrapfly com renderização de JavaScript e proxies residenciais."
+      ]
+    },
+    "mouser-scraper": {
+      "summary": "dados de produtos do Mouser.com",
+      "scrapes": [
+        "- Páginas de produtos da Mouser",
+        "- Busca de produtos da Mouser"
+      ]
+    },
+    "naver-scraper": {
+      "summary": "resultados de busca, artigos de notícias e conteúdo de blogs do Naver.com",
+      "scrapes": [
+        "- Resultados da busca na web do Naver",
+        "- Resultados da busca de imagens do Naver"
+      ]
+    },
+    "nordstorm-scraper": {
+      "summary": "dados de anúncios de produtos do Nordstorm.com",
+      "scrapes": [
+        "- Páginas de produtos da Nordstorm",
+        "- Páginas de busca da Nordstorm"
+      ]
+    },
+    "perplexity-scraper": {
+      "summary": "dados do perplexity.ai",
+      "scrapes": [
+        "- Páginas de respostas: pergunta, resposta em markdown, domínios citados, número de fontes, sugestões de perguntas seguintes"
+      ]
+    },
+    "pinterest-scraper": {
+      "summary": "dados do Pinterest.com",
+      "scrapes": [
+        "- Resultados de busca do Pinterest.com para dados de pins, incluindo títulos, descrições, imagens, vídeos, links de destino, nomes de pastas e nomes de usuário dos donos",
+        "- Pastas do Pinterest.com (`/<user>/<board>/`) para metadados da pasta e seus pins",
+        "- Perfis do Pinterest.com (`/<user>/`) para metadados do perfil e os pins do usuário",
+        "- Páginas de detalhes de pins do Pinterest.com (`/pin/<id>/`) para os dados completos do pin",
+        "- Download em massa de imagens de pins"
+      ],
+      "notes": [
+        "### Como funciona\n\nAs páginas de pastas e de perfis do Pinterest renderizam no servidor um cache de recursos (embutido\nna tag de script `__PWS_INITIAL_PROPS__` da página) que indica qual feed interno\n`/resource/<Name>/get/` alimenta a página. Cada página de pins, inclusive a\nprimeira, é então buscada nessa API, autorizada com o cookie `csrftoken`\ne o cabeçalho `x-app-version` capturados da mesma sessão de navegador. Não é\npreciso login, já que todos esses dados são públicos.\n\nEsses feeds são *restritos* por padrão: a requisição feita pelo próprio front-end do Pinterest\n(e a cópia em cache na página) retorna resumos de pins só com a imagem, sem título,\ndescrição, pasta ou dono. Por isso cada chamada força `\"gated\": false` nas\nopções do recurso para receber os objetos completos dos pins, e o scraper lança um erro se uma\npágina mesmo assim vier só com resumos, em vez de emitir pins vazios em silêncio.\n\nAs páginas de detalhes de pins são renderizadas no cliente e não expõem nenhum cache de recursos, então\n`scrape_pin` lê o pin da API `PinResource` usando a mesma sessão.\nPins excluídos ou privados redirecionam silenciosamente para `/ideas/` em vez de retornar\n404, o que `scrape_pin` detecta e informa."
+      ]
+    },
+    "realestatecom-scraper": {
+      "summary": "dados de anúncios de imóveis do Realestate.com.au",
+      "scrapes": [
+        "- Busca de imóveis do Realestate.com.au para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Realestate.com.au para dados de anúncios de imóveis"
+      ]
+    },
+    "realtorcom-scraper": {
+      "summary": "dados de anúncios de imóveis do Realtor.com",
+      "scrapes": [
+        "- Dados de anúncios de imóveis do Realtor.com",
+        "- Resultados de busca do Realtor.com",
+        "- Feeds de alterações de imóveis do Realtor.com (RSS)"
+      ]
+    },
+    "reddit-scraper": {
+      "summary": "dados do reddit.com",
+      "scrapes": [
+        "- Páginas de subreddits do Reddit para dados do subreddit e dos posts.",
+        "- Páginas de posts do Reddit para dados do post e dos comentários.",
+        "- Páginas de perfis de usuários do Reddit para dados de posts.",
+        "- Páginas de perfis de usuários do Reddit para dados de comentários."
+      ]
+    },
+    "redfin-scraper": {
+      "summary": "dados de anúncios de imóveis do Redfin.com",
+      "scrapes": [
+        "- Busca de imóveis do Redfin para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Redfin para dados de anúncios de imóveis para alugar/vender"
+      ]
+    },
+    "rightmove-scraper": {
+      "summary": "dados de anúncios de imóveis do Rightmove.com",
+      "scrapes": [
+        "- Busca de imóveis do Rightmove para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Rightmove para dados de anúncios de imóveis"
+      ]
+    },
+    "rs-online-scraper": {
+      "summary": "dados de produtos e anúncios do Rs-online.com",
+      "scrapes": [
+        "- Páginas de produtos da RS Online para dados de produto, preços, estoque, especificações e informações de conformidade",
+        "- Páginas de categorias da RS Online para dados de anúncios de produtos",
+        "- Páginas de busca por palavra-chave da RS Online para dados de anúncios de produtos"
+      ]
+    },
+    "seloger-scraper": {
+      "summary": "dados imobiliários do seloger.com",
+      "scrapes": [
+        "- Busca do Seloger para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Seloger para dados de imóveis"
+      ]
+    },
+    "shopify-scraper": {
+      "summary": "dados de produtos de lojas Shopify",
+      "scrapes": [
+        "- Verificação prévia (preflight) de lojas Shopify, que classifica a resposta de `/products.json` de uma loja",
+        "- Páginas de catálogo Shopify a partir de `/products.json`, com produtos, preços e variantes aninhadas",
+        "- Produtos de coleções Shopify a partir de `/collections/<handle>/products.json`",
+        "- Páginas de produtos Shopify por meio dos dados JSON-LD `Product` e `ProductGroup`",
+        "- URLs de produtos Shopify a partir do índice de sitemaps da loja"
+      ],
+      "notes": [
+        "Cada rota depende da loja, por isso execute o preflight antes de supor que uma loja serve JSON de catálogo."
+      ]
+    },
+    "similarweb-scraper": {
+      "summary": "dados de tráfego de sites do Similarweb.com",
+      "scrapes": [
+        "- Páginas de sites do Similarweb.com para insights de tráfego de sites",
+        "- Páginas de comparação de sites do Similarweb.com para insights comparativos",
+        "- Páginas de tendências do Similarweb.com para dados de sites em alta",
+        "- Sitemaps do Similarweb.com para URLs"
+      ]
+    },
+    "skyscanner-scraper": {
+      "summary": "dados de voos do Skyscanner",
+      "scrapes": [
+        "- Resultados de busca de voos do Skyscanner (só ida e ida e volta)",
+        "- Companhia aérea, horários de partida/chegada, duração, paradas, preço e número de ofertas de fornecedores"
+      ]
+    },
+    "stockx-scraper": {
+      "summary": "dados de anúncios de produtos do StockX.com",
+      "scrapes": [
+        "- Dados de produtos do StockX",
+        "- Busca de produtos do StockX"
+      ]
+    },
+    "target-scraper": {
+      "summary": "dados de produtos e lojas do Target.com",
+      "scrapes": [
+        "- Páginas de produtos da Target para dados de produto, variantes, preços e disponibilidade em estoque",
+        "- Páginas de busca da Target para dados de anúncios de produtos",
+        "- API RedSky da Target para disponibilidade de produtos e formas de entrega por loja e CEP",
+        "- Sitemap de lojas da Target para URLs de localização de lojas",
+        "- API RedSky da Target para detalhes de localização de lojas pelo ID da loja"
+      ]
+    },
+    "threads-scraper": {
+      "summary": "dados de posts e perfis do Threads.net",
+      "scrapes": [
+        "- Dados de threads (ou seja, posts) do Threads.net",
+        "- Dados de perfis do Threads.net"
+      ],
+      "notes": [
+        "Observação: este scraper extrai apenas dados públicos do Threads que não exigem login para acessar."
+      ]
+    },
+    "ticketmaster-scraper": {
+      "summary": "dados de artistas e eventos do Ticketmaster.com",
+      "scrapes": [
+        "- Páginas de artistas do Ticketmaster para dados do artista, avaliações, resenhas e eventos",
+        "- Páginas de descoberta/busca do Ticketmaster para listagens de eventos com filtros"
+      ]
+    },
+    "tiktok-scraper": {
+      "summary": "dados do tiktok.com",
+      "scrapes": [
+        "- Páginas de posts do TikTok para dados de posts/vídeos.",
+        "- Comentários do TikTok para dados de comentários de um post/vídeo específico.",
+        "- Páginas de perfis do TikTok para dados de perfil.",
+        "- Páginas de canais do TikTok para dados de vídeos.",
+        "- Páginas de busca do TikTok para dados de vídeos nos resultados de busca. Também consegue extrair perfis."
+      ]
+    },
+    "tripadvisor-scraper": {
+      "summary": "dados do tripadvisor.com",
+      "scrapes": [
+        "- Busca do TripAdvisor para encontrar hotéis a partir de consultas de busca.",
+        "  por exemplo, <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "- Detalhes de anúncios de hotéis do TripAdvisor:",
+        "  por exemplo, <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "    - informações do hotel: descrição, avaliação, recursos etc.",
+        "    - preços",
+        "    - avaliações"
+      ]
+    },
+    "trustpilot-scraper": {
+      "summary": "dados de empresas e avaliações do Trustpilot.com",
+      "scrapes": [
+        "- Páginas de empresas do Trustpilot para dados de empresas",
+        "- Páginas de busca do Trustpilot para dados de listagens de empresas",
+        "- Páginas de avaliações do Trustpilot para avaliações de empresas"
+      ]
+    },
+    "twitter-scraper": {
+      "summary": "posts públicos e dados de usuários do X.com (antigo Twitter)",
+      "scrapes": [
+        "- Dados de posts do X.com",
+        "- Dados de perfis de usuários do X.com"
+      ],
+      "notes": [
+        "O que NÃO é possível extrair sem login pelo site do X.com:",
+        "- Respostas a posts\n- Busca de posts",
+        "Observação: este scraper extrai apenas dados públicos do Twitter que não exigem login para acessar."
+      ]
+    },
+    "vestiairecollective-scraper": {
+      "summary": "dados de anúncios de produtos do Vestiairecollective.com",
+      "scrapes": [
+        "- Páginas de produtos da Vestiairecollective",
+        "- Páginas de busca da Vestiairecollective"
+      ]
+    },
+    "walmart-scraper": {
+      "summary": "dados de anúncios de produtos do Walmart.com",
+      "scrapes": [
+        "- Páginas de produtos do Walmart",
+        "- Páginas de busca do Walmart"
+      ]
+    },
+    "wellfound-scraper": {
+      "summary": "dados de empresas e vagas de emprego do Wellfound.com",
+      "scrapes": [
+        "- Páginas de empresas do Wellfound",
+        "- Páginas de busca do Wellfound"
+      ]
+    },
+    "yellowpages-scraper": {
+      "summary": "dados de listagens de estabelecimentos do Yellowpages.com",
+      "scrapes": [
+        "- Páginas de empresas do Yellowpages",
+        "- Páginas de busca do Yellowpages"
+      ]
+    },
+    "yelp-scraper": {
+      "summary": "dados de listagens de estabelecimentos e avaliações do Yelp.com",
+      "scrapes": [
+        "- Páginas de empresas do Yelp",
+        "- Páginas de busca do Yelp",
+        "- Páginas de avaliações do Yelp"
+      ]
+    },
+    "youtube-scraper": {
+      "summary": "vídeos, canais, comentários, buscas e vídeos curtos públicos do YouTube.com",
+      "scrapes": [
+        "- Metadados de vídeos do YouTube",
+        "- Comentários de vídeos do YouTube",
+        "- Metadados de canais do YouTube",
+        "- Vídeos de canais do YouTube",
+        "- Busca do YouTube",
+        "- Metadados de shorts do YouTube"
+      ]
+    },
+    "zillow-scraper": {
+      "summary": "dados de imóveis do Zillow.com",
+      "scrapes": [
+        "- Busca do Zillow para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Zillow para conjuntos de dados de imóveis"
+      ]
+    },
+    "zoominfo-scraper": {
+      "summary": "dados de empresas do Zoominfo.com",
+      "scrapes": [
+        "- Páginas de empresas do Zoominfo",
+        "- Páginas de diretório do Zoominfo"
+      ]
+    },
+    "zoopla-scraper": {
+      "summary": "dados de anúncios de imóveis do Zoopla.com",
+      "scrapes": [
+        "- Busca de imóveis do Zoopla para encontrar anúncios de imóveis",
+        "- Páginas de imóveis do Zoopla para dados de anúncios de imóveis"
+      ]
+    },
+    "zoro-scraper": {
+      "summary": "dados de produtos e de listagens de busca do Zoro.com",
+      "scrapes": [
+        "- Páginas de produtos do Zoro.com para dados detalhados de produto, especificações, imagens, notas e avaliações",
+        "- Páginas de listagem de busca do Zoro.com para anúncios de produtos com metadados"
+      ]
+    }
+  }
+}
