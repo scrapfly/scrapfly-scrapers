@@ -22,7 +22,7 @@ async def run():
 
     properties_data = await domaincom.scrape_properties(
         urls = [
-            "https://www.domain.com.au/610-399-bourke-street-melbourne-vic-3000-2018835548",
+            "https://www.domain.com.au/09-371-little-lonsdale-street-melbourne-vic-3000-2013206348",
             "https://www.domain.com.au/property-profile/308-9-degraves-street-melbourne-vic-3000",
             "https://www.domain.com.au/1518-474-flinders-street-melbourne-vic-3000-17773317"
         ]

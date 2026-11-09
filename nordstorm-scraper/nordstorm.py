@@ -87,6 +87,11 @@ def find_hidden_data(result: ScrapeApiResponse) -> dict:
     """extract hidden web cache from page html"""
     # use XPath to find script tag with data
     data = result.selector.xpath("//script[contains(.,'__INITIAL_CONFIG__')]/text()").get()
+    if not data:  # a page without the data script (e.g. an error page) has nothing to parse
+        title = result.selector.xpath("//title/text()").get("").strip()
+        raise ValueError(
+            f"nordstrom.com returned a page without its data for {result.context['url']} (title: {title!r})"
+        )
     data = data.split("=", 1)[-1].strip().strip(";")
     data = json.loads(data)
     return data

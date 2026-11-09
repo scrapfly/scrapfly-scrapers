@@ -39,7 +39,7 @@ async def test_search_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_job_scraping():
-    jobs = ["9100493864fe1d6e", "5361f22542fe4a95"]
+    jobs = ["d4080be194ec33de", "5d6d21f45d3f73bf"]
     result = await indeed.scrape_jobs(jobs)
     assert len(result) == 2
     for r in result:

@@ -34,9 +34,9 @@ def validate_or_fail(item, validator):
 product_schema = {
     "@type": {"type": "string"},
     "@context": {"type": "string"},
-    "url": {"type": "string"},
-    "name": {"type": "string"},
-    "sku": {"type": "string"},
+    "url": {"type": "string", "required": True, "minlength": 1},
+    "name": {"type": "string", "required": True, "minlength": 1},
+    "sku": {"type": "string", "required": True, "minlength": 1},
     "gtin": {"type": "string"},
     "description": {"type": "string"},
     "category": {"type": "string"},
@@ -58,8 +58,11 @@ product_schema = {
 shop_schema = {
     "@type": {"type": "string"},
     "@context": {"type": "string"},
+    "url": {"type": "string", "required": True, "minlength": 1},
     "itemListElement": {
         "type": "list",
+        "required": True,
+        "minlength": 1,
         "schema": {
             "type": "dict",
             "schema": {
@@ -110,7 +113,7 @@ search_schema = {
 async def test_product_scraping():
     product_data = await etsy.scrape_product(
         urls = [
-            "https://www.etsy.com/listing/971370843",
+            "https://www.etsy.com/listing/1376192913",
             "https://www.etsy.com/listing/529765307",
             "https://www.etsy.com/listing/949905096"
         ]
@@ -130,7 +133,7 @@ async def test_shop_scraping():
     shop_data = await etsy.scrape_shop(
         urls = [
             "https://www.etsy.com/shop/FalkelDesign",
-            "https://www.etsy.com/shop/JoshuaHouseCrafts",
+            "https://www.etsy.com/shop/WOODPRESENTS",
             "https://www.etsy.com/shop/Oakywood"
         ]
     )

@@ -46,7 +46,7 @@ async def main():
     shop = await etsy.scrape_shop(
         urls=[
             "https://www.etsy.com/shop/FalkelDesign",
-            "https://www.etsy.com/shop/JoshuaHouseCrafts",
+            "https://www.etsy.com/shop/WOODPRESENTS",
         ],
     )
 
