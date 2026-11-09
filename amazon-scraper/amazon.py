@@ -117,14 +117,15 @@ def parse_reviews(result: ScrapeApiResponse) -> List[Review]:
     review_boxes = result.selector.css("[data-hook=review]")
     parsed = []
     for box in review_boxes:
-        rating = box.css("i[data-hook=review-star-rating] ::text").re_first(r"(\d+\.*\d*) out")
+        # "4 out of 5 stars", or "4 de 5 estrellas" when amazon.es answers in Spanish (decimals with a comma)
+        rating = box.css("i[data-hook=review-star-rating] ::text").re_first(r"(\d+[.,]?\d*) (?:out of|de) 5")
         parsed.append(
             {
                 "text": "".join(box.css("[data-hook=reviewRichContentContainer] ::text").getall()).strip(),
                 "title": box.css("*[data-hook=reviewTitle]::text").get(),
                 "location_and_date": box.css("span[data-hook=review-date] ::text").get(),
                 "verified": bool(box.css("span[data-hook=avp-badge] ::text").get()),
-                "rating": float(rating) if rating else None,
+                "rating": float(rating.replace(",", ".")) if rating else None,
             }
         )
     return parsed
