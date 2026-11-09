@@ -68,6 +68,20 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
+    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
+        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
+        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../allegro-scraper/">Allegro.pl</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-allegro">How to Scrape Allegro.pl in 2026 (Without Getting Blocked)</a></td>
     <td>
@@ -446,20 +460,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
-    <td><a href="../idealo-scraper/">Idealo.de</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../imdb-scraper/">IMDb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
@@ -661,6 +661,17 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
+    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../pinterest-scraper/">Pinterest.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-pinterest">How to Scrape Pinterest in 2026</a></td>
     <td>
@@ -778,6 +789,18 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/similarweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/similarweb-scraper.svg" alt="similarweb-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
+        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1012,17 +1035,17 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
-    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td><a href="../idealo-scraper/">Idealo.de</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
     <td>
     <ul>
-        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
-        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
-        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1041,17 +1064,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
   </tr>
 
   <tr>
-    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
     <td>
@@ -1062,18 +1074,6 @@ poetry run pytest test.py                 # スクレイパーのテスト
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
-        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
 </table>
