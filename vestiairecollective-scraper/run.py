@@ -26,7 +26,7 @@ async def run():
     products_data = await vestiairecollective.scrape_products(
         urls=[
             "https://www.vestiairecollective.com/men-clothing/polo-shirts/louis-vuitton/blue-cotton-louis-vuitton-polo-shirt-72570253.shtml",
-            "https://www.vestiairecollective.com/men-clothing/knitwear-sweatshirts/louis-vuitton/black-wool-louis-vuitton-knitwear-sweatshirt-72612965.shtml",
+            "https://www.vestiairecollective.com/men-clothing/knitwear-sweatshirts/louis-vuitton/blue-cashmere-louis-vuitton-knitwear-sweatshirt-72654161.shtml",
             "https://www.vestiairecollective.com/women-clothing/dresses/louis-vuitton/multicolour-cotton-louis-vuitton-dress-72644779.shtml",
         ]
     )

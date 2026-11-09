@@ -29,8 +29,8 @@ async def run():
         leboncoin.scrape_ad(url)
         for url in [
             "https://www.leboncoin.fr/ad/ventes_immobilieres/2919253293",
-            "https://www.leboncoin.fr/ad/ventes_immobilieres/2013383512",
-            "https://www.leboncoin.fr/ad/ventes_immobilieres/3027789970"
+            "https://www.leboncoin.fr/ad/ventes_immobilieres/3283033844",
+            "https://www.leboncoin.fr/ad/ventes_immobilieres/3264503321"
         ]
     ]
     for response in asyncio.as_completed(to_scrape):

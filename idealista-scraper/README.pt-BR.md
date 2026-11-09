@@ -44,7 +44,7 @@ async def main():
     properties = await idealista.scrape_properties(
         urls=[
             "https://www.idealista.com/en/inmueble/109061254/",
-            "https://www.idealista.com/en/inmueble/109300670/",
+            "https://www.idealista.com/en/inmueble/111238559/",
         ],
     )
     search = await idealista.scrape_search(

@@ -36,8 +36,8 @@ import rightmove
 async def main():
     properties = await rightmove.scrape_properties(
         urls=[
-            "https://www.rightmove.co.uk/properties/149360984#/",
-            "https://www.rightmove.co.uk/properties/136408088#/",
+            "https://www.rightmove.co.uk/properties/173769656#/",
+            "https://www.rightmove.co.uk/properties/168083552#/",
         ],
     )
 

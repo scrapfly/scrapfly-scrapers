@@ -36,7 +36,7 @@ import realestate
 async def main():
     properties = await realestate.scrape_properties(
         urls=[
-            "https://www.realestate.com.au/property-house-vic-tarneit-143160680",
+            "https://www.realestate.com.au/property-house-vic-wollert-146204696",
             "https://www.realestate.com.au/property-house-vic-doreen-151765412",
         ],
     )
