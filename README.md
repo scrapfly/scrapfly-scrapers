@@ -1,6 +1,6 @@
 # ScrapFly Scrapers 🕷️
 
-**English** · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [Español](docs/README.es.md) · [Русский](docs/README.ru.md)
+**English** · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [Español](docs/README.es.md) · [Русский](docs/README.ru.md) · [Deutsch](docs/README.de.md) · [Français](docs/README.fr.md) · [Português (Brasil)](docs/README.pt-BR.md) · [한국어](docs/README.ko.md)
 
 This repository contains educational example scrapers for popular web scraping targets using the [ScrapFly](https://scrapfly.io) web scraping API and Python.  
 Most scrapers use a simple web scraping stack:

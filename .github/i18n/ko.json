@@ -1,0 +1,743 @@
+{
+  "headers": [
+    "사이트",
+    "가이드",
+    "샘플 데이터",
+    "상태"
+  ],
+  "phrases": {
+    "title": "{name} 스크레이퍼",
+    "intro_summary": "{summary} 수집용 예제 스크레이퍼로, [Scrapfly](https://scrapfly.io/) 웹 스크레이핑 API를 사용해 Python으로 작성했습니다. [scrapfly-scrapers]({main})의 일부입니다.",
+    "intro_name": "{name} 스크레이핑용 예제 스크레이퍼로, [Scrapfly](https://scrapfly.io/) 웹 스크레이핑 API를 사용해 Python으로 작성했습니다. [scrapfly-scrapers]({main})의 일부입니다.",
+    "guide": "가이드",
+    "code": "코드",
+    "example_run": "실행 예제",
+    "tests": "테스트",
+    "sample_output": "샘플 출력",
+    "what_it_scrapes": "수집하는 데이터",
+    "functions": "함수",
+    "not_async": "(비동기 아님)",
+    "async_note": "이 함수들은 `async`입니다. `asyncio.run(...)`으로 실행하거나 `await`로 호출하세요.",
+    "example": "예제",
+    "example_note": "입력값은 [`run.py`](run.py)의 예제입니다(긴 목록은 줄였습니다).",
+    "output": "출력",
+    "output_samples": "함수는 일반 딕셔너리와 리스트를 반환합니다. 샘플 출력의 필드(첫 번째 항목의 최상위 키)는 다음과 같습니다.",
+    "output_types": "함수는 일반 딕셔너리와 리스트를 반환합니다. 필드는 다음과 같습니다.",
+    "more_keys": "개 더",
+    "optional": "`?` 표시가 붙은 필드는 `null`일 수 있습니다.",
+    "settings": "Scrapfly 설정",
+    "settings_note": "[`{module}.py`]({module}.py)의 `BASE_CONFIG`에는 요청의 기본 설정이 들어 있습니다. [Scrape API 문서](https://scrapfly.io/docs/scrape-api/getting-started)를 참고하세요.",
+    "notes": "참고 사항",
+    "quick_start": "빠른 시작",
+    "requires": "Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.",
+    "comment_key": "https://scrapfly.io/dashboard 에서 확인",
+    "comment_run": "예제 스크레이핑, 출력은 ./results에 저장",
+    "comment_test": "이 스크레이퍼의 테스트",
+    "test_list": "테스트: {tests}. 하나만 실행하려면 `poetry run pytest test.py -k <test>`를 사용하세요. ",
+    "credits": "`run.py`와 테스트는 실제 웹사이트를 스크레이핑하므로 Scrapfly 크레딧을 사용합니다.",
+    "more": "더 보기: [모든 스크레이퍼]({main}) · AI 에이전트용 [llms.txt](../llms.txt)"
+  },
+  "settings": {
+    "unblocker": "Scrapfly의 안티봇 우회 기능인 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)",
+    "asp": "Anti Scraping Protection, [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)의 이전 이름",
+    "country": "프록시 국가",
+    "proxy_pool": "프록시 풀(데이터센터 또는 주거용)",
+    "render_js": "실제 브라우저에서 페이지 렌더링",
+    "rendering_wait": "페이지 렌더링 후 대기 시간(밀리초)",
+    "wait_for_selector": "페이지를 반환하기 전에 이 요소를 기다림",
+    "auto_scroll": "지연 로딩 콘텐츠를 불러오기 위해 페이지를 스크롤",
+    "cache": "Scrapfly 응답 캐시 사용",
+    "debug": "Scrapfly 대시보드에 스크린샷과 전체 로그 보관",
+    "lang": "브라우저 언어",
+    "os": "브라우저의 운영체제",
+    "session": "요청 간에 같은 프록시와 브라우저 세션 유지",
+    "retry": "실패한 요청 재시도",
+    "timeout": "요청 타임아웃(밀리초)"
+  },
+  "scrapers": {
+    "airfrance-scraper": {
+      "summary": "airfrance.fr의 왕복 항공권 오퍼",
+      "scrapes": [
+        "- Air France 왕복 검색 결과",
+        "- 항공권 가격, 항공사, 출발/도착 시간, 경유 횟수, 소요 시간, 경유지, CO2 데이터",
+        "- 항공기 기종, 잔여 좌석, 프로모션 표시"
+      ]
+    },
+    "airbnb-scraper": {
+      "summary": "Airbnb.com의 숙소 목록 데이터",
+      "scrapes": [
+        "- 위치 검색어로 숙소 목록을 찾는 Airbnb 검색",
+        "- Airbnb 숙소 페이지에서 수집하는 항목:",
+        "    - 숙소 정보: 제목, 설명, 객실 유형, 개요, 편의시설, 이미지",
+        "    - 호스트 정보와 위치 좌표",
+        "    - 가격, 평점, 리뷰 수",
+        "    - 게스트 리뷰 데이터"
+      ],
+      "notes": [
+        "Airbnb는 스크레이퍼 차단과 많은 JavaScript 렌더링 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 JavaScript 렌더링과 주거용 프록시와 함께 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능을 사용합니다."
+      ]
+    },
+    "aliexpress-scraper": {
+      "summary": "Aliexpress.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Aliexpress 상품 데이터",
+        "- Aliexpress 상품 리뷰 데이터",
+        "- Aliexpress 상품 검색"
+      ]
+    },
+    "allegro-scraper": {
+      "summary": "Allegro.pl의 상품 데이터",
+      "scrapes": [
+        "- 상품 목록 데이터를 위한 Allegro 상품 페이지",
+        "- Allegro 상품 검색"
+      ]
+    },
+    "amazon-scraper": {
+      "summary": "Amazon.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Amazon 상품 데이터",
+        "- Amazon 상품 리뷰 데이터",
+        "- Amazon 상품 검색"
+      ]
+    },
+    "app-store-scraper": {
+      "summary": "apps.apple.com과 itunes.apple.com(Apple App Store)의 앱 데이터",
+      "scrapes": [
+        "- 앱 메타데이터(iTunes lookup API, apps.apple.com 대체 경로 포함)",
+        "- 앱 리뷰(iTunes 고객 리뷰 RSS 피드)"
+      ]
+    },
+    "autoscout24-scraper": {
+      "summary": "AutoScout24.com의 차량 매물과 차량 상세 정보",
+      "scrapes": [
+        "- 검색 페이지의 AutoScout24 차량 매물",
+        "- 사양, 옵션, 판매자 정보가 담긴 AutoScout24 차량 상세 페이지"
+      ]
+    },
+    "bestbuy-scraper": {
+      "summary": "BestBuy.com의 상품, 리뷰, 사이트맵 데이터",
+      "scrapes": [
+        "- URL을 위한 BestBuy 사이트맵.",
+        "- 상품 데이터를 위한 BestBuy 상품 페이지.",
+        "- 검색 페이지의 상품 데이터를 위한 BestBuy 검색 페이지.",
+        "- 리뷰 데이터를 위한 BestBuy 리뷰 페이지"
+      ]
+    },
+    "bing-scraper": {
+      "summary": "Bing.com의 검색 결과 및 키워드 데이터",
+      "scrapes": [
+        "- 검색 결과 데이터를 위한 Bing 검색 페이지",
+        "- 키워드 데이터를 위한 Bing 검색 페이지"
+      ]
+    },
+    "bookingcom-scraper": {
+      "summary": "booking.com의 호텔 데이터",
+      "scrapes": [
+        "- 검색어로 호텔을 찾는 Booking.com 검색.",
+        "- Booking.com 호텔 상세 정보:",
+        "    - 호텔 정보: 설명, 평점, 시설 등",
+        "    - 가격",
+        "- Booking.com 호텔 리뷰 데이터"
+      ],
+      "notes": [
+        "Booking.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능(이전 이름 Anti Scraping Protection)을 사용합니다."
+      ]
+    },
+    "capterra-scraper": {
+      "summary": "Capterra.com의 상품 목록과 리뷰 데이터",
+      "scrapes": [
+        "- Capterra 카테고리 페이지",
+        "- Capterra 상품 리뷰 페이지"
+      ]
+    },
+    "chatgpt-scraper": {
+      "summary": "ChatGPT.com의 익명 대화 데이터",
+      "scrapes": [
+        "- 마크다운 형식의 ChatGPT 단일 프롬프트 응답"
+      ]
+    },
+    "crunchbase-scraper": {
+      "summary": "Crunchbase.com의 회사 및 공개 인물 데이터셋",
+      "scrapes": [
+        "- 직원과 모든 카드를 포함한 Crunchbase.com 회사 데이터.",
+        "- Crunchbase.com 공개 인물 데이터."
+      ]
+    },
+    "dhl-scraper": {
+      "summary": "dhl.com의 배송 추적 데이터",
+      "scrapes": [
+        "- 운송장 번호로 DHL 배송 추적"
+      ],
+      "notes": [
+        "DHL은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 JavaScript 렌더링과 주거용 프록시와 함께 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능을 사용합니다."
+      ]
+    },
+    "digikey-scraper": {
+      "summary": "DigiKey.com의 상품 및 목록 데이터",
+      "scrapes": [
+        "- 상품 데이터, 가격, 재고, 사양, 규정 준수 정보를 위한 DigiKey 상품 페이지",
+        "- 상품 목록 데이터를 위한 DigiKey 카테고리/필터 페이지",
+        "- 목록 데이터를 위한 DigiKey 키워드 검색 페이지"
+      ]
+    },
+    "domaincom-scraper": {
+      "summary": "Domain.com.au의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Domain.com.au 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Domain.com.au 부동산 페이지"
+      ]
+    },
+    "ebay-scraper": {
+      "summary": "Ebay.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Ebay.com 상품 검색.",
+        "- Ebay.com 상품 데이터.",
+        "- Ebay.com 상품 옵션(variant) 데이터."
+      ]
+    },
+    "emirates-scraper": {
+      "summary": "emirates.com의 항공편 데이터",
+      "scrapes": [
+        "- Emirates.com 항공편 검색 결과(왕복 및 편도)",
+        "- 항공편별 브랜드 운임 옵션(SAVER, FLEX 등)",
+        "- 항공권 가격, 항공사, 출발/도착 시간, 경유 횟수, 소요 시간, 경유지, 좌석 등급, 잔여 좌석",
+        "- 검색 전체 최저 운임"
+      ],
+      "notes": [
+        "Emirates.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능과 브라우저 렌더링을 사용해 branded-fares API 응답을 가져옵니다."
+      ]
+    },
+    "etsy-scraper": {
+      "summary": "Etsy.com의 상품 목록 데이터",
+      "scrapes": [
+        "- 목록 데이터를 위한 Etsy 검색 페이지",
+        "- 상품 데이터를 위한 Etsy 상품 페이지",
+        "- 상점 데이터를 위한 Etsy 상점 페이지"
+      ]
+    },
+    "expedia-scraper": {
+      "summary": "expedia.com의 호텔 및 항공편 데이터",
+      "scrapes": [
+        "- Expedia.com 호텔 검색 결과",
+        "- 호텔 이름, URL, 가격, 성급, 리뷰 점수/수, 위치",
+        "- Expedia.com 항공편 검색 결과(편도 및 왕복)"
+      ],
+      "notes": [
+        "Expedia.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능과 브라우저 렌더링을 사용해 Expedia 내부 GraphQL API 응답을 가져옵니다."
+      ]
+    },
+    "facebook-scraper": {
+      "summary": "Facebook.com의 데이터",
+      "scrapes": [
+        "- 상품 정보, 가격, 판매자 정보, 위치가 담긴 Facebook Marketplace 매물",
+        "- 이벤트 정보, 날짜, 장소, 주최자가 담긴 Facebook 이벤트"
+      ],
+      "notes": [
+        "참고: 이 스크레이퍼는 로그인 없이 접근할 수 있는 공개 Facebook 데이터만 수집합니다."
+      ]
+    },
+    "fashionphile-scraper": {
+      "summary": "Fashionphile.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Fashionphile 상품 페이지",
+        "- Fashionphile 검색 페이지"
+      ]
+    },
+    "g2-scraper": {
+      "summary": "G2.com의 회사 목록, 리뷰, 대안 데이터",
+      "scrapes": [
+        "- 회사 목록 데이터를 위한 G2 검색 페이지",
+        "- 회사 리뷰 데이터를 위한 G2 리뷰 페이지",
+        "- 회사 대안 데이터를 위한 G2 대안(alternatives) 페이지"
+      ]
+    },
+    "glassdoor-scraper": {
+      "summary": "Glassdoor.com의 채용 공고 데이터",
+      "scrapes": [
+        "- Glassdoor 회사 연봉 데이터",
+        "- Glassdoor 회사 리뷰 데이터",
+        "- Glassdoor 회사 채용 공고 데이터"
+      ]
+    },
+    "goat-scraper": {
+      "summary": "Goat.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Goat 상품 페이지",
+        "- Goat 검색 페이지"
+      ]
+    },
+    "goibibo-scraper": {
+      "summary": "goibibo.com의 호텔 및 항공편 검색 데이터",
+      "scrapes": [
+        "- 페이지네이션을 포함한 Goibibo 호텔 검색 결과",
+        "- 호텔 이름, 가격, 평점, 편의시설, 위치, 이미지",
+        "- Goibibo 항공편 검색 결과(편도 및 왕복)",
+        "- 편명, 항공사, 운임, 소요 시간, 경유 횟수, 구간 상세 정보"
+      ],
+      "notes": [
+        "Goibibo.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능, 브라우저 렌더링, 세션 기반 요청을 사용해 Goibibo 내부의 목록 API와 항공편 search-stream API를 가져오고 페이지를 넘깁니다."
+      ]
+    },
+    "goodreads-scraper": {
+      "summary": "Goodreads.com의 도서 데이터, 평점, 리뷰",
+      "scrapes": [
+        "- JSON-LD `Book` 블록과 페이지 마크업에서 가져오는 Goodreads 도서 페이지",
+        "- 도서 페이지에 포함된 리뷰 샘플을 `__NEXT_DATA__` Apollo 레코드에서 가져오는 Goodreads 도서 리뷰",
+        "- 공개 목록을 도서 요약 정보와 도서 URL로 바꾸는 Goodreads 목록 페이지",
+        "- 페이지의 Next.js flight 데이터에 있는 `Book` 레코드에서 가져오는 Goodreads 도서 검색 결과"
+      ]
+    },
+    "google-flights-scraper": {
+      "summary": "Google Flights의 항공편 데이터",
+      "scrapes": [
+        "- Google Flights 검색 결과(왕복 및 편도)",
+        "- 가격 인사이트: 최적 예약 시기, 일반적인 가격 범위, 현재 가격 수준, 일반 가격 대비 절약액, 출발/귀국 날짜별 가격 캘린더 표"
+      ]
+    },
+    "google-jobs-scraper": {
+      "summary": "Google Jobs(Google 검색의 `udm=8` 탭)의 채용 공고 데이터",
+      "scrapes": [
+        "- 검색어와 위치에 대한 Google Jobs 검색 결과",
+        "- 직무명, 회사, 위치, 게시일, 근무 형태, 급여 범위",
+        "- 직무 설명, 자격 요건, 출처 채용 사이트, 지원 URL, 공고 ID"
+      ]
+    },
+    "google-play-scraper": {
+      "summary": "play.google.com(Google Play 스토어)의 앱 데이터",
+      "scrapes": [
+        "- 앱 데이터를 위한 Google Play 앱 상세 페이지",
+        "- Google Play 앱 리뷰",
+        "- 앱 목록 데이터를 위한 Google Play 검색 페이지"
+      ]
+    },
+    "google-scraper": {
+      "summary": "Google.com의 검색 결과, 키워드, Google Maps 장소 데이터",
+      "scrapes": [
+        "- SERP 및 순위 데이터를 위한 Google 검색 페이지",
+        "- SEO 키워드 데이터를 위한 Google 검색 페이지",
+        "- 장소 URL을 위한 Google Maps",
+        "- 장소 데이터를 위한 Google Maps 장소 페이지"
+      ]
+    },
+    "homegate-scraper": {
+      "summary": "Homegate.ch의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Homegate 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Homegate 부동산 페이지"
+      ]
+    },
+    "idealista-scraper": {
+      "summary": "idealista.com의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Idealista 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Idealista 부동산 페이지",
+        "- 부동산 URL을 위한 Idealista 주(province) 페이지"
+      ]
+    },
+    "idealo-scraper": {
+      "summary": "Idealo.de의 상품 데이터",
+      "scrapes": [
+        "- 상품 및 오퍼 데이터를 위한 Idealo 상품 페이지",
+        "- 목록 데이터를 위한 Idealo 검색 페이지",
+        "- 브랜드 목록을 위한 Idealo 제조사 페이지"
+      ]
+    },
+    "imdb-scraper": {
+      "summary": "IMDb.com의 데이터",
+      "scrapes": [
+        "- 영화/TV 메타데이터를 위한 IMDb 작품 페이지",
+        "- 사용자 리뷰를 위한 IMDb 리뷰 페이지",
+        "- 작품 검색 결과를 위한 IMDb 검색 페이지",
+        "- IMDb 차트 페이지(예: Top 250)",
+        "- 약력과 필모그래피를 위한 IMDb 인물 페이지"
+      ]
+    },
+    "immobilienscout24-scraper": {
+      "summary": "Immobilienscout24.de의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Immobilienscout24 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Immobilienscout24 부동산 페이지"
+      ]
+    },
+    "immoscout24-scraper": {
+      "summary": "Immoscout24.ch의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Immoscout24 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Immoscout24 부동산 페이지"
+      ]
+    },
+    "immowelt-scraper": {
+      "summary": "Immowelt.de의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물 데이터를 위한 Immowelt 부동산 페이지",
+        "- 부동산 매물을 찾는 Immowelt 부동산 검색"
+      ],
+      "notes": [
+        "부동산 검색 스크레이퍼에서는 검색 위치를 나타내는 `location_ids`를 API 요청 본문에 추가해야 합니다. 이 id는 다음 단계로 얻을 수 있습니다.  \n1. immowelt.de에서 특정 위치의 부동산을 검색합니다  \n2. 개발자 도구를 열고 `Network` 탭을 선택한 뒤 `Fetch/XHR` 요청으로 필터링합니다  \n3. 다음 검색 페이지 버튼을 눌러 데이터를 더 불러옵니다  \n4. 검색 API로 보낸 요청이 보이며, 이름은 `searches`입니다  \n5. 요청의 `Payload`에서 `location_ids`를 가져옵니다:",
+        "<img src=\"https://github.com/scrapfly/scrapfly-scrapers/assets/73492002/e6a80576-c6ed-4e47-9e46-6677522a5809\" align=\"center\" height=\"400\" width=\"600\">  \n<br/><br/>"
+      ]
+    },
+    "imovelweb-scraper": {
+      "summary": "ImovelWeb.com.br의 부동산 매물 데이터",
+      "scrapes": [
+        "- ImovelWeb 부동산 검색 결과",
+        "- ImovelWeb 개별 부동산 페이지"
+      ]
+    },
+    "indeed-scraper": {
+      "summary": "Indeed.com의 채용 공고 데이터",
+      "scrapes": [
+        "- 채용 공고를 찾는 Indeed 채용 검색",
+        "- 채용 공고 데이터셋을 위한 Indeed 채용 페이지"
+      ]
+    },
+    "instagram-scraper": {
+      "summary": "Instagram.com의 사용자 및 사용자 게시물 데이터셋",
+      "scrapes": [
+        "- Instagram.com 사용자 정보",
+        "- Instagram.com 사용자 게시물"
+      ],
+      "notes": [
+        "참고: 이 스크레이퍼는 로그인 없이 접근할 수 있는 공개 Instagram 데이터만 수집합니다."
+      ]
+    },
+    "kayak-scraper": {
+      "summary": "kayak.com의 항공편 데이터",
+      "scrapes": [
+        "- Kayak 항공편 검색 결과(왕복 및 편도)",
+        "- 항공권 가격, 항공사 코드, 출발/도착 시간, 예약 옵션",
+        "- 검색 메타데이터(검색 ID, 필터링된/전체 건수, 수집한 페이지)"
+      ],
+      "notes": [
+        "Kayak.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능, 브라우저 렌더링, 세션 기반 요청을 사용해 Kayak 내부 항공편 poll API를 가져오고 페이지를 넘깁니다."
+      ]
+    },
+    "leboncoin-scraper": {
+      "summary": "leboncoin.fr의 생활 광고 데이터",
+      "scrapes": [
+        "- 광고 목록을 찾는 Leboncoin 검색",
+        "- 광고 데이터를 위한 Leboncoin 광고 페이지"
+      ]
+    },
+    "linkedin-scraper": {
+      "summary": "linkedin.com의 데이터",
+      "scrapes": [
+        "- 프로필 데이터를 위한 Linkedin 공개 프로필 페이지",
+        "- 회사 데이터를 위한 Linkedin 회사 페이지",
+        "- 채용 데이터를 위한 Linkedin 채용 검색 페이지",
+        "- 상세 채용 데이터를 위한 Linkedin 채용 페이지",
+        "- 아티클 데이터를 위한 Linkedin 아티클 페이지"
+      ]
+    },
+    "loopnet-scraper": {
+      "summary": "LoopNet.com의 상업용 부동산 매물 데이터",
+      "scrapes": [
+        "- 상업용 부동산 매물을 찾는 LoopNet 검색 페이지",
+        "- 부동산 상세 정보, 중개인 정보, 이미지를 위한 LoopNet 매물 페이지"
+      ]
+    },
+    "lowes-scraper": {
+      "summary": "Lowes.com의 데이터",
+      "scrapes": [
+        "- Lowes 상품 페이지",
+        "- Lowes 검색 페이지",
+        "- Lowes 매장 위치"
+      ]
+    },
+    "maersk-scraper": {
+      "summary": "maersk.com의 컨테이너 추적 및 운항 일정 데이터",
+      "scrapes": [
+        "- Maersk.com 컨테이너, BL, 부킹 추적",
+        "- 선박, 항차, 운송 기간, 기항지를 포함한 구간별(point-to-point) 운항 일정"
+      ],
+      "notes": [
+        "Maersk.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능과 브라우저 렌더링을 사용해 추적 및 경로(routings) API 응답을 가져옵니다."
+      ]
+    },
+    "marriott-scraper": {
+      "summary": "Marriott.com의 호텔 데이터",
+      "scrapes": [
+        "- 목적지와 날짜로 호텔을 찾는 Marriott 호텔 검색:",
+        "    - 호텔 이름, 브랜드, 위치, 거리, 평점과 리뷰 수, 썸네일, 최저 가격",
+        "- Marriott 호텔 상세 정보:",
+        "    - 주소, 전화번호, 설명, 체크인 및 체크아웃 시간, 반려동물 및 흡연 정책"
+      ],
+      "notes": [
+        "Marriott.com은 스크레이퍼 차단과 많은 JavaScript 렌더링 때문에 스크레이핑이 어려울 수 있어, 이 스크레이퍼는 JavaScript 렌더링과 주거용 프록시와 함께 Scrapfly의 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) 기능을 사용합니다."
+      ]
+    },
+    "mouser-scraper": {
+      "summary": "Mouser.com의 상품 데이터",
+      "scrapes": [
+        "- Mouser 상품 페이지",
+        "- Mouser 상품 검색"
+      ]
+    },
+    "naver-scraper": {
+      "summary": "Naver.com의 검색 결과, 뉴스 기사, 블로그 콘텐츠",
+      "scrapes": [
+        "- Naver 웹 검색 결과",
+        "- Naver 이미지 검색 결과"
+      ]
+    },
+    "nordstorm-scraper": {
+      "summary": "Nordstorm.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Nordstorm 상품 페이지",
+        "- Nordstorm 검색 페이지"
+      ]
+    },
+    "perplexity-scraper": {
+      "summary": "perplexity.ai의 데이터",
+      "scrapes": [
+        "- 답변 페이지: 질문, 마크다운 답변, 인용 도메인, 출처 수, 후속 질문 제안"
+      ]
+    },
+    "pinterest-scraper": {
+      "summary": "Pinterest.com의 데이터",
+      "scrapes": [
+        "- 제목, 설명, 이미지, 동영상, 연결 링크, 보드 이름, 소유자 사용자 이름을 포함한 핀 데이터를 위한 Pinterest.com 검색 결과",
+        "- 보드 메타데이터와 그 핀을 위한 Pinterest.com 보드(`/<user>/<board>/`)",
+        "- 프로필 메타데이터와 사용자의 핀을 위한 Pinterest.com 프로필(`/<user>/`)",
+        "- 전체 핀 데이터를 위한 Pinterest.com 핀 상세 페이지(`/pin/<id>/`)",
+        "- 핀 이미지 일괄 다운로드"
+      ],
+      "notes": [
+        "### 동작 방식\n\nPinterest의 보드 및 프로필 페이지는 어떤 내부\n`/resource/<Name>/get/` 피드가 페이지를 구성하는지 설명하는 리소스 캐시를\n서버에서 렌더링합니다(페이지의 `__PWS_INITIAL_PROPS__` script 태그에 포함).\n첫 페이지를 포함한 모든 핀 페이지는 이 API에서 가져오며, 같은 브라우저 세션에서\n얻은 `csrftoken` 쿠키와 `x-app-version` 헤더로 인증합니다. 모두 공개 데이터이므로\n로그인은 필요 없습니다.\n\n이 피드는 기본적으로 *제한(gated)* 상태입니다. Pinterest 자체 프런트엔드가 보내는 요청\n(그리고 페이지에 캐시된 사본)은 제목, 설명, 보드, 소유자가 없는 이미지 전용 핀 요약만\n반환합니다. 그래서 각 호출은 리소스 옵션에 `\"gated\": false`를 강제로 넣어 전체 핀 객체를\n받아 오며, 그래도 페이지가 요약만 반환하면 빈 핀을 조용히 내보내는 대신 오류를 발생시킵니다.\n\n핀 상세 페이지는 클라이언트 측에서 렌더링되고 리소스 캐시가 전혀 없으므로,\n`scrape_pin`은 같은 세션으로 `PinResource` API에서 핀을 읽습니다.\n삭제되었거나 비공개인 핀은 404를 반환하지 않고 조용히 `/ideas/`로 리디렉션되며,\n`scrape_pin`이 이를 감지해 알려 줍니다."
+      ]
+    },
+    "realestatecom-scraper": {
+      "summary": "Realestate.com.au의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Realestate.com.au 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Realestate.com.au 부동산 페이지"
+      ]
+    },
+    "realtorcom-scraper": {
+      "summary": "Realtor.com의 부동산 매물 데이터",
+      "scrapes": [
+        "- Realtor.com 부동산 매물 데이터",
+        "- Realtor.com 검색 결과",
+        "- Realtor.com 부동산 변동 피드(RSS)"
+      ]
+    },
+    "reddit-scraper": {
+      "summary": "reddit.com의 데이터",
+      "scrapes": [
+        "- 서브레딧 및 게시물 데이터를 위한 Reddit 서브레딧 페이지.",
+        "- 게시물 및 댓글 데이터를 위한 Reddit 게시물 페이지.",
+        "- 게시물 데이터를 위한 Reddit 사용자 프로필 페이지.",
+        "- 댓글 데이터를 위한 Reddit 사용자 프로필 페이지."
+      ]
+    },
+    "redfin-scraper": {
+      "summary": "Redfin.com의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Redfin 부동산 검색",
+        "- 임대/매매 매물 데이터를 위한 Redfin 부동산 페이지"
+      ]
+    },
+    "rightmove-scraper": {
+      "summary": "Rightmove.com의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Rightmove 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Rightmove 부동산 페이지"
+      ]
+    },
+    "rs-online-scraper": {
+      "summary": "Rs-online.com의 상품 및 목록 데이터",
+      "scrapes": [
+        "- 상품 데이터, 가격, 재고, 사양, 규정 준수 정보를 위한 RS Online 상품 페이지",
+        "- 상품 목록 데이터를 위한 RS Online 카테고리 페이지",
+        "- 상품 목록 데이터를 위한 RS Online 키워드 검색 페이지"
+      ]
+    },
+    "seloger-scraper": {
+      "summary": "seloger.com의 부동산 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Seloger 검색",
+        "- 부동산 데이터를 위한 Seloger 부동산 페이지"
+      ]
+    },
+    "shopify-scraper": {
+      "summary": "Shopify 스토어프런트의 상품 데이터",
+      "scrapes": [
+        "- 스토어의 `/products.json` 응답을 분류하는 Shopify 스토어프런트 사전 점검(preflight)",
+        "- 상품, 가격, 중첩된 옵션(variant)을 포함한 `/products.json`의 Shopify 카탈로그 페이지",
+        "- `/collections/<handle>/products.json`의 Shopify 컬렉션 상품",
+        "- JSON-LD `Product` 및 `ProductGroup` 데이터를 통한 Shopify 상품 페이지",
+        "- 스토어 사이트맵 인덱스의 Shopify 상품 URL"
+      ],
+      "notes": [
+        "모든 경로는 스토어마다 다르므로, 스토어가 카탈로그 JSON을 제공한다고 가정하기 전에 사전 점검(preflight)을 실행하세요."
+      ]
+    },
+    "similarweb-scraper": {
+      "summary": "Similarweb.com의 웹사이트 트래픽 데이터",
+      "scrapes": [
+        "- 웹사이트 트래픽 인사이트를 위한 Similarweb.com 웹사이트 페이지",
+        "- 비교 인사이트를 위한 Similarweb.com 웹사이트 비교 페이지",
+        "- 인기 웹사이트 데이터를 위한 Similarweb.com 웹사이트 트렌드 페이지",
+        "- URL을 위한 Similarweb.com 사이트맵"
+      ]
+    },
+    "skyscanner-scraper": {
+      "summary": "Skyscanner의 항공편 데이터",
+      "scrapes": [
+        "- Skyscanner 항공편 검색 결과(편도 및 왕복)",
+        "- 항공사, 출발/도착 시간, 소요 시간, 경유 횟수, 가격, 판매처 딜 수"
+      ]
+    },
+    "stockx-scraper": {
+      "summary": "StockX.com의 상품 목록 데이터",
+      "scrapes": [
+        "- StockX 상품 데이터",
+        "- StockX 상품 검색"
+      ]
+    },
+    "target-scraper": {
+      "summary": "Target.com의 상품 및 매장 데이터",
+      "scrapes": [
+        "- 상품 데이터, 옵션, 가격, 재고 상태를 위한 Target 상품 페이지",
+        "- 상품 목록 데이터를 위한 Target 검색 페이지",
+        "- 매장 및 우편번호별 상품 재고와 수령/배송 가능 여부를 위한 Target RedSky API",
+        "- 매장 위치 URL을 위한 Target 매장 사이트맵",
+        "- 매장 ID별 매장 위치 상세 정보를 위한 Target RedSky API"
+      ]
+    },
+    "threads-scraper": {
+      "summary": "Threads.net 게시물 및 프로필 데이터",
+      "scrapes": [
+        "- Threads.net 스레드(게시물) 데이터",
+        "- Threads.net 프로필 데이터"
+      ],
+      "notes": [
+        "참고: 이 스크레이퍼는 로그인 없이 접근할 수 있는 공개 Threads 데이터만 수집합니다."
+      ]
+    },
+    "ticketmaster-scraper": {
+      "summary": "Ticketmaster.com의 아티스트 및 이벤트 데이터",
+      "scrapes": [
+        "- 아티스트 데이터, 평점, 리뷰, 이벤트를 위한 Ticketmaster 아티스트 페이지",
+        "- 필터를 적용한 이벤트 목록을 위한 Ticketmaster discovery/검색 페이지"
+      ]
+    },
+    "tiktok-scraper": {
+      "summary": "tiktok.com의 데이터",
+      "scrapes": [
+        "- 게시물/동영상 데이터를 위한 TikTok 게시물 페이지.",
+        "- 특정 게시물/동영상의 댓글 데이터를 위한 TikTok 댓글.",
+        "- 프로필 데이터를 위한 TikTok 프로필 페이지.",
+        "- 동영상 데이터를 위한 TikTok 채널 페이지.",
+        "- 검색 결과의 동영상 데이터를 위한 TikTok 검색 페이지. 프로필도 수집할 수 있습니다."
+      ]
+    },
+    "tripadvisor-scraper": {
+      "summary": "tripadvisor.com의 데이터",
+      "scrapes": [
+        "- 검색어로 호텔을 찾는 TripAdvisor 검색.",
+        "  예: <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "- TripAdvisor 호텔 상세 정보:",
+        "  예: <https://www.tripadvisor.com/Hotels-g190311-Malta-Hotels.html>",
+        "    - 호텔 정보: 설명, 평점, 시설 등",
+        "    - 가격",
+        "    - 리뷰"
+      ]
+    },
+    "trustpilot-scraper": {
+      "summary": "Trustpilot.com의 회사 및 리뷰 데이터",
+      "scrapes": [
+        "- 회사 데이터를 위한 Trustpilot 회사 페이지",
+        "- 회사 목록 데이터를 위한 Trustpilot 검색 페이지",
+        "- 회사 리뷰를 위한 Trustpilot 리뷰 페이지"
+      ]
+    },
+    "twitter-scraper": {
+      "summary": "공개 X.com(구 Twitter) 게시물 및 사용자 데이터",
+      "scrapes": [
+        "- X.com 게시물 데이터",
+        "- X.com 사용자 프로필 데이터"
+      ],
+      "notes": [
+        "X.com 웹사이트에서 로그인 없이 수집할 수 없는 항목:",
+        "- 게시물 답글\n- 게시물 검색",
+        "참고: 이 스크레이퍼는 로그인 없이 접근할 수 있는 공개 Twitter 데이터만 수집합니다."
+      ]
+    },
+    "vestiairecollective-scraper": {
+      "summary": "Vestiairecollective.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Vestiairecollective 상품 페이지",
+        "- Vestiairecollective 검색 페이지"
+      ]
+    },
+    "walmart-scraper": {
+      "summary": "Walmart.com의 상품 목록 데이터",
+      "scrapes": [
+        "- Walmart 상품 페이지",
+        "- Walmart 검색 페이지"
+      ]
+    },
+    "wellfound-scraper": {
+      "summary": "Wellfound.com의 회사 및 채용 공고 데이터",
+      "scrapes": [
+        "- Wellfound 회사 페이지",
+        "- Wellfound 검색 페이지"
+      ]
+    },
+    "yellowpages-scraper": {
+      "summary": "Yellowpages.com의 업체 목록 데이터",
+      "scrapes": [
+        "- Yellowpages 업체 페이지",
+        "- Yellowpages 검색 페이지"
+      ]
+    },
+    "yelp-scraper": {
+      "summary": "Yelp.com의 업체 목록 및 리뷰 데이터",
+      "scrapes": [
+        "- Yelp 업체 페이지",
+        "- Yelp 검색 페이지",
+        "- Yelp 리뷰 페이지"
+      ]
+    },
+    "youtube-scraper": {
+      "summary": "공개 YouTube.com 동영상, 채널, 댓글, 검색, 쇼츠",
+      "scrapes": [
+        "- YouTube 동영상 메타데이터",
+        "- YouTube 동영상 댓글",
+        "- YouTube 채널 메타데이터",
+        "- YouTube 채널 동영상",
+        "- YouTube 검색",
+        "- YouTube 쇼츠 메타데이터"
+      ]
+    },
+    "zillow-scraper": {
+      "summary": "Zillow.com의 부동산 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Zillow 검색",
+        "- 부동산 데이터셋을 위한 Zillow 부동산 페이지"
+      ]
+    },
+    "zoominfo-scraper": {
+      "summary": "Zoominfo.com의 회사 데이터",
+      "scrapes": [
+        "- Zoominfo 회사 페이지",
+        "- Zoominfo 디렉터리 페이지"
+      ]
+    },
+    "zoopla-scraper": {
+      "summary": "Zoopla.com의 부동산 매물 데이터",
+      "scrapes": [
+        "- 부동산 매물을 찾는 Zoopla 부동산 검색",
+        "- 부동산 매물 데이터를 위한 Zoopla 부동산 페이지"
+      ]
+    },
+    "zoro-scraper": {
+      "summary": "Zoro.com의 상품 및 검색 목록 데이터",
+      "scrapes": [
+        "- 상세 상품 데이터, 사양, 이미지, 평점, 리뷰를 위한 Zoro.com 상품 페이지",
+        "- 메타데이터를 포함한 상품 목록을 위한 Zoro.com 검색 목록 페이지"
+      ]
+    }
+  }
+}

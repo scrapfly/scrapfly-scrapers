@@ -125,7 +125,7 @@
       "reviews.json": "Review pages",
       "search.json": "Search pages"
     },
-    "summary": "property listing data from BestBuy.com",
+    "summary": "product, review and sitemap data from BestBuy.com",
     "scrapes": [
       "- BestBuy sitemaps for URLs.",
       "- BestBuy product pages for product data.",
@@ -145,7 +145,7 @@
       "serps.json": "SERP data",
       "keywords.json": "Keyword data"
     },
-    "summary": "product listing data from Bing.com",
+    "summary": "search result and keyword data from Bing.com",
     "scrapes": [
       "- Bing search pages for search results data",
       "- Bing search pages for keyword data"
@@ -388,7 +388,7 @@
       "search.json": "Search pages",
       "alternatives.json": "Alternatives pages"
     },
-    "summary": "product listing data from G2.com",
+    "summary": "company listing, review and alternatives data from G2.com",
     "scrapes": [
       "- G2 search pages for company listing data",
       "- G2 review pages for company reviews data",
@@ -536,12 +536,12 @@
       "google_map_places_urls.json": "Google Maps place URLs",
       "google_map_places.json": "Google Maps place data"
     },
-    "summary": "product listing data from Google.com",
+    "summary": "search result, keyword and Google Maps place data from Google.com",
     "scrapes": [
       "- Google search pages for serp and rankings data",
       "- Google search pages for SEO keyword data",
       "- Google Maps for places' URLs",
-      "- Google Maps palce pages for places' data"
+      "- Google Maps place pages for places' data"
     ]
   },
   "homegate-scraper": {
@@ -559,7 +559,7 @@
     "summary": "property listing data from Homegate.ch",
     "scrapes": [
       "- Homegate property search for finding property listings",
-      "- Homagete property pages for property listing data"
+      "- Homegate property pages for property listing data"
     ]
   },
   "idealista-scraper": {
@@ -757,7 +757,7 @@
       "ads.json": "Ad pages",
       "search.json": "Search pages"
     },
-    "summary": "property data from leboncoin.fr",
+    "summary": "classified ad data from leboncoin.fr",
     "scrapes": [
       "- Leboncoin search for finding ad listings",
       "- Leboncoin ad pages for ads data"
@@ -877,7 +877,7 @@
     "summary": "search results, news articles, and blog content from Naver.com",
     "scrapes": [
       "- Naver web search results",
-      "- Naver image search reesults"
+      "- Naver image search results"
     ]
   },
   "nordstorm-scraper": {
@@ -985,7 +985,7 @@
     },
     "summary": "data from reddit.com",
     "scrapes": [
-      "- Reddit subreddit pages for subbreddit and post data.",
+      "- Reddit subreddit pages for subreddit and post data.",
       "- Reddit post pages for post and comment data.",
       "- Reddit user profile pages for post data.",
       "- Reddit user profile pages for comment data."
@@ -1058,7 +1058,7 @@
     "summary": "real estate data from seloger.com",
     "scrapes": [
       "- Seloger search for finding property listings",
-      "- Seloger propery pages for property data"
+      "- Seloger property pages for property data"
     ]
   },
   "shopify-scraper": {
@@ -1102,9 +1102,9 @@
       "trends.json": "Trend pages",
       "sitemap_urls.json": "Sitemaps"
     },
-    "summary": "property listing data from Similarweb.com",
+    "summary": "website traffic data from Similarweb.com",
     "scrapes": [
-      "- Similarweb.com website pages for website traffic inisghts",
+      "- Similarweb.com website pages for website traffic insights",
       "- Similarweb.com website comparing pages for comparing insights",
       "- Similarweb.com website trend pages for trending websites data",
       "- Similarweb.com sitemaps for urls"
@@ -1255,7 +1255,7 @@
       "reviews.json": "Reviews pages",
       "search.json": "Search pages"
     },
-    "summary": "product listing data from Trustpilot.com",
+    "summary": "company and review data from Trustpilot.com",
     "scrapes": [
       "- Trustpilot company pages for company data",
       "- Trustpilot search pages for company listing data",
@@ -1333,7 +1333,7 @@
       "companies.json": "Company pages",
       "search.json": "Search pages"
     },
-    "summary": "product listing data from Wellfound.com",
+    "summary": "company and job listing data from Wellfound.com",
     "scrapes": [
       "- Wellfound company pages",
       "- Wellfound search pages"
@@ -1351,7 +1351,7 @@
       "business_pages.json": "Business pages",
       "search.json": "Search pages"
     },
-    "summary": "product listing data from Yellowpages.com",
+    "summary": "business listing data from Yellowpages.com",
     "scrapes": [
       "- Yellowpages business pages",
       "- Yellowpages search pages"
@@ -1370,7 +1370,7 @@
       "reviews.json": "Review pages",
       "search.json": "Search pages"
     },
-    "summary": "product listing data from Yelp.com",
+    "summary": "business listing and review data from Yelp.com",
     "scrapes": [
       "- Yelp business pages",
       "- Yelp search pages",
@@ -1433,7 +1433,7 @@
       "directory.json": "Directory pages",
       "faqs.json": "FAQs data"
     },
-    "summary": "product listing data from Zoominfo.com",
+    "summary": "company data from Zoominfo.com",
     "scrapes": [
       "- Zoominfo company pages",
       "- Zoominfo directory pages"

@@ -1,6 +1,7 @@
 """
 Generate the scraper table of README.md (and of its translations in docs/README.<language>.md), llms.txt and the
-README.md of every scraper folder from the scraper folders, so none of them is edited by hand.
+README.md of every scraper folder with its translations (README.<language>.md) from the scraper folders, so none of
+them is edited by hand.
 
     python .github/scripts/docs.py                        # rewrite the README tables and llms.txt
     python .github/scripts/docs.py --check                # exit 1 when one of them is out of date
@@ -11,6 +12,9 @@ Where each part comes from:
   README rows keep the order they have (new folders go last) unless --status is given the status.json that
   .github/scripts/ci_status.py writes to the ci-status branch: then they are ordered by the last nightly run,
   passing scrapers first, then partly passing, failing and not run ones (the nightly's status job does this);
+- .github/i18n/<language>.json: the README translations (table headers; the fixed text, setting meanings and the
+  `summary`/`scrapes`/`notes` of every scraper for the <scraper>/README.<language>.md files, where an untranslated
+  text falls back to English);
 - .github/scrapers.json (one entry per folder): website name, `summary` ("rental listing data from Airbnb.com"),
   `scrapes` (the "What it scrapes" list, markdown lines), `notes` (extra markdown paragraphs), scrape guides (link and
   title), sample dataset labels;
@@ -40,11 +44,18 @@ REPO = "scrapfly/scrapfly-scrapers"
 EXTRA = ROOT / ".github" / "scrapers.json"
 GUIDE_LINK = re.compile(r"https://scrapfly\.io/blog/[^\s)\"'>]+")
 # translated READMEs: the same table, links one folder up, column headers in that language
-TRANSLATIONS = {
-    "zh-CN": ("网站", "指南", "示例数据", "状态"),
-    "ja": ("サイト", "ガイド", "サンプルデータ", "ステータス"),
-    "es": ("Dominio", "Guía", "Datos de ejemplo", "Estado"),
-    "ru": ("Сайт", "Руководство", "Примеры данных", "Статус"),
+I18N = ROOT / ".github" / "i18n"  # one <language>.json per translation of the READMEs
+# the README languages in the order of the language line at the top of every README (English first)
+LANGUAGES = {
+    "en": "English",
+    "zh-CN": "简体中文",
+    "ja": "日本語",
+    "es": "Español",
+    "ru": "Русский",
+    "de": "Deutsch",
+    "fr": "Français",
+    "pt-BR": "Português (Brasil)",
+    "ko": "한국어",
 }
 HEADERS = ("Domain", "Guide", "Sample Datasets", "Status")
 TABLE_NOTE = (
@@ -453,6 +464,47 @@ def readme_table(items: list, badge_repo: str, prefix: str = "./", headers: tupl
     return f"{TABLE_NOTE}\n<table>\n\n{header}\n" + "\n".join(rows) + "\n</table>"
 
 
+# the fixed text of the scraper READMEs; .github/i18n/<language>.json has the same keys in that language
+PHRASES = {
+    "title": "{name} Scraper",
+    "intro_summary": "Example scraper that collects {summary}, written in Python with the "
+    "[Scrapfly](https://scrapfly.io/) "
+    "web scraping API. Part of [scrapfly-scrapers]({main}).",
+    "intro_name": "Example scraper that scrapes {name}, written in Python with the "
+    "[Scrapfly](https://scrapfly.io/) web "
+    "scraping API. Part of [scrapfly-scrapers]({main}).",
+    "guide": "Guide",
+    "code": "Code",
+    "example_run": "Example run",
+    "tests": "Tests",
+    "sample_output": "Sample output",
+    "what_it_scrapes": "What it scrapes",
+    "functions": "Functions",
+    "not_async": "(not async)",
+    "async_note": "The functions are `async`: run them with `asyncio.run(...)` or `await` them.",
+    "example": "Example",
+    "example_note": "The inputs are the examples of [`run.py`](run.py) (long lists cut short):",
+    "output": "Output",
+    "output_samples": "The functions return plain dictionaries and lists. Fields of the sample output "
+    "(top-level keys of the first item):",
+    "output_types": "The functions return plain dictionaries and lists. Fields:",
+    "more_keys": "more",
+    "optional": "A field marked `?` can be `null`.",
+    "settings": "Scrapfly settings",
+    "settings_note": "`BASE_CONFIG` in [`{module}.py`]({module}.py) holds the default settings of the requests, "
+    "see the "
+    "[Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):",
+    "notes": "Notes",
+    "quick_start": "Quick start",
+    "requires": "Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).",
+    "comment_key": "from https://scrapfly.io/dashboard",
+    "comment_run": "example scrape, saves its output in ./results",
+    "comment_test": "the tests of this scraper",
+    "test_list": "Tests: {tests}; run one with `poetry run pytest test.py -k <test>`. ",
+    "credits": "`run.py` and the tests scrape the live website, so they use Scrapfly credits.",
+    "more": "More: [all scrapers]({main}) · [llms.txt](../llms.txt) for AI agents",
+}
+
 # what the settings of BASE_CONFIG mean, for the scraper READMEs
 SETTINGS = {
     "unblocker": "Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker), its anti-bot bypass",
@@ -474,30 +526,55 @@ SETTINGS = {
 }
 
 
-def scraper_readme(s: dict, badge_repo: str) -> str:
-    """the README.md of one scraper folder"""
+def load_translation(language: str) -> dict:
+    """the README translation of a language: table headers, phrases, setting meanings and per-scraper texts"""
+    path = I18N / f"{language}.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def language_line(language: str, link) -> str:
+    """the line of languages under a README title, the current one in bold"""
+    return " · ".join(
+        f"**{name}**" if code == language else f"[{name}]({link(code)})" for code, name in LANGUAGES.items()
+    )
+
+
+def scraper_readme(s: dict, badge_repo: str, language: str = "en", translation: dict = None) -> str:
+    """the README.md of one scraper folder, or its README.<language>.md translation"""
+    translation = translation or {}
+    words = {**PHRASES, **translation.get("phrases", {})}
+    settings = {**SETTINGS, **translation.get("settings", {})}
+    texts = {**s, **translation.get("scrapers", {}).get(s["dir"], {})}  # untranslated texts stay English
+    main = "../README.md" if language == "en" else f"../docs/README.{language}.md"
     badge = f"https://github.com/{badge_repo}/raw/ci-status/badges/{s['dir']}.svg"
     page = f"https://github.com/{badge_repo}/blob/ci-status/status/{s['dir']}.md"
     module = s["module"]
-    what = f"collects {s['summary']}" if s["summary"] else f"scrapes {s['name']}"
+    intro = (
+        words["intro_summary"].format(summary=texts["summary"], main=main)
+        if s["summary"]
+        else words["intro_name"].format(name=s["name"], main=main)
+    )
+    languages = language_line(language, lambda code: "README.md" if code == "en" else f"README.{code}.md")
     out = [
-        f"# {s['name']} Scraper\n\n{README_NOTE}\n",
+        f"# {words['title'].format(name=s['name'])}\n\n{README_NOTE}\n",
+        languages + "\n",
         f"[![tests]({badge})]({page})\n",
-        f"Example scraper that {what}, written in Python with the [Scrapfly](https://scrapfly.io/) web scraping API. "
-        "Part of [scrapfly-scrapers](../README.md).\n",
+        intro + "\n",
     ]
     links = []
     if s["guides"]:
-        links.append("- **Guide:** " + " · ".join(f"[{g['title']}]({g['url']})" for g in s["guides"]))
+        links.append(f"- **{words['guide']}:** " + " · ".join(f"[{g['title']}]({g['url']})" for g in s["guides"]))
     links.append(
-        f"- **Code:** [`{module}.py`]({module}.py) · **Example run:** [`run.py`](run.py) · "
-        "**Tests:** [`test.py`](test.py)"
+        f"- **{words['code']}:** [`{module}.py`]({module}.py) · **{words['example_run']}:** [`run.py`](run.py) · "
+        f"**{words['tests']}:** [`test.py`](test.py)"
     )
     if s["datasets"]:
-        links.append("- **Sample output:** " + " · ".join(f"[{label}](results/{f})" for f, label in s["datasets"]))
+        links.append(
+            f"- **{words['sample_output']}:** " + " · ".join(f"[{label}](results/{f})" for f, label in s["datasets"])
+        )
     out.append("\n".join(links) + "\n")
-    if s["scrapes"]:
-        out.append("## What it scrapes\n\n" + "\n".join(s["scrapes"]) + "\n")
+    if texts["scrapes"]:
+        out.append(f"## {words['what_it_scrapes']}\n\n" + "\n".join(texts["scrapes"]) + "\n")
     if s["functions"]:
         lines = []
         for sig, doc, returns in s["functions"]:
@@ -506,12 +583,12 @@ def scraper_readme(s: dict, badge_repo: str) -> str:
             lines.append(
                 f"- `{sig}`"
                 + (f" → `{returns}`" if returns else "")
-                + (" (not async)" if sync else "")
+                + (f" {words['not_async']}" if sync else "")
                 + (f": {doc}" if doc else "")
             )
-        text = "## Functions\n\n" + "\n".join(lines) + "\n"
+        text = f"## {words['functions']}\n\n" + "\n".join(lines) + "\n"
         if all(not doc.startswith("(not async)") for _, doc, _ in s["functions"]):
-            text += "\nThe functions are `async`: run them with `asyncio.run(...)` or `await` them.\n"
+            text += f"\n{words['async_note']}\n"
         out.append(text)
     if s["examples"]:
         body = "".join(
@@ -519,59 +596,48 @@ def scraper_readme(s: dict, badge_repo: str) -> str:
             for name, call, is_async in s["examples"]
         )
         out.append(
-            "### Example\n\nThe inputs are the examples of [`run.py`](run.py) (long lists cut short):\n\n"
+            f"### {words['example']}\n\n{words['example_note']}\n\n"
             f"```python\nimport asyncio\nimport {module}\n\n\nasync def main():\n{body}\n\nasyncio.run(main())\n```\n"
         )
     if not s["types"] and s["samples"]:
         lines = []
         for name, keys in s["samples"]:
-            shown = ", ".join(f"`{k}`" for k in keys[:40]) + (f", … ({len(keys) - 40} more)" if len(keys) > 40 else "")
+            shown = ", ".join(f"`{k}`" for k in keys[:40]) + (
+                f", … ({len(keys) - 40} {words['more_keys']})" if len(keys) > 40 else ""
+            )
             lines.append(f"- [`results/{name}`](results/{name}): {shown}")
-        out.append(
-            "## Output\n\nThe functions return plain dictionaries and lists. Fields of the sample output "
-            "(top-level keys of the first item):\n\n" + "\n".join(lines) + "\n"
-        )
+        out.append(f"## {words['output']}\n\n{words['output_samples']}\n\n" + "\n".join(lines) + "\n")
     if s["types"]:
         lines = [
             f"- **`{name}`**: " + ", ".join(f"`{f}{'?' if optional else ''}`" for f, optional in fields)
             for name, fields in s["types"]
         ]
         optional = any(o for _, fields in s["types"] for _, o in fields)
-        legend = "\nA field marked `?` can be `null`.\n" if optional else ""
-        out.append(
-            "## Output\n\nThe functions return plain dictionaries and lists. Fields:\n\n"
-            + "\n".join(lines)
-            + "\n"
-            + legend
-        )
+        legend = f"\n{words['optional']}\n" if optional else ""
+        out.append(f"## {words['output']}\n\n{words['output_types']}\n\n" + "\n".join(lines) + "\n" + legend)
     if s["config"]:
         lines = []
         for key, value in s["config"]:
-            meaning = f": {SETTINGS[key]}" if key in SETTINGS else ""
+            meaning = f": {settings[key]}" if key in settings else ""
             lines.append(f"- `{key}` = `{value}`{meaning}")
         out.append(
-            f"## Scrapfly settings\n\n`BASE_CONFIG` in [`{module}.py`]({module}.py) holds the default settings of the "
-            "requests, see the [Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):\n\n"
-            + "\n".join(lines)
-            + "\n"
+            f"## {words['settings']}\n\n{words['settings_note'].format(module=module)}\n\n" + "\n".join(lines) + "\n"
         )
-    if s["notes"]:
-        out.append("## Notes\n\n" + "\n\n".join(s["notes"]) + "\n")
+    if texts["notes"]:
+        out.append(f"## {words['notes']}\n\n" + "\n\n".join(texts["notes"]) + "\n")
     tests = ", ".join(f"`{t}`" for t in s["tests"])
     out.append(
-        "## Quick start\n\nRequires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).\n\n"
+        f"## {words['quick_start']}\n\n{words['requires']}\n\n"
         "```shell\n"
         "git clone https://github.com/scrapfly/scrapfly-scrapers.git\n"
         f"cd scrapfly-scrapers/{s['dir']}\n"
-        'export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"   # from https://scrapfly.io/dashboard\n'
+        f'export SCRAPFLY_KEY="YOUR SCRAPFLY KEY"   # {words["comment_key"]}\n'
         "poetry install --no-root\n"
-        "poetry run python run.py                  # example scrape, saves its output in ./results\n"
-        "poetry run pytest test.py                 # the tests of this scraper\n"
-        "```\n\n"
-        + (f"Tests: {tests}; run one with `poetry run pytest test.py -k <test>`. " if tests else "")
-        + "`run.py` and the tests scrape the live website, so they use Scrapfly credits.\n"
+        f"poetry run python run.py                  # {words['comment_run']}\n"
+        f"poetry run pytest test.py                 # {words['comment_test']}\n"
+        "```\n\n" + (words["test_list"].format(tests=tests) if tests else "") + words["credits"] + "\n"
     )
-    out.append("More: [all scrapers](../README.md) · [llms.txt](../llms.txt) for AI agents\n")
+    out.append(words["more"].format(main=main) + "\n")
     return "\n".join(out)
 
 
@@ -624,11 +690,19 @@ def main() -> None:
     outputs = {readme_path: replace_table(readme, readme_table(rows, args.badge_repo)), llms_path: llms_txt(items)}
     for s in items:
         outputs[ROOT / s["dir"] / "README.md"] = scraper_readme(s, args.badge_repo)
-    for language, headers in TRANSLATIONS.items():  # same rows in the same order as README.md
+    for language in LANGUAGES:
+        if language == "en":
+            continue
+        translation = load_translation(language)
         path = ROOT / "docs" / f"README.{language}.md"
-        if path.exists():
+        if path.exists():  # same rows in the same order as README.md
             text = path.read_text(encoding="utf-8")
+            headers = tuple(translation.get("headers", HEADERS))
             outputs[path] = replace_table(text, readme_table(rows, args.badge_repo, "../", headers))
+        for s in items:
+            outputs[ROOT / s["dir"] / f"README.{language}.md"] = scraper_readme(
+                s, args.badge_repo, language, translation
+            )
     stale = [
         str(p.relative_to(ROOT))
         for p, text in outputs.items()
