@@ -41,7 +41,7 @@ async def main():
         "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
     )
     reviews = await amazon.scrape_reviews(
-        "https://www.amazon.com/PlayStation-5-Console-CFI-1215A01X/dp/B0BCNKKZ91/",
+        "https://www.amazon.es/HP-305XL-Original-Magenta-Amarillo/dp/B08K81325J",
     )
 
 
