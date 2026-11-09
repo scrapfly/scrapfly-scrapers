@@ -69,12 +69,31 @@ def _parse_listing_ld(sel) -> Dict:
             data = json.loads(script.css("::text").get() or "{}")
         except json.JSONDecodeError:
             continue
-        types = data.get("@type")
-        if isinstance(types, str):
-            types = [types]
-        if isinstance(types, list) and "RealEstateListing" in types:
-            return data
+        # the listing is the script's own object (older pages) or one of the objects in its "@graph" list
+        for item in [data, *(data.get("@graph") or [])]:
+            types = item.get("@type")
+            if isinstance(types, str):
+                types = [types]
+            if isinstance(types, list) and "RealEstateListing" in types:
+                return item
     return {}
+
+
+def _parse_gallery_images(sel) -> list[str]:
+    # the page keeps the whole gallery in its state (window.gState): a JSON string in which every
+    # printable character (" " to "~") is shifted 3 places, e.g. "{" is written "~"
+    state = sel.xpath("//script[contains(., 'window.gState')]/text()").re_first(
+        r'window\.gState\s*=\s*"((?:[^"\\]|\\.)*)"', replace_entities=False
+    )
+    if state:
+        try:
+            shifted = json.loads(f'"{state}"')  # the javascript string, with its escapes read
+            text = "".join(chr((ord(c) - 32 - 3) % 95 + 32) if " " <= c <= "~" else c for c in shifted)
+            return [image["uri"] for image in json.loads(text)["as"]["mainAttachments"] if image.get("uri")]
+        except (ValueError, KeyError, TypeError, AttributeError) as e:
+            log.warning(f"could not read the gallery from the page state ({e}), using the gallery markup")
+    # the gallery markup has the image addresses of its first slide only (the others are placeholders)
+    return [url for url in sel.css("img.primary-carousel-slide-img::attr(src)").getall() if "/i2/" in url]
 
 
 def parse_listing(response: ScrapeApiResponse) -> LoopnetListing:
@@ -95,7 +114,8 @@ def parse_listing(response: ScrapeApiResponse) -> LoopnetListing:
     agent = providers[0] if providers else {}
     broker = None
     if agent:
-        phone = sel.css("a.number .phone-number::text").get()
+        # current pages keep the listing's contact number in a hidden #ldp-contact-data element
+        phone = sel.css("a.number .phone-number::text").get() or sel.css("#ldp-contact-data::attr(data-phone)").get()
         broker = LoopnetBroker(
             name=agent.get("name"),
             company=(agent.get("memberOf") or {}).get("name"),
@@ -107,6 +127,9 @@ def parse_listing(response: ScrapeApiResponse) -> LoopnetListing:
     for img_url in sel.css("section.carousel-wrapper img::attr(src), section.carousel-wrapper img::attr(lazy-src)").getall():
         if img_url and "images1.loopnet.com" in img_url and img_url not in images:
             images.append(img_url)
+    if not images:
+        # current pages have no carousel-wrapper section, the images are in the new gallery
+        images = _parse_gallery_images(sel)
 
     videos = listing_ld.get("video") or []
     video_url = videos[0].get("embedUrl") if videos else None
