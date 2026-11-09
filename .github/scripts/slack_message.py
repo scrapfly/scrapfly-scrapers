@@ -20,9 +20,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 # Lines GitHub prints at the top of the "Run test" step's log before pytest's own output: "Run cd <dir>" (the group
-# header), the 3 lines of the step's script, "shell:", "env:", the 3 variables (pythonLocation and LD_LIBRARY_PATH
-# from setup-python, SCRAPFLY_KEY) and "##[endgroup]". Update it when that step or its env changes.
-STEP_HEADER_LINES = 10
+# header), the 3 lines of the step's script, "shell:", "env:", the 7 variables (SCRAPFLY_KEY, and pythonLocation,
+# PKG_CONFIG_PATH, Python_ROOT_DIR, Python2_ROOT_DIR, Python3_ROOT_DIR and LD_LIBRARY_PATH from setup-python v6) and
+# "##[endgroup]". Update it when that step or its env changes.
+STEP_HEADER_LINES = 14
 SUMMARY = re.compile(r"^(FAILED|ERROR) \S")  # pytest's "short test summary info" lines (not "ERROR    logger:...")
 
 
