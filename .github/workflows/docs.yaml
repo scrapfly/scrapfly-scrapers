@@ -11,6 +11,6 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Check that the README table and llms.txt are up to date
       run: python3 .github/scripts/docs.py --check
