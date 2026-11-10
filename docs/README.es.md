@@ -535,6 +535,21 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../kayak-scraper/">Kayak</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-kayak">How to Scrape Kayak Flight Prices in 2026</a></td>
     <td>
@@ -792,18 +807,6 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
-    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
-        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../stockx-scraper/">Stockx.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-stockx">How to Scrape StockX e-commerce Data with Python</a></td>
     <td>
@@ -1049,21 +1052,6 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
-    <td><a href="../instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
     <td>
@@ -1074,6 +1062,18 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
+        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
 </table>
