@@ -24,7 +24,10 @@ BASE_CONFIG = {
 }
 
 SEARCH_XHR_PATH = "/g/radar/api/v2/web-unified-search/"
-RESULTS_SORTED_SELECTOR = "//span[contains(text(),'results sorted by')]"
+# the "N results sorted by" label only shows for a moment on some loads, so also accept the first flight card
+RESULTS_SORTED_SELECTOR = (
+    "//span[contains(text(),'results sorted by')] | //h3[starts-with(normalize-space(.),'Flight option')]"
+)
 
 class FlightResult(TypedDict, total=False):
     origin: str
@@ -198,7 +201,14 @@ def _extract_xhr_results(xhr_calls: List[Dict]) -> List[Dict]:
             "Skyscanner XHR search call not found — try increasing rendering_wait"
         )
 
+    # later polls can answer "incomplete_not_modified" with no results (nothing new since the previous poll),
+    # so use the latest call that carries itineraries and fall back to the last call otherwise
     data = json.loads(search_calls[-1]["response"]["body"])
+    for call in reversed(search_calls):
+        candidate = json.loads(call["response"]["body"])
+        if candidate.get("itineraries", {}).get("results"):
+            data = candidate
+            break
     status = data.get("context", {}).get("status", "unknown")
     log.info(
         f"using XHR response (status={status!r}, {len(search_calls)} calls captured)"
