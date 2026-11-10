@@ -37,6 +37,8 @@ await clickUntilGone();
 
 BASE_URL = "https://www.idealo.de"
 SEARCH_PAGE_SIZE = 15
+# listing pages moved from the `sr-*` classes to `data-testid` attributes; wait for either markup
+RESULT_LIST_SELECTOR = '[class*="sr-resultList"], [data-testid="result-list"]'
 MAX_RETRIES = 3
 RETRY_DELAY = 5
 PeriodType = Literal["1Y", "3M", "6M", "1M"]
@@ -154,7 +156,14 @@ def _parse_listing_item(card) -> IdealoListingItem:
     href = card.css('a[href*="OffersOfProduct"]::attr(href)').get()
     # cards come in two markups: the older `sr-*` classes and the newer `data-testid` attributes
     name = card.css('[class*="sr-productSummary__title"]::text, [data-testid="product-summary-title"]::text').get()
-    shop_name = card.css('[class*="sr-singleOffer__shopName"] span::text').get()
+    shop_name = card.css(
+        '[class*="sr-singleOffer__shopName"] span::text, [data-testid="shop-name-wrapper"] button::text'
+    ).get()
+    # the offer count ("3 Angebote") shares its box with the price per unit ("(0,70 € / Stück)") in the new markup
+    offer_text = card.css('[class*="sr-detailedPriceInfo__offerCount"]::text').get() or next(
+        (text for text in card.css('[data-testid="detailed-price-info"] > div::text').getall() if "Angebot" in text),
+        None,
+    )
     wishlist_raw = card.css("[data-wishlist-heart]::attr(data-wishlist-heart)").get()
     wishlist = json.loads(wishlist_raw) if wishlist_raw else {}
 
@@ -178,19 +187,14 @@ def _parse_listing_item(card) -> IdealoListingItem:
             )
         ),
         currency="EUR",
-        offer_count=_parse_int(
-            card.css(
-                '[class*="sr-detailedPriceInfo__offerCount"]::text, '
-                '[data-testid="detailed-price-info"] > div:first-child::text'
-            ).get()
-        ),
+        offer_count=_parse_int(offer_text),
         shop_name=shop_name.strip() if shop_name else None,
     )
 
 
 def _parse_total_pages(sel) -> int:
     pages = []
-    pagination = sel.css('[class*="sr-pagination"]')
+    pagination = sel.css('[class*="sr-pagination"], [data-testid="pagination"]')
     for value in pagination.css("[aria-label]::attr(aria-label)").getall():
         if value.strip().isdigit():
             pages.append(int(value.strip()))
@@ -203,7 +207,8 @@ def _parse_total_pages(sel) -> int:
 def parse_search(response: ScrapeApiResponse) -> dict:
     """parse search listings from idealo.de"""
     sel = response.selector
-    results = [_parse_listing_item(card) for card in sel.css('[class*="sr-resultList__item"]')]
+    cards = sel.css('[class*="sr-resultList__item"], [data-testid="result-item"]')
+    results = [_parse_listing_item(card) for card in cards]
     return {"results": results, "total_pages": _parse_total_pages(sel)}
 
 
@@ -316,7 +321,7 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
     log.info(f"scraping the first search page {first_url}")
 
     first_page = await scrape_with_retry(
-        ScrapeConfig(first_url, wait_for_selector='[class*="sr-resultList"]', **BASE_CONFIG)
+        ScrapeConfig(first_url, wait_for_selector=RESULT_LIST_SELECTOR, **BASE_CONFIG)
     )
     data = parse_search(first_page)
     results = data["results"]
@@ -328,7 +333,7 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
         for page in range(2, total_pages + 1):
             offset = (page - 1) * SEARCH_PAGE_SIZE
             url = f"{BASE_URL}/preisvergleich/MainSearchProductCategory/100I16-{offset}.html?{params}"
-            other_pages.append(ScrapeConfig(url, wait_for_selector='[class*="sr-resultList"]', **BASE_CONFIG))
+            other_pages.append(ScrapeConfig(url, wait_for_selector=RESULT_LIST_SELECTOR, **BASE_CONFIG))
 
         responses = await asyncio.gather(
             *[scrape_with_retry(config) for config in other_pages], return_exceptions=True
@@ -346,10 +351,7 @@ async def scrape_search(query: str, max_pages: int = 3) -> List[IdealoListingIte
 async def scrape_manufacturer(url: str) -> IdealoManufacturer:
     """scrape a manufacturer listing page from idealo.de"""
     log.info(f"scraping manufacturer page {url}")
-    # manufacturer pages now use the `data-testid` markup, search pages still the `sr-*` one
-    response = await scrape_with_retry(
-        ScrapeConfig(url, wait_for_selector='[class*="sr-resultList"], [data-testid="result-list"]', **BASE_CONFIG)
-    )
+    response = await scrape_with_retry(ScrapeConfig(url, wait_for_selector=RESULT_LIST_SELECTOR, **BASE_CONFIG))
     manufacturer = parse_manufacturer(response)
     log.success(f"scraped manufacturer {manufacturer['name']} with {len(manufacturer['products'])} products")
     return manufacturer
