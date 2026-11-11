@@ -76,7 +76,8 @@ def parse_property(response: ScrapeApiResponse) -> PropertyResult:
     #  first we extract each feature block like "Basic Features" or "Amenities"
     for feature_block in selector.css(".details-property-h2"):
         # then for each block we extract all bullet points underneath them
-        label = feature_block.xpath("text()").get()
+        # strip: the page wraps some block names in newlines ("\nAmenities\n")
+        label = feature_block.xpath("text()").get("").strip()
         features = feature_block.xpath("following-sibling::div[1]//li")
         data["features"][label] = ["".join(feat.xpath(".//text()").getall()).strip() for feat in features]
 
