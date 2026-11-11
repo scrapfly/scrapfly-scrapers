@@ -10,6 +10,13 @@ pp = pprint.PrettyPrinter(indent=4)
 yellowpages.BASE_CONFIG["cache"] = True
 
 
+@pytest.fixture(autouse=True)
+def fresh_pages_on_rerun(request):
+    """a cached page is replayed for 24 hours, so a rerun fetches fresh pages and replaces the cached ones"""
+    # pytest-rerunfailures counts the tries in execution_count: 1 on the first try, 2 and up on reruns
+    yellowpages.BASE_CONFIG["cache_clear"] = getattr(request.node, "execution_count", 1) > 1
+
+
 class Validator(_Validator):
     def _validate_min_presence(self, min_presence, field, value):
         pass  # required for adding non-standard keys to schema
