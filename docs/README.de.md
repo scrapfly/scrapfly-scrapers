@@ -460,6 +460,20 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
+    <td><a href="../idealo-scraper/">Idealo.de</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../imdb-scraper/">IMDb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
@@ -807,6 +821,18 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
+    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
+        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../stockx-scraper/">Stockx.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-stockx">How to Scrape StockX e-commerce Data with Python</a></td>
     <td>
@@ -947,18 +973,6 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
-    <td><a href="../yellowpages-scraper/">Yellowpages.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-yellowpages">How to Scrape YellowPages.com in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="../yellowpages-scraper/results/business_pages.json">Business pages</a></li>
-        <li><a href="../yellowpages-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/yellowpages-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../yelp-scraper/">Yelp.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-yelpcom">How to Web Scrape Yelp.com (2025 update)</a></td>
     <td>
@@ -1038,17 +1052,15 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
-    <td><a href="../idealo-scraper/">Idealo.de</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
+    <td><a href="../yellowpages-scraper/">Yellowpages.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-yellowpages">How to Scrape YellowPages.com in 2025</a></td>
     <td>
     <ul>
-        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
+        <li><a href="../yellowpages-scraper/results/business_pages.json">Business pages</a></li>
+        <li><a href="../yellowpages-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/yellowpages-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1062,18 +1074,6 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../skyscanner-scraper/">Skyscanner</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-skyscanner">How to Scrape Skyscanner Flight Prices in Python (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="../skyscanner-scraper/results/oneway.json">Oneway</a></li>
-        <li><a href="../skyscanner-scraper/results/roundtrip.json">Roundtrip</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/skyscanner-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/skyscanner-scraper.svg" alt="skyscanner-scraper-status"></a></td>
   </tr>
 
 </table>
