@@ -273,15 +273,29 @@ def parse_channel(response: ScrapeApiResponse):
 
 async def scrape_channel(url: str) -> List[Dict]:
     """scrape video data from a channel (profile with videos)"""
-    # js code for scrolling down with maximum 15 scrolls. It stops at the end without using the full iterations
+    # js code for scrolling down: every round scrolls to the bottom and waits for more posts to load.
+    # It stops when two rounds in a row did not make the page longer (no more posts), after 10 rounds
+    # or after 27 seconds, so the step always ends before its 35 seconds timeout
+    scroll_script = """
+        const wait = ms => new Promise(r => setTimeout(r, ms));
+        const page = document.scrollingElement || document.body;
+        const start = Date.now();
+        const heights = [page.scrollHeight];
+        let idle = 0;
+        for (let i = 0; i < 10 && idle < 2 && Date.now() - start < 27000; i++) {
+            // step up first, so the page really moves even when it is already at the bottom
+            window.scrollBy(0, -400);
+            await wait(300);
+            window.scrollTo(0, page.scrollHeight);
+            await wait(2700);
+            heights.push(page.scrollHeight);
+            idle = heights[i + 1] > heights[i] ? 0 : idle + 1;
+        }
+        return heights;
+    """
     js = [
         {"wait_for_selector": {"selector": "main", "state": "visible", "timeout": 10000}},
-        {
-            "execute": {
-                "script": "const wait = ms => new Promise(r => setTimeout(r, ms)); const container = document.querySelector('main') || document.scrollingElement || document.body; for (let i = 0; i < 10; i++) { if (container.clientHeight + container.scrollTop >= container.scrollHeight - 10) break; container.scrollTo(0, container.scrollHeight); await wait(3000); }",
-                "timeout": 35000,
-            }
-        },
+        {"execute": {"script": scroll_script, "timeout": 35000}},
     ]
     log.info(f"scraping channel page with the URL {url} for post data")
     response = await SCRAPFLY.async_scrape(
