@@ -19,8 +19,13 @@ BASE_CONFIG = {
     "render_js": True,
 }
 
+# scrolls the results until the "No more jobs" marker shows. The loop always ends: it also stops after
+# MAX_SCROLLS scrolls (about 1 scroll per second, the whole scrape has 150 seconds) and when MAX_IDLE
+# scrolls in a row loaded no new job card (a full list needs about 20 loads of 10 jobs each)
 SCROLL_JS = """
 return (async () => {
+    const MAX_SCROLLS = 90;
+    const MAX_IDLE = 15;
     const isEnd = () => {
         const result = document.evaluate(
             '//*[contains(text(),"No more jobs")]',
@@ -31,10 +36,17 @@ return (async () => {
         );
         return !!result.singleNodeValue;
     };
-    while (!isEnd()) {
+    const countJobs = () => document.querySelectorAll(".EimVGf").length;
+    let scrolls = 0, idle = 0, jobs = countJobs();
+    while (!isEnd() && scrolls < MAX_SCROLLS && idle < MAX_IDLE) {
         window.scrollTo(0, document.body.scrollHeight);
         await new Promise(r => setTimeout(r, 1000));
+        scrolls++;
+        idle = countJobs() > jobs ? 0 : idle + 1;
+        jobs = countJobs();
     }
+    // why the scroll stopped, kept in the scrape result (browser_data.javascript_evaluation_result)
+    return {end: isEnd(), scrolls: scrolls, jobs: jobs};
 })()
 """
 
