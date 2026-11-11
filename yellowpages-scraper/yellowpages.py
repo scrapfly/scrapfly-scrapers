@@ -7,6 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 
 import os
 import json
+import math
 from typing import Dict, List, Optional
 from urllib.parse import urlencode
 from loguru import logger as log
@@ -36,7 +37,10 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
             f"yellowpages.com answered {response.config['url']} with {response.context['url']}"
             f" ({selector.css('title::text').get()!r}) instead of the search results"
         )
-    total_pages = int(selector.css(".pagination>span::text").re(r"of (\d+)")[0])
+    # the pagination text reads "Showing 1-30 of 516": 516 is the number of results, not of pages.
+    # the page count is right on the first page (a full one), which is the one scrape_search reads it from
+    total_results = int(selector.css(".pagination>span::text").re(r"of (\d+)")[0])
+    total_pages = math.ceil(total_results / len(data)) if data else 1
     return {"data": data, "total_pages": total_pages}
 
 
