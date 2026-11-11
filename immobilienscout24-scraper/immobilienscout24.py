@@ -65,9 +65,15 @@ def parse_property_page(response: ScrapeApiResponse):
     additional_sepcs = []
     for spec in selector.xpath("//div[contains(@class, 'criteriagroup boolean-listing')]//span[contains(@class, 'palm-hide')]"):
         additional_sepcs.append(spec.xpath("./text()").get())
+    if not additional_sepcs:  # the current page layout shows the specs as tags (data-qa "is24qa-<spec>-label")
+        for spec in selector.css("span[data-qa^='is24qa-'][data-qa$='-label']"):
+            additional_sepcs.append(" ".join(spec.css("::text").getall()).strip())
     price_without_heating = strip_text(selector.xpath("//dd[contains(@class, 'kaltmiete')]/text()").get())
     price_per_meter = strip_text(selector.xpath("//dd[contains(@class, 'preism')]/text()").get())
     basic_rent = strip_text(selector.xpath("//div[contains(@class, 'kaltmiete')]/span/text()").get())
+    if not basic_rent:  # the base rent box of the current page header
+        rent_box = "//div[contains(@class, 'maincriteria-baserent')]/span[@class='is24-preis-value']/text()"
+        basic_rent = strip_text(selector.xpath(rent_box).get())
     additional_costs = strip_text(selector.xpath("//dd[contains(@class, 'nebenkosten')]/text()").extract()[1].replace("\n", ""))
     heating_costs = strip_text(selector.xpath("//dd[contains(@class, 'heizkosten')]/text()").extract()[1].replace("\n", ""))
     total_rent = strip_text(selector.xpath("//dd[contains(@class, 'gesamtmiete')]/text()").get())
