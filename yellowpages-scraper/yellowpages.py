@@ -29,7 +29,13 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
     script_data = selector.xpath(
         "//script[@type='application/ld+json'][2]/text()"
     ).get()
-    data = json.loads(script_data)
+    data = json.loads(script_data) if script_data else None
+    if not isinstance(data, list):
+        # the site sometimes answers a search page with its home page, which has no business listings
+        raise ValueError(
+            f"yellowpages.com answered {response.config['url']} with {response.context['url']}"
+            f" ({selector.css('title::text').get()!r}) instead of the search results"
+        )
     total_pages = int(selector.css(".pagination>span::text").re(r"of (\d+)")[0])
     return {"data": data, "total_pages": total_pages}
 
@@ -116,7 +122,11 @@ async def scrape_search(
         if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
             log.error(f"skipping a page that could not be scraped: {response}")
             continue
-        data = parse_search(response)["data"]
+        try:
+            data = parse_search(response)["data"]
+        except ValueError as error:  # a page that came back without listings, e.g. the site's home page
+            log.error(f"skipping a page without search results: {error}")
+            continue
         search_data.extend(data)
     log.success(f"scraped {len(search_data)} listings from search pages")
     return search_data
