@@ -56,6 +56,8 @@ asyncio.run(main())
 - `unblocker` = `True`: Scrapfly の [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)（ボット対策の回避機能）
 - `render_js` = `True`: 実際のブラウザでページをレンダリングする
 - `retry` = `True`: 失敗したリクエストを再試行する
+- `country` = `"US"`: プロキシの国
+- `headers` = `{"cookie": "preferences=pl=en-US&pc_www=USDu"}`
 
 ## クイックスタート
 

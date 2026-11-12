@@ -56,6 +56,8 @@ asyncio.run(main())
 - `unblocker` = `True`: Scrapfly의 안티봇 우회 기능인 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)
 - `render_js` = `True`: 실제 브라우저에서 페이지 렌더링
 - `retry` = `True`: 실패한 요청 재시도
+- `country` = `"US"`: 프록시 국가
+- `headers` = `{"cookie": "preferences=pl=en-US&pc_www=USDu"}`
 
 ## 빠른 시작
 

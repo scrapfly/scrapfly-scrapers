@@ -56,6 +56,8 @@ asyncio.run(main())
 - `unblocker` = `True`: [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker) от Scrapfly — обход антибот-защиты
 - `render_js` = `True`: отрисовать страницу в настоящем браузере
 - `retry` = `True`: повторить неудачный запрос
+- `country` = `"US"`: страна прокси
+- `headers` = `{"cookie": "preferences=pl=en-US&pc_www=USDu"}`
 
 ## Быстрый старт
 
