@@ -64,8 +64,15 @@ def parse_search(response: ScrapeApiResponse) -> List[Dict]:
     sel = response.selector
     data = sel.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
     data = json.loads(data)
-    total_results = data["props"]["pageProps"]["initialData"]["searchResult"]["itemStacks"][0]["count"]
-    results = data["props"]["pageProps"]["initialData"]["searchResult"]["itemStacks"][0]["items"]
+    item_stacks = data["props"]["pageProps"]["initialData"]["searchResult"]["itemStacks"]
+    total_results = item_stacks[0]["count"]
+    # the first page splits its results into several stacks, with carousels of related items in between:
+    # keep the items of every stack of the results list (same stack id as the first one), in page order
+    results_stack_id = (item_stacks[0].get("meta") or {}).get("stackId")
+    results = list(item_stacks[0]["items"])
+    for stack in item_stacks[1:]:
+        if results_stack_id is not None and (stack.get("meta") or {}).get("stackId") == results_stack_id:
+            results.extend(stack["items"])
     return {"results": results, "total_results": total_results}
 
 
