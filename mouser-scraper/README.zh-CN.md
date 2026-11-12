@@ -56,6 +56,8 @@ asyncio.run(main())
 - `unblocker` = `True`: Scrapfly 的 [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker)，即其反机器人绕过功能
 - `render_js` = `True`: 在真实浏览器中渲染页面
 - `retry` = `True`: 重试失败的请求
+- `country` = `"US"`: 代理所在国家
+- `headers` = `{"cookie": "preferences=pl=en-US&pc_www=USDu"}`
 
 ## 快速开始
 

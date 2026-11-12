@@ -27,6 +27,10 @@ BASE_CONFIG = {
     "unblocker": True,
     "render_js": True,
     "retry": True,
+    # ask from a US address and for the US store: without them the site picks the store itself and
+    # sometimes sends the search to its EU store (euro prices) or to the EU home page
+    "country": "US",
+    "headers": {"cookie": "preferences=pl=en-US&pc_www=USDu"},
 }
 
 output = Path(__file__).parent / "results"

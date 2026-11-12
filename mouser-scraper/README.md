@@ -56,6 +56,8 @@ A field marked `?` can be `null`.
 - `unblocker` = `True`: Scrapfly's [Unblocker](https://scrapfly.io/docs/scrape-api/unblocker), its anti-bot bypass
 - `render_js` = `True`: render the page in a real browser
 - `retry` = `True`: retry a failed request
+- `country` = `"US"`: country of the proxy
+- `headers` = `{"cookie": "preferences=pl=en-US&pc_www=USDu"}`
 
 ## Quick start
 
