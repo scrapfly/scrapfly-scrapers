@@ -652,18 +652,6 @@ poetry run pytest test.py                 # 运行该爬虫的测试
   </tr>
 
   <tr>
-    <td><a href="../mouser-scraper/">Mouser.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../mouser-scraper/results/product.json">Product</a></li>
-        <li><a href="../mouser-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../naver-scraper/">Naver.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
     <td>
@@ -687,17 +675,6 @@ poetry run pytest test.py                 # 运行该爬虫的测试
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -973,6 +950,18 @@ poetry run pytest test.py                 # 运行该爬虫的测试
   </tr>
 
   <tr>
+    <td><a href="../yellowpages-scraper/">Yellowpages.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-yellowpages">How to Scrape YellowPages.com in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="../yellowpages-scraper/results/business_pages.json">Business pages</a></li>
+        <li><a href="../yellowpages-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/yellowpages-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../yelp-scraper/">Yelp.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-yelpcom">How to Web Scrape Yelp.com (2025 update)</a></td>
     <td>
@@ -1052,15 +1041,26 @@ poetry run pytest test.py                 # 运行该爬虫的测试
   </tr>
 
   <tr>
-    <td><a href="../yellowpages-scraper/">Yellowpages.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-yellowpages">How to Scrape YellowPages.com in 2025</a></td>
+    <td><a href="../mouser-scraper/">Mouser.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
     <td>
     <ul>
-        <li><a href="../yellowpages-scraper/results/business_pages.json">Business pages</a></li>
-        <li><a href="../yellowpages-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../mouser-scraper/results/product.json">Product</a></li>
+        <li><a href="../mouser-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/yellowpages-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/yellowpages-scraper.svg" alt="yellowpages-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
   <tr>
