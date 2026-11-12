@@ -16,12 +16,12 @@ def validate_or_fail(item, validator):
 
 
 listing_schema = {
-    "id": {"type": "string", "nullable": True},
-    "name": {"type": "string"},
-    "url": {"type": "string"},
+    "id": {"type": "string", "required": True, "minlength": 1},
+    "name": {"type": "string", "required": True, "minlength": 1},
+    "url": {"type": "string", "required": True, "minlength": 1},
     "description": {"type": "string", "nullable": True},
     "price": {"type": "string", "nullable": True},
-    "address": {"type": "string", "nullable": True},
+    "address": {"type": "string", "minlength": 1},
     "city": {"type": "string", "nullable": True},
     "state": {"type": "string", "nullable": True},
     "zip_code": {"type": "string", "nullable": True},
