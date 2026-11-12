@@ -43,7 +43,7 @@ def require_min_presence(items, key, min_perc=0.1):
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 @pytest.mark.asyncio
 async def test_product_scraping():
-    result = await ebay.scrape_product("https://www.ebay.com/itm/177439887865")
+    result = await ebay.scrape_product("https://www.ebay.com/itm/225505602327")
     schema = {
         "url": {"type": "string"},
         "id": {"type": "string", "regex": r"\d+"},
@@ -65,7 +65,7 @@ async def test_product_scraping():
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 @pytest.mark.asyncio
 async def test_product_variants_scraping():
-    variants = await ebay.scrape_product_variants("https://www.ebay.com/itm/177439887865")
+    variants = await ebay.scrape_product_variants("https://www.ebay.com/itm/225505602327")
     variant_schema = {
         "id": {"type": "string", "regex": r"\d+", "minlength": 1},
         "price_original": {"type": "number"},

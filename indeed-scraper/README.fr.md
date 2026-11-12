@@ -35,7 +35,7 @@ import indeed
 
 async def main():
     search = await indeed.scrape_search("https://www.indeed.com/jobs?q=python&l=Texas", max_results=10)
-    jobs = await indeed.scrape_jobs(["851525cd1dc01964", "0e633abc66767644"])
+    jobs = await indeed.scrape_jobs(["3b22219beccc75fb", "67ac05ed425cf599"])
 
 
 asyncio.run(main())

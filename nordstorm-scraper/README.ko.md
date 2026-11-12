@@ -36,8 +36,8 @@ import nordstorm
 async def main():
     products = await nordstorm.scrape_products(
         urls=[
-            "https://www.nordstrom.com/s/nike-air-max-90-sneaker-men/6549520",
-            "https://www.nordstrom.com/s/hank-kent-performance-twill-dress-shirt-regular-big/7783670",
+            "https://www.nordstrom.com/s/nike-air-force-1-07-basketball-sneaker-men/9202455",
+            "https://www.nordstrom.com/s/bp-fleece-hoodie/7786657",
         ],
     )
     search = await nordstorm.scrape_search(
