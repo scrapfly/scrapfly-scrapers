@@ -97,8 +97,12 @@ def parse_search_page(result: ScrapeApiResponse) -> Dict:
     total_properties = len(properties)
     if m := re.search(r"([\d.]+)\s+imóv", " ".join(sel.css("h1::text, [data-qa='results-count']::text").getall()), re.I):
         total_properties = int(m.group(1).replace(".", ""))
+    # the heading now starts with the count: "118.137 Apartamentos para alugar em São Paulo, SP"
+    elif m := re.match(r"\s*(\d[\d.]*)\s", sel.css("h1::text").get("")):
+        total_properties = int(m.group(1).replace(".", ""))
 
-    next_page = sel.css("a[rel='next']::attr(href)").get()
+    # the next page link is a[data-qa='PAGING_NEXT'] on the current pages (a[rel='next'] before)
+    next_page = sel.css("a[rel='next']::attr(href), a[data-qa='PAGING_NEXT']::attr(href)").get()
     if next_page and next_page.startswith("/"):
         next_page = f"https://www.imovelweb.com.br{next_page}"
 
