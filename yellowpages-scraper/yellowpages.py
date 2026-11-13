@@ -145,6 +145,9 @@ async def scrape_pages(urls: List[str]) -> List[Dict]:
         if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
             log.error(f"skipping a page that could not be scraped: {response}")
             continue
+        if response.upstream_status_code >= 400:  # an error page of the site (e.g. 404) has no business data
+            log.error(f"skipping {response.config['url']}: the site answered HTTP {response.upstream_status_code}")
+            continue
         result.append(parse_page(response))
     log.success(f"scraped {len(result)} business pages")
     return result
