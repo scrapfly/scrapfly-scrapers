@@ -1,3 +1,9 @@
+<div align="center">
+
+<img src="assets/readme/hero.png" alt="Scrapfly Scrapers: open source Python web scrapers for more than 80 popular websites, tested every night" width="880">
+
+</div>
+
 # ScrapFly Scrapers 🕷️
 
 **English** · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [Español](docs/README.es.md) · [Русский](docs/README.ru.md) · [Deutsch](docs/README.de.md) · [Français](docs/README.fr.md) · [Português (Brasil)](docs/README.pt-BR.md) · [한국어](docs/README.ko.md)
