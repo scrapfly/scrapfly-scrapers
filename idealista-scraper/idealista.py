@@ -141,9 +141,11 @@ def parse_search_data(response: ScrapeApiResponse) -> List[Dict]:
         price = box.xpath(".//span[contains(@class, 'item-price')]/text()").get()
         parking = box.xpath(".//div[contains(@class, 'item-detail-char')]/span[contains(text(), 'Parking')]").get()        
         company_url = box.xpath(".//picture[@class='logo-branding']/a/@href").get()
+        # the listing's own link; on agency cards the first link of the card is the agency page ("Marketed by")
+        link = box.xpath(".//a[contains(@class, 'item-link')]/@href").get() or box.xpath(".//div/a/@href").get()
         search_data.append({
             "title": box.xpath(".//div/a/@title").get(),
-            "link": "https://www.idealista.com" + box.xpath(".//div/a/@href").get(),
+            "link": "https://www.idealista.com" + link,
             "picture": box.xpath(".//img/@src").get(),
             "price": int(price.replace(",", '')) if price else None,
             "currency": box.xpath(".//span[contains(@class, 'item-price')]/span/text()").get(),
