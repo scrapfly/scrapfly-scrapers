@@ -35,7 +35,11 @@ def parse_search_page(response: ScrapeApiResponse):
 
     # Extract total results count
     total_results_text = selector.xpath("//span[normalize-space(text())='Products']/following-sibling::span[1]/text()").get()
-    total_results = int(re.search(r"\((\d+)\)", total_results_text).group(1)) if total_results_text else 0
+    if not total_results_text:
+        # the redesigned page shows the count next to its heading: "Search results for <query> (12133)"
+        total_results_text = selector.xpath("//*[@id='main']/h1/following-sibling::*[1]/text()").get()
+    total_results_match = re.search(r"\((\d+)\)", (total_results_text or "").replace(",", ""))
+    total_results = int(total_results_match.group(1)) if total_results_match else 0
 
     _search_page_size = 20
     total_pages = math.ceil(total_results / _search_page_size) if total_results else 0
@@ -56,9 +60,15 @@ def parse_search_page(response: ScrapeApiResponse):
         reviews_number = int(raw_reviews.strip("()").replace(",", "")) if raw_reviews else None
 
         description_parts = result.xpath(".//div[div[contains(text(), 'Product Description')]]/p//text()").getall()
+        if not description_parts:
+            # redesigned card: the description is a clamped text block without a "Product Description" label
+            description_parts = result.xpath(".//div[contains(@class, 'elv-line-clamp')]//text()").getall()
         description = "".join(description_parts).strip() if description_parts else None
 
         categories = result.css("a[data-controller=elv--chip-controller] div::text").getall()
+        if not categories:
+            # redesigned card: the category is a plain link next to the rating
+            categories = result.xpath(".//a[contains(@href, '/categories/')]/text()").getall()
 
         if not name:
             continue
