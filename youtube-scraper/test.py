@@ -300,11 +300,12 @@ async def test_shorts_scraping():
 @pytest.mark.asyncio
 @pytest.mark.flaky(reruns=3, reruns_delay=30)
 async def test_transcript_scraping():
-    # youtube shows these two videos' transcripts in its older and in its newer transcript panel
+    # youtube groups the transcript lines itself and the newer transcript panel uses longer lines
+    # (the first video, 2 minutes long, comes as about 18 lines), so the count checked per video is low
     video_ids = ["x7X9w_GIm1s", "NbXDe_AvRXw"]
     transcript_data = await youtube.scrape_transcript(video_ids=video_ids)
     validator = Validator(transcript_schema, allow_unknown=True)
     for i in transcript_data:
         validate_or_fail(i, validator)
     for video_id in video_ids:
-        assert len([i for i in transcript_data if i["videoId"] == video_id]) > 20
+        assert len([i for i in transcript_data if i["videoId"] == video_id]) > 10
