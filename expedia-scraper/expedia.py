@@ -160,16 +160,27 @@ def parse_hotels(page_data: Dict, captured_at: str) -> List[Hotel]:
         subtexts = review.get("subtexts") or [{}]
         review_count_text = ((subtexts[0] or {}).get("shoppingProductTitle") or {}).get("text", "")
 
+        price_section = listing.get("priceSection") or {}
+        price_texts = [
+            item.get("value") or (item.get("price") or {}).get("formatted")
+            for message in (price_section.get("priceSummary") or {}).get("displayMessages") or []
+            for item in message.get("lineItems") or []
+        ]
+        if not any(price_texts):
+            # some answers leave displayMessages empty and carry the same texts in productPriceSummary instead
+            price_texts = [
+                (content.get("text") or {}).get("text")
+                for line in (price_section.get("productPriceSummary") or {}).get("lines") or []
+                for content in line.get("contents") or []
+            ]
         nightly_price = total_price = None
-        for message in (listing.get("priceSection") or {}).get("priceSummary", {}).get("displayMessages") or []:
-            for item in message.get("lineItems") or []:
-                value = item.get("value") or (item.get("price") or {}).get("formatted")
-                if not value:
-                    continue
-                if "nightly" in value.lower():
-                    nightly_price = value
-                elif "$" in value:
-                    total_price = value
+        for value in price_texts:
+            if not value:
+                continue
+            if "nightly" in value.lower():
+                nightly_price = value
+            elif "$" in value:
+                total_price = value
 
         messages = heading.get("messages") or [{}]
         hotels.append({
