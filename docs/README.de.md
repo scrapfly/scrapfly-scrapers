@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../assets/readme/hero.png" alt="Scrapfly Scrapers: open source Python web scrapers for more than 80 popular websites, tested every night" width="880">
+<img src="../assets/readme/hero.de.png" alt="Scrapfly Scrapers: open source Python web scrapers for more than 80 popular websites, tested every night" width="880">
 
 </div>
 
