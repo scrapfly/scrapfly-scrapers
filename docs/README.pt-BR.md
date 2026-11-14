@@ -74,6 +74,20 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
+        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
+        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../allegro-scraper/">Allegro.pl</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-allegro">How to Scrape Allegro.pl in 2026 (Without Getting Blocked)</a></td>
     <td>
@@ -306,6 +320,19 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/fashionphile-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/fashionphile-scraper.svg" alt="fashionphile-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../g2-scraper/">G2.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-g2-company-data-and-reviews">How to Scrape G2 Company Data and Reviews</a></td>
+    <td>
+    <ul>
+        <li><a href="../g2-scraper/results/reviews.json">Review pages</a></li>
+        <li><a href="../g2-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../g2-scraper/results/alternatives.json">Alternatives pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/g2-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -962,6 +989,23 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../youtube-scraper/">YouTube.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-youtube">How to Scrape YouTube in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="../youtube-scraper/results/channel_videos.json">Channel videos</a></li>
+        <li><a href="../youtube-scraper/results/channels.json">Channel metadata</a></li>
+        <li><a href="../youtube-scraper/results/videos.json">Video metadata</a></li>
+        <li><a href="../youtube-scraper/results/comments.json">Video comments</a></li>
+        <li><a href="../youtube-scraper/results/shorts.json">Shorts' metadata</a></li>
+        <li><a href="../youtube-scraper/results/search.json">Search</a></li>
+        <li><a href="../youtube-scraper/results/transcripts.json">Transcripts</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/youtube-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/youtube-scraper.svg" alt="youtube-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../zillow-scraper/">Zillow.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zillow">How to Scrape Zillow Real Estate Property Data in Python</a></td>
     <td>
@@ -1011,33 +1055,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
-        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
-        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../g2-scraper/">G2.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-g2-company-data-and-reviews">How to Scrape G2 Company Data and Reviews</a></td>
-    <td>
-    <ul>
-        <li><a href="../g2-scraper/results/reviews.json">Review pages</a></li>
-        <li><a href="../g2-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../g2-scraper/results/alternatives.json">Alternatives pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/g2-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/g2-scraper.svg" alt="g2-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../instagram-scraper/">Instagram.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
     <td>
@@ -1050,23 +1067,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../youtube-scraper/">YouTube.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-youtube">How to Scrape YouTube in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="../youtube-scraper/results/channel_videos.json">Channel videos</a></li>
-        <li><a href="../youtube-scraper/results/channels.json">Channel metadata</a></li>
-        <li><a href="../youtube-scraper/results/videos.json">Video metadata</a></li>
-        <li><a href="../youtube-scraper/results/comments.json">Video comments</a></li>
-        <li><a href="../youtube-scraper/results/shorts.json">Shorts' metadata</a></li>
-        <li><a href="../youtube-scraper/results/search.json">Search</a></li>
-        <li><a href="../youtube-scraper/results/transcripts.json">Transcripts</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/youtube-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/youtube-scraper.svg" alt="youtube-scraper-status"></a></td>
   </tr>
 
   <tr>
