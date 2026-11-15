@@ -555,6 +555,21 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
   </tr>
 
   <tr>
+    <td><a href="./instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="./kayak-scraper/">Kayak</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-kayak">How to Scrape Kayak Flight Prices in 2026</a></td>
     <td>
@@ -1052,21 +1067,6 @@ A badge reads **passing** (every test passed), **N/M passing** (some tests passe
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="./instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="./instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="./instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="./instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="./instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="./instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
