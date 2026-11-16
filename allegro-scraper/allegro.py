@@ -203,6 +203,12 @@ def parse_product(result: ScrapeApiResponse) -> Dict:
         # Extract just the price value
         price_match = re.search(r"(\d+[.,]\d+)", shipping_text)
         shipping_price = price_match.group(1) if price_match else None
+    if not shipping_price:
+        # the button now starts with the delivery date and the price comes in a later span,
+        # e.g. "za 10,49 zł lub za 0 zł" or "za 0 zł": keep the first price, as a string like before ("10,49")
+        shipping_spans = sel.xpath('//button[@data-analytics-view-label="ShippingInfo"]//span/text()').getall()
+        price_match = re.search(r"za\s(\d+(?:[.,]\d+)?)\szł", " ".join(shipping_spans))
+        shipping_price = price_match.group(1) if price_match else None
 
     # return policy
     return_elem = sel.xpath('//button[@data-analytics-view-label="TrustInfo"]//div/text()').get()
