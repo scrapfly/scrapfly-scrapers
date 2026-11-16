@@ -95,8 +95,8 @@ async def scrape_search(url: str, scrape_all_pages: bool, max_scrape_pages: int 
     log.info("scraping search page {}", url)
     data = parse_next_data(first_page)["resultList"]["search"]["fullSearch"]["result"]
     search_data = data["listings"]
-    # get the number of maximum search pages available
-    max_search_pages = data["resultCount"]
+    # get the number of maximum search pages available ("resultCount" is the number of listings, not pages)
+    max_search_pages = data.get("pageCount") or data["resultCount"]
     # scrape all available pages in the search if scrape_all_pages = True or max_pages > total_search_pages
     if scrape_all_pages == False and max_scrape_pages < max_search_pages:
         total_pages = max_scrape_pages
