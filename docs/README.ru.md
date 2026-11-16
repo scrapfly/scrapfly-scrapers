@@ -466,20 +466,6 @@ poetry run pytest test.py                 # тесты скрапера
   </tr>
 
   <tr>
-    <td><a href="../idealo-scraper/">Idealo.de</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
-    <td>
-    <ul>
-        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../imdb-scraper/">IMDb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
@@ -658,18 +644,6 @@ poetry run pytest test.py                 # тесты скрапера
   </tr>
 
   <tr>
-    <td><a href="../mouser-scraper/">Mouser.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../mouser-scraper/results/product.json">Product</a></li>
-        <li><a href="../mouser-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../naver-scraper/">Naver.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
     <td>
@@ -783,6 +757,19 @@ poetry run pytest test.py                 # тесты скрапера
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../rs-online-scraper/results/category.json">Category</a></li>
+        <li><a href="../rs-online-scraper/results/products.json">Products</a></li>
+        <li><a href="../rs-online-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1070,16 +1057,29 @@ poetry run pytest test.py                 # тесты скрапера
   </tr>
 
   <tr>
-    <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
+    <td><a href="../idealo-scraper/">Idealo.de</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
     <td>
     <ul>
-        <li><a href="../rs-online-scraper/results/category.json">Category</a></li>
-        <li><a href="../rs-online-scraper/results/products.json">Products</a></li>
-        <li><a href="../rs-online-scraper/results/search.json">Search</a></li>
+        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../mouser-scraper/">Mouser.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-mouser-com-in-2026">How to Scrape Mouser.com in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../mouser-scraper/results/product.json">Product</a></li>
+        <li><a href="../mouser-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
   </tr>
 
 </table>
