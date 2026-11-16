@@ -212,6 +212,20 @@ async def scrape_artist(urls: list[str]) -> List[TicketmasterArtist]:
     return data
 
 
+def parse_embedded_total(next_data: Optional[str]) -> Optional[int]:
+    """Read the total number of events from the events query embedded in the page data (__NEXT_DATA__)"""
+    try:
+        queries = json.loads(next_data or "")["props"]["pageProps"]["initialReduxState"]["api"]["queries"]
+    except (json.JSONDecodeError, KeyError, TypeError):
+        return None
+    for query in queries.values():
+        # the events query is the one whose answer carries the events with their total, e.g. {"total": 457, ...}
+        data = query.get("data") if isinstance(query, dict) else None
+        if isinstance(data, dict) and "events" in data and isinstance(data.get("total"), int):
+            return data["total"]
+    return None
+
+
 def parse_discovery_response(result: ScrapeApiResponse) -> TicketmasterSearch:
     """Parse Ticketmaster discovery HTML page for event listings from JSON-LD scripts"""
     sel = result.selector
@@ -265,6 +279,11 @@ def parse_discovery_response(result: ScrapeApiResponse) -> TicketmasterSearch:
         match = re.search(r"(\d+)", total_count_text)
         if match:
             total_count = int(match.group(1))
+    else:
+        # the results label lost that class name: read the total from the page's embedded events query instead
+        embedded_total = parse_embedded_total(sel.xpath('//script[@id="__NEXT_DATA__"]/text()').get())
+        if embedded_total is not None:
+            total_count = embedded_total
     events_count = len(events)
     log.info(f"Parsed {events_count} events from discovery page (total: {total_count})")
     return {
