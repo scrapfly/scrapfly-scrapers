@@ -62,11 +62,12 @@ def parse_place(response: ScrapeApiResponse) -> Dict:
         "review_count": aria_with_label(" reviews").get(),
         # to extract star numbers from text we can use regex pattern for numbers: "\d+"
         "stars": aria_with_label(" stars").re(r"\d+.*\d+")[0],
-        "5_stars": aria_with_label("5 stars").re(r"(\d+) review")[0],
-        "4_stars": aria_with_label("4 stars").re(r"(\d+) review")[0],
-        "3_stars": aria_with_label("3 stars").re(r"(\d+) review")[0],
-        "2_stars": aria_with_label("2 stars").re(r"(\d+) review")[0],
-        "1_stars": aria_with_label("1 stars").re(r"(\d+) review")[0],
+        # star rows read "5 stars, 95,576 reviews": keep every digit of the count, without the thousands separators
+        "5_stars": aria_with_label("5 stars").re(r"([\d,]+) review")[0].replace(",", ""),
+        "4_stars": aria_with_label("4 stars").re(r"([\d,]+) review")[0].replace(",", ""),
+        "3_stars": aria_with_label("3 stars").re(r"([\d,]+) review")[0].replace(",", ""),
+        "2_stars": aria_with_label("2 stars").re(r"([\d,]+) review")[0].replace(",", ""),
+        "1_stars": aria_with_label("1 stars").re(r"([\d,]+) review")[0].replace(",", ""),
     }
     return result
 
