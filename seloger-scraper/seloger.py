@@ -6,6 +6,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 import os
 import json
+import math
 import re
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
 from typing import Dict, List, Optional
@@ -96,8 +97,11 @@ def parse_search(result: ScrapeApiResponse):
             }
         )
 
-    max_results = result.selector.xpath("//h1[contains(@data-testid, 'serp-title')]/text()").get()
-    max_results = int(re.sub(r"\D", "", max_results)) if re.search(r"\d", max_results) else max_results
+    # the heading starts with the result count: "5\u202f892 appartements à vendre – Bordeaux"
+    # take only the first number (a heading can end with a postcode: "403 appartements à vendre – Pessac, 33600")
+    title = result.selector.xpath("//h1[contains(@data-testid, 'serp-title')]/text()").get() or ""
+    count = re.search(r"\d+(?:[\s\u202f.]\d{3})*", title)
+    max_results = int(re.sub(r"\D", "", count.group())) if count else None
     return {"results": data, "max_results": max_results}
 
 
@@ -153,8 +157,14 @@ async def scrape_search(
     search_page_result = parse_search(first_page)
     # extract the property listing data
     search_data = search_page_result["results"]
-    # get the max search pages number
-    total_search_pages = search_page_result["max_results"] // 30  # 30 results per page
+    if search_page_result["max_results"] is None:
+        raise ValueError(f"seloger.com returned a search page without a result count in its heading: {url}")
+    # get the max search pages number: 30 results per page, the last page can be partial
+    total_search_pages = math.ceil(search_page_result["max_results"] / 30)
+    # never more than the last page the pagination links to ("à la page 14")
+    page_links = first_page.selector.xpath("//button[starts-with(@aria-label, 'à la page')]/@aria-label").re(r"\d+")
+    if page_links:
+        total_search_pages = min(total_search_pages, max(int(page) for page in page_links))
     # get the number of pages to scrape
     if max_pages and max_pages <= total_search_pages:
         total_search_pages = max_pages
