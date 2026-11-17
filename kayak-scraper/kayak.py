@@ -23,6 +23,9 @@ BASE_CONFIG = {
 
 POLL_URL = "https://www.kayak.com/i/api/search/dynamic/flights/poll"
 SEARCH_RESULTS_SELECTOR = "//div[contains(@id, 'results')]"
+# the results container shows before the search found any flight (the first poll answer can be an empty "first-phase"
+# one); the result cards carry booking links, so wait for one of those too (skipped when none shows)
+RESULT_CARD_SELECTOR = "//a[contains(@href, '/book/flight')]"
 
 
 def build_search_url(origin, destination, departure_date, return_date=None, sort="bestflight_a"):
@@ -129,7 +132,15 @@ def _build_poll_payload(origin, destination, departure_date, return_date, search
 def parse_poll_call(response: ScrapeApiResponse):
     """extract poll API call from xhr_calls"""
     _xhr_calls = response.scrape_result["browser_data"]["xhr_call"]
-    poll_call = [call for call in _xhr_calls if POLL_URL in call["url"]][-1]
+    poll_calls = [call for call in _xhr_calls if POLL_URL in call["url"]]
+    # the page keeps polling while the search finishes and later polls can answer with no results,
+    # so use the latest answer that carries results and fall back to the last one
+    poll_call = poll_calls[-1]
+    for call in reversed(poll_calls):
+        body = (call.get("response") or {}).get("body")
+        if body and json.loads(body).get("results"):
+            poll_call = call
+            break
     headers = poll_call["headers"]
     return poll_call, headers
 
@@ -150,6 +161,7 @@ async def scrape_flights(
     search_response = await SCRAPFLY.async_scrape(ScrapeConfig(
         url, **BASE_CONFIG, render_js=True, session=session_id,
         rendering_wait=3000, wait_for_selector=SEARCH_RESULTS_SELECTOR,
+        js_scenario=[{"wait_for_selector": {"selector": RESULT_CARD_SELECTOR, "timeout": 15000, "ignore": True}}],
     ))
 
     poll_call, poll_headers = parse_poll_call(search_response)
