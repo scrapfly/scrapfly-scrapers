@@ -264,7 +264,8 @@ async def scrape_search(query: str, max_pages: int = 3, scrape_all_pages: bool =
     scraped_pages = 1
     if pages_to_scrape > 1:
         other_pages = [
-            ScrapeConfig(f"{base_url}&p={page}", **BASE_CONFIG)
+            # the site's own pagination links use "pg" ("p" is ignored and returns the first page again)
+            ScrapeConfig(f"{base_url}&pg={page}", **BASE_CONFIG)
             for page in range(2, pages_to_scrape + 1)
         ]
 
