@@ -123,7 +123,9 @@ def parse_property_page(result: ScrapeApiResponse):
     if not match:
         raise ValueError("Could not extract JSON string from script tag")
     json_str_escaped = match.group(1)
-    json_str = json_str_escaped.encode("utf-8").decode("unicode_escape")
+    # unescape the JSON string; latin-1 with backslashreplace keeps non-ASCII text such as "pièces" intact
+    # (utf-8 bytes read back by unicode_escape turned it into "piÃ¨ces")
+    json_str = json_str_escaped.encode("latin-1", "backslashreplace").decode("unicode_escape")
     listing_data = json.loads(json_str)
     app_data = listing_data["app_cldp"]["data"]
     listing_data = app_data["classified"]
