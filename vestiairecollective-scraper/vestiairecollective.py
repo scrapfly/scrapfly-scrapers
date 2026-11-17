@@ -147,11 +147,13 @@ async def scrape_search(url: str, max_pages: int = 10) -> List[Dict]:
     # find total page count
     if max_pages and max_pages < total_pages:
         total_pages = max_pages
-    total_products = total_pages * 48  # each page contains 48 listings
+    # each page holds the number of listings the page asked for (60 now, 48 before)
+    page_size = payload["pagination"].get("limit") or 48
+    total_products = total_pages * page_size
 
     # next, scrape the remaining search pages directly from the API
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
-    for offset in range(48, total_products, 48):
+    for offset in range(page_size, total_products, page_size):
         try:        
             result = await send_api_request(headers, payload, offset)
             results.extend(parse_search_api(result))

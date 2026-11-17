@@ -48,7 +48,7 @@ asyncio.run(main())
 함수는 일반 딕셔너리와 리스트를 반환합니다. 샘플 출력의 필드(첫 번째 항목의 최상위 키)는 다음과 같습니다.
 
 - [`results/products.json`](results/products.json): `id`, `type`, `name`, `price`, `description`, `path`, `sold`, `reserved`, `inStock`, `available`, `receipt`, `consignment`, `shouldBeGone`, `likeCount`, `measurementFormatted`, `isLocal`, `dutyAndTax`, `buyerFees`, `alternateVersions`, `metadata`, `indexation`, `flags`, `brand`, `size`, `color`, `material`, `condition`, `universe`, `category`, `subcategory`, `model`, `pictures`, `warehouse`, `pricingBreakdown`, `meshLinks`, `seller`, `prohibited`, `localizedDescription`, `originalDescription`, `originalDescriptionLanguage`, … (3 개 더)
-- [`results/search.json`](results/search.json): `id`, `brand`, `name`, `description`, `country`, `discount`, `colors`, `localEligible`, `directShippingEligible`, `editorPicks`, `likes`, `link`, `model`, `pictures`, `price`, `seller`, `sold`, `stock`, `shouldBeGone`, `createdAt`, `universeId`, `dutyFree`, `personalizationType`
+- [`results/search.json`](results/search.json): `id`, `brand`, `name`, `description`, `country`, `colors`, `localEligible`, `directShippingEligible`, `editorPicks`, `likes`, `link`, `pictures`, `price`, `seller`, `sold`, `stock`, `shouldBeGone`, `size`, `createdAt`, `universeId`, `dutyFree`, `personalizationType`
 
 ## Scrapfly 설정
 
