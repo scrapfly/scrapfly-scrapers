@@ -259,7 +259,8 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
     business_id = parse_business_id(response_business)
 
     log.info("scraping the first review page")
-    first_page = await request_reviews_api(url=url, business_id=business_id, start_index=1)
+    # the review offsets count from 0 (offset 1 skips the newest review)
+    first_page = await request_reviews_api(url=url, business_id=business_id, start_index=0)
     review_data = parse_review_data(first_page)
     reviews = review_data["reviews"]
     total_reviews = review_data["total_reviews"]
@@ -270,7 +271,7 @@ async def scrape_reviews(url: str, max_reviews: int = None) -> List[Review]:
 
     # next, scrape the remaining review pages
     log.info(f"scraping review pagination, remaining ({total_reviews // 10}) more pages")
-    for offset in range(11, total_reviews, 10):
+    for offset in range(10, total_reviews, 10):
         try:
             response = await request_reviews_api(url=url, business_id=business_id, start_index=offset)
             new_review_data = parse_review_data(response)["reviews"]
@@ -290,10 +291,11 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
         params = {"find_desc": keyword, "find_loc": location, "start": offset}
         return base_url + urlencode(params)
         # final url example:
-        # https://www.yelp.com/search?find_desc=plumbers&find_loc=Seattle%2C+WA&start=1
+        # https://www.yelp.com/search?find_desc=plumbers&find_loc=Seattle%2C+WA&start=10
+        # "start" counts results from 0, like the site's own page links (start=1 skips the first result)
 
     log.info("scraping the first search page")
-    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(make_search_url(1), **BASE_CONFIG, render_js=True))
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(make_search_url(0), **BASE_CONFIG, render_js=True))
     data = parse_search(first_page)
     search_data = data["search_data"]
     total_results = data["total_results"]
@@ -307,9 +309,12 @@ async def scrape_search(keyword: str, location: str, max_pages: int = None):
     log.info(f"scraping search pagination, remaining ({total_pages - 1}) more pages")
     other_pages = [
         ScrapeConfig(make_search_url(offset), **BASE_CONFIG, render_js=True)
-        for offset in range(11, total_pages * 10, 10)
+        for offset in range(10, total_pages * 10, 10)
     ]
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
+        if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
+            log.error(f"skipping a search page that could not be scraped: {response}")
+            continue
         try:
             search_data.extend(parse_search(response)["search_data"])
         except Exception as e:
