@@ -54,8 +54,9 @@ def parse_search(result: ScrapeApiResponse) -> List[ProductPreview]:
         url = urljoin(result.context["url"], box.css("div>a::attr(href)").get()).split("?")[0]
         if "/slredirect/" in url:  # skip ads etc.
             continue
-        rating = box.xpath("//div[@data-cy='reviews-block']//a[contains(@aria-label, 'out of')]/@aria-label").re_first(r"(\d+\.*\d*) out")
-        rating_count = box.xpath("//div[@data-cy='reviews-block']//a[contains(@aria-label, 'ratings')]/@aria-label").get()
+        # ".//" keeps the lookup inside this product box ("//" gave every product the page's first rating)
+        rating = box.xpath(".//div[@data-cy='reviews-block']//a[contains(@aria-label, 'out of')]/@aria-label").re_first(r"(\d+\.*\d*) out")
+        rating_count = box.xpath(".//div[@data-cy='reviews-block']//a[contains(@aria-label, 'ratings')]/@aria-label").get()
         previews.append(
             {
                 "url": url,
