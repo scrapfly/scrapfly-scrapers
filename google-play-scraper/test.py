@@ -27,6 +27,9 @@ app_schema = {
     "icon": {"type": "string", "nullable": True},
     "free": {"type": "boolean", "nullable": True},
     "price": {"type": "float", "nullable": True},
+    "developerAddress": {"type": "string", "nullable": True},
+    # the reviews shown on the app page
+    "comments": {"type": "list", "minlength": 1, "schema": {"type": "string"}},
 }
 
 review_schema = {

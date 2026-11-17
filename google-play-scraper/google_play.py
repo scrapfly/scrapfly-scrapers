@@ -63,6 +63,23 @@ def _parse_af_init_data(html: str) -> Dict:
     return dataset
 
 
+def _find_reviews(dataset: Dict) -> List:
+    """the reviews shown on the app page: the dataset whose first list holds review entries
+    (review id, author, score, ..., text); its "ds:N" key changes when the page adds or removes datasets"""
+    for value in dataset.values():
+        entries = _nested_get(value, [0])
+        if (
+            isinstance(entries, list)
+            and entries
+            and isinstance(entries[0], list)
+            and len(entries[0]) > 4
+            and isinstance(entries[0][0], str)
+            and isinstance(entries[0][4], str)
+        ):
+            return entries
+    return []
+
+
 def parse_app(response: ScrapeApiResponse) -> Dict:
     """parse app detail"""
     dataset = _parse_af_init_data(response.content)
@@ -75,7 +92,7 @@ def parse_app(response: ScrapeApiResponse) -> Dict:
     genre = _nested_get(app, [79, 0, 0, 0])
     genre_id = _nested_get(app, [79, 0, 0, 2])
     ads = _nested_get(app, [48])
-    comments = _nested_get(dataset, ["ds:8", 0]) or []
+    comments = _find_reviews(dataset)
     requested_url = response.config["url"]
 
     return {
@@ -99,7 +116,8 @@ def parse_app(response: ScrapeApiResponse) -> Dict:
         "developerId": developer_id.split("id=")[-1] if developer_id else None,
         "developerEmail": _nested_get(app, [69, 1, 0]),
         "developerWebsite": _nested_get(app, [69, 0, 5, 2]),
-        "developerAddress": _nested_get(app, [69, 2, 0]),
+        # the address moved into the developer contact block
+        "developerAddress": _nested_get(app, [69, 2, 0]) or _nested_get(app, [69, 4, 2, 0]),
         "privacyPolicy": _nested_get(app, [99, 0, 5, 2]),
         "genre": genre,
         "genreId": genre_id,
