@@ -171,6 +171,10 @@ def _parse_listing_item(card) -> IdealoListingItem:
     if not product_id and href:
         match = re.search(r"/OffersOfProduct/(\d+)", href)
         product_id = match.group(1) if match else None
+    # many product tiles no longer carry a link: their page answers at OffersOfProduct/<id>.html
+    # (single shop offers have a hash id instead and no product page on idealo)
+    if not href and product_id and str(product_id).isdigit():
+        href = f"/preisvergleich/OffersOfProduct/{product_id}.html"
 
     return IdealoListingItem(
         product_id=product_id,
