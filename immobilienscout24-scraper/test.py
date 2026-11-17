@@ -77,6 +77,7 @@ property_schema = {
                 "type": "list",
                 "schema": {"type": "string", "nullable": True},
                 "nullable": True,
+                "minlength": 1,
             },
             "videoAvailable": {"type": "boolean", "nullable": True},
         },

@@ -94,7 +94,19 @@ def parse_property_page(response: ScrapeApiResponse):
                 property_images.append(image.xpath("./img").attrib["data-src"].split("/ORIG")[0])
         except:
             pass
+    # the gallery slides are gone: the page data lists the images ("galleryData": {"images": [...]})
+    # and says whether there is a video ("galleryEntry": {"hasVideo": ...})
+    gallery_start = response.content.find("galleryData:")
+    if not property_images and gallery_start != -1:
+        try:
+            gallery, _ = json.JSONDecoder().raw_decode(response.content, response.content.index("{", gallery_start))
+            for image in gallery.get("images") or []:
+                if image.get("fullSizePictureUrl"):
+                    property_images.append(image["fullSizePictureUrl"].split("/ORIG")[0])
+        except ValueError:
+            log.warning(f"could not read the gallery data of {response.context['url']}")
     video_available = bool(selector.xpath("//button[contains(@class, 'gallery-video')]/text()").get())
+    video_available = video_available or '"galleryEntry":{"hasVideo":true' in response.content
     internet_speed = selector.xpath("//a[contains(@class, 'mediaavailcheck')]/text()").get()
     internet_available = bool(internet_speed)
     agency_name = selector.xpath("//span[@data-qa='companyName']/text()").get()
