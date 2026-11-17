@@ -48,7 +48,7 @@ asyncio.run(main())
 The functions return plain dictionaries and lists. Fields of the sample output (top-level keys of the first item):
 
 - [`results/products.json`](results/products.json): `id`, `type`, `name`, `price`, `description`, `path`, `sold`, `reserved`, `inStock`, `available`, `receipt`, `consignment`, `shouldBeGone`, `likeCount`, `measurementFormatted`, `isLocal`, `dutyAndTax`, `buyerFees`, `alternateVersions`, `metadata`, `indexation`, `flags`, `brand`, `size`, `color`, `material`, `condition`, `universe`, `category`, `subcategory`, `model`, `pictures`, `warehouse`, `pricingBreakdown`, `meshLinks`, `seller`, `prohibited`, `localizedDescription`, `originalDescription`, `originalDescriptionLanguage`, … (3 more)
-- [`results/search.json`](results/search.json): `id`, `brand`, `name`, `description`, `country`, `discount`, `colors`, `localEligible`, `directShippingEligible`, `editorPicks`, `likes`, `link`, `model`, `pictures`, `price`, `seller`, `sold`, `stock`, `shouldBeGone`, `createdAt`, `universeId`, `dutyFree`, `personalizationType`
+- [`results/search.json`](results/search.json): `id`, `brand`, `name`, `description`, `country`, `colors`, `localEligible`, `directShippingEligible`, `editorPicks`, `likes`, `link`, `pictures`, `price`, `seller`, `sold`, `stock`, `shouldBeGone`, `size`, `createdAt`, `universeId`, `dutyFree`, `personalizationType`
 
 ## Scrapfly settings
 

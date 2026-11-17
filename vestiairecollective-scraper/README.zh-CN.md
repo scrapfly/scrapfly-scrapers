@@ -48,7 +48,7 @@ asyncio.run(main())
 这些函数返回普通的字典和列表。示例输出的字段（第一项的顶层键）：
 
 - [`results/products.json`](results/products.json): `id`, `type`, `name`, `price`, `description`, `path`, `sold`, `reserved`, `inStock`, `available`, `receipt`, `consignment`, `shouldBeGone`, `likeCount`, `measurementFormatted`, `isLocal`, `dutyAndTax`, `buyerFees`, `alternateVersions`, `metadata`, `indexation`, `flags`, `brand`, `size`, `color`, `material`, `condition`, `universe`, `category`, `subcategory`, `model`, `pictures`, `warehouse`, `pricingBreakdown`, `meshLinks`, `seller`, `prohibited`, `localizedDescription`, `originalDescription`, `originalDescriptionLanguage`, … (3 更多)
-- [`results/search.json`](results/search.json): `id`, `brand`, `name`, `description`, `country`, `discount`, `colors`, `localEligible`, `directShippingEligible`, `editorPicks`, `likes`, `link`, `model`, `pictures`, `price`, `seller`, `sold`, `stock`, `shouldBeGone`, `createdAt`, `universeId`, `dutyFree`, `personalizationType`
+- [`results/search.json`](results/search.json): `id`, `brand`, `name`, `description`, `country`, `colors`, `localEligible`, `directShippingEligible`, `editorPicks`, `likes`, `link`, `pictures`, `price`, `seller`, `sold`, `stock`, `shouldBeGone`, `size`, `createdAt`, `universeId`, `dutyFree`, `personalizationType`
 
 ## Scrapfly 设置
 
