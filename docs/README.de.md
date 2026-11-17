@@ -74,20 +74,6 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
-    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
-        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
-        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../allegro-scraper/">Allegro.pl</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-allegro">How to Scrape Allegro.pl in 2026 (Without Getting Blocked)</a></td>
     <td>
@@ -466,6 +452,20 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
+    <td><a href="../idealo-scraper/">Idealo.de</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
+    <td>
+    <ul>
+        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
+        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
+        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
+        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../imdb-scraper/">IMDb.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
@@ -538,21 +538,6 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../instagram-scraper/">Instagram.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
-    <td>
-    <ul>
-        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
-        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
-        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
-        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
-        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -757,19 +742,6 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rightmove-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rightmove-scraper.svg" alt="rightmove-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../rs-online-scraper/results/category.json">Category</a></li>
-        <li><a href="../rs-online-scraper/results/products.json">Products</a></li>
-        <li><a href="../rs-online-scraper/results/search.json">Search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1057,17 +1029,32 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
   </tr>
 
   <tr>
-    <td><a href="../idealo-scraper/">Idealo.de</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-idealo">How to Scrape idealo Price Comparison Data (2026)</a></td>
+    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
     <td>
     <ul>
-        <li><a href="../idealo-scraper/results/manufacturer.json">Manufacturer</a></li>
-        <li><a href="../idealo-scraper/results/price_history.json">Price history</a></li>
-        <li><a href="../idealo-scraper/results/products.json">Products</a></li>
-        <li><a href="../idealo-scraper/results/search.json">Search</a></li>
+        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
+        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
+        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../instagram-scraper/">Instagram.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
+    <td>
+    <ul>
+        <li><a href="../instagram-scraper/results/user.json">User data</a></li>
+        <li><a href="../instagram-scraper/results/all-user-posts.json">All user posts</a></li>
+        <li><a href="../instagram-scraper/results/multi-image-post.json">Multi image post</a></li>
+        <li><a href="../instagram-scraper/results/video-post.json">Video Post</a></li>
+        <li><a href="../instagram-scraper/results/post-comments.json">Post comments</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/instagram-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/instagram-scraper.svg" alt="instagram-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1080,6 +1067,19 @@ Ein Badge zeigt **passing** (alle Tests bestanden), **N/M passing** (einige Test
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/mouser-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/mouser-scraper.svg" alt="mouser-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../rs-online-scraper/">Rs-online.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-rs-online">How to Scrape RS-Online (rs-online.com) in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../rs-online-scraper/results/category.json">Category</a></li>
+        <li><a href="../rs-online-scraper/results/products.json">Products</a></li>
+        <li><a href="../rs-online-scraper/results/search.json">Search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/rs-online-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/rs-online-scraper.svg" alt="rs-online-scraper-status"></a></td>
   </tr>
 
 </table>
