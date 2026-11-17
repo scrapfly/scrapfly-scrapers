@@ -87,7 +87,8 @@ def parse_search_page(result: ScrapeApiResponse) -> Dict:
             "price": card.css("[data-qa='POSTING_CARD_PRICE']::text").get("").strip() or None,
             "area": next((t.strip() for t in features if "m²" in t), None),
             "bedrooms": next((t.strip() for t in features if re.search(r"\bquartos?\b|\bdormitórios?\b", t, re.I)), None),
-            "bathrooms": next((t.strip() for t in features if re.search(r"\bbanheiros?\b", t, re.I)), None),
+            # one bathroom reads "1 banheiro", more read "2 ban."
+            "bathrooms": next((t.strip() for t in features if re.search(r"\bbanheiros?\b|\bban\.", t, re.I)), None),
             "url": f"https://www.imovelweb.com.br{link}" if link.startswith("/") else link,
             "thumbnail": card.css(".postingGallery-module__gallery-container img::attr(src)").get(),
         })
