@@ -5,7 +5,7 @@
     "metadata": {
       "legacyId": "281207513",
       "creationDate": "2026-10-01T19:22:00Z",
-      "updateDate": "2026-10-03T01:02:55.91Z",
+      "updateDate": "2026-10-30T02:01:38.498Z",
       "status": {
         "status": true,
         "enrichments": {
@@ -25,100 +25,62 @@
             "id": "c0d862a8-37d9-4040-aa1e-5f68d138fabc",
             "key": "c0d862a8-37d9-4040-aa1e-5f68d138fabc-0",
             "url": "https://mms.seloger.com/c/0/d/8/c0d862a8-37d9-4040-aa1e-5f68d138fabc.jpg?ci_seal=4966356e5fba2049a736247e48eeee58c064d543",
-            "classification": {
-              "name": "HOUSE_FACADE",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "description": "Façade de la maison"
           },
           {
             "id": "9059d767-c8f2-441b-a4df-d2608ee58ebf",
             "key": "9059d767-c8f2-441b-a4df-d2608ee58ebf-1",
             "url": "https://mms.seloger.com/9/0/5/9/9059d767-c8f2-441b-a4df-d2608ee58ebf.jpg?ci_seal=4951eef1066db273c3253aed1eb9cb5f3be81972",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "description": "Salon"
           },
           {
             "id": "9a394aee-70ce-4791-af19-ffa8ddd56d49",
             "key": "9a394aee-70ce-4791-af19-ffa8ddd56d49-2",
             "url": "https://mms.seloger.com/9/a/3/9/9a394aee-70ce-4791-af19-ffa8ddd56d49.jpg?ci_seal=d390ed3ca06f60ebf13485189988d7f07986043e",
-            "classification": {
-              "name": "KITCHEN",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "description": "Cuisine"
           },
           {
             "id": "d3962e98-420e-4f55-88f4-7bcd2146b3d6",
             "key": "d3962e98-420e-4f55-88f4-7bcd2146b3d6-3",
             "url": "https://mms.seloger.com/d/3/9/6/d3962e98-420e-4f55-88f4-7bcd2146b3d6.jpg?ci_seal=0c00cc33e71739ea9cad947b73361864706122bc",
-            "classification": {
-              "name": "KITCHEN",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "description": "Cuisine"
           },
           {
             "id": "b2c00742-fa4e-4ac1-b258-37b8ac5b04c9",
             "key": "b2c00742-fa4e-4ac1-b258-37b8ac5b04c9-4",
             "url": "https://mms.seloger.com/b/2/c/0/b2c00742-fa4e-4ac1-b258-37b8ac5b04c9.jpg?ci_seal=5b05191c372bc7a447b7a577e9a7c4b316a90855",
-            "classification": {
-              "name": "BEDROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "description": "Chambre"
           },
           {
             "id": "8226c144-8eec-4158-9bd5-f8fc00a38925",
             "key": "8226c144-8eec-4158-9bd5-f8fc00a38925-5",
-            "url": "https://mms.seloger.com/8/2/2/6/8226c144-8eec-4158-9bd5-f8fc00a38925.jpg?ci_seal=ecf46e6d4b46b3a8428f96e8b90f290cf1e59644",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "url": "https://mms.seloger.com/8/2/2/6/8226c144-8eec-4158-9bd5-f8fc00a38925.jpg?ci_seal=ecf46e6d4b46b3a8428f96e8b90f290cf1e59644"
           },
           {
             "id": "aedd08fa-a5ac-4589-9d7c-1e5659ec3d45",
             "key": "aedd08fa-a5ac-4589-9d7c-1e5659ec3d45-6",
-            "url": "https://mms.seloger.com/a/e/d/d/aedd08fa-a5ac-4589-9d7c-1e5659ec3d45.jpg?ci_seal=a8d6af8e24a1c4ed306d8490202a009254fca5af",
-            "classification": {
-              "name": "KITCHEN",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "url": "https://mms.seloger.com/a/e/d/d/aedd08fa-a5ac-4589-9d7c-1e5659ec3d45.jpg?ci_seal=a8d6af8e24a1c4ed306d8490202a009254fca5af"
           },
           {
             "id": "ae81b691-31dc-4439-b55e-97c542e6cb52",
             "key": "ae81b691-31dc-4439-b55e-97c542e6cb52-7",
             "url": "https://mms.seloger.com/a/e/8/1/ae81b691-31dc-4439-b55e-97c542e6cb52.jpg?ci_seal=86d848fc34d0b7a564ebdb459ac02c8b4f3393a0",
-            "classification": {
-              "name": "BEDROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "description": "Chambre"
           },
           {
             "id": "b8555cd9-f0f4-462f-bf2d-860180fc8c91",
             "key": "b8555cd9-f0f4-462f-bf2d-860180fc8c91-8",
-            "url": "https://mms.seloger.com/b/8/5/5/b8555cd9-f0f4-462f-bf2d-860180fc8c91.jpg?ci_seal=64319882924724a1041f8ba7993280681e275139",
-            "classification": {
-              "name": "SWIMMING_POOL",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "url": "https://mms.seloger.com/b/8/5/5/b8555cd9-f0f4-462f-bf2d-860180fc8c91.jpg?ci_seal=64319882924724a1041f8ba7993280681e275139"
           },
           {
             "id": "e2d176be-de09-42d8-af55-ccae69662f93",
             "key": "e2d176be-de09-42d8-af55-ccae69662f93-9",
-            "url": "https://mms.seloger.com/e/2/d/1/e2d176be-de09-42d8-af55-ccae69662f93.jpg?ci_seal=c22da0b5285b7c846293b2f4a90651febfb79118",
-            "classification": {
-              "name": "LOGO",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "url": "https://mms.seloger.com/e/2/d/1/e2d176be-de09-42d8-af55-ccae69662f93.jpg?ci_seal=c22da0b5285b7c846293b2f4a90651febfb79118"
           },
           {
             "id": "791f125a-1a4b-4377-991b-1d1624f64e36",
             "key": "791f125a-1a4b-4377-991b-1d1624f64e36-10",
-            "url": "https://mms.seloger.com/7/9/1/f/791f125a-1a4b-4377-991b-1d1624f64e36.jpg?ci_seal=07973aaeaa1535069385392b04028a51d74b9d48",
-            "classification": {
-              "name": "LOGO",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "url": "https://mms.seloger.com/7/9/1/f/791f125a-1a4b-4377-991b-1d1624f64e36.jpg?ci_seal=07973aaeaa1535069385392b04028a51d74b9d48"
           }
         ],
         "floorplans": [],
@@ -375,7 +337,7 @@
               "carTimeMin": "1 min"
             },
             {
-              "name": "Ecole Ã©lÃ©mentaire Balguerie",
+              "name": "Ecole élémentaire Balguerie",
               "type": "PRIMARY",
               "distanceKm": "417 m",
               "walkTimeMin": "6 min",
@@ -383,7 +345,7 @@
               "carTimeMin": "1 min"
             },
             {
-              "name": "CollÃ¨ge Edouard Vaillant",
+              "name": "Collège Edouard Vaillant",
               "type": "MIDDLE",
               "distanceKm": "2.1 km",
               "walkTimeMin": "18 min",
@@ -393,42 +355,42 @@
           ],
           "privateSchools": [
             {
-              "name": "Ecole primaire privÃ©e Saint Louis Sainte ThÃ©rÃ¨se",
+              "name": "Ecole primaire privée Saint Louis Sainte Thérèse",
               "type": "PRIMARY",
               "distanceKm": "391 m",
               "walkTimeMin": "7 min",
               "bikeTimeMin": "2 min"
             },
             {
-              "name": "CollÃ¨ge privÃ© Saint Louis Sainte ThÃ©rÃ¨se",
+              "name": "Collège privé Saint Louis Sainte Thérèse",
               "type": "MIDDLE",
               "distanceKm": "391 m",
               "walkTimeMin": "7 min",
               "bikeTimeMin": "2 min"
             },
             {
-              "name": "Ecole primaire privÃ©e L'Envol des Papillons",
+              "name": "Ecole primaire privée L'Envol des Papillons",
               "type": "PRIMARY",
               "distanceKm": "535 m",
               "walkTimeMin": "10 min",
               "bikeTimeMin": "3 min"
             },
             {
-              "name": "CollÃ¨ge L'Envol - Bordeaux",
+              "name": "Collège L'Envol - Bordeaux",
               "type": "MIDDLE",
               "distanceKm": "537 m",
               "walkTimeMin": "9 min",
               "bikeTimeMin": "4 min"
             },
             {
-              "name": "Ecole maternelle privÃ©e paroissiale des Chartrons",
+              "name": "Ecole maternelle privée paroissiale des Chartrons",
               "type": "PRIMARY",
               "distanceKm": "670 m",
               "walkTimeMin": "13 min",
               "bikeTimeMin": "6 min"
             },
             {
-              "name": "CollÃ¨ge privÃ© Notre-Dame",
+              "name": "Collège privé Notre-Dame",
               "type": "MIDDLE",
               "distanceKm": "1.7 km",
               "bikeTimeMin": "15 min",
@@ -438,31 +400,32 @@
         }
       },
       "description": {
-        "description": "Achetez cette maison vendue louÃ©e, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'Ã©pargne d'environ 650EUR par mois sur un horizon de 6 ans.\r\nAge : Homme de 88 ans\r\nBouquet : 142950 EUR\r\nRente : 1982 EUR/mois\r\nValeur du bien : 270000 EUR\r\n\r\nEn Â« Viager libre Â», le bien est vendu libre de toute occupation. L'acquÃ©reur a la possibilitÃ© de l'habiter, d'y loger ses proches, ou de le mettre en location. Vous bÃ©nÃ©ficiez d'un crÃ©dit-vendeur.\r\nDescriptif du bien :\r\n** BORDEAUX MÃTROPOLE ** VILLENAVE D'ORNON\r\nA 300m du tram C\r\n20 minutes de l'hypercentre de BORDEAUX en TRAM / 3 minutes de la rocade / 14 minutes de la rocade autoroutiÃ¨re / 45 minutes d'ARCACHON\r\nDans cette ville dynamique en plein essor urbain, Ã©conomique et dÃ©mographique, bÃ©nÃ©ficiez d'un excellent emplacement dans un secteur calme et rÃ©sidentiel proche de toutes les commoditÃ©s.\r\nLa maison est bÃ¢tie sur une parcelle de 145mÂ². Mitoyenne d'un cÃ´tÃ©, cette maison construite en 2010 en R+1 dispose d'une entrÃ©e, d'un cellier, de WC, un grand garage. Au rez-de-chaussÃ© une belle piÃ¨ce de vie de 36mÂ² ouverte sur le jardin. A l'Ã©tage, vous disposez de 3 chambres et une salle de bain avec toilettes.\r\nLa maison est parfaitement entretenue. Aucun gros travaux Ã  prÃ©voir.\r\nAnalyse financiÃ¨re :\r\nBordeaux Metropole - Villenave d'Ornon\r\nOpportunitÃ© d'investissement en viager libre pour cette maison de 2010 vendue LOUÃE (Ã©chÃ©ance du bail 2 ans Ã  compter de la date de signature de l'acte).\r\nInvestissez 143 KEUR et devenez propriÃ©taire d'une maison d'une valeur libre de 300 KEUR.\r\nChaque mois vous aurez une rente Ã  verser de 1982EUR, compensÃ©e par un loyer perÃ§u de 1 350EUR, soit un effort d'Ã©pargne de moins de 632EUR.\r\nIdÃ©al pour une RÃ©sidence principale ou un investissent locatif!",
+        "description": "Achetez cette maison vendue louée, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'épargne d'environ 650EUR par mois sur un horizon de 6 ans.\r\nAge : Homme de 89 ans\r\nBouquet : 142950 EUR\r\nRente : 1982 EUR/mois\r\nValeur du bien : 270000 EUR\r\n\r\nEn « Viager libre », le bien est vendu libre de toute occupation. L'acquéreur a la possibilité de l'habiter, d'y loger ses proches, ou de le mettre en location. Vous bénéficiez d'un crédit-vendeur.\r\nDescriptif du bien :\r\n** BORDEAUX MÉTROPOLE ** VILLENAVE D'ORNON\r\nA 300m du tram C\r\n20 minutes de l'hypercentre de BORDEAUX en TRAM / 3 minutes de la rocade / 14 minutes de la rocade autoroutière / 45 minutes d'ARCACHON\r\nDans cette ville dynamique en plein essor urbain, économique et démographique, bénéficiez d'un excellent emplacement dans un secteur calme et résidentiel proche de toutes les commodités.\r\nLa maison est bâtie sur une parcelle de 145m². Mitoyenne d'un côté, cette maison construite en 2010 en R+1 dispose d'une entrée, d'un cellier, de WC, un grand garage. Au rez-de-chaussé une belle pièce de vie de 36m² ouverte sur le jardin. A l'étage, vous disposez de 3 chambres et une salle de bain avec toilettes.\r\nLa maison est parfaitement entretenue. Aucun gros travaux à prévoir.\r\nAnalyse financière :\r\nBordeaux Metropole - Villenave d'Ornon\r\nOpportunité d'investissement en viager libre pour cette maison de 2010 vendue LOUÉE (échéance du bail 2 ans à compter de la date de signature de l'acte).\r\nInvestissez 143 KEUR et devenez propriétaire d'une maison d'une valeur libre de 300 KEUR.\r\nChaque mois vous aurez une rente à verser de 1982EUR, compensée par un loyer perçu de 1 350EUR, soit un effort d'épargne de moins de 632EUR.\r\nIdéal pour une Résidence principale ou un investissent locatif!",
         "texts": [
           {
-            "text": "Achetez cette maison vendue louÃ©e, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'Ã©pargne d'environ 650EUR par mois sur un horizon de 6 ans.\r\nAge : Homme de 88 ans\r\nBouquet : 142950 EUR\r\nRente : 1982 EUR/mois\r\nValeur du bien : 270000 EUR\r\n\r\nEn Â« Viager libre Â», le bien est vendu libre de toute occupation. L'acquÃ©reur a la possibilitÃ© de l'habiter, d'y loger ses proches, ou de le mettre en location. Vous bÃ©nÃ©ficiez d'un crÃ©dit-vendeur.\r\nDescriptif du bien :\r\n** BORDEAUX MÃTROPOLE ** VILLENAVE D'ORNON\r\nA 300m du tram C\r\n20 minutes de l'hypercentre de BORDEAUX en TRAM / 3 minutes de la rocade / 14 minutes de la rocade autoroutiÃ¨re / 45 minutes d'ARCACHON\r\nDans cette ville dynamique en plein essor urbain, Ã©conomique et dÃ©mographique, bÃ©nÃ©ficiez d'un excellent emplacement dans un secteur calme et rÃ©sidentiel proche de toutes les commoditÃ©s.\r\nLa maison est bÃ¢tie sur une parcelle de 145mÂ². Mitoyenne d'un cÃ´tÃ©, cette maison construite en 2010 en R+1 dispose d'une entrÃ©e, d'un cellier, de WC, un grand garage. Au rez-de-chaussÃ© une belle piÃ¨ce de vie de 36mÂ² ouverte sur le jardin. A l'Ã©tage, vous disposez de 3 chambres et une salle de bain avec toilettes.\r\nLa maison est parfaitement entretenue. Aucun gros travaux Ã  prÃ©voir.\r\nAnalyse financiÃ¨re :\r\nBordeaux Metropole - Villenave d'Ornon\r\nOpportunitÃ© d'investissement en viager libre pour cette maison de 2010 vendue LOUÃE (Ã©chÃ©ance du bail 2 ans Ã  compter de la date de signature de l'acte).\r\nInvestissez 143 KEUR et devenez propriÃ©taire d'une maison d'une valeur libre de 300 KEUR.\r\nChaque mois vous aurez une rente Ã  verser de 1982EUR, compensÃ©e par un loyer perÃ§u de 1 350EUR, soit un effort d'Ã©pargne de moins de 632EUR.\r\nIdÃ©al pour une RÃ©sidence principale ou un investissent locatif!"
+            "text": "Achetez cette maison vendue louée, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'épargne d'environ 650EUR par mois sur un horizon de 6 ans.\r\nAge : Homme de 89 ans\r\nBouquet : 142950 EUR\r\nRente : 1982 EUR/mois\r\nValeur du bien : 270000 EUR\r\n\r\nEn « Viager libre », le bien est vendu libre de toute occupation. L'acquéreur a la possibilité de l'habiter, d'y loger ses proches, ou de le mettre en location. Vous bénéficiez d'un crédit-vendeur.\r\nDescriptif du bien :\r\n** BORDEAUX MÉTROPOLE ** VILLENAVE D'ORNON\r\nA 300m du tram C\r\n20 minutes de l'hypercentre de BORDEAUX en TRAM / 3 minutes de la rocade / 14 minutes de la rocade autoroutière / 45 minutes d'ARCACHON\r\nDans cette ville dynamique en plein essor urbain, économique et démographique, bénéficiez d'un excellent emplacement dans un secteur calme et résidentiel proche de toutes les commodités.\r\nLa maison est bâtie sur une parcelle de 145m². Mitoyenne d'un côté, cette maison construite en 2010 en R+1 dispose d'une entrée, d'un cellier, de WC, un grand garage. Au rez-de-chaussé une belle pièce de vie de 36m² ouverte sur le jardin. A l'étage, vous disposez de 3 chambres et une salle de bain avec toilettes.\r\nLa maison est parfaitement entretenue. Aucun gros travaux à prévoir.\r\nAnalyse financière :\r\nBordeaux Metropole - Villenave d'Ornon\r\nOpportunité d'investissement en viager libre pour cette maison de 2010 vendue LOUÉE (échéance du bail 2 ans à compter de la date de signature de l'acte).\r\nInvestissez 143 KEUR et devenez propriétaire d'une maison d'une valeur libre de 300 KEUR.\r\nChaque mois vous aurez une rente à verser de 1982EUR, compensée par un loyer perçu de 1 350EUR, soit un effort d'épargne de moins de 632EUR.\r\nIdéal pour une Résidence principale ou un investissent locatif!"
           }
         ],
-        "headline": "Viager libre - H88 ans - BORDEAUX (33000)"
+        "headline": "Viager libre - H89 ans - BORDEAUX (33000)"
       },
       "hardFacts": {
         "title": "Maison en viager",
+        "shortTitle": "Maison",
         "titleAdditions": [
           "libre"
         ],
         "keyfacts": [
-          "4 piÃ¨ces",
+          "4 pièces",
           "3 chambres",
-          "90 mÂ²",
-          "145 mÂ² de terrain"
+          "90 m²",
+          "145 m² de terrain"
         ],
         "facts": [
           {
             "type": "numberOfRooms",
-            "value": "4 piÃ¨ces",
+            "value": "4 pièces",
             "splitValue": "4",
-            "label": "piÃ¨ces"
+            "label": "pièces"
           },
           {
             "type": "numberOfBedrooms",
@@ -472,38 +435,38 @@
           },
           {
             "type": "livingSpace",
-            "value": "90 mÂ²",
+            "value": "90 m²",
             "splitValue": "90",
-            "label": "mÂ²"
+            "label": "m²"
           },
           {
             "type": "plotSpace",
-            "value": "145 mÂ² de terrain",
+            "value": "145 m² de terrain",
             "splitValue": "145",
-            "label": "mÂ² de terrain"
+            "label": "m² de terrain"
           }
         ],
         "price": {
-          "value": "Bouquet 142â¯950Â â¬",
-          "formatted": "Bouquet 142â¯950Â â¬",
-          "additionalInformation": "et 1â¯982Â â¬/mois",
+          "value": "Bouquet 142 950 €",
+          "formatted": "Bouquet 142 950 €",
+          "additionalInformation": "et 1 982 €/mois",
           "addition": {
-            "value": "et 1â¯982Â â¬/mois",
-            "ariaLabel": "1982 â¬"
+            "value": "et 1 982 €/mois",
+            "ariaLabel": "1982 €"
           },
           "financialLink": {
-            "href": "https://www.cic.fr/fr/particuliers/credits/credit-immobilier-financement.html?utm_format=texte&utm_content=lien_prix_pdd&utm_source=seloger&utm_campaign=seloger&procom=SELOGERPDD",
+            "href": "https://e-immobilier.credit-agricole.fr/pret/lp_acquisition.html?ORI=EDESLAT&at_medium=affiliation&at_campaign=EDE_PC_EMP_EIMMO_FR&at_presta=SeLoger&at_format=Lien_PDD",
             "label": "Demander un financement",
-            "partnerName": "CIC"
+            "partnerName": "CA"
           },
-          "ariaLabel": "142950 â¬"
+          "ariaLabel": "142950 €"
         }
       },
       "energy": {
         "features": [
           {
             "type": "yearOfConstruction",
-            "label": "AnnÃ©e de construction",
+            "label": "Année de construction",
             "value": "2010"
           },
           {
@@ -513,38 +476,38 @@
           },
           {
             "type": "energySource",
-            "label": "Sources d'Ã©nergie",
-            "value": "Ãlectrique"
+            "label": "Sources d'énergie",
+            "value": "Électrique"
           }
         ],
         "certificates": [
           {
-            "key": "cff24e26-a1de-4af4-bd93-7de5a31e4c47",
+            "key": "df516185-b8b9-47e5-a567-a919e5e8b6ba",
             "features": [
               {
                 "type": "nameOfCertificate",
-                "label": "Diagnostic rÃ©alisÃ©",
+                "label": "Diagnostic réalisé",
                 "value": "Avant le 1er juillet 2021"
               }
             ],
             "scales": [
               {
-                "key": "8fdb40ac-714b-4a82-a43c-d3da968f41dd",
+                "key": "6fa0f168-9aa6-4d1a-86f2-8fba4a62c6aa",
                 "efficiencyClass": {
                   "index": 2,
                   "rating": "C"
                 },
                 "values": [
                   {
-                    "value": "174 kWh/mÂ².an",
-                    "label": "Consommation (Ã©nergie primaire)"
+                    "value": "174 kWh/m².an",
+                    "label": "Consommation (énergie primaire)"
                   },
                   {
-                    "value": "5 kg COâ/mÂ².an",
-                    "label": "Ãmissions"
+                    "value": "5 kg CO₂/m².an",
+                    "label": "Émissions"
                   }
                 ],
-                "name": "Diagnostic de performance Ã©nergÃ©tique (DPE)",
+                "name": "Diagnostic de performance énergétique (DPE)",
                 "segments": [
                   {
                     "label": "A",
@@ -576,22 +539,22 @@
                   }
                 ],
                 "type": "FR_ENERGY_BEFORE_2021",
-                "ariaLabel": "EfficiencyClassÂ : C avec une plage allant de A Ã  G .La consommation d'Ã©nergie est undefined kWhEP/mÂ².an kilowattheures par mÃ¨tre carrÃ©.",
+                "ariaLabel": "EfficiencyClass : C avec une plage allant de A à G .La consommation d'énergie est undefined kWhEP/m².an kilowattheures par mètre carré.",
                 "displayUnhappyHouseIcon": false
               },
               {
-                "key": "5f744722-d76a-4dfa-a57c-b1c6d16b6c9c",
+                "key": "a23b22af-5abd-45b0-b2b0-d68378c4b363",
                 "efficiencyClass": {
                   "index": 2,
                   "rating": "C"
                 },
                 "values": [
                   {
-                    "value": "5 kg COâ/mÂ².an",
-                    "label": "Ãmissions"
+                    "value": "5 kg CO₂/m².an",
+                    "label": "Émissions"
                   }
                 ],
-                "name": "Indice d'Ã©mission de gaz Ã  effet de serre (GES)",
+                "name": "Indice d'émission de gaz à effet de serre (GES)",
                 "segments": [
                   {
                     "label": "A",
@@ -623,7 +586,7 @@
                   }
                 ],
                 "type": "FR_GHG_BEFORE_2021",
-                "ariaLabel": "EfficiencyClassÂ : C avec une plage allant de A Ã  G .La consommation d'Ã©nergie est undefined kWhEP/mÂ².an kilowattheures par mÃ¨tre carrÃ©.",
+                "ariaLabel": "EfficiencyClass : C avec une plage allant de A à G .La consommation d'énergie est undefined kWhEP/m².an kilowattheures par mètre carré.",
                 "displayUnhappyHouseIcon": false
               }
             ]
@@ -638,7 +601,7 @@
             "value": "2678R57E48KZ"
           },
           {
-            "label": "RÃ©fÃ©rence annonce",
+            "label": "Référence annonce",
             "value": "422133272"
           }
         ]
@@ -646,18 +609,18 @@
       "price": {
         "base": {
           "main": {
-            "key": "2dfdedbd-904d-4c4f-aaea-a4f049a98239",
+            "key": "0d908f14-0d11-426a-bf37-b3bc2f508ba3",
             "label": {
               "main": "Prix du bien"
             },
             "value": {
               "main": {
-                "value": "142â¯950Â â¬",
-                "ariaLabel": "142950 â¬"
+                "value": "142 950 €",
+                "ariaLabel": "142950 €"
               },
               "alt": {
-                "value": "1â¯588,33Â â¬/mÂ²",
-                "ariaLabel": "1588,33 euros par mÃ¨tre carrÃ©"
+                "value": "1 588,33 €/m²",
+                "ariaLabel": "1588,33 euros par mètre carré"
               }
             }
           },
@@ -665,57 +628,57 @@
         },
         "components": [
           {
-            "key": "c8e140a4-1d90-44ec-b380-b809957a3918",
+            "key": "3d718232-cb10-4c78-b1f7-4ab352a17bc9",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "b5b9166e-3538-44e7-810f-b8737d68a1b7",
+                "key": "f2c63287-41c9-4943-9619-af2fadfa68cf",
                 "main": {
                   "price": {
-                    "key": "13b04fc3-e89a-40f1-8713-4b622afa1e9d",
+                    "key": "76d92ea1-ac70-4f81-afcc-44e64a4f2f06",
                     "label": {
                       "main": "Bouquet",
                       "alt": "honoraires inclus"
                     },
                     "value": {
                       "main": {
-                        "value": "142â¯950Â â¬",
-                        "ariaLabel": "142950 â¬"
+                        "value": "142 950 €",
+                        "ariaLabel": "142950 €"
                       },
                       "alt": {
-                        "value": "1â¯588,33Â â¬/mÂ²",
-                        "ariaLabel": "1588,33 euros par mÃ¨tre carrÃ©"
+                        "value": "1 588,33 €/m²",
+                        "ariaLabel": "1588,33 euros par mètre carré"
                       }
                     },
                     "highlighted": true
                   },
                   "message": {
                     "type": "INFO",
-                    "value": "Les honoraires sont Ã  la charge de l'acquÃ©reur"
+                    "value": "Les honoraires sont à la charge de l'acquéreur"
                   }
                 }
               }
             ]
           },
           {
-            "key": "b9587929-9961-4879-9b69-474aa7dcc012",
+            "key": "5349323a-2e5a-4130-8b04-b38e3393ba61",
             "type": "SECONDARY",
             "units": [
               {
-                "key": "6675e97a-4ff2-42ff-bf2d-1dd4d9f73a8c",
+                "key": "b89f8302-20b2-4783-9d73-8c04af23f82c",
                 "details": [
                   {
-                    "key": "d330cb88-f7b9-4ab5-828d-09486c5892b3",
+                    "key": "4d198bad-fe43-48c6-a270-d3ed301b7482",
                     "prices": [
                       {
-                        "key": "5a4b265c-4bae-4878-aa95-2f5d3355743e",
+                        "key": "26b44863-a0ea-4bff-bd90-a8e9d16c19de",
                         "label": {
-                          "main": "Rente viagÃ¨re"
+                          "main": "Rente viagère"
                         },
                         "value": {
                           "main": {
-                            "value": "1â¯982Â â¬/mois",
-                            "ariaLabel": "1982 â¬"
+                            "value": "1 982 €/mois",
+                            "ariaLabel": "1982 €"
                           }
                         },
                         "highlighted": true
@@ -731,19 +694,19 @@
         "breakdown": {
           "groups": [
             {
-              "key": "3383fee8-9f4c-4b21-b7a0-64b6e1b125b8",
+              "key": "98d44fca-925e-464b-b7e5-3ee4e4a52947",
               "label": {
                 "main": "Bouquet",
                 "alt": "honoraires inclus"
               },
               "value": {
                 "main": {
-                  "value": "142â¯950Â â¬",
-                  "ariaLabel": "142950 â¬"
+                  "value": "142 950 €",
+                  "ariaLabel": "142950 €"
                 },
                 "alt": {
-                  "value": "1â¯588,33Â â¬/mÂ²",
-                  "ariaLabel": "1588,33 euros par mÃ¨tre carrÃ©"
+                  "value": "1 588,33 €/m²",
+                  "ariaLabel": "1588,33 euros par mètre carré"
                 }
               },
               "highlighted": true
@@ -751,7 +714,7 @@
           ],
           "message": {
             "type": "INFO",
-            "value": "Les honoraires sont Ã  la charge de l'acquÃ©reur"
+            "value": "Les honoraires sont à la charge de l'acquéreur"
           }
         }
       },
@@ -759,11 +722,11 @@
         "preview": [
           {
             "icon": "plotSpace",
-            "value": "145 mÂ² de terrain"
+            "value": "145 m² de terrain"
           },
           {
             "icon": "kitchen",
-            "value": "Cuisine ouverte, Cuisine intÃ©grÃ©e"
+            "value": "Cuisine ouverte, Cuisine intégrée"
           },
           {
             "icon": "cellar",
@@ -787,7 +750,7 @@
           },
           {
             "icon": "bedroom",
-            "value": "3 chambres"
+            "value": "3 Chambres"
           }
         ],
         "details": {
@@ -800,24 +763,24 @@
                 },
                 {
                   "icon": "plotSpace",
-                  "value": "145 mÂ² de terrain"
+                  "value": "145 m² de terrain"
                 }
               ],
-              "title": "Informations gÃ©nÃ©rales"
+              "title": "Informations générales"
             },
             {
               "elements": [
                 {
                   "icon": "kitchen",
-                  "value": "Cuisine ouverte, Cuisine intÃ©grÃ©e"
+                  "value": "Cuisine ouverte, Cuisine intégrée"
                 },
                 {
                   "icon": "bathroom-amenities",
-                  "value": "1 salle de bain"
+                  "value": "1 Salle de bain"
                 },
                 {
                   "icon": "bedroom",
-                  "value": "3 chambres"
+                  "value": "3 Chambres"
                 },
                 {
                   "icon": "cellar",
@@ -825,10 +788,10 @@
                 },
                 {
                   "icon": "separateEntrance",
-                  "value": "EntrÃ©e sÃ©parÃ©e"
+                  "value": "Entrée séparée"
                 }
               ],
-              "title": "IntÃ©rieur"
+              "title": "Intérieur"
             },
             {
               "elements": [
@@ -845,7 +808,7 @@
                   "value": "Garage"
                 }
               ],
-              "title": "ExtÃ©rieur"
+              "title": "Extérieur"
             }
           ]
         }
@@ -855,7 +818,7 @@
           {
             "key": "c0d862a8-37d9-4040-aa1e-5f68d138fabc",
             "url": "https://mms.seloger.com/c/0/d/8/c0d862a8-37d9-4040-aa1e-5f68d138fabc.jpg?ci_seal=4966356e5fba2049a736247e48eeee58c064d543",
-            "alt": "Maison en viager libre Bouquet 142â¯950Â â¬ 4 piÃ¨ces 3 chambres 90 mÂ² 145 mÂ² de terrain Grand Parc Bordeaux 33000",
+            "alt": "Maison en viager libre Bouquet 142 950 € 4 pièces 3 chambres 90 m² 145 m² de terrain Grand Parc Bordeaux 33000",
             "classification": {
               "name": "HOUSE_FACADE",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
@@ -974,16 +937,16 @@
       },
       "priceComparison": {
         "data": {
-          "value": 4960,
+          "value": 4908,
           "accuracy": 3,
-          "high": "8â¯827",
-          "low": "2â¯572"
+          "high": "8 733",
+          "low": "2 545"
         },
         "markerPosition": 0,
         "hasMainPrice": true,
         "isSale": true,
-        "pricePerSqm": "1â¯588,33",
-        "legalText": "Le prix au mÂ² est automatiquement calculÃ© par Se Loger en fonction du prix de vente et du nombre de mÂ² du bien. La comparaison est rÃ©alisÃ©e Ã  partir des informations relatives au prix du marchÃ© sur le mÃªme secteur dont dispose Se Loger. Cette information ne prÃ©juge en aucun cas de l'Ã©valuation du bien, qui dÃ©pend de son Ã©tat, ses caractÃ©ristiques et de sa localisation.",
+        "pricePerSqm": "1 588,33",
+        "legalText": "Le prix au m² est automatiquement calculé par SeLoger en fonction du prix de vente et du nombre de m² du bien. La comparaison est réalisée à partir des informations relatives au prix du marché sur le même secteur dont dispose SeLoger. Cette information ne préjuge en aucun cas de l'évaluation du bien, qui dépend de son état, ses caractéristiques et de sa localisation.",
         "marketInsights": {
           "label": "Voir les tendances immo",
           "placeId": "NBH2FR9697",
@@ -992,8 +955,8 @@
         }
       },
       "mainDescription": {
-        "headline": "Viager libre - H88 ans - BORDEAUX (33000)",
-        "description": "Achetez cette maison vendue louÃ©e, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'Ã©pargne d'environ 650EUR par mois sur un horizon de 6 ans.\r\nAge : Homme de 88 ans\r\nBouquet : 142950 EUR\r\nRente : 1982 EUR/mois\r\nValeur du bien : 270000 EUR\r\n\r\nEn Â« Viager libre Â», le bien est vendu libre de toute occupation. L'acquÃ©reur a la possibilitÃ© de l'habiter, d'y loger ses proches, ou de le mettre en location. Vous bÃ©nÃ©ficiez d'un crÃ©dit-vendeur.\r\nDescriptif du bien :\r\n** BORDEAUX MÃTROPOLE ** VILLENAVE D'ORNON\r\nA 300m du tram C\r\n20 minutes de l'hypercentre de BORDEAUX en TRAM / 3 minutes de la rocade / 14 minutes de la rocade autoroutiÃ¨re / 45 minutes d'ARCACHON\r\nDans cette ville dynamique en plein essor urbain, Ã©conomique et dÃ©mographique, bÃ©nÃ©ficiez d'un excellent emplacement dans un secteur calme et rÃ©sidentiel proche de toutes les commoditÃ©s.\r\nLa maison est bÃ¢tie sur une parcelle de 145mÂ². Mitoyenne d'un cÃ´tÃ©, cette maison construite en 2010 en R+1 dispose d'une entrÃ©e, d'un cellier, de WC, un grand garage. Au rez-de-chaussÃ© une belle piÃ¨ce de vie de 36mÂ² ouverte sur le jardin. A l'Ã©tage, vous disposez de 3 chambres et une salle de bain avec toilettes.\r\nLa maison est parfaitement entretenue. Aucun gros travaux Ã  prÃ©voir.\r\nAnalyse financiÃ¨re :\r\nBordeaux Metropole - Villenave d'Ornon\r\nOpportunitÃ© d'investissement en viager libre pour cette maison de 2010 vendue LOUÃE (Ã©chÃ©ance du bail 2 ans Ã  compter de la date de signature de l'acte).\r\nInvestissez 143 KEUR et devenez propriÃ©taire d'une maison d'une valeur libre de 300 KEUR.\r\nChaque mois vous aurez une rente Ã  verser de 1982EUR, compensÃ©e par un loyer perÃ§u de 1 350EUR, soit un effort d'Ã©pargne de moins de 632EUR.\r\nIdÃ©al pour une RÃ©sidence principale ou un investissent locatif!",
+        "headline": "Viager libre - H89 ans - BORDEAUX (33000)",
+        "description": "Achetez cette maison vendue louée, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'épargne d'environ 650EUR par mois sur un horizon de 6 ans.\r\nAge : Homme de 89 ans\r\nBouquet : 142950 EUR\r\nRente : 1982 EUR/mois\r\nValeur du bien : 270000 EUR\r\n\r\nEn « Viager libre », le bien est vendu libre de toute occupation. L'acquéreur a la possibilité de l'habiter, d'y loger ses proches, ou de le mettre en location. Vous bénéficiez d'un crédit-vendeur.\r\nDescriptif du bien :\r\n** BORDEAUX MÉTROPOLE ** VILLENAVE D'ORNON\r\nA 300m du tram C\r\n20 minutes de l'hypercentre de BORDEAUX en TRAM / 3 minutes de la rocade / 14 minutes de la rocade autoroutière / 45 minutes d'ARCACHON\r\nDans cette ville dynamique en plein essor urbain, économique et démographique, bénéficiez d'un excellent emplacement dans un secteur calme et résidentiel proche de toutes les commodités.\r\nLa maison est bâtie sur une parcelle de 145m². Mitoyenne d'un côté, cette maison construite en 2010 en R+1 dispose d'une entrée, d'un cellier, de WC, un grand garage. Au rez-de-chaussé une belle pièce de vie de 36m² ouverte sur le jardin. A l'étage, vous disposez de 3 chambres et une salle de bain avec toilettes.\r\nLa maison est parfaitement entretenue. Aucun gros travaux à prévoir.\r\nAnalyse financière :\r\nBordeaux Metropole - Villenave d'Ornon\r\nOpportunité d'investissement en viager libre pour cette maison de 2010 vendue LOUÉE (échéance du bail 2 ans à compter de la date de signature de l'acte).\r\nInvestissez 143 KEUR et devenez propriétaire d'une maison d'une valeur libre de 300 KEUR.\r\nChaque mois vous aurez une rente à verser de 1982EUR, compensée par un loyer perçu de 1 350EUR, soit un effort d'épargne de moins de 632EUR.\r\nIdéal pour une Résidence principale ou un investissent locatif!",
         "metadata": {
           "language": "fr"
         }
@@ -1002,7 +965,7 @@
         "headline": "Emplacement"
       },
       "extendedInfoDescription": {
-        "headline": "Informations supplÃ©mentaires"
+        "headline": "Informations supplémentaires"
       }
     },
     "contactSections": {
@@ -1022,7 +985,7 @@
       },
       "contactCard": {
         "title": "RENEE COSTES",
-        "subtitle": "RenÃ©e Costes Viager",
+        "subtitle": "Renée Costes Viager",
         "phoneNumbers": [
           "08 10 50 06 00"
         ],
@@ -1039,7 +1002,7 @@
       "contactForm": {
         "contactCard": {
           "title": "RENEE COSTES",
-          "subtitle": "RenÃ©e Costes Viager",
+          "subtitle": "Renée Costes Viager",
           "phoneNumbers": [
             "08 10 50 06 00"
           ],
@@ -1047,7 +1010,7 @@
           "logoUrl": "https://mms.seloger.com/a/d/3/e/ad3e972b-e512-4551-b9ae-554e32e22526.jpg?ci_seal=79f3e373b9f7fdd6cfa763ac81ae7173c97ad16d"
         },
         "displayOwnerFlag": true,
-        "subjectLabel": "Votre message Ã  RenÃ©e Costes Viager",
+        "subjectLabel": "Votre message à Renée Costes Viager",
         "shouldSendLeadValue": true
       },
       "mobilePhones": {
@@ -1062,13 +1025,13 @@
       "provider": {
         "intermediaryCard": {
           "title": "RENEE COSTES",
-          "subtitle": "ProposÃ© par une agence immobiliÃ¨re",
+          "subtitle": "Proposé par une agence immobilière",
           "display": true,
           "logoUrl": "https://mms.seloger.com/a/d/3/e/ad3e972b-e512-4551-b9ae-554e32e22526.jpg?ci_seal=79f3e373b9f7fdd6cfa763ac81ae7173c97ad16d",
           "logoHref": "https://www.seloger.com/professionnels-immobilier/DvBHecmqyGoWaacNz1jWgG"
         },
         "contactCard": {
-          "title": "RenÃ©e Costes Viager",
+          "title": "Renée Costes Viager",
           "subtitle": "Votre contact",
           "display": true,
           "logoUrl": null
@@ -1078,14 +1041,14 @@
         "profileUrl": "https://www.seloger.com/professionnels-immobilier/DvBHecmqyGoWaacNz1jWgG",
         "imprintUrl": null,
         "agencyLegalInformations": [
-          "SAS RENEE COSTES au capital de 200â¯000Â â¬",
-          "<b>SiÃ¨ge:</b> 84 RUE DE LEVIS, 75017 PARIS",
+          "SAS RENEE COSTES au capital de 200 000 €",
+          "<b>Siège:</b> 84 RUE DE LEVIS, 75017 PARIS",
           "<b>RCS:</b> PARIS 481431666",
           "<b>SIRET:</b> 48143166600058"
         ],
         "publisherType": "AGENCY",
         "displayLinks": true,
-        "address": "84 rue de Levis, 75017 Paris 17Ã¨me",
+        "address": "84 rue de Levis, 75017 Paris 17ème",
         "phoneNumbers": [
           "08 10 50 06 00"
         ]
@@ -1347,8 +1310,8 @@
           "box",
           "Chauffage-individuel",
           "Chauffage-electrique",
-          "Cuisine-amÃ©ricaine",
-          "Cuisine-Ã©quipÃ©e",
+          "Cuisine-américaine",
+          "Cuisine-équipée",
           "SalleDeBain-baignoire"
         ],
         "mensualitefinance": 608,
@@ -1380,22 +1343,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/maison/piece-4/france/ad02fr1",
-                "label": "Maisons 4 piÃ¨ces Ã  vendre France",
-                "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre France",
+                "label": "Maisons 4 pièces à vendre France",
+                "hoverLabel": "Maisons 4 pièces à vendre France",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/maison/france/ad02fr1",
-                "label": "Maisons Ã  vendre France",
-                "hoverLabel": "Maisons Ã  vendre France",
+                "label": "Maisons à vendre France",
+                "hoverLabel": "Maisons à vendre France",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/france/ad02fr1",
-                "label": "Biens immobiliers Ã  vendre France",
-                "hoverLabel": "Biens immobiliers Ã  vendre France",
+                "label": "Biens immobiliers à vendre France",
+                "hoverLabel": "Biens immobiliers à vendre France",
                 "serpKey": ""
               }
             ]
@@ -1410,22 +1373,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/maison/piece-4/nouvelle-aquitaine/ad04fr27",
-                "label": "Maisons 4 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
+                "label": "Maisons 4 pièces à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Maisons 4 pièces à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/maison/nouvelle-aquitaine/ad04fr27",
-                "label": "Maisons Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Maisons Ã  vendre Nouvelle-Aquitaine",
+                "label": "Maisons à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Maisons à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/nouvelle-aquitaine/ad04fr27",
-                "label": "Biens immobiliers Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Biens immobiliers Ã  vendre Nouvelle-Aquitaine",
+                "label": "Biens immobiliers à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Biens immobiliers à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               }
             ]
@@ -1440,22 +1403,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/maison/piece-4/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Maisons 4 piÃ¨ces Ã  vendre Gironde 33",
-                "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre Gironde 33",
+                "label": "Maisons 4 pièces à vendre Gironde 33",
+                "hoverLabel": "Maisons 4 pièces à vendre Gironde 33",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/maison/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Maisons Ã  vendre Gironde 33",
-                "hoverLabel": "Maisons Ã  vendre Gironde 33",
+                "label": "Maisons à vendre Gironde 33",
+                "hoverLabel": "Maisons à vendre Gironde 33",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Biens immobiliers Ã  vendre Gironde 33",
-                "hoverLabel": "Biens immobiliers Ã  vendre Gironde 33",
+                "label": "Biens immobiliers à vendre Gironde 33",
+                "hoverLabel": "Biens immobiliers à vendre Gironde 33",
                 "serpKey": ""
               }
             ]
@@ -1463,8 +1426,8 @@
           {
             "order": 5,
             "url": "https://www.seloger.com/recherche/achat/maison/piece-4/nouvelle-aquitaine/bordeaux-33000/ad08fr13100",
-            "label": "Maisons 4 piÃ¨ces Ã  vendre Bordeaux 33000",
-            "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre Bordeaux 33000",
+            "label": "Maisons 4 pièces à vendre Bordeaux 33000",
+            "hoverLabel": "Maisons 4 pièces à vendre Bordeaux 33000",
             "serpKey": ""
           },
           {
@@ -1477,9 +1440,9 @@
         ]
       },
       "headInfo": {
-        "title": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)",
+        "title": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)",
         "titleWithCount": "",
-        "description": "Achetez cette maison vendue louÃ©e, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'Ã©pargne d'environ 650EUR par mois sur un ...",
+        "description": "Achetez cette maison vendue louée, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'épargne d'environ 650EUR par mois sur un ...",
         "canonical": "",
         "robots": "index, follow, max-snippet:-1",
         "icons": [
@@ -1526,11 +1489,11 @@
           },
           {
             "property": "title",
-            "content": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)"
+            "content": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)"
           },
           {
             "property": "description",
-            "content": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)"
+            "content": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)"
           },
           {
             "property": "image",
@@ -1540,7 +1503,7 @@
         "socials": [
           {
             "name": "twitter:card",
-            "content": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)"
+            "content": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)"
           },
           {
             "name": "twitter:url",
@@ -1552,11 +1515,11 @@
           },
           {
             "name": "twitter:title",
-            "content": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)"
+            "content": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)"
           },
           {
             "name": "twitter:description",
-            "content": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)"
+            "content": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)"
           },
           {
             "name": "twitter:image",
@@ -1609,17 +1572,17 @@
             },
             {
               "type": "description",
-              "content": "Achetez cette maison vendue louÃ©e, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'Ã©pargne d'environ 650EUR par mois sur un ..."
+              "content": "Achetez cette maison vendue louée, d'une valeur libre de 300kEUR, pour seulement 143kEUR et un effort d'épargne d'environ 650EUR par mois sur un ..."
             },
             {
               "type": "name",
-              "content": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)"
+              "content": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)"
             },
             {
               "type": "itemOffered",
               "content": {
                 "@type": "HOUSE",
-                "name": "Maison Ã  vendre T4/F4 90 mÂ² 142950 â¬ Grand Parc Bordeaux (33000)",
+                "name": "Maison à vendre T4/F4 90 m² 142950 € Grand Parc Bordeaux (33000)",
                 "numberOfRooms": "4",
                 "floorSize": {
                   "@type": "QuantitativeValue",
@@ -1650,29 +1613,29 @@
           {
             "order": 2,
             "url": "https://www.seloger.com/recherche/achat/maison/piece-4/france/ad02fr1",
-            "label": "Maisons 4 piÃ¨ces Ã  vendre France",
-            "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre France",
+            "label": "Maisons 4 pièces à vendre France",
+            "hoverLabel": "Maisons 4 pièces à vendre France",
             "serpKey": ""
           },
           {
             "order": 3,
             "url": "https://www.seloger.com/recherche/achat/maison/piece-4/nouvelle-aquitaine/ad04fr27",
-            "label": "Maisons 4 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
-            "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
+            "label": "Maisons 4 pièces à vendre Nouvelle-Aquitaine",
+            "hoverLabel": "Maisons 4 pièces à vendre Nouvelle-Aquitaine",
             "serpKey": ""
           },
           {
             "order": 4,
             "url": "https://www.seloger.com/recherche/achat/maison/piece-4/nouvelle-aquitaine/gironde-33/ad06fr34",
-            "label": "Maisons 4 piÃ¨ces Ã  vendre Gironde 33",
-            "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre Gironde 33",
+            "label": "Maisons 4 pièces à vendre Gironde 33",
+            "hoverLabel": "Maisons 4 pièces à vendre Gironde 33",
             "serpKey": ""
           },
           {
             "order": 5,
             "url": "https://www.seloger.com/recherche/achat/maison/piece-4/nouvelle-aquitaine/bordeaux-33000/ad08fr13100",
-            "label": "Maisons 4 piÃ¨ces Ã  vendre Bordeaux 33000",
-            "hoverLabel": "Maisons 4 piÃ¨ces Ã  vendre Bordeaux 33000",
+            "label": "Maisons 4 pièces à vendre Bordeaux 33000",
+            "hoverLabel": "Maisons 4 pièces à vendre Bordeaux 33000",
             "serpKey": ""
           }
         ],
@@ -1772,7 +1735,7 @@
         "rawValue": "lifeAnnuity"
       }
     ],
-    "correlationId": "20020477-2c0d-4d6c-81f1-c551fd1eaa5f"
+    "correlationId": "ac92b11f-d267-4140-bfea-e0fb6237d9d7"
   },
   {
     "brand": "seloger",
@@ -1780,7 +1743,7 @@
     "metadata": {
       "legacyId": "281059805",
       "creationDate": "2026-09-30T13:42:00Z",
-      "updateDate": "2026-10-05T14:26:20.858Z",
+      "updateDate": "2026-11-04T18:36:10.817Z",
       "status": {
         "status": true,
         "enrichments": {
@@ -1797,112 +1760,72 @@
       "medias": {
         "images": [
           {
-            "id": "c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46",
-            "key": "c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46-0",
-            "url": "https://mms.seloger.com/c/8/e/4/c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46.jpg?ci_seal=263b6a0bad68cd9a8ff4189cbe8cf67aed9a03ca",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "03c32055-09e4-404b-93a9-218a7da4541f",
+            "key": "03c32055-09e4-404b-93a9-218a7da4541f-0",
+            "url": "https://mms.seloger.com/0/3/c/3/03c32055-09e4-404b-93a9-218a7da4541f.jpg?ci_seal=9adc5dff51a97cdfb2852f5ccc1e58002a510eff",
+            "description": "Salon"
           },
           {
-            "id": "cd72d450-9e64-4404-99dc-2cc0222331a9",
-            "key": "cd72d450-9e64-4404-99dc-2cc0222331a9-1",
-            "url": "https://mms.seloger.com/c/d/7/2/cd72d450-9e64-4404-99dc-2cc0222331a9.jpg?ci_seal=5d8a9b575ed8008030c47e8ba808ca2a7d8ef868",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "43b15902-2de7-4c38-8d88-57235abfaa62",
+            "key": "43b15902-2de7-4c38-8d88-57235abfaa62-1",
+            "url": "https://mms.seloger.com/4/3/b/1/43b15902-2de7-4c38-8d88-57235abfaa62.png?ci_seal=1afc8dc1732079b1837470eb76abdb49c9ba0ad3"
           },
           {
-            "id": "75455a92-3567-4fae-bc94-9f3ac6421452",
-            "key": "75455a92-3567-4fae-bc94-9f3ac6421452-2",
-            "url": "https://mms.seloger.com/7/5/4/5/75455a92-3567-4fae-bc94-9f3ac6421452.png?ci_seal=663ce88cfb326508cebbf609ce72b389c938e83a",
-            "classification": {
-              "name": "LIVING_ROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "e833f90b-6ca2-4ab7-81f8-3897d6926733",
+            "key": "e833f90b-6ca2-4ab7-81f8-3897d6926733-2",
+            "url": "https://mms.seloger.com/e/8/3/3/e833f90b-6ca2-4ab7-81f8-3897d6926733.jpg?ci_seal=102a66d0b27e270096b1f5e346311167bcd79b59"
           },
           {
-            "id": "2268bad3-46ca-456c-a184-7c6d46ac7a1a",
-            "key": "2268bad3-46ca-456c-a184-7c6d46ac7a1a-3",
-            "url": "https://mms.seloger.com/2/2/6/8/2268bad3-46ca-456c-a184-7c6d46ac7a1a.png?ci_seal=6b01ef78119b07766a6f0ce53c4b5b70a5b0e57c",
-            "classification": {
-              "name": "KITCHEN",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "dea19d91-0e89-47d6-99a0-c155dfe0b5bf",
+            "key": "dea19d91-0e89-47d6-99a0-c155dfe0b5bf-3",
+            "url": "https://mms.seloger.com/d/e/a/1/dea19d91-0e89-47d6-99a0-c155dfe0b5bf.png?ci_seal=1e26e512e0b8547d9a07c5ff6e75450490afa27b",
+            "description": "Salon"
           },
           {
-            "id": "d6698967-8c4c-4b7a-a329-1ebd55b63b7c",
-            "key": "d6698967-8c4c-4b7a-a329-1ebd55b63b7c-4",
-            "url": "https://mms.seloger.com/d/6/6/9/d6698967-8c4c-4b7a-a329-1ebd55b63b7c.png?ci_seal=07b2921a054a7de0e0617917848e0350a93c0617",
-            "classification": {
-              "name": "BEDROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "6b743e52-c15b-4310-8131-38b673c482d2",
+            "key": "6b743e52-c15b-4310-8131-38b673c482d2-4",
+            "url": "https://mms.seloger.com/6/b/7/4/6b743e52-c15b-4310-8131-38b673c482d2.png?ci_seal=5b0567484d8be8dba9af38cf32e7adc014188362",
+            "description": "Cuisine"
           },
           {
-            "id": "53441281-24ed-406b-a7f1-4ecff9c54877",
-            "key": "53441281-24ed-406b-a7f1-4ecff9c54877-5",
-            "url": "https://mms.seloger.com/5/3/4/4/53441281-24ed-406b-a7f1-4ecff9c54877.jpg?ci_seal=be26eeffebca415826fe37f6a0bfeab686f97153",
-            "classification": {
-              "name": "BEDROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "a12923e1-1a43-4d7c-aa10-070b7508af30",
+            "key": "a12923e1-1a43-4d7c-aa10-070b7508af30-5",
+            "url": "https://mms.seloger.com/a/1/2/9/a12923e1-1a43-4d7c-aa10-070b7508af30.png?ci_seal=113a9d3c44048d488640327c764f17c790ce3d14",
+            "description": "Chambre"
           },
           {
-            "id": "fd8af140-b503-47a0-b0c9-78cfe4fc1550",
-            "key": "fd8af140-b503-47a0-b0c9-78cfe4fc1550-6",
-            "url": "https://mms.seloger.com/f/d/8/a/fd8af140-b503-47a0-b0c9-78cfe4fc1550.png?ci_seal=dd47a582e2fa335d2b08ea68dfa9c1b93503e004",
-            "classification": {
-              "name": "BATHROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "f799be62-5ec5-452b-8a8d-fd02db030df9",
+            "key": "f799be62-5ec5-452b-8a8d-fd02db030df9-6",
+            "url": "https://mms.seloger.com/f/7/9/9/f799be62-5ec5-452b-8a8d-fd02db030df9.png?ci_seal=e996856e8ca9898900a404fa41f03aa7ae52d2b6",
+            "description": "Salle de bain"
           },
           {
-            "id": "2a495dba-d29d-4768-81a3-cd816031683b",
-            "key": "2a495dba-d29d-4768-81a3-cd816031683b-7",
-            "url": "https://mms.seloger.com/2/a/4/9/2a495dba-d29d-4768-81a3-cd816031683b.png?ci_seal=0a1fcd906987715b4465ce9cd8a246d92509b283",
-            "classification": {
-              "name": "BATHROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "06372c9d-1b59-4262-93d5-54d7fb7a5788",
+            "key": "06372c9d-1b59-4262-93d5-54d7fb7a5788-7",
+            "url": "https://mms.seloger.com/0/6/3/7/06372c9d-1b59-4262-93d5-54d7fb7a5788.png?ci_seal=44587f90aae4a92cfe6933182b2342f4c78962eb",
+            "description": "Salle de bain"
           },
           {
-            "id": "2a6a769f-e0a8-4399-af1c-34b8299e6e6a",
-            "key": "2a6a769f-e0a8-4399-af1c-34b8299e6e6a-8",
-            "url": "https://mms.seloger.com/2/a/6/a/2a6a769f-e0a8-4399-af1c-34b8299e6e6a.png?ci_seal=1be7c1e5e2502fc74f0010f0390d872286e68df4",
-            "classification": {
-              "name": "TERRACE",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "597b098b-911c-4272-81b5-59cefc169b2b",
+            "key": "597b098b-911c-4272-81b5-59cefc169b2b-8",
+            "url": "https://mms.seloger.com/5/9/7/b/597b098b-911c-4272-81b5-59cefc169b2b.jpg?ci_seal=cc9aac6d22a70c49d1c4b38ab8175a727bf6d001",
+            "description": "Chambre"
           },
           {
-            "id": "adde8dfe-30a9-49ce-9624-80dd37c9a8e4",
-            "key": "adde8dfe-30a9-49ce-9624-80dd37c9a8e4-9",
-            "url": "https://mms.seloger.com/a/d/d/e/adde8dfe-30a9-49ce-9624-80dd37c9a8e4.png?ci_seal=39409152f4452de0cd79910d0974f64f7cf1a6e1",
-            "classification": {
-              "name": "TERRACE",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "fed21e55-daaa-4219-aa50-4010e2c723af",
+            "key": "fed21e55-daaa-4219-aa50-4010e2c723af-9",
+            "url": "https://mms.seloger.com/f/e/d/2/fed21e55-daaa-4219-aa50-4010e2c723af.png?ci_seal=7e71db81f953fc382d265bcd137250485eaeeda6"
           },
           {
-            "id": "da68bea5-f235-4096-8e28-81204e73b11b",
-            "key": "da68bea5-f235-4096-8e28-81204e73b11b-10",
-            "url": "https://mms.seloger.com/d/a/6/8/da68bea5-f235-4096-8e28-81204e73b11b.png?ci_seal=cd3f1664d9a141158262875f9659186d97f9510b",
-            "classification": {
-              "name": "YARD",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "9c5b2be3-7e94-4adc-b8cf-ebdf01861324",
+            "key": "9c5b2be3-7e94-4adc-b8cf-ebdf01861324-10",
+            "url": "https://mms.seloger.com/9/c/5/b/9c5b2be3-7e94-4adc-b8cf-ebdf01861324.png?ci_seal=358b7f220f8eccdc733b4fdafb6052adadae4ebe"
           },
           {
-            "id": "8a9b8629-c51b-4341-8afc-060bee934964",
-            "key": "8a9b8629-c51b-4341-8afc-060bee934964-11",
-            "url": "https://mms.seloger.com/8/a/9/b/8a9b8629-c51b-4341-8afc-060bee934964.png?ci_seal=ef468375ad3dcfc269b3f65d2e6fe811eea16555",
-            "classification": {
-              "name": "HALLWAY",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
+            "id": "ff0be8d6-daba-42df-86f0-95e2607eb6b9",
+            "key": "ff0be8d6-daba-42df-86f0-95e2607eb6b9-11",
+            "url": "https://mms.seloger.com/f/f/0/b/ff0be8d6-daba-42df-86f0-95e2607eb6b9.png?ci_seal=ad8f7e6bd027ed64967ad1005416e00680d388a4",
+            "description": "Couloir"
           }
         ],
         "floorplans": [],
@@ -1913,7 +1836,7 @@
             "key": "https://www.youtube.com/watch?v=tPFIdgipAr4-0",
             "url": "https://www.youtube.com/watch?v=tPFIdgipAr4",
             "type": "VIRTUAL_TOUR",
-            "previewImageUrl": "https://mms.seloger.com/c/8/e/4/c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46.jpg?ci_seal=263b6a0bad68cd9a8ff4189cbe8cf67aed9a03ca",
+            "previewImageUrl": "https://mms.seloger.com/0/3/c/3/03c32055-09e4-404b-93a9-218a7da4541f.jpg?ci_seal=9adc5dff51a97cdfb2852f5ccc1e58002a510eff",
             "title": "Visite virtuelle"
           }
         ]
@@ -2272,7 +2195,7 @@
               "carTimeMin": "2 min"
             },
             {
-              "name": "CollÃ¨ge Franscisco Goya",
+              "name": "Collège Franscisco Goya",
               "type": "MIDDLE",
               "distanceKm": "389 m",
               "walkTimeMin": "6 min",
@@ -2282,42 +2205,42 @@
           ],
           "privateSchools": [
             {
-              "name": "CollÃ¨ge Rolph et Lucette Hammel",
+              "name": "Collège Rolph et Lucette Hammel",
               "type": "MIDDLE",
               "distanceKm": "311 m",
               "walkTimeMin": "6 min",
               "bikeTimeMin": "4 min"
             },
             {
-              "name": "Ecole primaire privÃ©e Edmond J. Safra",
+              "name": "Ecole primaire privée Edmond J. Safra",
               "type": "PRIMARY",
               "distanceKm": "312 m",
               "walkTimeMin": "6 min",
               "bikeTimeMin": "4 min"
             },
             {
-              "name": "CollÃ¨ge privÃ© Le Mirail",
+              "name": "Collège privé Le Mirail",
               "type": "MIDDLE",
               "distanceKm": "505 m",
               "walkTimeMin": "10 min",
               "bikeTimeMin": "5 min"
             },
             {
-              "name": "Ecole primaire privÃ©e Le Mirail",
+              "name": "Ecole primaire privée Le Mirail",
               "type": "PRIMARY",
               "distanceKm": "508 m",
               "walkTimeMin": "10 min",
               "bikeTimeMin": "5 min"
             },
             {
-              "name": "Ecole primaire privÃ©e SÃ©vignÃ©",
+              "name": "Ecole primaire privée Sévigné",
               "type": "PRIMARY",
               "distanceKm": "644 m",
               "walkTimeMin": "10 min",
               "bikeTimeMin": "4 min"
             },
             {
-              "name": "CollÃ¨ge privÃ© Saint GenÃ¨s La Salle",
+              "name": "Collège privé Saint Genès La Salle",
               "type": "MIDDLE",
               "distanceKm": "769 m",
               "walkTimeMin": "12 min",
@@ -2327,28 +2250,29 @@
         }
       },
       "description": {
-        "description": "Engel & VÃ¶lkers Bordeaux vous propose cet appartement de 54,36 mÂ² Carrez [56,19 mÂ² au sol], au cÅur de Saint-GenÃ¨s. Tout commence par une porte cintrÃ©e aux vitraux turquoise et grenat. DerriÃ¨re elle, une allÃ©e pavÃ©e et un jardin privatif d'environ 20 mÂ², bordÃ© de verdure. Cet appartement cultive l'art rare d'avoir sa propre entrÃ©e en ville.\r\n\r\nLa piÃ¨ce de vie de 21 mÂ² donne le ton avec ses plafonds hauts, ses moulures, son parquet en bÃ¢ton rompu et ses dÃ©tails d'Ã©poque restÃ©s intacts. Juste Ã  cÃ´tÃ©, la cuisine sÃ©parÃ©e de 7 mÂ², entiÃ¨rement Ã©quipÃ©e, s'ouvre sur la verdure du jardin.\r\n\r\nUn escalier en bois blanc descend vers l'espace nuit, plus intime. La chambre de 13 mÂ², esprit loft, joue sur le contraste entre sa voÃ»te catalane et sa verriÃ¨re d'atelier, avec des rangements intÃ©grÃ©s sur mesure. Une salle d'eau contemporaine avec douche Ã  l'italienne, une toilette indÃ©pendante et un coin buanderie Ã©quipÃ© d'un lave-linge et d'un sÃ¨che-linge complÃ¨tent cet espace.\r\n\r\nDouble vitrage, fibre optique, et chauffage Ã©lectrique individuel : le bien est prÃªt Ã  accueillir ses prochains occupants, que ce soit pour y vivre Ã  l'annÃ©e ou pour s'offrir une adresse de charme au cÅur de Bordeaux.\r\n\r\nDPE : D (244) ; GES : B / (9) \r\n\r\nEstimation des dÃ©penses annuelles d'Ã©nergie : entre 1 250 euros et 1 740 euros \r\n\r\nCopropriÃ©tÃ© de 5 lots, charges annuelles de copropriÃ©tÃ© : 934 euros\r\n\r\nProcÃ©dure en cours : Non\r\n\r\n\r\nHonoraires de transaction TTC Ã  la charge du vendeur\r\n\r\nLes informations sur les risques auxquels ce bien est exposÃ© sont disponibles sur le site GÃ©orisques : \r\nSaint-GenÃ¨s sÃ©duit par son atmosphÃ¨re de quartier rÃ©sidentiel et animÃ©, Ã  deux pas du centre historique. Tramway, commerces, restaurants, Ã©coles et services sont accessibles Ã  pied, tandis que la cathÃ©drale Saint-AndrÃ© et les principaux sites culturels se trouvent Ã  quelques minutes. Un quartier recherchÃ© pour son esprit de village et son art de vivre, avec le calme d'une rÃ©sidence prÃ©servÃ©e. Une adresse Ã  dÃ©couvrir.",
+        "description": "Engel & Völkers Bordeaux vous propose cet appartement de 54,36 m² Carrez [56,19 m² au sol], au cœur de Saint-Genès. Tout commence par une porte cintrée aux vitraux turquoise et grenat. Derrière elle, une allée pavée et un jardin privatif d'environ 20 m², bordé de verdure.\r\n\r\nLa pièce de vie de 21 m² donne le ton avec ses plafonds hauts, ses moulures, son parquet en bâton rompu et ses détails d'époque restés intacts. Juste à côté, la cuisine séparée de 7 m², entièrement équipée, s'ouvre sur la verdure du jardin.\r\n\r\nUn escalier en bois blanc descend vers l'espace nuit, plus intime. La chambre de 13 m², esprit loft, joue sur le contraste entre sa voûte catalane et sa verrière d'atelier, avec des rangements intégrés sur mesure. Une salle d'eau contemporaine avec douche à l'italienne, une toilette indépendante et un coin buanderie équipé d'un lave-linge et d'un sèche-linge complètent cet espace.\r\n\r\nDouble vitrage, fibre optique, et chauffage électrique individuel : le bien est prêt à accueillir ses prochains occupants, que ce soit pour y vivre à l'année ou pour s'offrir une adresse de charme au cœur de Bordeaux.\r\n\r\nDPE : D (244) ; GES : B / (9) \r\n\r\nEstimation des dépenses annuelles d'énergie : entre 1 250 euros et 1 740 euros \r\n\r\nCopropriété de 5 lots, charges annuelles de copropriété : 934 euros\r\n\r\nProcédure en cours : Non\r\n\r\n\r\nHonoraires de transaction TTC à la charge du vendeur\r\n\r\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : \r\nSaint-Genès séduit par son atmosphère de quartier résidentiel et animé, à deux pas du centre historique. Tramway, commerces, restaurants, écoles et services sont accessibles à pied, tandis que la cathédrale Saint-André et les principaux sites culturels se trouvent à quelques minutes. Un quartier recherché pour son esprit de village et son art de vivre, avec le calme d'une résidence préservée. Une adresse à découvrir.",
         "texts": [
           {
-            "text": "Engel & VÃ¶lkers Bordeaux vous propose cet appartement de 54,36 mÂ² Carrez [56,19 mÂ² au sol], au cÅur de Saint-GenÃ¨s. Tout commence par une porte cintrÃ©e aux vitraux turquoise et grenat. DerriÃ¨re elle, une allÃ©e pavÃ©e et un jardin privatif d'environ 20 mÂ², bordÃ© de verdure. Cet appartement cultive l'art rare d'avoir sa propre entrÃ©e en ville.\r\n\r\nLa piÃ¨ce de vie de 21 mÂ² donne le ton avec ses plafonds hauts, ses moulures, son parquet en bÃ¢ton rompu et ses dÃ©tails d'Ã©poque restÃ©s intacts. Juste Ã  cÃ´tÃ©, la cuisine sÃ©parÃ©e de 7 mÂ², entiÃ¨rement Ã©quipÃ©e, s'ouvre sur la verdure du jardin.\r\n\r\nUn escalier en bois blanc descend vers l'espace nuit, plus intime. La chambre de 13 mÂ², esprit loft, joue sur le contraste entre sa voÃ»te catalane et sa verriÃ¨re d'atelier, avec des rangements intÃ©grÃ©s sur mesure. Une salle d'eau contemporaine avec douche Ã  l'italienne, une toilette indÃ©pendante et un coin buanderie Ã©quipÃ© d'un lave-linge et d'un sÃ¨che-linge complÃ¨tent cet espace.\r\n\r\nDouble vitrage, fibre optique, et chauffage Ã©lectrique individuel : le bien est prÃªt Ã  accueillir ses prochains occupants, que ce soit pour y vivre Ã  l'annÃ©e ou pour s'offrir une adresse de charme au cÅur de Bordeaux.\r\n\r\nDPE : D (244) ; GES : B / (9) \r\n\r\nEstimation des dÃ©penses annuelles d'Ã©nergie : entre 1 250 euros et 1 740 euros \r\n\r\nCopropriÃ©tÃ© de 5 lots, charges annuelles de copropriÃ©tÃ© : 934 euros\r\n\r\nProcÃ©dure en cours : Non\r\n\r\n\r\nHonoraires de transaction TTC Ã  la charge du vendeur\r\n\r\nLes informations sur les risques auxquels ce bien est exposÃ© sont disponibles sur le site GÃ©orisques : \r\nSaint-GenÃ¨s sÃ©duit par son atmosphÃ¨re de quartier rÃ©sidentiel et animÃ©, Ã  deux pas du centre historique. Tramway, commerces, restaurants, Ã©coles et services sont accessibles Ã  pied, tandis que la cathÃ©drale Saint-AndrÃ© et les principaux sites culturels se trouvent Ã  quelques minutes. Un quartier recherchÃ© pour son esprit de village et son art de vivre, avec le calme d'une rÃ©sidence prÃ©servÃ©e. Une adresse Ã  dÃ©couvrir."
+            "text": "Engel & Völkers Bordeaux vous propose cet appartement de 54,36 m² Carrez [56,19 m² au sol], au cœur de Saint-Genès. Tout commence par une porte cintrée aux vitraux turquoise et grenat. Derrière elle, une allée pavée et un jardin privatif d'environ 20 m², bordé de verdure.\r\n\r\nLa pièce de vie de 21 m² donne le ton avec ses plafonds hauts, ses moulures, son parquet en bâton rompu et ses détails d'époque restés intacts. Juste à côté, la cuisine séparée de 7 m², entièrement équipée, s'ouvre sur la verdure du jardin.\r\n\r\nUn escalier en bois blanc descend vers l'espace nuit, plus intime. La chambre de 13 m², esprit loft, joue sur le contraste entre sa voûte catalane et sa verrière d'atelier, avec des rangements intégrés sur mesure. Une salle d'eau contemporaine avec douche à l'italienne, une toilette indépendante et un coin buanderie équipé d'un lave-linge et d'un sèche-linge complètent cet espace.\r\n\r\nDouble vitrage, fibre optique, et chauffage électrique individuel : le bien est prêt à accueillir ses prochains occupants, que ce soit pour y vivre à l'année ou pour s'offrir une adresse de charme au cœur de Bordeaux.\r\n\r\nDPE : D (244) ; GES : B / (9) \r\n\r\nEstimation des dépenses annuelles d'énergie : entre 1 250 euros et 1 740 euros \r\n\r\nCopropriété de 5 lots, charges annuelles de copropriété : 934 euros\r\n\r\nProcédure en cours : Non\r\n\r\n\r\nHonoraires de transaction TTC à la charge du vendeur\r\n\r\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : \r\nSaint-Genès séduit par son atmosphère de quartier résidentiel et animé, à deux pas du centre historique. Tramway, commerces, restaurants, écoles et services sont accessibles à pied, tandis que la cathédrale Saint-André et les principaux sites culturels se trouvent à quelques minutes. Un quartier recherché pour son esprit de village et son art de vivre, avec le calme d'une résidence préservée. Une adresse à découvrir."
           }
         ],
-        "headline": "Bordeaux Saint-GenÃ¨s â Appartement de caractÃ¨re avec jardin priv"
+        "headline": "Saint-Genès – T2 de charme 56 m² avec jardin de 20 m²"
       },
       "hardFacts": {
-        "title": "Appartement Ã  vendre",
+        "title": "Appartement à vendre",
+        "shortTitle": "Appartement",
         "keyfacts": [
-          "2 piÃ¨ces",
+          "2 pièces",
           "1 chambre",
-          "56,19 mÂ²",
+          "56,19 m²",
           "RDC/2"
         ],
         "facts": [
           {
             "type": "numberOfRooms",
-            "value": "2 piÃ¨ces",
+            "value": "2 pièces",
             "splitValue": "2",
-            "label": "piÃ¨ces"
+            "label": "pièces"
           },
           {
             "type": "numberOfBedrooms",
@@ -2358,9 +2282,9 @@
           },
           {
             "type": "livingSpace",
-            "value": "56,19 mÂ²",
+            "value": "56,19 m²",
             "splitValue": "56,19",
-            "label": "mÂ²"
+            "label": "m²"
           },
           {
             "type": "numberOfFloors",
@@ -2370,81 +2294,81 @@
           }
         ],
         "price": {
-          "value": "350â¯000Â â¬",
-          "formatted": "350â¯000Â â¬",
-          "additionalInformation": "6â¯229Â â¬/mÂ²",
+          "value": "350 000 €",
+          "formatted": "350 000 €",
+          "additionalInformation": "6 229 €/m²",
           "addition": {
-            "value": "6â¯229Â â¬/mÂ²",
-            "ariaLabel": "6228,87 euros par mÃ¨tre carrÃ©"
+            "value": "6 229 €/m²",
+            "ariaLabel": "6228,87 euros par mètre carré"
           },
           "financialLink": {
-            "href": "https://e-immobilier.credit-agricole.fr/pret/lp_acquisition.html?ORI=EDESLAT&at_medium=affiliation&at_campaign=EDE_PC_EMP_EIMMO_FR&at_presta=SeLoger&at_format=Lien_PDD",
+            "href": "https://www.cic.fr/fr/particuliers/credits/credit-immobilier-financement.html?utm_format=texte&utm_content=lien_prix_pdd&utm_source=seloger&utm_campaign=seloger&procom=SELOGERPDD",
             "label": "Demander un financement",
-            "partnerName": "CA"
+            "partnerName": "CIC"
           },
-          "ariaLabel": "350000 â¬"
+          "ariaLabel": "350000 €"
         }
       },
       "energy": {
         "features": [
           {
             "type": "yearOfConstruction",
-            "label": "AnnÃ©e de construction",
+            "label": "Année de construction",
             "value": "1948"
           },
           {
             "type": "state",
-            "label": "Ãtat",
-            "value": "Remis Ã  neuf"
+            "label": "État",
+            "value": "Remis à neuf"
           },
           {
             "type": "energySource",
-            "label": "Sources d'Ã©nergie",
-            "value": "Ãlectrique"
+            "label": "Sources d'énergie",
+            "value": "Électrique"
           }
         ],
         "certificates": [
           {
-            "key": "8ee743ed-228d-4d74-b1df-b51498a231ba",
+            "key": "ad95b33d-a658-41a6-a16e-6eebbe6a80dd",
             "features": [
               {
                 "type": "minMaxEstimation",
-                "label": "Estimation de la facture Ã©nergÃ©tique",
-                "value": "entre 1250 et 1740 â¬/an"
+                "label": "Estimation de la facture énergétique",
+                "value": "entre 1250 et 1740 €/an"
               },
               {
                 "type": "nameOfCertificate",
-                "label": "Diagnostic rÃ©alisÃ©",
-                "value": "AprÃ¨s le 1er juillet 2021"
+                "label": "Diagnostic réalisé",
+                "value": "Après le 1er juillet 2021"
               },
               {
                 "type": "estimationDescription",
                 "label": "estimationDescription",
-                "value": "Montant estimÃ© des dÃ©penses annuelles d'Ã©nergie pour un usage standard : entre 1250 et 1740 â¬ par an. Date d'indexation du prix des Ã©nergies non communiquÃ©e."
+                "value": "Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1250 et 1740 € par an. Date d'indexation du prix des énergies non communiquée."
               }
             ],
             "scales": [
               {
-                "key": "6a57d207-312c-4b56-8d93-4242f1077376",
+                "key": "e51db053-243e-4e94-b693-18ba9848126a",
                 "efficiencyClass": {
                   "index": 3,
                   "rating": "D"
                 },
                 "values": [
                   {
-                    "value": "9 kWh/mÂ².an",
-                    "label": "Consommation (Ã©nergie primaire)"
+                    "value": "9 kWh/m².an",
+                    "label": "Consommation (énergie primaire)"
                   },
                   {
-                    "value": "128 kWh/mÂ².an",
-                    "label": "Ãnergie finale"
+                    "value": "128 kWh/m².an",
+                    "label": "Énergie finale"
                   },
                   {
-                    "value": "244 kg COâ/mÂ².an",
-                    "label": "Ãmissions"
+                    "value": "244 kg CO₂/m².an",
+                    "label": "Émissions"
                   }
                 ],
-                "name": "Diagnostic de performance Ã©nergÃ©tique (DPE)",
+                "name": "Diagnostic de performance énergétique (DPE)",
                 "segments": [
                   {
                     "label": "A",
@@ -2468,30 +2392,30 @@
                   },
                   {
                     "label": "F",
-                    "value": "Passoire Ã©nergÃ©tique"
+                    "value": "Passoire énergétique"
                   },
                   {
                     "label": "G",
-                    "value": "Passoire Ã©nergÃ©tique"
+                    "value": "Passoire énergétique"
                   }
                 ],
                 "type": "FR_ENERGY_AFTER_2021",
-                "ariaLabel": "EfficiencyClassÂ : D avec une plage allant de A Ã  G .La consommation d'Ã©nergie est 128 kWhEP/mÂ².an kilowattheures par mÃ¨tre carrÃ©.",
+                "ariaLabel": "EfficiencyClass : D avec une plage allant de A à G .La consommation d'énergie est 128 kWhEP/m².an kilowattheures par mètre carré.",
                 "displayUnhappyHouseIcon": false
               },
               {
-                "key": "e5c6943d-00db-48c4-a003-7d4a3e7a84a5",
+                "key": "d5046025-162a-40b0-bc83-28dca1a638b2",
                 "efficiencyClass": {
                   "index": 1,
                   "rating": "B"
                 },
                 "values": [
                   {
-                    "value": "244 kg COâ/mÂ².an",
-                    "label": "Ãmissions"
+                    "value": "244 kg CO₂/m².an",
+                    "label": "Émissions"
                   }
                 ],
-                "name": "Indice d'Ã©mission de gaz Ã  effet de serre (GES)",
+                "name": "Indice d'émission de gaz à effet de serre (GES)",
                 "segments": [
                   {
                     "label": "A",
@@ -2523,7 +2447,7 @@
                   }
                 ],
                 "type": "FR_GHG_AFTER_2021",
-                "ariaLabel": "EfficiencyClassÂ : B avec une plage allant de A Ã  G .La consommation d'Ã©nergie est 128 kWhEP/mÂ².an kilowattheures par mÃ¨tre carrÃ©.",
+                "ariaLabel": "EfficiencyClass : B avec une plage allant de A à G .La consommation d'énergie est 128 kWhEP/m².an kilowattheures par mètre carré.",
                 "displayUnhappyHouseIcon": false
               }
             ]
@@ -2538,7 +2462,7 @@
             "value": "267XYAI8HI5K"
           },
           {
-            "label": "RÃ©fÃ©rence annonce",
+            "label": "Référence annonce",
             "value": "W-04BNEI"
           }
         ]
@@ -2546,18 +2470,18 @@
       "price": {
         "base": {
           "main": {
-            "key": "d4105c59-46fc-4612-b8b5-476f688fbb15",
+            "key": "8bea68e1-b29f-430c-9d77-5791cffcdee6",
             "label": {
               "main": "Prix du bien"
             },
             "value": {
               "main": {
-                "value": "350â¯000Â â¬",
-                "ariaLabel": "350000 â¬"
+                "value": "350 000 €",
+                "ariaLabel": "350000 €"
               },
               "alt": {
-                "value": "6â¯228,87Â â¬/mÂ²",
-                "ariaLabel": "6228,87 euros par mÃ¨tre carrÃ©"
+                "value": "6 228,87 €/m²",
+                "ariaLabel": "6228,87 euros par mètre carré"
               }
             }
           },
@@ -2565,67 +2489,67 @@
         },
         "components": [
           {
-            "key": "94a4134c-9e0f-43ec-8c4f-0df2f96f728f",
+            "key": "7270bc92-e40f-4f78-b0b6-d35c5427e897",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "6b4afccb-cd1d-4fa0-92e2-ee9e28df33be",
+                "key": "d6c2d3d7-698c-4f6f-81e4-a9590b18d86d",
                 "main": {
                   "price": {
-                    "key": "49996c48-e7d7-4b97-b156-d0ae1e34cbb2",
+                    "key": "43c2fba4-b7ba-4c08-8be1-7e837c93815f",
                     "label": {
                       "main": "Prix du bien"
                     },
                     "value": {
                       "main": {
-                        "value": "350â¯000Â â¬",
-                        "ariaLabel": "350000 â¬"
+                        "value": "350 000 €",
+                        "ariaLabel": "350000 €"
                       },
                       "alt": {
-                        "value": "6â¯228,87Â â¬/mÂ²",
-                        "ariaLabel": "6228,87 euros par mÃ¨tre carrÃ©"
+                        "value": "6 228,87 €/m²",
+                        "ariaLabel": "6228,87 euros par mètre carré"
                       }
                     },
                     "highlighted": true
                   },
                   "message": {
                     "type": "SUCCESS",
-                    "value": "Les honoraires sont Ã  la charge du vendeur"
+                    "value": "Les honoraires sont à la charge du vendeur"
                   }
                 }
               },
               {
-                "key": "808d1328-b437-4499-8249-0b350a510723",
+                "key": "64759115-4823-47cc-8b1f-2a5fbc8835d0",
                 "main": {
                   "price": {
-                    "key": "39c61bff-76ae-4792-bdcd-8321c9e1b4df",
+                    "key": "f32ba003-7eb4-4453-a97e-8b65b181e86c",
                     "label": {
-                      "main": "Frais de notaires estimÃ©s"
+                      "main": "Frais de notaires estimés"
                     },
                     "value": {
                       "main": {
-                        "value": "28â¯000Â â¬",
-                        "ariaLabel": "28000 â¬"
+                        "value": "28 000 €",
+                        "ariaLabel": "28000 €"
                       }
                     },
                     "info": {
-                      "value": "Les frais de notaire reprÃ©sentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimÃ© est donnÃ© Ã  titre indicatif."
+                      "value": "Les frais de notaire représentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimé est donné à titre indicatif."
                     }
                   }
                 }
               },
               {
-                "key": "cc7ff40e-2c98-4f39-9da7-09d669eb5e85",
+                "key": "e4389564-7edb-4830-b410-0184ef895589",
                 "main": {
                   "price": {
-                    "key": "0fe18bf8-5bd8-40a3-bf32-cd64265f1a48",
+                    "key": "70893cef-11b0-472b-924b-338d846fcf15",
                     "label": {
-                      "main": "Montant estimÃ© du projet"
+                      "main": "Montant estimé du projet"
                     },
                     "value": {
                       "main": {
-                        "value": "378â¯000Â â¬",
-                        "ariaLabel": "378000 â¬"
+                        "value": "378 000 €",
+                        "ariaLabel": "378000 €"
                       }
                     },
                     "highlighted": true
@@ -2635,39 +2559,39 @@
             ]
           },
           {
-            "key": "582c4b13-5e91-487c-8dbd-0435a1bc3c47",
+            "key": "752d24aa-31ba-4f28-86c6-db822a9fc18f",
             "type": "SECONDARY",
             "units": [
               {
-                "key": "81969c76-4a14-48e8-b3aa-0ad7ec1b3e0b",
+                "key": "442561fe-83e2-478d-97e7-8adcae0932f6",
                 "details": [
                   {
-                    "key": "ffdbc809-2cb1-4b16-b5ac-c280ea4d88a3",
+                    "key": "e32bc3d1-aaef-43b3-9f6e-913e65f83ba1",
                     "prices": [
                       {
-                        "key": "4a0238a7-a983-41a0-aabe-2d603617bd5f",
+                        "key": "909ca109-94d8-4852-888f-15842b327831",
                         "label": {
-                          "main": "Charges de copropriÃ©tÃ©"
+                          "main": "Charges de copropriété"
                         },
                         "value": {
                           "main": {
-                            "value": "934Â â¬/an",
-                            "ariaLabel": "934 â¬"
+                            "value": "934 €/an",
+                            "ariaLabel": "934 €"
                           }
                         },
                         "info": {
-                          "value": "Montant annuel de la quote-part du budget prÃ©visionnel des dÃ©penses courantes."
+                          "value": "Montant annuel de la quote-part du budget prévisionnel des dépenses courantes."
                         },
                         "highlighted": true
                       },
                       {
-                        "key": "0c3c3e56-5fba-41a3-a0a2-a6b833efc804",
+                        "key": "461e2b31-11f6-4fcb-abc2-c972dda4d630",
                         "label": {
-                          "main": "Estimation de la facture Ã©nergÃ©tique"
+                          "main": "Estimation de la facture énergétique"
                         },
                         "value": {
                           "main": {
-                            "value": "entre 1250 et 1740 â¬/an"
+                            "value": "entre 1250 et 1740 €/an"
                           }
                         },
                         "highlighted": true
@@ -2683,63 +2607,63 @@
         "breakdown": {
           "groups": [
             {
-              "key": "a490b501-dc0e-4bec-8eed-57430243546d",
+              "key": "f994aed0-0e73-441c-a56c-c6ab836dc7f7",
               "label": {
                 "main": "Prix du bien"
               },
               "value": {
                 "main": {
-                  "value": "350â¯000Â â¬",
-                  "ariaLabel": "350000 â¬"
+                  "value": "350 000 €",
+                  "ariaLabel": "350000 €"
                 },
                 "alt": {
-                  "value": "6â¯228,87Â â¬/mÂ²",
-                  "ariaLabel": "6228,87 euros par mÃ¨tre carrÃ©"
+                  "value": "6 228,87 €/m²",
+                  "ariaLabel": "6228,87 euros par mètre carré"
                 }
               },
               "colorType": "MAIN_PRICE",
               "highlighted": true
             },
             {
-              "key": "f8b21795-9bb7-43bd-8bf3-8d7d96ce2623",
+              "key": "66d8f53e-4ece-4a5a-ac40-2cd1a24783f0",
               "label": {
-                "main": "Frais de notaire estimÃ©s (8%)"
+                "main": "Frais de notaire estimés (8%)"
               },
               "value": {
                 "main": {
-                  "value": "28â¯000Â â¬",
-                  "ariaLabel": "28000 â¬"
+                  "value": "28 000 €",
+                  "ariaLabel": "28000 €"
                 }
               },
               "colorType": "NOTARY_FEE",
-              "infoBox": "Les frais de notaire reprÃ©sentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimÃ© est donnÃ© Ã  titre indicatif.",
+              "infoBox": "Les frais de notaire représentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimé est donné à titre indicatif.",
               "highlighted": true
             }
           ],
           "totalProjectCosts": {
-            "key": "bd1bc288-df7e-49cd-a015-7c6cdc746284",
+            "key": "f3ec80d3-5da1-47f1-a797-0c893fee846e",
             "label": {
-              "main": "Montant estimÃ© du projet"
+              "main": "Montant estimé du projet"
             },
             "value": {
               "main": {
-                "value": "378â¯000Â â¬",
-                "ariaLabel": "378000 â¬"
+                "value": "378 000 €",
+                "ariaLabel": "378000 €"
               }
             }
           },
           "message": {
             "type": "SUCCESS",
-            "value": "Les honoraires sont Ã  la charge du vendeur"
+            "value": "Les honoraires sont à la charge du vendeur"
           },
           "bar": [
             {
-              "key": "a490b501-dc0e-4bec-8eed-57430243546d",
+              "key": "f994aed0-0e73-441c-a56c-c6ab836dc7f7",
               "colorType": "MAIN_PRICE",
               "percentage": 0.9259
             },
             {
-              "key": "f8b21795-9bb7-43bd-8bf3-8d7d96ce2623",
+              "key": "66d8f53e-4ece-4a5a-ac40-2cd1a24783f0",
               "colorType": "NOTARY_FEE",
               "percentage": 0.0741
             }
@@ -2754,13 +2678,13 @@
             "type": "numberOfUnits"
           },
           {
-            "label": "Charges de copropriÃ©tÃ©",
-            "value": "934Â â¬/an",
+            "label": "Charges de copropriété",
+            "value": "934 €/an",
             "type": "operatingCosts"
           },
           {
-            "label": "ProcÃ©dures syndicales",
-            "value": "Pas de procÃ©dure en cours",
+            "label": "Procédures syndicales",
+            "value": "Pas de procédure en cours",
             "type": "syndicProcedures"
           }
         ]
@@ -2769,11 +2693,11 @@
         "preview": [
           {
             "icon": "floors",
-            "value": "Rez-de-chaussÃ©e/2 Ã©tages"
+            "value": "Rez-de-chaussée / 2 étages"
           },
           {
             "icon": "kitchen",
-            "value": "Cuisine sÃ©parÃ©e"
+            "value": "Cuisine séparée"
           },
           {
             "icon": "cellar",
@@ -2793,11 +2717,11 @@
           },
           {
             "icon": "furnished",
-            "value": "Non meublÃ©"
+            "value": "Non meublé"
           },
           {
             "icon": "bedroom",
-            "value": "1 chambre"
+            "value": "1 Chambre"
           }
         ],
         "details": {
@@ -2810,28 +2734,28 @@
                 },
                 {
                   "icon": "furnished",
-                  "value": "Non meublÃ©"
+                  "value": "Non meublé"
                 },
                 {
                   "icon": "floors",
-                  "value": "Rez-de-chaussÃ©e/2 Ã©tages"
+                  "value": "Rez-de-chaussée / 2 étages"
                 }
               ],
-              "title": "Informations gÃ©nÃ©rales"
+              "title": "Informations générales"
             },
             {
               "elements": [
                 {
                   "icon": "kitchen",
-                  "value": "Cuisine sÃ©parÃ©e"
+                  "value": "Cuisine séparée"
                 },
                 {
                   "icon": "bathroom-amenities",
-                  "value": "1 salle de bain; 1 salle de douches"
+                  "value": "1 Salle de bain; 1 Salle de douche"
                 },
                 {
                   "icon": "bedroom",
-                  "value": "1 chambre"
+                  "value": "1 Chambre"
                 },
                 {
                   "icon": "cellar",
@@ -2839,14 +2763,10 @@
                 },
                 {
                   "icon": "floor-covering",
-                  "value": "RevÃªtement du sol: Parquet"
-                },
-                {
-                  "icon": "separateEntrance",
-                  "value": "EntrÃ©e sÃ©parÃ©e"
+                  "value": "Revêtement du sol: Parquet"
                 }
               ],
-              "title": "IntÃ©rieur"
+              "title": "Intérieur"
             },
             {
               "elements": [
@@ -2859,7 +2779,7 @@
                   "value": "Jardin"
                 }
               ],
-              "title": "ExtÃ©rieur"
+              "title": "Extérieur"
             }
           ]
         }
@@ -2867,97 +2787,97 @@
       "gallery": {
         "images": [
           {
-            "key": "c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46",
-            "url": "https://mms.seloger.com/c/8/e/4/c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46.jpg?ci_seal=263b6a0bad68cd9a8ff4189cbe8cf67aed9a03ca",
-            "alt": "Appartement Ã  vendre 350â¯000Â â¬ 2 piÃ¨ces 1 chambre 56,19 mÂ² RDC/2 Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux 33000",
+            "key": "03c32055-09e4-404b-93a9-218a7da4541f",
+            "url": "https://mms.seloger.com/0/3/c/3/03c32055-09e4-404b-93a9-218a7da4541f.jpg?ci_seal=9adc5dff51a97cdfb2852f5ccc1e58002a510eff",
+            "alt": "Appartement à vendre 350 000 € 2 pièces 1 chambre 56,19 m² RDC/2 Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux 33000",
             "classification": {
               "name": "LIVING_ROOM",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "cd72d450-9e64-4404-99dc-2cc0222331a9",
-            "url": "https://mms.seloger.com/c/d/7/2/cd72d450-9e64-4404-99dc-2cc0222331a9.jpg?ci_seal=5d8a9b575ed8008030c47e8ba808ca2a7d8ef868",
+            "key": "43b15902-2de7-4c38-8d88-57235abfaa62",
+            "url": "https://mms.seloger.com/4/3/b/1/43b15902-2de7-4c38-8d88-57235abfaa62.png?ci_seal=1afc8dc1732079b1837470eb76abdb49c9ba0ad3",
+            "classification": {
+              "name": "TERRACE",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "e833f90b-6ca2-4ab7-81f8-3897d6926733",
+            "url": "https://mms.seloger.com/e/8/3/3/e833f90b-6ca2-4ab7-81f8-3897d6926733.jpg?ci_seal=102a66d0b27e270096b1f5e346311167bcd79b59",
             "classification": {
               "name": "LIVING_ROOM",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "75455a92-3567-4fae-bc94-9f3ac6421452",
-            "url": "https://mms.seloger.com/7/5/4/5/75455a92-3567-4fae-bc94-9f3ac6421452.png?ci_seal=663ce88cfb326508cebbf609ce72b389c938e83a",
+            "key": "dea19d91-0e89-47d6-99a0-c155dfe0b5bf",
+            "url": "https://mms.seloger.com/d/e/a/1/dea19d91-0e89-47d6-99a0-c155dfe0b5bf.png?ci_seal=1e26e512e0b8547d9a07c5ff6e75450490afa27b",
             "classification": {
               "name": "LIVING_ROOM",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "2268bad3-46ca-456c-a184-7c6d46ac7a1a",
-            "url": "https://mms.seloger.com/2/2/6/8/2268bad3-46ca-456c-a184-7c6d46ac7a1a.png?ci_seal=6b01ef78119b07766a6f0ce53c4b5b70a5b0e57c",
+            "key": "6b743e52-c15b-4310-8131-38b673c482d2",
+            "url": "https://mms.seloger.com/6/b/7/4/6b743e52-c15b-4310-8131-38b673c482d2.png?ci_seal=5b0567484d8be8dba9af38cf32e7adc014188362",
             "classification": {
               "name": "KITCHEN",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "d6698967-8c4c-4b7a-a329-1ebd55b63b7c",
-            "url": "https://mms.seloger.com/d/6/6/9/d6698967-8c4c-4b7a-a329-1ebd55b63b7c.png?ci_seal=07b2921a054a7de0e0617917848e0350a93c0617",
+            "key": "a12923e1-1a43-4d7c-aa10-070b7508af30",
+            "url": "https://mms.seloger.com/a/1/2/9/a12923e1-1a43-4d7c-aa10-070b7508af30.png?ci_seal=113a9d3c44048d488640327c764f17c790ce3d14",
             "classification": {
               "name": "BEDROOM",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "53441281-24ed-406b-a7f1-4ecff9c54877",
-            "url": "https://mms.seloger.com/5/3/4/4/53441281-24ed-406b-a7f1-4ecff9c54877.jpg?ci_seal=be26eeffebca415826fe37f6a0bfeab686f97153",
+            "key": "f799be62-5ec5-452b-8a8d-fd02db030df9",
+            "url": "https://mms.seloger.com/f/7/9/9/f799be62-5ec5-452b-8a8d-fd02db030df9.png?ci_seal=e996856e8ca9898900a404fa41f03aa7ae52d2b6",
+            "classification": {
+              "name": "BATHROOM",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "06372c9d-1b59-4262-93d5-54d7fb7a5788",
+            "url": "https://mms.seloger.com/0/6/3/7/06372c9d-1b59-4262-93d5-54d7fb7a5788.png?ci_seal=44587f90aae4a92cfe6933182b2342f4c78962eb",
+            "classification": {
+              "name": "BATHROOM",
+              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
+            }
+          },
+          {
+            "key": "597b098b-911c-4272-81b5-59cefc169b2b",
+            "url": "https://mms.seloger.com/5/9/7/b/597b098b-911c-4272-81b5-59cefc169b2b.jpg?ci_seal=cc9aac6d22a70c49d1c4b38ab8175a727bf6d001",
             "classification": {
               "name": "BEDROOM",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "fd8af140-b503-47a0-b0c9-78cfe4fc1550",
-            "url": "https://mms.seloger.com/f/d/8/a/fd8af140-b503-47a0-b0c9-78cfe4fc1550.png?ci_seal=dd47a582e2fa335d2b08ea68dfa9c1b93503e004",
-            "classification": {
-              "name": "BATHROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
-          },
-          {
-            "key": "2a495dba-d29d-4768-81a3-cd816031683b",
-            "url": "https://mms.seloger.com/2/a/4/9/2a495dba-d29d-4768-81a3-cd816031683b.png?ci_seal=0a1fcd906987715b4465ce9cd8a246d92509b283",
-            "classification": {
-              "name": "BATHROOM",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
-          },
-          {
-            "key": "2a6a769f-e0a8-4399-af1c-34b8299e6e6a",
-            "url": "https://mms.seloger.com/2/a/6/a/2a6a769f-e0a8-4399-af1c-34b8299e6e6a.png?ci_seal=1be7c1e5e2502fc74f0010f0390d872286e68df4",
+            "key": "fed21e55-daaa-4219-aa50-4010e2c723af",
+            "url": "https://mms.seloger.com/f/e/d/2/fed21e55-daaa-4219-aa50-4010e2c723af.png?ci_seal=7e71db81f953fc382d265bcd137250485eaeeda6",
             "classification": {
               "name": "TERRACE",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "adde8dfe-30a9-49ce-9624-80dd37c9a8e4",
-            "url": "https://mms.seloger.com/a/d/d/e/adde8dfe-30a9-49ce-9624-80dd37c9a8e4.png?ci_seal=39409152f4452de0cd79910d0974f64f7cf1a6e1",
-            "classification": {
-              "name": "TERRACE",
-              "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
-            }
-          },
-          {
-            "key": "da68bea5-f235-4096-8e28-81204e73b11b",
-            "url": "https://mms.seloger.com/d/a/6/8/da68bea5-f235-4096-8e28-81204e73b11b.png?ci_seal=cd3f1664d9a141158262875f9659186d97f9510b",
+            "key": "9c5b2be3-7e94-4adc-b8cf-ebdf01861324",
+            "url": "https://mms.seloger.com/9/c/5/b/9c5b2be3-7e94-4adc-b8cf-ebdf01861324.png?ci_seal=358b7f220f8eccdc733b4fdafb6052adadae4ebe",
             "classification": {
               "name": "YARD",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
             }
           },
           {
-            "key": "8a9b8629-c51b-4341-8afc-060bee934964",
-            "url": "https://mms.seloger.com/8/a/9/b/8a9b8629-c51b-4341-8afc-060bee934964.png?ci_seal=ef468375ad3dcfc269b3f65d2e6fe811eea16555",
+            "key": "ff0be8d6-daba-42df-86f0-95e2607eb6b9",
+            "url": "https://mms.seloger.com/f/f/0/b/ff0be8d6-daba-42df-86f0-95e2607eb6b9.png?ci_seal=ad8f7e6bd027ed64967ad1005416e00680d388a4",
             "classification": {
               "name": "HALLWAY",
               "version": "scene-classification-sagemaker-endpoint-live-1-3-10"
@@ -2974,12 +2894,12 @@
           {
             "urlType": "VIRTUAL_TOUR",
             "url": "https://www.youtube.com/watch?v=tPFIdgipAr4",
-            "key": "156660a2-d367-455b-a042-6e2e8f1f6f9e",
+            "key": "840fc550-c718-4c49-9376-c28e7b4afb3e",
             "title": "Visite virtuelle",
             "virtualTours": {},
             "previewImage": {
-              "key": "c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46",
-              "url": "https://mms.seloger.com/c/8/e/4/c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46.jpg?ci_seal=263b6a0bad68cd9a8ff4189cbe8cf67aed9a03ca"
+              "key": "03c32055-09e4-404b-93a9-218a7da4541f",
+              "url": "https://mms.seloger.com/0/3/c/3/03c32055-09e4-404b-93a9-218a7da4541f.jpg?ci_seal=9adc5dff51a97cdfb2852f5ccc1e58002a510eff"
             }
           }
         ]
@@ -2997,7 +2917,7 @@
         "showMonthlyRateLabel": true,
         "price": 350000,
         "monthlyAmount": 1818,
-        "formattedMonthlyAmount": "1â¯818"
+        "formattedMonthlyAmount": "1 818"
       },
       "partnerAd": {
         "showPartnerAd": false
@@ -3008,16 +2928,16 @@
       },
       "priceComparison": {
         "data": {
-          "value": 4448,
+          "value": 4469,
           "accuracy": 3,
-          "high": "6â¯087",
-          "low": "2â¯879"
+          "high": "6 114",
+          "low": "2 893"
         },
         "markerPosition": 100,
         "hasMainPrice": true,
         "isSale": true,
-        "pricePerSqm": "6â¯228,87",
-        "legalText": "Le prix au mÂ² est automatiquement calculÃ© par Se Loger en fonction du prix de vente et du nombre de mÂ² du bien. La comparaison est rÃ©alisÃ©e Ã  partir des informations relatives au prix du marchÃ© sur le mÃªme secteur dont dispose Se Loger. Cette information ne prÃ©juge en aucun cas de l'Ã©valuation du bien, qui dÃ©pend de son Ã©tat, ses caractÃ©ristiques et de sa localisation.",
+        "pricePerSqm": "6 228,87",
+        "legalText": "Le prix au m² est automatiquement calculé par SeLoger en fonction du prix de vente et du nombre de m² du bien. La comparaison est réalisée à partir des informations relatives au prix du marché sur le même secteur dont dispose SeLoger. Cette information ne préjuge en aucun cas de l'évaluation du bien, qui dépend de son état, ses caractéristiques et de sa localisation.",
         "marketInsights": {
           "label": "Voir les tendances immo",
           "placeId": "NBH2FR9332",
@@ -3026,8 +2946,8 @@
         }
       },
       "mainDescription": {
-        "headline": "Bordeaux Saint-GenÃ¨s â Appartement de caractÃ¨re avec jardin priv",
-        "description": "Engel & VÃ¶lkers Bordeaux vous propose cet appartement de 54,36 mÂ² Carrez [56,19 mÂ² au sol], au cÅur de Saint-GenÃ¨s. Tout commence par une porte cintrÃ©e aux vitraux turquoise et grenat. DerriÃ¨re elle, une allÃ©e pavÃ©e et un jardin privatif d'environ 20 mÂ², bordÃ© de verdure. Cet appartement cultive l'art rare d'avoir sa propre entrÃ©e en ville.\r\n\r\nLa piÃ¨ce de vie de 21 mÂ² donne le ton avec ses plafonds hauts, ses moulures, son parquet en bÃ¢ton rompu et ses dÃ©tails d'Ã©poque restÃ©s intacts. Juste Ã  cÃ´tÃ©, la cuisine sÃ©parÃ©e de 7 mÂ², entiÃ¨rement Ã©quipÃ©e, s'ouvre sur la verdure du jardin.\r\n\r\nUn escalier en bois blanc descend vers l'espace nuit, plus intime. La chambre de 13 mÂ², esprit loft, joue sur le contraste entre sa voÃ»te catalane et sa verriÃ¨re d'atelier, avec des rangements intÃ©grÃ©s sur mesure. Une salle d'eau contemporaine avec douche Ã  l'italienne, une toilette indÃ©pendante et un coin buanderie Ã©quipÃ© d'un lave-linge et d'un sÃ¨che-linge complÃ¨tent cet espace.\r\n\r\nDouble vitrage, fibre optique, et chauffage Ã©lectrique individuel : le bien est prÃªt Ã  accueillir ses prochains occupants, que ce soit pour y vivre Ã  l'annÃ©e ou pour s'offrir une adresse de charme au cÅur de Bordeaux.\r\n\r\nDPE : D (244) ; GES : B / (9) \r\n\r\nEstimation des dÃ©penses annuelles d'Ã©nergie : entre 1 250 euros et 1 740 euros \r\n\r\nCopropriÃ©tÃ© de 5 lots, charges annuelles de copropriÃ©tÃ© : 934 euros\r\n\r\nProcÃ©dure en cours : Non\r\n\r\n\r\nHonoraires de transaction TTC Ã  la charge du vendeur\r\n\r\nLes informations sur les risques auxquels ce bien est exposÃ© sont disponibles sur le site GÃ©orisques : \r\nSaint-GenÃ¨s sÃ©duit par son atmosphÃ¨re de quartier rÃ©sidentiel et animÃ©, Ã  deux pas du centre historique. Tramway, commerces, restaurants, Ã©coles et services sont accessibles Ã  pied, tandis que la cathÃ©drale Saint-AndrÃ© et les principaux sites culturels se trouvent Ã  quelques minutes. Un quartier recherchÃ© pour son esprit de village et son art de vivre, avec le calme d'une rÃ©sidence prÃ©servÃ©e. Une adresse Ã  dÃ©couvrir.",
+        "headline": "Saint-Genès – T2 de charme 56 m² avec jardin de 20 m²",
+        "description": "Engel & Völkers Bordeaux vous propose cet appartement de 54,36 m² Carrez [56,19 m² au sol], au cœur de Saint-Genès. Tout commence par une porte cintrée aux vitraux turquoise et grenat. Derrière elle, une allée pavée et un jardin privatif d'environ 20 m², bordé de verdure.\r\n\r\nLa pièce de vie de 21 m² donne le ton avec ses plafonds hauts, ses moulures, son parquet en bâton rompu et ses détails d'époque restés intacts. Juste à côté, la cuisine séparée de 7 m², entièrement équipée, s'ouvre sur la verdure du jardin.\r\n\r\nUn escalier en bois blanc descend vers l'espace nuit, plus intime. La chambre de 13 m², esprit loft, joue sur le contraste entre sa voûte catalane et sa verrière d'atelier, avec des rangements intégrés sur mesure. Une salle d'eau contemporaine avec douche à l'italienne, une toilette indépendante et un coin buanderie équipé d'un lave-linge et d'un sèche-linge complètent cet espace.\r\n\r\nDouble vitrage, fibre optique, et chauffage électrique individuel : le bien est prêt à accueillir ses prochains occupants, que ce soit pour y vivre à l'année ou pour s'offrir une adresse de charme au cœur de Bordeaux.\r\n\r\nDPE : D (244) ; GES : B / (9) \r\n\r\nEstimation des dépenses annuelles d'énergie : entre 1 250 euros et 1 740 euros \r\n\r\nCopropriété de 5 lots, charges annuelles de copropriété : 934 euros\r\n\r\nProcédure en cours : Non\r\n\r\n\r\nHonoraires de transaction TTC à la charge du vendeur\r\n\r\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : \r\nSaint-Genès séduit par son atmosphère de quartier résidentiel et animé, à deux pas du centre historique. Tramway, commerces, restaurants, écoles et services sont accessibles à pied, tandis que la cathédrale Saint-André et les principaux sites culturels se trouvent à quelques minutes. Un quartier recherché pour son esprit de village et son art de vivre, avec le calme d'une résidence préservée. Une adresse à découvrir.",
         "metadata": {
           "language": "fr"
         }
@@ -3036,7 +2956,7 @@
         "headline": "Emplacement"
       },
       "extendedInfoDescription": {
-        "headline": "Informations supplÃ©mentaires"
+        "headline": "Informations supplémentaires"
       }
     },
     "contactSections": {
@@ -3055,8 +2975,8 @@
         ]
       },
       "contactCard": {
-        "title": "Engel & VÃ¶lkers Bordeaux",
-        "subtitle": "Engel & VÃ¶lkers Bordeaux Mmc",
+        "title": "Engel & Völkers Bordeaux",
+        "subtitle": "Engel & Völkers Bordeaux Mmc",
         "phoneNumbers": [
           "0582968090"
         ],
@@ -3072,8 +2992,8 @@
       },
       "contactForm": {
         "contactCard": {
-          "title": "Engel & VÃ¶lkers Bordeaux",
-          "subtitle": "Engel & VÃ¶lkers Bordeaux Mmc",
+          "title": "Engel & Völkers Bordeaux",
+          "subtitle": "Engel & Völkers Bordeaux Mmc",
           "phoneNumbers": [
             "0582968090"
           ],
@@ -3081,12 +3001,12 @@
           "logoUrl": "https://mms.seloger.com/1/6/d/4/16d4968b-cb04-4d04-b391-7e6e7df19b41.jpg?ci_seal=51528d3b910934afb0e44f6426a0ea3988944908"
         },
         "displayOwnerFlag": true,
-        "subjectLabel": "Votre message Ã  Engel & VÃ¶lkers Bordeaux Mmc",
+        "subjectLabel": "Votre message à Engel & Völkers Bordeaux Mmc",
         "shouldSendLeadValue": true
       },
       "mobilePhones": {
-        "title": "Engel & VÃ¶lkers Bordeaux",
-        "subtitle": "Engel & VÃ¶lkers Bordeaux",
+        "title": "Engel & Völkers Bordeaux",
+        "subtitle": "Engel & Völkers Bordeaux",
         "phoneNumbers": [
           "0582968090"
         ],
@@ -3095,14 +3015,14 @@
       },
       "provider": {
         "intermediaryCard": {
-          "title": "Engel & VÃ¶lkers Bordeaux",
-          "subtitle": "ProposÃ© par une agence immobiliÃ¨re",
+          "title": "Engel & Völkers Bordeaux",
+          "subtitle": "Proposé par une agence immobilière",
           "display": true,
           "logoUrl": "https://mms.seloger.com/1/6/d/4/16d4968b-cb04-4d04-b391-7e6e7df19b41.jpg?ci_seal=51528d3b910934afb0e44f6426a0ea3988944908",
           "logoHref": "https://www.seloger.com/professionnels-immobilier/35b2hBp7kjbuHbgYzceBmk"
         },
         "contactCard": {
-          "title": "Engel & VÃ¶lkers Bordeaux Mmc",
+          "title": "Engel & Völkers Bordeaux Mmc",
           "subtitle": "Votre contact",
           "display": true,
           "logoUrl": null
@@ -3113,7 +3033,7 @@
         "imprintUrl": null,
         "agencyLegalInformations": [
           "EV MMC FRANCE",
-          "<b>SiÃ¨ge:</b> Place des Grands Hommes, 33000 Bordeaux",
+          "<b>Siège:</b> Place des Grands Hommes, 33000 Bordeaux",
           "<b>RCS:</b> 808801955",
           "<b>SIRET:</b> 80880195500192"
         ],
@@ -3380,7 +3300,7 @@
         "etage": 2,
         "commodites": [
           "Chauffage-electrique",
-          "Cuisine-sÃ©parÃ©e",
+          "Cuisine-séparée",
           "parquet",
           "rez-de-chaussee",
           "SalleDEau-douche",
@@ -3415,22 +3335,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/france/ad02fr1",
-                "label": "Appartements 2 piÃ¨ces Ã  vendre France",
-                "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre France",
+                "label": "Appartements 2 pièces à vendre France",
+                "hoverLabel": "Appartements 2 pièces à vendre France",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/appartement/france/ad02fr1",
-                "label": "Appartements Ã  vendre France",
-                "hoverLabel": "Appartements Ã  vendre France",
+                "label": "Appartements à vendre France",
+                "hoverLabel": "Appartements à vendre France",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/france/ad02fr1",
-                "label": "Biens immobiliers Ã  vendre France",
-                "hoverLabel": "Biens immobiliers Ã  vendre France",
+                "label": "Biens immobiliers à vendre France",
+                "hoverLabel": "Biens immobiliers à vendre France",
                 "serpKey": ""
               }
             ]
@@ -3445,22 +3365,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/nouvelle-aquitaine/ad04fr27",
-                "label": "Appartements 2 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
+                "label": "Appartements 2 pièces à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Appartements 2 pièces à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/appartement/nouvelle-aquitaine/ad04fr27",
-                "label": "Appartements Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Appartements Ã  vendre Nouvelle-Aquitaine",
+                "label": "Appartements à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Appartements à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/nouvelle-aquitaine/ad04fr27",
-                "label": "Biens immobiliers Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Biens immobiliers Ã  vendre Nouvelle-Aquitaine",
+                "label": "Biens immobiliers à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Biens immobiliers à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               }
             ]
@@ -3475,22 +3395,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Appartements 2 piÃ¨ces Ã  vendre Gironde 33",
-                "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre Gironde 33",
+                "label": "Appartements 2 pièces à vendre Gironde 33",
+                "hoverLabel": "Appartements 2 pièces à vendre Gironde 33",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/appartement/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Appartements Ã  vendre Gironde 33",
-                "hoverLabel": "Appartements Ã  vendre Gironde 33",
+                "label": "Appartements à vendre Gironde 33",
+                "hoverLabel": "Appartements à vendre Gironde 33",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Biens immobiliers Ã  vendre Gironde 33",
-                "hoverLabel": "Biens immobiliers Ã  vendre Gironde 33",
+                "label": "Biens immobiliers à vendre Gironde 33",
+                "hoverLabel": "Biens immobiliers à vendre Gironde 33",
                 "serpKey": ""
               }
             ]
@@ -3498,8 +3418,8 @@
           {
             "order": 5,
             "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/nouvelle-aquitaine/bordeaux-33000/ad08fr13100",
-            "label": "Appartements 2 piÃ¨ces Ã  vendre Bordeaux 33000",
-            "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre Bordeaux 33000",
+            "label": "Appartements 2 pièces à vendre Bordeaux 33000",
+            "hoverLabel": "Appartements 2 pièces à vendre Bordeaux 33000",
             "serpKey": ""
           },
           {
@@ -3512,9 +3432,9 @@
         ]
       },
       "headInfo": {
-        "title": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)",
+        "title": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)",
         "titleWithCount": "",
-        "description": "Engel & VÃ¶lkers Bordeaux vous propose cet appartement de 54,36 mÂ² Carrez [56,19 mÂ² au sol], au cÅur de Saint-GenÃ¨s. Tout commence par une porte c...",
+        "description": "Engel & Völkers Bordeaux vous propose cet appartement de 54,36 m² Carrez [56,19 m² au sol], au cœur de Saint-Genès. Tout commence par une porte c...",
         "canonical": "",
         "robots": "index, follow, max-snippet:-1",
         "icons": [
@@ -3561,21 +3481,21 @@
           },
           {
             "property": "title",
-            "content": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
+            "content": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
           },
           {
             "property": "description",
-            "content": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
+            "content": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
           },
           {
             "property": "image",
-            "content": "https://mms.seloger.com/c/8/e/4/c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46.jpg?ci_seal=263b6a0bad68cd9a8ff4189cbe8cf67aed9a03ca"
+            "content": "https://mms.seloger.com/0/3/c/3/03c32055-09e4-404b-93a9-218a7da4541f.jpg?ci_seal=9adc5dff51a97cdfb2852f5ccc1e58002a510eff"
           }
         ],
         "socials": [
           {
             "name": "twitter:card",
-            "content": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
+            "content": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
           },
           {
             "name": "twitter:url",
@@ -3587,15 +3507,15 @@
           },
           {
             "name": "twitter:title",
-            "content": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
+            "content": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
           },
           {
             "name": "twitter:description",
-            "content": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
+            "content": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
           },
           {
             "name": "twitter:image",
-            "content": "https://mms.seloger.com/c/8/e/4/c8e4ae0c-5f2b-4314-b3b7-46a2d414eb46.jpg?ci_seal=263b6a0bad68cd9a8ff4189cbe8cf67aed9a03ca"
+            "content": "https://mms.seloger.com/0/3/c/3/03c32055-09e4-404b-93a9-218a7da4541f.jpg?ci_seal=9adc5dff51a97cdfb2852f5ccc1e58002a510eff"
           }
         ],
         "structuredData": [
@@ -3644,17 +3564,17 @@
             },
             {
               "type": "description",
-              "content": "Engel & VÃ¶lkers Bordeaux vous propose cet appartement de 54,36 mÂ² Carrez [56,19 mÂ² au sol], au cÅur de Saint-GenÃ¨s. Tout commence par une porte c..."
+              "content": "Engel & Völkers Bordeaux vous propose cet appartement de 54,36 m² Carrez [56,19 m² au sol], au cœur de Saint-Genès. Tout commence par une porte c..."
             },
             {
               "type": "name",
-              "content": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
+              "content": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)"
             },
             {
               "type": "itemOffered",
               "content": {
                 "@type": "APARTMENT",
-                "name": "Appartement Ã  vendre T2/F2 56.19 mÂ² 350000 â¬ Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)",
+                "name": "Appartement à vendre T2/F2 56.19 m² 350000 € Saint Augustin - Tauzin - Alphonse Dupeux Bordeaux (33000)",
                 "numberOfRooms": "2",
                 "floorSize": {
                   "@type": "QuantitativeValue",
@@ -3685,29 +3605,29 @@
           {
             "order": 2,
             "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/france/ad02fr1",
-            "label": "Appartements 2 piÃ¨ces Ã  vendre France",
-            "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre France",
+            "label": "Appartements 2 pièces à vendre France",
+            "hoverLabel": "Appartements 2 pièces à vendre France",
             "serpKey": ""
           },
           {
             "order": 3,
             "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/nouvelle-aquitaine/ad04fr27",
-            "label": "Appartements 2 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
-            "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre Nouvelle-Aquitaine",
+            "label": "Appartements 2 pièces à vendre Nouvelle-Aquitaine",
+            "hoverLabel": "Appartements 2 pièces à vendre Nouvelle-Aquitaine",
             "serpKey": ""
           },
           {
             "order": 4,
             "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/nouvelle-aquitaine/gironde-33/ad06fr34",
-            "label": "Appartements 2 piÃ¨ces Ã  vendre Gironde 33",
-            "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre Gironde 33",
+            "label": "Appartements 2 pièces à vendre Gironde 33",
+            "hoverLabel": "Appartements 2 pièces à vendre Gironde 33",
             "serpKey": ""
           },
           {
             "order": 5,
             "url": "https://www.seloger.com/recherche/achat/appartement/piece-2/nouvelle-aquitaine/bordeaux-33000/ad08fr13100",
-            "label": "Appartements 2 piÃ¨ces Ã  vendre Bordeaux 33000",
-            "hoverLabel": "Appartements 2 piÃ¨ces Ã  vendre Bordeaux 33000",
+            "label": "Appartements 2 pièces à vendre Bordeaux 33000",
+            "hoverLabel": "Appartements 2 pièces à vendre Bordeaux 33000",
             "serpKey": ""
           }
         ],
@@ -3717,7 +3637,7 @@
     "farbwelt": {
       "color": "#FFFFFF",
       "textColor": "dark",
-      "providerName": "Engel & VÃ¶lkers Bordeaux",
+      "providerName": "Engel & Völkers Bordeaux",
       "logo": {
         "src": "https://mms.seloger.com/1/6/d/4/16d4968b-cb04-4d04-b391-7e6e7df19b41.jpg?ci_seal=51528d3b910934afb0e44f6426a0ea3988944908",
         "alt": "logo-RC-1942857",
@@ -3800,7 +3720,7 @@
       },
       "propertyTypeLabel": "Appartement"
     },
-    "correlationId": "0b556a45-d10d-4faf-b074-ecab305923cf"
+    "correlationId": "e1858537-7e8c-4d24-9e0d-d335f0f4245d"
   },
   {
     "brand": "seloger",
@@ -3871,7 +3791,7 @@
           "country": "FRA",
           "city": "Bordeaux",
           "zipCode": "33000",
-          "district": "Nansouty - Saint GenÃ¨s"
+          "district": "Nansouty - Saint Genès"
         },
         "isAddressPublished": false,
         "geometry": {
@@ -4206,30 +4126,103 @@
               ]
             ]
           ]
+        },
+        "schools": {
+          "publicSchools": [
+            {
+              "name": "Ecole maternelle Laboye",
+              "type": "PRIMARY",
+              "distanceKm": "809 m",
+              "walkTimeMin": "11 min",
+              "bikeTimeMin": "5 min",
+              "carTimeMin": "3 min"
+            },
+            {
+              "name": "Ecole élémentaire Jacques Prévert",
+              "type": "PRIMARY",
+              "distanceKm": "815 m",
+              "walkTimeMin": "11 min",
+              "bikeTimeMin": "5 min",
+              "carTimeMin": "3 min"
+            },
+            {
+              "name": "Collège Alain Fournier",
+              "type": "MIDDLE",
+              "distanceKm": "< 100 m",
+              "walkTimeMin": "1 min",
+              "bikeTimeMin": "1 min",
+              "carTimeMin": "1 min"
+            }
+          ],
+          "privateSchools": [
+            {
+              "name": "Collège privé Saint Genès La Salle",
+              "type": "MIDDLE",
+              "distanceKm": "350 m",
+              "walkTimeMin": "5 min",
+              "bikeTimeMin": "2 min"
+            },
+            {
+              "name": "Ecole primaire privée Saint Genès La Salle",
+              "type": "PRIMARY",
+              "distanceKm": "362 m",
+              "walkTimeMin": "5 min",
+              "bikeTimeMin": "2 min"
+            },
+            {
+              "name": "Ecole primaire privée Albert Le Grand",
+              "type": "PRIMARY",
+              "distanceKm": "454 m",
+              "walkTimeMin": "6 min",
+              "bikeTimeMin": "2 min"
+            },
+            {
+              "name": "Collège privé Albert Le Grand",
+              "type": "MIDDLE",
+              "distanceKm": "466 m",
+              "walkTimeMin": "7 min",
+              "bikeTimeMin": "2 min"
+            },
+            {
+              "name": "Ecole primaire privée Le Mirail",
+              "type": "PRIMARY",
+              "distanceKm": "597 m",
+              "walkTimeMin": "11 min",
+              "bikeTimeMin": "9 min"
+            },
+            {
+              "name": "Collège privé Le Mirail",
+              "type": "MIDDLE",
+              "distanceKm": "598 m",
+              "walkTimeMin": "11 min",
+              "bikeTimeMin": "9 min"
+            }
+          ]
         }
       },
       "description": {
-        "description": "Proche de tous les commerces et Ã©coles (Saint GenÃ¨s La Salle/Albert Legrand/Alain Fournier) venez dÃ©couvrir ce magnifique appartement de 86 M2, vous serez sÃ©duit par sa piÃ¨ce de vie avec ses beaux volumes.\r\n\r\nCe charmant duplex aux prestations anciennes (Belle HSP et parquet) se compose d'un grand salon-sÃ©jour donnant sur un balcon filant, d'une cuisine et d'un WC.\r\n\r\nEt Ã  l'Ã©tage, nous avons deux chambres dont une en mezzanine et une salle de bains.\r\nUne cave de 16 M2 complÃ¨te ce bien.\r\n\r\nLes + : appartement lumineux et spacieux, proche des commoditÃ©s, du centre de bordeaux et du magnifique parc arborÃ© (jardin des dames).\r\nFaibles charges de copro (50 euros/mois)\r\n\r\nLe bien comprend 4 lots, et il est situÃ© dans une copropriÃ©tÃ© de 12 lots (les charges courantes annuelles moyennes de copropriÃ©tÃ© sont de 600 euros et le syndicat des copropriÃ©taires ne fait pas l'objet d'une procÃ©dure citÃ©e Ã  l'article L. 721-1 du code de la construction et de l'habitation).\r\n\r\nLes informations sur les risques auxquels ce bien est exposÃ© sont disponibles sur le site GÃ©orisques : \r\nPrix de vente : 390 000 euros\r\nHonoraires charge vendeur\r\n\r\nContactez votre conseiller SAFTI : Emilie LEPOULTIER - EI - Agent commercial immatriculÃ© au RSAC de BORDEAUX sous le numÃ©ro 889 267 498",
+        "description": "Proche de tous les commerces et écoles (Saint Genès La Salle/Albert Legrand/Alain Fournier) venez découvrir ce magnifique appartement de 86 M2, vous serez séduit par sa pièce de vie avec ses beaux volumes.\r\n\r\nCe charmant duplex aux prestations anciennes (Belle HSP et parquet) se compose d'un grand salon-séjour donnant sur un balcon filant, d'une cuisine et d'un WC.\r\n\r\nEt à l'étage, nous avons deux chambres dont une en mezzanine et une salle de bains.\r\nUne cave de 16 M2 complète ce bien.\r\n\r\nLes + : appartement lumineux et spacieux, proche des commodités, du centre de bordeaux et du magnifique parc arboré (jardin des dames).\r\nFaibles charges de copro (50 euros/mois)\r\n\r\nLe bien comprend 4 lots, et il est situé dans une copropriété de 12 lots (les charges courantes annuelles moyennes de copropriété sont de 600 euros et le syndicat des copropriétaires ne fait pas l'objet d'une procédure citée à l'article L. 721-1 du code de la construction et de l'habitation).\r\n\r\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : \r\nPrix de vente : 390 000 euros\r\nHonoraires charge vendeur\r\n\r\nContactez votre conseiller SAFTI : Emilie LEPOULTIER - EI - Agent commercial immatriculé au RSAC de BORDEAUX sous le numéro 889 267 498",
         "texts": [
           {
-            "text": "Proche de tous les commerces et Ã©coles (Saint GenÃ¨s La Salle/Albert Legrand/Alain Fournier) venez dÃ©couvrir ce magnifique appartement de 86 M2, vous serez sÃ©duit par sa piÃ¨ce de vie avec ses beaux volumes.\r\n\r\nCe charmant duplex aux prestations anciennes (Belle HSP et parquet) se compose d'un grand salon-sÃ©jour donnant sur un balcon filant, d'une cuisine et d'un WC.\r\n\r\nEt Ã  l'Ã©tage, nous avons deux chambres dont une en mezzanine et une salle de bains.\r\nUne cave de 16 M2 complÃ¨te ce bien.\r\n\r\nLes + : appartement lumineux et spacieux, proche des commoditÃ©s, du centre de bordeaux et du magnifique parc arborÃ© (jardin des dames).\r\nFaibles charges de copro (50 euros/mois)\r\n\r\nLe bien comprend 4 lots, et il est situÃ© dans une copropriÃ©tÃ© de 12 lots (les charges courantes annuelles moyennes de copropriÃ©tÃ© sont de 600 euros et le syndicat des copropriÃ©taires ne fait pas l'objet d'une procÃ©dure citÃ©e Ã  l'article L. 721-1 du code de la construction et de l'habitation).\r\n\r\nLes informations sur les risques auxquels ce bien est exposÃ© sont disponibles sur le site GÃ©orisques : \r\nPrix de vente : 390 000 euros\r\nHonoraires charge vendeur\r\n\r\nContactez votre conseiller SAFTI : Emilie LEPOULTIER - EI - Agent commercial immatriculÃ© au RSAC de BORDEAUX sous le numÃ©ro 889 267 498"
+            "text": "Proche de tous les commerces et écoles (Saint Genès La Salle/Albert Legrand/Alain Fournier) venez découvrir ce magnifique appartement de 86 M2, vous serez séduit par sa pièce de vie avec ses beaux volumes.\r\n\r\nCe charmant duplex aux prestations anciennes (Belle HSP et parquet) se compose d'un grand salon-séjour donnant sur un balcon filant, d'une cuisine et d'un WC.\r\n\r\nEt à l'étage, nous avons deux chambres dont une en mezzanine et une salle de bains.\r\nUne cave de 16 M2 complète ce bien.\r\n\r\nLes + : appartement lumineux et spacieux, proche des commodités, du centre de bordeaux et du magnifique parc arboré (jardin des dames).\r\nFaibles charges de copro (50 euros/mois)\r\n\r\nLe bien comprend 4 lots, et il est situé dans une copropriété de 12 lots (les charges courantes annuelles moyennes de copropriété sont de 600 euros et le syndicat des copropriétaires ne fait pas l'objet d'une procédure citée à l'article L. 721-1 du code de la construction et de l'habitation).\r\n\r\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : \r\nPrix de vente : 390 000 euros\r\nHonoraires charge vendeur\r\n\r\nContactez votre conseiller SAFTI : Emilie LEPOULTIER - EI - Agent commercial immatriculé au RSAC de BORDEAUX sous le numéro 889 267 498"
           }
         ],
-        "headline": "Magnifique appartement au coeur du quartier de Saint GenÃ¨s"
+        "headline": "Magnifique appartement au coeur du quartier de Saint Genès"
       },
       "hardFacts": {
-        "title": "Duplex Ã  vendre",
+        "title": "Duplex à vendre",
+        "shortTitle": "Duplex",
         "keyfacts": [
-          "3 piÃ¨ces",
+          "3 pièces",
           "2 chambres",
-          "86 mÂ²"
+          "86 m²"
         ],
         "facts": [
           {
             "type": "numberOfRooms",
-            "value": "3 piÃ¨ces",
+            "value": "3 pièces",
             "splitValue": "3",
-            "label": "piÃ¨ces"
+            "label": "pièces"
           },
           {
             "type": "numberOfBedrooms",
@@ -4239,32 +4232,32 @@
           },
           {
             "type": "livingSpace",
-            "value": "86 mÂ²",
+            "value": "86 m²",
             "splitValue": "86",
-            "label": "mÂ²"
+            "label": "m²"
           }
         ],
         "price": {
-          "value": "390â¯000Â â¬",
-          "formatted": "390â¯000Â â¬",
-          "additionalInformation": "4â¯535Â â¬/mÂ²",
+          "value": "390 000 €",
+          "formatted": "390 000 €",
+          "additionalInformation": "4 535 €/m²",
           "addition": {
-            "value": "4â¯535Â â¬/mÂ²",
-            "ariaLabel": "4534,88 euros par mÃ¨tre carrÃ©"
+            "value": "4 535 €/m²",
+            "ariaLabel": "4534,88 euros par mètre carré"
           },
           "financialLink": {
             "href": "https://e-immobilier.credit-agricole.fr/pret/lp_acquisition.html?ORI=EDESLAT&at_medium=affiliation&at_campaign=EDE_PC_EMP_EIMMO_FR&at_presta=SeLoger&at_format=Lien_PDD",
             "label": "Demander un financement",
             "partnerName": "CA"
           },
-          "ariaLabel": "390000 â¬"
+          "ariaLabel": "390000 €"
         }
       },
       "energy": {
         "features": [
           {
             "type": "yearOfConstruction",
-            "label": "AnnÃ©e de construction",
+            "label": "Année de construction",
             "value": "1900"
           },
           {
@@ -4274,48 +4267,48 @@
           },
           {
             "type": "energySource",
-            "label": "Sources d'Ã©nergie",
-            "value": "Ãlectrique"
+            "label": "Sources d'énergie",
+            "value": "Électrique"
           }
         ],
         "certificates": [
           {
-            "key": "3718870b-8ca6-4174-9c9e-aa9622e0b513",
+            "key": "923d1020-a710-4aa6-bc65-bb319b5b5003",
             "features": [
               {
                 "type": "minMaxEstimation",
-                "label": "Estimation de la facture Ã©nergÃ©tique",
-                "value": "entre 1200 et 1670 â¬/an"
+                "label": "Estimation de la facture énergétique",
+                "value": "entre 1200 et 1670 €/an"
               },
               {
                 "type": "nameOfCertificate",
-                "label": "Diagnostic rÃ©alisÃ©",
-                "value": "AprÃ¨s le 1er juillet 2021"
+                "label": "Diagnostic réalisé",
+                "value": "Après le 1er juillet 2021"
               },
               {
                 "type": "estimationDescription",
                 "label": "estimationDescription",
-                "value": "Montant estimÃ© des dÃ©penses annuelles d'Ã©nergie pour un usage standard : entre 1200 et 1670 â¬ par an. Date d'indexation du prix des Ã©nergies non communiquÃ©e."
+                "value": "Montant estimé des dépenses annuelles d'énergie pour un usage standard : entre 1200 et 1670 € par an. Date d'indexation du prix des énergies non communiquée."
               }
             ],
             "scales": [
               {
-                "key": "f64752dc-b744-469d-b499-3126df3ca481",
+                "key": "c969c6e7-87d2-49ec-93b7-8bbdd8614245",
                 "efficiencyClass": {
                   "index": 3,
                   "rating": "D"
                 },
                 "values": [
                   {
-                    "value": "229 kWh/mÂ².an",
-                    "label": "Consommation (Ã©nergie primaire)"
+                    "value": "229 kWh/m².an",
+                    "label": "Consommation (énergie primaire)"
                   },
                   {
-                    "value": "7 kg COâ/mÂ².an",
-                    "label": "Ãmissions"
+                    "value": "7 kg CO₂/m².an",
+                    "label": "Émissions"
                   }
                 ],
-                "name": "Diagnostic de performance Ã©nergÃ©tique (DPE)",
+                "name": "Diagnostic de performance énergétique (DPE)",
                 "segments": [
                   {
                     "label": "A",
@@ -4339,30 +4332,30 @@
                   },
                   {
                     "label": "F",
-                    "value": "Passoire Ã©nergÃ©tique"
+                    "value": "Passoire énergétique"
                   },
                   {
                     "label": "G",
-                    "value": "Passoire Ã©nergÃ©tique"
+                    "value": "Passoire énergétique"
                   }
                 ],
                 "type": "FR_ENERGY_AFTER_2021",
-                "ariaLabel": "EfficiencyClassÂ : D avec une plage allant de A Ã  G .La consommation d'Ã©nergie est undefined kWhEP/mÂ².an kilowattheures par mÃ¨tre carrÃ©.",
+                "ariaLabel": "EfficiencyClass : D avec une plage allant de A à G .La consommation d'énergie est undefined kWhEP/m².an kilowattheures par mètre carré.",
                 "displayUnhappyHouseIcon": false
               },
               {
-                "key": "bb191106-fb49-4ada-a234-d2d43676ae07",
+                "key": "bc76dc4e-89fd-47b4-95ec-6e417f9fb5e1",
                 "efficiencyClass": {
                   "index": 1,
                   "rating": "B"
                 },
                 "values": [
                   {
-                    "value": "7 kg COâ/mÂ².an",
-                    "label": "Ãmissions"
+                    "value": "7 kg CO₂/m².an",
+                    "label": "Émissions"
                   }
                 ],
-                "name": "Indice d'Ã©mission de gaz Ã  effet de serre (GES)",
+                "name": "Indice d'émission de gaz à effet de serre (GES)",
                 "segments": [
                   {
                     "label": "A",
@@ -4394,7 +4387,7 @@
                   }
                 ],
                 "type": "FR_GHG_AFTER_2021",
-                "ariaLabel": "EfficiencyClassÂ : B avec une plage allant de A Ã  G .La consommation d'Ã©nergie est undefined kWhEP/mÂ².an kilowattheures par mÃ¨tre carrÃ©.",
+                "ariaLabel": "EfficiencyClass : B avec une plage allant de A à G .La consommation d'énergie est undefined kWhEP/m².an kilowattheures par mètre carré.",
                 "displayUnhappyHouseIcon": false
               }
             ]
@@ -4409,7 +4402,7 @@
             "value": "24C53IR4IS85"
           },
           {
-            "label": "RÃ©fÃ©rence annonce",
+            "label": "Référence annonce",
             "value": "748467"
           }
         ]
@@ -4417,18 +4410,18 @@
       "price": {
         "base": {
           "main": {
-            "key": "29292d72-dc28-47ec-8f3c-d44303b5d368",
+            "key": "77d6da2c-23de-48ec-9f18-429610b8fb00",
             "label": {
               "main": "Prix du bien"
             },
             "value": {
               "main": {
-                "value": "390â¯000Â â¬",
-                "ariaLabel": "390000 â¬"
+                "value": "390 000 €",
+                "ariaLabel": "390000 €"
               },
               "alt": {
-                "value": "4â¯534,88Â â¬/mÂ²",
-                "ariaLabel": "4534,88 euros par mÃ¨tre carrÃ©"
+                "value": "4 534,88 €/m²",
+                "ariaLabel": "4534,88 euros par mètre carré"
               }
             }
           },
@@ -4436,67 +4429,67 @@
         },
         "components": [
           {
-            "key": "1866fdb2-c381-4064-aeb5-009c2f7fc3cd",
+            "key": "38ef6290-f060-499f-9bbf-037f8e442624",
             "type": "PRIMARY",
             "units": [
               {
-                "key": "119ea9f2-4b72-405c-ab47-5034e9f3b67c",
+                "key": "4f0c6867-1065-44d8-8b1b-1ba96ff6f101",
                 "main": {
                   "price": {
-                    "key": "b1cf4011-fdce-4d24-9f2e-073b18fa42de",
+                    "key": "ebafe2d6-2def-4fa9-957e-8ce013523997",
                     "label": {
                       "main": "Prix du bien"
                     },
                     "value": {
                       "main": {
-                        "value": "390â¯000Â â¬",
-                        "ariaLabel": "390000 â¬"
+                        "value": "390 000 €",
+                        "ariaLabel": "390000 €"
                       },
                       "alt": {
-                        "value": "4â¯534,88Â â¬/mÂ²",
-                        "ariaLabel": "4534,88 euros par mÃ¨tre carrÃ©"
+                        "value": "4 534,88 €/m²",
+                        "ariaLabel": "4534,88 euros par mètre carré"
                       }
                     },
                     "highlighted": true
                   },
                   "message": {
                     "type": "SUCCESS",
-                    "value": "Les honoraires sont Ã  la charge du vendeur"
+                    "value": "Les honoraires sont à la charge du vendeur"
                   }
                 }
               },
               {
-                "key": "c2d19953-64af-4c62-b345-93368381ff79",
+                "key": "d51f4eca-965b-4169-b8af-2a925b9ec144",
                 "main": {
                   "price": {
-                    "key": "2218d7b1-291c-4db5-968c-2d0a4939a43a",
+                    "key": "496105ad-f1a0-4808-a965-9b2502340442",
                     "label": {
-                      "main": "Frais de notaires estimÃ©s"
+                      "main": "Frais de notaires estimés"
                     },
                     "value": {
                       "main": {
-                        "value": "31â¯200Â â¬",
-                        "ariaLabel": "31200 â¬"
+                        "value": "31 200 €",
+                        "ariaLabel": "31200 €"
                       }
                     },
                     "info": {
-                      "value": "Les frais de notaire reprÃ©sentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimÃ© est donnÃ© Ã  titre indicatif."
+                      "value": "Les frais de notaire représentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimé est donné à titre indicatif."
                     }
                   }
                 }
               },
               {
-                "key": "c349b80a-85ea-4c4c-859a-95e94de56a21",
+                "key": "0bf77b8d-ebd3-45cd-b59c-aaf287ca9c26",
                 "main": {
                   "price": {
-                    "key": "be13af74-b683-4885-8239-bd23e59c6cd0",
+                    "key": "e1b52007-f744-4283-bb25-ceda7649bbcf",
                     "label": {
-                      "main": "Montant estimÃ© du projet"
+                      "main": "Montant estimé du projet"
                     },
                     "value": {
                       "main": {
-                        "value": "421â¯200Â â¬",
-                        "ariaLabel": "421200 â¬"
+                        "value": "421 200 €",
+                        "ariaLabel": "421200 €"
                       }
                     },
                     "highlighted": true
@@ -4506,39 +4499,39 @@
             ]
           },
           {
-            "key": "a675b6fb-69fc-4e7f-8c95-d004b6ece9ee",
+            "key": "19f6e9c6-fe9d-4775-bd4e-34179580500a",
             "type": "SECONDARY",
             "units": [
               {
-                "key": "9c96a46f-c348-44dd-b8d8-56706d4b2f82",
+                "key": "69d28ce2-a699-40a7-b82d-38adaaaebc05",
                 "details": [
                   {
-                    "key": "8bd07fe5-af93-4059-acd3-3f728f405b83",
+                    "key": "95ac4a5a-3929-405c-ade1-545250252466",
                     "prices": [
                       {
-                        "key": "0c15bbab-34d5-42a1-b30f-2d6c068e2972",
+                        "key": "6c84d31e-0889-43d9-a851-d6a150877290",
                         "label": {
-                          "main": "Charges de copropriÃ©tÃ©"
+                          "main": "Charges de copropriété"
                         },
                         "value": {
                           "main": {
-                            "value": "600Â â¬/an",
-                            "ariaLabel": "600 â¬"
+                            "value": "600 €/an",
+                            "ariaLabel": "600 €"
                           }
                         },
                         "info": {
-                          "value": "Montant annuel de la quote-part du budget prÃ©visionnel des dÃ©penses courantes."
+                          "value": "Montant annuel de la quote-part du budget prévisionnel des dépenses courantes."
                         },
                         "highlighted": true
                       },
                       {
-                        "key": "5620501a-4d75-47a8-85bf-742dd0568a95",
+                        "key": "e8916e4e-b02e-4a3a-9572-29a467f1799c",
                         "label": {
-                          "main": "Estimation de la facture Ã©nergÃ©tique"
+                          "main": "Estimation de la facture énergétique"
                         },
                         "value": {
                           "main": {
-                            "value": "entre 1200 et 1670 â¬/an"
+                            "value": "entre 1200 et 1670 €/an"
                           }
                         },
                         "highlighted": true
@@ -4554,63 +4547,63 @@
         "breakdown": {
           "groups": [
             {
-              "key": "f384d0c7-2606-460e-8b27-a2d418872117",
+              "key": "473f1d33-8d56-48e9-bc44-8accad2f0113",
               "label": {
                 "main": "Prix du bien"
               },
               "value": {
                 "main": {
-                  "value": "390â¯000Â â¬",
-                  "ariaLabel": "390000 â¬"
+                  "value": "390 000 €",
+                  "ariaLabel": "390000 €"
                 },
                 "alt": {
-                  "value": "4â¯534,88Â â¬/mÂ²",
-                  "ariaLabel": "4534,88 euros par mÃ¨tre carrÃ©"
+                  "value": "4 534,88 €/m²",
+                  "ariaLabel": "4534,88 euros par mètre carré"
                 }
               },
               "colorType": "MAIN_PRICE",
               "highlighted": true
             },
             {
-              "key": "ff087cdc-b0e1-4da1-be96-d0f21a469f58",
+              "key": "10b21bf5-e5cc-49fe-8327-01c8edf62e2a",
               "label": {
-                "main": "Frais de notaire estimÃ©s (8%)"
+                "main": "Frais de notaire estimés (8%)"
               },
               "value": {
                 "main": {
-                  "value": "31â¯200Â â¬",
-                  "ariaLabel": "31200 â¬"
+                  "value": "31 200 €",
+                  "ariaLabel": "31200 €"
                 }
               },
               "colorType": "NOTARY_FEE",
-              "infoBox": "Les frais de notaire reprÃ©sentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimÃ© est donnÃ© Ã  titre indicatif.",
+              "infoBox": "Les frais de notaire représentent environ 8% du prix du bien dans l'ancien et 3% dans le neuf. Le montant estimé est donné à titre indicatif.",
               "highlighted": true
             }
           ],
           "totalProjectCosts": {
-            "key": "3942261c-a9dc-42d7-91f1-01515fa3a7cf",
+            "key": "5f6eee21-72db-4bdc-be3d-2a2bb803ae24",
             "label": {
-              "main": "Montant estimÃ© du projet"
+              "main": "Montant estimé du projet"
             },
             "value": {
               "main": {
-                "value": "421â¯200Â â¬",
-                "ariaLabel": "421200 â¬"
+                "value": "421 200 €",
+                "ariaLabel": "421200 €"
               }
             }
           },
           "message": {
             "type": "SUCCESS",
-            "value": "Les honoraires sont Ã  la charge du vendeur"
+            "value": "Les honoraires sont à la charge du vendeur"
           },
           "bar": [
             {
-              "key": "f384d0c7-2606-460e-8b27-a2d418872117",
+              "key": "473f1d33-8d56-48e9-bc44-8accad2f0113",
               "colorType": "MAIN_PRICE",
               "percentage": 0.9259
             },
             {
-              "key": "ff087cdc-b0e1-4da1-be96-d0f21a469f58",
+              "key": "10b21bf5-e5cc-49fe-8327-01c8edf62e2a",
               "colorType": "NOTARY_FEE",
               "percentage": 0.0741
             }
@@ -4625,13 +4618,13 @@
             "type": "numberOfUnits"
           },
           {
-            "label": "Charges de copropriÃ©tÃ©",
-            "value": "600Â â¬/an",
+            "label": "Charges de copropriété",
+            "value": "600 €/an",
             "type": "operatingCosts"
           },
           {
-            "label": "ProcÃ©dures syndicales",
-            "value": "Pas de procÃ©dure en cours",
+            "label": "Procédures syndicales",
+            "value": "Pas de procédure en cours",
             "type": "syndicProcedures"
           }
         ]
@@ -4660,15 +4653,15 @@
           },
           {
             "icon": "furnished",
-            "value": "Non meublÃ©"
+            "value": "Non meublé"
           },
           {
             "icon": "bedroom",
-            "value": "2 chambres"
+            "value": "2 Chambres"
           },
           {
             "icon": "barrier-free",
-            "value": "Non accessible aux personnes Ã  mobilitÃ© rÃ©duite"
+            "value": "Non accessible aux personnes à mobilité réduite"
           }
         ],
         "details": {
@@ -4677,29 +4670,29 @@
               "elements": [
                 {
                   "icon": "furnished",
-                  "value": "Non meublÃ©"
+                  "value": "Non meublé"
                 }
               ],
-              "title": "Informations gÃ©nÃ©rales"
+              "title": "Informations générales"
             },
             {
               "elements": [
                 {
                   "icon": "barrier-free",
-                  "value": "Non accessible aux personnes Ã  mobilitÃ© rÃ©duite"
+                  "value": "Non accessible aux personnes à mobilité réduite"
                 },
                 {
                   "icon": "elevator",
                   "value": "Pas d'ascenseur"
                 }
               ],
-              "title": "AccessibilitÃ©"
+              "title": "Accessibilité"
             },
             {
               "elements": [
                 {
                   "icon": "bathroom-amenities",
-                  "value": "1 salle de bain"
+                  "value": "1 Salle de bain"
                 },
                 {
                   "icon": "toilet-amenities",
@@ -4707,7 +4700,7 @@
                 },
                 {
                   "icon": "bedroom",
-                  "value": "2 chambres"
+                  "value": "2 Chambres"
                 },
                 {
                   "icon": "cellar",
@@ -4715,10 +4708,10 @@
                 },
                 {
                   "icon": "floor-covering",
-                  "value": "RevÃªtement du sol: Parquet"
+                  "value": "Revêtement du sol: Parquet"
                 }
               ],
-              "title": "IntÃ©rieur"
+              "title": "Intérieur"
             },
             {
               "elements": [
@@ -4731,7 +4724,7 @@
                   "value": "Jardin"
                 }
               ],
-              "title": "ExtÃ©rieur"
+              "title": "Extérieur"
             }
           ]
         }
@@ -4741,7 +4734,7 @@
           {
             "key": "bd83fbf3-52c0-4618-8811-40341023f567",
             "url": "https://mms.seloger.com/b/d/8/3/bd83fbf3-52c0-4618-8811-40341023f567.jpg?ci_seal=ca79cf2075784e552ec26e77a3500022534cd8e1",
-            "alt": "Duplex Ã  vendre 390â¯000Â â¬ 3 piÃ¨ces 2 chambres 86 mÂ² Nansouty - Saint GenÃ¨s Bordeaux 33000"
+            "alt": "Duplex à vendre 390 000 € 3 pièces 2 chambres 86 m² Nansouty - Saint Genès Bordeaux 33000"
           },
           {
             "key": "38ab49fa-7c0d-4d58-a331-210d13a23487",
@@ -4789,7 +4782,7 @@
         "showMonthlyRateLabel": true,
         "price": 390000,
         "monthlyAmount": 2026,
-        "formattedMonthlyAmount": "2â¯026"
+        "formattedMonthlyAmount": "2 026"
       },
       "partnerAd": {
         "showPartnerAd": false
@@ -4800,16 +4793,16 @@
       },
       "priceComparison": {
         "data": {
-          "value": 4448,
+          "value": 4469,
           "accuracy": 3,
-          "high": "6â¯087",
-          "low": "2â¯879"
+          "high": "6 114",
+          "low": "2 893"
         },
-        "markerPosition": 52,
+        "markerPosition": 51,
         "hasMainPrice": true,
         "isSale": true,
-        "pricePerSqm": "4â¯534,88",
-        "legalText": "Le prix au mÂ² est automatiquement calculÃ© par Se Loger en fonction du prix de vente et du nombre de mÂ² du bien. La comparaison est rÃ©alisÃ©e Ã  partir des informations relatives au prix du marchÃ© sur le mÃªme secteur dont dispose Se Loger. Cette information ne prÃ©juge en aucun cas de l'Ã©valuation du bien, qui dÃ©pend de son Ã©tat, ses caractÃ©ristiques et de sa localisation.",
+        "pricePerSqm": "4 534,88",
+        "legalText": "Le prix au m² est automatiquement calculé par SeLoger en fonction du prix de vente et du nombre de m² du bien. La comparaison est réalisée à partir des informations relatives au prix du marché sur le même secteur dont dispose SeLoger. Cette information ne préjuge en aucun cas de l'évaluation du bien, qui dépend de son état, ses caractéristiques et de sa localisation.",
         "marketInsights": {
           "label": "Voir les tendances immo",
           "placeId": "NBH2FR9333",
@@ -4818,8 +4811,8 @@
         }
       },
       "mainDescription": {
-        "headline": "Magnifique appartement au coeur du quartier de Saint GenÃ¨s",
-        "description": "Proche de tous les commerces et Ã©coles (Saint GenÃ¨s La Salle/Albert Legrand/Alain Fournier) venez dÃ©couvrir ce magnifique appartement de 86 M2, vous serez sÃ©duit par sa piÃ¨ce de vie avec ses beaux volumes.\r\n\r\nCe charmant duplex aux prestations anciennes (Belle HSP et parquet) se compose d'un grand salon-sÃ©jour donnant sur un balcon filant, d'une cuisine et d'un WC.\r\n\r\nEt Ã  l'Ã©tage, nous avons deux chambres dont une en mezzanine et une salle de bains.\r\nUne cave de 16 M2 complÃ¨te ce bien.\r\n\r\nLes + : appartement lumineux et spacieux, proche des commoditÃ©s, du centre de bordeaux et du magnifique parc arborÃ© (jardin des dames).\r\nFaibles charges de copro (50 euros/mois)\r\n\r\nLe bien comprend 4 lots, et il est situÃ© dans une copropriÃ©tÃ© de 12 lots (les charges courantes annuelles moyennes de copropriÃ©tÃ© sont de 600 euros et le syndicat des copropriÃ©taires ne fait pas l'objet d'une procÃ©dure citÃ©e Ã  l'article L. 721-1 du code de la construction et de l'habitation).\r\n\r\nLes informations sur les risques auxquels ce bien est exposÃ© sont disponibles sur le site GÃ©orisques : \r\nPrix de vente : 390 000 euros\r\nHonoraires charge vendeur\r\n\r\nContactez votre conseiller SAFTI : Emilie LEPOULTIER - EI - Agent commercial immatriculÃ© au RSAC de BORDEAUX sous le numÃ©ro 889 267 498",
+        "headline": "Magnifique appartement au coeur du quartier de Saint Genès",
+        "description": "Proche de tous les commerces et écoles (Saint Genès La Salle/Albert Legrand/Alain Fournier) venez découvrir ce magnifique appartement de 86 M2, vous serez séduit par sa pièce de vie avec ses beaux volumes.\r\n\r\nCe charmant duplex aux prestations anciennes (Belle HSP et parquet) se compose d'un grand salon-séjour donnant sur un balcon filant, d'une cuisine et d'un WC.\r\n\r\nEt à l'étage, nous avons deux chambres dont une en mezzanine et une salle de bains.\r\nUne cave de 16 M2 complète ce bien.\r\n\r\nLes + : appartement lumineux et spacieux, proche des commodités, du centre de bordeaux et du magnifique parc arboré (jardin des dames).\r\nFaibles charges de copro (50 euros/mois)\r\n\r\nLe bien comprend 4 lots, et il est situé dans une copropriété de 12 lots (les charges courantes annuelles moyennes de copropriété sont de 600 euros et le syndicat des copropriétaires ne fait pas l'objet d'une procédure citée à l'article L. 721-1 du code de la construction et de l'habitation).\r\n\r\nLes informations sur les risques auxquels ce bien est exposé sont disponibles sur le site Géorisques : \r\nPrix de vente : 390 000 euros\r\nHonoraires charge vendeur\r\n\r\nContactez votre conseiller SAFTI : Emilie LEPOULTIER - EI - Agent commercial immatriculé au RSAC de BORDEAUX sous le numéro 889 267 498",
         "metadata": {
           "language": "fr"
         }
@@ -4828,7 +4821,7 @@
         "headline": "Emplacement"
       },
       "extendedInfoDescription": {
-        "headline": "Informations supplÃ©mentaires"
+        "headline": "Informations supplémentaires"
       }
     },
     "contactSections": {
@@ -4847,7 +4840,7 @@
         ]
       },
       "contactCard": {
-        "title": "SAFTI - LEPOULTIER Emilie conseiller indÃ©pendant",
+        "title": "SAFTI - LEPOULTIER Emilie conseiller indépendant",
         "subtitle": "Emilie Lepoultier",
         "phoneNumbers": [
           "0682132293"
@@ -4864,7 +4857,7 @@
       },
       "contactForm": {
         "contactCard": {
-          "title": "SAFTI - LEPOULTIER Emilie conseiller indÃ©pendant",
+          "title": "SAFTI - LEPOULTIER Emilie conseiller indépendant",
           "subtitle": "Emilie Lepoultier",
           "phoneNumbers": [
             "0682132293"
@@ -4873,12 +4866,12 @@
           "logoUrl": "https://mms.seloger.com/2/6/9/5/2695541e-995d-4d02-b016-c9d6a64c864c.jpg?ci_seal=4fbaa705db9b23bef2564d0f640847984a818e05"
         },
         "displayOwnerFlag": false,
-        "subjectLabel": "Votre message Ã  Emilie Lepoultier",
+        "subjectLabel": "Votre message à Emilie Lepoultier",
         "shouldSendLeadValue": true
       },
       "mobilePhones": {
-        "title": "SAFTI - LEPOULTIER Emilie conseiller indÃ©pendant",
-        "subtitle": "SAFTI - LEPOULTIER Emilie conseiller indÃ©pendant",
+        "title": "SAFTI - LEPOULTIER Emilie conseiller indépendant",
+        "subtitle": "SAFTI - LEPOULTIER Emilie conseiller indépendant",
         "phoneNumbers": [
           "0682132293"
         ],
@@ -4887,8 +4880,8 @@
       },
       "provider": {
         "intermediaryCard": {
-          "title": "SAFTI - LEPOULTIER Emilie conseiller indÃ©pendant",
-          "subtitle": "ProposÃ© par un agent commercial",
+          "title": "SAFTI - LEPOULTIER Emilie conseiller indépendant",
+          "subtitle": "Proposé par un agent commercial",
           "display": true,
           "logoUrl": "https://mms.seloger.com/2/6/9/5/2695541e-995d-4d02-b016-c9d6a64c864c.jpg?ci_seal=4fbaa705db9b23bef2564d0f640847984a818e05",
           "logoHref": "https://www.seloger.com/professionnels-immobilier/DrXkveiHXqSm86GUQZ7w5d"
@@ -5202,22 +5195,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/appartement/duplex/france/ad02fr1",
-                "label": "Duplex Ã  vendre France",
-                "hoverLabel": "Duplex Ã  vendre France",
+                "label": "Duplex à vendre France",
+                "hoverLabel": "Duplex à vendre France",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/appartement/france/ad02fr1",
-                "label": "Appartements Ã  vendre France",
-                "hoverLabel": "Appartements Ã  vendre France",
+                "label": "Appartements à vendre France",
+                "hoverLabel": "Appartements à vendre France",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/france/ad02fr1",
-                "label": "Biens immobiliers Ã  vendre France",
-                "hoverLabel": "Biens immobiliers Ã  vendre France",
+                "label": "Biens immobiliers à vendre France",
+                "hoverLabel": "Biens immobiliers à vendre France",
                 "serpKey": ""
               }
             ]
@@ -5232,22 +5225,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/appartement/duplex/nouvelle-aquitaine/ad04fr27",
-                "label": "Duplex Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Duplex Ã  vendre Nouvelle-Aquitaine",
+                "label": "Duplex à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Duplex à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/appartement/nouvelle-aquitaine/ad04fr27",
-                "label": "Appartements Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Appartements Ã  vendre Nouvelle-Aquitaine",
+                "label": "Appartements à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Appartements à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/nouvelle-aquitaine/ad04fr27",
-                "label": "Biens immobiliers Ã  vendre Nouvelle-Aquitaine",
-                "hoverLabel": "Biens immobiliers Ã  vendre Nouvelle-Aquitaine",
+                "label": "Biens immobiliers à vendre Nouvelle-Aquitaine",
+                "hoverLabel": "Biens immobiliers à vendre Nouvelle-Aquitaine",
                 "serpKey": ""
               }
             ]
@@ -5262,22 +5255,22 @@
               {
                 "order": 1,
                 "url": "https://www.seloger.com/recherche/achat/appartement/duplex/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Duplex Ã  vendre Gironde 33",
-                "hoverLabel": "Duplex Ã  vendre Gironde 33",
+                "label": "Duplex à vendre Gironde 33",
+                "hoverLabel": "Duplex à vendre Gironde 33",
                 "serpKey": ""
               },
               {
                 "order": 2,
                 "url": "https://www.seloger.com/recherche/achat/appartement/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Appartements Ã  vendre Gironde 33",
-                "hoverLabel": "Appartements Ã  vendre Gironde 33",
+                "label": "Appartements à vendre Gironde 33",
+                "hoverLabel": "Appartements à vendre Gironde 33",
                 "serpKey": ""
               },
               {
                 "order": 3,
                 "url": "https://www.seloger.com/recherche/achat/immobilier/nouvelle-aquitaine/gironde-33/ad06fr34",
-                "label": "Biens immobiliers Ã  vendre Gironde 33",
-                "hoverLabel": "Biens immobiliers Ã  vendre Gironde 33",
+                "label": "Biens immobiliers à vendre Gironde 33",
+                "hoverLabel": "Biens immobiliers à vendre Gironde 33",
                 "serpKey": ""
               }
             ]
@@ -5285,8 +5278,8 @@
           {
             "order": 5,
             "url": "https://www.seloger.com/recherche/achat/appartement/duplex/nouvelle-aquitaine/bordeaux-33000/ad08fr13100",
-            "label": "Duplex Ã  vendre Bordeaux 33000",
-            "hoverLabel": "Duplex Ã  vendre Bordeaux 33000",
+            "label": "Duplex à vendre Bordeaux 33000",
+            "hoverLabel": "Duplex à vendre Bordeaux 33000",
             "serpKey": ""
           },
           {
@@ -5299,9 +5292,9 @@
         ]
       },
       "headInfo": {
-        "title": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)",
+        "title": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)",
         "titleWithCount": "",
-        "description": "Proche de tous les commerces et Ã©coles (Saint GenÃ¨s La Salle/Albert Legrand/Alain Fournier) venez dÃ©couvrir ce magnifique appartement de 86 M2, v...",
+        "description": "Proche de tous les commerces et écoles (Saint Genès La Salle/Albert Legrand/Alain Fournier) venez découvrir ce magnifique appartement de 86 M2, v...",
         "canonical": "",
         "robots": "index, follow, max-snippet:-1",
         "icons": [
@@ -5348,11 +5341,11 @@
           },
           {
             "property": "title",
-            "content": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)"
+            "content": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)"
           },
           {
             "property": "description",
-            "content": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)"
+            "content": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)"
           },
           {
             "property": "image",
@@ -5362,7 +5355,7 @@
         "socials": [
           {
             "name": "twitter:card",
-            "content": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)"
+            "content": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)"
           },
           {
             "name": "twitter:url",
@@ -5374,11 +5367,11 @@
           },
           {
             "name": "twitter:title",
-            "content": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)"
+            "content": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)"
           },
           {
             "name": "twitter:description",
-            "content": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)"
+            "content": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)"
           },
           {
             "name": "twitter:image",
@@ -5431,17 +5424,17 @@
             },
             {
               "type": "description",
-              "content": "Proche de tous les commerces et Ã©coles (Saint GenÃ¨s La Salle/Albert Legrand/Alain Fournier) venez dÃ©couvrir ce magnifique appartement de 86 M2, v..."
+              "content": "Proche de tous les commerces et écoles (Saint Genès La Salle/Albert Legrand/Alain Fournier) venez découvrir ce magnifique appartement de 86 M2, v..."
             },
             {
               "type": "name",
-              "content": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)"
+              "content": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)"
             },
             {
               "type": "itemOffered",
               "content": {
                 "@type": "APARTMENT",
-                "name": "Duplex Ã  vendre T3/F3 86 mÂ² 390000 â¬ Nansouty - Saint GenÃ¨s Bordeaux (33000)",
+                "name": "Duplex à vendre T3/F3 86 m² 390000 € Nansouty - Saint Genès Bordeaux (33000)",
                 "numberOfRooms": "3",
                 "floorSize": {
                   "@type": "QuantitativeValue",
@@ -5472,29 +5465,29 @@
           {
             "order": 2,
             "url": "https://www.seloger.com/recherche/achat/appartement/duplex/france/ad02fr1",
-            "label": "Duplex Ã  vendre France",
-            "hoverLabel": "Duplex Ã  vendre France",
+            "label": "Duplex à vendre France",
+            "hoverLabel": "Duplex à vendre France",
             "serpKey": ""
           },
           {
             "order": 3,
             "url": "https://www.seloger.com/recherche/achat/appartement/duplex/nouvelle-aquitaine/ad04fr27",
-            "label": "Duplex Ã  vendre Nouvelle-Aquitaine",
-            "hoverLabel": "Duplex Ã  vendre Nouvelle-Aquitaine",
+            "label": "Duplex à vendre Nouvelle-Aquitaine",
+            "hoverLabel": "Duplex à vendre Nouvelle-Aquitaine",
             "serpKey": ""
           },
           {
             "order": 4,
             "url": "https://www.seloger.com/recherche/achat/appartement/duplex/nouvelle-aquitaine/gironde-33/ad06fr34",
-            "label": "Duplex Ã  vendre Gironde 33",
-            "hoverLabel": "Duplex Ã  vendre Gironde 33",
+            "label": "Duplex à vendre Gironde 33",
+            "hoverLabel": "Duplex à vendre Gironde 33",
             "serpKey": ""
           },
           {
             "order": 5,
             "url": "https://www.seloger.com/recherche/achat/appartement/duplex/nouvelle-aquitaine/bordeaux-33000/ad08fr13100",
-            "label": "Duplex Ã  vendre Bordeaux 33000",
-            "hoverLabel": "Duplex Ã  vendre Bordeaux 33000",
+            "label": "Duplex à vendre Bordeaux 33000",
+            "hoverLabel": "Duplex à vendre Bordeaux 33000",
             "serpKey": ""
           }
         ],
@@ -5543,6 +5536,6 @@
       },
       "propertyTypeLabel": "Appartement"
     },
-    "correlationId": "e573a206-e619-463d-88bb-4dcb5f013a0d"
+    "correlationId": "36a09ccc-2298-4a37-a8d0-e0cf781ba194"
   }
 ]
