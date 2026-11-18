@@ -320,6 +320,86 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     }
 
 
+def _parse_image_items(items: List[Dict]) -> List[SearchImageResult]:
+    """Turn the image items of the page data or of the image list API into results."""
+    results: List[SearchImageResult] = []
+    for idx, item in enumerate(items, 1):
+        if item.get("type") != "image":
+            continue
+
+        viewer_thumb = item.get("viewerThumb", "")
+        thumbnail = item.get("thumbnail", viewer_thumb)
+
+        title = (
+            item.get("title", "")
+            .replace("<mark>", "")
+            .replace("</mark>", "")
+        )
+
+        results.append(
+            {
+                "title": title,
+                "link": item.get("link", ""),
+                "source": item.get("source", ""),
+                "image_url": viewer_thumb,
+                "thumbnail_url": thumbnail,
+                "img_id": item.get("imgId", ""),
+                "color": item.get("color", ""),
+                "date": item.get("dateInfo", ""),
+                "writer": item.get("writerTitle", ""),
+                "domain": item.get("tld", ""),
+                "rank": idx,
+            }
+        )
+    return results
+
+
+# the image tab shows 50 items, then loads the next ones from this API while scrolling;
+# the search page itself ignores "start" and returns the first 50 items again
+IMAGE_API_URL = "https://s.search.naver.com/p/c/image/46/search.naver"
+IMAGE_PAGE_SIZE = 50
+
+
+def _find_image_api_url(result: ScrapeApiResponse) -> str:
+    """The image API address (with its version number) as the search page lists it."""
+    match = re.search(r"https://s\.search\.naver\.com/p/c/image/\d+/search\.naver", result.content)
+    return match.group(0) if match else IMAGE_API_URL
+
+
+def _build_image_api_url(
+    query: str,
+    page: int,
+    sort: Optional[SortType] = None,
+    period: Optional[PeriodType] = None,
+    api_url: str = IMAGE_API_URL,
+) -> str:
+    """Build the image list API URL of a results page (page 2 = items 51-100)."""
+    params = {
+        "where": "image",
+        "section": "image",
+        "ssc": "tab.image.all",
+        "api_type": "pc_tab_more",
+        "query": query,
+        "start": (page - 1) * IMAGE_PAGE_SIZE + 1,
+        "display": IMAGE_PAGE_SIZE,
+    }
+    nso = _build_nso_filter(sort, period)
+    if nso:
+        params["nso"] = nso
+    return f"{api_url}?{urlencode(params)}"
+
+
+def parse_image_api(result: ScrapeApiResponse) -> Dict[str, Any]:
+    """Parse a page of the image list API (JSON with the same items as the page data)."""
+    items = json.loads(result.content).get("items", [])
+    results = _parse_image_items(items)
+    return {
+        "results": results,
+        # -1 = no more results, like parse_image_search
+        "num_of_displayed_results": len(results) if items else -1,
+    }
+
+
 def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
     """
     Parse image search results from JSON embedded in HTML.
@@ -355,36 +435,7 @@ def parse_image_search(result: ScrapeApiResponse) -> Dict[str, Any]:
             if js_str:
                 json_str = _js_to_json(js_str)
                 data = json.loads(json_str)
-                items = data.get("content", {}).get("items", [])
-
-                for idx, item in enumerate(items, 1):
-                    if item.get("type") != "image":
-                        continue
-
-                    viewer_thumb = item.get("viewerThumb", "")
-                    thumbnail = item.get("thumbnail", viewer_thumb)
-
-                    title = (
-                        item.get("title", "")
-                        .replace("<mark>", "")
-                        .replace("</mark>", "")
-                    )
-
-                    results.append(
-                        {
-                            "title": title,
-                            "link": item.get("link", ""),
-                            "source": item.get("source", ""),
-                            "image_url": viewer_thumb,
-                            "thumbnail_url": thumbnail,
-                            "img_id": item.get("imgId", ""),
-                            "color": item.get("color", ""),
-                            "date": item.get("dateInfo", ""),
-                            "writer": item.get("writerTitle", ""),
-                            "domain": item.get("tld", ""),
-                            "rank": idx,
-                        }
-                    )
+                results = _parse_image_items(data.get("content", {}).get("items", []))
         except (json.JSONDecodeError, KeyError, TypeError) as e:
             log.error(f"JSON parsing error: {e}")
             log.debug(
@@ -484,7 +535,7 @@ async def scrape_image_search(
 
     first_page_result = parse_image_search(first_page)
     results = first_page_result["results"]
-    displayed_results = first_page_result["num_of_displayed_results"]
+    api_url = _find_image_api_url(first_page)
 
     scraped_pages = 1
 
@@ -492,18 +543,12 @@ async def scrape_image_search(
         page = 2
 
         while True:
-            page_url = _build_search_url(
-                query,
-                search_type="image",
-                page=page,
-                sort=sort,
-                display=displayed_results,
-                period=period,
-            )
+            page_url = _build_image_api_url(query, page=page, sort=sort, period=period, api_url=api_url)
+            # the API answers JSON, no browser needed
             page_result = await SCRAPFLY.async_scrape(
-                ScrapeConfig(page_url, **BASE_CONFIG)
+                ScrapeConfig(page_url, **{**BASE_CONFIG, "render_js": False})
             )
-            page_data = parse_image_search(page_result)
+            page_data = parse_image_api(page_result)
             current_displayed_results = page_data["num_of_displayed_results"]
 
             scraped_pages += 1
@@ -515,9 +560,10 @@ async def scrape_image_search(
         # scrape up to max_pages
         if max_pages > 1:
             other_pages = [
+                # the API answers JSON, no browser needed
                 ScrapeConfig(
-                    _build_search_url(query, search_type="image", page=page, sort=sort, display=displayed_results, period=period),
-                    **BASE_CONFIG,
+                    _build_image_api_url(query, page=page, sort=sort, period=period, api_url=api_url),
+                    **{**BASE_CONFIG, "render_js": False},
                 )
                 for page in range(2, max_pages + 1)
             ]
@@ -526,7 +572,7 @@ async def scrape_image_search(
                     log.error(f"skipping a page that could not be scraped: {result}")
                     continue
                 scraped_pages += 1
-                page_data = parse_image_search(result)
+                page_data = parse_image_api(result)
                 current_displayed_results = page_data["num_of_displayed_results"]
                 if (
                     current_displayed_results == -1 or scraped_pages == 20
