@@ -50,7 +50,7 @@ Die Funktionen geben einfache Dictionaries und Listen zurück. Felder:
 
 - `proxy_pool` = `"residential"`: Proxy-Pool (Rechenzentrum oder Residential)
 - `country` = `"US"`: Land des Proxys
-- `os` = `"macos"`: Betriebssystem des Browsers
+- `os` = `"mac"`: Betriebssystem des Browsers
 - `cache` = `True`: Scrapflys Antwort-Cache verwenden
 
 ## Schnellstart

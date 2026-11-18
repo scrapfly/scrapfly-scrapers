@@ -50,7 +50,7 @@ asyncio.run(main())
 
 - `proxy_pool` = `"residential"`: 代理池（数据中心或住宅）
 - `country` = `"US"`: 代理所在国家
-- `os` = `"macos"`: 浏览器的操作系统
+- `os` = `"mac"`: 浏览器的操作系统
 - `cache` = `True`: 使用 Scrapfly 的响应缓存
 
 ## 快速开始

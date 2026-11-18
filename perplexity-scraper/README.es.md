@@ -50,7 +50,7 @@ Las funciones devuelven diccionarios y listas simples. Campos:
 
 - `proxy_pool` = `"residential"`: pool de proxies (datacenter o residencial)
 - `country` = `"US"`: país del proxy
-- `os` = `"macos"`: sistema operativo del navegador
+- `os` = `"mac"`: sistema operativo del navegador
 - `cache` = `True`: usar la caché de respuestas de Scrapfly
 
 ## Inicio rápido

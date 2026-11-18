@@ -50,7 +50,7 @@ asyncio.run(main())
 
 - `proxy_pool` = `"residential"`: 프록시 풀(데이터센터 또는 주거용)
 - `country` = `"US"`: 프록시 국가
-- `os` = `"macos"`: 브라우저의 운영체제
+- `os` = `"mac"`: 브라우저의 운영체제
 - `cache` = `True`: Scrapfly 응답 캐시 사용
 
 ## 빠른 시작
