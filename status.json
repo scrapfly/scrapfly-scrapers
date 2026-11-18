@@ -1,1296 +1,1296 @@
 {
- "run": 43985771694,
- "date": "2026-11-17",
+ "run": 44205943613,
+ "date": "2026-11-18",
  "tests": [
   {
    "dir": "airbnb-scraper",
    "test": "test_property_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460890"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883936"
   },
   {
    "dir": "airbnb-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460785"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884213"
   },
   {
    "dir": "airfrance-scraper",
    "test": "test_scrape_flights",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460885"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883925"
   },
   {
    "dir": "aliexpress-scraper",
    "test": "test_category_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713461548"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884055"
   },
   {
    "dir": "aliexpress-scraper",
    "test": "test_product_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460915"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883941"
   },
   {
    "dir": "aliexpress-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460818"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884042"
   },
   {
    "dir": "aliexpress-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460863"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883867"
   },
   {
    "dir": "allegro-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460866"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884239"
   },
   {
    "dir": "allegro-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460874"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884079"
   },
   {
    "dir": "amazon-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460887"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883902"
   },
   {
    "dir": "amazon-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460930"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883929"
   },
   {
    "dir": "amazon-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460790"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471883875"
   },
   {
    "dir": "app-store-scraper",
    "test": "test_app_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460911"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884015"
   },
   {
    "dir": "app-store-scraper",
    "test": "test_reviews_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713460848"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471884000"
   },
   {
    "dir": "autoscout24-scraper",
    "test": "test_car_details_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713462989"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886794"
   },
   {
    "dir": "autoscout24-scraper",
    "test": "test_listings_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463055"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886273"
   },
   {
    "dir": "autoscout24-scraper",
    "test": "test_page_url",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713462862"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886254"
   },
   {
    "dir": "bestbuy-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713462934"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886370"
   },
   {
    "dir": "bestbuy-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463027"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886786"
   },
   {
    "dir": "bestbuy-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463238"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886551"
   },
   {
    "dir": "bestbuy-scraper",
    "test": "test_sitemap_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463099"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886434"
   },
   {
    "dir": "bing-scraper",
    "test": "test_keyword_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463443"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886678"
   },
   {
    "dir": "bing-scraper",
    "test": "test_serp_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463504"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471886535"
   },
   {
    "dir": "bookingcom-scraper",
    "test": "test_hotel_reviews_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713464978"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471888494"
   },
   {
    "dir": "bookingcom-scraper",
    "test": "test_hotel_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713464696"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471888379"
   },
   {
    "dir": "bookingcom-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713463903"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471887045"
   },
   {
    "dir": "capterra-scraper",
    "test": "test_category_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713464998"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471888434"
   },
   {
    "dir": "capterra-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713465199"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471888588"
   },
   {
    "dir": "chatgpt-scraper",
    "test": "test_scrape_conversation",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713465054"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471888655"
   },
   {
    "dir": "crunchbase-scraper",
    "test": "test_company_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713465396"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471889003"
   },
   {
    "dir": "crunchbase-scraper",
    "test": "test_person_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713465373"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471888946"
   },
   {
    "dir": "dhl-scraper",
    "test": "test_scrape_tracking",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713465390"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471889148"
   },
   {
    "dir": "digikey-scraper",
    "test": "test_category_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713466098"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471889234"
   },
   {
    "dir": "digikey-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713465594"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471889138"
   },
   {
    "dir": "digikey-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713466720"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471890636"
   },
   {
    "dir": "domaincom-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467083"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471890564"
   },
   {
    "dir": "domaincom-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467114"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471890734"
   },
   {
    "dir": "ebay-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467190"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471890779"
   },
   {
    "dir": "ebay-scraper",
    "test": "test_product_variants_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467170"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471891019"
   },
   {
    "dir": "ebay-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467379"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471891237"
   },
   {
    "dir": "emirates-scraper",
    "test": "test_scrape_flights",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467501"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471891258"
   },
   {
    "dir": "etsy-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467612"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471891402"
   },
   {
    "dir": "etsy-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713468179"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471892402"
   },
   {
    "dir": "etsy-scraper",
    "test": "test_shop_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713467922"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471891479"
   },
   {
    "dir": "expedia-scraper",
    "test": "test_scrape_flight_search",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469040"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471892686"
   },
   {
    "dir": "expedia-scraper",
    "test": "test_scrape_hotel_search",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713468941"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471892699"
   },
   {
    "dir": "facebook-scraper",
    "test": "test_events_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469229"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471893365"
   },
   {
    "dir": "facebook-scraper",
    "test": "test_group_posts_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469410"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471893321"
   },
   {
    "dir": "facebook-scraper",
    "test": "test_marketplace_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469394"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471892908"
   },
   {
    "dir": "facebook-scraper",
    "test": "test_page_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469254"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471892851"
   },
   {
    "dir": "fashionphile-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469680"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471893389"
   },
   {
    "dir": "fashionphile-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713469995"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471893449"
   },
   {
    "dir": "g2-scraper",
    "test": "test_alternative_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471120"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896049"
   },
   {
    "dir": "g2-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713470150"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471893474"
   },
   {
    "dir": "g2-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713470430"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896216"
   },
   {
    "dir": "glassdoor-scraper",
    "test": "test_find_companies",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471390"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896609"
   },
   {
    "dir": "glassdoor-scraper",
    "test": "test_glassdoor_url",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471386"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896083"
   },
   {
    "dir": "glassdoor-scraper",
    "test": "test_job_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471721"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896246"
   },
   {
    "dir": "glassdoor-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471930"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896191"
   },
   {
    "dir": "glassdoor-scraper",
    "test": "test_salary_range_parsing",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471310"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896279"
   },
   {
    "dir": "glassdoor-scraper",
    "test": "test_salary_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713471692"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896258"
   },
   {
    "dir": "goat-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713472030"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896384"
   },
   {
    "dir": "goat-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713472139"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471896507"
   },
   {
    "dir": "goibibo-scraper",
    "test": "test_flight_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473155"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898330"
   },
   {
    "dir": "goibibo-scraper",
    "test": "test_hotel_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713472725"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898027"
   },
   {
    "dir": "goodreads-scraper",
    "test": "test_book_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473136"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898270"
   },
   {
    "dir": "goodreads-scraper",
    "test": "test_list_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473750"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898453"
   },
   {
    "dir": "goodreads-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473257"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898546"
   },
   {
    "dir": "goodreads-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473303"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898487"
   },
   {
    "dir": "google-flights-scraper",
    "test": "test_scrape_flights",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473681"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898617"
   },
   {
    "dir": "google-flights-scraper",
    "test": "test_scrape_price_insights",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473842"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898826"
   },
   {
    "dir": "google-jobs-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713474058"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898771"
   },
   {
    "dir": "google-play-scraper",
    "test": "test_app_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713473975"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471898949"
   },
   {
    "dir": "google-play-scraper",
    "test": "test_reviews_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713474958"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471899993"
   },
   {
    "dir": "google-play-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475086"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471900496"
   },
   {
    "dir": "google-scraper",
    "test": "test_ai_mode_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475730"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471900971"
   },
   {
    "dir": "google-scraper",
    "test": "test_keyword_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475277"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471900618"
   },
   {
    "dir": "google-scraper",
    "test": "test_place_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475579"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471901075"
   },
   {
    "dir": "google-scraper",
    "test": "test_place_url_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475319"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471900881"
   },
   {
    "dir": "google-scraper",
    "test": "test_serp_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475116"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471900487"
   },
   {
    "dir": "homegate-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475823"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471901044"
   },
   {
    "dir": "homegate-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713475894"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471901070"
   },
   {
    "dir": "idealista-scraper",
    "test": "test_idealista_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713476355"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471901271"
   },
   {
    "dir": "idealista-scraper",
    "test": "test_provinces_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713477243"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471902316"
   },
   {
    "dir": "idealista-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713476960"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471902576"
   },
   {
    "dir": "idealo-scraper",
    "test": "test_manufacturer_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713477375"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471903053"
   },
   {
    "dir": "idealo-scraper",
    "test": "test_price_history_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713477825"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471903196"
   },
   {
    "dir": "idealo-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713476966"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471902741"
   },
   {
    "dir": "idealo-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713477242"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471902689"
   },
   {
    "dir": "imdb-scraper",
    "test": "test_chart_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713478512"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471903332"
   },
   {
    "dir": "imdb-scraper",
    "test": "test_person_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713479393"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471904458"
   },
   {
    "dir": "imdb-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713477970"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471903354"
   },
   {
    "dir": "imdb-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713478020"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471903370"
   },
   {
    "dir": "imdb-scraper",
    "test": "test_title_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713477787"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471903432"
   },
   {
    "dir": "immobilienscout24-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713479313"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471904803"
   },
   {
    "dir": "immobilienscout24-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713479474"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471904778"
   },
   {
    "dir": "immoscout24-scraper",
    "test": "test_properties_scraping",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713479504"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471904818"
   },
   {
    "dir": "immoscout24-scraper",
    "test": "test_search_scraping",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713479496"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471905496"
   },
   {
    "dir": "immowelt-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713480094"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471905521"
   },
   {
    "dir": "immowelt-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713480143"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471905578"
   },
   {
    "dir": "imovelweb-scraper",
    "test": "test_property_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713480423"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471905703"
   },
   {
    "dir": "imovelweb-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713480195"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471905881"
   },
   {
    "dir": "indeed-scraper",
    "test": "test_job_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713481242"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471906732"
   },
   {
    "dir": "indeed-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713480593"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471905834"
   },
   {
    "dir": "instagram-scraper",
    "test": "test_post_comments_scraping",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713481751"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471907739"
   },
   {
    "dir": "instagram-scraper",
    "test": "test_post_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713481591"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471907215"
   },
   {
    "dir": "instagram-scraper",
    "test": "test_user_post_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713481414"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471907317"
   },
   {
    "dir": "instagram-scraper",
    "test": "test_user_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713481365"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471907018"
   },
   {
    "dir": "kayak-scraper",
    "test": "test_scrape_roundtrip",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713482116"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471907731"
   },
   {
    "dir": "leboncoin-scraper",
    "test": "test_ad_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713482166"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471908030"
   },
   {
    "dir": "leboncoin-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713482074"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471908059"
   },
   {
    "dir": "linkedin-scraper",
    "test": "test_article_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713483525"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471909241"
   },
   {
    "dir": "linkedin-scraper",
    "test": "test_company_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713482666"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471908416"
   },
   {
    "dir": "linkedin-scraper",
    "test": "test_job_page_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713483427"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471909180"
   },
   {
    "dir": "linkedin-scraper",
    "test": "test_job_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713483262"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471908855"
   },
   {
    "dir": "linkedin-scraper",
    "test": "test_profile_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713482679"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471908210"
   },
   {
    "dir": "loopnet-scraper",
    "test": "test_listing_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713483514"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471909529"
   },
   {
    "dir": "loopnet-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713483751"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471909858"
   },
   {
    "dir": "lowes-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713484065"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471910048"
   },
   {
    "dir": "lowes-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713484031"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471910078"
   },
   {
    "dir": "lowes-scraper",
    "test": "test_store_locations_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713484026"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471910025"
   },
   {
    "dir": "maersk-scraper",
    "test": "test_scrape_schedule_search",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713484834"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471910404"
   },
   {
    "dir": "maersk-scraper",
    "test": "test_scrape_tracking",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713484368"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471910269"
   },
   {
    "dir": "marriott-scraper",
    "test": "test_hotel_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713485324"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471911290"
   },
   {
    "dir": "marriott-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713485000"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471910949"
   },
   {
    "dir": "mouser-scraper",
    "test": "test_product_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713485430"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471911413"
   },
   {
    "dir": "mouser-scraper",
    "test": "test_search_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713485508"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471911502"
   },
   {
    "dir": "naver-scraper",
    "test": "test_blog_post_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713486158"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471912291"
   },
   {
    "dir": "naver-scraper",
    "test": "test_image_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713486020"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471912315"
   },
   {
    "dir": "naver-scraper",
    "test": "test_news_article_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713486289"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471912507"
   },
   {
    "dir": "naver-scraper",
    "test": "test_web_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713486019"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471912106"
   },
   {
    "dir": "nordstorm-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713486217"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471912770"
   },
   {
    "dir": "nordstorm-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713487044"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471912992"
   },
   {
    "dir": "perplexity-scraper",
    "test": "test_scrape_answer",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713487351"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471913119"
   },
   {
    "dir": "pinterest-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713487639"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471913544"
   },
   {
    "dir": "realestatecom-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713487652"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471913567"
   },
   {
    "dir": "realestatecom-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713487645"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471913783"
   },
   {
    "dir": "realtorcom-scraper",
    "test": "test_feed_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713488347"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471914503"
   },
   {
    "dir": "realtorcom-scraper",
    "test": "test_property_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713488041"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471914100"
   },
   {
    "dir": "realtorcom-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713488051"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471914389"
   },
   {
    "dir": "reddit-scraper",
    "test": "test_post_scraping",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713489106"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471915150"
   },
   {
    "dir": "reddit-scraper",
    "test": "test_subreddit_scraping",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713488444"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471914460"
   },
   {
    "dir": "reddit-scraper",
    "test": "test_user_comment_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713489625"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471915425"
   },
   {
    "dir": "reddit-scraper",
    "test": "test_user_post_scraping",
-   "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713489399"
+   "conclusion": "failure",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471915357"
   },
   {
    "dir": "redfin-scraper",
    "test": "test_properties_for_rent_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713489763"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471915780"
   },
   {
    "dir": "redfin-scraper",
    "test": "test_properties_for_sale_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713489647"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471915743"
   },
   {
    "dir": "redfin-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713489825"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471916107"
   },
   {
    "dir": "rightmove-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713490221"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471916701"
   },
   {
    "dir": "rightmove-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713490193"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471916124"
   },
   {
    "dir": "rs-online-scraper",
    "test": "test_category_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713490812"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471916722"
   },
   {
    "dir": "rs-online-scraper",
    "test": "test_product_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713490638"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471916614"
   },
   {
    "dir": "rs-online-scraper",
    "test": "test_search_scraping",
-   "conclusion": "failure",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713491285"
+   "conclusion": "success",
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471917390"
   },
   {
    "dir": "seloger-scraper",
    "test": "test_property_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713491585"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471917859"
   },
   {
    "dir": "seloger-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713491709"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918272"
   },
   {
    "dir": "shopify-scraper",
    "test": "test_catalog_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713491959"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918400"
   },
   {
    "dir": "shopify-scraper",
    "test": "test_collection_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713492099"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918444"
   },
   {
    "dir": "shopify-scraper",
    "test": "test_preflight_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713491783"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918397"
   },
   {
    "dir": "shopify-scraper",
    "test": "test_product_page_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713492481"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918715"
   },
   {
    "dir": "shopify-scraper",
    "test": "test_product_urls_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713492461"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918835"
   },
   {
    "dir": "similarweb-scraper",
    "test": "test_sitemap_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713493760"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471920685"
   },
   {
    "dir": "similarweb-scraper",
    "test": "test_trend_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713493621"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471919562"
   },
   {
    "dir": "similarweb-scraper",
    "test": "test_website_compare_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713493239"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471919369"
   },
   {
    "dir": "similarweb-scraper",
    "test": "test_website_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713493209"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471918954"
   },
   {
    "dir": "skyscanner-scraper",
    "test": "test_scrape_flights_oneway",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713493914"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471920841"
   },
   {
    "dir": "stockx-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713494301"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471920797"
   },
   {
    "dir": "stockx-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713494152"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471920826"
   },
   {
    "dir": "target-scraper",
    "test": "test_availability_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713494718"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471921108"
   },
   {
    "dir": "target-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713494362"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471920886"
   },
   {
    "dir": "target-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713494505"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471920833"
   },
   {
    "dir": "target-scraper",
    "test": "test_store_locations",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713495542"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471921533"
   },
   {
    "dir": "target-scraper",
    "test": "test_store_locations_sitemap",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713495599"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471921133"
   },
   {
    "dir": "threads-scraper",
    "test": "test_thread_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713495929"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471921764"
   },
   {
    "dir": "threads-scraper",
    "test": "test_user_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713496040"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471922828"
   },
   {
    "dir": "ticketmaster-scraper",
    "test": "test_artist_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713496426"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471922781"
   },
   {
    "dir": "ticketmaster-scraper",
    "test": "test_discovery_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713496910"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923112"
   },
   {
    "dir": "tiktok-scraper",
    "test": "test_channel_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713497860"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923514"
   },
   {
    "dir": "tiktok-scraper",
    "test": "test_comment_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713496822"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923179"
   },
   {
    "dir": "tiktok-scraper",
    "test": "test_post_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713496729"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923270"
   },
   {
    "dir": "tiktok-scraper",
    "test": "test_profile_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713496922"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923237"
   },
   {
    "dir": "tiktok-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713497331"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923215"
   },
   {
    "dir": "tripadvisor-scraper",
    "test": "test_hotel_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713498098"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471923737"
   },
   {
    "dir": "tripadvisor-scraper",
    "test": "test_location_data_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713498302"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471924062"
   },
   {
    "dir": "tripadvisor-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713498321"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925025"
   },
   {
    "dir": "trustpilot-scraper",
    "test": "test_company_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713498954"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925106"
   },
   {
    "dir": "trustpilot-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713499151"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925273"
   },
   {
    "dir": "trustpilot-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713499280"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925333"
   },
   {
    "dir": "twitter-scraper",
    "test": "test_tweet_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713499157"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925558"
   },
   {
    "dir": "twitter-scraper",
    "test": "test_user_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713499230"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925567"
   },
   {
    "dir": "vestiairecollective-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713500046"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925468"
   },
   {
    "dir": "vestiairecollective-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713500574"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925660"
   },
   {
    "dir": "walmart-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713500425"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471925824"
   },
   {
    "dir": "walmart-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713500542"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471926336"
   },
   {
    "dir": "wellfound-scraper",
    "test": "test_company_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713500553"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927320"
   },
   {
    "dir": "wellfound-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713501260"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927486"
   },
   {
    "dir": "yellowpages-scraper",
    "test": "test_page_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713501420"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927509"
   },
   {
    "dir": "yellowpages-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713501386"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927575"
   },
   {
    "dir": "yelp-scraper",
    "test": "test_page_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713501614"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927867"
   },
   {
    "dir": "yelp-scraper",
    "test": "test_review_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713501472"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927532"
   },
   {
    "dir": "yelp-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713502795"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471928134"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_channel_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713502981"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471928624"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_channel_videos_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713502991"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471929403"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_comment_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713502777"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471928051"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713503622"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471929656"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_shorts_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713503670"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471929623"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_transcript_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713503702"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471929696"
   },
   {
    "dir": "youtube-scraper",
    "test": "test_video_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713502509"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471927988"
   },
   {
    "dir": "zillow-scraper",
    "test": "test_property_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713503797"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471929902"
   },
   {
    "dir": "zillow-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713504076"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471929692"
   },
   {
    "dir": "zoominfo-scraper",
    "test": "test_company_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713504495"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471930151"
   },
   {
    "dir": "zoominfo-scraper",
    "test": "test_directory_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713504962"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471930233"
   },
   {
    "dir": "zoominfo-scraper",
    "test": "test_faq_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713505187"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471930432"
   },
   {
    "dir": "zoopla-scraper",
    "test": "test_properties_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713505330"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471932100"
   },
   {
    "dir": "zoopla-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713505126"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471930712"
   },
   {
    "dir": "zoro-scraper",
    "test": "test_product_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713505629"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471932177"
   },
   {
    "dir": "zoro-scraper",
    "test": "test_search_scraping",
    "conclusion": "success",
-   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/43985771694/job/133713505993"
+   "url": "https://github.com/scrapfly/scrapfly-scrapers/actions/runs/44205943613/job/134471932186"
   }
  ]
 }
