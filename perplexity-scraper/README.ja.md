@@ -50,7 +50,7 @@ asyncio.run(main())
 
 - `proxy_pool` = `"residential"`: プロキシプール（データセンターまたはレジデンシャル）
 - `country` = `"US"`: プロキシの国
-- `os` = `"macos"`: ブラウザのオペレーティングシステム
+- `os` = `"mac"`: ブラウザのオペレーティングシステム
 - `cache` = `True`: Scrapfly のレスポンスキャッシュを使う
 
 ## クイックスタート

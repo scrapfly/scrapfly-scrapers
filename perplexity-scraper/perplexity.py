@@ -22,7 +22,7 @@ SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 BASE_CONFIG = {
     "proxy_pool": "residential",
     "country": "US",
-    "os": "macos",
+    "os": "mac",
     "cache": True,  # cache static resources (scripts, styles) between sessions
 }
 

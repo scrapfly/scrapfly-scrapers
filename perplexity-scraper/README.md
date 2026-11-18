@@ -50,7 +50,7 @@ The functions return plain dictionaries and lists. Fields:
 
 - `proxy_pool` = `"residential"`: proxy pool (datacenter or residential)
 - `country` = `"US"`: country of the proxy
-- `os` = `"macos"`: operating system of the browser
+- `os` = `"mac"`: operating system of the browser
 - `cache` = `True`: use Scrapfly's response cache
 
 ## Quick start
