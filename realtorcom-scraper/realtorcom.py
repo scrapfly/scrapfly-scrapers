@@ -257,7 +257,8 @@ async def scrape_search(state: str, city: str, max_pages: Optional[int] = None) 
 
     log.info("found {} total pages", total_pages)
     to_scrape = []
-    for page in range(1, total_pages + 1):
+    # page 1 is already scraped above
+    for page in range(2, total_pages + 1):
         assert "pg-1" in first_result.context["url"]  # make sure we don't accidently scrape duplicate pages
         page_url = first_result.context["url"].replace("pg-1", f"pg-{page}")
         to_scrape.append(ScrapeConfig(page_url, render_js=True, **BASE_CONFIG))
