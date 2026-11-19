@@ -47,7 +47,7 @@ Expedia.com puede ser difícil de scrapear por el bloqueo de scrapers, así que 
 
 ## Inicio rápido
 
-Requiere Python 3.10+ y [Poetry](https://python-poetry.org/docs/#installation).
+Requiere Python 3.12+ y [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

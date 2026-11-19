@@ -62,7 +62,7 @@ DHL бывает трудно скрапить из-за блокировки с
 
 ## Быстрый старт
 
-Нужны Python 3.10+ и [Poetry](https://python-poetry.org/docs/#installation).
+Нужны Python 3.12+ и [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

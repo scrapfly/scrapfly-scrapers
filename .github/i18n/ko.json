@@ -29,7 +29,7 @@
     "settings_note": "[`{module}.py`]({module}.py)의 `BASE_CONFIG`에는 요청의 기본 설정이 들어 있습니다. [Scrape API 문서](https://scrapfly.io/docs/scrape-api/getting-started)를 참고하세요.",
     "notes": "참고 사항",
     "quick_start": "빠른 시작",
-    "requires": "Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.",
+    "requires": "Python 3.12 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.",
     "comment_key": "https://scrapfly.io/dashboard 에서 확인",
     "comment_run": "예제 스크레이핑, 출력은 ./results에 저장",
     "comment_test": "이 스크레이퍼의 테스트",

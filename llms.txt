@@ -16,7 +16,7 @@ These scrapers are educational examples that accompany the Scrapfly scrape guide
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
 cd scrapfly-scrapers/amazon-scraper        # any <name>-scraper folder
 export SCRAPFLY_KEY="your API key"         # from https://scrapfly.io/dashboard
-poetry install --no-root                   # Python 3.10+
+poetry install --no-root                   # Python 3.12+
 poetry run python run.py                   # example scrape, writes results/*.json
 poetry run pytest test.py -k test_search   # live tests, one test at a time with -k
 ```

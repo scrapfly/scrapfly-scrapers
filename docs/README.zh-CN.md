@@ -10,7 +10,7 @@
 
 本仓库收录了一系列教学用的示例爬虫，演示如何使用 [ScrapFly](https://scrapfly.io) 网页抓取 API 和 Python 抓取热门网站。  
 大多数爬虫使用一套简单的技术栈：
-- Python 3.10 及以上版本
+- Python 3.12 及以上版本
 - [Scrapfly 的 Python SDK](https://github.com/scrapfly/python-scrapfly)，用于发送 HTTP 请求、绕过拦截，并使用内置的 [parsel](https://pypi.org/project/parsel/) 选择器解析 HTML。
 - [asyncio](https://docs.python.org/3/library/asyncio.html)，使用 async/await 语法编写并发代码。
 - [JMESPath](https://pypi.org/project/jmespath/) 和 [nested-lookup](https://pypi.org/project/nested-lookup/)，在需要时解析 JSON。
@@ -22,7 +22,7 @@
 
 ## 快速开始
 
-每个爬虫都位于独立的文件夹中，可以单独运行（需要 Python 3.10 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)）：
+每个爬虫都位于独立的文件夹中，可以单独运行（需要 Python 3.12 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)）：
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

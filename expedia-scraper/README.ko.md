@@ -47,7 +47,7 @@ Expedia.com은 스크레이퍼 차단 때문에 스크레이핑이 어려울 수
 
 ## 빠른 시작
 
-Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
+Python 3.12 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

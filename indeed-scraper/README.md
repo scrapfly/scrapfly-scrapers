@@ -57,7 +57,7 @@ The functions return plain dictionaries and lists. Fields of the sample output (
 
 ## Quick start
 
-Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).
+Requires Python 3.12+ and [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

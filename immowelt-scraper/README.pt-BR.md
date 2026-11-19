@@ -77,7 +77,7 @@ No scraper de busca de imóveis, é preciso adicionar `location_ids` ao corpo da
 
 ## Início rápido
 
-Requer Python 3.10+ e [Poetry](https://python-poetry.org/docs/#installation).
+Requer Python 3.12+ e [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

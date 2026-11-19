@@ -69,7 +69,7 @@ X.com 웹사이트에서 로그인 없이 수집할 수 없는 항목:
 
 ## 빠른 시작
 
-Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
+Python 3.12 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

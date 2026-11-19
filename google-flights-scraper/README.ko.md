@@ -49,7 +49,7 @@ Google Flights의 항공편 데이터 수집용 예제 스크레이퍼로, [Scra
 
 ## 빠른 시작
 
-Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
+Python 3.12 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

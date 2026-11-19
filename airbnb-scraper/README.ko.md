@@ -53,7 +53,7 @@ Airbnb는 스크레이퍼 차단과 많은 JavaScript 렌더링 때문에 스크
 
 ## 빠른 시작
 
-Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
+Python 3.12 이상과 [Poetry](https://python-poetry.org/docs/#installation)가 필요합니다.
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

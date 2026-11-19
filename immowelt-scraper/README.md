@@ -77,7 +77,7 @@ In the property search scraper, you need to add `location_ids` to the API reques
 
 ## Quick start
 
-Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).
+Requires Python 3.12+ and [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

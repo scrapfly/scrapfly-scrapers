@@ -10,7 +10,7 @@
 
 이 저장소에는 [ScrapFly](https://scrapfly.io) 웹 스크레이핑 API와 Python을 사용해 인기 있는 웹사이트를 스크레이핑하는 교육용 예제 스크레이퍼가 들어 있습니다.  
 대부분의 스크레이퍼는 간단한 웹 스크레이핑 스택을 사용합니다.
-- Python 3.10 이상
+- Python 3.12 이상
 - HTTP 요청 전송, 차단 우회, 내장 [parsel](https://pypi.org/project/parsel/) 셀렉터를 이용한 HTML 파싱을 위한 [Scrapfly Python SDK](https://github.com/scrapfly/python-scrapfly)
 - async/await 문법으로 동시성 코드를 작성하기 위한 [asyncio](https://docs.python.org/3/library/asyncio.html)
 - 필요할 때 JSON을 파싱하기 위한 [JMESPath](https://pypi.org/project/jmespath/)와 [nested-lookup](https://pypi.org/project/nested-lookup/)
@@ -22,7 +22,7 @@ AI 에이전트와 LLM 도구를 위해 [llms.txt](../llms.txt)에 모든 스크
 
 ## 빠른 시작
 
-각 스크레이퍼는 자체 폴더에 있으며 독립적으로 실행됩니다(Python 3.10 이상과 [Poetry](https://python-poetry.org/docs/#installation) 필요).
+각 스크레이퍼는 자체 폴더에 있으며 독립적으로 실행됩니다(Python 3.12 이상과 [Poetry](https://python-poetry.org/docs/#installation) 필요).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

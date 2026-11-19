@@ -29,7 +29,7 @@
     "settings_note": "[`{module}.py`]({module}.py) 中的 `BASE_CONFIG` 保存请求的默认设置，参见 [Scrape API 文档](https://scrapfly.io/docs/scrape-api/getting-started)：",
     "notes": "说明",
     "quick_start": "快速开始",
-    "requires": "需要 Python 3.10 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)。",
+    "requires": "需要 Python 3.12 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)。",
     "comment_key": "获取地址： https://scrapfly.io/dashboard",
     "comment_run": "示例抓取，结果保存在 ./results",
     "comment_test": "运行该爬虫的测试",

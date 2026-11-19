@@ -50,7 +50,7 @@ Marriott.com can be difficult to scrape because of scraper blocking and heavy Ja
 
 ## Quick start
 
-Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).
+Requires Python 3.12+ and [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

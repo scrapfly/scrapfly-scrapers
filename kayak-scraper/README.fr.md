@@ -45,7 +45,7 @@ Kayak.com peut être difficile à scraper à cause du blocage des scrapers, ce s
 
 ## Démarrage rapide
 
-Nécessite Python 3.10+ et [Poetry](https://python-poetry.org/docs/#installation).
+Nécessite Python 3.12+ et [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

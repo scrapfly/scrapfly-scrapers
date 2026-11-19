@@ -29,7 +29,7 @@
     "settings_note": "`BASE_CONFIG` в [`{module}.py`]({module}.py) содержит настройки запросов по умолчанию, см. [документацию Scrape API](https://scrapfly.io/docs/scrape-api/getting-started):",
     "notes": "Примечания",
     "quick_start": "Быстрый старт",
-    "requires": "Нужны Python 3.10+ и [Poetry](https://python-poetry.org/docs/#installation).",
+    "requires": "Нужны Python 3.12+ и [Poetry](https://python-poetry.org/docs/#installation).",
     "comment_key": "ключ с https://scrapfly.io/dashboard",
     "comment_run": "пример скрапинга, результат сохраняется в ./results",
     "comment_test": "тесты этого скрапера",
