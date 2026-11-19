@@ -147,7 +147,8 @@ def parse_product(result: ScrapeApiResponse):
     item["price_original"] = css(".x-price-primary .ux-textspans::text")  # the price text sits in a nested span now
     item["price_converted"] = css(".x-price-approx__price ::text")  # ebay automatically converts price for some regions
 
-    item["name"] = css_join("h1 span::text")
+    # " ::text" also reads the text after a <wbr> tag that ebay puts inside long words ("Pic<wbr>k")
+    item["name"] = css_join("h1 span ::text")
     seller = sel.css('[data-testid=x-sellercard-atf] a[href*="/str/"]')
     item["seller_name"] = seller.css("span::text").get("").strip()
     seller_url = seller.css("::attr(href)").get("")
