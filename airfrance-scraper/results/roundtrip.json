@@ -1,22 +1,22 @@
 [
   {
     "airline": "Air France",
-    "flight_number": "AF 0186",
-    "departure_time": "09:40",
+    "flight_number": "AF 0282",
+    "departure_time": "09:50",
     "departure_airport": "CDG",
-    "arrival_time": "05:55",
+    "arrival_time": "06:50",
     "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 795,
+    "duration_minutes": 780,
     "stops": 0,
     "layovers": [],
-    "price": "593.13",
+    "price": "452.88",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 6,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
     "plane_model": "Airbus A350-900",
     "co2_kg": 733,
@@ -24,22 +24,22 @@
   },
   {
     "airline": "Air France",
-    "flight_number": "AF 0286",
-    "departure_time": "12:40",
+    "flight_number": "AF 0162",
+    "departure_time": "14:20",
     "departure_airport": "CDG",
-    "arrival_time": "08:55",
+    "arrival_time": "11:20",
     "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 795,
+    "duration_minutes": 780,
     "stops": 0,
     "layovers": [],
-    "price": "593.13",
+    "price": "452.88",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 6,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
     "plane_model": "Airbus A350-900",
     "co2_kg": 733,
@@ -48,21 +48,21 @@
   {
     "airline": "Air France",
     "flight_number": "AF 0274",
-    "departure_time": "23:00",
+    "departure_time": "22:20",
     "departure_airport": "CDG",
-    "arrival_time": "19:40",
+    "arrival_time": "19:55",
     "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 820,
+    "duration_minutes": 815,
     "stops": 0,
     "layovers": [],
-    "price": "593.13",
+    "price": "452.88",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 8,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
     "plane_model": "Boeing 777-300",
     "co2_kg": 733,
@@ -70,54 +70,140 @@
   },
   {
     "airline": "KLM",
-    "flight_number": "AF 8382",
-    "departure_time": "10:15",
+    "flight_number": "AF 1640",
+    "departure_time": "11:40",
     "departure_airport": "CDG",
-    "arrival_time": "10:25",
+    "arrival_time": "11:45",
     "arrival_airport": "NRT",
     "arrives_next_days": 1,
-    "duration_minutes": 1030,
+    "duration_minutes": 965,
     "stops": 1,
     "layovers": [
       {
         "airport": "AMS",
-        "duration_minutes": 145
+        "duration_minutes": 65
       }
     ],
-    "price": "598.3",
+    "price": "448.73",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 2,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
-    "plane_model": "Boeing 737-800",
+    "plane_model": "Airbus A220-300",
     "co2_kg": 733,
     "airport_change_warning": null
   },
   {
     "airline": "KLM",
-    "flight_number": "KL 1404",
-    "departure_time": "09:40",
+    "flight_number": "AF 8382",
+    "departure_time": "10:20",
     "departure_airport": "CDG",
-    "arrival_time": "10:25",
+    "arrival_time": "11:45",
     "arrival_airport": "NRT",
     "arrives_next_days": 1,
-    "duration_minutes": 1065,
+    "duration_minutes": 1045,
     "stops": 1,
     "layovers": [
       {
         "airport": "AMS",
-        "duration_minutes": 180
+        "duration_minutes": 155
       }
     ],
-    "price": "565.3",
+    "price": "449.53",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 3,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
+    "seat_map_eligible": true,
+    "plane_model": "Embraer 195 E2",
+    "co2_kg": 733,
+    "airport_change_warning": null
+  },
+  {
+    "airline": "KLM",
+    "flight_number": "AF 3143",
+    "departure_time": "09:45",
+    "departure_airport": "CDG",
+    "arrival_time": "11:45",
+    "arrival_airport": "NRT",
+    "arrives_next_days": 1,
+    "duration_minutes": 1080,
+    "stops": 1,
+    "layovers": [
+      {
+        "airport": "AMS",
+        "duration_minutes": 185
+      }
+    ],
+    "price": "449.53",
+    "currency": "EUR",
+    "cabin_class": "economy",
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
+    "seat_map_eligible": true,
+    "plane_model": "Airbus A321NEO",
+    "co2_kg": 733,
+    "airport_change_warning": null
+  },
+  {
+    "airline": "Air France",
+    "flight_number": "AF 0292",
+    "departure_time": "13:40",
+    "departure_airport": "CDG",
+    "arrival_time": "15:40",
+    "arrival_airport": "HND",
+    "arrives_next_days": 1,
+    "duration_minutes": 1080,
+    "stops": 1,
+    "layovers": [
+      {
+        "airport": "KIX",
+        "duration_minutes": 245
+      }
+    ],
+    "price": "1113.5",
+    "currency": "EUR",
+    "cabin_class": "economy",
+    "seats_available": 1,
     "is_promo": false,
     "promo_title": null,
+    "has_special_fare": false,
+    "seat_map_eligible": true,
+    "plane_model": "Boeing 787-9",
+    "co2_kg": 733,
+    "airport_change_warning": [
+      "Région d'Osaka et Kyoto"
+    ]
+  },
+  {
+    "airline": "KLM",
+    "flight_number": "AF 8374",
+    "departure_time": "09:05",
+    "departure_airport": "CDG",
+    "arrival_time": "11:45",
+    "arrival_airport": "NRT",
+    "arrives_next_days": 1,
+    "duration_minutes": 1120,
+    "stops": 1,
+    "layovers": [
+      {
+        "airport": "AMS",
+        "duration_minutes": 225
+      }
+    ],
+    "price": "449.53",
+    "currency": "EUR",
+    "cabin_class": "economy",
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
     "has_special_fare": true,
     "seat_map_eligible": true,
     "plane_model": "Boeing 737-800",
@@ -125,178 +211,196 @@
     "airport_change_warning": null
   },
   {
-    "airline": "KLM",
-    "flight_number": "AF 8374",
-    "departure_time": "08:55",
+    "airline": "Air France",
+    "flight_number": "AF 0292",
+    "departure_time": "13:40",
     "departure_airport": "CDG",
-    "arrival_time": "10:25",
-    "arrival_airport": "NRT",
+    "arrival_time": "15:55",
+    "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 1110,
+    "duration_minutes": 1095,
     "stops": 1,
     "layovers": [
       {
-        "airport": "AMS",
-        "duration_minutes": 215
+        "airport": "KIX",
+        "duration_minutes": 250
       }
     ],
-    "price": "598.3",
+    "price": "456.13",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 3,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
-    "plane_model": "Boeing 737-800",
+    "plane_model": "Boeing 787-9",
     "co2_kg": 733,
     "airport_change_warning": null
   },
   {
-    "airline": "KLM",
-    "flight_number": "AF 1340",
-    "departure_time": "08:15",
+    "airline": "Air France",
+    "flight_number": "AF 0292",
+    "departure_time": "13:40",
     "departure_airport": "CDG",
-    "arrival_time": "10:25",
+    "arrival_time": "16:05",
     "arrival_airport": "NRT",
     "arrives_next_days": 1,
-    "duration_minutes": 1150,
+    "duration_minutes": 1105,
     "stops": 1,
     "layovers": [
       {
-        "airport": "AMS",
-        "duration_minutes": 255
+        "airport": "KIX",
+        "duration_minutes": 250
       }
     ],
-    "price": "597.5",
+    "price": null,
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 3,
+    "seats_available": null,
     "is_promo": false,
     "promo_title": null,
     "has_special_fare": false,
     "seat_map_eligible": true,
-    "plane_model": "A320",
+    "plane_model": "Boeing 787-9",
+    "co2_kg": 733,
+    "airport_change_warning": [
+      "Région d'Osaka et Kyoto"
+    ]
+  },
+  {
+    "airline": "KLM",
+    "flight_number": "AF 1340",
+    "departure_time": "08:00",
+    "departure_airport": "CDG",
+    "arrival_time": "11:45",
+    "arrival_airport": "NRT",
+    "arrives_next_days": 1,
+    "duration_minutes": 1185,
+    "stops": 1,
+    "layovers": [
+      {
+        "airport": "AMS",
+        "duration_minutes": 290
+      }
+    ],
+    "price": "448.73",
+    "currency": "EUR",
+    "cabin_class": "economy",
+    "seats_available": 6,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
+    "seat_map_eligible": true,
+    "plane_model": "Airbus A220-300",
     "co2_kg": 733,
     "airport_change_warning": null
   },
   {
     "airline": "KLM",
     "flight_number": "AF 1240",
-    "departure_time": "07:10",
+    "departure_time": "06:55",
     "departure_airport": "CDG",
-    "arrival_time": "10:25",
+    "arrival_time": "11:45",
     "arrival_airport": "NRT",
     "arrives_next_days": 1,
-    "duration_minutes": 1215,
+    "duration_minutes": 1250,
     "stops": 1,
     "layovers": [
       {
         "airport": "AMS",
-        "duration_minutes": 320
+        "duration_minutes": 355
       }
     ],
-    "price": "597.5",
+    "price": "448.73",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": 3,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 9,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
     "plane_model": "Airbus A320-200",
     "co2_kg": 733,
     "airport_change_warning": null
   },
   {
-    "airline": "KLM",
-    "flight_number": "KL 2012",
-    "departure_time": "12:15",
+    "airline": "Air France",
+    "flight_number": "AF 0292",
+    "departure_time": "13:40",
     "departure_airport": "CDG",
-    "arrival_time": "15:35",
+    "arrival_time": "20:40",
     "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 1220,
-    "stops": 2,
+    "duration_minutes": 1380,
+    "stops": 1,
     "layovers": [
       {
-        "airport": "AMS",
-        "duration_minutes": 50
-      },
-      {
         "airport": "KIX",
-        "duration_minutes": 245
+        "duration_minutes": 545
       }
     ],
-    "price": "None",
+    "price": "455.5",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": null,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 4,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
-    "plane_model": "A320",
+    "plane_model": "Boeing 787-9",
     "co2_kg": 733,
     "airport_change_warning": [
-      "Osaka"
+      "Région d'Osaka et Kyoto"
     ]
   },
   {
-    "airline": "KLM",
-    "flight_number": "KL 2008",
-    "departure_time": "11:45",
+    "airline": "Air France",
+    "flight_number": "AF 0292",
+    "departure_time": "13:40",
     "departure_airport": "CDG",
-    "arrival_time": "15:35",
+    "arrival_time": "21:20",
     "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 1250,
-    "stops": 2,
+    "duration_minutes": 1420,
+    "stops": 1,
     "layovers": [
       {
-        "airport": "AMS",
-        "duration_minutes": 80
-      },
-      {
         "airport": "KIX",
-        "duration_minutes": 245
+        "duration_minutes": 580
       }
     ],
-    "price": "None",
+    "price": "455.5",
     "currency": "EUR",
     "cabin_class": "economy",
-    "seats_available": null,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
+    "seats_available": 4,
+    "is_promo": true,
+    "promo_title": "Promo",
+    "has_special_fare": true,
     "seat_map_eligible": true,
-    "plane_model": "Airbus A220-300",
+    "plane_model": "Boeing 787-9",
     "co2_kg": 733,
     "airport_change_warning": [
-      "Osaka"
+      "Région d'Osaka et Kyoto"
     ]
   },
   {
-    "airline": "KLM",
-    "flight_number": "KL 2012",
-    "departure_time": "12:15",
+    "airline": "Air France",
+    "flight_number": "AF 0264",
+    "departure_time": "15:05",
     "departure_airport": "CDG",
-    "arrival_time": "16:10",
+    "arrival_time": "22:50",
     "arrival_airport": "HND",
     "arrives_next_days": 1,
-    "duration_minutes": 1255,
-    "stops": 2,
+    "duration_minutes": 1425,
+    "stops": 1,
     "layovers": [
       {
-        "airport": "AMS",
-        "duration_minutes": 50
-      },
-      {
-        "airport": "KIX",
-        "duration_minutes": 275
+        "airport": "ICN",
+        "duration_minutes": 565
       }
     ],
-    "price": "None",
+    "price": null,
     "currency": "EUR",
     "cabin_class": "economy",
     "seats_available": null,
@@ -304,119 +408,7 @@
     "promo_title": null,
     "has_special_fare": false,
     "seat_map_eligible": true,
-    "plane_model": "A320",
-    "co2_kg": 733,
-    "airport_change_warning": null
-  },
-  {
-    "airline": "KLM",
-    "flight_number": "AF 8346",
-    "departure_time": "20:15",
-    "departure_airport": "CDG",
-    "arrival_time": "10:25",
-    "arrival_airport": "NRT",
-    "arrives_next_days": 2,
-    "duration_minutes": 1870,
-    "stops": 1,
-    "layovers": [
-      {
-        "airport": "AMS",
-        "duration_minutes": 990
-      }
-    ],
-    "price": "949.01",
-    "currency": "EUR",
-    "cabin_class": "economy",
-    "seats_available": 9,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
-    "seat_map_eligible": true,
-    "plane_model": "Boeing 737-800",
-    "co2_kg": 733,
-    "airport_change_warning": null
-  },
-  {
-    "airline": "KLM",
-    "flight_number": "AF 8318",
-    "departure_time": "18:40",
-    "departure_airport": "CDG",
-    "arrival_time": "10:25",
-    "arrival_airport": "NRT",
-    "arrives_next_days": 2,
-    "duration_minutes": 1965,
-    "stops": 1,
-    "layovers": [
-      {
-        "airport": "AMS",
-        "duration_minutes": 1075
-      }
-    ],
-    "price": "949.01",
-    "currency": "EUR",
-    "cabin_class": "economy",
-    "seats_available": 9,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
-    "seat_map_eligible": true,
-    "plane_model": "Airbus A321NEO",
-    "co2_kg": 733,
-    "airport_change_warning": null
-  },
-  {
-    "airline": "KLM",
-    "flight_number": "AF 1440",
-    "departure_time": "17:50",
-    "departure_airport": "CDG",
-    "arrival_time": "10:25",
-    "arrival_airport": "NRT",
-    "arrives_next_days": 2,
-    "duration_minutes": 2015,
-    "stops": 1,
-    "layovers": [
-      {
-        "airport": "AMS",
-        "duration_minutes": 1120
-      }
-    ],
-    "price": "948.21",
-    "currency": "EUR",
-    "cabin_class": "economy",
-    "seats_available": 9,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
-    "seat_map_eligible": true,
-    "plane_model": "A320",
-    "co2_kg": 733,
-    "airport_change_warning": null
-  },
-  {
-    "airline": "KLM",
-    "flight_number": "AF 5476",
-    "departure_time": "14:30",
-    "departure_airport": "CDG",
-    "arrival_time": "10:25",
-    "arrival_airport": "NRT",
-    "arrives_next_days": 2,
-    "duration_minutes": 2215,
-    "stops": 1,
-    "layovers": [
-      {
-        "airport": "AMS",
-        "duration_minutes": 1330
-      }
-    ],
-    "price": "949.01",
-    "currency": "EUR",
-    "cabin_class": "economy",
-    "seats_available": 9,
-    "is_promo": false,
-    "promo_title": null,
-    "has_special_fare": false,
-    "seat_map_eligible": true,
-    "plane_model": "Boeing 737-900",
+    "plane_model": "Airbus A350-900",
     "co2_kg": 733,
     "airport_change_warning": null
   }

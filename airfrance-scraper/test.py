@@ -24,7 +24,7 @@ flight_schema = {
     "duration_minutes": {"type": "integer"},
     "stops": {"type": "integer"},
     "layovers": {"type": "list", "schema": {"type": "dict", "schema": layover_schema}},
-    "price": {"type": "string"},
+    "price": {"type": "string", "nullable": True},
     "currency": {"type": "string"},
     "cabin_class": {"type": "string"},
     "seats_available": {"type": "integer", "nullable": True},

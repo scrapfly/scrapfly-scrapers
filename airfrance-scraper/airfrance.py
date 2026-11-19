@@ -200,6 +200,9 @@ def parse_flights(response: dict) -> List[Flight]:
             {}
         )
 
+        # no economy fare (e.g. sold out): the price is null instead of the text "None"
+        amount = economy.get("price", {}).get("amount")
+
         layovers = [
             {
                 "airport": segs[i]["destination"]["code"],
@@ -225,7 +228,7 @@ def parse_flights(response: dict) -> List[Flight]:
             "duration_minutes": active["duration"],
             "stops": 0 if active["isDirect"] else len(segs) - 1,
             "layovers": layovers,
-            "price": str(economy.get("price", {}).get("amount")),
+            "price": str(amount) if amount is not None else None,
             "currency": "EUR",
             "cabin_class": "economy",
             "seats_available": economy.get("numberOfSeatsAvailable"),
