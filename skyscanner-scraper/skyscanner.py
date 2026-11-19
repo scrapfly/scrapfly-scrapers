@@ -28,6 +28,9 @@ SEARCH_XHR_PATH = "/g/radar/api/v2/web-unified-search/"
 RESULTS_SORTED_SELECTOR = (
     "//span[contains(text(),'results sorted by')] | //h3[starts-with(normalize-space(.),'Flight option')]"
 )
+# the first search answer holds only 10 itineraries and the first cards already show then; the list below the
+# cards gets its "Show more results" button once a later answer brought the rest (skipped when it never shows)
+SHOW_MORE_SELECTOR = "//button[normalize-space(.)='Show more results']"
 
 class FlightResult(TypedDict, total=False):
     origin: str
@@ -201,11 +204,25 @@ def _extract_xhr_results(xhr_calls: List[Dict]) -> List[Dict]:
             "Skyscanner XHR search call not found — try increasing rendering_wait"
         )
 
+    # a poll can also come back without a body (e.g. HTTP 403), so only the answers with JSON are read
+    answers = []
+    for call in search_calls:
+        body = (call.get("response") or {}).get("body")
+        if not body:
+            continue
+        try:
+            answers.append(json.loads(body))
+        except json.JSONDecodeError:
+            continue
+    if not answers:
+        raise RuntimeError(
+            f"Skyscanner search requests were answered without results data ({len(search_calls)} calls captured)"
+        )
+
     # later polls can answer "incomplete_not_modified" with no results (nothing new since the previous poll),
-    # so use the latest call that carries itineraries and fall back to the last call otherwise
-    data = json.loads(search_calls[-1]["response"]["body"])
-    for call in reversed(search_calls):
-        candidate = json.loads(call["response"]["body"])
+    # so use the latest answer that carries itineraries and fall back to the last answer otherwise
+    data = answers[-1]
+    for candidate in reversed(answers):
         if candidate.get("itineraries", {}).get("results"):
             data = candidate
             break
@@ -250,6 +267,7 @@ async def scrape_flights(
             url,
             **BASE_CONFIG,
             wait_for_selector=RESULTS_SORTED_SELECTOR,
+            js_scenario=[{"wait_for_selector": {"selector": SHOW_MORE_SELECTOR, "timeout": 15000, "ignore": True}}],
         )
     )
     xhr_results = _extract_xhr_results(
