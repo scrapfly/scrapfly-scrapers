@@ -118,9 +118,9 @@ def parse_faqs(response: ScrapeApiResponse) -> List[Dict]:
     faqs = []
     for faq in selector.xpath("//div[@class='faqs']/zi-directories-faqs-item"):
         question = faq.css("span.question::text").get()
-        answer = faq.css("span.answer::text").get()
-        if not answer:
-            answer = faq.css("span.answer > p::text").get()
+        # the whole answer text: names, industries and competitors are links inside the answer
+        # ("Tesla top competitors include: <a>Aptiv</a>, ..."), so the first text node alone stopped before them
+        answer = "".join(faq.css("span.answer ::text").getall()).strip() or None
         faqs.append({"question": question.strip() if question else None, "answer": answer})
     return faqs
 
