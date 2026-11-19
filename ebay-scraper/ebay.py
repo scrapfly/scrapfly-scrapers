@@ -210,7 +210,8 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
         
         item = {
             "url": url.split("?")[0] if url else None,
-            "title": css(".s-card__title span::text"),
+            # a new listing's title starts with a "New Listing" label span
+            "title": css(".s-card__title span:not(.s-card__new-listing)::text"),
             "price": css(".s-card__price::text") or css(".s-item__price::text"),
             "shipping": box.xpath(".//*[contains(text(),'delivery')]/text()").get(),
             "location": location.split("Located in ")[1] if location else None,
