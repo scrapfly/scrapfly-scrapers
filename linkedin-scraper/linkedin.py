@@ -186,16 +186,18 @@ async def scrape_job_search(keyword: str, location: str, max_pages: int = None) 
     first_page = await SCRAPFLY.async_scrape(ScrapeConfig(first_page_url, **BASE_CONFIG))
     data = parse_job_search(first_page)["data"]
     total_results = parse_job_search(first_page)["total_results"]
-    # get the total number of pages to scrape, each page contain 25 results
-    if max_pages and max_pages * 25 < total_results:
-        total_results = max_pages * 25
-    
-    log.info(f"scraped the first job page, {total_results // 25 - 1} more pages")
+    # the first page lists up to 60 jobs and the pagination API answers 10 jobs from the given offset,
+    # so the next pages start where the first page ends (start=25 returned jobs of the first page again)
+    offsets = range(len(data), total_results, 10)
+    if max_pages:
+        offsets = offsets[: max_pages - 1]
+
+    log.info(f"scraped the first job page, {len(offsets)} more pages")
     # scrape the remaining pages concurrently
     other_pages_url = "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?"
     to_scrape = [
         ScrapeConfig(other_pages_url + form_urls_params(keyword, location) + f"&start={index}", **BASE_CONFIG)
-        for index in range(25, total_results + 25, 25)
+        for index in offsets
     ]
     async for response in SCRAPFLY.concurrent_scrape(to_scrape):
         try:
