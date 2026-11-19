@@ -37,7 +37,7 @@ job_result_schema = {
     "description": {"type": "string", "nullable": True, "min_presence": 0.3},
     "qualifications": {"type": "list"},
     "source_board": {"type": "string", "nullable": True, "min_presence": 0.3},
-    "application_url": {"type": "string", "nullable": True, "min_presence": 0.3},
+    "application_url": {"type": "string", "nullable": True, "min_presence": 0.3, "regex": r"^https?://.+"},
     "job_id": {"type": "string", "nullable": True, "min_presence": 0.3},
 }
 

@@ -6,6 +6,7 @@ $ export SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 """
 
 from datetime import datetime
+import json
 import os
 from typing import List, Optional, TypedDict
 import re
@@ -122,11 +123,24 @@ def _extract_job_id(card) -> Optional[str]:
     return match.group(1) if match else None
 
 
+def _first_posting_url(card) -> Optional[str]:
+    """The job board link of the first apply option, from the card data ("jobs_posting_urls_1")."""
+    data = card.xpath(".//@data-maindata").get("")
+    match = re.search(r'"jobs_posting_urls_1","([^"]+)"', data)
+    # the value is a JSON string ("\u003d" for "=")
+    return json.loads(f'"{match.group(1)}"') if match else None
+
+
 def _extract_application_url(card) -> Optional[str]:
     for anchor in card.css("a[href]"):
         label = " ".join(anchor.css("::text").getall())
         if "Apply" in label:
-            return anchor.attrib.get("href", "").strip() or None
+            href = anchor.attrib.get("href", "").strip()
+            if href.startswith("/goto"):
+                # the apply links are google redirects ("/goto?url=<token>"); the card data lists
+                # the job board links in the same order
+                return _first_posting_url(card) or href
+            return href or None
     return None
 
 
