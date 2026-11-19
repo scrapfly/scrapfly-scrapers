@@ -39,6 +39,21 @@ def find_json_objects(text: str, decoder=json.JSONDecoder()):
             pos = match + 1
 
 
+def page_object(html: str, key: str) -> Dict:
+    """the JSON object written right after key in the page's scripts ({} when missing)"""
+    start = html.find(key)
+    if start == -1:
+        return {}
+    brace = html.find("{", start + len(key))
+    if brace == -1 or html[start + len(key) : brace].strip():
+        return {}
+    try:
+        return json.JSONDecoder().raw_decode(html, brace)[0]
+    except ValueError:
+        log.warning(f"could not read the page data after {key}")
+        return {}
+
+
 def strip_text(text):
     """remove extra spaces while handling None values"""
     if text != None:
@@ -94,13 +109,28 @@ def parse_property_page(response: ScrapeApiResponse):
                 property_images.append(image.xpath("./img").attrib["data-src"].split("/ORIG")[0])
         except:
             pass
+    # the gallery slides are gone: the page data lists the images ("galleryData": {"images": [...]})
+    # and says whether there is a video ("galleryEntry": {"hasVideo": ...})
+    if not property_images:
+        for image in page_object(response.content, "galleryData:").get("images") or []:
+            if image.get("fullSizePictureUrl"):
+                property_images.append(image["fullSizePictureUrl"].split("/ORIG")[0])
     video_available = bool(selector.xpath("//button[contains(@class, 'gallery-video')]/text()").get())
+    video_available = video_available or '"galleryEntry":{"hasVideo":true' in response.content
     internet_speed = selector.xpath("//a[contains(@class, 'mediaavailcheck')]/text()").get()
     internet_available = bool(internet_speed)
     agency_name = selector.xpath("//span[@data-qa='companyName']/text()").get()
     agency_address = ""
     for text in selector.xpath("//ul[li[span[@data-qa='companyName']]]/li[position() >= 3 and position() <= 4]/text()").getall():
         agency_address = agency_address + text
+    if not agency_name:
+        # the old contact box is gone: the agency name and address are in the page data
+        agency_name = page_object(response.content, '"realtorInformation":').get("companyName")
+        company_address = page_object(response.content, '"companyAddress":')
+        if any(company_address.values()):
+            # same format as the old box, whose street and postcode lines were joined without a space
+            street = f"{company_address.get('street', '')} {company_address.get('streetNumber', '')}".strip()
+            agency_address = f"{street}{company_address.get('postcode', '')} {company_address.get('city', '')}".strip()
 
     # return the data into a JSON object
     data = {
