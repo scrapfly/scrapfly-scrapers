@@ -225,6 +225,9 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
     followers = href_count(html, "/verified_followers")
     name = author_name(meta(sel, prop="og:title"))
 
+    # the label next to the join date reads "Date joined" since 2026-11 ("Joined" before)
+    joined = meta(sel, name="twitter:data2") if "joined" in (meta(sel, name="twitter:label2") or "").lower() else None
+
     return {
         "id": user_gid(rest_id),
         "rest_id": rest_id,
@@ -233,7 +236,7 @@ def parse_profile(response: ScrapeApiResponse) -> Dict:
         "verified": verified_badge(html, name),
         "description": description,
         "location": icon_text(html, "location"),
-        "joined": meta(sel, name="twitter:data2") if meta(sel, name="twitter:label2") == "Joined" else None,
+        "joined": joined,
         "url": website,
         "profile_image_url": meta(sel, prop="og:image"),
         "profile_banner_url": meta(sel, name="twitter:image"),
