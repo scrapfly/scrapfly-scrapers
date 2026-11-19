@@ -152,8 +152,14 @@ def parse_product(result: ScrapeApiResponse):
     item["seller_name"] = seller.css("span::text").get("").strip()
     seller_url = seller.css("::attr(href)").get("")
     item["seller_url"] = seller_url.split("?")[0] if seller_url else None
-    item["photos"] = sel.css('.ux-image-filmstrip-carousel-item.image img::attr("src")').getall()  # carousel images
-    item["photos"].extend(sel.css('.ux-image-carousel-item.image img::attr("src")').getall())  # main image
+    # carousel images: pictures that are not shown yet carry a 1x1 placeholder in src and the full size
+    # picture in data-zoom-src, and the carousel repeats its pictures, so each picture is kept once
+    item["photos"] = []
+    images = sel.css(".ux-image-filmstrip-carousel-item.image img") + sel.css(".ux-image-carousel-item.image img")
+    for image in images:
+        src = image.attrib.get("data-zoom-src") or image.attrib.get("data-src") or image.attrib.get("src")
+        if src and not src.startswith("data:") and src not in item["photos"]:
+            item["photos"].append(src)
     # description is an iframe (independant page). We can keep it as an URL or scrape it later.
     item["description_url"] = css("iframe#desc_ifr::attr(src)")
     # feature details from the description table:
@@ -208,7 +214,8 @@ def parse_search(result: ScrapeApiResponse) -> List[Dict]:
             "price": css(".s-card__price::text") or css(".s-item__price::text"),
             "shipping": box.xpath(".//*[contains(text(),'delivery')]/text()").get(),
             "location": location.split("Located in ")[1] if location else None,
-            "subtitles": css(".s-card__subtitle span::text"),
+            # the item condition ("Pre-Owned") is the last subtitle row, an earlier row can list the product's details
+            "subtitles": (box.css(".s-card__subtitle")[-1:].css("span::text").get() or "").strip() or None,
             "photo": css("img::attr(data-src)") or css("img::attr(src)"),
             "rating": re.search(r'[\d.]+%', rating).group() if rating and re.search(r'[\d.]+%', rating) else None,
             "rating_count": rating_count,

@@ -51,7 +51,7 @@ async def test_product_scraping():
         "price": {"type": "string", "minlength": 1},
         "seller_name": {"type": "string", "minlength": 1},
         "seller_url": {"type": "string", },
-        "photos": {"type": "list", "schema": {"type": "string"}},
+        "photos": {"type": "list", "schema": {"type": "string", "regex": r"https://.+"}},
         "description_url": {"type": "string", "regex": r"https://.+?ebaydesc\.com/.+"},
         "features": {"type": "dict"},
     }
