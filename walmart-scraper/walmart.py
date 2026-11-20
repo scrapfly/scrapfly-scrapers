@@ -9,7 +9,7 @@ import os
 import json
 import math
 import asyncio
-from typing import Dict, List, TypedDict, Any
+from typing import Dict, List, Literal, Any
 from urllib.parse import urlencode
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse, ScrapflyError
@@ -107,10 +107,7 @@ async def scrape_products(urls: List[str]) -> List[Dict]:
 
 async def scrape_search(
     query: str = "",
-    sort: TypedDict(
-        "SortOptions",
-        {"best_seller": str, "best_match": str, "price_low": str, "price_high": str},
-    ) = "best_match",
+    sort: Literal["best_seller", "best_match", "price_low", "price_high"] = "best_match",
     max_pages: int = None,
 ):
     """scrape single walmart search page"""
@@ -120,7 +117,7 @@ async def scrape_search(
             {
                 "q": query,
                 "page": page,
-                sort: sort,
+                "sort": sort,
                 "affinityOverride": "default",
             }
         )
