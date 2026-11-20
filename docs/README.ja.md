@@ -10,7 +10,7 @@
 
 このリポジトリには、[ScrapFly](https://scrapfly.io) のウェブスクレイピング API と Python を使って人気サイトをスクレイピングする、学習用のサンプルスクレイパーが含まれています。  
 ほとんどのスクレイパーはシンプルな構成で作られています：
-- Python 3.10 以上
+- Python 3.12 以上
 - [Scrapfly の Python SDK](https://github.com/scrapfly/python-scrapfly)：HTTP リクエストの送信、ブロックの回避、組み込みの [parsel](https://pypi.org/project/parsel/) セレクターによる HTML の解析に使用します。
 - [asyncio](https://docs.python.org/3/library/asyncio.html)：async/await 構文で並行処理のコードを書くために使用します。
 - [JMESPath](https://pypi.org/project/jmespath/) と [nested-lookup](https://pypi.org/project/nested-lookup/)：必要に応じて JSON の解析に使用します。
@@ -22,7 +22,7 @@ AI エージェントや LLM ツール向けには、[llms.txt](../llms.txt) に
 
 ## クイックスタート
 
-各スクレイパーは独立したフォルダーにあり、単体で動作します（Python 3.10 以上と [Poetry](https://python-poetry.org/docs/#installation) が必要です）：
+各スクレイパーは独立したフォルダーにあり、単体で動作します（Python 3.12 以上と [Poetry](https://python-poetry.org/docs/#installation) が必要です）：
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

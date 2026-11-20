@@ -83,7 +83,7 @@ Jede Route hängt vom Shop ab, daher zuerst die Vorabprüfung ausführen, bevor 
 
 ## Schnellstart
 
-Benötigt Python 3.10+ und [Poetry](https://python-poetry.org/docs/#installation).
+Benötigt Python 3.12+ und [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

@@ -93,7 +93,7 @@ Deleted or private pins quietly redirect to `/ideas/` instead of returning a
 
 ## Quick start
 
-Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).
+Requires Python 3.12+ and [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

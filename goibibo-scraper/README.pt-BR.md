@@ -52,7 +52,7 @@ O Goibibo.com pode ser difícil de raspar por causa do bloqueio de scrapers, por
 
 ## Início rápido
 
-Requer Python 3.10+ e [Poetry](https://python-poetry.org/docs/#installation).
+Requer Python 3.12+ e [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

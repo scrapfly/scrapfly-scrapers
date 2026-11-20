@@ -10,7 +10,7 @@
 
 Este repositório contém scrapers de exemplo, com fins educativos, para sites populares, usando a API de web scraping do [ScrapFly](https://scrapfly.io) e Python.  
 A maioria dos scrapers usa uma stack simples:
-- Python 3.10 ou superior
+- Python 3.12 ou superior
 - [O SDK Python do Scrapfly](https://github.com/scrapfly/python-scrapfly) para enviar requisições HTTP, contornar bloqueios e analisar o HTML com o seletor [parsel](https://pypi.org/project/parsel/) embutido.
 - [asyncio](https://docs.python.org/3/library/asyncio.html) para escrever código concorrente com a sintaxe async/await.
 - [JMESPath](https://pypi.org/project/jmespath/) e [nested-lookup](https://pypi.org/project/nested-lookup/) para analisar JSON quando necessário.
@@ -22,7 +22,7 @@ Para agentes de IA e ferramentas de LLM, o [llms.txt](../llms.txt) lista cada sc
 
 ## Início rápido
 
-Cada scraper fica em sua própria pasta e funciona de forma independente (Python 3.10+ e [Poetry](https://python-poetry.org/docs/#installation)):
+Cada scraper fica em sua própria pasta e funciona de forma independente (Python 3.12+ e [Poetry](https://python-poetry.org/docs/#installation)):
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

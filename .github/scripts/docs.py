@@ -93,7 +93,7 @@ results, product, property, profile, reviews) and adapt its URLs, parsing and te
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
 cd scrapfly-scrapers/amazon-scraper        # any <name>-scraper folder
 export SCRAPFLY_KEY="your API key"         # from https://scrapfly.io/dashboard
-poetry install --no-root                   # Python 3.10+
+poetry install --no-root                   # Python 3.12+
 poetry run python run.py                   # example scrape, writes results/*.json
 poetry run pytest test.py -k test_search   # live tests, one test at a time with -k
 ```
@@ -496,7 +496,7 @@ PHRASES = {
     "[Scrape API documentation](https://scrapfly.io/docs/scrape-api/getting-started):",
     "notes": "Notes",
     "quick_start": "Quick start",
-    "requires": "Requires Python 3.10+ and [Poetry](https://python-poetry.org/docs/#installation).",
+    "requires": "Requires Python 3.12+ and [Poetry](https://python-poetry.org/docs/#installation).",
     "comment_key": "from https://scrapfly.io/dashboard",
     "comment_run": "example scrape, saves its output in ./results",
     "comment_test": "the tests of this scraper",

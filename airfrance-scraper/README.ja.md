@@ -33,7 +33,7 @@ airfrance.fr の往復航空券のオファーを収集するサンプルスク�
 
 ## クイックスタート
 
-Python 3.10 以上と [Poetry](https://python-poetry.org/docs/#installation) が必要です。
+Python 3.12 以上と [Poetry](https://python-poetry.org/docs/#installation) が必要です。
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

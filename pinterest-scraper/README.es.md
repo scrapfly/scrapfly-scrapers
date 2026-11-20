@@ -93,7 +93,7 @@ Los pins eliminados o privados redirigen sin avisar a `/ideas/` en lugar de devo
 
 ## Inicio rápido
 
-Requiere Python 3.10+ y [Poetry](https://python-poetry.org/docs/#installation).
+Requiere Python 3.12+ y [Poetry](https://python-poetry.org/docs/#installation).
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

@@ -29,7 +29,7 @@
     "settings_note": "`BASE_CONFIG` em [`{module}.py`]({module}.py) contém as configurações padrão das requisições; veja a [documentação da Scrape API](https://scrapfly.io/docs/scrape-api/getting-started):",
     "notes": "Observações",
     "quick_start": "Início rápido",
-    "requires": "Requer Python 3.10+ e [Poetry](https://python-poetry.org/docs/#installation).",
+    "requires": "Requer Python 3.12+ e [Poetry](https://python-poetry.org/docs/#installation).",
     "comment_key": "em https://scrapfly.io/dashboard",
     "comment_run": "scraping de exemplo, salva a saída em ./results",
     "comment_test": "os testes deste scraper",

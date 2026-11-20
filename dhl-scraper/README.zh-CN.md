@@ -62,7 +62,7 @@ DHL 有反爬虫拦截，抓取难度较大，因此本爬虫使用 Scrapfly 的
 
 ## 快速开始
 
-需要 Python 3.10 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)。
+需要 Python 3.12 及以上版本和 [Poetry](https://python-poetry.org/docs/#installation)。
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git

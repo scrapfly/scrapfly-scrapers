@@ -10,7 +10,7 @@
 
 В этом репозитории собраны учебные примеры скраперов для популярных сайтов на Python с использованием API для веб-скрапинга [ScrapFly](https://scrapfly.io).  
 Большинство скраперов используют простой набор инструментов:
-- Python 3.10 и новее
+- Python 3.12 и новее
 - [Python SDK от Scrapfly](https://github.com/scrapfly/python-scrapfly) для отправки HTTP-запросов, обхода блокировок и разбора HTML встроенным селектором [parsel](https://pypi.org/project/parsel/).
 - [asyncio](https://docs.python.org/3/library/asyncio.html) для написания конкурентного кода с синтаксисом async/await.
 - [JMESPath](https://pypi.org/project/jmespath/) и [nested-lookup](https://pypi.org/project/nested-lookup/) для разбора JSON, когда это нужно.
@@ -22,7 +22,7 @@
 
 ## Быстрый старт
 
-Каждый скрапер находится в своей папке и запускается отдельно (нужны Python 3.10+ и [Poetry](https://python-poetry.org/docs/#installation)):
+Каждый скрапер находится в своей папке и запускается отдельно (нужны Python 3.12+ и [Poetry](https://python-poetry.org/docs/#installation)):
 
 ```shell
 git clone https://github.com/scrapfly/scrapfly-scrapers.git
