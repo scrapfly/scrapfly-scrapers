@@ -74,6 +74,20 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
+        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
+        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../allegro-scraper/">Allegro.pl</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-allegro">How to Scrape Allegro.pl in 2026 (Without Getting Blocked)</a></td>
     <td>
@@ -411,6 +425,21 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../google-scraper/">Google.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google">How to Scrape Google Search Results</a> - <a href="https://scrapfly.io/blog/posts/how-to-scrape-google-maps">How to Scrape Google Maps</a></td>
+    <td>
+    <ul>
+        <li><a href="../google-scraper/results/serp.json">SERP data</a></li>
+        <li><a href="../google-scraper/results/keywords.json">Keyword data</a></li>
+        <li><a href="../google-scraper/results/google_map_places_urls.json">Google Maps place URLs</a></li>
+        <li><a href="../google-scraper/results/google_map_places.json">Google Maps place data</a></li>
+        <li><a href="../google-scraper/results/ai_mode.json">Ai mode</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-scraper.svg" alt="google-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../homegate-scraper/">Homegate.ch</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-homegate-ch-real-estate-property-data">How to Scrape Homegate.ch Real Estate Property Data</a></td>
     <td>
@@ -652,6 +681,18 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../nordstorm-scraper/">Nordstorm.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-nordstrom">How to Scrape Nordstrom Fashion Product Data</a></td>
+    <td>
+    <ul>
+        <li><a href="../nordstorm-scraper/results/products.json">Product pages</a></li>
+        <li><a href="../nordstorm-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -966,18 +1007,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../zillow-scraper/">Zillow.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zillow">How to Scrape Zillow Real Estate Property Data in Python</a></td>
-    <td>
-    <ul>
-        <li><a href="../zillow-scraper/results/property.json">Property pages</a></li>
-        <li><a href="../zillow-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zillow-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zillow-scraper.svg" alt="zillow-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../zoominfo-scraper/">Zoominfo.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zoominfo">How to Scrape Zoominfo Company Data (2025 Update)</a></td>
     <td>
@@ -1015,44 +1044,15 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../aliexpress-scraper/">Aliexpress.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-aliexpress">How to Scrape Aliexpress.com (2025 Update)</a></td>
+    <td><a href="../zillow-scraper/">Zillow.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-zillow">How to Scrape Zillow Real Estate Property Data in Python</a></td>
     <td>
     <ul>
-        <li><a href="../aliexpress-scraper/results/product.json">Product pages</a></li>
-        <li><a href="../aliexpress-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../aliexpress-scraper/results/reviews.json">Product reviews</a></li>
-        <li><a href="../aliexpress-scraper/results/category_products.json">Category products</a></li>
+        <li><a href="../zillow-scraper/results/property.json">Property pages</a></li>
+        <li><a href="../zillow-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/aliexpress-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/aliexpress-scraper.svg" alt="aliexpress-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../google-scraper/">Google.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-google">How to Scrape Google Search Results</a> - <a href="https://scrapfly.io/blog/posts/how-to-scrape-google-maps">How to Scrape Google Maps</a></td>
-    <td>
-    <ul>
-        <li><a href="../google-scraper/results/serp.json">SERP data</a></li>
-        <li><a href="../google-scraper/results/keywords.json">Keyword data</a></li>
-        <li><a href="../google-scraper/results/google_map_places_urls.json">Google Maps place URLs</a></li>
-        <li><a href="../google-scraper/results/google_map_places.json">Google Maps place data</a></li>
-        <li><a href="../google-scraper/results/ai_mode.json">Ai mode</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/google-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/google-scraper.svg" alt="google-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../nordstorm-scraper/">Nordstorm.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-nordstrom">How to Scrape Nordstrom Fashion Product Data</a></td>
-    <td>
-    <ul>
-        <li><a href="../nordstorm-scraper/results/products.json">Product pages</a></li>
-        <li><a href="../nordstorm-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zillow-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zillow-scraper.svg" alt="zillow-scraper-status"></a></td>
   </tr>
 
   <tr>
