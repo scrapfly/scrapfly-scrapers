@@ -7,7 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import re
 from typing import Dict, List, Optional, TypedDict
-from urllib.parse import urljoin
+from urllib.parse import parse_qs, urljoin, urlparse
 
 from loguru import logger as log
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
@@ -131,12 +131,18 @@ def parse_category_page(response: ScrapeApiResponse) -> List[CategoryProduct]:
             if t.strip()
         ]
 
+        # the product logo (a "shortlist badge" image can come before it); some logos are a relative link
+        # to the site's image proxy, whose url parameter is the logo's own address
+        logo = card.css('img[alt="product-logo"]::attr(src)').get() or card.css("img::attr(src)").get()
+        if logo and "/_next/image?" in logo:
+            logo = parse_qs(urlparse(logo).query).get("url", [logo])[0]
+
         products.append({
             "product_id": product_id_match.group(1),
             "name": name.strip(),
             "url": url,
             "reviews_url": reviews_url,
-            "logo": card.css("img::attr(src)").get(),
+            "logo": logo,
             "rating": rating,
             "review_count": review_count,
             "rating_breakdown": rating_breakdown,
