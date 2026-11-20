@@ -156,9 +156,10 @@ def parse_book(response: ScrapeApiResponse) -> Dict:
     rating = ld.get("aggregateRating") or {}
     authors = ld.get("author") or []
 
-    description = " ".join(
-        t.strip() for t in sel.css('div[data-testid="description"] .Formatted::text').getall() if t.strip()
-    )
+    # the description with the text of its links and bold/italic parts (e.g. the book title in <i>);
+    # <br> separates its paragraphs
+    parts = sel.css('div[data-testid="description"] .Formatted').xpath(".//text() | .//br").getall()
+    description = " ".join("".join(" " if part.startswith("<br") else part for part in parts).split())
     genres = [
         g.strip()
         for g in sel.css(
