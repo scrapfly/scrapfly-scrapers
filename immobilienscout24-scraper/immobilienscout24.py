@@ -99,7 +99,8 @@ def parse_property_page(response: ScrapeApiResponse):
     construction_year = strip_text(selector.xpath("//dd[contains(@class, 'baujahr')]/text()").get())
     energy_sources = strip_text(selector.xpath("//dd[contains(@class, 'wesentliche-energietraeger')]/text()").get())
     energy_certificate = strip_text(selector.xpath("//dd[@class='is24qa-energieausweis grid-item three-fifths']/text()").get())
-    energy_certificate_type = strip_text(selector.xpath("//dd[contains(@class, 'energieausweis')]/text()").get())
+    # the type ("Bedarfsausweis") has its own row; 'energieausweis' alone first matches the certificate row ("liegt vor")
+    energy_certificate_type = strip_text(selector.xpath("//dd[contains(@class, 'energieausweistyp')]/text()").get())
     energy_certificate_date = strip_text(selector.xpath("//dd[contains(@class, 'baujahr-laut-energieausweis')]/text()").get())
     final_energy_requirement = strip_text(selector.xpath("//dd[contains(@class, 'endenergiebedarf')]/text()").get())
     property_images = []
