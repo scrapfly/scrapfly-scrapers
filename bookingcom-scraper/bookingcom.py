@@ -314,7 +314,7 @@ def parse_hotel(result: ScrapeApiResponse) -> Hotel:
     data = {
         "url": result.context["url"],
         "id": id[0] if id else None,
-        "title": sel.css("h2::text").get(),
+        "title": sel.css(".pp-header__title::text").get(),  # the hotel name heading (the first h2 is "Availability")
         "description": css('[data-capla-component-boundary="b-property-web-property-page/PropertyDescriptionDesktop"] ::text', "\n"),
         "address": sel.xpath("//div[@data-testid='PropertyHeaderAddressDesktop-wrapper']//button/div/text()").get(),
         "images": sel.css("#photo_wrapper img::attr(src)").getall(),
