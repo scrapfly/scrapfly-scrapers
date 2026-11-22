@@ -151,18 +151,6 @@ Le badge indique **passing** (tous les tests ont réussi), **N/M passing** (cert
   </tr>
 
   <tr>
-    <td><a href="../bing-scraper/">Bing.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bing-search-using-python">How to Scrape Bing Search with Python</a></td>
-    <td>
-    <ul>
-        <li><a href="../bing-scraper/results/serps.json">SERP data</a></li>
-        <li><a href="../bing-scraper/results/keywords.json">Keyword data</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bing-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../bookingcom-scraper/">Booking.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
     <td>
@@ -282,18 +270,6 @@ Le badge indique **passing** (tous les tests ont réussi), **N/M passing** (cert
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/etsy-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/etsy-scraper.svg" alt="etsy-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../expedia-scraper/">Expedia.com</a></td>
-    <td>-</td>
-    <td>
-    <ul>
-        <li><a href="../expedia-scraper/results/flights.json">Flights</a></li>
-        <li><a href="../expedia-scraper/results/hotels.json">Hotels</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/expedia-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/expedia-scraper.svg" alt="expedia-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -747,6 +723,20 @@ Le badge indique **passing** (tous les tests ont réussi), **N/M passing** (cert
   </tr>
 
   <tr>
+    <td><a href="../reddit-scraper/">Reddit.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data">How to Scrape Reddit Posts, Subreddits and Profiles</a></td>
+    <td>
+    <ul>
+        <li><a href="../reddit-scraper/results/post.json">Post pages</a></li>
+        <li><a href="../reddit-scraper/results/subreddit.json">Subreddit pages</a></li>
+        <li><a href="../reddit-scraper/results/user_comments.json">User comment pages</a></li>
+        <li><a href="../reddit-scraper/results/user_posts.json">User post pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../redfin-scraper/">Redfin.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-redfin">How to Scrape Redfin Real Estate Property Data in Python</a></td>
     <td>
@@ -1069,17 +1059,27 @@ Le badge indique **passing** (tous les tests ont réussi), **N/M passing** (cert
   </tr>
 
   <tr>
-    <td><a href="../reddit-scraper/">Reddit.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-reddit-social-data">How to Scrape Reddit Posts, Subreddits and Profiles</a></td>
+    <td><a href="../bing-scraper/">Bing.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bing-search-using-python">How to Scrape Bing Search with Python</a></td>
     <td>
     <ul>
-        <li><a href="../reddit-scraper/results/post.json">Post pages</a></li>
-        <li><a href="../reddit-scraper/results/subreddit.json">Subreddit pages</a></li>
-        <li><a href="../reddit-scraper/results/user_comments.json">User comment pages</a></li>
-        <li><a href="../reddit-scraper/results/user_posts.json">User post pages</a></li>
+        <li><a href="../bing-scraper/results/serps.json">SERP data</a></li>
+        <li><a href="../bing-scraper/results/keywords.json">Keyword data</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/reddit-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/reddit-scraper.svg" alt="reddit-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bing-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../expedia-scraper/">Expedia.com</a></td>
+    <td>-</td>
+    <td>
+    <ul>
+        <li><a href="../expedia-scraper/results/flights.json">Flights</a></li>
+        <li><a href="../expedia-scraper/results/hotels.json">Hotels</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/expedia-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/expedia-scraper.svg" alt="expedia-scraper-status"></a></td>
   </tr>
 
 </table>
