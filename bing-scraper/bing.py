@@ -24,6 +24,12 @@ BASE_CONFIG = {
 }
 
 
+def is_no_results_page(response: ScrapeApiResponse) -> bool:
+    """bing sometimes answers a search page with "There are no results for ..." and no result list"""
+    selector = response.selector
+    return bool(selector.xpath("//li[@class='b_no']")) and not selector.xpath("//li[@class='b_algo']")
+
+
 def parse_serps(response: ScrapeApiResponse) -> List[Dict]:
     """parse SERPs from bing search pages"""
     selector = response.selector
@@ -70,6 +76,8 @@ async def scrape_search(query: str, max_pages: int = None):
     url = f"https://www.bing.com/search?{urlencode({'q': query})}"
     log.info("scraping the first search page")
     response = await SCRAPFLY.async_scrape(ScrapeConfig(url, **BASE_CONFIG))
+    if is_no_results_page(response):
+        raise ValueError(f"bing.com answered 'There are no results' for the first search page: {url}")
     serp_data = parse_serps(response)
 
     log.info(f"scraping search pagination ({max_pages - 1} more pages)")
@@ -83,6 +91,9 @@ async def scrape_search(query: str, max_pages: int = None):
     async for response in SCRAPFLY.concurrent_scrape(other_pages):
         if isinstance(response, ScrapflyError):  # a failed request comes back as the error object, not raised
             log.error(f"skipping a page that could not be scraped: {response}")
+            continue
+        if is_no_results_page(response):
+            log.warning(f"bing.com answered 'There are no results' for {response.context['url']}, skipping it")
             continue
         data = parse_serps(response)
         serp_data.extend(data)
