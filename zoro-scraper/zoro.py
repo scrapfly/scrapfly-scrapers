@@ -11,6 +11,7 @@ import os
 import json
 import re
 from datetime import datetime
+from html import unescape
 import urllib.parse
 from pathlib import Path
 from loguru import logger as log
@@ -155,7 +156,8 @@ def parse_product(response: ScrapeApiResponse) -> ZoroProduct:
     name = data.get("name", "")
     brand = data.get("brand", {}).get("name", "") if data.get("brand") else ""
     description_html = data.get("description", "")
-    description = re.sub(r"<[^>]+>", "", description_html).strip()
+    # the JSON-LD text keeps HTML entities ("ISO 13485 &amp; ASTM"), decode them after removing the tags
+    description = unescape(re.sub(r"<[^>]+>", "", description_html)).strip()
 
     # Extract pricing and availability from JSON-LD data
     offers = data.get("offers", {})
