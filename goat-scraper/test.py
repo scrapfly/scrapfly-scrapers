@@ -26,9 +26,9 @@ product_schema = {
     "forAuction": {"type": "boolean", "nullable": True},
     "id": {"type": "integer"},
     "internalShot": {"type": "string"},
-    "maximumOfferCents": {"type": "integer"},
+    "maximumOfferCents": {"type": "integer", "nullable": True},  # not on the newer /product/ pages
     "midsole": {"type": "string"},
-    "minimumOfferCents": {"type": "integer"},
+    "minimumOfferCents": {"type": "integer", "nullable": True},  # not on the newer /product/ pages
     "name": {"type": "string"},
     "productCategory": {"type": "string"},
     "productType": {"type": "string"},
