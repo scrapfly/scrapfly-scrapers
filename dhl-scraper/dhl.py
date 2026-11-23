@@ -10,7 +10,7 @@ import os
 from typing import List, Literal, Optional, TypedDict
 
 from loguru import logger as log
-from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
+from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient, ScrapflyError
 
 SCRAPFLY = ScrapflyClient(key=os.environ["SCRAPFLY_KEY"])
 
@@ -51,9 +51,12 @@ def _build_tracking_url(tracking_number: str, api_endpoint: bool = False) -> str
 
 
 def _get_xhr_data(response: ScrapeApiResponse, url_pattern: str) -> dict:
-    """Extract and parse the JSON body of the first XHR call whose URL contains url_pattern."""
+    """Extract and parse the JSON body of the last successful XHR call whose URL contains url_pattern."""
     xhr_calls = response.scrape_result.get("browser_data", {}).get("xhr_call", [])
-    call = next((c for c in xhr_calls if url_pattern in c.get("url", "")), None)
+    # the tracking page can be answered 428 first and then asks again, so take the last answer with status 200
+    matching = [c for c in xhr_calls if url_pattern in c.get("url", "")]
+    answered = [c for c in matching if (c.get("response") or {}).get("status") == 200]
+    call = (answered or matching or [None])[-1]
     if not call:
         raise RuntimeError(f"XHR call matching '{url_pattern}' not found — try increasing rendering_wait")
     return json.loads(call["response"]["body"])
@@ -103,7 +106,7 @@ async def scrape_tracking(tracking_number: str) -> TrackingResult:
         result = _parse_tracking_api_response(json.loads(response.content), tracking_number)
         if result.get("events"):
             return result
-    except ScrapflyScrapeError as e:
+    except ScrapflyError as e:  # also a refused request (ScrapflyAspError): the tracking page below is tried then
         log.warning(f"API failed for {tracking_number}: {e}")
 
     url = _build_tracking_url(tracking_number, api_endpoint=False)
