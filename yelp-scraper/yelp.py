@@ -8,6 +8,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import json
 import math
+import re
 import base64
 import jmespath
 from html import unescape
@@ -45,14 +46,25 @@ def parse_page(response: ScrapeApiResponse):
     open_hours = {}
     for day in sel.xpath('//th/p[contains(@class,"day-of-the-week")]'):
         name = day.xpath("text()").get().strip()
-        value = day.xpath("../following-sibling::td//p/text()").get().strip()
+        # a day can have several opening ranges ("10:00 AM - 3:00 PM", "3:30 PM - 11:00 PM"): keep them all
+        value = ", ".join(t.strip() for t in day.xpath("../following-sibling::td//p/text()").getall() if t.strip())
         open_hours[name.lower()] = value
+
+    address = xpath('//a[contains(text(),"Get Directions")]/../following-sibling::p/text()')
+    if not address:
+        # the "Get Directions" block is gone from the page (2026-11); the page's schema.org data has the address
+        for script in sel.xpath("//script[@type='application/ld+json']/text()").getall():
+            if match := re.search(r'\{"@type":"PostalAddress"[^{}]*\}', script):
+                postal = json.loads(match.group())
+                street, city = postal.get("streetAddress", ""), postal.get("addressLocality", "")
+                address = f'{street} {city}, {postal.get("addressRegion", "")} {postal.get("postalCode", "")}'.strip()
+                break
 
     return dict(
         name=xpath("//h1/text()"),
         website=xpath('//p[contains(text(),"Business website")]/following-sibling::p/a/text()'),
         phone=xpath('//p[contains(text(),"Phone number")]/following-sibling::p/text()'),
-        address=xpath('//a[contains(text(),"Get Directions")]/../following-sibling::p/text()'),
+        address=address,
         logo=xpath('//img[contains(@class,"businessLogo")]/@src'),
         claim_status="".join(sel.xpath('//span[span[contains(@class,"claim")]]/text()').getall()).strip().lower(),
         open_hours=open_hours,
