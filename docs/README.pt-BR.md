@@ -151,6 +151,18 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../bing-scraper/">Bing.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bing-search-using-python">How to Scrape Bing Search with Python</a></td>
+    <td>
+    <ul>
+        <li><a href="../bing-scraper/results/serps.json">SERP data</a></li>
+        <li><a href="../bing-scraper/results/keywords.json">Keyword data</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bing-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../bookingcom-scraper/">Booking.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bookingcom">How to Scrape Booking.com (2025 Update)</a></td>
     <td>
@@ -270,6 +282,18 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/etsy-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/etsy-scraper.svg" alt="etsy-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../expedia-scraper/">Expedia.com</a></td>
+    <td>-</td>
+    <td>
+    <ul>
+        <li><a href="../expedia-scraper/results/flights.json">Flights</a></li>
+        <li><a href="../expedia-scraper/results/hotels.json">Hotels</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/expedia-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/expedia-scraper.svg" alt="expedia-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -453,21 +477,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/idealo-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/idealo-scraper.svg" alt="idealo-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../imdb-scraper/">IMDb.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
-    <td>
-    <ul>
-        <li><a href="../imdb-scraper/results/chart.json">Chart</a></li>
-        <li><a href="../imdb-scraper/results/person.json">Person</a></li>
-        <li><a href="../imdb-scraper/results/reviews.json">Reviews</a></li>
-        <li><a href="../imdb-scraper/results/search.json">Search</a></li>
-        <li><a href="../imdb-scraper/results/title.json">Title</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imdb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imdb-scraper.svg" alt="imdb-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1059,27 +1068,18 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../bing-scraper/">Bing.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-bing-search-using-python">How to Scrape Bing Search with Python</a></td>
+    <td><a href="../imdb-scraper/">IMDb.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
     <td>
     <ul>
-        <li><a href="../bing-scraper/results/serps.json">SERP data</a></li>
-        <li><a href="../bing-scraper/results/keywords.json">Keyword data</a></li>
+        <li><a href="../imdb-scraper/results/chart.json">Chart</a></li>
+        <li><a href="../imdb-scraper/results/person.json">Person</a></li>
+        <li><a href="../imdb-scraper/results/reviews.json">Reviews</a></li>
+        <li><a href="../imdb-scraper/results/search.json">Search</a></li>
+        <li><a href="../imdb-scraper/results/title.json">Title</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/bing-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/bing-scraper.svg" alt="bing-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../expedia-scraper/">Expedia.com</a></td>
-    <td>-</td>
-    <td>
-    <ul>
-        <li><a href="../expedia-scraper/results/flights.json">Flights</a></li>
-        <li><a href="../expedia-scraper/results/hotels.json">Hotels</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/expedia-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/expedia-scraper.svg" alt="expedia-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imdb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imdb-scraper.svg" alt="imdb-scraper-status"></a></td>
   </tr>
 
 </table>
