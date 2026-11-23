@@ -123,17 +123,29 @@ def build_next_page_config(
     )
 
 
+def _property_search(page_data: Dict) -> Dict:
+    """hotel results of a listings answer: some pages ask with RemainderListingsPriceResolved, which answers
+    the same results object under priceResolvedPropertySearch"""
+    data = page_data.get("data") or {}
+    search = data.get("propertySearch") or data.get("priceResolvedPropertySearch")
+    if not search:
+        raise ValueError(
+            f"expedia.com answered the hotel listings request without results: {json.dumps(page_data)[:200]}"
+        )
+    return search
+
+
 def _has_next_page(page_data: Dict | List[Dict], search_type: Literal["hotel", "flight"] = "hotel") -> bool:
     """check whether the server indicates more results are available"""
     if search_type == "hotel":
-        pagination = page_data["data"]["propertySearch"].get("pagination") or {}
+        pagination = _property_search(page_data).get("pagination") or {}
         return bool((pagination.get("subSets") or {}).get("nextSubSet"))
     return bool(page_data[0]["data"]["flightsSearch"]["listingResult"].get("moreListingsAvailable"))
 
 
 def parse_hotels(page_data: Dict, captured_at: str) -> List[Hotel]:
     """parse LodgingCard listings from a PropertyListingQuery response"""
-    search = page_data["data"]["propertySearch"]
+    search = _property_search(page_data)
     region = search.get("criteria", {}).get("primary", {}).get("destination", {}).get("regionName", "")
     market_country = region.rsplit(", ", 1)[-1] if region else None
 
