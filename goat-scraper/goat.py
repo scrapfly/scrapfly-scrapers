@@ -138,6 +138,9 @@ async def scrape_search(query: str, max_pages: int = 10) -> List[Dict]:
             if isinstance(result, ScrapflyError):  # a failed request comes back as the error object, not raised
                 log.error(f"skipping a page that could not be scraped: {result}")
                 continue
+            if result.upstream_status_code != 200:  # goat.com sometimes answers a search page with an empty 410
+                log.error(f"skipping {result.context['url']}: the site answered HTTP {result.upstream_status_code}")
+                continue
             data = json.loads(result.content).get("data", {})
             items = data.get("productsList", [])
             results.extend(items)
