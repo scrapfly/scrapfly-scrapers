@@ -7,6 +7,7 @@ $ export $SCRAPFLY_KEY="your key from https://scrapfly.io/dashboard"
 import os
 import re
 import json
+from html import unescape
 from pathlib import Path
 from typing import Dict, List, Optional, TypedDict
 from loguru import logger as log
@@ -143,7 +144,8 @@ def parse_product(response: ScrapeApiResponse) -> RSProduct:
         rs_stock_number=rs_stock_number or product_ld.get("sku", ""),
         mpn=mpn or None,
         brand=brand,
-        description=product_ld.get("description") or None,
+        # the page's JSON-LD keeps HTML entities in the text ("Cinch&#039;s", "&amp;"), decode them
+        description=unescape(product_ld.get("description") or "") or None,
         price=str(offers.get("price")) if offers.get("price") is not None else None,
         currency=offers.get("priceCurrency") or None,
         availability=availability or None,
