@@ -480,6 +480,21 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../imdb-scraper/">IMDb.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
+    <td>
+    <ul>
+        <li><a href="../imdb-scraper/results/chart.json">Chart</a></li>
+        <li><a href="../imdb-scraper/results/person.json">Person</a></li>
+        <li><a href="../imdb-scraper/results/reviews.json">Reviews</a></li>
+        <li><a href="../imdb-scraper/results/search.json">Search</a></li>
+        <li><a href="../imdb-scraper/results/title.json">Title</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imdb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imdb-scraper.svg" alt="imdb-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../immobilienscout24-scraper/">Immobilienscout24.de</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-immobilienscout24">How to Scrape Immobilienscout24.de Real Estate Data</a></td>
     <td>
@@ -525,18 +540,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imovelweb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imovelweb-scraper.svg" alt="imovelweb-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../indeed-scraper/">Indeed.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-indeedcom">How to Scrape Indeed.com (2025 Update)</a></td>
-    <td>
-    <ul>
-        <li><a href="../indeed-scraper/results/jobs.json">Job pages</a></li>
-        <li><a href="../indeed-scraper/results/search.json">Search pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1068,18 +1071,15 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../imdb-scraper/">IMDb.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-imdb">How to Scrape IMDb Data, Ratings, and Featured Reviews</a></td>
+    <td><a href="../indeed-scraper/">Indeed.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-indeedcom">How to Scrape Indeed.com (2025 Update)</a></td>
     <td>
     <ul>
-        <li><a href="../imdb-scraper/results/chart.json">Chart</a></li>
-        <li><a href="../imdb-scraper/results/person.json">Person</a></li>
-        <li><a href="../imdb-scraper/results/reviews.json">Reviews</a></li>
-        <li><a href="../imdb-scraper/results/search.json">Search</a></li>
-        <li><a href="../imdb-scraper/results/title.json">Title</a></li>
+        <li><a href="../indeed-scraper/results/jobs.json">Job pages</a></li>
+        <li><a href="../indeed-scraper/results/search.json">Search pages</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/imdb-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/imdb-scraper.svg" alt="imdb-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
   </tr>
 
 </table>
