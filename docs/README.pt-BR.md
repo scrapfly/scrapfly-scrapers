@@ -543,6 +543,18 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
+    <td><a href="../indeed-scraper/">Indeed.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-indeedcom">How to Scrape Indeed.com (2025 Update)</a></td>
+    <td>
+    <ul>
+        <li><a href="../indeed-scraper/results/jobs.json">Job pages</a></li>
+        <li><a href="../indeed-scraper/results/search.json">Search pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../instagram-scraper/">Instagram.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-instagram">How to Scrape Instagram in 2025</a></td>
     <td>
@@ -681,17 +693,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -906,19 +907,6 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../tripadvisor-scraper/">Tripadvisor.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-tripadvisor">How to Scrape TripAdvisor.com (2025 Updated)</a></td>
-    <td>
-    <ul>
-        <li><a href="../tripadvisor-scraper/results/hotels.json">Hotel pages</a></li>
-        <li><a href="../tripadvisor-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../tripadvisor-scraper/results/location.json">Location pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tripadvisor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../trustpilot-scraper/">Trustpilot.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-trustpilot-com-reviews">How to Scrape Trustpilot.com Reviews and Company Data</a></td>
     <td>
@@ -1071,15 +1059,27 @@ O selo indica **passing** (todos os testes passaram), **N/M passing** (alguns pa
   </tr>
 
   <tr>
-    <td><a href="../indeed-scraper/">Indeed.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-indeedcom">How to Scrape Indeed.com (2025 Update)</a></td>
+    <td><a href="../tripadvisor-scraper/">Tripadvisor.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-tripadvisor">How to Scrape TripAdvisor.com (2025 Updated)</a></td>
     <td>
     <ul>
-        <li><a href="../indeed-scraper/results/jobs.json">Job pages</a></li>
-        <li><a href="../indeed-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../tripadvisor-scraper/results/hotels.json">Hotel pages</a></li>
+        <li><a href="../tripadvisor-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../tripadvisor-scraper/results/location.json">Location pages</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/indeed-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/indeed-scraper.svg" alt="indeed-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tripadvisor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
 </table>
