@@ -75,26 +75,19 @@ jobs:
         --pytest-log ${{ matrix.project_dir }}/pytest.log >> "$GITHUB_OUTPUT"
 
     - name: Send Slack notification
-      uses: 8398a7/action-slack@v3
+      # posts the message to the webhook with curl (the action used before, 8398a7/action-slack, is archived and runs on
+      # Node.js 20, which GitHub deprecated); a short default message when it could not be composed
       if: failure() && github.event_name == 'schedule'
-      with:
-        status: custom
-        fields: workflowRun
-        custom_payload: |
-          {
-            text: "",
-            attachments: [{
-              color: "danger",
-              mrkdwn_in: ["text"],
-              fallback: process.env.SLACK_FALLBACK || `${{ matrix.project_dir }}: ${{ matrix.test }} failed`,
-              text: process.env.SLACK_TEXT || `${process.env.AS_WORKFLOW_RUN} ${{ matrix.project_dir }}: ${{ matrix.test }}`,
-            }]
-          }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_TEXT: ${{ steps.slack.outputs.text }}
         SLACK_FALLBACK: ${{ steps.slack.outputs.fallback }}
+        RUN_LINK: "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>"
+        JOB_LABEL: "${{ matrix.project_dir }}: ${{ matrix.test }}"
+      run: |
+        jq -nc --arg text "${SLACK_TEXT:-$RUN_LINK $JOB_LABEL}" --arg fallback "${SLACK_FALLBACK:-$JOB_LABEL failed}" \
+          '{text: "", attachments: [{color: "danger", mrkdwn_in: ["text"], fallback: $fallback, text: $text}]}' |
+          curl -sS --fail-with-body -H "Content-Type: application/json" --data @- "$SLACK_WEBHOOK_URL"
 
   status:
     # after the nightly: one badge file per scraper on the ci-status branch (the README status column reads them),
