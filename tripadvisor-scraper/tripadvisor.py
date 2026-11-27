@@ -9,8 +9,10 @@ import json
 import math
 import os
 import re
+import time
 from typing import List, Optional, TypedDict, Dict
 from urllib.parse import urljoin, urlparse, urlunparse
+from uuid import uuid4
 
 from loguru import logger as log
 from scrapfly import ScrapeApiResponse, ScrapeConfig, ScrapflyClient
@@ -63,54 +65,68 @@ async def scrape_location_data(query: str) -> List[LocationData]:
     e.g. "New York" will return us TripAdvisor's location details for this query
     """
     log.info(f"scraping location data: {query}")
-    # the graphql payload that defines our search
+    # the graphql payload that defines our search: the same typeahead request the
+    # search box of tripadvisor.com sends, identified by its pre-registered query id
     # note: that changing values outside of expected ranges can block the web scraper
-    
+    payload = [
+        {
+            "variables": {
+                "request": {
+                    "query": query,
+                    "limit": 10,
+                    "scope": "WORLDWIDE",
+                    "locale": "en-US",
+                    "scopeGeoId": 1,
+                    "searchCenter": None,
+                    "types": ["LOCATION", "QUERY_SUGGESTION", "RESCUE_RESULT"],
+                    "locationTypes": [
+                        "GEO",
+                        "ACCOMMODATION",
+                        "ATTRACTION",
+                        "ATTRACTION_PRODUCT",
+                        "EATERY",
+                        "AIRLINE",
+                        "SHIP",
+                        "CRUISE_LINE",
+                    ],
+                    "userId": None,
+                    "context": {
+                        "searchSessionId": f"{uuid4().hex[:16]}.ssid",
+                        "typeaheadId": str(int(time.time() * 1000)),
+                        "uiOrigin": "homepage_faceted_search_all",
+                        "routeUid": str(uuid4()),
+                    },
+                    "enabledFeatures": ["articles"],
+                    "includeRecent": True,
+                    "includeNestedResults": True,
+                },
+                "locale": "en-US",
+                "linkType": "",
+                "includeGeoRoute": False,
+                "includeLegacyParentHierarchy": False,
+                "includeNaturalParentHierarchy": False,
+            },
+            "extensions": {"preRegisteredQueryId": "71f3f33f8bb7e4bc"},
+        }
+    ]
     result = await SCRAPFLY.async_scrape(
         ScrapeConfig(
-            url="https://www.tripadvisor.com/",
+            url="https://www.tripadvisor.com/data/graphql/ids",
+            method="POST",
+            headers={
+                "content-type": "application/json",
+                "origin": "https://www.tripadvisor.com",
+                "referer": "https://www.tripadvisor.com/",
+            },
+            body=json.dumps(payload),
             **BASE_CONFIG,
-            render_js=True,
-            js_scenario=[
-                {
-                    "wait_for_selector": {
-                        "selector": "//input[@type='search']",
-                        "timeout": 5000
-                    }
-                },
-                {
-                    "fill": {
-                        "clear": False,
-                        "selector": "//input[@type='search']",
-                        "value": query
-                    }
-                },
-                {
-                    "wait": 5000
-                }
-            ]
         )
     )
-
-    # extract the json data from the graphql call
-    _xhr_calls = result.scrape_result["browser_data"]["xhr_call"]
-    graphql_calls = []
-    for call in _xhr_calls:
-        if "/data/graphql/ids" not in call["url"]:
-            continue
-        try:
-            body = json.loads(call["response"]["body"])
-        except (TypeError, ValueError):
-            continue  # not every batched graphql call answers with json
-        if isinstance(body, list) and body and isinstance(body[0], dict):
-            graphql_calls.append(body)
-    location_data_call = [f for f in graphql_calls if "Typeahead_autocomplete" in f[0].get("data", {})]
-    if not location_data_call:
-        log.error(f"no typeahead response captured for query: {query}")
+    try:
+        results = json.loads(result.content)[0]["data"]["Typeahead_autocomplete"]["results"]
+    except (ValueError, KeyError, IndexError, TypeError):
+        log.error(f"no typeahead response for query: {query} (HTTP {result.upstream_status_code})")
         return []
-    # one typeahead call fires per keystroke, so only the last answers the
-    # full query - the earlier ones answer "B", "Ba", "Bar"...
-    results = location_data_call[-1][0]["data"]["Typeahead_autocomplete"]["results"]
     location_data = [
         parse_location(item) for item in results
         if item.get("__typename") == "Typeahead_LocationItem" and item.get("contentLocationNode")
