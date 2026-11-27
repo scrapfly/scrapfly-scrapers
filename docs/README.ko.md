@@ -634,6 +634,18 @@ poetry run pytest test.py                 # 스크레이퍼의 테스트
   </tr>
 
   <tr>
+    <td><a href="../maersk-scraper/">Maersk</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-maersk">How to Scrape Maersk Shipping Data in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../maersk-scraper/results/schedule.json">Schedule</a></li>
+        <li><a href="../maersk-scraper/results/tracking.json">Tracking</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/maersk-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/maersk-scraper.svg" alt="maersk-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../marriott-scraper/">Marriott.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-marriott">Scraping Marriott Hotel Prices and Availability (2026)</a></td>
     <td>
@@ -658,20 +670,6 @@ poetry run pytest test.py                 # 스크레이퍼의 테스트
   </tr>
 
   <tr>
-    <td><a href="../naver-scraper/">Naver.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
-    <td>
-    <ul>
-        <li><a href="../naver-scraper/results/blog_post.json">Blog post</a></li>
-        <li><a href="../naver-scraper/results/image_search.json">Image search</a></li>
-        <li><a href="../naver-scraper/results/news_article.json">News article</a></li>
-        <li><a href="../naver-scraper/results/web_search.json">Web search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
-  </tr>
-
-  <tr>
     <td><a href="../nordstorm-scraper/">Nordstorm.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-nordstrom">How to Scrape Nordstrom Fashion Product Data</a></td>
     <td>
@@ -681,17 +679,6 @@ poetry run pytest test.py                 # 스크레이퍼의 테스트
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/nordstorm-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/nordstorm-scraper.svg" alt="nordstorm-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
-    <td>
-    <ul>
-        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1058,15 +1045,17 @@ poetry run pytest test.py                 # 스크레이퍼의 테스트
   </tr>
 
   <tr>
-    <td><a href="../maersk-scraper/">Maersk</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-maersk">How to Scrape Maersk Shipping Data in 2026</a></td>
+    <td><a href="../naver-scraper/">Naver.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
     <td>
     <ul>
-        <li><a href="../maersk-scraper/results/schedule.json">Schedule</a></li>
-        <li><a href="../maersk-scraper/results/tracking.json">Tracking</a></li>
+        <li><a href="../naver-scraper/results/blog_post.json">Blog post</a></li>
+        <li><a href="../naver-scraper/results/image_search.json">Image search</a></li>
+        <li><a href="../naver-scraper/results/news_article.json">News article</a></li>
+        <li><a href="../naver-scraper/results/web_search.json">Web search</a></li>
     </ul>
     </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/maersk-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/maersk-scraper.svg" alt="maersk-scraper-status"></a></td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
   </tr>
 
   <tr>
@@ -1080,6 +1069,17 @@ poetry run pytest test.py                 # 스크레이퍼의 테스트
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tripadvisor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></a></td>
+  </tr>
+
+  <tr>
+    <td><a href="../perplexity-scraper/">Perplexity.ai</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-perplexity">How to Scrape Perplexity AI in 2026</a></td>
+    <td>
+    <ul>
+        <li><a href="../perplexity-scraper/results/answer.json">Answer</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/perplexity-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/perplexity-scraper.svg" alt="perplexity-scraper-status"></a></td>
   </tr>
 
 </table>
