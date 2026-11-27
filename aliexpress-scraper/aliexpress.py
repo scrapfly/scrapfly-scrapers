@@ -120,7 +120,8 @@ def parse_product(result: ScrapeApiResponse) -> Product:
         "name": selector.xpath("//h1[@data-pl]/text()").get(),
         "productId": int(result.context["url"].split("item/")[-1].split(".")[0]),
         "link": result.context["url"],
-        "media": selector.xpath("//div[contains(@class,'slider--img')]/img/@src").getall(),
+        # the image slider can list a picture more than once: keep each one once, in page order
+        "media": list(dict.fromkeys(selector.xpath("//div[contains(@class,'slider--img')]/img/@src").getall())),
         "rate": len(rate) if rate else None,
         "reviews": int(reviews.replace(" Reviews", "")) if reviews else None,
         "soldCount": _parse_count(sold_count),
