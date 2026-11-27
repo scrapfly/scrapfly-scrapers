@@ -255,10 +255,11 @@ def parse_web_search(result: ScrapeApiResponse) -> dict[str, Any]:
     selector = result.selector
     results: List[SearchWebResult] = []
 
-    # the page is built from many `entry.bootstrap(document.getElementById("fdr-..."), {...})` calls,
+    # the page is built from many `<name>.bootstrap(document.getElementById("fdr-..."), {...})` calls
+    # (the object was named `entry`, now `r`),
     # one per content block; the web documents are the blocks whose container is tagged data-meta-ssuid="web"
     web_block_ids = set(selector.css('[data-meta-ssuid="web"]::attr(id)').getall())
-    pattern = r'entry\.bootstrap\(document\.getElementById\("([^"]+)"\),\s*\{'
+    pattern = r'\w+\.bootstrap\(document\.getElementById\("([^"]+)"\),\s*\{'
     for match in re.finditer(pattern, content):
         if match.group(1) not in web_block_ids:
             continue
