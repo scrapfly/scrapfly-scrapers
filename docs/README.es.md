@@ -670,6 +670,20 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../naver-scraper/">Naver.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
+    <td>
+    <ul>
+        <li><a href="../naver-scraper/results/blog_post.json">Blog post</a></li>
+        <li><a href="../naver-scraper/results/image_search.json">Image search</a></li>
+        <li><a href="../naver-scraper/results/news_article.json">News article</a></li>
+        <li><a href="../naver-scraper/results/web_search.json">Web search</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../nordstorm-scraper/">Nordstorm.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-nordstrom">How to Scrape Nordstrom Fashion Product Data</a></td>
     <td>
@@ -893,6 +907,19 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
   </tr>
 
   <tr>
+    <td><a href="../tripadvisor-scraper/">Tripadvisor.com</a></td>
+    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-tripadvisor">How to Scrape TripAdvisor.com (2025 Updated)</a></td>
+    <td>
+    <ul>
+        <li><a href="../tripadvisor-scraper/results/hotels.json">Hotel pages</a></li>
+        <li><a href="../tripadvisor-scraper/results/search.json">Search pages</a></li>
+        <li><a href="../tripadvisor-scraper/results/location.json">Location pages</a></li>
+    </ul>
+    </td>
+    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tripadvisor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></a></td>
+  </tr>
+
+  <tr>
     <td><a href="../trustpilot-scraper/">Trustpilot.com</a></td>
     <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-trustpilot-com-reviews">How to Scrape Trustpilot.com Reviews and Company Data</a></td>
     <td>
@@ -1042,33 +1069,6 @@ La insignia indica **passing** (pasaron todos los tests), **N/M passing** (pasar
     </ul>
     </td>
     <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/zoro-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/zoro-scraper.svg" alt="zoro-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../naver-scraper/">Naver.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-naver">How to Scrape Naver.com: 2026 Python Guide</a></td>
-    <td>
-    <ul>
-        <li><a href="../naver-scraper/results/blog_post.json">Blog post</a></li>
-        <li><a href="../naver-scraper/results/image_search.json">Image search</a></li>
-        <li><a href="../naver-scraper/results/news_article.json">News article</a></li>
-        <li><a href="../naver-scraper/results/web_search.json">Web search</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/naver-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/naver-scraper.svg" alt="naver-scraper-status"></a></td>
-  </tr>
-
-  <tr>
-    <td><a href="../tripadvisor-scraper/">Tripadvisor.com</a></td>
-    <td><a href="https://scrapfly.io/blog/posts/how-to-scrape-tripadvisor">How to Scrape TripAdvisor.com (2025 Updated)</a></td>
-    <td>
-    <ul>
-        <li><a href="../tripadvisor-scraper/results/hotels.json">Hotel pages</a></li>
-        <li><a href="../tripadvisor-scraper/results/search.json">Search pages</a></li>
-        <li><a href="../tripadvisor-scraper/results/location.json">Location pages</a></li>
-    </ul>
-    </td>
-    <td><a href="https://github.com/scrapfly/scrapfly-scrapers/blob/ci-status/status/tripadvisor-scraper.md"><img src="https://github.com/scrapfly/scrapfly-scrapers/raw/ci-status/badges/tripadvisor-scraper.svg" alt="tripadvisor-scraper-status"></a></td>
   </tr>
 
   <tr>
